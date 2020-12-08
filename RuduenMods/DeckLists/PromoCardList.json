@@ -767,6 +767,128 @@
       }
     }
   ],
+  "SkyScraper": [
+    {
+      "identifier": "SkyScraperNormalCharacter",
+      "promoIdentifier": "SkyScraperConsistentNormalCharacter",
+      "sharedIdentifier": "SkyScraperConsistentCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "body": "Consistent Size",
+      "keywords": [
+        "Normal"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "Play a card. If {SkyScraper}'s character card is Normal, draw 2 cards."
+      ],
+      "hitpoints": 32,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    },
+    {
+      "identifier": "SkyScraperHugeCharacter",
+      "promoIdentifier": "SkyScraperConsistentHugeCharacter",
+      "sharedIdentifier": "SkyScraperConsistentCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "body": "Consistent Strength",
+      "keywords": [
+        "Normal"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "Play a card. If {SkyScraper}'s character card is Huge, deal each non-Hero target 2 Melee Damage."
+      ],
+      "hitpoints": 32,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    },
+    {
+      "identifier": "SkyScraperTinyCharacter",
+      "promoIdentifier": "SkyScraperConsistentTinyCharacter",
+      "sharedIdentifier": "SkyScraperConsistentCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "body": "Consistent Stealth",
+      "keywords": [
+        "Normal"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "Play a card. If {SkyScraper}'s character card is Tiny, play a card."
+      ],
+      "hitpoints": 32,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
   "VoidGuardMainstay": [
     {
       "identifier": "VoidGuardMainstayCharacter",

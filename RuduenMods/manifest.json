@@ -3,7 +3,7 @@
   "author": "Ruduen",
   "description": "Ruduen's Miscelaneous Custom Content",
   "namespace": "RuduenWorkshop",
-  "dll": "RuduenMod.dll",
+  "dll": "RuduenModsPack.dll",
   "decks": {
     "heroes": [
       "BreachMage",
@@ -35,6 +35,7 @@
     "NightMist": [ "NightMistLimitedNumerologyCharacter" ],
     "OmnitronX": [ "OmnitronXElectroShieldedSystemsCharacter" ],
     "Parse": [ "ParseLaplaceShotCharacter" ],
+    "SkyScraper": [ "SkyScraperConsistentNormalCharacter", "SkyScraperConsistentHugeCharacter", "SkyScraperConsistentTinyCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
     "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ]
   }

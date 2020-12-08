@@ -1241,6 +1241,15 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestSkyScraper()
+        {
+            SetupGameController("BaronBlade", "SkyScraper/RuduenWorkshop.SkyScraperConsistentNormalCharacter", "Megalopolis");
+            Assert.IsTrue(sky.CharacterCard.IsPromoCard);
+
+            StartGame();
+        }
+
+        [Test()]
         public void TestTachyonControlledPacePowerNoTrash()
         {
             SetupGameController("BaronBlade", "Tachyon/RuduenWorkshop.TachyonControlledPaceCharacter", "TheBlock");
