@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
-    public class RiverWornStoneCardController : CascadeRiverSharedCardController
+    public class RiverWornStoneCardController : CassieRiverSharedCardController
     {
         public RiverWornStoneCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

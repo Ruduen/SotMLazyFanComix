@@ -2,10 +2,10 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
     // TODO: TEST!
-    public class PerpetualFlowCardController : CascadeRiverSharedCardController
+    public class PerpetualFlowCardController : CassieRiverSharedCardController
     {
         public PerpetualFlowCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

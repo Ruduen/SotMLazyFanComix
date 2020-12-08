@@ -2,9 +2,9 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
-    public class StreamSurgeCardController : CascadeRiverSharedCardController
+    public class StreamSurgeCardController : CassieRiverSharedCardController
     {
         public StreamSurgeCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

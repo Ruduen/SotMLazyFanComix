@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 // TODO: TEST!
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
-    public class CascadeCharacterCardController : HeroCharacterCardController, ICascadeRiverSharedCardController
+    public class CassieCharacterCardController : HeroCharacterCardController, ICassieRiverSharedCardController
     {
         public string str;
         protected static Location _riverDeck;
         protected static Card _riverbank;
 
-        public CascadeCharacterCardController(Card card, TurnTakerController turnTakerController)
+        public CassieCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
             _riverbank = null;
@@ -39,7 +39,7 @@ namespace RuduenWorkshop.Cascade
             // Yes, this is messy, but it's still the cleanest way of mimicing the official SelectCardAndDoAction without access to the evenIfIndestructable flag. Battle Zones shouldn't be an issue.
             // Do null checks first for short circuiting purposes!
             coroutine = this.GameController.SelectCardAndDoAction(
-                new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == this.Riverbank().UnderLocation && c.FindTokenPool("CascadeCostPool") != null && c.FindTokenPool("CascadeCostPool").MaximumValue != null && c.FindTokenPool("CascadeCostPool").MaximumValue <= spellValue)),
+                new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == this.Riverbank().UnderLocation && c.FindTokenPool("CassieCostPool") != null && c.FindTokenPool("CassieCostPool").MaximumValue != null && c.FindTokenPool("CassieCostPool").MaximumValue <= spellValue)),
                 (SelectCardDecision d) => this.GameController.MoveCard(this.DecisionMaker, d.SelectedCard, this.HeroTurnTaker.Trash, false, false, false, null, false, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
                 false);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -59,7 +59,7 @@ namespace RuduenWorkshop.Cascade
         //{
         //    if (c.Location == this.Riverbank().UnderLocation)
         //    {
-        //        int? tokenPoolValue = c.FindTokenPool("CascadeCostPool").MaximumValue;
+        //        int? tokenPoolValue = c.FindTokenPool("CassieCostPool").MaximumValue;
         //        if (tokenPoolValue <= spellValue)
         //        {
         //            return true;
@@ -98,20 +98,20 @@ namespace RuduenWorkshop.Cascade
 
         public Location RiverDeck()
         {
-            if (CascadeCharacterCardController._riverDeck == null)
+            if (CassieCharacterCardController._riverDeck == null)
             {
-                CascadeCharacterCardController._riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
+                CassieCharacterCardController._riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
             }
-            return CascadeCharacterCardController._riverDeck;
+            return CassieCharacterCardController._riverDeck;
         }
 
         public Card Riverbank()
         {
-            if (CascadeCharacterCardController._riverbank == null)
+            if (CassieCharacterCardController._riverbank == null)
             {
-                CascadeCharacterCardController._riverbank = this.FindCard("Riverbank", false);
+                CassieCharacterCardController._riverbank = this.FindCard("Riverbank", false);
             }
-            return CascadeCharacterCardController._riverbank;
+            return CassieCharacterCardController._riverbank;
         }
     }
 }

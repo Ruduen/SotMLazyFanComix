@@ -3,9 +3,9 @@ using Handelabra.Sentinels.Engine.Model;
 using System;
 using System.Collections;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
-    public class RisingWatersCardController : CascadeRiverSharedCardController
+    public class RisingWatersCardController : CassieRiverSharedCardController
     {
         public RisingWatersCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

@@ -1,8 +1,8 @@
 ﻿{
-  "name": "Cascade",
+  "name": "Cassie",
   "kind": "Hero",
   "initialCardIdentifiers": [
-    "CascadeCharacter",
+    "CassieCharacter",
     "Riverbank"
   ],
   "initialOffToTheSideCardIdentifiers": [
@@ -19,8 +19,8 @@
   "cards": [
     {
       "count": 1,
-      "identifier": "CascadeCharacter",
-      "title": "Cascade",
+      "identifier": "CassieCharacter",
+      "title": "Cassie",
       "body": "Carried by the Stream",
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
@@ -31,7 +31,7 @@
       "setup": [ "At the start of the game, put The Riverbank into play." ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
-        "Cascade"
+        "Cassie"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -56,7 +56,7 @@
       "isReal": false,
       "title": "Riverbank",
       "body": [
-        "At the start of the game, take all River cards in {Cascade}'s deck and shuffle them together to create the River deck. Then, place the top 4 cards of the River deck under this card.",
+        "At the start of the game, take all River cards in {Cassie}'s deck and shuffle them together to create the River deck. Then, place the top 4 cards of the River deck under this card.",
         "This card and all cards beneath this card are indestructible.",
         "This card is not a hero, villain, or environment card.",
         "After a card beneath this is played or moved to somewhere other than the River deck, move the top card from the River deck beneath this until there are 4 cards beneath this."
@@ -81,8 +81,8 @@
       "flavorText": "...",
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 1,
           "color": "D1426D"
@@ -98,15 +98,15 @@
       "keywords": [ "one-shot" ],
       "body": [
         "Aqua Cost: 1",
-        "{Cascade} deals 1 target 2 Cold Damage. {Cascade} regains 1 HP."
+        "{Cassie} deals 1 target 2 Cold Damage. {Cassie} regains 1 HP."
       ],
       "icons": [ "DealDamageCold", "GainHP" ],
       "magicNumbers": [ 1, 1, 1, 1 ],
       "flavorText": "...",
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 1,
           "color": "D1426D"
@@ -128,8 +128,8 @@
       "magicNumbers": [ 2, 2, 2, 2 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 2,
           "color": "D1426D"
@@ -151,8 +151,8 @@
       "magicNumbers": [ 2, 2, 2, 2 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 2,
           "color": "D1426D"
@@ -166,7 +166,7 @@
       "count": 3,
       "title": "River-Worn Stone",
       "keywords": [ "river", "equipment", "limited" ],
-      "powers": [ "Move a card from your hand to the bottom of the River deck. {Cascade} deals 1 Target that card's {magic} Projectile Damage." ],
+      "powers": [ "Move a card from your hand to the bottom of the River deck. {Cassie} deals 1 Target that card's {magic} Projectile Damage." ],
       "body": [
         "Aqua Cost: 3",
         "You may draw an additional card during your Draw Phase."
@@ -175,8 +175,8 @@
       "magicNumbers": [ 2, 2, 2, 2 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 3,
           "color": "D1426D"
@@ -192,14 +192,14 @@
       "keywords": [ "river", "one-shot" ],
       "body": [
         "Aqua Cost: 3",
-        "Reveal the top card of the River deck. Place it on the top or bottom of the River deck. {Cascade} deals 1 target that card's {magic} Cold Damage."
+        "Reveal the top card of the River deck. Place it on the top or bottom of the River deck. {Cassie} deals 1 target that card's {magic} Cold Damage."
       ],
       "magicNumbers": [ 3, 3, 3, 3 ],
       "icons": [ "Manipulate", "DealDamageCold" ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 3,
           "color": "D1426D"
@@ -221,8 +221,8 @@
       "icons": [ "GainHP" ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 4,
           "color": "D1426D"
@@ -238,14 +238,14 @@
       "keywords": [ "river", "one-shot" ],
       "body": [
         "Aqua Cost: 4",
-        "{Cascade} deals up to 2 Targets 4 Cold Damage."
+        "{Cassie} deals up to 2 Targets 4 Cold Damage."
       ],
       "icons": [ "DealDamageCold" ],
       "magicNumbers": [ 2, 2, 2, 2 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 4,
           "color": "D1426D"
@@ -268,8 +268,8 @@
       "magicNumbers": [ 3, 3, 3, 3 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 5,
           "color": "D1426D"
@@ -291,8 +291,8 @@
       "magicNumbers": [ 4, 4, 4, 4 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 6,
           "color": "D1426D"
@@ -308,15 +308,15 @@
       "keywords": [ "river", "ongoing" ],
       "powers": [
 
-        "Discard up to 3 cards. For each card discarded this way, {Cascade} deals 1 target Cold Damage equal to that card's {magic}."
+        "Discard up to 3 cards. For each card discarded this way, {Cassie} deals 1 target Cold Damage equal to that card's {magic}."
       ],
       "body": "Aqua Cost: 6",
       "icons": [ "DealDamageCold", "Discard" ],
       "magicNumbers": [ 4, 4, 4, 4 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 6,
           "color": "D1426D"
@@ -332,13 +332,13 @@
       "count": 3,
       "title": "Stream Surge",
       "keywords": [ "river", "one-shot" ],
-      "body": [ "{Cascade} deals up to 3 targets 1 Projectile Damage. You may play a card." ],
+      "body": [ "{Cassie} deals up to 3 targets 1 Projectile Damage. You may play a card." ],
       "icons": [ "DealDamageProjectil", "PlayCardNow" ],
       "magicNumbers": [ 2, 2, 2 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 3,
           "color": "D1426D"
@@ -357,8 +357,8 @@
       "magicNumbers": [ 2, 2, 2 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 3,
           "color": "D1426D"
@@ -377,8 +377,8 @@
       "magicNumbers": [ 2, 2, 2 ],
       "tokenPools": [
         {
-          "identifier": "CascadeCostPool",
-          "name": "Cascade's Card Cost Pool",
+          "identifier": "CassieCostPool",
+          "name": "Cassie's Card Cost Pool",
           "initialValue": 0,
           "maximumValue": 5,
           "color": "D1426D"
@@ -401,10 +401,10 @@
   ],
   "dummyPromoCards": [
     {
-      "identifier": "CascadeCharacter",
-      "promoIdentifier": "CascadeControlledCharacter",
+      "identifier": "CassieCharacter",
+      "promoIdentifier": "CassieControlledCharacter",
       "count": 1,
-      "title": "Cascade",
+      "title": "Cassie",
       "body": "Controlled Rise",
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
@@ -415,7 +415,7 @@
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
-        "Cascade"
+        "Cassie"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -434,10 +434,10 @@
       "complexity": 3
     },
     {
-      "identifier": "CascadeCharacter",
-      "promoIdentifier": "CascadeEssenceCharacter",
+      "identifier": "CassieCharacter",
+      "promoIdentifier": "CassieEssenceCharacter",
       "count": 1,
-      "title": "Cascade",
+      "title": "Cassie",
       "body": "Essense Flow",
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
@@ -448,7 +448,7 @@
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
-        "Cascade"
+        "Cassie"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -467,20 +467,20 @@
       "complexity": 3
     },
     {
-      "identifier": "CascadeCharacter",
-      "promoIdentifier": "CascadeBloodCharacter",
+      "identifier": "CassieCharacter",
+      "promoIdentifier": "CassieBloodCharacter",
       "count": 1,
-      "title": "Cascade",
+      "title": "Cassie",
       "body": "Blood in the Water",
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
       "hitpointsColor": "C94742",
       "character": true,
-      "powers": "Play 1 card from the Riverbank. (It is treated as your card afterward.) {Cascade} deals themselves Infernal Damage equal to the played card's Aqua Cost. Discard your hand. Draw 2 Cards.",
+      "powers": "Play 1 card from the Riverbank. (It is treated as your card afterward.) {Cassie} deals themselves Infernal Damage equal to the played card's Aqua Cost. Discard your hand. Draw 2 Cards.",
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 32,
       "nemesisIdentifiers": [
-        "Cascade"
+        "Cassie"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
