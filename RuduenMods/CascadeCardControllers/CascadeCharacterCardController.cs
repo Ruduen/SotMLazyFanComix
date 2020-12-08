@@ -44,8 +44,8 @@ namespace RuduenWorkshop.Cascade
                 false);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Draw until you have 4 cards.
-            coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, 4);
+            // Draw until you have 3 cards.
+            coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, 3);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
