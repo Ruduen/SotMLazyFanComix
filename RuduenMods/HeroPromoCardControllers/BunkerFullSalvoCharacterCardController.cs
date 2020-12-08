@@ -16,42 +16,39 @@ namespace RuduenWorkshop.Bunker
 
         public override IEnumerator UsePower(int index = 0)
         {
-            int powerNumeral = this.GetPowerNumeral(0, 2);
+            int powerNumeral = this.GetPowerNumeral(0, 3);
 
             List<PlayCardAction> storedResults = new List<PlayCardAction>();
 
             IEnumerator coroutine;
+            List<Card> cardsWithPowers = GetCardsWithPowersInPlay();
 
-            // Draw 2 cards.
+            // Draw 3 cards.
             coroutine = this.DrawCards(this.HeroTurnTakerController, powerNumeral);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Discard 1 for each of your other powers.
-            coroutine = SelectAndDiscardCards(this.HeroTurnTakerController, GetNumberOfOtherCardsWithPowersInPlay());
+            // Discard 1 for each of your powers, including base.
+            coroutine = SelectAndDiscardCards(this.HeroTurnTakerController, cardsWithPowers.Count());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (this.GetNumberOfOtherCardsWithPowersInPlay() == 0)
-            {
-                coroutine = base.GameController.SendMessageAction("There are no other cards with powers in play, so " + this.TurnTaker.Name + " may not be able to use any more powers this turn.", Priority.High, base.GetCardSource(null), null, false);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
 
             CardCriteria cardCriteria = new CardCriteria(null)
             {
-                IsOneOfTheseCards = GetCardsWithPowersInPlay()
+                IsOneOfTheseCards = cardsWithPowers
             };
-            coroutine = base.SetPhaseActionCountThisTurn(this.TurnTaker, Phase.UsePower, cardCriteria);
+            coroutine = this.SetPhaseActionCountThisTurn(this.TurnTaker, Phase.UsePower, cardCriteria);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (cardsWithPowers.Count() == 1)
+            {
+                // If you only have the base power in play, indicate you may not be able to use more powers. 
+                coroutine = base.GameController.SendMessageAction(this.TurnTaker.Name + " has no other cards with powers in play, so " + this.TurnTaker.Name + " may not be able to use any more powers this turn.", Priority.High, this.GetCardSource(), null, false);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
 
         private List<Card> GetCardsWithPowersInPlay()
         {
             return this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.HasPowers && c.Owner == this.TurnTaker).ToList();
-        }
-
-        private int GetNumberOfOtherCardsWithPowersInPlay()
-        {
-            return this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.HasPowers && c.Owner == this.TurnTaker & c != this.Card).Count<Card>();
         }
     }
 }

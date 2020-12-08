@@ -237,7 +237,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(bunker);
             UsePower(bunker);
-            QuickHandCheck(2); //  2 Drawn.
+            QuickHandCheck(2); //  3 Drawn, 1 Discarded.
 
             AssertPhaseActionCount(0); // Powers used.
         }
@@ -259,8 +259,8 @@ namespace RuduenModsTest
 
             QuickHandStorage(bunker);
             UsePower(bunker);
-            QuickHandCheck(1); //  2 Drawn, 1 Discarded
-            AssertNumberOfCardsInTrash(bunker, 1); // 1 Discarded.
+            QuickHandCheck(1); //  3 Drawn, 2 Discarded
+            AssertNumberOfCardsInTrash(bunker, 2); // 2 Discarded.
             AssertPhaseActionCount(1); // 1 Power Remaining
         }
 
@@ -761,7 +761,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestNaturalistAllIconsPower()
+        public void TestNaturalistAllIconsPowerSelectRhino()
         {
             SetupGameController("BaronBlade", "TheNaturalist/RuduenWorkshop.TheNaturalistVolatileFormCharacter", "Megalopolis");
             Assert.IsTrue(naturalist.CharacterCard.IsPromoCard);
@@ -773,6 +773,7 @@ namespace RuduenModsTest
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectCardToPlay = power;
+            DecisionSelectWord = "{rhinoceros}";
 
             UsePower(naturalist);
             AssertIsInPlay(power);
@@ -781,14 +782,14 @@ namespace RuduenModsTest
 
             QuickHPStorage(naturalist.CharacterCard, mdp);
             QuickHandStorage(naturalist);
-            // To check triggers, confirm that 2 cards were drawn, Naturalist regained 2 HP, and targets (including MDP) were dealt 1 damage.
+            // To check triggers, confirm that 0 cards were drawn, Naturalist regained 2 HP, and targets (including MDP) were dealt 0 damage.
             UsePower(power);
-            QuickHPCheck(2, -1);
-            QuickHandCheck(2);
+            QuickHPCheck(2, 0);
+            QuickHandCheck(0);
         }
 
         [Test()]
-        public void TestNaturalistAllIconsPlay()
+        public void TestNaturalistAllIconsPlaySelectCrocodile()
         {
             SetupGameController("BaronBlade", "TheNaturalist/RuduenWorkshop.TheNaturalistVolatileFormCharacter", "Megalopolis");
             Assert.IsTrue(naturalist.CharacterCard.IsPromoCard);
@@ -801,6 +802,7 @@ namespace RuduenModsTest
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectCardToPlay = play;
+            DecisionSelectWord = "{crocodile}";
 
             UsePower(naturalist);
             AssertInTrash(play);
@@ -809,10 +811,10 @@ namespace RuduenModsTest
 
             QuickHPStorage(naturalist.CharacterCard, mdp);
             QuickHandStorage(naturalist);
-            // To check triggers, confirm that 2 cards were drawn, Naturalist regained 2 HP, and targets (including MDP) were dealt 1 damage.
+            // To check triggers, confirm that 0 cards were drawn, Naturalist regained 0 HP, and targets (including MDP) were dealt 1 damage.
             UsePower(power);
-            QuickHPCheck(2, -1);
-            QuickHandCheck(2);
+            QuickHPCheck(0, -1);
+            QuickHandCheck(0);
         }
 
         [Test()]
