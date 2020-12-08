@@ -5,6 +5,17 @@
     "CascadeCharacter",
     "Riverbank"
   ],
+  "initialOffToTheSideCardIdentifiers": [
+    "RushingWaters",
+    "Waterlog",
+    "RiverWornStone",
+    "RippledVisions",
+    "CondensedOrb",
+    "StormSwell",
+    "RisingWaters",
+    "PerpetualFlow",
+    "MeetingTheOcean"
+  ],
   "cards": [
     {
       "count": 1,
