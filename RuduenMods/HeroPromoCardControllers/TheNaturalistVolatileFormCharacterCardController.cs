@@ -14,98 +14,122 @@ namespace RuduenWorkshop.TheNaturalist
         public TheNaturalistVolatileFormCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-			// Based on the core display logic. 
-			Func<string> specialString = delegate ()
-			{
-				List<string> list = new List<string>();
-				if (base.TurnTaker.IsHero)
-				{
-					if (base.CanActivateEffect(base.TurnTakerController, "{gazelle}"))
-					{
-						list.Add("{gazelle}");
-					}
-					if (base.CanActivateEffect(base.TurnTakerController, "{rhinoceros}"))
-					{
-						list.Add("{rhinoceros}");
-					}
-					if (base.CanActivateEffect(base.TurnTakerController, "{crocodile}"))
-					{
-						list.Add("{crocodile}");
-					}
-				}
-				else
-				{
-					if (base.CanActivateEffect(base.Card, "{gazelle}"))
-					{
-						list.Add("{gazelle}");
-					}
-					if (base.CanActivateEffect(base.Card, "{rhinoceros}"))
-					{
-						list.Add("{rhinoceros}");
-					}
-					if (base.CanActivateEffect(base.Card, "{crocodile}"))
-					{
-						list.Add("{crocodile}");
-					}
-				}
-				if (list.Count<string>() > 0)
-				{
-					return string.Concat(new string[]
-					{
-						base.TurnTaker.Name,
-						"'s current ",
-						list.Count<string>().ToString_SingularOrPlural("form", "forms"),
-						": ",
-						list.ToCommaList(false, false, null, null)
-					});
-				}
-				return base.TurnTaker.Name + " does not have any form cards in play.";
-			};
-			this.SpecialStringMaker.ShowSpecialString(specialString, null, null);
-		}
+            // Based on the core display logic. 
+            this.SpecialStringMaker.ShowSpecialString(SpecialString, null, null);
+        }
 
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            List<PlayCardAction> storedResults = new List<PlayCardAction>();
+            List<PlayCardAction> storedResultsPlay = new List<PlayCardAction>();
 
-            // You may a card.
-            coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, storedResults: storedResults, cardSource: this.GetCardSource());
+            // You may play a card.
+            coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, storedResults: storedResultsPlay, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Successful play means performing check logic for each of the three symbols on text. 
-            if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
+            // A successful play means performing check logic for each of the three symbols on text. 
+            if (storedResultsPlay.Count > 0 && storedResultsPlay.FirstOrDefault().IsSuccessful)
             {
-                Card card = storedResults.FirstOrDefault().CardToPlay;
+                Card card = storedResultsPlay.FirstOrDefault().CardToPlay;
                 if (card != null)
                 {
-                    foreach (string icon in new string[] { "{gazelle}", "{rhinoceros}", "{crocodile}" }.Where((string i) => this.CardHasIconText(card, i)))
+                    List<string> options = new string[] { "{gazelle}", "{rhinoceros}", "{crocodile}" }.Where((string i) => this.CardHasIconText(card, i)).ToList();
+                    string selectedWord = null;
+                    if (options.Count > 1)
                     {
-						// If we reach this, we've searched and confirm we have the icon, so run the add icon status! 
-						ActivateEffectStatusEffect activateEffectStatusEffect = new ActivateEffectStatusEffect(this.HeroTurnTaker, card, icon);
-						activateEffectStatusEffect.UntilEndOfNextTurn(base.TurnTaker);
-						coroutine = this.AddStatusEffect(activateEffectStatusEffect, true);
-						if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        List<SelectWordDecision> storedResultsWord = new List<SelectWordDecision>();
+                        coroutine = this.GameController.SelectWord(this.DecisionMaker, options, SelectionType.NaturalistForm, storedResultsWord, false, null, this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                        selectedWord = this.GetSelectedWord(storedResultsWord);
+                    }
+                    else if(options.Count == 1)
+                    {
+                        selectedWord = options.FirstOrDefault();
+                    }
+
+                    if (selectedWord != null)
+                    {
+                        // If we reach this, we've searched and confirm we have the icon, so run the add icon status! 
+                        ActivateEffectStatusEffect activateEffectStatusEffect = new ActivateEffectStatusEffect(this.HeroTurnTaker, card, selectedWord);
+
+                        // Lasts until the next power use! 
+                        if (this.TurnTaker.IsHero)
+                        { activateEffectStatusEffect.UsePowerExpiryCriteria.HeroUsingPower = this.HeroTurnTaker; }
+                        else
+                        { activateEffectStatusEffect.UsePowerExpiryCriteria.IsSpecificCard = this.Card; }
+
+                        coroutine = this.AddStatusEffect(activateEffectStatusEffect, true);
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                    }
+                    else
+                    {
+                        this.GameController.SendMessageAction("The played card does not contain {gazelle}, {rhinoceros}, or {crocodile}.", Priority.Medium, this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                 }
             }
-            else
-            {
-				// Draw a card.
-				coroutine = this.DrawCards(this.DecisionMaker, 1);
-				if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-			}
 
+            // Draw a card.
+            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         private bool CardHasIconText(Card card, string icon)
         {
-			if ((card.Definition.Body.Where((string bodyText) => bodyText.Contains(icon)).Count() > 0) ||
-				(card.Definition.Powers.Where((string powerText) => powerText.Contains(icon)).Count() > 0))
-			{
-				return true;
-			}
+            if ((card.Definition.Body.Where((string bodyText) => bodyText.Contains(icon)).Count() > 0) ||
+                (card.Definition.Powers.Where((string powerText) => powerText.Contains(icon)).Count() > 0))
+            {
+                return true;
+            }
             return false;
+        }
+
+        private string SpecialString()
+        {
+            List<string> list = new List<string>();
+            if (this.TurnTaker.IsHero)
+            {
+                if (this.CanActivateEffect(base.TurnTakerController, "{gazelle}"))
+                {
+                    list.Add("{gazelle}");
+                }
+                if (this.CanActivateEffect(base.TurnTakerController, "{rhinoceros}"))
+                {
+                    list.Add("{rhinoceros}");
+                }
+                if (this.CanActivateEffect(base.TurnTakerController, "{crocodile}"))
+                {
+                    list.Add("{crocodile}");
+                }
+            }
+            else
+            {
+                if (this.CanActivateEffect(base.Card, "{gazelle}"))
+                {
+                    list.Add("{gazelle}");
+                }
+                if (this.CanActivateEffect(base.Card, "{rhinoceros}"))
+                {
+                    list.Add("{rhinoceros}");
+                }
+                if (this.CanActivateEffect(base.Card, "{crocodile}"))
+                {
+                    list.Add("{crocodile}");
+                }
+            }
+            if (list.Count<string>() > 0)
+            {
+                return string.Concat(new string[]
+                {
+                        this.TurnTaker.Name,
+                        "'s current ",
+                        list.Count<string>().ToString_SingularOrPlural("form", "forms"),
+                        ": ",
+                        list.ToCommaList(false, false, null, null)
+                });
+            }
+            return this.TurnTaker.Name + " does not have any form cards in play.";
         }
     }
 }
