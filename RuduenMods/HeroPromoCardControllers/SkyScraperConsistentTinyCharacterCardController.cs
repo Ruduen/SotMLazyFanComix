@@ -1,4 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Controller.SkyScraper;
 using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
 using System.Collections;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 
 namespace RuduenWorkshop.SkyScraper
 {
-    public class SkyScraperConsistentTinyCharacterCardController : PromoDefaultCharacterCardController
+    public class SkyScraperConsistentTinyCharacterCardController : SkyScraperCharacterCardController
     {
         public SkyScraperConsistentTinyCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

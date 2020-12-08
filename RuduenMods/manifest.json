@@ -35,8 +35,11 @@
     "NightMist": [ "NightMistLimitedNumerologyCharacter" ],
     "OmnitronX": [ "OmnitronXElectroShieldedSystemsCharacter" ],
     "Parse": [ "ParseLaplaceShotCharacter" ],
-    "SkyScraper": [ "SkyScraperConsistentNormalCharacter", "SkyScraperConsistentHugeCharacter", "SkyScraperConsistentTinyCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
     "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ]
+  },
+  "devVariants": {
+    "SkyScraper": [ "SkyScraperConsistentCharacter" ],
+    "SkyScraperNotes": "Adding all characters only inserts one character and they swap back to normal. No clean way of implementing the unified character. So, this is dummied out."
   }
 }
