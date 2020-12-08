@@ -3,11 +3,11 @@ using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
-    public class CascadeTurnTakerController : HeroTurnTakerController
+    public class CassieTurnTakerController : HeroTurnTakerController
     {
-        public CascadeTurnTakerController(TurnTaker turnTaker, GameController gameController)
+        public CassieTurnTakerController(TurnTaker turnTaker, GameController gameController)
             : base(turnTaker, gameController)
         {
         }

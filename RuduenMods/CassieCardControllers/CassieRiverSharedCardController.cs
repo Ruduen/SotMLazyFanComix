@@ -1,16 +1,16 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
-    public interface ICascadeRiverSharedCardController
+    public interface ICassieRiverSharedCardController
     {
         public Location RiverDeck();
 
         public Card Riverbank();
     }
 
-    public abstract class CascadeRiverSharedCardController : CardController
+    public abstract class CassieRiverSharedCardController : CardController
     {
         // TO DO: If this doesn't work cleanly, remove the entire static variable!
 
@@ -18,7 +18,7 @@ namespace RuduenWorkshop.Cascade
         protected static Card _riverbank;
         protected static TurnTakerController _turnTakerController;
 
-        public CascadeRiverSharedCardController(Card card, TurnTakerController turnTakerController)
+        public CassieRiverSharedCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
             // Set these up on initialization, so Guise doesn't do bad things.
@@ -34,21 +34,21 @@ namespace RuduenWorkshop.Cascade
 
         public Location RiverDeck()
         {
-            if (CascadeRiverSharedCardController._riverDeck == null)
+            if (CassieRiverSharedCardController._riverDeck == null)
             {
-                // TODO: These must always find Cascade's river deck. Even if Guise is using things!
-                CascadeRiverSharedCardController._riverDeck = _turnTakerController.TurnTaker.FindSubDeck("RiverDeck");
+                // TODO: These must always find Cassie's river deck. Even if Guise is using things!
+                CassieRiverSharedCardController._riverDeck = _turnTakerController.TurnTaker.FindSubDeck("RiverDeck");
             }
-            return CascadeRiverSharedCardController._riverDeck;
+            return CassieRiverSharedCardController._riverDeck;
         }
 
         public Card Riverbank()
         {
-            if (CascadeRiverSharedCardController._riverbank == null)
+            if (CassieRiverSharedCardController._riverbank == null)
             {
-                CascadeRiverSharedCardController._riverbank = _turnTakerController.TurnTaker.FindCard("Riverbank", false);
+                CassieRiverSharedCardController._riverbank = _turnTakerController.TurnTaker.FindCard("Riverbank", false);
             }
-            return CascadeRiverSharedCardController._riverbank;
+            return CassieRiverSharedCardController._riverbank;
         }
     }
 }

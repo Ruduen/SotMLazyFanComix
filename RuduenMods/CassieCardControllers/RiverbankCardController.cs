@@ -4,10 +4,10 @@ using System;
 using System.Collections;
 using System.Linq;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
     // Token: 0x0200054D RID: 1357
-    public class RiverbankCardController : CascadeRiverSharedCardController
+    public class RiverbankCardController : CassieRiverSharedCardController
     {
         public RiverbankCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {

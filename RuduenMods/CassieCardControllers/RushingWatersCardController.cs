@@ -2,19 +2,19 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 
-namespace RuduenWorkshop.Cascade
+namespace RuduenWorkshop.Cassie
 {
-    // TODO: TEST!
-    public class CondensedOrbCardController : CascadeRiverSharedCardController
+    public class RushingWatersCardController : CassieRiverSharedCardController
     {
-        public CondensedOrbCardController(Card card, TurnTakerController turnTakerController)
+        public RushingWatersCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
 
         public override IEnumerator Play()
         {
-            IEnumerator coroutine = this.GameController.SelectAndGainHP(this.DecisionMaker, 3, false, null, 2);
+            // Play 2 Cards.
+            IEnumerator coroutine = this.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, false, new int?(0), null, false, null, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

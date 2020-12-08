@@ -42,7 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RuduenModsTests\CascadeTest.cs" />
+    <Compile Include="RuduenModsTests\CassieTest.cs" />
     <Compile Include="RuduenModsTests\BreachMageTest.cs" />
     <Compile Include="RuduenModsTests\HeroPromosTest.cs" />
     <Compile Include="RuduenModsTests\SpellforgeTest.cs" />

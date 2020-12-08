@@ -2,7 +2,7 @@
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
-using RuduenWorkshop.Cascade;
+using RuduenWorkshop.Cassie;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -10,7 +10,7 @@ using System.Reflection;
 namespace RuduenModsTest
 {
     [TestFixture]
-    public class CascadeMageTest : BaseTest
+    public class CassieMageTest : BaseTest
     {
         [OneTimeSetUp]
         public void DoSetup()
@@ -18,91 +18,91 @@ namespace RuduenModsTest
             // Tell the engine about our mod assembly so it can load up our code.
             // It doesn't matter which type as long as it comes from the mod's assembly.
             //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
-            ModHelper.AddAssembly("RuduenWorkshop", Assembly.GetAssembly(typeof(CascadeCharacterCardController))); // replace with your own namespace
+            ModHelper.AddAssembly("RuduenWorkshop", Assembly.GetAssembly(typeof(CassieCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Cascade { get { return FindHero("Cascade"); } }
+        protected HeroTurnTakerController Cassie { get { return FindHero("Cassie"); } }
 
         [Test()]
         public void TestModWorks()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
 
-            Assert.IsNotNull(Cascade);
-            Assert.IsInstanceOf(typeof(CascadeTurnTakerController), Cascade);
-            Assert.IsInstanceOf(typeof(CascadeCharacterCardController), Cascade.CharacterCardController);
+            Assert.IsNotNull(Cassie);
+            Assert.IsInstanceOf(typeof(CassieTurnTakerController), Cassie);
+            Assert.IsInstanceOf(typeof(CassieCharacterCardController), Cassie.CharacterCardController);
 
-            Assert.AreEqual(27, Cascade.CharacterCard.HitPoints);
+            Assert.AreEqual(27, Cassie.CharacterCard.HitPoints);
         }
 
         [Test()]
         public void TestSetupWorks()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            AssertNumberOfCardsInHand(Cascade, 4); // And 4 cards in hand.
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            AssertNumberOfCardsInHand(Cassie, 4); // And 4 cards in hand.
             AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And 4 cards in the Riverbank.
-            AssertNumberOfCardsAtLocation(Cascade.TurnTaker.FindSubDeck("RiverDeck"), 30); // And 30 cards in the River Deck.
+            AssertNumberOfCardsAtLocation(Cassie.TurnTaker.FindSubDeck("RiverDeck"), 30); // And 30 cards in the River Deck.
         }
 
         [Test()]
         public void TestInnatePower()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            MoveCards(Cascade, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cascade.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
-            Card cardToBuy = MoveCard(Cascade, "RushingWaters", GetCard("Riverbank").UnderLocation); // Move Storm Swell under so we definitely have something to purchase. (Cost 3.)
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            MoveCards(Cassie, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cassie.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
+            Card cardToBuy = MoveCard(Cassie, "RushingWaters", GetCard("Riverbank").UnderLocation); // Move Storm Swell under so we definitely have something to purchase. (Cost 3.)
 
             DecisionMoveCard = cardToBuy;
             DecisionYesNo = true;
 
-            UsePower(Cascade.CharacterCard, 0); // Default Innate. Cast.
-            Assert.IsTrue(cardToBuy.Location == Cascade.TurnTaker.Trash || cardToBuy.Location == Cascade.TurnTaker.Deck || cardToBuy.Location == Cascade.HeroTurnTaker.Hand); // Bought.
-            AssertNumberOfCardsInHand(Cascade, 3);
+            UsePower(Cassie.CharacterCard, 0); // Default Innate. Cast.
+            Assert.IsTrue(cardToBuy.Location == Cassie.TurnTaker.Trash || cardToBuy.Location == Cassie.TurnTaker.Deck || cardToBuy.Location == Cassie.HeroTurnTaker.Hand); // Bought.
+            AssertNumberOfCardsInHand(Cassie, 3);
         }
 
         [Test()]
         public void TestInnatePowerNoAffordable()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            MoveCards(Cascade, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cascade.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
-            Card cardToBuy = MoveCard(Cascade, "StormSwell", GetCard("Riverbank").UnderLocation); // Move Storm Swell under so we definitely have something to purchase. (Cost 3.)
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            MoveCards(Cassie, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cassie.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
+            Card cardToBuy = MoveCard(Cassie, "StormSwell", GetCard("Riverbank").UnderLocation); // Move Storm Swell under so we definitely have something to purchase. (Cost 3.)
 
             DecisionMoveCard = cardToBuy;
             DecisionYesNo = true;
 
-            UsePower(Cascade.CharacterCard, 0); // Default Innate. Cast.
+            UsePower(Cassie.CharacterCard, 0); // Default Innate. Cast.
 
             AssertAtLocation(cardToBuy, GetCard("Riverbank").UnderLocation);
-            AssertNumberOfCardsInHand(Cascade, 3);
+            AssertNumberOfCardsInHand(Cassie, 3);
         }
 
         [Test()]
         public void TestInnatePowerGuiseDangIt()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Guise", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Megalopolis");
 
             StartGame();
 
-            AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            MoveCards(Cascade, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cascade.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
-            Card cardToBuy = MoveCard(Cascade, "RushingWaters", GetCard("Riverbank").UnderLocation); // Move Rushing Water under so we definitely have something to purchase. (Cost 3.)
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            MoveCards(Cassie, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cassie.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
+            Card cardToBuy = MoveCard(Cassie, "RushingWaters", GetCard("Riverbank").UnderLocation); // Move Rushing Water under so we definitely have something to purchase. (Cost 3.)
 
             DecisionMoveCard = cardToBuy;
             DecisionYesNo = true;
-            DecisionSelectPower = Cascade.CharacterCard;
+            DecisionSelectPower = Cassie.CharacterCard;
 
             HeroTurnTakerController guise = FindHero("Guise");
 
@@ -117,41 +117,41 @@ namespace RuduenModsTest
         [Test()]
         public void TestInnatePowerGuiseDangItAgain()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Guise", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Megalopolis");
 
             StartGame();
 
-            AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            MoveCards(Cascade, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cascade.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            MoveCards(Cassie, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cassie.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
             Card cardToBuy = GetCard("Retcon"); // Get guise's card...
-            MoveCard(Cascade, cardToBuy, GetCard("Riverbank").UnderLocation); // Move Retcon into the riverback. Yes, it doesn't have a cost. That's the point.
+            MoveCard(Cassie, cardToBuy, GetCard("Riverbank").UnderLocation); // Move Retcon into the riverback. Yes, it doesn't have a cost. That's the point.
 
             DecisionMoveCard = cardToBuy;
             DecisionYesNo = true;
 
-            UsePower(Cascade.CharacterCard, 0); // Default Innate. Cast.
+            UsePower(Cassie.CharacterCard, 0); // Default Innate. Cast.
             Assert.IsTrue(cardToBuy.Location == GetCard("Riverbank").UnderLocation); // Not bought. Even if the card's available, the lack of cost means the interaction fails.
-            AssertNumberOfCardsInHand(Cascade, 3);
+            AssertNumberOfCardsInHand(Cassie, 3);
         }
 
         [Test()]
         public void TestDropletWithMove()
         {
             // Most basic purchase equivalent!
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            DealDamage(Cascade, Cascade, 3, DamageType.Melee);
+            DealDamage(Cassie, Cassie, 3, DamageType.Melee);
 
             List<Card> wasUnderCards = new List<Card>(GetCard("Riverbank").UnderLocation.Cards);
 
             DecisionYesNo = true;
 
-            QuickHPStorage(Cascade);
+            QuickHPStorage(Cassie);
             PlayCard("Droplet"); // Play the card.
             QuickHPCheck(1); // Damage dealt.
-            AssertAtLocation(wasUnderCards, Cascade.TurnTaker.FindSubDeck("RiverDeck"));
+            AssertAtLocation(wasUnderCards, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
             AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // 4 cards in the Riverbank.
         }
 
@@ -159,17 +159,17 @@ namespace RuduenModsTest
         public void TestDropletNoMove()
         {
             // Most basic purchase equivalent!
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            DealDamage(Cascade, Cascade, 3, DamageType.Melee);
+            DealDamage(Cassie, Cassie, 3, DamageType.Melee);
 
             List<Card> wasUnderCards = new List<Card>(GetCard("Riverbank").UnderLocation.Cards);
 
             DecisionYesNo = false;
 
-            QuickHPStorage(Cascade);
+            QuickHPStorage(Cassie);
             PlayCard("Droplet"); // Play the card.
             QuickHPCheck(1); // Damage dealt.
             AssertAtLocation(wasUnderCards, GetCard("Riverbank").UnderLocation);
@@ -178,19 +178,19 @@ namespace RuduenModsTest
         [Test()]
         public void TestWaterSurge()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Legacy", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Legacy", "Megalopolis");
 
             StartGame();
 
-            DealDamage(Cascade, Cascade, 3, DamageType.Melee);
+            DealDamage(Cassie, Cassie, 3, DamageType.Melee);
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectTarget = mdp;
-            DecisionSelectTargetFriendly = Cascade.CharacterCard;
+            DecisionSelectTargetFriendly = Cassie.CharacterCard;
 
             PlayCard("InspiringPresence"); // Use to boost damage by 1 to make sure character card is source.
 
-            QuickHPStorage(mdp, Cascade.CharacterCard);
+            QuickHPStorage(mdp, Cassie.CharacterCard);
             PlayCard("WaterSurge"); // Play the card.
             QuickHPCheck(-3, 1);
         }
@@ -198,24 +198,24 @@ namespace RuduenModsTest
         [Test()]
         public void TestRushingWaters()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            DealDamage(Cascade, Cascade, 3, DamageType.Melee);
+            DealDamage(Cassie, Cassie, 3, DamageType.Melee);
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectTarget = mdp;
-            DecisionSelectTargetFriendly = Cascade.CharacterCard;
+            DecisionSelectTargetFriendly = Cassie.CharacterCard;
 
             PlayCard("RushingWaters"); // Play the card.
-            AssertNumberOfCardsInTrash(Cascade, 3); // Constant flow and two other played cards in trash.
+            AssertNumberOfCardsInTrash(Cassie, 3); // Constant flow and two other played cards in trash.
         }
 
         [Test()]
         public void TestWaterlog()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
@@ -229,7 +229,7 @@ namespace RuduenModsTest
         //[Test()]
         //public void TestStreamSurge()
         //{
-        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
         //    StartGame();
 
@@ -237,34 +237,34 @@ namespace RuduenModsTest
         //    {
         //        FindCardInPlay("MobileDefensePlatform"),
         //        FindCardInPlay("BaronBladeCharacter"),
-        //        Cascade.CharacterCard,
+        //        Cassie.CharacterCard,
         //        FindCardInPlay("BaronBladeCharacter")
         //    };
         //    Card followUp = PutInHand("WaterSurge");
-        //    DealDamage(Cascade, Cascade, 4, DamageType.Melee);
-        //    DealDamage(Cascade, targets[0], 9, DamageType.Melee);
+        //    DealDamage(Cassie, Cassie, 4, DamageType.Melee);
+        //    DealDamage(Cassie, targets[0], 9, DamageType.Melee);
 
         //    DecisionSelectTargets = targets.ToArray();
         //    DecisionYesNo = true;
         //    DecisionSelectCardToPlay = followUp;
 
-        //    QuickHPStorage(targets[1], Cascade.CharacterCard);
+        //    QuickHPStorage(targets[1], Cassie.CharacterCard);
         //    PlayCard("StreamSurge"); // Play the card.
-        //    AssertNumberOfCardsInTrash(Cascade, 2); // Constant flow and other played cards in trash.
+        //    AssertNumberOfCardsInTrash(Cassie, 2); // Constant flow and other played cards in trash.
         //    AssertInTrash(targets[0]); // MDP Destroyed.
-        //    QuickHPCheck(-3, 1); // Blade took 3 hits total. Cascade damaged 1, healed 2.
+        //    QuickHPCheck(-3, 1); // Blade took 3 hits total. Cassie damaged 1, healed 2.
 
         //}
 
         [Test()]
         public void TestRiverWornStone()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Legacy", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Legacy", "Megalopolis");
 
             StartGame();
 
-            GoToUsePowerPhase(Cascade);
-            MoveCard(Cascade, GetCard("RiverWornStone", 1), Cascade.HeroTurnTaker.Trash); // Move spare copy to the trash so draw 2 has two cards.
+            GoToUsePowerPhase(Cassie);
+            MoveCard(Cassie, GetCard("RiverWornStone", 1), Cassie.HeroTurnTaker.Trash); // Move spare copy to the trash so draw 2 has two cards.
 
             Card power = PlayCard("RiverWornStone"); // Play the card.
             Card cost = PutInHand("WaterSurge");
@@ -279,12 +279,12 @@ namespace RuduenModsTest
 
             UsePower(power, 0);
             QuickHPCheck(-2); // 1 damage for cost, 1 for boost.
-            AssertAtLocation(cost, Cascade.TurnTaker.FindSubDeck("RiverDeck")); // Card was moved into the river deck.
+            AssertAtLocation(cost, Cassie.TurnTaker.FindSubDeck("RiverDeck")); // Card was moved into the river deck.
             // Discard all cards to clear things for additional tests.
-            DiscardAllCards(Cascade);
+            DiscardAllCards(Cassie);
 
-            QuickHandStorage(Cascade);
-            GoToDrawCardPhase(Cascade);
+            QuickHandStorage(Cassie);
+            GoToDrawCardPhase(Cassie);
             RunActiveTurnPhase();
             QuickHandCheck(2); // Confirm drew 2 cards.
         }
@@ -292,12 +292,12 @@ namespace RuduenModsTest
         [Test()]
         public void TestRiverWornStoneGuiseDangIt()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Guise", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Megalopolis");
 
             StartGame();
 
-            GoToUsePowerPhase(Cascade);
-            MoveCard(Cascade, GetCard("RiverWornStone", 1), Cascade.HeroTurnTaker.Trash); // Move spare copy to the trash so draw 2 has two cards.
+            GoToUsePowerPhase(Cassie);
+            MoveCard(Cassie, GetCard("RiverWornStone", 1), Cassie.HeroTurnTaker.Trash); // Move spare copy to the trash so draw 2 has two cards.
 
             Card power = PlayCard("RiverWornStone"); // Play the card.
             Card cost = PutInHand("BlatantReference");
@@ -315,48 +315,48 @@ namespace RuduenModsTest
             UsePower(power); // Guise uses that power. Does this work?
 
             QuickHPCheck(0); // No damage - card was moved into the river, but no spell value exists, so we try to deal null value, opposed to dealing 0 damage.
-            AssertAtLocation(cost, Cascade.TurnTaker.FindSubDeck("RiverDeck")); // Card was moved into the river deck, necessitating the core 'Dang it Guise' case.
+            AssertAtLocation(cost, Cassie.TurnTaker.FindSubDeck("RiverDeck")); // Card was moved into the river deck, necessitating the core 'Dang it Guise' case.
         }
 
         //[Test()]
         //public void TestDivergingWaters()
         //{
-        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
         //    StartGame();
 
-        //    DiscardAllCards(Cascade); // Discard all cards so draw cards can pull an appropriate amount.
+        //    DiscardAllCards(Cassie); // Discard all cards so draw cards can pull an appropriate amount.
         //    Card mdp = FindCardInPlay("MobileDefensePlatform");
         //    Card followUp = PutInHand("WaterSurge");
         //    Card waters = PutInHand("DivergingWaters");
 
-        //    DealDamage(Cascade, Cascade, 4, DamageType.Melee);
+        //    DealDamage(Cassie, Cassie, 4, DamageType.Melee);
 
         //    DecisionSelectTarget = mdp;
         //    DecisionYesNo = true;
         //    DecisionSelectCardToPlay = followUp;
 
-        //    QuickHPStorage(mdp, Cascade.CharacterCard);
-        //    QuickHandStorage(Cascade);
+        //    QuickHPStorage(mdp, Cassie.CharacterCard);
+        //    QuickHandStorage(Cassie);
 
         //    PlayCard(waters); // Play the card.
 
-        //    QuickHPCheck(-2, 2); // MDP took one hit, Cascade took one hit.
+        //    QuickHPCheck(-2, 2); // MDP took one hit, Cassie took one hit.
         //    QuickHandCheck(1); // Two cards played/returned, 3 cards drawn. Net +1.
         //    AssertInTrash(followUp); // Used card in discard.
-        //    AssertAtLocation(waters, Cascade.TurnTaker.FindSubDeck("RiverDeck"), true); // Card returned to river.
+        //    AssertAtLocation(waters, Cassie.TurnTaker.FindSubDeck("RiverDeck"), true); // Card returned to river.
 
         //}
 
         [Test()]
         public void TestRippledVisions()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Legacy", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Legacy", "Megalopolis");
 
             StartGame();
 
-            GoToUsePowerPhase(Cascade);
-            Card revealed = MoveCard(Cascade, "Droplet", Cascade.TurnTaker.FindSubDeck("RiverDeck")); // Move droplet to top of deck for reference.
+            GoToUsePowerPhase(Cassie);
+            Card revealed = MoveCard(Cassie, "Droplet", Cassie.TurnTaker.FindSubDeck("RiverDeck")); // Move droplet to top of deck for reference.
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
@@ -367,19 +367,19 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             PlayCard("RippledVisions");
             QuickHPCheck(-2); // 1 damage for cost, 1 for boost.
-            AssertAtLocation(revealed, Cascade.TurnTaker.FindSubDeck("RiverDeck"));
+            AssertAtLocation(revealed, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
         }
 
         [Test()]
         public void TestRippledVisionsGuiseDangIt()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Guise", "Legacy", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Legacy", "Megalopolis");
 
             StartGame();
 
-            GoToUsePowerPhase(Cascade);
-            Card play = PutInHand(Cascade, "RippledVisions"); // Move into hand to prevent triggering from beneath Riverbank.
-            Card revealed = MoveCard(Cascade, "Retcon", Cascade.TurnTaker.FindSubDeck("RiverDeck")); // Move Retcon to top of deck for reference.
+            GoToUsePowerPhase(Cassie);
+            Card play = PutInHand(Cassie, "RippledVisions"); // Move into hand to prevent triggering from beneath Riverbank.
+            Card revealed = MoveCard(Cassie, "Retcon", Cassie.TurnTaker.FindSubDeck("RiverDeck")); // Move Retcon to top of deck for reference.
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
@@ -389,26 +389,26 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             PlayCard(play);
             QuickHPCheck(0); // 0 damage, since no magic number exists.
-            AssertAtLocation(revealed, Cascade.TurnTaker.FindSubDeck("RiverDeck"));
+            AssertAtLocation(revealed, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
         }
 
         [Test()]
         public void TestCondensedOrb()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            GoToUsePowerPhase(Cascade);
+            GoToUsePowerPhase(Cassie);
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
-            List<Card> targets = new List<Card>() { Cascade.CharacterCard, mdp };
+            List<Card> targets = new List<Card>() { Cassie.CharacterCard, mdp };
 
-            DealDamage(Cascade.CharacterCard, targets.AsEnumerable(), 5, DamageType.Melee);
+            DealDamage(Cassie.CharacterCard, targets.AsEnumerable(), 5, DamageType.Melee);
 
             DecisionSelectCards = targets.ToArray();
 
-            QuickHPStorage(Cascade.CharacterCard, mdp);
+            QuickHPStorage(Cassie.CharacterCard, mdp);
             PlayCard("CondensedOrb");
             QuickHPCheck(3, 3);
         }
@@ -416,15 +416,15 @@ namespace RuduenModsTest
         [Test()]
         public void TestStormSwell()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            GoToUsePowerPhase(Cascade);
+            GoToUsePowerPhase(Cassie);
 
             List<Card> targets = new List<Card>() { FindCardInPlay("MobileDefensePlatform"), FindCardInPlay("BaronBladeCharacter") };
 
-            DealDamage(Cascade.CharacterCard, targets[0], 7, DamageType.Melee);
+            DealDamage(Cassie.CharacterCard, targets[0], 7, DamageType.Melee);
 
             DecisionSelectCards = targets.ToArray();
 
@@ -438,15 +438,15 @@ namespace RuduenModsTest
         //public void TestShapeTheStream()
         //{
         //    // Most basic purchase equivalent!
-        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
         //    StartGame();
 
-        //    AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
+        //    AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
 
         //    PlayCard("ShapeTheStream"); // Play the card.
 
-        //    AssertNumberOfCardsInTrash(Cascade, 2); // Shape the stream and gained card should now be in trash.
+        //    AssertNumberOfCardsInTrash(Cassie, 2); // Shape the stream and gained card should now be in trash.
         //    AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And 4 cards in the Riverbank.
         //}
 
@@ -454,18 +454,18 @@ namespace RuduenModsTest
         //public void TestShapeTheStreamGuiseDangIt()
         //{
         //    // Most basic purchase equivalent!
-        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Guise", "Megalopolis");
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Megalopolis");
 
         //    StartGame();
 
-        //    AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-        //    Card retcon = MoveCard(Cascade, "Retcon", GetCard("Riverbank").UnderLocation); // Move Retcon into riverbank.
+        //    AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+        //    Card retcon = MoveCard(Cassie, "Retcon", GetCard("Riverbank").UnderLocation); // Move Retcon into riverbank.
 
         //    DecisionMoveCard = retcon;
 
         //    PlayCard("ShapeTheStream"); // Play the card.
 
-        //    AssertInTrash(Cascade, retcon); // Someone else's card is now in your trash. You monster.
+        //    AssertInTrash(Cassie, retcon); // Someone else's card is now in your trash. You monster.
         //    AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And Riverbank has been reset.
         //}
 
@@ -475,20 +475,20 @@ namespace RuduenModsTest
         [Test()]
         public void TestRisingWaters()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            GoToUsePowerPhase(Cascade);
+            GoToUsePowerPhase(Cassie);
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card played = PlayCard("RisingWaters");
 
             QuickHPStorage(mdp);
-            DealDamage(Cascade.CharacterCard, mdp, 1, DamageType.Melee);
+            DealDamage(Cassie.CharacterCard, mdp, 1, DamageType.Melee);
             QuickHPCheck(-2); // Boosted damage.
 
-            GoToStartOfTurn(Cascade);
+            GoToStartOfTurn(Cassie);
             AssertInTrash(played); // Self-destructed due to no other cards.
         }
 
@@ -496,13 +496,13 @@ namespace RuduenModsTest
         public void TestPerpetualFlow()
         {
             // Most basic purchase equivalent!
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Megalopolis");
 
             StartGame();
 
-            AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            MoveCards(Cascade, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cascade.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
-            Card cardToBuy = MoveCard(Cascade, "StormSwell", GetCard("Riverbank").UnderLocation); // Move Storm Swell under so we definitely have something to play.
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            MoveCards(Cassie, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cassie.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
+            Card cardToBuy = MoveCard(Cassie, "StormSwell", GetCard("Riverbank").UnderLocation); // Move Storm Swell under so we definitely have something to play.
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             QuickHPStorage(mdp);
@@ -517,15 +517,15 @@ namespace RuduenModsTest
         public void TestPerpetualFlowGuiseDangIt()
         {
             // Most basic purchase equivalent!
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Guise", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Megalopolis");
 
             StartGame();
             Card destroy = PlayCard("LivingForceField");
 
-            AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            MoveCards(Cascade, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cascade.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            MoveCards(Cassie, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cassie.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
             Card cardToBuy = GetCard("Retcon");
-            MoveCard(Cascade, cardToBuy, GetCard("Riverbank").UnderLocation); // Move Retcon under.
+            MoveCard(Cassie, cardToBuy, GetCard("Riverbank").UnderLocation); // Move Retcon under.
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             QuickHPStorage(mdp);
@@ -541,13 +541,13 @@ namespace RuduenModsTest
         [Test()]
         public void TestMeetingTheOcean()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Cascade", "Guise", "Legacy", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Legacy", "Megalopolis");
 
             StartGame();
 
-            DiscardAllCards(Cascade);
+            DiscardAllCards(Cassie);
 
-            PutInHand(Cascade, new List<string>() { "Waterlog", "RisingWaters", "Retcon" }.ToArray());
+            PutInHand(Cassie, new List<string>() { "Waterlog", "RisingWaters", "Retcon" }.ToArray());
 
             // Pull 2, 3, and NA cards for testing.
             Card mdp = FindCardInPlay("MobileDefensePlatform");
@@ -558,7 +558,7 @@ namespace RuduenModsTest
             PlayCard("InspiringPresence"); // Increase damage by 1 to check for null rather than 0.
 
             QuickHPStorage(mdp);
-            QuickHandStorage(Cascade);
+            QuickHandStorage(Cassie);
 
             PlayCard("MeetingTheOcean");
             UsePower("MeetingTheOcean");
