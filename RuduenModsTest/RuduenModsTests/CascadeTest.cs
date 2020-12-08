@@ -45,7 +45,7 @@ namespace RuduenModsTest
             StartGame();
 
             AssertNumberOfCardsInDeck(Cascade, 2); // Should start with 2 card in deck.
-            AssertNumberOfCardsInHand(Cascade, 4); // And 4 cards in hand.
+            AssertNumberOfCardsInHand(Cascade, 4); // And four cards in hand.
             AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And 4 cards in the Riverbank.
             AssertNumberOfCardsAtLocation(Cascade.TurnTaker.FindSubDeck("RiverDeck"), 30); // And 30 cards in the River Deck.
         }
@@ -66,7 +66,7 @@ namespace RuduenModsTest
 
             UsePower(Cascade.CharacterCard, 0); // Default Innate. Cast.
             Assert.IsTrue(cardToBuy.Location == Cascade.TurnTaker.Trash || cardToBuy.Location == Cascade.TurnTaker.Deck || cardToBuy.Location == Cascade.HeroTurnTaker.Hand); // Bought.
-            AssertNumberOfCardsInHand(Cascade, 3);
+            AssertNumberOfCardsInHand(Cascade, 4);
         }
 
         [Test()]
@@ -86,7 +86,7 @@ namespace RuduenModsTest
             UsePower(Cascade.CharacterCard, 0); // Default Innate. Cast.
 
             AssertAtLocation(cardToBuy, GetCard("Riverbank").UnderLocation);
-            AssertNumberOfCardsInHand(Cascade, 3);
+            AssertNumberOfCardsInHand(Cascade, 4);
         }
 
         [Test()]
@@ -110,8 +110,8 @@ namespace RuduenModsTest
 
             // Even if Guise discards everything, he should fail to get the card due to all discarded cards having a total magic value of 0.
             Assert.IsTrue(cardToBuy.Location == GetCard("Riverbank").UnderLocation); // Not bought.
-            // Guise redraws to 3.
-            AssertNumberOfCardsInHand(guise, 3);
+            // Guise redraws to 4.
+            AssertNumberOfCardsInHand(guise, 4);
         }
 
         [Test()]
@@ -131,7 +131,7 @@ namespace RuduenModsTest
 
             UsePower(Cascade.CharacterCard, 0); // Default Innate. Cast.
             Assert.IsTrue(cardToBuy.Location == GetCard("Riverbank").UnderLocation); // Not bought. Even if the card's available, the lack of cost means the interaction fails.
-            AssertNumberOfCardsInHand(Cascade, 3);
+            AssertNumberOfCardsInHand(Cascade, 4);
         }
 
         [Test()]

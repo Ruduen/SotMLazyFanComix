@@ -7,13 +7,8 @@ assignees: ''
 
 ---
 
-**Describe the Bug**
+**Describe the bug**
 A clear and concise description of what the bug is.
-
-**Related Cards**
-If the effect is specific to certain cards, indicate which cards are affected.
-Deck(s):
-Card(s):
 
 **To Reproduce**
 Steps to reproduce the behavior:
