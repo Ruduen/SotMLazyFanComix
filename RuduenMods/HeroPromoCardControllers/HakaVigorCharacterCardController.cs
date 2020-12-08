@@ -3,7 +3,6 @@ using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RuduenWorkshop.Haka
 {
@@ -25,7 +24,7 @@ namespace RuduenWorkshop.Haka
             coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, false, storedResults: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Draw until you have 3. 
+            // Draw until you have 3.
             coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, powerNumeral);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

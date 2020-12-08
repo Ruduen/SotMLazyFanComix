@@ -40,7 +40,7 @@ namespace RuduenWorkshop.Bunker
 
             if (cardsWithPowers.Count() == 1)
             {
-                // If you only have the base power in play, indicate you may not be able to use more powers. 
+                // If you only have the base power in play, indicate you may not be able to use more powers.
                 coroutine = base.GameController.SendMessageAction(this.TurnTaker.Name + " has no other cards with powers in play, so " + this.TurnTaker.Name + " may not be able to use any more powers this turn.", Priority.High, this.GetCardSource(), null, false);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

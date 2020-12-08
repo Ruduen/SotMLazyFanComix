@@ -490,7 +490,7 @@ namespace RuduenModsTest
             GoToStartOfTurn(guise);
             AssertIsInPlay(ongoing); // First new turn, should survive self-destruct.
             GoToStartOfTurn(guise);
-            AssertInTrash(ongoing); // Second new turn. Without a power, it's gone! 
+            AssertInTrash(ongoing); // Second new turn. Without a power, it's gone!
         }
 
         [Test()]
@@ -508,7 +508,6 @@ namespace RuduenModsTest
             QuickHandCheck(1); // 1 Card Drawn.
         }
 
-
         [Test()]
         public void TestHaka()
         {
@@ -522,7 +521,7 @@ namespace RuduenModsTest
             GoToUsePowerPhase(haka);
 
             UsePower(haka);
-            AssertNumberOfCardsInHand(haka, 2); // Make sure the net effect is 2 cards in hand, even if the played card results in a draw. 
+            AssertNumberOfCardsInHand(haka, 2); // Make sure the net effect is 2 cards in hand, even if the played card results in a draw.
         }
 
         [Test()]
@@ -635,7 +634,7 @@ namespace RuduenModsTest
             StartGame();
 
             DiscardAllCards(legacy);
-            Card card=PutInHand("FlyingSmash");
+            Card card = PutInHand("FlyingSmash");
             GoToUsePowerPhase(legacy);
 
             DecisionSelectCardToPlay = card;
@@ -679,7 +678,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(lifeline.CharacterCard, mdp);
             UsePower(lifeline);
-            QuickHPCheck(1, -2); // One successful hit, one HP regained. 
+            QuickHPCheck(1, -2); // One successful hit, one HP regained.
         }
 
         [Test()]
@@ -972,7 +971,6 @@ namespace RuduenModsTest
             QuickHPCheck(0, -1);
             QuickHandCheck(2);
         }
-
 
         [Test()]
         public void TestMrFixerPowerA()

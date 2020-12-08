@@ -30,7 +30,7 @@ namespace RuduenWorkshop.Lifeline
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, 0, storedResultsDamage: storedResults, cardSource: this.GetCardSource(null));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Count unique targets damaged this way. 
+            // Count unique targets damaged this way.
             List<Card> damagedTargets = new List<Card>();
             foreach (DealDamageAction dd in storedResults.Where((DealDamageAction dd) => dd.DidDealDamage))
             {

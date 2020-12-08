@@ -20,7 +20,7 @@ namespace RuduenWorkshop.Legacy
 
             IEnumerator coroutine;
 
-            // You may play a one-shot. 
+            // You may play a one-shot.
             coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, storedResults: storedResults,
                 cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot"),
                 cardSource: this.GetCardSource());

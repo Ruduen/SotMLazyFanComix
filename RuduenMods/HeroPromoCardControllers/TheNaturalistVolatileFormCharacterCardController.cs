@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace RuduenWorkshop.TheNaturalist
         public TheNaturalistVolatileFormCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            // Based on the core display logic. 
+            // Based on the core display logic.
             this.SpecialStringMaker.ShowSpecialString(SpecialString, null, null);
         }
 
@@ -27,7 +26,7 @@ namespace RuduenWorkshop.TheNaturalist
             coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, storedResults: storedResultsPlay, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // A successful play means performing check logic for each of the three symbols on text. 
+            // A successful play means performing check logic for each of the three symbols on text.
             if (storedResultsPlay.Count > 0 && storedResultsPlay.FirstOrDefault().IsSuccessful)
             {
                 Card card = storedResultsPlay.FirstOrDefault().CardToPlay;
@@ -43,17 +42,17 @@ namespace RuduenWorkshop.TheNaturalist
 
                         selectedWord = this.GetSelectedWord(storedResultsWord);
                     }
-                    else if(options.Count == 1)
+                    else if (options.Count == 1)
                     {
                         selectedWord = options.FirstOrDefault();
                     }
 
                     if (selectedWord != null)
                     {
-                        // If we reach this, we've searched and confirm we have the icon, so run the add icon status! 
+                        // If we reach this, we've searched and confirm we have the icon, so run the add icon status!
                         ActivateEffectStatusEffect activateEffectStatusEffect = new ActivateEffectStatusEffect(this.HeroTurnTaker, card, selectedWord);
 
-                        // Lasts until the next power use! 
+                        // Lasts until the next power use!
                         if (this.TurnTaker.IsHero)
                         { activateEffectStatusEffect.UsePowerExpiryCriteria.HeroUsingPower = this.HeroTurnTaker; }
                         else

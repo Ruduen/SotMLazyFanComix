@@ -26,8 +26,7 @@ namespace RuduenWorkshop.Guise
             coroutine = this.DrawCards(this.DecisionMaker, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-
-            if (this.FindCardsWhere((Card c)=>c.IsInPlayAndHasGameText && c.IsOngoing && c.Owner == this.HeroTurnTaker).Count() > 0)
+            if (this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsOngoing && c.Owner == this.HeroTurnTaker).Count() > 0)
             {
                 // Select an ongoing.
                 coroutine = this.GameController.SelectCardsAndStoreResults(this.DecisionMaker, SelectionType.MakeIndestructible,
