@@ -25,6 +25,7 @@ namespace RuduenWorkshop.SkyScraper
             coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, false, storedResults: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
+            // TO DO: Size check
         }
     }
 }

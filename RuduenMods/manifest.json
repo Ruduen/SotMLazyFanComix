@@ -36,7 +36,8 @@
     "OmnitronX": [ "OmnitronXElectroShieldedSystemsCharacter" ],
     "Parse": [ "ParseLaplaceShotCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
-    "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ]
+    "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ],
+    "TheVisionary": [ "TheVisionaryProphesizeDoomCharacter" ]
   },
   "devVariants": {
     "SkyScraper": [ "SkyScraperConsistentCharacter" ],

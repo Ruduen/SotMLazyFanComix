@@ -77,6 +77,7 @@
     <Compile Include="CassieCardControllers\WaterlogCardController.cs" />
     <Compile Include="CassieCardControllers\WaterSurgeCardController.cs" />
     <Compile Include="HeroPromoCardControllers\BunkerModeShiftCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheVisionaryProphesizeDoomCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SkyScraperConsistentTinyCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SkyScraperConsistentHugeCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SkyScraperConsistentNormalCharacterCardController.cs" />

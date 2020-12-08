@@ -1374,5 +1374,33 @@ namespace RuduenModsTest
             QuickHandCheck(0); // Played and drawn.
             QuickHPCheck(0); // Prevented.
         }
+
+        [Test()]
+        public void TestVisionary()
+        {
+            SetupGameController("BaronBlade", "Legacy", "TheVisionary/RuduenWorkshop.TheVisionaryProphesizeDoomCharacter", "Megalopolis");
+
+            Assert.IsTrue(visionary.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+
+            // Stack with mind spikes for simplicity. 
+            PutOnDeck(visionary, FindCardsWhere((Card c) => c.Identifier == "MindSpike"));
+
+            UsePower(legacy);
+            UsePower(legacy);
+
+            DecisionSelectTarget = baron.CharacterCard;
+
+            AssertHitPoints(baron, 40);
+            UsePower(visionary);
+            AssertHitPoints(baron, 35); // Spike 1. 
+            UsePower(visionary);
+            AssertHitPoints(baron, 30); // Spike 2. 
+            UsePower(visionary);
+            AssertHitPoints(baron, 26); // Environment hit. Not Legacy boosted.
+        }
     }
 }

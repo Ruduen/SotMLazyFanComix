@@ -926,5 +926,41 @@
         "default": "Hm..."
       }
     }
+  ],
+  "TheVisionary": [
+    {
+      "identifier": "TheVisionaryCharacter",
+      "promoIdentifier": "TheVisionaryProphesizeDoomCharacter",
+      "count": 1,
+      "title": "The Visionary",
+      "body": "Prophesize Doom",
+      "backgroundColor": "C87243",
+      "foilBackgroundColor": "C87243",
+      "character": true,
+      "powers": [
+        "If there are at least 2 cards beneath this card, destroy all cards beneath this card and the environment deals 1 Target 4 Projectile Damage. Otherwise, move the top 2 cards of your deck beneath this card and play a card from beneath this card. "
+      ],
+      "icons": [
+        "HasPower"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "TheSentinels"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm..."
+      }
+    }
   ]
 }
