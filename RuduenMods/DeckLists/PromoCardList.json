@@ -765,7 +765,69 @@
       "openingLines": {
         "default": "..."
       },
-      "devNotes":  "The wording is technically 'If a damaged target is destroyed' due to how it'd interact with a theroetical numerology clone, but due to Wrecking Uppercut overlap, I didn't want to make that distinction."
+      "devNotes": "The wording is technically 'If a damaged target is destroyed' due to how it'd interact with a theroetical numerology clone, but due to Wrecking Uppercut overlap, I didn't want to make that distinction."
+    }
+  ],
+  "TheScholar": [
+    {
+      "identifier": "TheScholarCharacter",
+      "promoIdentifier": "TheScholarEquilibriumCharacter",
+      "count": 1,
+      "title": "The Scholar",
+      "body": [ "Equilibrium" ],
+      "character": true,
+      "backgroundColor": "86BB71",
+      "foilBackgroundColor": "86BB71",
+      "hitpointsColor": "F6AD41",
+      "powers": "Draw a card. Draw a card for each Elemental card in play. {TheScholar} deals themselves Irreducible Psychic Damage equal to the number of Elemental cards in play.",
+      "hitpoints": 33,
+      "icons": [ "HasPower", "DrawCardNow", "DealDamagePsychic" ],
+      "nemesisIdentifiers": [ "TheScholar" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Setback": [
+    {
+      "identifier": "SetbackCharacter",
+      "promoIdentifier": "SetbackDoubleOrNothingCharacter",
+      "count": 1,
+      "title": "Setback",
+      "body": [ "Double or Nothing" ],
+      "character": true,
+      "backgroundColor": "86BB71",
+      "foilBackgroundColor": "86BB71",
+      "hitpointsColor": "F6AD41",
+      "powers": "Play a card. Reveal the bottom two cards of your deck. If those cards share a keyword, put them into your hand. Otherwise, discard them and add 2 tokens to your Unlucky pool.",
+      "hitpoints": 29,
+      "icons": [ "HasPower" ],
+      "nemesisIdentifiers": [ "Setback" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "..."
+      },
     }
   ],
   "SkyScraper": [

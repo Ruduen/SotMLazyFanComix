@@ -37,6 +37,8 @@
     "Parse": [ "ParseLaplaceShotCharacter" ],
     "Ra": [ "RaPiercingBlastCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
+    "TheScholar": [ "TheScholarEquilibriumCharacter" ],
+    "Setback": [ "SetbackDoubleOrNothingCharacter" ],
     "Stuntman": [ "StuntmanForeshadowCharacter" ],
     "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ],
     "Unity": [ "UnityNewPlansCharacter" ],

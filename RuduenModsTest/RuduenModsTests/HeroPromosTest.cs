@@ -1301,6 +1301,87 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestScholarNoElemental()
+        {
+            SetupGameController("BaronBlade", "TheScholar/RuduenWorkshop.TheScholarEquilibriumCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(scholar.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            UsePower(legacy);
+
+            QuickHPStorage(scholar);
+            QuickHandStorage(scholar);
+            UsePower(scholar);
+            QuickHandCheck(1);
+            QuickHPCheck(-1); // 1 damage dealt for 0+1.
+        }
+
+        [Test()]
+        public void TestScholarElemental()
+        {
+            SetupGameController("BaronBlade", "TheScholar/RuduenWorkshop.TheScholarEquilibriumCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(scholar.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            UsePower(legacy);
+            PutIntoPlay("SolidToLiquid");
+
+            QuickHPStorage(scholar);
+            QuickHandStorage(scholar);
+            UsePower(scholar);
+            QuickHandCheck(2);
+            QuickHPCheck(-2); // 2 damage dealt for 1+1.
+        }
+
+        [Test()]
+        public void TestSetbackNoMatch()
+        {
+            SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackDoubleOrNothingCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(setback.CharacterCard.IsPromoCard);
+
+            StartGame();
+            Card play = PutInHand("FriendlyFire");
+            Card[] bottom = new Card[] {
+                PutOnDeck("ExceededExpectations", true),
+                PutOnDeck("HighRiskBehavior", true)
+            };
+
+            DecisionSelectCardToPlay = play;
+
+            QuickHandStorage(setback);
+            UsePower(setback);
+            AssertIsInPlay(play); // Played ongoing card is in play. 
+            QuickHandCheck(-1); // 1 card played, 0 drawn.
+            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 2); // 2 tokens added. 
+            AssertInTrash(bottom);
+        }
+
+        [Test()]
+        public void TestSetbackMatch()
+        {
+            SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackDoubleOrNothingCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(setback.CharacterCard.IsPromoCard);
+
+            StartGame();
+            Card play = PutInHand("FriendlyFire");
+            Card[] bottom = new Card[] {
+                PutOnDeck("ExceededExpectations", true),
+                PutOnDeck("CashOut", true)
+            };
+
+            DecisionSelectCardToPlay = play;
+
+            QuickHandStorage(setback);
+            UsePower(setback);
+            AssertIsInPlay(play); // Played ongoing card is in play. 
+            QuickHandCheck(1); // 1 card played, 1 drawn.
+            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 0); // 0 tokens added. 
+            AssertInHand(bottom);
+        }
+
+        [Test()]
         public void TestSkyScraper()
         {
             SetupGameController("BaronBlade", "SkyScraper/RuduenWorkshop.SkyScraperConsistentNormalCharacter", "Megalopolis");

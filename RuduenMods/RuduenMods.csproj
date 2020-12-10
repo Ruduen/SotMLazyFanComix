@@ -77,6 +77,8 @@
     <Compile Include="CassieCardControllers\WaterlogCardController.cs" />
     <Compile Include="CassieCardControllers\WaterSurgeCardController.cs" />
     <Compile Include="HeroPromoCardControllers\BunkerModeShiftCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SetbackDoubleOrNothingCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheScholarEquilibriumCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\RaPiercingBlastCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\UnityNewPlansCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\StuntmanForeshadowCharacterCardController.cs" />
