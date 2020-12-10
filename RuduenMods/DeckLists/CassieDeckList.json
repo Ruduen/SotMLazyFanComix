@@ -28,7 +28,7 @@
       "character": true,
       "powers": [ "You may discard up to 3 cards. You may move a card with an Aqua Cost of your discarded cards' total {magic} or less from the Riverbank to your discard, ignoring its Indestructable status. Draw until you have 3 cards." ],
       "icons": [ "HasPower", "Manipulate", "DrawCardNow" ],
-      "setup": [ "At the start of the game, put The Riverbank into play." ],
+      "setup": [ "At the start of the game, put The Riverbank into play. Shuffle all of your River cards to make the River deck. [i](This is not currently displayed due to engine restrictions.)[/i]" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
         "Cassie"

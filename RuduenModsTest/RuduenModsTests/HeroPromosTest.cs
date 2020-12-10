@@ -666,7 +666,6 @@ namespace RuduenModsTest
         [Test()]
         public void TestLifelineNormalHit()
         {
-            // Tool in hand.
             SetupGameController("BaronBlade", "Lifeline/RuduenWorkshop.LifelineEnergyTapCharacter", "Legacy", "Megalopolis");
             Assert.IsTrue(lifeline.CharacterCard.IsPromoCard);
 
@@ -684,7 +683,6 @@ namespace RuduenModsTest
         [Test()]
         public void TestLifelineRedirectedHit()
         {
-            // Tool in hand.
             SetupGameController("BaronBlade", "Lifeline/RuduenWorkshop.LifelineEnergyTapCharacter", "Legacy", "Tachyon", "Megalopolis");
             Assert.IsTrue(lifeline.CharacterCard.IsPromoCard);
 
@@ -1241,12 +1239,102 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestRaNormalPiercingHit()
+        {
+            SetupGameController("BaronBlade", "Ra/RuduenWorkshop.RaPiercingBlastCharacter", "TheBlock");
+            Assert.IsTrue(ra.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            PutIntoPlay("DefensiveDisplacement");
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            UsePower(ra);
+            QuickHPCheck(-1); // 1 Piercing Damage.
+        }
+
+        [Test()]
+        public void TestRaNormalPiercingDestroy()
+        {
+            SetupGameController("BaronBlade", "Ra/RuduenWorkshop.RaPiercingBlastCharacter", "TheBlock");
+            Assert.IsTrue(ra.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DealDamage(mdp, mdp, 9, DamageType.Energy);
+
+            DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard };
+
+            PutIntoPlay("DefensiveDisplacement");
+
+            QuickHPStorage(baron.CharacterCard);
+            UsePower(ra);
+            AssertInTrash(mdp); // MDP destroyed.
+            QuickHPCheck(-1); // 1 Piercing Damage from repeat. 
+        }
+
+        [Test()]
+        public void TestRaNormalPiercingDestroyRedirect()
+        {
+            SetupGameController("BaronBlade", "Ra/RuduenWorkshop.RaPiercingBlastCharacter", "MrFixer", "TheBlock");
+            Assert.IsTrue(ra.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DealDamage(mdp, mdp, 9, DamageType.Energy);
+
+            DecisionSelectCards = new Card[] { fixer.CharacterCard, mdp, baron.CharacterCard };
+
+            PutIntoPlay("DefensiveDisplacement");
+            PutIntoPlay("DrivingMantis");
+
+            QuickHPStorage(fixer.CharacterCard, baron.CharacterCard);
+            UsePower(ra);
+            AssertInTrash(mdp); // MDP destroyed.
+            QuickHPCheck(0, -1); // 1 Piercing Damage from repeat. 
+        }
+
+        [Test()]
         public void TestSkyScraper()
         {
             SetupGameController("BaronBlade", "SkyScraper/RuduenWorkshop.SkyScraperConsistentNormalCharacter", "Megalopolis");
             Assert.IsTrue(sky.CharacterCard.IsPromoCard);
 
             StartGame();
+        }
+
+        [Test()]
+        public void TestStuntmanOnTurn()
+        {
+            SetupGameController("BaronBlade", "Stuntman/RuduenWorkshop.StuntmanForeshadowCharacter", "Megalopolis");
+            Assert.IsTrue(stunt.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            GoToUsePowerPhase(stunt);
+
+            QuickHandStorage(stunt);
+            UsePower(stunt);
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestStuntmanOffTurn()
+        {
+            SetupGameController("BaronBlade", "Stuntman/RuduenWorkshop.StuntmanForeshadowCharacter", "Megalopolis");
+            Assert.IsTrue(stunt.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            QuickHandStorage(stunt);
+            UsePower(stunt);
+            QuickHandCheck(2);
         }
 
         [Test()]
@@ -1306,6 +1394,99 @@ namespace RuduenModsTest
             AssertPhaseActionCount(0); // Powers used.
 
             AssertOnBottomOfDeck(tachyon, oneshot);
+        }
+
+        [Test()]
+        public void TestUnityNoGolemsDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand("ConstructionPylon")
+            };
+
+            StartGame();
+            AssertNextMessage("No appropriate Mechanical Golems were discarded, so none cannot be played.");
+            UsePower(unity);
+            AssertExpectedMessageWasShown();
+            AssertInTrash(cards); // Discarded all that were in hand.
+            AssertNotInPlay((Card c) => c.IsMechanicalGolem); // No mechanical golems in play. 
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+        }
+
+        [Test()]
+        public void TestUnityGolemDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand("ConstructionPylon"),
+                PutInHand("RaptorBot")
+            };
+
+            StartGame();
+            UsePower(unity);
+            AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
+            AssertIsInPlay(cards[2]); // Chomps in play!
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+        }
+
+        [Test()]
+        public void TestUnityTwoGolemDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand(unity, "RaptorBot", 0),
+                PutInHand(unity, "RaptorBot", 1)
+            };
+
+            DecisionSelectCardToPlay = cards[1];
+            UsePower(unity);
+            AssertInTrash(cards[0], cards[2]); // Discarded all that were in hand.
+            AssertIsInPlay(cards[1]); // Chomps in play! Yes, only ties that require choice are the same bot! 
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+        }
+
+        [Test()]
+        public void TestUnitySmallestGolemDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand("RaptorBot"),
+                PutInHand("BeeBot")
+            };
+
+            UsePower(unity);
+            AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
+            AssertIsInPlay(cards[2]); // Bees in play, no decision to make.
+            AssertNoDecision(); // Smallest was auto-detected, no choice was necessary.
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
         }
 
         [Test()]

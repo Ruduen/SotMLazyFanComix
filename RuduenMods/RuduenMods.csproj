@@ -6,7 +6,7 @@
     <ProjectGuid>{16E9E49A-4EA1-4C5C-8A7F-1DEC6BD64E0F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>RuduenWorkshop</RootNamespace>
-    <AssemblyName>RuduenModsPack</AssemblyName>
+    <AssemblyName>RuduenMod</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -77,6 +77,9 @@
     <Compile Include="CassieCardControllers\WaterlogCardController.cs" />
     <Compile Include="CassieCardControllers\WaterSurgeCardController.cs" />
     <Compile Include="HeroPromoCardControllers\BunkerModeShiftCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\RaPiercingBlastCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\UnityNewPlansCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\StuntmanForeshadowCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheVisionaryProphesizeDoomCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SkyScraperConsistentTinyCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SkyScraperConsistentHugeCharacterCardController.cs" />

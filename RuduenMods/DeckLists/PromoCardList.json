@@ -736,21 +736,21 @@
       ]
     }
   ],
-  "Tachyon": [
+  "Ra": [
     {
-      "identifier": "TachyonCharacter",
-      "promoIdentifier": "TachyonControlledPaceCharacter",
+      "identifier": "RaCharacter",
+      "promoIdentifier": "RaPiercingBlastCharacter",
       "count": 1,
-      "title": "Tachyon",
-      "body": [ "Controlled Pace" ],
+      "title": "Ra",
+      "body": [ "Piercing Blast" ],
+      "character": true,
       "backgroundColor": "86BB71",
       "foilBackgroundColor": "86BB71",
       "hitpointsColor": "F6AD41",
-      "character": true,
-      "powers": "Play the top card of your Trash. Move the top card of your Trash to the bottom of your deck.",
-      "hitpoints": 26,
-      "icons": [ "HasPower", "PlayCardNow" ],
-      "nemesisIdentifiers": [ "Tachyon" ],
+      "powers": "{Ra} deals 1 Target 1 Irreducible Fire Damage. If that target is destroyed, repeat this power.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DealDamageInfernal", "GainHP" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",
@@ -761,10 +761,11 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 2,
+      "complexity": 1,
       "openingLines": {
-        "default": "Hm."
-      }
+        "default": "..."
+      },
+      "devNotes":  "The wording is technically 'If a damaged target is destroyed' due to how it'd interact with a theroetical numerology clone, but due to Wrecking Uppercut overlap, I didn't want to make that distinction."
     }
   ],
   "SkyScraper": [
@@ -884,6 +885,99 @@
         "DrawCardNow"
       ],
       "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Stuntman": [
+    {
+      "identifier": "StuntmanCharacter",
+      "promoIdentifier": "StuntmanForeshadowCharacter",
+      "count": 1,
+      "title": "Stuntman",
+      "body": [ "Foreshadow" ],
+      "backgroundColor": "86BB71",
+      "foilBackgroundColor": "86BB71",
+      "hitpointsColor": "F6AD41",
+      "character": true,
+      "powers": "Draw a card. When this power is used outside your turn, draw an additional card.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Stuntman" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Tachyon": [
+    {
+      "identifier": "TachyonCharacter",
+      "promoIdentifier": "TachyonControlledPaceCharacter",
+      "count": 1,
+      "title": "Tachyon",
+      "body": [ "Controlled Pace" ],
+      "backgroundColor": "86BB71",
+      "foilBackgroundColor": "86BB71",
+      "hitpointsColor": "F6AD41",
+      "character": true,
+      "powers": "Play the top card of your Trash. Move the top card of your Trash to the bottom of your deck.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Tachyon" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Unity": [
+    {
+      "identifier": "UnityCharacter",
+      "promoIdentifier": "UnityNewPlansCharacter",
+      "count": 1,
+      "title": "Unity",
+      "body": [ "New Plans" ],
+      "backgroundColor": "86BB71",
+      "foilBackgroundColor": "86BB71",
+      "hitpointsColor": "F6AD41",
+      "character": true,
+      "powers": "Discard 3 cards. Play the Mechanical Golem with the lowest HP discarded this way. Draw 2 cards.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Unity" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
       "openingLines": {
         "default": "Hm."
       }

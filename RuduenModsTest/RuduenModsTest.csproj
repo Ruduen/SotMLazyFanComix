@@ -53,9 +53,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RuduenMods\RuduenModsPack.csproj">
+    <ProjectReference Include="..\RuduenMods\RuduenMods.csproj">
       <Project>{16e9e49a-4ea1-4c5c-8a7f-1dec6bd64e0f}</Project>
-      <Name>RuduenModsPack</Name>
+      <Name>RuduenMods</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
