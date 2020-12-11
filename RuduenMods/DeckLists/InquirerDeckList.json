@@ -37,7 +37,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "You have no idea what you're getting into, do you?",
+        "default": "The power of friendship will prevail! Also lies. Maybe just the lies.",
         "ApostateCharacter": "Let's see who really understands the truths of the world."
       },
       "complexity": 3

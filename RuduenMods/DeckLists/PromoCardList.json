@@ -6,13 +6,12 @@
       "count": 1,
       "title": "Absolute Zero",
       "body": [ "Overchill" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "77d2f7",
+      "foilBackgroundColor": "77d2f7",
       "character": true,
       "powers": "{AbsoluteZero} deals himself 1 Cold Damage. You may play an Equipment card. If you do not, destroy one of your Equipment cards. Draw 2 Cards.",
       "hitpoints": 26,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "DealDamageCold", "PlayCardNow", "DrawCardNow" ],
       "nemesisIdentifiers": [ "AbsoluteZero" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -37,13 +36,12 @@
       "count": 1,
       "title": "Akash'Thriya",
       "body": [ "Seed Rotation" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "C87B40",
+      "foilBackgroundColor": "C87B40",
       "character": true,
       "powers": "Select a Primordial Seed from your trash and put it on the bottom of your deck. Reveal cards from the top of your deck until you reveal a Primordial Seed, play it, and shuffle all other cards revealed this way into your deck.",
       "hitpoints": 45,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "Manipulate", "PlayCardNow" ],
       "nemesisIdentifiers": [ "AkashThriya" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -68,13 +66,12 @@
       "count": 1,
       "title": "The Argent Adept",
       "body": [ "Aria" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "a97436",
+      "foilBackgroundColor": "a97436",
       "character": true,
       "powers": "Play a card. Activate that card's [u]perform[/u] text. Activate that card's [u]accompany[/u] text.",
       "hitpoints": 23,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "PlayCardNow", "Perform", "Accompany" ],
       "nemesisIdentifiers": [ "TheArgentAdept" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -99,13 +96,12 @@
       "count": 1,
       "title": "Benchmark",
       "body": [ "Download Manager" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "EC4647",
+      "foilBackgroundColor": "EC4647",
       "character": true,
       "powers": "You may play a Software card. Until the end of your next turn, that Software is indestructible. {Benchmark} deals 1 Target Lightning Damage equal to the number of Software cards in play.",
-      "hitpoints": 25,
-      "icons": [ "HasPower" ],
+      "hitpoints": 28,
+      "icons": [ "HasPower", "PlayCardNow", "Indestructible", "DealDamageLightning" ],
       "nemesisIdentifiers": [ "Benchmark" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -130,13 +126,12 @@
       "count": 1,
       "title": "Bunker",
       "body": [ "Full Salvo" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "fcf170",
+      "foilBackgroundColor": "fcf170",
       "character": true,
       "powers": "Draw 3 cards. Discard a card for each of your cards with powers in play. This turn, you may use as many powers as you have cards with powers in play.",
       "hitpoints": 26,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "DrawCardNow", "Discard", "UsePowerExtra" ],
       "nemesisIdentifiers": [ "Bunker" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -148,7 +143,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 3,
+      "complexity": 2,
       "openingLines": {
         "default": "Hm."
       }
@@ -159,13 +154,12 @@
       "count": 1,
       "title": "Bunker",
       "body": [ "Mode Shift" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "fcf170",
+      "foilBackgroundColor": "fcf170",
       "character": true,
       "powers": "Search your deck or trash for a Mode and put it into play. If you searched your deck, shuffle your deck. Play a card.",
       "hitpoints": 27,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "Search", "PlayCardNow" ],
       "nemesisIdentifiers": [ "Bunker" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -177,7 +171,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 1,
+      "complexity": 2,
       "openingLines": {
         "default": "Hm."
       }
@@ -190,13 +184,12 @@
       "count": 1,
       "title": "Captain Cosmic",
       "body": [ "Cosmic Shielding" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "FFDD00",
+      "foilBackgroundColor": "FFDD00",
       "character": true,
       "powers": "Draw a card. Select a Construct Target. Until the start of your next turn, that Construct is Indestructible. That Construct deals itself 2 Energy Damage.",
       "hitpoints": 26,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "DrawCardNow", "Indestructible", "DealDamageEnergy" ],
       "nemesisIdentifiers": [ "CaptainCosmic" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -221,13 +214,12 @@
       "count": 1,
       "title": "Chrono-Ranger",
       "body": [ "High Noon" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "7399d0",
+      "foilBackgroundColor": "7399d0",
       "character": true,
       "powers": "Draw a card. Until the end of your next turn, damage dealt to and by {ChronoRanger} is irreducible.",
-      "hitpoints": 30,
-      "icons": [ "HasPower", "MakeDamageIrreducible", "DrawCardNow" ],
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DrawCardNow", "MakeDamageIrreducible" ],
       "nemesisIdentifiers": [ "ChronoRanger" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -253,12 +245,11 @@
       "title": "Expatriette",
       "body": [ "Quick-Shot" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "996cae",
+      "foilBackgroundColor": "996cae",
       "powers": "Until the end of the turn, reduce damage dealt by {Expatriette} by 1. Play the top card of your deck. You may use an additional power this turn.",
       "hitpoints": 27,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "ReduceDamageDealt", "PlayCardNow", "UsePowerExtra" ],
       "nemesisIdentifiers": [ "Expatriette" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -284,11 +275,10 @@
       "title": "Fanatic",
       "body": [ "Zeal" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "f4ee71",
+      "foilBackgroundColor": "f4ee71",
       "powers": "Fanatic deals up to 2 Targets and themselves 1 Radiant Damage. Play a card or use a power.",
-      "hitpoints": 27,
+      "hitpoints": 29,
       "icons": [ "HasPower", "DealDamageRadiant", "PlayCardNow", "UsePowerNow" ],
       "nemesisIdentifiers": [ "Fanatic" ],
       "incapacitatedAbilities": [
@@ -315,11 +305,10 @@
       "title": "Guise",
       "body": [ "Shenanigans" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "FFDD00",
+      "foilBackgroundColor": "FFDD00",
       "powers": "Draw a card. Wait, that's it? Fine, select 1 of your Ongoing cards. Until the end of your next turn, that Ongoing is Indestructible.",
-      "hitpoints": 27,
+      "hitpoints": 26,
       "icons": [ "HasPower", "DrawCardsNow", "Indestructible" ],
       "nemesisIdentifiers": [ "Guise" ],
       "incapacitatedAbilities": [
@@ -332,7 +321,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 3,
+      "complexity": 2.555555,
       "openingLines": {
         "default": "Wait, I'm here? That means I've got a fan! Woo!"
       }
@@ -346,11 +335,11 @@
       "title": "Haka",
       "body": [ "Vigor" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
+      "backgroundColor": "c3af3c",
+      "foilBackgroundColor": "c3af3c",
       "hitpointsColor": "F6AD41",
       "powers": "Play a card. Draw until you have 2 cards in your hand.",
-      "hitpoints": 30,
+      "hitpoints": 31,
       "icons": [ "HasPower", "PlayCardNow", "DrawCardsNow" ],
       "nemesisIdentifiers": [ "Haka" ],
       "incapacitatedAbilities": [
@@ -377,12 +366,11 @@
       "title": "The Harpy",
       "body": [ "Extreme Calling" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "E17FB0",
+      "foilBackgroundColor": "E17FB0",
       "powers": "Draw a card. Flip all but 1 of your {arcana} or {avian} tokens. {TheHarpy} deals herself Psychic Damage equal to the number of tokens flipped this way.",
-      "hitpoints": 27,
-      "icons": [ "HasPower" ],
+      "hitpoints": 25,
+      "icons": [ "HasPower", "DrawCardNow", "FlipControlToken", "DealDamagePsychic" ],
       "nemesisIdentifiers": [ "OblivAeon" ],
       "tokenPools": [
         {
@@ -412,7 +400,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 2,
+      "complexity": 3,
       "openingLines": {
         "default": "..."
       }
@@ -426,12 +414,11 @@
       "title": "K.N.Y.F.E.",
       "body": [ "Kinetic Loop" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
-      "powers": "Draw a card. Until the end of your next turn, when {Knyfe} deals themselves damage, they Regain 1 HP.",
-      "hitpoints": 26,
-      "icons": [ "HasPower" ],
+      "backgroundColor": "FDEC45",
+      "foilBackgroundColor": "FDEC45",
+      "powers": "Draw a card. Until the end of your next turn, when {Knyfe} deals themselves damage, they regain 1 HP.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DrawCardNow", "GainHP" ],
       "nemesisIdentifiers": [ "Knyfe" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -443,7 +430,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 2,
+      "complexity": 1,
       "openingLines": {
         "default": "A chance to take a few more risks, eh?"
       }
@@ -457,11 +444,10 @@
       "title": "La Comodora",
       "body": [ "Temporal Scavenge" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "EA3F3D",
+      "foilBackgroundColor": "EA3F3D",
       "powers": "Flip a face-down Card in your play area, treating it as if it were just put into play. Until the end of your next turn, when one of your Equipment cards would be destroyed, flip it face-down instead.",
-      "hitpoints": 26,
+      "hitpoints": 30,
       "icons": [ "HasPower" ],
       "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
@@ -488,9 +474,8 @@
       "title": "Legacy",
       "body": [ "In The Fray" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "fbf8f9",
+      "foilBackgroundColor": "fbf8f9",
       "powers": "You may play a One-Shot. If you do not, draw a card.",
       "hitpoints": 30,
       "icons": [ "HasPower", "PlayCardNow", "DrawCardsNow" ],
@@ -508,10 +493,7 @@
       "complexity": 1,
       "openingLines": {
         "default": "..."
-      },
-      "devNotes": [
-        "Potentially swap wording to 'If you did not play a one-shot' for handling the case where your hand is empty."
-      ]
+      }
     }
   ],
   "Lifeline": [
@@ -522,11 +504,11 @@
       "title": "Lifeline",
       "body": [ "Energy Tap" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
+      "backgroundColor": "EEBC54",
+      "foilBackgroundColor": "EEBC54",
       "hitpointsColor": "F6AD41",
       "powers": "{Lifeline} deals up to 2 Targets 1 Infernal Damage. {Lifeline} Regains HP equal to the number of targets damaged this way.",
-      "hitpoints": 29,
+      "hitpoints": 32,
       "icons": [ "HasPower", "DealDamageInfernal", "GainHP" ],
       "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
@@ -539,7 +521,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 1,
+      "complexity": 2,
       "openingLines": {
         "default": "..."
       }
@@ -553,12 +535,11 @@
       "title": "Luminary",
       "body": [ "Reprogram" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "E6E8E8",
+      "foilBackgroundColor": "E6E8E8",
       "powers": "Discard the top card of your deck. A Device Target deals itself 5 Lightning Damage. If that Device is destroyed, draw 2 cards and you may play a Device.",
       "hitpoints": 29,
-      "icons": [ "HasPower", "DealDamageInfernal", "GainHP" ],
+      "icons": [ "HasPower", "DealDamageLightning", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -584,13 +565,11 @@
       "title": "Mr. Fixer",
       "body": [ "Flowing Strike" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "DF7501",
+      "foilBackgroundColor": "DF7501",
       "powers": "{MrFixer} deals 1 Target 1 Melee Damage and himself 0 Melee Damage. You may play a Tool card. If you do not, reveal cards from the top of your deck until you reveal a Tool card, play it, and shuffle the other cards revealed this way into your deck.",
-      "hitpoints": 28,
-      "icons": [ "HasPower" ],
-
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DealDamageMelee", "PlayCardNow" ],
       "nemesisIdentifiers": [ "MrFixer" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -616,9 +595,8 @@
       "title": "The Naturalist",
       "body": [ "Volatile Form" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "BA7848",
+      "foilBackgroundColor": "BA7848",
       "powers": "Draw a card. Play a card. Select one of {gazelle}, {rhinoceros} or {crocodile} that the played card has in its text. Until after the next time you use a power, you may activate that icon's effects.",
       "hitpoints": 28,
       "icons": [ "HasPower" ],
@@ -633,7 +611,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 3,
+      "complexity": 2,
       "openingLines": {
         "default": "..."
       }
@@ -647,12 +625,11 @@
       "title": "NightMist",
       "body": [ "Limited Numerology" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "bd9dca",
+      "foilBackgroundColor": "bd9dca",
       "powers": "Until the end of your next turn, when {NightMist} would deal a Hero Target damage, reduce that damage by 1. Draw a card or play a card.",
-      "hitpoints": 28,
-      "icons": [ "HasPower" ],
+      "hitpoints": 26,
+      "icons": [ "HasPower", "ReduceDamageDealt", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "NightMist" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -678,12 +655,11 @@
       "title": "Omnitron-X",
       "body": [ "Electro-Shielded Systems" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "bd3a3d",
+      "foilBackgroundColor": "bd3a3d",
       "powers": "Until the start of your next turn, your Components are indestructible. {OmnitronX} deals 1 Target and themselves Lightning Damage equal to the number of your Components in play.",
-      "hitpoints": 29,
-      "icons": [ "HasPower" ],
+      "hitpoints": 26,
+      "icons": [ "HasPower", "Indestructible", "DealDamageLightning" ],
       "nemesisIdentifiers": [ "OmnitronX" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -712,9 +688,9 @@
       "backgroundColor": "86BB71",
       "foilBackgroundColor": "86BB71",
       "hitpointsColor": "F6AD41",
-      "powers": "Look at the top card of the Environment Deck. {Parse} may deal 1 Target damage equal to the number of cards in that Deck's Trash. If damage is dealt this way, shuffle the Environment Trash into the Environment Deck.",
+      "powers": "Look at the top card of the Environment Deck. {Parse} may deal 1 Target Projectile Damage equal to the number of cards in that Deck's Trash. If damage is dealt this way, shuffle the Environment Trash into the Environment Deck.",
       "hitpoints": 27,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "Manipulate", "DealDamageProjectile" ],
       "nemesisIdentifiers": [ "Parse" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -744,13 +720,12 @@
       "title": "Ra",
       "body": [ "Piercing Blast" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "ec9322",
+      "foilBackgroundColor": "ec9322",
       "powers": "{Ra} deals 1 Target 1 Irreducible Fire Damage. If that target is destroyed, repeat this power.",
       "hitpoints": 29,
-      "icons": [ "HasPower", "DealDamageInfernal", "GainHP" ],
-      "nemesisIdentifiers": [ "OblivAeon" ],
+      "icons": [ "HasPower", "DealDamageFire", "UsePowerNow" ],
+      "nemesisIdentifiers": [ "Ra" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",
@@ -776,11 +751,10 @@
       "title": "The Scholar",
       "body": [ "Equilibrium" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "e9c11e",
+      "foilBackgroundColor": "e9c11e",
       "powers": "Draw a card. Draw a card for each Elemental card in play. {TheScholar} deals themselves Irreducible Psychic Damage equal to the number of Elemental cards in play.",
-      "hitpoints": 33,
+      "hitpoints": 31,
       "icons": [ "HasPower", "DrawCardNow", "DealDamagePsychic" ],
       "nemesisIdentifiers": [ "TheScholar" ],
       "incapacitatedAbilities": [
@@ -793,7 +767,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 1,
+      "complexity": 3,
       "openingLines": {
         "default": "..."
       }
@@ -807,12 +781,11 @@
       "title": "Setback",
       "body": [ "Double or Nothing" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "DFE6E5",
+      "foilBackgroundColor": "DFE6E5",
       "powers": "Play a card. Reveal the bottom two cards of your deck. If those cards share a keyword, put them into your hand. Otherwise, discard them and add 2 tokens to your Unlucky pool.",
       "hitpoints": 29,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "PlayCardNow", "AddTokens" ],
       "nemesisIdentifiers": [ "Setback" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -824,7 +797,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 1,
+      "complexity": 3,
       "openingLines": {
         "default": "..."
       }
@@ -959,14 +932,13 @@
       "count": 1,
       "title": "Stuntman",
       "body": [ "Foreshadow" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "4B749D",
+      "foilBackgroundColor": "4B749D",
       "character": true,
       "powers": "Draw a card. When this power is used outside your turn, draw an additional card.",
-      "hitpoints": 26,
-      "icons": [ "HasPower", "PlayCardNow" ],
-      "nemesisIdentifiers": [ "Stuntman" ],
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DrawCardNow" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",
@@ -990,9 +962,8 @@
       "count": 1,
       "title": "Tachyon",
       "body": [ "Controlled Pace" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "f26d71",
+      "foilBackgroundColor": "f26d71",
       "character": true,
       "powers": "Play the top card of your Trash. Move the top card of your Trash to the bottom of your deck.",
       "hitpoints": 26,
@@ -1021,13 +992,12 @@
       "count": 1,
       "title": "Tempest",
       "body": [ "Rising Winds" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "7accf3",
+      "foilBackgroundColor": "7accf3",
       "character": true,
       "powers": "Draw a card. Each non-Target Environment card in play deals the non-Hero Target with the highest HP 1 Projectile Damage.",
-      "hitpoints": 26,
-      "icons": [ "HasPower", "PlayCardNow" ],
+      "hitpoints": 27,
+      "icons": [ "HasPower", "DrawCardNow", "DealDamageProjectile" ],
       "nemesisIdentifiers": [ "Tempest" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -1039,7 +1009,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 2,
+      "complexity": 1,
       "openingLines": {
         "default": "Hm."
       }
@@ -1052,13 +1022,12 @@
       "count": 1,
       "title": "Unity",
       "body": [ "New Plans" ],
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "ED7BAF",
+      "foilBackgroundColor": "ED7BAF",
       "character": true,
       "powers": "Discard 3 cards. Play the Mechanical Golem with the lowest HP discarded this way. Draw 2 cards.",
-      "hitpoints": 26,
-      "icons": [ "HasPower", "PlayCardNow" ],
+      "hitpoints": 24,
+      "icons": [ "HasPower", "Discard", "PlayCardNow", "DrawCardNow" ],
       "nemesisIdentifiers": [ "Unity" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -1084,12 +1053,11 @@
       "title": "Dr. Medico",
       "body": [ "Overdose" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "FEED44",
+      "foilBackgroundColor": "FEED44",
       "powers": "2 Targets regains 1 HP. {VoidGuardDrMedico} deals all of those Targets with full health 4 Toxic Damage.",
       "hitpoints": 26,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "GainHP", "DealDamageToxic" ],
       "nemesisIdentifiers": [ "TheSentinels" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -1101,7 +1069,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 1,
+      "complexity": 3,
       "openingLines": {
         "default": "..."
       }
@@ -1115,11 +1083,10 @@
       "title": "The Idealist",
       "body": [ "Stream of Consciousness" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "6ACEF3",
+      "foilBackgroundColor": "6ACEF3",
       "powers": "Play one of your cards from under a Concept. If you do not, play the top card of your deck.",
-      "hitpoints": 20,
+      "hitpoints": 23,
       "icons": [ "HasPower" ],
       "nemesisIdentifiers": [ "TheSentinels" ],
       "incapacitatedAbilities": [
@@ -1132,7 +1099,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 1,
+      "complexity": 3,
       "openingLines": {
         "default": "..."
       }
@@ -1152,14 +1119,9 @@
       "powers": [
         "Draw a card. Until the start of your next turn, whenever exactly 1 Damage would be dealt to {VoidGuardMainstayCharacter}, prevent that damage."
       ],
-      "icons": [
-        "HasPower",
-        "ReduceDamageTaken"
-      ],
-      "hitpoints": 29,
-      "nemesisIdentifiers": [
-        "TheSentinels"
-      ],
+      "icons": [ "HasPower", "DrawCardNow", "CancelledDamageGreen" ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [ "TheSentinels" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",
@@ -1184,11 +1146,10 @@
       "title": "Writhe",
       "body": [ "Amorphous Gear" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "889195",
+      "foilBackgroundColor": "889195",
       "powers": "Reveal cards from the top of your deck until you reveal an Equipment, play it, and shuffle the rest of the revealed cards into your deck.",
-      "hitpoints": 20,
+      "hitpoints": 25,
       "icons": [ "HasPower" ],
       "nemesisIdentifiers": [ "TheSentinels" ],
       "incapacitatedAbilities": [
@@ -1201,7 +1162,7 @@
         "UsePowerNow",
         "DrawCardNow"
       ],
-      "complexity": 1,
+      "complexity": 2,
       "openingLines": {
         "default": "..."
       }
@@ -1214,19 +1175,15 @@
       "count": 1,
       "title": "The Visionary",
       "body": "Prophesize Doom",
-      "backgroundColor": "C87243",
-      "foilBackgroundColor": "C87243",
+      "backgroundColor": "bf7bb4",
+      "foilBackgroundColor": "bf7bb4",
       "character": true,
       "powers": [
         "If there are at least 2 cards beneath this card, destroy all cards beneath this card and the environment deals 1 Target 4 Projectile Damage. Otherwise, move the top 2 cards of your deck beneath this card and play a card from beneath this card. "
       ],
-      "icons": [
-        "HasPower"
-      ],
+      "icons": [ "HasPower", "DealDamageProjectile", "Manipulate", "PlayCardNow" ],
       "hitpoints": 26,
-      "nemesisIdentifiers": [
-        "TheSentinels"
-      ],
+      "nemesisIdentifiers": [ "TheVisionary" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",
@@ -1251,11 +1208,10 @@
       "title": "The Wraith",
       "body": [ "Improvised Gear" ],
       "character": true,
-      "backgroundColor": "86BB71",
-      "foilBackgroundColor": "86BB71",
-      "hitpointsColor": "F6AD41",
+      "backgroundColor": "8a69ad",
+      "foilBackgroundColor": "8a69ad",
       "powers": "Play a card. If that card has a Power, immediately use its Power twice, then destroy it.",
-      "hitpoints": 29,
+      "hitpoints": 25,
       "icons": [ "HasPower" ],
       "nemesisIdentifiers": [ "TheWraith" ],
       "incapacitatedAbilities": [
