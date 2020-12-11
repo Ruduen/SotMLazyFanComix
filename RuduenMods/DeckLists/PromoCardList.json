@@ -448,7 +448,7 @@
       "foilBackgroundColor": "EA3F3D",
       "powers": "Flip a face-down Card in your play area, treating it as if it were just put into play. Until the end of your next turn, when one of your Equipment cards would be destroyed, flip it face-down instead.",
       "hitpoints": 30,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "FlipFaceDown", "FlipFaceUp" ],
       "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -599,7 +599,7 @@
       "foilBackgroundColor": "BA7848",
       "powers": "Draw a card. Play a card. Select one of {gazelle}, {rhinoceros} or {crocodile} that the played card has in its text. Until after the next time you use a power, you may activate that icon's effects.",
       "hitpoints": 28,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "TheNaturalist" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -1087,7 +1087,7 @@
       "foilBackgroundColor": "6ACEF3",
       "powers": "Play one of your cards from under a Concept. If you do not, play the top card of your deck.",
       "hitpoints": 23,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "PlayCardNow" ],
       "nemesisIdentifiers": [ "TheSentinels" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -1150,7 +1150,7 @@
       "foilBackgroundColor": "889195",
       "powers": "Reveal cards from the top of your deck until you reveal an Equipment, play it, and shuffle the rest of the revealed cards into your deck.",
       "hitpoints": 25,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "PlayCardNow" ],
       "nemesisIdentifiers": [ "TheSentinels" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -1212,7 +1212,7 @@
       "foilBackgroundColor": "8a69ad",
       "powers": "Play a card. If that card has a Power, immediately use its Power twice, then destroy it.",
       "hitpoints": 25,
-      "icons": [ "HasPower" ],
+      "icons": [ "HasPower", "PlayCardNow", "UsePowerNow", "DestroyCard" ],
       "nemesisIdentifiers": [ "TheWraith" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
