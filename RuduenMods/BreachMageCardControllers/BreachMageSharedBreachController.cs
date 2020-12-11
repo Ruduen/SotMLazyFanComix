@@ -91,5 +91,24 @@ namespace RuduenWorkshop.BreachMage
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
+
+        // Make this card indestructible if any other card asks. This is true on both sides!
+        public override bool AskIfCardIsIndestructible(Card card)
+        {
+            return card == this.Card;
+        }
+        
+        // One spell per breach!
+        public override bool CanOtherCardGoNextToThisCard(Card card)
+        {
+            return !card.IsSpell || this.GetNumberOfSpellCardsNextToThisCard() < 1;
+        }
+
+        private int GetNumberOfSpellCardsNextToThisCard()
+        {
+            return (from c in this.Card.NextToLocation.Cards
+                    where c.IsSpell
+                    select c).Count<Card>();
+        }
     }
 }

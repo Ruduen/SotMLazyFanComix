@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace RuduenWorkshop.BreachMage
 {
-    public class HauntingEchoCardController : BreachMageSpellSharedCardController
+    public class HauntingEchoCardController : BreachMageSharedSpellCardController
     {
         public HauntingEchoCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
