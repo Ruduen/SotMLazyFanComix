@@ -16,7 +16,7 @@
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
@@ -76,7 +76,21 @@
     <Compile Include="CassieCardControllers\StreamSurgeCardController.cs" />
     <Compile Include="CassieCardControllers\WaterlogCardController.cs" />
     <Compile Include="CassieCardControllers\WaterSurgeCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TempestRisingWindsCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardDrMedicoOverdoseCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardTheIdealistStreamOfConsciousnessCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardWritheAmorphousGearCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\BunkerModeShiftCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SetbackDoubleOrNothingCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheWraithImprovisedGearCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheScholarEquilibriumCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\RaPiercingBlastCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\UnityNewPlansCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\StuntmanForeshadowCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheVisionaryProphesizeDoomCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SkyScraperConsistentTinyCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SkyScraperConsistentHugeCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SkyScraperConsistentNormalCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheNaturalistVolatileFormCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LuminaryReprogramCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LifelineEnergyTapCharacterCardController.cs" />

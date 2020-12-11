@@ -666,7 +666,6 @@ namespace RuduenModsTest
         [Test()]
         public void TestLifelineNormalHit()
         {
-            // Tool in hand.
             SetupGameController("BaronBlade", "Lifeline/RuduenWorkshop.LifelineEnergyTapCharacter", "Legacy", "Megalopolis");
             Assert.IsTrue(lifeline.CharacterCard.IsPromoCard);
 
@@ -684,7 +683,6 @@ namespace RuduenModsTest
         [Test()]
         public void TestLifelineRedirectedHit()
         {
-            // Tool in hand.
             SetupGameController("BaronBlade", "Lifeline/RuduenWorkshop.LifelineEnergyTapCharacter", "Legacy", "Tachyon", "Megalopolis");
             Assert.IsTrue(lifeline.CharacterCard.IsPromoCard);
 
@@ -1241,6 +1239,186 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestRaNormalPiercingHit()
+        {
+            SetupGameController("BaronBlade", "Ra/RuduenWorkshop.RaPiercingBlastCharacter", "TheBlock");
+            Assert.IsTrue(ra.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            PutIntoPlay("DefensiveDisplacement");
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            UsePower(ra);
+            QuickHPCheck(-1); // 1 Piercing Damage.
+        }
+
+        [Test()]
+        public void TestRaNormalPiercingDestroy()
+        {
+            SetupGameController("BaronBlade", "Ra/RuduenWorkshop.RaPiercingBlastCharacter", "TheBlock");
+            Assert.IsTrue(ra.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DealDamage(mdp, mdp, 9, DamageType.Energy);
+
+            DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard };
+
+            PutIntoPlay("DefensiveDisplacement");
+
+            QuickHPStorage(baron.CharacterCard);
+            UsePower(ra);
+            AssertInTrash(mdp); // MDP destroyed.
+            QuickHPCheck(-1); // 1 Piercing Damage from repeat. 
+        }
+
+        [Test()]
+        public void TestRaNormalPiercingDestroyRedirect()
+        {
+            SetupGameController("BaronBlade", "Ra/RuduenWorkshop.RaPiercingBlastCharacter", "MrFixer", "TheBlock");
+            Assert.IsTrue(ra.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DealDamage(mdp, mdp, 9, DamageType.Energy);
+
+            DecisionSelectCards = new Card[] { fixer.CharacterCard, mdp, baron.CharacterCard };
+
+            PutIntoPlay("DefensiveDisplacement");
+            PutIntoPlay("DrivingMantis");
+
+            QuickHPStorage(fixer.CharacterCard, baron.CharacterCard);
+            UsePower(ra);
+            AssertInTrash(mdp); // MDP destroyed.
+            QuickHPCheck(0, -1); // 1 Piercing Damage from repeat. 
+        }
+
+        [Test()]
+        public void TestScholarNoElemental()
+        {
+            SetupGameController("BaronBlade", "TheScholar/RuduenWorkshop.TheScholarEquilibriumCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(scholar.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            UsePower(legacy);
+
+            QuickHPStorage(scholar);
+            QuickHandStorage(scholar);
+            UsePower(scholar);
+            QuickHandCheck(1);
+            QuickHPCheck(-1); // 1 damage dealt for 0+1.
+        }
+
+        [Test()]
+        public void TestScholarElemental()
+        {
+            SetupGameController("BaronBlade", "TheScholar/RuduenWorkshop.TheScholarEquilibriumCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(scholar.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            UsePower(legacy);
+            PutIntoPlay("SolidToLiquid");
+
+            QuickHPStorage(scholar);
+            QuickHandStorage(scholar);
+            UsePower(scholar);
+            QuickHandCheck(2);
+            QuickHPCheck(-2); // 2 damage dealt for 1+1.
+        }
+
+        [Test()]
+        public void TestSetbackNoMatch()
+        {
+            SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackDoubleOrNothingCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(setback.CharacterCard.IsPromoCard);
+
+            StartGame();
+            Card play = PutInHand("FriendlyFire");
+            Card[] bottom = new Card[] {
+                PutOnDeck("ExceededExpectations", true),
+                PutOnDeck("HighRiskBehavior", true)
+            };
+
+            DecisionSelectCardToPlay = play;
+
+            QuickHandStorage(setback);
+            UsePower(setback);
+            AssertIsInPlay(play); // Played ongoing card is in play. 
+            QuickHandCheck(-1); // 1 card played, 0 drawn.
+            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 2); // 2 tokens added. 
+            AssertInTrash(bottom);
+        }
+
+        [Test()]
+        public void TestSetbackMatch()
+        {
+            SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackDoubleOrNothingCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(setback.CharacterCard.IsPromoCard);
+
+            StartGame();
+            Card play = PutInHand("FriendlyFire");
+            Card[] bottom = new Card[] {
+                PutOnDeck("ExceededExpectations", true),
+                PutOnDeck("CashOut", true)
+            };
+
+            DecisionSelectCardToPlay = play;
+
+            QuickHandStorage(setback);
+            UsePower(setback);
+            AssertIsInPlay(play); // Played ongoing card is in play. 
+            QuickHandCheck(1); // 1 card played, 1 drawn.
+            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 0); // 0 tokens added. 
+            AssertInHand(bottom);
+        }
+
+        [Test()]
+        public void TestSkyScraper()
+        {
+            SetupGameController("BaronBlade", "SkyScraper/RuduenWorkshop.SkyScraperConsistentNormalCharacter", "Megalopolis");
+            Assert.IsTrue(sky.CharacterCard.IsPromoCard);
+
+            StartGame();
+        }
+
+        [Test()]
+        public void TestStuntmanOnTurn()
+        {
+            SetupGameController("BaronBlade", "Stuntman/RuduenWorkshop.StuntmanForeshadowCharacter", "Megalopolis");
+            Assert.IsTrue(stunt.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            GoToUsePowerPhase(stunt);
+
+            QuickHandStorage(stunt);
+            UsePower(stunt);
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestStuntmanOffTurn()
+        {
+            SetupGameController("BaronBlade", "Stuntman/RuduenWorkshop.StuntmanForeshadowCharacter", "Megalopolis");
+            Assert.IsTrue(stunt.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            QuickHandStorage(stunt);
+            UsePower(stunt);
+            QuickHandCheck(2);
+        }
+
+        [Test()]
         public void TestTachyonControlledPacePowerNoTrash()
         {
             SetupGameController("BaronBlade", "Tachyon/RuduenWorkshop.TachyonControlledPaceCharacter", "TheBlock");
@@ -1297,6 +1475,285 @@ namespace RuduenModsTest
             AssertPhaseActionCount(0); // Powers used.
 
             AssertOnBottomOfDeck(tachyon, oneshot);
+        }
+
+        [Test()]
+        public void TestTempestNoEnvironmentNonTarget()
+        {
+            SetupGameController("BaronBlade", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            PutIntoPlay("PlummetingMonorail");
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            DestroyCard(GetCardInPlay("MobileDefensePlatform"));
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(baron);
+            UsePower(tempest);
+            QuickHPCheck(0); //No hits due to no environment non-Targets.
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestTempestEnvironmentNonTarget()
+        {
+            SetupGameController("BaronBlade", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            PutIntoPlay("PoliceBackup");
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            DestroyCard( GetCardInPlay("MobileDefensePlatform"));
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(baron);
+            UsePower(tempest);
+            QuickHPCheck(-1); // 1 hits due to no environment non-Targets.
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestTempestDestroyedLaterEnvironmentNonTarget()
+        {
+            SetupGameController("TheDreamer", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Unity", "MrFixer", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets. 
+
+            // Make fixer lowest for Dreamer redirect. 
+            DealDamage(fixer, fixer.CharacterCard, 15, DamageType.Melee);
+
+            PutIntoPlay("DrivingMantis");
+            Card bee = PutIntoPlay("BeeBot");
+            Card shootsFirst = PutIntoPlay("PoliceBackup");
+            Card destroyed = PutIntoPlay("HostageSituation");
+
+            DecisionsYesNo = new bool[] { true, false };
+
+            DecisionSelectCards = new Card[] { shootsFirst, bee, null, destroyed };
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(dreamer);
+            UsePower(tempest);
+            QuickHPCheck(0); // 0 Damage - first hit was redirected, second should've been cancelled. 
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestTempestDestroyedEarlierEnvironmentNonTarget()
+        {
+            SetupGameController("TheDreamer", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Unity", "MrFixer", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets. 
+
+            // Make fixer lowest for Dreamer redirect. 
+            DealDamage(fixer, fixer.CharacterCard, 15, DamageType.Melee);
+
+            PutIntoPlay("DrivingMantis");
+            Card bee = PutIntoPlay("BeeBot");
+            Card shootsFirst = PutIntoPlay("PoliceBackup");
+            PutIntoPlay("HostageSituation");
+
+            DecisionsYesNo = new bool[] { true, false };
+
+            DecisionSelectCards = new Card[] { shootsFirst, bee, null, shootsFirst };
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(dreamer);
+            UsePower(tempest);
+            QuickHPCheck(-1); // 1 Damage - first hit was redirected, second was successful.
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestUnityNoGolemsDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand("ConstructionPylon")
+            };
+
+            StartGame();
+            AssertNextMessage("No appropriate Mechanical Golems were discarded, so none cannot be played.");
+            UsePower(unity);
+            AssertExpectedMessageWasShown();
+            AssertInTrash(cards); // Discarded all that were in hand.
+            AssertNotInPlay((Card c) => c.IsMechanicalGolem); // No mechanical golems in play. 
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+        }
+
+        [Test()]
+        public void TestUnityGolemDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand("ConstructionPylon"),
+                PutInHand("RaptorBot")
+            };
+
+            StartGame();
+            UsePower(unity);
+            AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
+            AssertIsInPlay(cards[2]); // Chomps in play!
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+        }
+
+        [Test()]
+        public void TestUnityTwoGolemDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand(unity, "RaptorBot", 0),
+                PutInHand(unity, "RaptorBot", 1)
+            };
+
+            DecisionSelectCardToPlay = cards[1];
+            UsePower(unity);
+            AssertInTrash(cards[0], cards[2]); // Discarded all that were in hand.
+            AssertIsInPlay(cards[1]); // Chomps in play! Yes, only ties that require choice are the same bot! 
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+        }
+
+        [Test()]
+        public void TestUnitySmallestGolemDiscarded()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DiscardAllCards(unity);
+
+            Card[] cards = new Card[]
+            {
+                PutInHand("Brainstorm"),
+                PutInHand("RaptorBot"),
+                PutInHand("BeeBot")
+            };
+
+            UsePower(unity);
+            AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
+            AssertIsInPlay(cards[2]); // Bees in play, no decision to make.
+            AssertNoDecision(); // Smallest was auto-detected, no choice was necessary.
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+        }
+
+
+
+        [Test()]
+        public void TestVoidGuardIdealistNoConceptCards()
+        {
+            SetupGameController("BaronBlade", "VoidGuardTheIdealist/RuduenWorkshop.VoidGuardTheIdealistStreamOfConsciousnessCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(voidIdealist.CharacterCard.IsPromoCard);
+
+            Card card = PutOnDeck("FlyingStabbyKnives");
+
+            UsePower(voidIdealist);
+            AssertIsInPlay(card);
+        }
+
+        [Test()]
+        public void TestVoidGuardMedicoNormalChecks()
+        {
+            SetupGameController("BaronBlade", "VoidGuardDrMedico/RuduenWorkshop.VoidGuardDrMedicoOverdoseCharacter", "Megalopolis");
+            Assert.IsTrue(voidMedico.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DealDamage(voidMedico, voidMedico.CharacterCard, 5, DamageType.Melee);
+
+            DecisionSelectCards = new Card[] { voidMedico.CharacterCard, mdp };
+
+            QuickHPStorage(voidMedico.CharacterCard, mdp);
+            UsePower(voidMedico);
+            QuickHPCheck(1, -4); // One successful heal, 1 max HP target damaged.
+        }
+
+        [Test()]
+        public void TestVoidGuardMedicoTargetWasDamaged()
+        {
+            SetupGameController("BaronBlade", "VoidGuardDrMedico/RuduenWorkshop.VoidGuardDrMedicoOverdoseCharacter", "Tachyon", "Megalopolis");
+            Assert.IsTrue(voidMedico.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            PutIntoPlay("SynapticInterruption");
+
+            // First heal/damage Medico and MDP, then redirect to MDP so it no longer qualifies. What happens? 
+            DecisionSelectCards = new Card[] { tachyon.CharacterCard, mdp , tachyon.CharacterCard, mdp, mdp};
+
+            QuickHPStorage(tachyon.CharacterCard, mdp);
+            UsePower(voidMedico);
+            QuickHPCheck(0, -4); // One successful heal, 1 max HP target damaged.
+        }
+
+        [Test()]
+        public void TestVoidGuardIdealistConceptCards()
+        {
+            SetupGameController("BaronBlade", "VoidGuardTheIdealist/RuduenWorkshop.VoidGuardTheIdealistStreamOfConsciousnessCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(voidIdealist.CharacterCard.IsPromoCard);
+
+            Card top=PutOnDeck("MonsterOfId"); // Remove from deck so damage doesn't warp tests.
+            Card concept = PutIntoPlay("FlyingStabbyKnives");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCard = concept;
+
+            Card fragment = PutIntoPlay("HedgyHogs");
+
+            QuickHPStorage(mdp);
+            UsePower(voidIdealist);
+            QuickHPCheck(-2); // Damaged by play. 
+            AssertUnderCard(concept, fragment); // Moved back under the concept.
+            AssertOnTopOfDeck(top); // Not played. 
         }
 
         [Test()]
@@ -1364,6 +1821,89 @@ namespace RuduenModsTest
             DealDamage(guise, guise, 2, DamageType.Melee); // -1 from Numerology, then prevent. Numerology only works on cards in Guise's play area!
             QuickHandCheck(0); // Played and drawn.
             QuickHPCheck(0); // Prevented.
+        }
+
+        [Test()]
+        public void TestVoidGuardWrithe()
+        {
+            SetupGameController("BaronBlade", "VoidGuardWrithe/RuduenWorkshop.VoidGuardWritheAmorphousGearCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(voidWrithe.CharacterCard.IsPromoCard);
+
+            // Set equipment so no unusual ones are used.
+            Card card = PutOnDeck("TheShadowCloak");
+
+            UsePower(voidWrithe);
+            AssertIsInPlay(card);
+        }
+
+        [Test()]
+        public void TestVisionary()
+        {
+            SetupGameController("BaronBlade", "Legacy", "TheVisionary/RuduenWorkshop.TheVisionaryProphesizeDoomCharacter", "Megalopolis");
+
+            Assert.IsTrue(visionary.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+
+            // Stack with mind spikes for simplicity. 
+            PutOnDeck(visionary, FindCardsWhere((Card c) => c.Identifier == "MindSpike"));
+
+            UsePower(legacy);
+            UsePower(legacy);
+
+            DecisionSelectTarget = baron.CharacterCard;
+
+            AssertHitPoints(baron, 40);
+            UsePower(visionary);
+            AssertHitPoints(baron, 35); // Spike 1. 
+            UsePower(visionary);
+            AssertHitPoints(baron, 30); // Spike 2. 
+            UsePower(visionary);
+            AssertHitPoints(baron, 26); // Environment hit. Not Legacy boosted.
+        }
+
+
+        [Test()]
+        public void TestWraithPlaySafe()
+        {
+            SetupGameController("BaronBlade", "TheWraith/RuduenWorkshop.TheWraithImprovisedGearCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(wraith.CharacterCard.IsPromoCard);
+
+            Card card = PutInHand("MegaComputer");
+
+            DecisionSelectCard = card;
+
+            UsePower(wraith);
+            AssertIsInPlay(card);
+        }
+
+        [Test()]
+        public void TestWraithPlayPower()
+        {
+            SetupGameController("BaronBlade", "TheWraith/RuduenWorkshop.TheWraithImprovisedGearCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(wraith.CharacterCard.IsPromoCard);
+
+            Card card = PutInHand("StunBolt");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCard = card;
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            UsePower(wraith);
+            AssertInTrash(card);
+            QuickHPCheck(-2); // Bolted twice. 
         }
     }
 }

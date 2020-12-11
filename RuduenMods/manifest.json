@@ -16,8 +16,8 @@
     "AbsoluteZero": [ "AbsoluteZeroOverchillCharacter" ],
     "AkashThriya": [ "AkashThriyaSeedRotationCharacter" ],
     "TheArgentAdept": [ "TheArgentAdeptAriaCharacter" ],
-    "Bunker": [ "BunkerFullSalvoCharacter", "BunkerModeShiftCharacter" ],
     "Benchmark": [ "BenchmarkDownloadManagerCharacter" ],
+    "Bunker": [ "BunkerFullSalvoCharacter", "BunkerModeShiftCharacter" ],
     "CaptainCosmic": [ "CaptainCosmicCosmicShieldingCharacter" ],
     "ChronoRanger": [ "ChronoRangerHighNoonCharacter" ],
     "Expatriette": [ "ExpatrietteQuickShotCharacter" ],
@@ -30,12 +30,27 @@
     "Legacy": [ "LegacyInTheFrayCharacter" ],
     "Lifeline": [ "LifelineEnergyTapCharacter" ],
     "Luminary": [ "LuminaryReprogramCharacter" ],
-    "TheNaturalist": [ "TheNaturalistVolatileFormCharacter" ],
     "MrFixer": [ "MrFixerFlowingStrikeCharacter" ],
+    "TheNaturalist": [ "TheNaturalistVolatileFormCharacter" ],
     "NightMist": [ "NightMistLimitedNumerologyCharacter" ],
     "OmnitronX": [ "OmnitronXElectroShieldedSystemsCharacter" ],
     "Parse": [ "ParseLaplaceShotCharacter" ],
+    "Ra": [ "RaPiercingBlastCharacter" ],
+    "TheScholar": [ "TheScholarEquilibriumCharacter" ],
+    "Setback": [ "SetbackDoubleOrNothingCharacter" ],
+    "Stuntman": [ "StuntmanForeshadowCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
-    "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ]
+    "Unity": [ "UnityNewPlansCharacter" ],
+    "TheVisionary": [ "TheVisionaryProphesizeDoomCharacter" ],
+    "Tempest": [ "TempestRisingWindsCharacter" ],
+    "VoidGuardDrMedico": [ "VoidGuardDrMedicoOverdoseCharacter" ],
+    "VoidGuardTheIdealist": [ "VoidGuardTheIdealistStreamOfConsciousnessCharacter" ],
+    "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ],
+    "VoidGuardWrithe": [ "VoidGuardWritheAmorphousGearCharacter" ],
+    "TheWraith": [ "TheWraithImprovisedGearCharacter" ]
+  },
+  "devVariants": {
+    "SkyScraper": [ "SkyScraperConsistentCharacter" ],
+    "SkyScraperNotes": "Adding all characters only inserts one character and they swap back to normal. No clean way of implementing the unified character. So, this is dummied out."
   }
 }

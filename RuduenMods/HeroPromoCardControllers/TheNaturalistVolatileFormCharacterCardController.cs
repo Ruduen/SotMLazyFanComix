@@ -22,8 +22,12 @@ namespace RuduenWorkshop.TheNaturalist
             IEnumerator coroutine;
             List<PlayCardAction> storedResultsPlay = new List<PlayCardAction>();
 
-            // You may play a card.
-            coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, storedResults: storedResultsPlay, cardSource: this.GetCardSource());
+            // Draw a card.
+            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Play a card.
+            coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, false, storedResults: storedResultsPlay, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // A successful play means performing check logic for each of the three symbols on text.
@@ -68,10 +72,6 @@ namespace RuduenWorkshop.TheNaturalist
                     }
                 }
             }
-
-            // Draw a card.
-            coroutine = this.DrawCards(this.DecisionMaker, 1);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         private bool CardHasIconText(Card card, string icon)
