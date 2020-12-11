@@ -76,8 +76,12 @@
     <Compile Include="CassieCardControllers\StreamSurgeCardController.cs" />
     <Compile Include="CassieCardControllers\WaterlogCardController.cs" />
     <Compile Include="CassieCardControllers\WaterSurgeCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardDrMedicoOverdoseCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardTheIdealistStreamOfConsciousnessCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardWritheAmorphousGearCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\BunkerModeShiftCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SetbackDoubleOrNothingCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheWraithImprovisedGearCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheScholarEquilibriumCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\RaPiercingBlastCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\UnityNewPlansCharacterCardController.cs" />

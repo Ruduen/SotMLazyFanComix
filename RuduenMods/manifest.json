@@ -40,9 +40,13 @@
     "TheScholar": [ "TheScholarEquilibriumCharacter" ],
     "Setback": [ "SetbackDoubleOrNothingCharacter" ],
     "Stuntman": [ "StuntmanForeshadowCharacter" ],
+    "VoidGuardDrMedico": [ "VoidGuardDrMedicoOverdoseCharacter" ],
+    "VoidGuardTheIdealist": [ "VoidGuardTheIdealistStreamOfConsciousnessCharacter" ],
     "VoidGuardMainstay": [ "VoidGuardMainstayShrugItOffCharacter" ],
+    "VoidGuardWrithe": [ "VoidGuardWritheAmorphousGearCharacter" ],
     "Unity": [ "UnityNewPlansCharacter" ],
-    "TheVisionary": [ "TheVisionaryProphesizeDoomCharacter" ]
+    "TheVisionary": [ "TheVisionaryProphesizeDoomCharacter" ],
+    "TheWraith": [ "TheWraithImprovisedGearCharacter" ]
   },
   "devVariants": {
     "SkyScraper": [ "SkyScraperConsistentCharacter" ],

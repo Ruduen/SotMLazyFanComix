@@ -1570,6 +1570,84 @@ namespace RuduenModsTest
             AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
         }
 
+
+
+        [Test()]
+        public void TestVoidGuardIdealistNoConceptCards()
+        {
+            SetupGameController("BaronBlade", "VoidGuardTheIdealist/RuduenWorkshop.VoidGuardTheIdealistStreamOfConsciousnessCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(voidIdealist.CharacterCard.IsPromoCard);
+
+            Card card = PutOnDeck("FlyingStabbyKnives");
+
+            UsePower(voidIdealist);
+            AssertIsInPlay(card);
+        }
+
+        [Test()]
+        public void TestVoidGuardMedicoNormalChecks()
+        {
+            SetupGameController("BaronBlade", "VoidGuardDrMedico/RuduenWorkshop.VoidGuardDrMedicoOverdoseCharacter", "Megalopolis");
+            Assert.IsTrue(voidMedico.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DealDamage(voidMedico, voidMedico.CharacterCard, 5, DamageType.Melee);
+
+            DecisionSelectCards = new Card[] { voidMedico.CharacterCard, mdp };
+
+            QuickHPStorage(voidMedico.CharacterCard, mdp);
+            UsePower(voidMedico);
+            QuickHPCheck(1, -4); // One successful heal, 1 max HP target damaged.
+        }
+
+        [Test()]
+        public void TestVoidGuardMedicoTargetWasDamaged()
+        {
+            SetupGameController("BaronBlade", "VoidGuardDrMedico/RuduenWorkshop.VoidGuardDrMedicoOverdoseCharacter", "Tachyon", "Megalopolis");
+            Assert.IsTrue(voidMedico.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            PutIntoPlay("SynapticInterruption");
+
+            // First heal/damage Medico and MDP, then redirect to MDP so it no longer qualifies. What happens? 
+            DecisionSelectCards = new Card[] { tachyon.CharacterCard, mdp , tachyon.CharacterCard, mdp, mdp};
+
+            QuickHPStorage(tachyon.CharacterCard, mdp);
+            UsePower(voidMedico);
+            QuickHPCheck(0, -4); // One successful heal, 1 max HP target damaged.
+        }
+
+        [Test()]
+        public void TestVoidGuardIdealistConceptCards()
+        {
+            SetupGameController("BaronBlade", "VoidGuardTheIdealist/RuduenWorkshop.VoidGuardTheIdealistStreamOfConsciousnessCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(voidIdealist.CharacterCard.IsPromoCard);
+
+            Card top=PutOnDeck("MonsterOfId"); // Remove from deck so damage doesn't warp tests.
+            Card concept = PutIntoPlay("FlyingStabbyKnives");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCard = concept;
+
+            Card fragment = PutIntoPlay("HedgyHogs");
+
+            QuickHPStorage(mdp);
+            UsePower(voidIdealist);
+            QuickHPCheck(-2); // Damaged by play. 
+            AssertUnderCard(concept, fragment); // Moved back under the concept.
+            AssertOnTopOfDeck(top); // Not played. 
+        }
+
         [Test()]
         public void TestVoidGuardMainstay()
         {
@@ -1638,6 +1716,22 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestVoidGuardWrithe()
+        {
+            SetupGameController("BaronBlade", "VoidGuardWrithe/RuduenWorkshop.VoidGuardWritheAmorphousGearCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(voidWrithe.CharacterCard.IsPromoCard);
+
+            // Set equipment so no unusual ones are used.
+            Card card = PutOnDeck("TheShadowCloak");
+
+            UsePower(voidWrithe);
+            AssertIsInPlay(card);
+        }
+
+        [Test()]
         public void TestVisionary()
         {
             SetupGameController("BaronBlade", "Legacy", "TheVisionary/RuduenWorkshop.TheVisionaryProphesizeDoomCharacter", "Megalopolis");
@@ -1663,6 +1757,45 @@ namespace RuduenModsTest
             AssertHitPoints(baron, 30); // Spike 2. 
             UsePower(visionary);
             AssertHitPoints(baron, 26); // Environment hit. Not Legacy boosted.
+        }
+
+
+        [Test()]
+        public void TestWraithPlaySafe()
+        {
+            SetupGameController("BaronBlade", "TheWraith/RuduenWorkshop.TheWraithImprovisedGearCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(wraith.CharacterCard.IsPromoCard);
+
+            Card card = PutInHand("MegaComputer");
+
+            DecisionSelectCard = card;
+
+            UsePower(wraith);
+            AssertIsInPlay(card);
+        }
+
+        [Test()]
+        public void TestWraithPlayPower()
+        {
+            SetupGameController("BaronBlade", "TheWraith/RuduenWorkshop.TheWraithImprovisedGearCharacter", "TheBlock");
+
+            StartGame();
+
+            Assert.IsTrue(wraith.CharacterCard.IsPromoCard);
+
+            Card card = PutInHand("StunBolt");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCard = card;
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            UsePower(wraith);
+            AssertInTrash(card);
+            QuickHPCheck(-2); // Bolted twice. 
         }
     }
 }

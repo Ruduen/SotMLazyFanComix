@@ -47,7 +47,7 @@ namespace RuduenWorkshop.TheVisionary
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // Play one of the cards under/below this. Yes, both must be checked based on Omnicannon.
-                coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.Card.UnderLocation || c.Location == this.Card.BelowLocation);
+                coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.Card.UnderLocation || c.Location == this.Card.BelowLocation, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             }
