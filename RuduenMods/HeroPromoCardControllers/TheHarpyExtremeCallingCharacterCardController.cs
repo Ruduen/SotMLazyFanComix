@@ -14,8 +14,8 @@ namespace RuduenWorkshop.TheHarpy
         {
             TokenPool arcanaPool = base.Card.FindTokenPool(TokenPool.ArcanaControlPool);
             TokenPool avianPool = base.Card.FindTokenPool(TokenPool.AvianControlPool);
-            this.SpecialStringMaker.ShowSpecialString(() => string.Format("The Harpy has {0} {1} and {2} {3} control tokens.",
-                new object[] { arcanaPool.CurrentValue, "{arcana}", avianPool.CurrentValue, "{avian}" }),
+            this.SpecialStringMaker.ShowSpecialString(() => string.Format("{0} has {1} {2} and {3} {4} control tokens.",
+                new object[] { this.Card.AlternateTitleOrTitle, arcanaPool.CurrentValue, "{arcana}", avianPool.CurrentValue, "{avian}" }),
                 null, null);
         }
 

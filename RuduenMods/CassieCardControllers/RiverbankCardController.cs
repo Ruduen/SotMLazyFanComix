@@ -11,8 +11,29 @@ namespace RuduenWorkshop.Cassie
     {
         public RiverbankCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
-            this.SpecialStringMaker.ShowNumberOfCardsUnderCard(this.Card, () => true);
+            this.SpecialStringMaker.ShowSpecialString(() => string.Format("The cards under this are: {0}",
+                new object[] { CardsAndCostsUnder() }),
+                null, null);
             this.AddThisCardControllerToList(CardControllerListType.MakesIndestructible);
+        }
+
+        public string CardsAndCostsUnder()
+        {
+            string cardStr = "";
+            foreach (Card card in this.Card.UnderLocation.Cards)
+            {
+                if (cardStr != "") { cardStr += ", "; }
+                cardStr += card.AlternateTitleOrTitle;
+                if (card.FindTokenPool("CassieCostPool").MaximumValue != null)
+                {
+                    cardStr += " (Aqua Cost " + card.FindTokenPool("CassieCostPool").MaximumValue + ")";
+                }
+            }
+            if (cardStr == "")
+            {
+                cardStr = "None";
+            }
+            return cardStr;
         }
 
         public override void AddTriggers()
