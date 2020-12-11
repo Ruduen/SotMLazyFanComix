@@ -76,6 +76,7 @@
     <Compile Include="CassieCardControllers\StreamSurgeCardController.cs" />
     <Compile Include="CassieCardControllers\WaterlogCardController.cs" />
     <Compile Include="CassieCardControllers\WaterSurgeCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TempestRisingWindsCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\VoidGuardDrMedicoOverdoseCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\VoidGuardTheIdealistStreamOfConsciousnessCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\VoidGuardWritheAmorphousGearCharacterCardController.cs" />

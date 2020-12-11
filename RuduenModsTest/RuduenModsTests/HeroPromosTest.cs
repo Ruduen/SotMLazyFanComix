@@ -1478,6 +1478,114 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestTempestNoEnvironmentNonTarget()
+        {
+            SetupGameController("BaronBlade", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            PutIntoPlay("PlummetingMonorail");
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            DestroyCard(GetCardInPlay("MobileDefensePlatform"));
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(baron);
+            UsePower(tempest);
+            QuickHPCheck(0); //No hits due to no environment non-Targets.
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestTempestEnvironmentNonTarget()
+        {
+            SetupGameController("BaronBlade", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            PutIntoPlay("PoliceBackup");
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            DestroyCard( GetCardInPlay("MobileDefensePlatform"));
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(baron);
+            UsePower(tempest);
+            QuickHPCheck(-1); // 1 hits due to no environment non-Targets.
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestTempestDestroyedLaterEnvironmentNonTarget()
+        {
+            SetupGameController("TheDreamer", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Unity", "MrFixer", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets. 
+
+            // Make fixer lowest for Dreamer redirect. 
+            DealDamage(fixer, fixer.CharacterCard, 15, DamageType.Melee);
+
+            PutIntoPlay("DrivingMantis");
+            Card bee = PutIntoPlay("BeeBot");
+            Card shootsFirst = PutIntoPlay("PoliceBackup");
+            Card destroyed = PutIntoPlay("HostageSituation");
+
+            DecisionsYesNo = new bool[] { true, false };
+
+            DecisionSelectCards = new Card[] { shootsFirst, bee, null, destroyed };
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(dreamer);
+            UsePower(tempest);
+            QuickHPCheck(0); // 0 Damage - first hit was redirected, second should've been cancelled. 
+            QuickHandCheck(1);
+        }
+
+        [Test()]
+        public void TestTempestDestroyedEarlierEnvironmentNonTarget()
+        {
+            SetupGameController("TheDreamer", "Tempest/RuduenWorkshop.TempestRisingWindsCharacter", "Legacy", "Unity", "MrFixer", "Megalopolis");
+            Assert.IsTrue(tempest.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets. 
+
+            // Make fixer lowest for Dreamer redirect. 
+            DealDamage(fixer, fixer.CharacterCard, 15, DamageType.Melee);
+
+            PutIntoPlay("DrivingMantis");
+            Card bee = PutIntoPlay("BeeBot");
+            Card shootsFirst = PutIntoPlay("PoliceBackup");
+            PutIntoPlay("HostageSituation");
+
+            DecisionsYesNo = new bool[] { true, false };
+
+            DecisionSelectCards = new Card[] { shootsFirst, bee, null, shootsFirst };
+
+            // Legacy to confirm damage is not boosted.
+            UsePower(legacy);
+
+            QuickHandStorage(tempest);
+            QuickHPStorage(dreamer);
+            UsePower(tempest);
+            QuickHPCheck(-1); // 1 Damage - first hit was redirected, second was successful.
+            QuickHandCheck(1);
+        }
+
+        [Test()]
         public void TestUnityNoGolemsDiscarded()
         {
             SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
