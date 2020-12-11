@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace RuduenWorkshop.BreachMage
 {
-    public class OpenBreachCardController : CardController
+    public class PotentBreachOldCardController : CardController
     {
-        public OpenBreachCardController(Card card, TurnTakerController turnTakerController)
+        public PotentBreachOldCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
@@ -17,7 +17,6 @@ namespace RuduenWorkshop.BreachMage
         public override void AddTriggers()
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.CastResponse), TriggerType.DestroyCard, null, false);
-            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.PlayResponse), TriggerType.PlayCard, null, false);
         }
 
         protected IEnumerator CastResponse(PhaseChangeAction phaseChange)
@@ -35,14 +34,6 @@ namespace RuduenWorkshop.BreachMage
                 coroutine = this.GameController.DestroyCard(this.DecisionMaker, storedResults.FirstOrDefault().SelectedCard);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-        }
-
-        protected IEnumerator PlayResponse(PhaseChangeAction phaseChange)
-        {
-            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, true, null,
-                 new LinqCardCriteria((Card c) => c.IsSpell, "spell", false, false, null, null, false),
-                 false, false, true, null);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

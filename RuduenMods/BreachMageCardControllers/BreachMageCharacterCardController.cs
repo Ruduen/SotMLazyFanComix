@@ -7,13 +7,13 @@ using System.Linq;
 namespace RuduenWorkshop.BreachMage
 {
     // Manually tested!
-    public class BreachMageCharacterCardController : HeroCharacterCardController
+    public class BreachMageCharacterCardController : BreachMageSharedCharacterCardController
     {
-        public string str;
 
         public BreachMageCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            BreachInitialFocus = new int[] { 4, 3, 0, 0 };
         }
 
         public override IEnumerator UsePower(int index = 0)
