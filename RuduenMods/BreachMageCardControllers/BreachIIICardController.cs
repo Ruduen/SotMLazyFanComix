@@ -25,12 +25,12 @@ namespace RuduenWorkshop.BreachMage
                 // Add damage boost if the direct source of the damage trigger was this card.
                 bool criteria(DealDamageAction dd)
                 {
-                    // Increase damage if the direct trigger of the damage was this card.
-                    return (from acs in dd.CardSource.AssociatedCardSources
-                            where acs.Card != null
-                            select acs.Card).Any((Card c) => c == this.Card);
+                    // Increase damage if the spell cast is next to this card.
+                    // TODO: Also check if the damage is from a Cast effect!
+                    return (dd.CardSource.Card.Location == this.Card.NextToLocation && dd.CardSource.Card.IsSpell);
                 }
-                this.AddIncreaseDamageTrigger(criteria, 1, null, null, false);
+                ITrigger openTrigger = this.AddIncreaseDamageTrigger(criteria, 1, null, null, false);
+                this.AddSideTrigger(openTrigger);
             }
         }
     }

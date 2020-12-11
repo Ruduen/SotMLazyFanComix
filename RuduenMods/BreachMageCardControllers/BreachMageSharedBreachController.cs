@@ -12,7 +12,7 @@ namespace RuduenWorkshop.BreachMage
         public BreachMageSharedBreachController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            this.SpecialStringMaker.ShowTokenPool(this.Card.FindTokenPool("FocusPool"), null, null).Condition = (() => base.Card.IsInPlayAndNotUnderCard && !this.Card.IsFlipped);
+            this.SpecialStringMaker.ShowTokenPool(this.Card.FindTokenPool("FocusPool"), null, null).Condition = (() => this.Card.IsInPlay && this.Card.IsFlipped);
         }
 
         public virtual IEnumerator UseOpenPower()
@@ -32,7 +32,7 @@ namespace RuduenWorkshop.BreachMage
         {
             // Break down into two powers.
             IEnumerator coroutine;
-            if (this.CardWithoutReplacements.IsFlipped)
+            if (!this.CardWithoutReplacements.IsFlipped)
             {
                 // Power to optionally play a spell. 
                 coroutine = this.UseOpenPower();
@@ -50,7 +50,7 @@ namespace RuduenWorkshop.BreachMage
             // Triggers while on a certain side. This is re-checked after flipping! 
             if (this.CardWithoutReplacements.IsInPlay)
             {
-                if (!this.CardWithoutReplacements.IsFlipped)
+                if (this.CardWithoutReplacements.IsFlipped)
                 {
                     ITrigger flipTrigger = this.AddTrigger
                         (
@@ -63,32 +63,6 @@ namespace RuduenWorkshop.BreachMage
                         flipTrigger
                     );
                 }
-                else
-                {
-                    // Otherwise, when flipped (post-flipping)
-                    this.AddSideTrigger
-                    (
-                        // add start-of-turn trigger to cast a spell
-                        this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.CastResponse), TriggerType.DestroyCard, null, false)
-                    );
-                }
-            }
-        }
-
-        protected virtual IEnumerator CastResponse(PhaseChangeAction phaseChange)
-        {
-            IEnumerator coroutine;
-            List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
-
-            // Use a Cast.
-            coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, true, this.GetCardSource(null));
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (storedResults.Count > 0)
-            {
-                // Destroy the cast card.
-                coroutine = this.GameController.DestroyCard(this.DecisionMaker, storedResults.FirstOrDefault().SelectedCard);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace RuduenWorkshop.BreachMage
 {
     // Manually tested!
-    public class FlareCascadeCardController : BreachMageSpellSharedCardController
+    public class FlareCascadeCardController : BreachMageSharedSpellCardController
     {
         public FlareCascadeCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

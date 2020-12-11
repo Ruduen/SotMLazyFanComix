@@ -13,7 +13,11 @@ namespace RuduenWorkshop.BreachMage
         public BreachMageCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            BreachInitialFocus = new int[] { 4, 3, 0, 0 };
+            BreachInitialFocus = new int[] { 0, 0, 3, 4 };
+            IEnumerable<TokenPool> focusPools = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("open breach") || c.DoKeywordsContain("closed breach", false, true)).Select((Card c) => c.FindTokenPool("FocusPool"));
+            this.SpecialStringMaker.ShowSpecialString(() => string.Format("The breaches have Focus Pools of {0}, {1}, {2}, and {3}.",
+                new object[] { focusPools.Select((TokenPool p) => p.CurrentValue.ToString()) }),
+                null, null);
         }
 
         public override IEnumerator UsePower(int index = 0)

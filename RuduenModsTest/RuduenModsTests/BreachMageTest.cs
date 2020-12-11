@@ -44,8 +44,8 @@ namespace RuduenModsTest
 
             StartGame();
 
-            IEnumerable<Card> closedBreaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("closed breach") && c.Owner == BreachMage.HeroTurnTaker &&  c.IsInPlay);
-            IEnumerable<Card> openBreaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("open breach", false, true) && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay);
+            IEnumerable<Card> closedBreaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("closed breach", false, true) && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay);
+            IEnumerable<Card> openBreaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("open breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay);
             // Note that due to not explicitly being a mission, character, shield, or any other special cards, we must use the special check for closed/open breaches! Yes, this is a pain. Engine restrictions! 
 
             Assert.IsTrue(closedBreaches.Count() == 2);
@@ -53,12 +53,43 @@ namespace RuduenModsTest
 
             foreach (Card c in closedBreaches)
             {
-                Assert.IsFalse(c.IsFlipped);
+                Assert.IsTrue(c.IsFlipped);
             }
             foreach (Card c in openBreaches)
             {
-                Assert.IsTrue(c.IsFlipped);
+                Assert.IsFalse(c.IsFlipped);
             }
+        }
+
+        [Test()]
+        public void TestBreachMagePlaySpell()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card card = PutIntoPlay("FlareCascade");
+            Card breach = FindCardInPlay("BreachI");
+
+            AssertNextToCard(card, breach);
+        }
+
+        [Test()]
+        public void TestBreachMageCastSpell()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card card = PutIntoPlay("FlareCascade");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectTarget = mdp;
+            QuickHPStorage(mdp);
+            GoToStartOfTurn(BreachMage);
+            QuickHPCheck(-3); // MDP took 3 damage.
+            AssertInTrash(card);
+
         }
     }
 }

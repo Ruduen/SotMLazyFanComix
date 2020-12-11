@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\Archive\BreachMageTwincasterCharacterCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\BreachMageSpellSharedCardController.cs" />
+    <Compile Include="BreachMageCardControllers\BreachMageSpellSharedCardController.cs" />
     <Compile Include="BreachMageCardControllers\Archive\FocusBreachCardController.cs" />
     <Compile Include="BreachMageCardControllers\Archive\HammerCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\Archive\AuraCharmCardController.cs" />
@@ -173,6 +173,8 @@
     <EmbeddedResource Include="DeckLists\SpellforgeDeckList.json" />
     <None Include="manifest.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="BreachMageCardControllers\Spells\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
