@@ -34,7 +34,6 @@ namespace RuduenWorkshop.BreachMage
             // Only allow each card to be used once. This is to prevent indestructible shenanigans. 
             while (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.HasActivatableAbility("cast") && !usedAbilityCards.Contains(c)).Count() > 0 && !finishedCasting)
             {
-
                 // Use a Cast.
                 coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsSpell && !usedAbilityCards.Contains(c)), storedResults, true, this.GetCardSource(null));
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

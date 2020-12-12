@@ -14,50 +14,51 @@ namespace RuduenWorkshop.BreachMage
             : base(card, turnTakerController)
         {
             BreachInitialFocus = new int[] { 0, 0, 3, 4 };
-            IEnumerable<TokenPool> focusPools = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("open breach") || c.DoKeywordsContain("closed breach", false, true)).Select((Card c) => c.FindTokenPool("FocusPool"));
-            this.SpecialStringMaker.ShowSpecialString(() => string.Format("The breaches have Focus Pools of {0}, {1}, {2}, and {3}.",
-                new object[] { focusPools.Select((TokenPool p) => p.CurrentValue.ToString()) }),
+
+            this.SpecialStringMaker.ShowSpecialString(() => string.Format("The breaches have Focus Pools of: {0}",
+                new object[] { GetBreachFocusPoolString() }),
                 null, null);
+        }
+
+        public string GetBreachFocusPoolString()
+        {
+            string poolString = "";
+            IEnumerable<TokenPool> focusPools = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("open breach") || c.DoKeywordsContain("closed breach", false, true)).Select((Card c) => c.FindTokenPool("FocusPool"));
+
+            foreach (TokenPool focusPool in focusPools)
+            {
+                if (poolString != "") { poolString += ", "; }
+                poolString += focusPool.CurrentValue.ToString();
+            }
+            if (poolString == "")
+            {
+                poolString = "N/A";
+            }
+            return poolString;
         }
 
         public override IEnumerator UsePower(int index = 0)
         {
-            // Break down into two powers.
+
+            List<int> powerNumerals = new List<int>
+            {
+                this.GetPowerNumeral(0, 2),
+                this.GetPowerNumeral(1, 4)
+            };
+
             IEnumerator coroutine;
-            if (index == 1)
+            List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
+            // Charge ability attempt.
+            // Destroy two of your charges.
+            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
+                new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
+                powerNumerals[0], false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource(null));
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (this.GetNumberOfCardsDestroyed(storedResultsAction) == powerNumerals[0])
             {
-                List<int> powerNumerals = new List<int>
-                {
-                    this.GetPowerNumeral(0, 2),
-                    this.GetPowerNumeral(1, 4)
-                };
-
-                List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
-                // Charge ability attempt.
-                // Destroy two of your charges.
-                coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
-                    new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
-                    powerNumerals[0], false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource(null));
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                if (this.GetNumberOfCardsDestroyed(storedResultsAction) == powerNumerals[0])
-                {
-                    // If two were destroyed, someone draws 5.
-                    coroutine = this.GameController.SelectHeroToDrawCards(this.DecisionMaker, powerNumerals[1], false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource(null));
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                }
-            }
-            else
-            {
-                // Selection: Draw or use a cast and destroy.
-
-                List<Function> list = new List<Function>
-                {
-                    new Function(this.DecisionMaker, "Draw a card", SelectionType.DrawCard, () => this.DrawCard(this.HeroTurnTaker), this.CanDrawCards(this.DecisionMaker), this.TurnTaker.Name + " cannot activate any Cast effects, so they must draw a card.", null),
-                    new Function(this.DecisionMaker, "Activate a card's Cast effect and destroy that card", SelectionType.ActivateAbility, () => this.CastAndDestroySpell(this.DecisionMaker), this.GameController.GetActivatableAbilitiesInPlay(this.DecisionMaker, "cast", false).Count() > 0, this.TurnTaker.Name + " cannot draw any cards, so they must activate a card's Cast effect and destroy that card.", null)
-                };
-                SelectFunctionDecision selectFunction = new SelectFunctionDecision(this.GameController, this.DecisionMaker, list, false, null, this.TurnTaker.Name + " cannot draw any cards nor activate any Cast effects, so" + this.Card.AlternateTitleOrTitle + " has no effect.", null, this.GetCardSource(null));
-                coroutine = this.GameController.SelectAndPerformFunction(selectFunction, null, null);
+                // If two were destroyed, someone draws 5.
+                coroutine = this.GameController.SelectHeroToDrawCards(this.DecisionMaker, powerNumerals[1], false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource(null));
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

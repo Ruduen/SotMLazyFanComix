@@ -44,20 +44,15 @@ namespace RuduenModsTest
 
             StartGame();
 
-            IEnumerable<Card> closedBreaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("closed breach", false, true) && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay);
-            IEnumerable<Card> openBreaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("open breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay);
+            Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
             // Note that due to not explicitly being a mission, character, shield, or any other special cards, we must use the special check for closed/open breaches! Yes, this is a pain. Engine restrictions! 
+            int[] initFocus = new int[] { 0, 0, 3, 4 };
 
-            Assert.IsTrue(closedBreaches.Count() == 2);
-            Assert.IsTrue(openBreaches.Count() == 2);
+            Assert.IsTrue(breaches.Count() == 4);
 
-            foreach (Card c in closedBreaches)
+            for (int i = 0; i < 4; i++)
             {
-                Assert.IsTrue(c.IsFlipped);
-            }
-            foreach (Card c in openBreaches)
-            {
-                Assert.IsFalse(c.IsFlipped);
+                AssertTokenPoolCount(breaches[i].FindTokenPool("FocusPool"), initFocus[i]);
             }
         }
 
@@ -89,7 +84,100 @@ namespace RuduenModsTest
             GoToStartOfTurn(BreachMage);
             QuickHPCheck(-3); // MDP took 3 damage.
             AssertInTrash(card);
+        }
 
+        [Test()]
+        public void TestBreachMageCastSpellPotent()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card breach = FindCardInPlay("BreachIII");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            // Use three times to open. 
+            UsePower(breach);
+            UsePower(breach);
+            UsePower(breach);
+
+            DecisionSelectTarget = mdp;
+            DecisionSelectCard = breach;
+
+            Card card = PutIntoPlay("FlareCascade");
+
+
+            QuickHPStorage(mdp);
+            GoToStartOfTurn(BreachMage);
+            QuickHPCheck(-4); // MDP took 4 damage.
+            AssertInTrash(card);
+        }
+
+        [Test()]
+        public void TestChargeAuraCharm()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            PlayCard("AuraCharm");
+
+            // Confirm base power was used, so only breaches remain.
+            AssertNumberOfUsablePowers(BreachMage, 4);  
+        }
+
+        [Test()]
+        public void TestChargeHammerCharm()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+            Card ongoing = PlayCard("LivingForceField");
+            DecisionDestroyCard = ongoing;
+
+            PlayCard("HammerCharm");
+            AssertInTrash(ongoing); // Ongoing destroyed.
+        }
+
+        [Test()]
+        public void TestSpellFlareCascade()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card spell = PlayCard("FlareCascade");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            GoToStartOfTurn(BreachMage);
+            QuickHPCheck(-3); // Damage Dealt.
+            AssertInTrash(spell); // Spell destroyed.
+        }
+
+        [Test()]
+        public void TestSpellFlareCascadeChargeTwice()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+            Card[] charges = FindCardsWhere((Card c) => c.Identifier == "HammerCharm").ToArray();
+
+            PutInHand(charges);
+            PlayCards(charges);
+
+            Card spell = PlayCard("FlareCascade");
+
+            DecisionSelectCards = new List<Card>() { mdp, charges[0], mdp, charges[1], mdp, null };
+
+            QuickHPStorage(mdp);
+            GoToStartOfTurn(BreachMage);
+            QuickHPCheck(-9); // Damage Dealt.
+            AssertInTrash(spell); // Spell destroyed.
         }
     }
 }

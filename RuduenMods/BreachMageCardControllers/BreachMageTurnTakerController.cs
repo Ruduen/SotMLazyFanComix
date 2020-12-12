@@ -19,23 +19,24 @@ namespace RuduenWorkshop.BreachMage
             {
                 IEnumerator coroutine;
                 int[] breachInitialFocus = breachMageController.BreachInitialFocus;
-                Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("open breach")).ToArray();
-
-                foreach (Card breach in breaches)
-                {
-                    coroutine = this.GameController.FlipCard(this.FindCardController(breach), cardSource: this.CharacterCardController.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                }
+                Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("breach")).ToArray();
 
                 for (int i = 0; i < breachInitialFocus.Count() && i<breaches.Count(); i++)
                 {
-                    // Start on the closed side. Yes, it's necessary to use manual flips here, to reduce the likeliness of 'face-down' logic acting up. 
-
                     TokenPool focusPool = breaches[i].FindTokenPool("FocusPool");
                     if (focusPool != null)
                     {
-                        coroutine = this.GameController.RemoveTokensFromPool(focusPool, 4 - breachInitialFocus[i], cardSource: this.CharacterCardController.GetCardSource());
-                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        if (breachInitialFocus[i]<0 || breachInitialFocus[i] > 4)
+                        {
+                            // Out of bounds breach - remove the breach from the game. 
+                            coroutine = this.GameController.MoveCard(this, breaches[i], this.HeroTurnTaker.OutOfGame, evenIfIndestructible: true, cardSource: this.CharacterCardController.GetCardSource());
+                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        }
+                        else
+                        {
+                            coroutine = this.GameController.RemoveTokensFromPool(focusPool, 4 - breachInitialFocus[i], cardSource: this.CharacterCardController.GetCardSource());
+                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        }
                     }
                 }
             }

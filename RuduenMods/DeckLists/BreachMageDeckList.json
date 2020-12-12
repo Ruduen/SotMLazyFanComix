@@ -21,8 +21,8 @@
       "foilBackgroundColor": "FAFA00",
       "hitpointsColor": "C94742",
       "character": true,
-      "setup": [ "Two \"Closed Potent Breach\" are put into play with 3 and 4 tokens in their Focus Pools.", "Two \"Open Stable Breach\" are put into play." ],
-      "gameplay": [ "At the start of your turn, you may activate thr Cast effects of each of your Spells and destroy those spells." ],
+      "setup": [ "Put two \"Stable Breach\" into play with no tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 3 and 4 tokens in their Focus Pools." ],
+      "gameplay": [ "At the start of your turn, you may activate the [u]Cast[/u] effects of each of your Spells and destroy those spells." ],
       "powers": [
         "Destroy 2 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
       ],
@@ -49,11 +49,11 @@
     {
       "identifier": "BreachI",
       "count": 1,
-      "flippedTitle": "Closed Stable Breach",
-      "flippedKeywords": [ "closed breach" ],
-      "flippedBody": [ "This card is indestructible.", "When this card has no tokens in its Focus Pool, flip it." ],
-      "flippedPowers": "Remove 1 token from this card's Focus Pool.",
-      "flippedIcons": [ "StartAndEndOfTurnAction", "Destroy", "PlayCardNow" ],
+      "title": "Stable Breach",
+      "keywords": [ "breach" ],
+      "body": [ "This card is indestructible." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell and use an additional power this turn. Otherwise, remove a token from this card's Focus Pool." ],
+      "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
           "identifier": "FocusPool",
@@ -63,21 +63,16 @@
           "maximumValue": 4
         }
       ],
-      "flavorText": "...",
-      "title": "Open Stable Breach",
-      "keywords": [ "open breach" ],
-      "body": [ "This card is indestructible.", "At the start of your turn, if there is a spell next to this, you may active that Spell's [u]Cast[/u] text, then destroy that spell." ],
-      "powers": [ "You may play a Spell. You may use an additional power this turn." ],
-      "icons": [ "Indestructible", "HasPower", "Destroy" ]
+      "flavorText": "..."
     },
     {
       "identifier": "BreachII",
       "count": 1,
-      "flippedTitle": "Closed Stable Breach",
-      "flippedKeywords": [ "closed breach" ],
-      "flippedBody": [ "This card is indestructible.", "When this card has no tokens in its Focus Pool, flip it." ],
-      "flippedPowers": "Remove 1 token from this card's Focus Pool.",
-      "flippedIcons": [ "StartAndEndOfTurnAction", "Destroy", "PlayCardNow" ],
+      "title": "Stable Breach",
+      "keywords": [ "breach" ],
+      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell and use an additional power this turn. Otherwise, remove a token from this card's Focus Pool." ],
+      "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
           "identifier": "FocusPool",
@@ -87,21 +82,16 @@
           "maximumValue": 4
         }
       ],
-      "flavorText": "...",
-      "title": "Open Stable Breach",
-      "keywords": [ "open breach" ],
-      "body": [ "This card is indestructible.", "At the start of your turn, if there is a spell next to this, you may active that Spell's [u]Cast[/u] text, then destroy that spell." ],
-      "powers": [ "You may play a Spell. You may use an additional power this turn." ],
-      "icons": [ "Indestructible", "HasPower", "Destroy" ]
+      "flavorText": "..."
     },
     {
       "identifier": "BreachIII",
       "count": 1,
-      "flippedTitle": "Closed Potent Breach",
-      "flippedKeywords": [ "closed breach" ],
-      "flippedBody": [ "This card is indestructible.", "When this card has no tokens in its Focus Pool, flip it." ],
-      "flippedPowers": [ "Remove 1 token from this card's Focus Pool." ],
-      "flippedIcons": [ "StartAndEndOfTurnAction", "Destroy", "PlayCardNow" ],
+      "title": "Stable Breach",
+      "keywords": [ "breach" ],
+      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] effects of Spells next to this by 1." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
+      "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
           "identifier": "FocusPool",
@@ -111,21 +101,16 @@
           "maximumValue": 4
         }
       ],
-      "flavorText": "...",
-      "title": "Open Potent Breach",
-      "keywords": [ "open breach" ],
-      "body": [ "This card is indestructible.", "At the start of your turn, if there is a spell next to this, you may active that Spell's [u]Cast[/u] text, then destroy that spell.", "If that [u]Cast[/u] text deals damage, increase that damage by 1." ],
-      "powers": [ "You may play a Spell." ],
-      "icons": [ "Indestructible", "HasPower", "Destroy" ]
+      "flavorText": "..."
     },
     {
       "identifier": "BreachIV",
       "count": 1,
-      "flippedTitle": "Closed Potent Breach",
-      "flippedKeywords": [ "closed breach" ],
-      "flippedBody": [ "This card is indestructible.", "When this card has no tokens in its Focus Pool, flip it." ],
-      "flippedPowers": [ "Remove 1 token from this card's Focus Pool." ],
-      "flippedIcons": [ "StartAndEndOfTurnAction", "Destroy", "PlayCardNow" ],
+      "title": "Stable Breach",
+      "keywords": [ "breach" ],
+      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] effects of Spells next to this by 1." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
+      "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
           "identifier": "FocusPool",
@@ -135,12 +120,7 @@
           "maximumValue": 4
         }
       ],
-      "flavorText": "...",
-      "title": "Open Potent Breach",
-      "keywords": [ "open breach" ],
-      "body": [ "This card is indestructible.", "At the start of your turn, if there is a spell next to this, you may active that Spell's [u]Cast[/u] text, then destroy that spell.", "If that [u]Cast[/u] text deals damage, increase that damage by 1." ],
-      "powers": [ "You may play a Spell." ],
-      "icons": [ "Indestructible", "HasPower", "Destroy" ]
+      "flavorText": "..."
     },
     {
       "identifier": "FocusBreach",
@@ -154,6 +134,24 @@
       ],
       "icons": [ "Search", "DrawCardNow", "PlayCardNow" ],
       "flavorText": "..."
+    },
+    {
+      "identifier": "AuraCharm",
+      "count": 3,
+      "title": "Aura Charm",
+      "keywords": [ "equipment", "charge" ],
+      "body": "When you play this, one Hero may use a power.",
+      "icons": [ "UsePowerNow" ],
+      "flavorText": "...."
+    },
+    {
+      "identifier": "HammerCharm",
+      "count": 3,
+      "title": "Hammer Charm",
+      "keywords": [ "equipment", "charge" ],
+      "body": "When you play this, you may destroy an Ongoing or Environment card.",
+      "icons": [ "DestroyOngoing", "DestroyEnvironment" ],
+      "flavorText": "...."
     },
     {
       "identifier": "FlareCascade",

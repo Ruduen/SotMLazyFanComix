@@ -7,18 +7,21 @@ using System.Linq;
 
 namespace RuduenWorkshop.BreachMage
 {
-    public abstract class BreachMageSharedBreachController : RuduenFlippableCardController
+    public abstract class BreachMageSharedBreachController : CardController
     {
+
+        protected TokenPool FocusPool;
         public BreachMageSharedBreachController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            this.SpecialStringMaker.ShowTokenPool(this.Card.FindTokenPool("FocusPool"), null, null).Condition = (() => this.Card.IsInPlay && this.Card.IsFlipped);
+            FocusPool = this.Card.FindTokenPool("FocusPool");
+            this.SpecialStringMaker.ShowTokenPool(FocusPool, null, null).Condition = (() => this.Card.IsInPlay);
         }
 
         public virtual IEnumerator UseOpenPower()
         {
             // Play card.
-            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, cardCriteria: new LinqCardCriteria((Card c)=>c.DoKeywordsContain("spell")));
+            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
@@ -30,9 +33,9 @@ namespace RuduenWorkshop.BreachMage
 
         public override IEnumerator UsePower(int index = 0)
         {
-            // Break down into two powers.
             IEnumerator coroutine;
-            if (!this.CardWithoutReplacements.IsFlipped)
+
+            if (FocusPool.CurrentValue == 0)
             {
                 // Power to optionally play a spell. 
                 coroutine = this.UseOpenPower();
@@ -43,27 +46,7 @@ namespace RuduenWorkshop.BreachMage
                 coroutine = this.UseFocusPower();
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-        }
 
-        public override void AddSideTriggers()
-        {
-            // Triggers while on a certain side. This is re-checked after flipping! 
-            if (this.CardWithoutReplacements.IsInPlay)
-            {
-                if (this.CardWithoutReplacements.IsFlipped)
-                {
-                    ITrigger flipTrigger = this.AddTrigger
-                        (
-                            (RemoveTokensFromPoolAction rtfp) => rtfp.TokenPool == this.Card.FindTokenPool("FocusPool") && rtfp.TokenPool.CurrentValue == 0, (RemoveTokensFromPoolAction rtfp) => this.GameController.FlipCard(this, cardSource: this.GetCardSource()), TriggerType.FlipCard, TriggerTiming.After
-                        );
-                    // When not flipped, triggers (during initial call):
-                    this.AddSideTrigger
-                    (
-                        // Only trigger on unflipped side: Flip at 0 tokens.
-                        flipTrigger
-                    );
-                }
-            }
         }
 
         // Make this card indestructible if any other card asks. This is true on both sides!
@@ -71,11 +54,11 @@ namespace RuduenWorkshop.BreachMage
         {
             return card == this.Card;
         }
-        
-        // One spell per breach!
+
+        // One spell per breach if there are no focus tokens!
         public override bool CanOtherCardGoNextToThisCard(Card card)
         {
-            return !card.IsSpell || this.GetNumberOfSpellCardsNextToThisCard() < 1;
+            return !card.IsSpell || (this.GetNumberOfSpellCardsNextToThisCard() < 1 && FocusPool.CurrentValue == 0);
         }
 
         private int GetNumberOfSpellCardsNextToThisCard()
@@ -84,5 +67,7 @@ namespace RuduenWorkshop.BreachMage
                     where c.IsSpell
                     select c).Count<Card>();
         }
+
+
     }
 }
