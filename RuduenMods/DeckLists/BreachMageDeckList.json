@@ -12,21 +12,19 @@
   ],
   "cards": [
     {
-      "identifier": "BreachMageCharacter",
-      "promoIdentifier": "BreachMageCharacter",
       "count": 1,
+      "identifier": "BreachMageCharacter",
       "title": "Breach Mage",
-      "body": "J. Twincaster",
+      "body": "M. Blazewatcher",
       "backgroundColor": "FAFA00",
       "foilBackgroundColor": "FAFA00",
-      "hitpointsColor": "C94742",
       "character": true,
-      "setup": [ "Put two \"Stable Breach\" into play with no tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 3 and 4 tokens in their Focus Pools." ],
+      "setup": [ "Put two \"Stable Breach\" into play with 0 and 1 tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 2 and 3 tokens in their Focus Pools." ],
       "gameplay": [ "At the start of your turn, you may activate the [u]Cast[/u] effects of each of your Spells and destroy those spells." ],
       "powers": [
-        "Destroy 2 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
+        "Destroy a Charge card. If you do, any player draws 2 cards."
       ],
-      "icons": [ "HasPower", "Destroy" ],
+      "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
         "BreachMage"
@@ -42,7 +40,8 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "..."
+        "default": "I don't know how I got here, but I know this must be stopped.",
+        "dummy": "..."
       },
       "complexity": 2
     },
@@ -57,7 +56,7 @@
       "tokenPools": [
         {
           "identifier": "FocusPool",
-          "name": "Focus Pool",
+          "name": "Stable Breach's Focus Pool",
           "initialValue": 4,
           "minimumValue": 0,
           "maximumValue": 4
@@ -76,7 +75,7 @@
       "tokenPools": [
         {
           "identifier": "FocusPool",
-          "name": "Focus Pool",
+          "name": "Stable Breach's Focus Pool",
           "initialValue": 4,
           "minimumValue": 0,
           "maximumValue": 4
@@ -87,7 +86,7 @@
     {
       "identifier": "BreachIII",
       "count": 1,
-      "title": "Stable Breach",
+      "title": "Potent Breach",
       "keywords": [ "breach" ],
       "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] effects of Spells next to this by 1." ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
@@ -95,7 +94,7 @@
       "tokenPools": [
         {
           "identifier": "FocusPool",
-          "name": "Focus Pool",
+          "name": "Potent Breach's Focus Pool",
           "initialValue": 4,
           "minimumValue": 0,
           "maximumValue": 4
@@ -106,7 +105,7 @@
     {
       "identifier": "BreachIV",
       "count": 1,
-      "title": "Stable Breach",
+      "title": "Potent Breach",
       "keywords": [ "breach" ],
       "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] effects of Spells next to this by 1." ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
@@ -114,7 +113,7 @@
       "tokenPools": [
         {
           "identifier": "FocusPool",
-          "name": "Focus Pool",
+          "name": "Potent Breach's Focus Pool",
           "initialValue": 4,
           "minimumValue": 0,
           "maximumValue": 4
@@ -128,7 +127,7 @@
       "title": "Focus Breach",
       "keywords": [ "one-shot" ],
       "body": [
-        "Select a Closed Breach. Remove 1 token from its Focus Pool.",
+        "Select one of your Breach cards. Remove a token from that card's Focus Pool.",
         "You may draw a card.",
         "You may play a card."
       ],
@@ -154,18 +153,134 @@
       "flavorText": "...."
     },
     {
+      "identifier": "SpiralCharm",
+      "count": 3,
+      "title": "Spiral Charm",
+      "keywords": [ "equipment", "charge" ],
+      "body": "When you play this, activate a card's [u]Cast[/u] text. [i](Do not destroy the card.)[/i]",
+      "icons": [],
+      "flavorText": "...."
+    },
+    {
+      "identifier": "VigorCharm",
+      "count": 3,
+      "title": "Vigor Charm",
+      "keywords": [ "equipment", "charge" ],
+      "body": "When you play this, draw 3 cards and {BreachMage} deals themselves 2 Psychic Damage.",
+      "icons": [ "DrawCardNow", "DealDamagePsychic" ],
+      "flavorText": "...."
+    },
+    {
       "identifier": "FlareCascade",
       "count": 3,
       "title": "Flare Cascade",
       "keywords": [ "ongoing", "spell" ],
+      "body": [ "Play this card next to one of your Breach cards." ],
       "icons": [ "DealDamageFire" ],
       "flavorText": "....",
       "activatableAbilities": [
         {
           "name": "cast",
-          "text": "{BreachMage} deals 1 Target 3 Fire Damage. You may destroy up to 3 of your Charge cards. For each card destroyed this way, {BreachMage} deals 1 Target 3 Fire Damage."
+          "text": "{BreachMage} deals 1 Target 3 Fire Damage. You may destroy up to one of your Charge cards. If you do, activate this [u]cast[/u] effect again now."
         }
       ]
+    },
+    {
+      "identifier": "HauntingEcho",
+      "count": 3,
+      "title": "Haunting Echo",
+      "keywords": [ "ongoing", "spell" ],
+      "body": [ "Play this card next to one of your Breach cards." ],
+      "activatableAbilities": [
+        {
+          "name": "cast",
+          "text": "{BreachMage} deals 1 Target 2 Psychic Damage. You may destroy an Ongoing or Environment card."
+        }
+      ],
+      "icons": [ "DealDamagePsychic", "DestroyOngoing", "DestroyEnvironment" ],
+      "flavorText": "...."
+    },
+    {
+      "identifier": "MoltenWave",
+      "body": [ "Play this card next to one of your Breach cards." ],
+      "count": 3,
+      "title": "Molten Wave",
+      "keywords": [ "ongoing", "spell" ],
+      "activatableAbilities": [
+        {
+          "name": "cast",
+          "text": "{BreachMage} deals each non-Hero Target 2 Fire Damage."
+        }
+      ],
+      "icons": [ "DealDamageFire" ],
+      "flavorText": "...."
+    },
+    {
+      "identifier": "Shine",
+      "count": 3,
+      "title": "Shine",
+      "keywords": [ "ongoing", "spell" ],
+      "body": [ "Play this card next to one of your Breach cards." ],
+      "activatableAbilities": [
+        {
+          "name": "cast",
+          "text": "{BreachMage} deals 1 Target 3 Radiant Damage. Each player draws a card."
+        }
+      ],
+      "icons": [ "DealDamageRadiant", "DrawCardNow" ],
+      "flavorText": "...."
+    },
+    {
+      "identifier": "VisionShock",
+      "count": 3,
+      "title": "Vision Shock",
+      "keywords": [ "ongoing", "spell" ],
+      "body": [ "Play this card next to one of your Breach cards." ],
+      "activatableAbilities": [
+        {
+          "name": "cast",
+          "text": "{BreachMage} deals 1 Target 4 Lightning Damage. Reveal the top 2 cards of any deck. Put them back on top of the deck in any order."
+        }
+      ],
+      "icons": [ "DealDamageLightning", "Manipulate" ],
+      "flavorText": "...."
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "BreachMageCharacter",
+      "promoIdentifier": "BreachMageTwincasterCharacter",
+      "count": 1,
+      "title": "Breach Mage",
+      "body": "J. Twincaster",
+      "backgroundColor": "FAFA00",
+      "foilBackgroundColor": "FAFA00",
+      "character": true,
+      "setup": [ "Put two \"Stable Breach\" into play with no tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 3 and 4 tokens in their Focus Pools." ],
+      "gameplay": [ "At the start of your turn, you may activate the [u]Cast[/u] effects of each of your Spells and destroy those spells." ],
+      "powers": [
+        "Destroy 2 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
+      ],
+      "icons": [ "HasPower", "Destroy" ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "BreachMage"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "I'll keep my eyes on the right time to strike.",
+        "dummy": "..."
+      },
+      "complexity": 2
     }
   ]
 }

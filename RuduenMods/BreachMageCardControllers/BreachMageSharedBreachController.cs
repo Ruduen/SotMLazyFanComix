@@ -14,6 +14,7 @@ namespace RuduenWorkshop.BreachMage
         public BreachMageSharedBreachController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AddThisCardControllerToList(CardControllerListType.MakesIndestructible);
             FocusPool = this.Card.FindTokenPool("FocusPool");
             this.SpecialStringMaker.ShowTokenPool(FocusPool, null, null).Condition = (() => this.Card.IsInPlay);
         }
@@ -21,7 +22,7 @@ namespace RuduenWorkshop.BreachMage
         public virtual IEnumerator UseOpenPower()
         {
             // Play card.
-            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
+            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
@@ -37,7 +38,7 @@ namespace RuduenWorkshop.BreachMage
 
             if (FocusPool.CurrentValue == 0)
             {
-                // Power to optionally play a spell. 
+                // Power when open.
                 coroutine = this.UseOpenPower();
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

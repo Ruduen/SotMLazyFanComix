@@ -40,14 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\BreachMageTwincasterCharacterCardController.cs" />
+    <Compile Include="BreachMageCardControllers\BreachMageTwincasterCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageSpellSharedCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\FocusBreachCardController.cs" />
+    <Compile Include="BreachMageCardControllers\FocusBreachCardController.cs" />
     <Compile Include="BreachMageCardControllers\Charges\HammerCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\Charges\AuraCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\Archive\CycleOfMagicCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\VigorCharmCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\SpiralCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Charges\VigorCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Charges\SpiralCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\Archive\StaffCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachICardController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachIIICardController.cs" />
@@ -55,12 +55,11 @@
     <Compile Include="BreachMageCardControllers\BreachMageSharedBreachController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachIVCardController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachIICardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\FlareCascadeCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\MoltenWaveCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\HauntingEchoCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\VisionShockCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\ShineCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Archive\PotentBreachCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\FlareCascadeCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\MoltenWaveCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\HauntingEchoCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\VisionShockCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\ShineCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageTurnTakerController.cs" />
     <Compile Include="RuduenFlippableCardController.cs" />
@@ -173,8 +172,6 @@
     <EmbeddedResource Include="DeckLists\SpellforgeDeckList.json" />
     <None Include="manifest.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BreachMageCardControllers\Spells\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

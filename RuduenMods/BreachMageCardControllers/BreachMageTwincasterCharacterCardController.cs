@@ -6,34 +6,50 @@ using System.Linq;
 
 namespace RuduenWorkshop.BreachMage
 {
-    // Manually tested!
-    public class BreachMageCharacterCardController : BreachMageSharedCharacterCardController
+    public class BreachMageTwincasterCharacterCardController : BreachMageSharedCharacterCardController
     {
+        public string str;
 
-        public BreachMageCharacterCardController(Card card, TurnTakerController turnTakerController)
+        public BreachMageTwincasterCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            BreachInitialFocus = new int[] { 0, 1, 2, 3 };
+            BreachInitialFocus = new int[] { 0, 0, 3, 4 };
         }
+
         public override IEnumerator UsePower(int index = 0)
         {
-
-            int powerNumeral = this.GetPowerNumeral(0, 2);
-
+            // Break down into two powers.
             IEnumerator coroutine;
+            int powerNumeral = this.GetPowerNumeral(0, 2); // Number of charges. 
+
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
-            // Charge ability attempt.
+
             // Destroy two of your charges.
             coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
                 new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
-                1, false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource(null));
+                powerNumeral, false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource(null));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (this.GetNumberOfCardsDestroyed(storedResultsAction) == 1)
+            if (this.GetNumberOfCardsDestroyed(storedResultsAction) == powerNumeral)
             {
-                // If two were destroyed, someone draws 5.
-                coroutine = this.GameController.SelectHeroToDrawCards(this.DecisionMaker, powerNumeral, false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource(null));
+                // If two were destroyed, select use a spell twice.
+                List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
+
+                // Use a Cast.
+                //coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults);
+                coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource(null));
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                if (storedResults.Count > 0)
+                {
+                    // Select an ability on that card. Just in case a card has multiple Cast effects, or is no longer valid due to being destroyed.
+                    coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", new LinqCardCriteria(storedResults.FirstOrDefault().SelectedCard), null, false, this.GetCardSource(null));
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                    // Destroy the cast card.
+                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, storedResults.FirstOrDefault().SelectedCard);
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
             }
         }
 

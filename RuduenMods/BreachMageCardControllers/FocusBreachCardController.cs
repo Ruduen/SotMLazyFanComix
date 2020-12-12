@@ -17,23 +17,17 @@ namespace RuduenWorkshop.BreachMage
             IEnumerator coroutine;
             List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
 
-            // Search if appropriate.
-            if (this.TurnTaker.IsHero)
-            {
-                coroutine = this.SearchForCards(this.DecisionMaker, true, true, 1, 1,
-                    new LinqCardCriteria((Card c) => c.DoKeywordsContain("breach"), "breach", true, false, null, null, false)
-                    , true, false, false, false, null, false, null, null);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
-            else
-            {
-                coroutine = this.GameController.SendMessageAction(this.Card.AlternateTitleOrTitle + " has no deck or trash to search.", Priority.Medium, this.GetCardSource(null), null, true);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
 
             // Draw a card.
             coroutine = this.DrawCard(this.HeroTurnTaker, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Select an appropriate breach and focus it.
+            coroutine = this.GameController.SelectCardAndDoAction(
+                new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.RemoveTokens, this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.FindTokenPool("FocusPool") != null && c.FindTokenPool("FocusPool").CurrentValue > 0)),
+                (SelectCardDecision d) => this.GameController.RemoveTokensFromPool(d.SelectedCard.FindTokenPool("FocusPool"), 1, cardSource: this.GetCardSource()),
+            false);
+            if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Play a card.
             coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, true);

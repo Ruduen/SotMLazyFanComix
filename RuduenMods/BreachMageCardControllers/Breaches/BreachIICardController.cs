@@ -14,9 +14,9 @@ namespace RuduenWorkshop.BreachMage
         {
         }
 
-        public virtual IEnumerator UseOpenPower()
+        public override IEnumerator UseOpenPower()
         {
-            // Play card.
+            // Play spell.
             IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
