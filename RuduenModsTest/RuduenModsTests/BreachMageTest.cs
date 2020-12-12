@@ -35,6 +35,9 @@ namespace RuduenModsTest
             Assert.IsInstanceOf(typeof(BreachMageCharacterCardController), BreachMage.CharacterCardController);
 
             Assert.AreEqual(27, BreachMage.CharacterCard.HitPoints);
+
+            AssertNumberOfCardsInHand(BreachMage, 4); // Starting hand.
+            AssertNumberOfCardsInDeck(BreachMage, 36); // Starting deck.
         }
 
         [Test()]
@@ -45,7 +48,6 @@ namespace RuduenModsTest
             StartGame();
 
             Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
-            // Note that due to not explicitly being a mission, character, shield, or any other special cards, we must use the special check for closed/open breaches! Yes, this is a pain. Engine restrictions! 
             int[] initFocus = new int[] { 0, 1, 2, 3 };
 
             Assert.IsTrue(breaches.Count() == 4);
@@ -197,6 +199,25 @@ namespace RuduenModsTest
             UsePower(BreachMage.CharacterCard);
             QuickHPCheck(-2); // Damage Dealt by bee, but not by spell.
             AssertInTrash(usedCards); // All used charges in trash.
+        }
+
+        [Test()]
+        public void TestCardCycleOfMagic()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card spell = PlayCard("VisionShock");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            QuickHandStorage(BreachMage);
+            PlayCard("CycleOfMagic");
+            QuickHPCheck(-4); // Damage Dealt.
+            QuickHandCheck(2); // 2 Cards Drawn.
+            AssertInDeck(spell);
         }
 
         [Test()]
@@ -404,6 +425,23 @@ namespace RuduenModsTest
             AssertInTrash(spell); // Spell destroyed.
 
             // TODO: Add scrying test at some point! (Right now, more complex than it's worth.)
+        }
+
+        [Test()]
+        public void TestSpellZap()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card spell = PutIntoPlay("Zap");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            GoToStartOfTurn(BreachMage);
+            QuickHPCheck(-1); // Damage Dealt.
+            AssertInHand(spell); // Spell returned to hand due to interruption.
         }
     }
 }

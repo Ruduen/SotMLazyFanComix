@@ -20,7 +20,7 @@
       "foilBackgroundColor": "FAFA00",
       "character": true,
       "setup": [ "Put two \"Stable Breach\" into play with 0 and 1 tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 2 and 3 tokens in their Focus Pools." ],
-      "gameplay": [ "At the start of your turn, you may activate the [u]Cast[/u] effects of each of your Spells and destroy those spells." ],
+      "gameplay": [ "At the start of your turn, you may activate the [u]cast[/u] text of each of your Spells and destroy those spells." ],
       "powers": [
         "Destroy a Charge card. If you do, any player draws 2 cards."
       ],
@@ -88,7 +88,7 @@
       "count": 1,
       "title": "Potent Breach",
       "keywords": [ "breach" ],
-      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] effects of Spells next to this by 1." ],
+      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]cast[/u] text of Spells next to this by 1." ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
@@ -107,7 +107,7 @@
       "count": 1,
       "title": "Potent Breach",
       "keywords": [ "breach" ],
-      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] effects of Spells next to this by 1." ],
+      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]cast[/u] text of Spells next to this by 1." ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
@@ -119,6 +119,18 @@
           "maximumValue": 4
         }
       ],
+      "flavorText": "..."
+    },
+    {
+      "identifier": "CycleOfMagic",
+      "count": 2,
+      "title": "Cycle of Magic",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Draw 2 cards.",
+        "Activate a card's [u]Cast[/u] text, then place that card on top of your deck."
+      ],
+      "icons": [ "DrawCardNow", "Manipulate" ],
       "flavorText": "..."
     },
     {
@@ -140,6 +152,15 @@
       "title": "Aura Charm",
       "keywords": [ "equipment", "charge" ],
       "body": "When you play this, one Hero may use a power.",
+      "icons": [ "UsePowerNow" ],
+      "flavorText": "...."
+    },
+    {
+      "identifier": "FocusCharm",
+      "count": 3,
+      "title": "Focus Charm",
+      "keywords": [ "equipment", "charge" ],
+      "body": "Select one of your Breach cards. Remove a token from that card's Focus Pool.",
       "icons": [ "UsePowerNow" ],
       "flavorText": "...."
     },
@@ -181,7 +202,7 @@
       "activatableAbilities": [
         {
           "name": "cast",
-          "text": "{BreachMage} deals 1 Target 3 Fire Damage. You may destroy up to one of your Charge cards. If you do, activate this [u]cast[/u] effect again now."
+          "text": "{BreachMage} deals 1 Target 3 Fire Damage. You may destroy one of your Charge cards. If you do, activate this [u]cast[/u] text again now."
         }
       ]
     },
@@ -244,6 +265,21 @@
       ],
       "icons": [ "DealDamageLightning", "Manipulate" ],
       "flavorText": "...."
+    },
+    {
+      "identifier": "Zap",
+      "count": 4,
+      "title": "Zap",
+      "keywords": [ "ongoing", "spell" ],
+      "body": [ "Play this card next to one of your Breach cards.", "When this card would be destroyed, put it in your hand instead." ],
+      "activatableAbilities": [
+        {
+          "name": "cast",
+          "text": "{BreachMage} deals 1 Target 1 Lightning Damage."
+        }
+      ],
+      "icons": [ "DealDamageLightning", "Manipulate" ],
+      "flavorText": "...."
     }
   ],
   "promoCards": [
@@ -257,7 +293,7 @@
       "foilBackgroundColor": "FAFA00",
       "character": true,
       "setup": [ "Put two \"Stable Breach\" into play with no tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 3 and 4 tokens in their Focus Pools." ],
-      "gameplay": [ "At the start of your turn, you may activate the [u]Cast[/u] effects of each of your Spells and destroy those spells." ],
+      "gameplay": [ "At the start of your turn, you may activate the [u]cast[/u] text of each of your Spells and destroy those spells." ],
       "powers": [
         "Destroy 2 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
       ],
