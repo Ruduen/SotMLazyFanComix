@@ -69,7 +69,7 @@ namespace RuduenWorkshop.Spellforge
             }
 
             // Deal up to 3 targets 1 infernal (as a base).
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, false, false, false, null, null, null, null, null, false, null, null, false, null, cardSource);
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, 0, false, false, false, null, null, null, null, null, false, null, null, false, null, cardSource);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Clear all temporary triggers created by this card.
