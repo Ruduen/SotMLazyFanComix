@@ -151,7 +151,7 @@
       "count": 3,
       "title": "Aura Charm",
       "keywords": [ "equipment", "charge" ],
-      "body": "When you play this, one Hero may use a power.",
+      "body": "When you play this, one other player may use a power.",
       "icons": [ "UsePowerNow" ],
       "flavorText": "...."
     },
