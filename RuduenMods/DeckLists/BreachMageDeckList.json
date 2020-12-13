@@ -313,7 +313,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "I'll keep my eyes on the right time to strike.",
+        "default": "I'll keep my eyes open for the right time to strike.",
         "dummy": "..."
       },
       "complexity": 2
