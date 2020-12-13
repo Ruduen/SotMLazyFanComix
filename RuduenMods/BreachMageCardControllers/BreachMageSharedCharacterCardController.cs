@@ -21,7 +21,7 @@ namespace RuduenWorkshop.BreachMage
         public override void AddTriggers()
         {
             // add start-of-turn trigger to cast a spell
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.CastResponse), TriggerType.DestroyCard, null, false);
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.CastResponse), TriggerType.DestroyCard);
         }
 
         protected virtual IEnumerator CastResponse(PhaseChangeAction phaseChange)
