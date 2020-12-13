@@ -17,7 +17,7 @@ namespace RuduenWorkshop.Cassie
         {
             // Heal.
             IEnumerator coroutine;
-            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card card) => card.IsHeroCharacterCard, 1, null, false, null, null, null, this.GetCardSource(null));
+            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card card) => card.IsHeroCharacterCard, 1, null, false, null, null, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Yes/No question to determine reset-move!

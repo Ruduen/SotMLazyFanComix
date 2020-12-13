@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Inquirer
             if (nextTo != null)
             {
                 // Heal.
-                IEnumerator coroutine = this.GameController.GainHP(nextTo, 5);
+                IEnumerator coroutine = this.GameController.GainHP(nextTo, 5, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

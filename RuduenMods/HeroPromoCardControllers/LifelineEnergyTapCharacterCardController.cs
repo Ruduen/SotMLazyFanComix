@@ -42,7 +42,7 @@ namespace RuduenWorkshop.Lifeline
 
             if (damagedTargets.Count > 0)
             {
-                coroutine = this.GameController.GainHP(this.CharacterCard, damagedTargets.Count);
+                coroutine = this.GameController.GainHP(this.CharacterCard, damagedTargets.Count, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
