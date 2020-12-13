@@ -446,7 +446,7 @@
       "character": true,
       "backgroundColor": "EA3F3D",
       "foilBackgroundColor": "EA3F3D",
-      "powers": "Flip a face-down Card in your play area, treating it as if it were just put into play. Until the end of your next turn, when one of your Equipment cards would be destroyed, flip it face-down instead.",
+      "powers": "Flip a face-down Card in your play area, treating it as if it were just put into play. Until the end of your next turn, when one of your Equipment cards would be destroyed, you may flip it face-down instead.",
       "hitpoints": 30,
       "icons": [ "HasPower", "FlipFaceDown", "FlipFaceUp" ],
       "nemesisIdentifiers": [ "OblivAeon" ],

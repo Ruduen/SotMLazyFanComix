@@ -26,7 +26,7 @@ namespace RuduenWorkshop.LaComodora
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Set up an effect to respond when your equipment is destroyed
-            WhenCardIsDestroyedStatusEffect whenCardIsDestroyedStatusEffect = new WhenCardIsDestroyedStatusEffect(this.CardWithoutReplacements, "WhenEquipIsDestroyedFlip", "Whenever a construct is destroyed, " + turnTakerName + " may shuffle it into their deck and either draw or play a card.", new TriggerType[]
+            WhenCardIsDestroyedStatusEffect whenCardIsDestroyedStatusEffect = new WhenCardIsDestroyedStatusEffect(this.CardWithoutReplacements, "WhenEquipIsDestroyedFlip", "Whenever one of " + turnTakerName +"'s Equipment would be destroyed, they may flip it face-down instead..", new TriggerType[]
             { TriggerType.FlipCard }, this.HeroTurnTaker, this.Card, null);
             whenCardIsDestroyedStatusEffect.CardDestroyedCriteria.HasAnyOfTheseKeywords = new List<string> { "equipment" };
             whenCardIsDestroyedStatusEffect.CardDestroyedCriteria.OwnedBy = this.HeroTurnTaker;
