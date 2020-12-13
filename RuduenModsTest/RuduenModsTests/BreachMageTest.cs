@@ -240,14 +240,14 @@ namespace RuduenModsTest
         [Test()]
         public void TestChargeAuraCharm()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Legacy", "Megalopolis");
 
             StartGame();
 
             PlayCard("AuraCharm");
 
-            // Confirm base power was used, so only breaches remain.
-            AssertNumberOfUsablePowers(BreachMage, 4);
+            // Only usable power was used.
+            AssertNumberOfUsablePowers(legacy, 0);
         }
 
         [Test()]

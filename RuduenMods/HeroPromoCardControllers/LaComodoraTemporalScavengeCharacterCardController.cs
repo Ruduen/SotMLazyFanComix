@@ -53,7 +53,7 @@ namespace RuduenWorkshop.LaComodora
                 else
                 {
                     List<YesNoCardDecision> storedResults = new List<YesNoCardDecision>();
-                    coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.FlipCardFaceDown, destroy.CardToDestroy.Card, storedResults: storedResults, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.PreventDestruction, destroy.CardToDestroy.Card, storedResults: storedResults, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     if (this.DidPlayerAnswerYes(storedResults))
@@ -61,11 +61,14 @@ namespace RuduenWorkshop.LaComodora
                         destroy.PreventMoveToTrash = true;
 
                         // Cancel the destruction.
-                        coroutine = this.GameController.CancelAction(destroy, false, true, cardSource: this.GetCardSource());
+                        coroutine = this.CancelAction(destroy, false, true, null, true);
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                        // Flip the card face-down.
-                        coroutine = this.GameController.FlipCard(destroy.CardToDestroy, cardSource: this.GetCardSource());
+                        //Flip card. Original implementation, but UI made it weird due to destruction interception. 
+                        //coroutine = this.GameController.FlipCard(destroy.CardToDestroy, cardSource: this.GetCardSource());
+
+                        //Move the card to in-play while flipping it, since it's currently in an ambiguous zone visually-speaking. (The destruction made it vanish.) 
+                        coroutine = this.GameController.MoveCard(this.DecisionMaker, destroy.CardToDestroy.Card, this.HeroTurnTaker.PlayArea, playCardIfMovingToPlayArea: false, flipFaceDown: true, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                 }
