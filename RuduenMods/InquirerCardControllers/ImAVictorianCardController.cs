@@ -21,7 +21,7 @@ namespace RuduenWorkshop.Inquirer
             this.AddTrigger<DiscardCardAction>((DiscardCardAction d) => d.WasCardDiscarded && d.Origin.IsHand && d.Origin.OwnerTurnTaker == this.TurnTaker, new Func<DiscardCardAction, IEnumerator>(this.DiscardResponse), TriggerType.DiscardCard, TriggerTiming.After, ActionDescription.Unspecified);
 
             // Add trigger for healing.
-            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => this.GameController.GainHP(this.CharacterCard, 1), TriggerType.GainHP);
+            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => this.GameController.GainHP(this.CharacterCard, 1, cardSource: this.GetCardSource()), TriggerType.GainHP);
         }
 
         private IEnumerator DiscardResponse(DiscardCardAction discardCard)

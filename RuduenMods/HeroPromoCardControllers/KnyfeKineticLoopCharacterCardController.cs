@@ -62,7 +62,7 @@ namespace RuduenWorkshop.Knyfe
             // Heal.
             if (dd.DidDealDamage)
             {
-                coroutine = this.GameController.GainHP(hero.CharacterCard, powerNumeral);
+                coroutine = this.GameController.GainHP(hero.CharacterCard, powerNumeral, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

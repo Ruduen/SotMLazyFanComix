@@ -30,7 +30,7 @@ namespace RuduenWorkshop.Inquirer
             Card nextTo = this.GetCardThisCardIsNextTo(true);
             if (nextTo != null && nextTo.IsInPlayAndHasGameText)
             {
-                IEnumerator coroutine = this.GameController.GainHP(nextTo, 2);
+                IEnumerator coroutine = this.GameController.GainHP(nextTo, 2, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

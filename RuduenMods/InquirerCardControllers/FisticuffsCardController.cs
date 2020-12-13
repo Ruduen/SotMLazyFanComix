@@ -21,7 +21,7 @@ namespace RuduenWorkshop.Inquirer
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Heal.
-            coroutine = this.GameController.GainHP(this.CharacterCard, 2);
+            coroutine = this.GameController.GainHP(this.CharacterCard, 2, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Discard card.

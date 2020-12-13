@@ -30,7 +30,7 @@ namespace RuduenWorkshop.Inquirer
             //coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[1]);
 
             // Heal.
-            coroutine = this.GameController.GainHP(this.CharacterCard, powerNumerals[2]);
+            coroutine = this.GameController.GainHP(this.CharacterCard, powerNumerals[2], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
