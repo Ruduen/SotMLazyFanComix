@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedPotentBreachCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedStableBreachCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageTwincasterCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageSpellSharedCardController.cs" />
     <Compile Include="BreachMageCardControllers\Charges\FocusCharmCardController.cs" />
@@ -53,7 +55,7 @@
     <Compile Include="BreachMageCardControllers\Breaches\BreachICardController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachIIICardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageSharedCharacterCardController.cs" />
-    <Compile Include="BreachMageCardControllers\BreachMageSharedBreachController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedBreachController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachIVCardController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachIICardController.cs" />
     <Compile Include="BreachMageCardControllers\Spells\FlareCascadeCardController.cs" />
