@@ -1148,7 +1148,7 @@
       "character": true,
       "backgroundColor": "889195",
       "foilBackgroundColor": "889195",
-      "powers": "Reveal cards from the top of your deck until you reveal an Equipment, play it, and shuffle the rest of the revealed cards into your deck.",
+      "powers": "Reveal cards from the top of your deck until you reveal a card that has a power, play it, and shuffle the rest of the revealed cards into your deck.",
       "hitpoints": 25,
       "icons": [ "HasPower", "PlayCardNow" ],
       "nemesisIdentifiers": [ "TheSentinels" ],

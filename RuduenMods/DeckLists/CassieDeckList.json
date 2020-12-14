@@ -26,7 +26,7 @@
       "foilBackgroundColor": "7FFFD4",
       "hitpointsColor": "C94742",
       "character": true,
-      "powers": [ "You may discard up to 3 cards. You may move a card with an Aqua Cost of your discarded cards' total {magic} or less from the Riverbank to your discard, ignoring its Indestructable status. Draw until you have 3 cards." ],
+      "powers": [ "You may discard up to 3 cards. You may move a card with an Aqua Cost of your discarded cards' total {magic} or less from the Riverbank to your hand, ignoring its Indestructable status. Draw until you have 3 cards." ],
       "icons": [ "HasPower", "Manipulate", "DrawCardNow" ],
       "setup": [ "At the start of the game, put The Riverbank into play. Shuffle all of your River cards to make the River deck. [i](This is not currently displayed due to engine restrictions.)[/i]" ],
       "hitpoints": 27,
@@ -74,7 +74,7 @@
       "body": [
         "Aqua Cost: 1",
         "Each Hero regains 1 HP.",
-        "You may move all cards beneath Riverbank to the bottom of the River deck in the same order, ignoring their indestructable status, and move the top four cards from the River deck beneath Riverbank."
+        "You may move all cards beneath Riverbank to the bottom of the River deck in the same order, ignoring their indestructable status, and put the top four cards from the River deck under Riverbank."
       ],
       "icons": [ "DealDamageProjectile", "Manipulate" ],
       "magicNumbers": [ 1, 1, 1, 1 ],
@@ -372,7 +372,7 @@
       "count": 3,
       "title": "Shape the Stream",
       "keywords": [ "river", "one-shot" ],
-      "body": [ "You may move a card from the Riverbank to your Trash, ignoring its Indestructable status. (You do not pay any Aqua Cost.)" ],
+      "body": [ "You may move a card from the Riverbank to the top of your deck, ignoring its Indestructable status. (You do not pay any Aqua Cost.)" ],
       "icons": [ "Manipulate" ],
       "magicNumbers": [ 2, 2, 2 ],
       "tokenPools": [

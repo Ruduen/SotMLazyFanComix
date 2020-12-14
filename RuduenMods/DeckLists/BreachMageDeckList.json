@@ -128,7 +128,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "Draw 2 cards.",
-        "Activate a card's [u]Cast[/u] text, then place that card on top of your deck."
+        "Activate a card's [u]Cast[/u] text, then place that card on top of its deck."
       ],
       "icons": [ "DrawCardNow", "Manipulate" ],
       "flavorText": "..."

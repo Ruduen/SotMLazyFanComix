@@ -1833,7 +1833,7 @@ namespace RuduenModsTest
             Assert.IsTrue(voidWrithe.CharacterCard.IsPromoCard);
 
             // Set equipment so no unusual ones are used.
-            Card card = PutOnDeck("TheShadowCloak");
+            Card card = PutOnDeck("UmbralSiphon");
 
             UsePower(voidWrithe);
             AssertIsInPlay(card);

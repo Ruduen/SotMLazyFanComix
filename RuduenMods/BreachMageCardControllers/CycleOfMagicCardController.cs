@@ -23,13 +23,14 @@ namespace RuduenWorkshop.BreachMage
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Use a Cast.
-            coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource(null));
+            coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (storedResults.Count > 0)
+            if (storedResults.Count > 0 && storedResults.FirstOrDefault().Completed)
             {
+                Card card = storedResults.FirstOrDefault().SelectedCard;
                 // Move the top card back to top of deck.
-                coroutine = this.GameController.MoveCard(this.DecisionMaker, storedResults.FirstOrDefault().SelectedCard, this.HeroTurnTaker.Deck);
+                coroutine = this.GameController.MoveCard(this.DecisionMaker, card, card.Owner.Deck, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
