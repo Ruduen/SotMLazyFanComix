@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../Inquirer.json</filename>
+                <filename>ReleaseVersion/Atlas/InquirerAtlas0.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,9 +181,18 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">InquirerSprites/BackupPlan.png</key>
+            <key type="filename">InquirerSprites/Fisticuffs.png</key>
             <key type="filename">InquirerSprites/ImAMolePerson.png</key>
             <key type="filename">InquirerSprites/ImANinja.png</key>
             <key type="filename">InquirerSprites/ImAVictorian.png</key>
+            <key type="filename">InquirerSprites/IveFixedTheWound.png</key>
+            <key type="filename">InquirerSprites/LookADistraction.png</key>
+            <key type="filename">InquirerSprites/TheLieTheyTellThemselves.png</key>
+            <key type="filename">InquirerSprites/TheRightQuestions.png</key>
+            <key type="filename">InquirerSprites/UndeniableFacts.png</key>
+            <key type="filename">InquirerSprites/YoureLookingPale.png</key>
+            <key type="filename">InquirerSprites/YoureOnOurSide.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -204,6 +213,15 @@
             <filename>InquirerSprites/ImAMolePerson.png</filename>
             <filename>InquirerSprites/ImANinja.png</filename>
             <filename>InquirerSprites/ImAVictorian.png</filename>
+            <filename>InquirerSprites/BackupPlan.png</filename>
+            <filename>InquirerSprites/Fisticuffs.png</filename>
+            <filename>InquirerSprites/IveFixedTheWound.png</filename>
+            <filename>InquirerSprites/LookADistraction.png</filename>
+            <filename>InquirerSprites/TheLieTheyTellThemselves.png</filename>
+            <filename>InquirerSprites/TheRightQuestions.png</filename>
+            <filename>InquirerSprites/UndeniableFacts.png</filename>
+            <filename>InquirerSprites/YoureLookingPale.png</filename>
+            <filename>InquirerSprites/YoureOnOurSide.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

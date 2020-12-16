@@ -1,0 +1,108 @@
+{"frames": {
+
+"BackupPlan.png":
+{
+	"frame": {"x":0,"y":0,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"Fisticuffs.png":
+{
+	"frame": {"x":603,"y":0,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"ImAMolePerson.png":
+{
+	"frame": {"x":1206,"y":0,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"ImANinja.png":
+{
+	"frame": {"x":0,"y":403,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"ImAVictorian.png":
+{
+	"frame": {"x":603,"y":403,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"IveFixedTheWound.png":
+{
+	"frame": {"x":1206,"y":403,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"LookADistraction.png":
+{
+	"frame": {"x":0,"y":806,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"TheLieTheyTellThemselves.png":
+{
+	"frame": {"x":603,"y":806,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"TheRightQuestions.png":
+{
+	"frame": {"x":1206,"y":806,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"UndeniableFacts.png":
+{
+	"frame": {"x":0,"y":1209,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"YoureLookingPale.png":
+{
+	"frame": {"x":603,"y":1209,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+},
+"YoureOnOurSide.png":
+{
+	"frame": {"x":1206,"y":1209,"w":600,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
+	"sourceSize": {"w":600,"h":400}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "InquirerAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6a6a5af3320be0909cd0eb6e4db463cd:19677f2ab881e8e8c0cf598d60f7ef5e:6283b411fee4ccdd1d4ae19169203ed6$"
+}
+}
