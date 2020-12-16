@@ -17,7 +17,7 @@ namespace RuduenWorkshop.Spellforge
             IEnumerator coroutine;
 
             // Deal 1 target 2 sonic.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 2, DamageType.Projectile, 1, false, 1, false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 2, DamageType.Sonic, 1, false, 1, false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw.
