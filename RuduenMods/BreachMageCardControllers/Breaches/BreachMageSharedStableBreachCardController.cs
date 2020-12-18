@@ -16,12 +16,8 @@ namespace RuduenWorkshop.BreachMage
 
         public override IEnumerator UseOpenPower()
         {
-            // Play spell.
-            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // You may use an additional power this turn.
-            coroutine = this.AdditionalPhaseActionThisTurn(this.HeroTurnTaker, Phase.UsePower, 1, true);
+            // Play up to 3 spells.
+            IEnumerator coroutine = this.SelectAndPlayCardsFromHand(this.DecisionMaker, 3, false, new int?(0), new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

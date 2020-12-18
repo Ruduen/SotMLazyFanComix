@@ -51,7 +51,7 @@
       "title": "Stable Breach",
       "keywords": [ "breach" ],
       "body": [ "This card is indestructible." ],
-      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell and use an additional power this turn. Otherwise, remove a token from this card's Focus Pool." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play up to 3 Spells. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -70,7 +70,7 @@
       "title": "Stable Breach",
       "keywords": [ "breach" ],
       "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool." ],
-      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell and use an additional power this turn. Otherwise, remove a token from this card's Focus Pool." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play up to 3 Spells. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -89,7 +89,7 @@
       "title": "Potent Breach",
       "keywords": [ "breach" ],
       "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]cast[/u] text of Spells next to this by 1." ],
-      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play a card and draw a card. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -108,7 +108,7 @@
       "title": "Potent Breach",
       "keywords": [ "breach" ],
       "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]cast[/u] text of Spells next to this by 1." ],
-      "powers": [ "If this card has no tokens in its Focus Pool, you may play a Spell. Otherwise, remove a token from this card's Focus Pool." ],
+      "powers": [ "If this card has no tokens in its Focus Pool, you may play a card and draw a card. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {

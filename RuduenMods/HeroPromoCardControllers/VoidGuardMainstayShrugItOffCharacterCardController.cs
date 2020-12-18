@@ -1,10 +1,11 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using RuduenWorkshop.HeroPromos;
 using System.Collections;
 
 namespace RuduenWorkshop.VoidGuardMainstay
 {
-    public class VoidGuardMainstayShrugItOffCharacterCardController : HeroCharacterCardController
+    public class VoidGuardMainstayShrugItOffCharacterCardController : PromoDefaultCharacterCardController
     {
         public VoidGuardMainstayShrugItOffCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

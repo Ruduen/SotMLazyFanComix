@@ -275,6 +275,8 @@ namespace RuduenModsTest
             QuickHPCheck(-2, 2); // Two total damage - 1 base, 1 buff. 2 Healing - 1 base, 1 buff.
         }
 
+
+
         [Test()]
         public void TestBackupPlan()
         {
@@ -462,6 +464,23 @@ namespace RuduenModsTest
             PlayCard("UntilYouMakeIt");
             QuickHandCheck(0); // Draw 1, Play 1, Net 0.
             AssertNumberOfCardsInPlay(Inquirer, 3); // Should now have character card, new persona, and card in play, since safe cards are preferred.
+        }
+
+        [Test()]
+        public void TestUntilYouMakeItTiming()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Inquirer", "Megalopolis");
+            StartGame();
+
+            Card ninja = PutInDeck("ImANinja");
+            Card punch = PutInHand("Fisticuffs");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+            Card discard = PutInHand("BackupPlan");
+            DecisionSelectCards = new Card[] { ninja, punch, mdp, discard };
+
+            QuickHPStorage(mdp);
+            PlayCard("UntilYouMakeIt");
+            QuickHPCheck(-4);
         }
 
         private IEnumerable<Card> ArrangeDecisionCards(List<Card> cards)

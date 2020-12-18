@@ -24,5 +24,18 @@ namespace RuduenWorkshop.BreachMage
             }
             this.AddTrigger(this.AddIncreaseDamageTrigger(criteria, 1, null, null, false));
         }
+
+        public override IEnumerator UseOpenPower()
+        {
+            // Play a card 
+            IEnumerator coroutine;
+            coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Draw a card.
+            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
+
     }
 }

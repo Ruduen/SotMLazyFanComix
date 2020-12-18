@@ -62,6 +62,37 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestBreachMageBreachOpenPowers()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
+            int[] initFocus = new int[] { 0, 1, 2, 3 };
+            Card[] spells = FindCardsWhere((Card c) => c.IsSpell && c.Owner == BreachMage.HeroTurnTaker).ToArray();
+            PutInHand(spells);
+
+            Assert.IsTrue(breaches.Count() == 4);
+
+            for (int i = 0; i < 4; i++)
+            {
+                RemoveTokensFromPool(breaches[i].FindTokenPool("FocusPool"), initFocus[i]);
+            }
+
+            DecisionSelectCards = new Card[] { spells[0], breaches[0], spells[1], breaches[1], spells[2], breaches[2], spells[3] };
+
+            QuickHandStorage(BreachMage);
+
+            UsePower(breaches[0]); // Stable Breach: Play up to 3 spells. 
+            UsePower(breaches[3]); // Open breach: Play + Draw. 
+            // Four spells should be in play. 
+            AssertIsInPlay(spells[0], spells[1], spells[2], spells[3]);
+            QuickHandCheck(-3); // 4 spells played, 1 drawn.
+
+        }
+
+        [Test()]
         public void TestBreachMagePlaySpell()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");

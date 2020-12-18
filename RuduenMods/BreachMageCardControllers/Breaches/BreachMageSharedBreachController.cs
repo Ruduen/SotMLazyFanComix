@@ -26,15 +26,16 @@ namespace RuduenWorkshop.BreachMage
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        public virtual IEnumerator UseFocusPower()
+        public virtual IEnumerator UseFocusPower(int powerNumeral)
         {
-            IEnumerator coroutine = this.GameController.RemoveTokensFromPool(this.Card.FindTokenPool("FocusPool"), 1);
+            IEnumerator coroutine = this.GameController.RemoveTokensFromPool(this.Card.FindTokenPool("FocusPool"), powerNumeral);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
+            int powerNumeral = this.GetPowerNumeral(0, 1);
 
             if (FocusPool.CurrentValue == 0)
             {
@@ -44,7 +45,7 @@ namespace RuduenWorkshop.BreachMage
             }
             else
             {
-                coroutine = this.UseFocusPower();
+                coroutine = this.UseFocusPower(powerNumeral);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 

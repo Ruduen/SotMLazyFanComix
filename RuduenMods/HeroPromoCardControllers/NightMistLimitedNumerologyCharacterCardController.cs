@@ -3,6 +3,7 @@ using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RuduenWorkshop.NightMist
 {
@@ -16,25 +17,28 @@ namespace RuduenWorkshop.NightMist
         public override IEnumerator UsePower(int index = 0)
         {
             int powerNumeral = this.GetPowerNumeral(0, 1);
+            List<PlayCardAction> storedResults = new List<PlayCardAction>();
             IEnumerator coroutine;
 
             // Reduce Nightmist's damage to hero targets.
             ReduceDamageStatusEffect statusEffect = new ReduceDamageStatusEffect(powerNumeral);
-            statusEffect.UntilEndOfNextTurn(this.HeroTurnTaker);
+            statusEffect.UntilThisTurnIsOver(this.Game);
             statusEffect.TargetCriteria.IsHero = true;
             statusEffect.SourceCriteria.IsSpecificCard = this.CharacterCard;
 
             coroutine = this.AddStatusEffect(statusEffect, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Draw or play.
-            List<Function> list = new List<Function>() {
-                new Function(this.HeroTurnTakerController, "Draw a card", SelectionType.DrawCard, () => base.DrawCard(base.HeroTurnTaker)),
-                new Function(this.HeroTurnTakerController, "Play a card", SelectionType.PlayCard, () => base.SelectAndPlayCardFromHand(base.HeroTurnTakerController, false))
-            };
-            SelectFunctionDecision selectFunction = new SelectFunctionDecision(base.GameController, base.HeroTurnTakerController, list, false, cardSource: this.GetCardSource());
-            coroutine = this.GameController.SelectAndPerformFunction(selectFunction, null, null);
+            // Play a card
+            coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, storedResults: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (storedResults.Count == 0 || !storedResults.FirstOrDefault().WasCardPlayed)
+            {
+                // If you didn't, draw a card.
+                coroutine = this.DrawCards(this.DecisionMaker, 1);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
     }
 }

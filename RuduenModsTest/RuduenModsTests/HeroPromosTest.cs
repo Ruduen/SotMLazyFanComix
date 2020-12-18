@@ -1105,6 +1105,8 @@ namespace RuduenModsTest
 
             StartGame();
 
+            DecisionSelectCards = new Card[] { null };
+
             QuickHandStorage(mist);
             QuickHPStorage(mist, legacy);
             UsePower(mist);

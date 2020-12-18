@@ -627,7 +627,7 @@
       "character": true,
       "backgroundColor": "bd9dca",
       "foilBackgroundColor": "bd9dca",
-      "powers": "Until the end of your next turn, when {NightMist} would deal a Hero Target damage, reduce that damage by 1. Draw a card or play a card.",
+      "powers": "Until the end of the turn, when {NightMist} would deal a Hero Target damage, reduce that damage by 1. You may play a card. If you do not, draw a card.",
       "hitpoints": 26,
       "icons": [ "HasPower", "ReduceDamageDealt", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "NightMist" ],
