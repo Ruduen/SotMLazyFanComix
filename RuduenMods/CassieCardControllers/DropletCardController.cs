@@ -21,7 +21,7 @@ namespace RuduenWorkshop.Cassie
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Yes/No question to determine reset-move!
-            YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, Riverbank().UnderLocation.Cards.Count());
+            YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, Riverbank().UnderLocation.Cards.Count(), cardSource: this.GetCardSource());
             coroutine = this.GameController.MakeDecisionAction(yesNoDecision);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

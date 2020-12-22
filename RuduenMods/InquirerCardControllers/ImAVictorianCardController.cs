@@ -27,7 +27,7 @@ namespace RuduenWorkshop.Inquirer
         private IEnumerator DiscardResponse(DiscardCardAction discardCard)
         {
             List<MoveCardAction> storedResults = new List<MoveCardAction>();
-            IEnumerator coroutine = this.GameController.DiscardTopCard(this.HeroTurnTaker.Deck, storedResults);
+            IEnumerator coroutine = this.GameController.DiscardTopCard(this.HeroTurnTaker.Deck, storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

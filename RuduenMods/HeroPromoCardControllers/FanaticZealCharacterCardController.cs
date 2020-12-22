@@ -22,7 +22,7 @@ namespace RuduenWorkshop.Fanatic
                 this.GetPowerNumeral(1, 1), // Amount of damage.
             };
 
-            List<PlayCardAction> storedResults = new List<PlayCardAction>();
+            List<UsePowerDecision> storedResults = new List<UsePowerDecision>();
 
             IEnumerator coroutine;
 
@@ -34,20 +34,16 @@ namespace RuduenWorkshop.Fanatic
             coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), this.CharacterCard, powerNumerals[1], DamageType.Radiant, cardSource: this.GetCardSource(null));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Draw or play.
-            List<Function> list = new List<Function>() {
-                new Function(this.HeroTurnTakerController, "Play a card", SelectionType.PlayCard,
-                    () => this.SelectAndPlayCardFromHand(this.HeroTurnTakerController, false),
-                    this.CanPlayCardsFromHand(this.DecisionMaker),
-                    this.HeroTurnTaker.Name + " cannot use any powers, so they must play a card."),
-                new Function(this.HeroTurnTakerController, "Use a Power", SelectionType.UsePower,
-                    () => this.GameController.SelectAndUsePower(this.DecisionMaker, false, cardSource: this.GetCardSource()),
-                    this.GameController.CanUsePowers(this.DecisionMaker, cardSource: this.GetCardSource()) && this.GameController.GetUsablePowersThisTurn(this.DecisionMaker, cardSource: this.GetCardSource()).Count() > 0,
-                    this.HeroTurnTaker.Name + " cannot play any cards, so they must use a power.")
-            };
-            SelectFunctionDecision selectFunction = new SelectFunctionDecision(base.GameController, this.HeroTurnTakerController, list, false, null, this.HeroTurnTaker.Name + " cannot play any cards or use any powers.", cardSource: this.GetCardSource());
-            coroutine = this.GameController.SelectAndPerformFunction(selectFunction, null, null);
+            // Use power or draw.
+            coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, storedResults: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (!this.WasPowerUsed(storedResults))
+            {
+                // Draw a card.
+                coroutine = this.DrawCards(this.DecisionMaker, 1);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
     }
 }

@@ -35,7 +35,7 @@ namespace RuduenWorkshop.Inquirer
             {
                 // TODO: Is there a better option for yesnoamountdecision? And can we add the card so it displays?)
                 // Ask if we should move the top two cards of the trash to the bottom of the deck for things.
-                YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, 2);
+                YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, 2, cardSource: this.GetCardSource());
                 coroutine = this.GameController.MakeDecisionAction(yesNoDecision);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

@@ -431,7 +431,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestFanaticPlay()
+        public void TestFanaticDraw()
         {
             // Equipment Test
             SetupGameController("BaronBlade", "Fanatic/RuduenWorkshop.FanaticZealCharacter", "Megalopolis");
@@ -440,15 +440,15 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card play = PutInHand("AegisOfResurrection");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
-            DecisionSelectCardToPlay = play;
+            DecisionSelectPowers = new Card[] { null };
 
             QuickHPStorage(fanatic.CharacterCard, mdp);
+            QuickHandStorage(fanatic);
             UsePower(fanatic);
-            AssertIsInPlay(play);
             QuickHPCheck(-1, -1); // Damage dealt to BB (canceled), mdp, and self.
+            QuickHandCheck(1); // Drawn.
         }
 
         [Test()]
@@ -1383,14 +1383,14 @@ namespace RuduenModsTest
             AssertInHand(bottom);
         }
 
-        [Test()]
-        public void TestSkyScraper()
-        {
-            SetupGameController("BaronBlade", "SkyScraper/RuduenWorkshop.SkyScraperConsistentNormalCharacter", "Megalopolis");
-            Assert.IsTrue(sky.CharacterCard.IsPromoCard);
+        //[Test()]
+        //public void TestSkyScraper()
+        //{
+        //    SetupGameController("BaronBlade", "SkyScraper/RuduenWorkshop.SkyScraperConsistentNormalCharacter", "Megalopolis");
+        //    Assert.IsTrue(sky.CharacterCard.IsPromoCard);
 
-            StartGame();
-        }
+        //    StartGame();
+        //}
 
         [Test()]
         public void TestStuntmanOnTurn()
@@ -1514,7 +1514,7 @@ namespace RuduenModsTest
             // Legacy to confirm damage is not boosted.
             UsePower(legacy);
 
-            DestroyCard( GetCardInPlay("MobileDefensePlatform"));
+            DestroyCard(GetCardInPlay("MobileDefensePlatform"));
 
             QuickHandStorage(tempest);
             QuickHPStorage(baron);
@@ -1727,7 +1727,7 @@ namespace RuduenModsTest
             PutIntoPlay("SynapticInterruption");
 
             // First heal/damage Medico and MDP, then redirect to MDP so it no longer qualifies. What happens? 
-            DecisionSelectCards = new Card[] { tachyon.CharacterCard, mdp , tachyon.CharacterCard, mdp, mdp};
+            DecisionSelectCards = new Card[] { tachyon.CharacterCard, mdp, tachyon.CharacterCard, mdp, mdp };
 
             QuickHPStorage(tachyon.CharacterCard, mdp);
             UsePower(voidMedico);
@@ -1743,7 +1743,7 @@ namespace RuduenModsTest
 
             Assert.IsTrue(voidIdealist.CharacterCard.IsPromoCard);
 
-            Card top=PutOnDeck("MonsterOfId"); // Remove from deck so damage doesn't warp tests.
+            Card top = PutOnDeck("MonsterOfId"); // Remove from deck so damage doesn't warp tests.
             Card concept = PutIntoPlay("FlyingStabbyKnives");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 

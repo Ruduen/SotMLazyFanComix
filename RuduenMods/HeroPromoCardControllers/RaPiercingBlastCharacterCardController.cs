@@ -36,7 +36,7 @@ namespace RuduenWorkshop.Ra
 
             if (damageTargets.Count<Card>() > 0)
             {
-                DestroyCardJournalEntry destroyCardJournalEntry = (from dcje in base.Journal.DestroyCardEntriesThisTurn()
+                DestroyCardJournalEntry destroyCardJournalEntry = (from dcje in this.Journal.DestroyCardEntriesThisTurn()
                                                                    where damageTargets.Contains(dcje.Card)
                                                                    select dcje).LastOrDefault<DestroyCardJournalEntry>();
                 if (destroyCardJournalEntry != null && destroyCardJournalEntry.Card != null)

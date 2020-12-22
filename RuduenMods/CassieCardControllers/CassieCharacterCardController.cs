@@ -22,11 +22,12 @@ namespace RuduenWorkshop.Cassie
 
         public override IEnumerator UsePower(int index = 0)
         {
+            int[] powerNumerals = new int[] { this.GetPowerNumeral(0, 3), this.GetPowerNumeral(1, 3) };
             IEnumerator coroutine;
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
 
             // Initial test: Discard up to three cards.
-            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 3, false, 0, storedResults, allowAutoDecide: true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, powerNumerals[0], false, 0, storedResults, allowAutoDecide: false, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             int? spellValue = 0;
@@ -40,12 +41,12 @@ namespace RuduenWorkshop.Cassie
             // Do null checks first for short circuiting purposes!
             coroutine = this.GameController.SelectCardAndDoAction(
                 new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == this.Riverbank().UnderLocation && c.FindTokenPool("CassieCostPool") != null && c.FindTokenPool("CassieCostPool").MaximumValue != null && c.FindTokenPool("CassieCostPool").MaximumValue <= spellValue)),
-                (SelectCardDecision d) => this.GameController.MoveCard(this.DecisionMaker, d.SelectedCard, this.HeroTurnTaker.Hand, false, false, false, null, false, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
+                (SelectCardDecision d) => this.GameController.MoveCard(this.DecisionMaker, d.SelectedCard, this.HeroTurnTaker.Hand, false, false, false, null, true, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
                 false);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw until you have 3 cards.
-            coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, 3);
+            coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, powerNumerals[1]);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
