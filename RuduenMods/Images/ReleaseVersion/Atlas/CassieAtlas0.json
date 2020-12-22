@@ -1,108 +1,100 @@
 {"frames": {
 
-"CassieHero.jpg":
-{
-	"frame": {"x":0,"y":0,"w":600,"h":400},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
-},
 "CondensedOrb.jpg":
 {
-	"frame": {"x":603,"y":0,"w":600,"h":400},
+	"frame": {"x":0,"y":0,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "Droplet.jpg":
 {
-	"frame": {"x":1206,"y":0,"w":600,"h":400},
+	"frame": {"x":603,"y":0,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "MeetingTheOcean.jpg":
 {
-	"frame": {"x":0,"y":403,"w":600,"h":400},
+	"frame": {"x":1206,"y":0,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "PerpetualFlow.jpg":
 {
-	"frame": {"x":603,"y":403,"w":600,"h":400},
+	"frame": {"x":0,"y":467,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "RippledVisions.jpg":
 {
-	"frame": {"x":1206,"y":403,"w":600,"h":400},
+	"frame": {"x":603,"y":467,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "RisingWaters.jpg":
 {
-	"frame": {"x":0,"y":806,"w":600,"h":400},
+	"frame": {"x":1206,"y":467,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "Riverbank.jpg":
 {
-	"frame": {"x":603,"y":806,"w":600,"h":400},
+	"frame": {"x":0,"y":934,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "RiverWornStone.jpg":
 {
-	"frame": {"x":1206,"y":806,"w":600,"h":400},
+	"frame": {"x":603,"y":934,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "RushingWaters.jpg":
 {
-	"frame": {"x":0,"y":1209,"w":600,"h":400},
+	"frame": {"x":1206,"y":934,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "StormSwell.jpg":
 {
-	"frame": {"x":603,"y":1209,"w":600,"h":400},
+	"frame": {"x":0,"y":1401,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "Waterlog.jpg":
 {
-	"frame": {"x":1206,"y":1209,"w":600,"h":400},
+	"frame": {"x":603,"y":1401,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 },
 "WaterSurge.jpg":
 {
-	"frame": {"x":0,"y":1612,"w":600,"h":400},
+	"frame": {"x":1206,"y":1401,"w":600,"h":464},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":400},
-	"sourceSize": {"w":600,"h":400}
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -111,6 +103,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:6054c824a4dbe76a0aca446253f308ee:5436a200be9128c43dccad574417b17f:0189780c3cc87c08831050582226ea32$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1d7f095ad0054805e434eb9dcb3d9252:7aee916ea21af1af6d599eaadccb415b:0189780c3cc87c08831050582226ea32$"
 }
 }

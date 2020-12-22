@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>CassieAtlas0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -181,7 +181,6 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/CassieHero.jpg</key>
             <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/CondensedOrb.jpg</key>
             <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/Droplet.jpg</key>
             <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/MeetingTheOcean.jpg</key>
@@ -211,7 +210,6 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/CassieHero.jpg</filename>
             <filename>ReleaseVersion/LargeCardTextures/Cassie/CondensedOrb.jpg</filename>
             <filename>ReleaseVersion/LargeCardTextures/Cassie/Droplet.jpg</filename>
             <filename>ReleaseVersion/LargeCardTextures/Cassie/MeetingTheOcean.jpg</filename>

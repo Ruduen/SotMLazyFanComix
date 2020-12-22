@@ -52,7 +52,7 @@
       "icons": [ "DrawCardNow", "Destroy" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "You don't need words to deceive."
         }
       ]
@@ -67,7 +67,7 @@
       "icons": [ "PlayCardNow", "DrawCardNow" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Proof has always been optional."
         }
       ]
@@ -85,7 +85,7 @@
       "icons": [ "IncreaseGainHP", "DealDamageMelee", "StartAndEndOfTurnAction", "DestroySelf" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Why else would I be digging myself deeper into this pit?"
         }
       ]
@@ -103,7 +103,7 @@
       "icons": [ "IncreaseDamageDealt", "UsePowerNow", "StartAndEndOfTurnAction", "DestroySelf" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "How else could I have gotten up here?"
         }
       ]
@@ -121,7 +121,7 @@
       "icons": [ "Discard", "GainHP", "StartAndEndOfTurnAction", "DestroySelf" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Where did you think the hat came from?"
         }
       ]
@@ -135,7 +135,7 @@
       "icons": [ "DealDamagePsychic", "DealDamageProjectile", "GainHP", "DrawCardNow" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Why wouldn't I keep a pistol on me?"
         }
       ]
@@ -153,7 +153,7 @@
       "icons": [ "DealDamagePsychic", "GainHP", "StartOfTurnAction", "DestroySelf" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Just lay down for a little. Do you really think you can fight like that?"
         }
       ]
@@ -171,7 +171,7 @@
       "icons": [ "DealDamageMelee", "StartOfTurnAction", "DestroySelf" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Get over here before they start blasting you! Didn't you get the updated orders?"
         }
       ]
@@ -189,7 +189,7 @@
       "icons": [ "GainHP", "DealDamagePsychic", "StartOfTurnAction", "DestroySelf" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Of course it's patched up! You're still walking, aren't you? "
         }
       ]
@@ -207,7 +207,7 @@
       "icons": [ "DealDamageMelee", "StartOfTurnAction", "DestroySelf" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Did you really think those reinforcements were yours?"
         }
       ]
@@ -225,7 +225,7 @@
       "icons": [ "DrawCardNow", "Search", "PlayCardNow" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Is it still a lie if it becomes the truth?"
         }
       ]
@@ -243,7 +243,7 @@
       "icons": [ "DealDamageMelee", "GainHP", "DrawCardNow" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "Why wouldn't I have a little practice in this?"
         }
       ]
@@ -260,7 +260,7 @@
       "icons": [ "DestroyOngoing", "DestroyEnvironment", "PlayCardNow", "Manipulate" ],
       "flavorQuotes": [
         {
-          "flavorReference": "Inquirer",
+          "identifier": "Inquirer",
           "text": "So, why did you believe me in the first place?"
         }
       ]
