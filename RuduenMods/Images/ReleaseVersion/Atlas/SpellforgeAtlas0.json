@@ -1,0 +1,108 @@
+{"frames": {
+
+"ArticulateTheLethological.jpg":
+{
+	"frame": {"x":0,"y":0,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"Controlled.jpg":
+{
+	"frame": {"x":603,"y":0,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"Impact.jpg":
+{
+	"frame": {"x":1206,"y":0,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"Inspired.jpg":
+{
+	"frame": {"x":0,"y":467,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"OfAura.jpg":
+{
+	"frame": {"x":603,"y":467,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"OfDisruption.jpg":
+{
+	"frame": {"x":1206,"y":467,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"OfHealing.jpg":
+{
+	"frame": {"x":0,"y":934,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"OfResonance.jpg":
+{
+	"frame": {"x":603,"y":934,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"Piercing.jpg":
+{
+	"frame": {"x":1206,"y":934,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"Ray.jpg":
+{
+	"frame": {"x":0,"y":1401,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"Shock.jpg":
+{
+	"frame": {"x":603,"y":1401,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+},
+"Wave.jpg":
+{
+	"frame": {"x":1206,"y":1401,"w":600,"h":464},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
+	"sourceSize": {"w":600,"h":464}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "SpellforgeAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ebdf3c8748425a193faf2718e0dc18e2:13d1f808ec0a7d555aa2f478bd3fa9d4:343e25e2fda7a441cf00ddb7f39b2d67$"
+}
+}
