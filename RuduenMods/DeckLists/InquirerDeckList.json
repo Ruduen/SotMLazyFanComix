@@ -27,8 +27,8 @@
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "One player may draw a card.",
+        "Put a Hero non-character card back into their Player's hand."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -243,7 +243,7 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Why wouldn't I have a little practice in this?"
+          "text": "Do you think it's the first time I've been challenged this way?"
         }
       ]
     },
@@ -331,7 +331,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "..."
+        "default": "I'm only saying this once. Listen well."
       },
       "complexity": 3
     }

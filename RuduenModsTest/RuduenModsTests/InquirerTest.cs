@@ -50,6 +50,19 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestInnateIncap()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Inquirer", "Legacy", "Megalopolis");
+
+            StartGame();
+
+            Card card = PlayCard("TheLegacyRing");
+            DestroyCard(Inquirer);
+            UseIncapacitatedAbility(Inquirer, 2);
+            AssertInHand(card); // Returned to hand. 
+        }
+
+        [Test()]
         public void TestLiesOnLiesInnatePower()
         {
             IEnumerable<string> setupItems = new List<string>()
