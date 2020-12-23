@@ -158,7 +158,7 @@
       "title": "...of Healing",
       "alternateTitle": "of Healing",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 3 HP." ],
+      "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 4 HP." ],
       "icons": [ "DrawCardNow", "DestroyEnvironment", "GainHP" ],
       "flavorQuotes": [
         {

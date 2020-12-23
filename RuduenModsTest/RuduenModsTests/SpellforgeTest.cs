@@ -22,7 +22,7 @@ namespace RuduenModsTest
             { "Controlled", -1 },
             { "OfResonance", -1 },
             { "OfDisruption", -1 },
-            { "OfHealing", 3 }
+            { "OfHealing", 4 }
         };
 
         [OneTimeSetUp]
@@ -127,7 +127,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(Spellforge.CharacterCard);
             UsePower(Spellforge);
-            QuickHPCheck(-1); // Hit for 4, healed 3.
+            QuickHPCheck(-4 + CardDamage["OfHealing"]); // Hit for 4, healed 4.
         }
 
         [Test()]
@@ -156,7 +156,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(Spellforge.CharacterCard);
             UsePower(Spellforge);
-            QuickHPCheck(2); // Hit for 1, healed 3.
+            QuickHPCheck(-1 + CardDamage["OfHealing"]); // Hit for 1, healed 4.
         }
 
         [Test()]
