@@ -10,9 +10,8 @@
       "count": 1,
       "title": "Inquirer",
       "body": "Fast-Talk",
-      "backgroundColor": "7FFFD4",
-      "foilBackgroundColor": "7FFFD4",
-      "hitpointsColor": "C94742",
+      "backgroundColor": "FFFF00",
+      "foilBackgroundColor": "FFFF00",
       "character": true,
       "powers": [
         "Draw a card. You may destroy one of your Ongoing cards. If you do, play a card."
@@ -273,9 +272,8 @@
       "count": 1,
       "title": "Inquirer",
       "body": "Hard Facts",
-      "backgroundColor": "fbf8f9",
-      "foilBackgroundColor": "FEFEFE",
-      "hitpointsColor": "C94742",
+      "backgroundColor": "FFFF00",
+      "foilBackgroundColor": "FFFF00",
       "character": true,
 
       "powers": [
@@ -311,9 +309,8 @@
       "count": 1,
       "title": "Inquirer",
       "body": "Lies on Lies",
-      "backgroundColor": "fbf8f9",
-      "foilBackgroundColor": "FEFEFE",
-      "hitpointsColor": "C94742",
+      "backgroundColor": "FFFF00",
+      "foilBackgroundColor": "FFFF00",
       "character": true,
       "powers": [
         "Select a Distortion and put it on top of its deck. Play the top card of your deck."

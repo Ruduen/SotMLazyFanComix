@@ -10,9 +10,8 @@
       "count": 1,
       "title": "Spellforge",
       "body": "Sesquipedalian Recitation",
-      "backgroundColor": "7FFFD4",
-      "foilBackgroundColor": "7FFFD4",
-      "hitpointsColor": "C94742",
+      "backgroundColor": "CC6666",
+      "foilBackgroundColor": "CC6666",
       "character": true,
       "powers": [
         "Draw a card. If you have discarded any cards this turn, draw a card."
@@ -204,9 +203,8 @@
       "count": 1,
       "title": "Spellforge",
       "body": "Define",
-      "backgroundColor": "fbf8f9",
-      "foilBackgroundColor": "FEFEFE",
-      "hitpointsColor": "C94742",
+      "backgroundColor": "CC6666",
+      "foilBackgroundColor": "CC6666",
       "character": true,
       "powers": [
         "You may discard a Prefix card to add its [u]Prefix[/u] text to this power. You may discard a Suffix card to apply its [u]Suffix[/u] text to this power. {Spellforge} deals up to 3 Targets 1 Infernal Damage."
