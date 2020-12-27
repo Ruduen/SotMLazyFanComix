@@ -1,0 +1,148 @@
+{"frames": {
+
+"AuraCharm.jpg":
+{
+	"frame": {"x":0,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"BreachI.jpg":
+{
+	"frame": {"x":253,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"BreachII.jpg":
+{
+	"frame": {"x":506,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"BreachIII.jpg":
+{
+	"frame": {"x":759,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"BreachIV.jpg":
+{
+	"frame": {"x":0,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"CycleOfMagic.jpg":
+{
+	"frame": {"x":253,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"FlareCascade.jpg":
+{
+	"frame": {"x":506,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"FocusBreach.jpg":
+{
+	"frame": {"x":759,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"FocusCharm.jpg":
+{
+	"frame": {"x":0,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"HammerCharm.jpg":
+{
+	"frame": {"x":253,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"HauntingEcho.jpg":
+{
+	"frame": {"x":506,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"MoltenWave.jpg":
+{
+	"frame": {"x":759,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Shine.jpg":
+{
+	"frame": {"x":0,"y":609,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"SpiralCharm.jpg":
+{
+	"frame": {"x":253,"y":609,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"VigorCharm.jpg":
+{
+	"frame": {"x":506,"y":609,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"VisionShock.jpg":
+{
+	"frame": {"x":759,"y":609,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Zap.jpg":
+{
+	"frame": {"x":0,"y":812,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "BreachMageAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5d45624d1b14b9619a948d35f66f6358:3ddd7a58698628a7be86a89f15b3ecc1:472fa949e7fbf02b45c3f709a5d5c720$"
+}
+}
