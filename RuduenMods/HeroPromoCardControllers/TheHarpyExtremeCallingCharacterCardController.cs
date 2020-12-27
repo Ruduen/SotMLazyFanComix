@@ -12,8 +12,8 @@ namespace RuduenWorkshop.TheHarpy
         public TheHarpyExtremeCallingCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            TokenPool arcanaPool = base.Card.FindTokenPool(TokenPool.ArcanaControlPool);
-            TokenPool avianPool = base.Card.FindTokenPool(TokenPool.AvianControlPool);
+            TokenPool arcanaPool = this.Card.FindTokenPool(TokenPool.ArcanaControlPool);
+            TokenPool avianPool = this.Card.FindTokenPool(TokenPool.AvianControlPool);
             this.SpecialStringMaker.ShowSpecialString(() => string.Format("{0} has {1} {2} and {3} {4} control tokens.",
                 new object[] { this.Card.AlternateTitleOrTitle, arcanaPool.CurrentValue, "{arcana}", avianPool.CurrentValue, "{avian}" }),
                 null, null);

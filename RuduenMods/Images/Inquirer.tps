@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>ReleaseVersion/Atlas/InquirerAtlas0</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -191,6 +191,7 @@
             <key type="filename">Originals/Inquirer/TheLieTheyTellThemselves.jpg</key>
             <key type="filename">Originals/Inquirer/TheRightQuestions.jpg</key>
             <key type="filename">Originals/Inquirer/UndeniableFacts.jpg</key>
+            <key type="filename">Originals/Inquirer/UntilYouMakeIt.jpg</key>
             <key type="filename">Originals/Inquirer/YoureLookingPale.jpg</key>
             <key type="filename">Originals/Inquirer/YoureOnOurSide.jpg</key>
             <struct type="IndividualSpriteSettings">
@@ -201,27 +202,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>150,150,300,300</rect>
+                <rect>63,50,125,100</rect>
                 <key>scale9Paddings</key>
-                <rect>150,150,300,300</rect>
+                <rect>63,50,125,100</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>Originals/Inquirer/BackupPlan.jpg</filename>
-            <filename>Originals/Inquirer/Fisticuffs.jpg</filename>
-            <filename>Originals/Inquirer/ImAMolePerson.jpg</filename>
-            <filename>Originals/Inquirer/ImANinja.jpg</filename>
-            <filename>Originals/Inquirer/ImAVictorian.jpg</filename>
-            <filename>Originals/Inquirer/IveFixedTheWound.jpg</filename>
-            <filename>Originals/Inquirer/LookADistraction.jpg</filename>
-            <filename>Originals/Inquirer/TheLieTheyTellThemselves.jpg</filename>
-            <filename>Originals/Inquirer/TheRightQuestions.jpg</filename>
-            <filename>Originals/Inquirer/UndeniableFacts.jpg</filename>
-            <filename>Originals/Inquirer/YoureLookingPale.jpg</filename>
-            <filename>Originals/Inquirer/YoureOnOurSide.jpg</filename>
+            <filename>Originals/Inquirer</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
