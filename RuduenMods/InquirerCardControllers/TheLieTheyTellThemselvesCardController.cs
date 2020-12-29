@@ -15,20 +15,17 @@ namespace RuduenWorkshop.Inquirer
 
         public override void AddTriggers()
         {
-            // Add trigger for destroyed Distortion.
-            this.AddTrigger<DestroyCardAction>((DestroyCardAction d) => d.CardToDestroy.Card.IsDistortion && d.WasCardDestroyed, new Func<DestroyCardAction, IEnumerator>(this.DealDamageResponse), TriggerType.DealDamage, TriggerTiming.After);
+            // Add trigger for play Distortion. Must be a played distortion, and the distortion must've been played next to a non-hero target. 
+            this.AddTrigger<PlayCardAction>((PlayCardAction pca) => pca.CardToPlay.IsDistortion && pca.WasCardPlayed && pca.CardToPlay.Location.IsNextToCard && !pca.CardToPlay.Location.OwnerCard.IsHero && pca.CardToPlay.Location.OwnerCard.IsTarget, this.DealDamageResponse, TriggerType.DealDamage, TriggerTiming.After);
         }
 
-        private IEnumerator DealDamageResponse(GameAction d)
+        private IEnumerator DealDamageResponse(PlayCardAction pca)
         {
-            // Pick any target
-            List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
-            IEnumerator coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.SelectTarget, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsTarget && !c.IsHero, "targets", false, false, null, null, false), storedResults, false, false, null, true, this.GetCardSource(null));
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            Card selectedCard = this.GetSelectedCard(storedResults);
+            // Viability of target was checked with trigger, so only worry about the card. 
+            Card nextToCard = pca.CardToPlay.Location.OwnerCard;
 
             // That target damages themselves.
-            coroutine = this.DealDamage(selectedCard, selectedCard, 1, DamageType.Psychic, false, false, false, null, null, null, false, null);
+            IEnumerator coroutine = this.DealDamage(nextToCard, nextToCard, 1, DamageType.Psychic, false, false, false, null, null, null, false, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

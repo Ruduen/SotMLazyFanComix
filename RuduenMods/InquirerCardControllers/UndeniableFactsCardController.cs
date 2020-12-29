@@ -15,35 +15,7 @@ namespace RuduenWorkshop.Inquirer
 
         public override void AddTriggers()
         {
-            // Add trigger for destroyed Distortion.
-            this.AddTrigger<DestroyCardAction>((DestroyCardAction d) => d.CardToDestroy.Card.IsDistortion && d.WasCardDestroyed, new Func<DestroyCardAction, IEnumerator>(this.DrawCardResponse), TriggerType.DrawCard, TriggerTiming.After);
-            //this.AddTrigger<DestroyCardAction>((DestroyCardAction d) => d.CardToDestroy.Card.IsDistortion && d.WasCardDestroyed, new Func<DestroyCardAction, IEnumerator>(this.MoveInsteadResponse), TriggerType.MoveCard, TriggerTiming.Before);
-        }
-
-        //private IEnumerator MoveInsteadResponse(DestroyCardAction d)
-        //{
-        //    // Cancel the destroy card action.
-        //    IEnumerator coroutine;
-        //    coroutine = this.CancelAction(d, true, true, null, false);
-        //    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-        //    // Move the card to the bottom of your deck instead.
-        //    coroutine = this.GameController.MoveCard(this.TurnTakerController, d.CardToDestroy.Card, d.CardToDestroy.Card.Owner.Deck, true);
-        //    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        //}
-
-        private IEnumerator DrawCardResponse(GameAction d)
-        {
-            // Draw a card.
-            IEnumerator drawCoroutine = this.DrawCard(null, false, null, true);
-            if (this.UseUnityCoroutines)
-            {
-                yield return this.GameController.StartCoroutine(drawCoroutine);
-            }
-            else
-            {
-                this.GameController.ExhaustCoroutine(drawCoroutine);
-            }
+            this.AddAdditionalPhaseActionTrigger((TurnTaker tt) => tt == this.HeroTurnTaker, Phase.DrawCard, 1);
         }
 
         public override IEnumerator UsePower(int index = 0)

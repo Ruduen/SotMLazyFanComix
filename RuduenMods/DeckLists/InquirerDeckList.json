@@ -47,7 +47,7 @@
       "title": "The Lie they Tell Themselves",
       "keywords": [ "ongoing", "limited" ],
       "powers": "Draw 2 cards.",
-      "body": "After a Distortion card is destroyed, 1 non-Hero Target deals itself 1 Psychic Damage.",
+      "body": "When you play a Distortion card next to a non-Hero Target, that Target deals itself 1 Psychic Damage.",
       "icons": [ "DrawCardNow", "Destroy" ],
       "flavorQuotes": [
         {
@@ -62,7 +62,7 @@
       "title": "Undeniable Facts",
       "keywords": [ "ongoing", "limited" ],
       "powers": "Play up to 2 Distortions.",
-      "body": "After one of your Distortion cards is destroyed, draw a card.",
+      "body": "You may draw an additional card during your Draw phase.",
       "icons": [ "PlayCardNow", "DrawCardNow" ],
       "flavorQuotes": [
         {

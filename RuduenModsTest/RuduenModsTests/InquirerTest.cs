@@ -230,13 +230,14 @@ namespace RuduenModsTest
             GoToUsePowerPhase(Inquirer);
 
             // Put out example cards.
-            Card distortion = PlayCard("YoureLookingPale");
-            Card power = PlayCard("TheLieTheyTellThemselves");
+            PlayCard("TheLieTheyTellThemselves");
 
-            QuickHandStorage(Inquirer.ToHero());
-            UsePower(power);
-            QuickHandCheck(2);
-            //AssertInTrash(distortion); // Distortion was destroyed. // Removed during revision.
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+            DecisionSelectCard = mdp;
+
+            QuickHPStorage(mdp);
+            PlayCard("YoureLookingPale");
+            QuickHPCheck(-5); // 4 from self-damage, 1 from additional self-damage. 
         }
 
         [Test()]
@@ -246,13 +247,17 @@ namespace RuduenModsTest
             StartGame();
             GoToUsePowerPhase(Inquirer);
 
-            // Put out example cards.
-            PlayCard("YoureLookingPale");
-            PlayCard("UndeniableFacts");
+            Card power = PlayCard("UndeniableFacts");
 
-            QuickHandStorage(Inquirer);
-            GoToStartOfTurn(Inquirer);
-            QuickHandCheck(1); // Draw 1 card.
+            Card[] cards = new Card[] { PutInHand("YoureLookingPale"), FindCardInPlay("MobileDefensePlatform"), PutInHand("IveFixedTheWound")  };
+
+            DecisionSelectCards = cards;
+
+            UsePower(power);
+            AssertIsInPlay(cards);
+
+            GoToDrawCardPhase(Inquirer);
+            AssertPhaseActionCount(2);
         }
 
         [Test()]
