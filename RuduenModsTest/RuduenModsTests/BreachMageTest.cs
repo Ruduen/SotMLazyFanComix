@@ -3,6 +3,7 @@ using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
 using RuduenWorkshop.BreachMage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -232,6 +233,76 @@ namespace RuduenModsTest
             AssertInTrash(usedCards); // All used charges in trash.
         }
 
+
+        //[Test()]
+        //public void TestBreachMageCastSpellStartOfTurn()
+        //{
+        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional. 
+
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+        //    StartGame();
+
+        //    Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+        //    PlayCard("FocusCharm");
+        //    PlayCard("FocusCharm");
+        //    PlayCard("FocusCharm");
+
+        //    Card[] spells = new Card[]{
+        //        PlayCard("Zap"),
+        //        PlayCard("MoltenWave")
+        //    };
+        //    QuickHPStorage(mdp);
+
+        //    DecisionActivateAbilities = new Card[] { spells[0], null };
+        //    DecisionSelectTarget = mdp;
+
+        //    GoToStartOfTurn(BreachMage);
+
+        //    QuickHPCheck(-1); // Zapped.
+
+        //}
+
+        // TODO: Fix if Handlabra fix!
+        [Test(Description = "Failing Handlabra Case", ExpectedResult = false)]
+        public bool TestBreachMageCastSpellStartOfTurn()
+        {
+            // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional. 
+
+            SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+            StartGame();
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            PlayCard("FocusCharm");
+            PlayCard("FocusCharm");
+            PlayCard("FocusCharm");
+
+            Card[] spells = new Card[]{
+                PlayCard("Zap"),
+                PlayCard("MoltenWave")
+            };
+            QuickHPStorage(mdp);
+
+            DecisionActivateAbilities = new Card[] { spells[0], null };
+            DecisionSelectTarget = mdp;
+
+            try
+            {
+                GoToStartOfTurn(BreachMage);
+            }
+            catch(Exception e)
+            {
+                if (e is System.NullReferenceException)
+                {
+                    return false; // The card should be in the play area! Expect a fail right now.
+                }
+            }
+            return true;
+        }
+
         [Test()]
         public void TestCardCycleOfMagic()
         {
@@ -241,13 +312,14 @@ namespace RuduenModsTest
 
             Card spell = PlayCard("VisionShock");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card cycle = PutInHand("CycleOfMagic");
             DecisionSelectTarget = mdp;
 
             QuickHPStorage(mdp);
             QuickHandStorage(BreachMage);
-            PlayCard("CycleOfMagic");
+            PlayCard(cycle);
             QuickHPCheck(-4); // Damage Dealt.
-            QuickHandCheck(2); // 2 Cards Drawn.
+            QuickHandCheck(1); // 2 Cards Drawn, -1 for card played.
             AssertInDeck(spell);
         }
 

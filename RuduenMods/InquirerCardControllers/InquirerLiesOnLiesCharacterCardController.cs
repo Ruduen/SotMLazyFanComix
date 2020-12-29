@@ -20,14 +20,15 @@ namespace RuduenWorkshop.Inquirer
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
+            List<SelectCardDecision> storedResultsSelect = new List<SelectCardDecision>();
+            List<DiscardCardAction> storedResultsDiscard = new List<DiscardCardAction>();
 
             // Select a distortion to move to the top of its deck.
-            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.MoveCardOnDeck, new LinqCardCriteria((Card c) => c.IsInPlay && !c.IsOneShot && c.IsDistortion && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource(null)), "distortion cards in play", false, false, null, null, false), storedResults, false, false, null, true, this.GetCardSource(null));
+            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.MoveCardOnDeck, new LinqCardCriteria((Card c) => c.IsInPlay && !c.IsOneShot && c.IsDistortion && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource(null)), "distortion cards in play", false, false, null, null, false), storedResultsSelect, false, false, null, true, this.GetCardSource(null));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Move based on decision.
-            SelectCardDecision selectCardDecision = storedResults.FirstOrDefault();
+            SelectCardDecision selectCardDecision = storedResultsSelect.FirstOrDefault();
             if (selectCardDecision != null && selectCardDecision.SelectedCard != null)
             {
                 Card card = selectCardDecision.SelectedCard;
@@ -41,17 +42,26 @@ namespace RuduenWorkshop.Inquirer
                 card = null;
             }
 
-            // Play the top card of your deck.
-            if (this.TurnTaker.IsHero)
-            {
-                coroutine = this.GameController.PlayTopCard(this.DecisionMaker, this.TurnTakerController, false, 1, false, null, null, null, false, null, false, false, false, null, null, this.GetCardSource(null));
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            // You may discard a card. 
+            coroutine = this.GameController.SelectAndDiscardCard(this.DecisionMaker, true, null, storedResultsDiscard, SelectionType.DiscardCard, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // If you do,
+            if (this.DidDiscardCards(storedResultsDiscard, null, false))
+            {            
+                // Play the top card of your deck.
+                if (this.TurnTaker.IsHero)
+                {
+                    coroutine = this.GameController.PlayTopCard(this.DecisionMaker, this.TurnTakerController, false, 1, cardSource: this.GetCardSource());
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
+                else
+                {
+                    coroutine = this.GameController.SendMessageAction(this.Card.AlternateTitleOrTitle + " has no deck to play cards from.", Priority.Medium, this.GetCardSource(null), null, true);
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
             }
-            else
-            {
-                coroutine = this.GameController.SendMessageAction(this.Card.AlternateTitleOrTitle + " has no deck to play cards from.", Priority.Medium, this.GetCardSource(null), null, true);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
+
         }
 
         // TODO: Replace with something more unique!

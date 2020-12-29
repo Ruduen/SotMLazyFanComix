@@ -26,9 +26,9 @@ namespace RuduenWorkshop.Inquirer
             coroutine = this.DrawCard(this.HeroTurnTaker, false, null, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // You may destroy one of your ongoings.
+            // You may destroy a distortion.
             coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker,
-                new LinqCardCriteria((Card c) => c.IsOngoing && c.Owner == this.TurnTaker, "ongoing", true, false, null, null, false),
+                new LinqCardCriteria((Card c) => c.IsDistortion, "distortion", true, false, null, null, false),
                 true, storedResults, null, this.GetCardSource(null));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

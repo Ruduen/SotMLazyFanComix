@@ -31,42 +31,31 @@ namespace RuduenWorkshop.Inquirer
         {
             IEnumerator coroutine;
             // If enough cards exist
-            if (this.HeroTurnTaker.Trash.Cards.Count<Card>() >= 2)
+            if (this.HeroTurnTaker.Trash.Cards.Count<Card>() >= 3)
             {
-                // TODO: Is there a better option for yesnoamountdecision? And can we add the card so it displays?)
                 // Ask if we should move the top two cards of the trash to the bottom of the deck for things.
-                YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, 2, cardSource: this.GetCardSource());
+                YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, 3, associatedCards: new List<Card> { this.Card }, cardSource: this.GetCardSource());
                 coroutine = this.GameController.MakeDecisionAction(yesNoDecision);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 if (this.DidPlayerAnswerYes(yesNoDecision))
                 {
-                    // Fetch top two cards.
-                    List<Card> revealedCards = new List<Card>();
-                    coroutine = this.GameController.RevealCards(this.DecisionMaker, HeroTurnTaker.Trash, 2, revealedCards, false, RevealedCardDisplay.None, null, this.GetCardSource(null));
+                    List<MoveCardAction> storedResults = new List<MoveCardAction>();
+                    // Move the top three cards.
+                    coroutine = this.GameController.MoveCards(this.DecisionMaker, this.HeroTurnTaker.Trash.GetTopCards(3), this.HeroTurnTaker.Deck, true, storedResultsAction: storedResults, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                    // Ask which to place on bottom.
-                    List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
-                    coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.MoveCardOnBottomOfDeck, revealedCards, storedResults, false, false, null, null, null, null, null, false, true, null);
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    // Selected card should be stored to move to the bottom.
-                    Card selectedCard = this.GetSelectedCard(storedResults);
-
-                    // Move the other card to the bottom first.
-                    revealedCards.Remove(selectedCard);
-                    coroutine = this.GameController.MoveCard(this.DecisionMaker, revealedCards.FirstOrDefault(), this.HeroTurnTaker.Deck, true);
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    // Move the selected card to the new, 'actual' bottom.
-                    coroutine = this.GameController.MoveCard(this.DecisionMaker, selectedCard, this.HeroTurnTaker.Deck, true);
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                    if (storedResults.Count != 3 || storedResults.Any((MoveCardAction mca) => !mca.WasCardMoved))
+                    {
+                        // Failed Movement - destroy.
+                        coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                    }
                 }
                 else
                 {
                     // No movement - destroy.
-                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource(null));
+                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }

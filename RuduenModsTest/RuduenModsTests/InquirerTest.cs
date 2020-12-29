@@ -63,7 +63,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestLiesOnLiesInnatePower()
+        public void TestInnateLiesOnLiesPower()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -93,7 +93,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestHardFactsInnatePower()
+        public void TestInnateHardFactsPower()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -236,7 +236,7 @@ namespace RuduenModsTest
             QuickHandStorage(Inquirer.ToHero());
             UsePower(power);
             QuickHandCheck(2);
-            AssertInTrash(distortion); // Distortion was destroyed.
+            //AssertInTrash(distortion); // Distortion was destroyed. // Removed during revision.
         }
 
         [Test()]
@@ -281,6 +281,7 @@ namespace RuduenModsTest
             GoToEndOfTurn(Inquirer);
             QuickHandCheck(0); // 1 Discarded, 1 Drawn
             AssertNumberOfCardsInTrash(Inquirer, 2); // Discards a card, activate the base power, draw a card, do not destroy to play.
+            DiscardTopCards(Inquirer.HeroTurnTaker.Deck, 1); // Discard a third card to allow for a single success and two failures.
 
             GoToStartOfTurn(Inquirer);
             AssertNumberOfCardsInTrash(Inquirer, 2); // One successful shuffle, two failed shuffles.

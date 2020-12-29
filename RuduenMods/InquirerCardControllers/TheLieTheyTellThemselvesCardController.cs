@@ -38,12 +38,6 @@ namespace RuduenWorkshop.Inquirer
             int powerNumeral = this.GetPowerNumeral(0, 2);
             IEnumerator coroutine = this.DrawCards(this.DecisionMaker, powerNumeral);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // Destroy a distortion.
-            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker,
-                new LinqCardCriteria((Card c) => c.IsInPlay && c.IsDistortion, "distortion"),
-                true);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }
