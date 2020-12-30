@@ -256,8 +256,11 @@ namespace RuduenModsTest
             UsePower(power);
             AssertIsInPlay(cards);
 
-            GoToDrawCardPhase(Inquirer);
-            AssertPhaseActionCount(2);
+            DestroyCards(cards);
+
+            QuickHandStorage(Inquirer);
+            GoToEndOfTurn(Inquirer);
+            QuickHandCheck(1); // Draw from no distortions.
         }
 
         [Test()]

@@ -194,7 +194,7 @@
         "Aqua Cost: 3",
         "Reveal the top card of the River deck. Place it on the top or bottom of the River deck. {Cassie} deals 1 target that card's {magic} Cold Damage."
       ],
-      "magicNumbers": [ 3, 3, 3, 3 ],
+      "magicNumbers": [ 2, 2, 2, 2 ],
       "icons": [ "Manipulate", "DealDamageCold" ],
       "tokenPools": [
         {
@@ -241,7 +241,7 @@
         "{Cassie} deals up to 2 Targets 4 Cold Damage."
       ],
       "icons": [ "DealDamageCold" ],
-      "magicNumbers": [ 2, 2, 2, 2 ],
+      "magicNumbers": [ 3, 3, 3, 3 ],
       "tokenPools": [
         {
           "identifier": "CassieCostPool",

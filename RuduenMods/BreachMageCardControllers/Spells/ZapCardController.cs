@@ -14,7 +14,7 @@ namespace RuduenWorkshop.BreachMage
 
         public override void AddTriggers()
         {
-            this.AddTrigger<DestroyCardAction>((DestroyCardAction d) => d.CardToDestroy == this && !this.GameController.IsCardIndestructible(this.Card), this.MoveInsteadResponse, new TriggerType[] { TriggerType.MoveCard }, TriggerTiming.Before);
+            this.AddWhenDestroyedTrigger(this.MoveInsteadResponse, new TriggerType[] { TriggerType.MoveCard, TriggerType.ChangePostDestroyDestination });
         }
 
         protected override IEnumerator ActivateCast()
@@ -28,14 +28,17 @@ namespace RuduenWorkshop.BreachMage
         public IEnumerator MoveInsteadResponse(DestroyCardAction d)
         {
             IEnumerator coroutine;
+            CardSource actionCardSource = this.GetCardSource();
 
-            // Cancel destruction. 
-            coroutine = this.CancelAction(d);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // Move into hand instead. 
-            coroutine = this.GameController.MoveCard(this.DecisionMaker, this.Card, this.HeroTurnTaker.Hand, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            if (d.PostDestroyDestinationCanBeChanged)
+            {
+                this.AddInhibitorException((GameAction ga) => (ga is MoveCardAction && (ga as MoveCardAction).CardSource == actionCardSource) || (ga is MessageAction && (ga as MessageAction).CardSource == actionCardSource));
+                // Move into hand instead. 
+                d.SetPostDestroyDestination(this.HeroTurnTaker.Hand, showMessage: true, cardSource: actionCardSource);
+                d.PostDestroyDestinationCanBeChanged = false;
+                // Cannot remove inhibitor exception - the actual movement occurs afterwards as opposed to during an explicit coroutine. This should still be okay, functionally speaking - other areas also avoid removing inhibitor exceptions.
+            }
+            yield break;
         }
     }
 }

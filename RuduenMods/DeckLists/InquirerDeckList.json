@@ -62,7 +62,7 @@
       "title": "Undeniable Facts",
       "keywords": [ "ongoing", "limited" ],
       "powers": "Play up to 2 Distortions.",
-      "body": "You may draw an additional card during your Draw phase.",
+      "body": "At the end of your turn, if there are no Distortions in play, draw a card.",
       "icons": [ "PlayCardNow", "DrawCardNow" ],
       "flavorQuotes": [
         {

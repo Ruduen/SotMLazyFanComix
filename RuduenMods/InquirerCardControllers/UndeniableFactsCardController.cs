@@ -2,6 +2,7 @@
 using Handelabra.Sentinels.Engine.Model;
 using System;
 using System.Collections;
+using System.Linq;
 
 namespace RuduenWorkshop.Inquirer
 {
@@ -15,7 +16,17 @@ namespace RuduenWorkshop.Inquirer
 
         public override void AddTriggers()
         {
-            this.AddAdditionalPhaseActionTrigger((TurnTaker tt) => tt == this.HeroTurnTaker, Phase.DrawCard, 1);
+            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.EndOfTurnResponse), TriggerType.DrawCard, null, false);
+        }
+
+        private IEnumerator EndOfTurnResponse(PhaseChangeAction p)
+        {
+            // If there are no distortions, draw.
+            if(this.FindCardsWhere((Card c)=>c.IsInPlay && c.IsDistortion).Count() == 0)
+            {
+                IEnumerator coroutine = this.GameController.DrawCard(this.HeroTurnTaker, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
 
         public override IEnumerator UsePower(int index = 0)
