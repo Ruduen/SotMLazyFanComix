@@ -15,8 +15,8 @@ namespace RuduenWorkshop.Spellforge
         public override IEnumerator Play()
         {
             IEnumerator coroutine;
-            // Play 2.
-            coroutine = this.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix") || c.DoKeywordsContain("suffix"), "prefix or suffix"));
+            // Select a hero to play a card.
+            coroutine = this.SelectHeroToPlayCard(this.DecisionMaker);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

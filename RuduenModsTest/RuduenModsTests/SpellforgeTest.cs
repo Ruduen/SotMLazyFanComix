@@ -431,15 +431,15 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "Legacy", "TheBlock");
 
             StartGame();
-            Card[] cards = FindCardsWhere((Card c) => c.Identifier == "Inspired").ToArray();
-            PutInHand(cards);
             PutInHand(FindCardsWhere((Card c) => c.Identifier == "Controlled").ToArray());
 
-            DecisionSelectCards = cards;
+            Card safeish = PutInHand("OfDisruption");
+
+            DecisionSelectCardToPlay = safeish;
 
             QuickHandStorage(Spellforge);
             PlayCard("Controlled");
-            QuickHandCheck(3); // 3 cards played, 6 cards drawn.
+            QuickHandCheck(-1); // 2 cards played, 1 card drawn.
         }
 
         [Test]
@@ -560,7 +560,6 @@ namespace RuduenModsTest
         }
 
         [Test]
-        [Category("DiscardModifier")]
         public void TestPlayArticulateTheLethologicalPrefix()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
@@ -581,7 +580,6 @@ namespace RuduenModsTest
         }
 
         [Test]
-        [Category("DiscardModifier")]
         public void TestPlayArticulateTheLethologicalEssence()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
@@ -602,7 +600,6 @@ namespace RuduenModsTest
         }
 
         [Test]
-        [Category("DiscardModifier")]
         public void TestPlayArticulateTheLethologicalSuffix()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
@@ -623,7 +620,6 @@ namespace RuduenModsTest
         }
 
         [Test]
-        [Category("DiscardModifier")]
         public void TestPlayArticulateTheLethologicalNoDeck()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
@@ -641,6 +637,24 @@ namespace RuduenModsTest
             PlayCard("ArticulateTheLethological");
             QuickHandCheck(0); // 1 Played, 1 drawn. This should trigger a reshuffle.
             AssertNumberOfCardsInTrash(Spellforge, 2); // Cards that were used move to the trash after a reshuffle.
+        }
+
+        [Test]
+        public void TestPlayMeanderingDissertation()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
+
+            StartGame();
+
+            Card[] discard = FindCardsWhere((Card c) => c.Identifier == "Controlled").ToArray();
+            PutInHand(discard);
+            Card safeish = PutInHand("OfDisruption");
+
+            DecisionSelectCards = new Card[] { discard[0], discard[1], null, safeish };
+
+            QuickHandStorage(Spellforge);
+            PlayCard("MeanderingDissertation");
+            QuickHandCheck(0); // Equal discarded as drawn, 1 played and 1 drawn from that.
         }
     }
 }

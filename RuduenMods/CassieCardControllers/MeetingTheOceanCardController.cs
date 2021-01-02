@@ -18,7 +18,9 @@ namespace RuduenWorkshop.Cassie
             List<int> powerNumerals = new List<int>() {
                 this.GetPowerNumeral(0, 3),
                 this.GetPowerNumeral(1, 1),
+                this.GetPowerNumeral(2, 3),
             };
+            int totalDamage = 0;
 
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             IEnumerator coroutine;
@@ -29,10 +31,16 @@ namespace RuduenWorkshop.Cassie
             {
                 if (discardCardAction.IsSuccessful && discardCardAction.CardToDiscard.MagicNumber != null)
                 {
-                    coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), (int)discardCardAction.CardToDiscard.MagicNumber, DamageType.Cold, powerNumerals[1], false, powerNumerals[1], false, false, false, null, null, null, null, null, false, null, null, false, null, base.GetCardSource(null));
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                    totalDamage += (int) discardCardAction.CardToDiscard.MagicNumber;
                 }
             }
+
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), totalDamage, DamageType.Cold, powerNumerals[1], false, powerNumerals[1], cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Draw until you have 3 cards.
+            coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, powerNumerals[2]);
+            if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

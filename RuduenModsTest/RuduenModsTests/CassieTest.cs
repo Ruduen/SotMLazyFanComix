@@ -349,47 +349,54 @@ namespace RuduenModsTest
         //}
 
         [Test()]
-        public void TestRippledVisions()
+        public void TestStreamShot()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Legacy", "Megalopolis");
 
             StartGame();
 
             GoToUsePowerPhase(Cassie);
-            Card revealed = MoveCard(Cassie, "Droplet", Cassie.TurnTaker.FindSubDeck("RiverDeck")); // Move droplet to top of deck for reference.
-
+            Card play = PutInHand(Cassie, "StreamShot");
+            Card riverCard = MoveCard(Cassie, "Droplet", GetCard("Riverbank").UnderLocation); // Move droplet to the riverbank for reference.
             Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            int riverbankCount = GetCard("Riverbank").UnderLocation.Cards.Count();
 
             PlayCard("InspiringPresence"); // Use to boost damage by 1 to make sure character card is source.
 
+            DecisionSelectCard = riverCard;
             DecisionSelectTarget = mdp;
 
             QuickHPStorage(mdp);
-            PlayCard("RippledVisions");
+            PlayCard(play);
             QuickHPCheck(-2); // 1 damage for cost, 1 for boost.
-            AssertAtLocation(revealed, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
+            AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged. 
         }
 
         [Test()]
-        public void TestRippledVisionsGuiseDangIt()
+        public void TestStreamShotGuiseDangIt()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Cassie", "Guise", "Legacy", "Megalopolis");
 
             StartGame();
 
             GoToUsePowerPhase(Cassie);
-            Card play = PutInHand(Cassie, "RippledVisions"); // Move into hand to prevent triggering from beneath Riverbank.
-            Card revealed = MoveCard(Cassie, "Retcon", Cassie.TurnTaker.FindSubDeck("RiverDeck")); // Move Retcon to top of deck for reference.
-
+            Card play = PutInHand(Cassie, "StreamShot"); // Move into hand to prevent triggering from beneath Riverbank.
+            Card riverCard = MoveCard(Cassie, "Retcon", GetCard("Riverbank").UnderLocation); // Move Retcon to the riverbank.
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
+            int riverbankCount = GetCard("Riverbank").UnderLocation.Cards.Count();
+
+            DecisionSelectCard = riverCard;
             DecisionSelectTarget = mdp;
             PlayCard("InspiringPresence"); // Use Legacy to give +1 boost as necessary.
 
             QuickHPStorage(mdp);
             PlayCard(play);
             QuickHPCheck(0); // 0 damage, since no magic number exists.
-            AssertAtLocation(revealed, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
+            AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged. 
         }
 
         [Test()]
@@ -562,8 +569,8 @@ namespace RuduenModsTest
 
             PlayCard("MeetingTheOcean");
             UsePower("MeetingTheOcean");
-            QuickHPCheck(-7); // Instance of 2 and 3, increased to 3 and 4.
-            QuickHandCheck(-3); // Confirm all cards used.
+            QuickHPCheck(-6); // Instance of 1 and 2, increased by 1.
+            AssertNumberOfCardsInHand(Cassie, 3); // Drawn back up to 3. 
         }
 
         // TODO: Add riverbank tests when the River deck has been emptied! Yes, it will stop drawing cards - but you have a full deck to play with already, so at that stage that's your own fault!

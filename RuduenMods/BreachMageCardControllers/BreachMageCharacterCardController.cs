@@ -23,7 +23,7 @@ namespace RuduenWorkshop.BreachMage
             IEnumerator coroutine;
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
             // Charge ability attempt.
-            // Destroy two of your charges.
+            // Destroy one of your charges.
             coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
                 new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
                 1, false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource(null));
@@ -31,7 +31,7 @@ namespace RuduenWorkshop.BreachMage
 
             if (this.GetNumberOfCardsDestroyed(storedResultsAction) == 1)
             {
-                // If two were destroyed, someone draws 5.
+                // If one were destroyed, someone draws 2.
                 coroutine = this.GameController.SelectHeroToDrawCards(this.DecisionMaker, powerNumeral, false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource(null));
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

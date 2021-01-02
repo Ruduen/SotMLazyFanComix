@@ -89,11 +89,11 @@
     },
     {
       "identifier": "Controlled",
-      "count": 4,
+      "count": 3,
       "title": "Controlled...",
       "alternateTitle": "Controlled",
       "keywords": [ "one-shot", "prefix" ],
-      "body": [ "You may play up to 2 Prefix or Suffix cards now.", "[u]Prefix[/u]: This effect's damage is reduced to 1 when targetting Hero Targets." ],
+      "body": [ "One Player may play 1 card now.", "[u]Prefix[/u]: This effect's damage is reduced to 1 when targetting Hero Targets." ],
       "icons": [ "DrawCardNow", "DestroyOngoing", "ReduceDamageDealt" ],
       "flavorQuotes": [
         {
@@ -102,7 +102,7 @@
     },
     {
       "identifier": "Inspired",
-      "count": 4,
+      "count": 3,
       "title": "Inspired...",
       "alternateTitle": "Inspired",
       "keywords": [ "one-shot", "prefix" ],
@@ -115,7 +115,7 @@
     },
     {
       "identifier": "Piercing",
-      "count": 4,
+      "count": 3,
       "title": "Piercing...",
       "alternateTitle": "Piercing",
       "keywords": [ "one-shot", "prefix" ],
@@ -192,6 +192,26 @@
         {
           "text": "It is now.",
           "identifier": "Spellforge"
+        }
+      ]
+    },
+    {
+      "identifier": "MeanderingDissertation",
+      "count": 3,
+      "title": "Meandering Dissertation",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Discard any number of cards.",
+        "Any player may draw as many cards as you discarded this way.",
+        "You may play a card."
+      ],
+      "icons": [ "DrawCardNow", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "text": "Why are they still talking?"
+        },
+        {
+          "text": "Why are [i]we[/i] still listening?"
         }
       ]
     }

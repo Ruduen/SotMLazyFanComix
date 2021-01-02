@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>CassieAtlas0.png</filename>
+        <filename>ReleaseVersion/Atlas/CassieAtlas0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -181,18 +181,19 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/CondensedOrb.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/Droplet.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/MeetingTheOcean.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/PerpetualFlow.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/RippledVisions.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/RisingWaters.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/RiverWornStone.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/Riverbank.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/RushingWaters.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/StormSwell.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/WaterSurge.jpg</key>
-            <key type="filename">ReleaseVersion/LargeCardTextures/Cassie/Waterlog.jpg</key>
+            <key type="filename">Originals/Cassie/CassieHero.jpg</key>
+            <key type="filename">Originals/Cassie/CondensedOrb.jpg</key>
+            <key type="filename">Originals/Cassie/Droplet.jpg</key>
+            <key type="filename">Originals/Cassie/MeetingTheOcean.jpg</key>
+            <key type="filename">Originals/Cassie/PerpetualFlow.jpg</key>
+            <key type="filename">Originals/Cassie/RisingWaters.jpg</key>
+            <key type="filename">Originals/Cassie/RiverWornStone.jpg</key>
+            <key type="filename">Originals/Cassie/Riverbank.jpg</key>
+            <key type="filename">Originals/Cassie/RushingWaters.jpg</key>
+            <key type="filename">Originals/Cassie/StormSwell.jpg</key>
+            <key type="filename">Originals/Cassie/StreamShot.jpg</key>
+            <key type="filename">Originals/Cassie/WaterSurge.jpg</key>
+            <key type="filename">Originals/Cassie/Waterlog.jpg</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -201,27 +202,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>150,100,300,200</rect>
+                <rect>150,116,300,232</rect>
                 <key>scale9Paddings</key>
-                <rect>150,100,300,200</rect>
+                <rect>150,116,300,232</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/CondensedOrb.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/Droplet.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/MeetingTheOcean.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/PerpetualFlow.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/RippledVisions.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/RisingWaters.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/RiverWornStone.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/Riverbank.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/RushingWaters.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/StormSwell.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/WaterSurge.jpg</filename>
-            <filename>ReleaseVersion/LargeCardTextures/Cassie/Waterlog.jpg</filename>
+            <filename>Originals/Cassie</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -9,7 +9,7 @@
     "RushingWaters",
     "Waterlog",
     "RiverWornStone",
-    "RippledVisions",
+    "StreamShot",
     "CondensedOrb",
     "StormSwell",
     "RisingWaters",
@@ -74,7 +74,7 @@
       "body": [
         "Aqua Cost: 1",
         "Each Hero regains 1 HP.",
-        "You may move all cards beneath Riverbank to the bottom of the River deck in the same order, ignoring their indestructable status, and put the top four cards from the River deck under Riverbank."
+        "You may move all cards beneath Riverbank to the bottom of the River deck in the same order, ignoring their indestructable status, and put the top 4 cards from the River deck under Riverbank."
       ],
       "icons": [ "DealDamageProjectile", "Manipulate" ],
       "magicNumbers": [ 1, 1, 1, 1 ],
@@ -186,13 +186,15 @@
       "bgImage": "image_bg_6.png"
     },
     {
-      "identifier": "RippledVisions",
+      "identifier": "StreamShot",
       "count": 4,
-      "title": "Rippled Visions",
+      "title": "Stream Shot",
       "keywords": [ "river", "one-shot" ],
       "body": [
         "Aqua Cost: 3",
-        "Reveal the top card of the River deck. Place it on the top or bottom of the River deck. {Cassie} deals 1 target that card's {magic} Cold Damage."
+        "Move a card beneath Riverbank to the bottom of the River deck, ignoring its indestructable status.",
+        "{Cassie} deals 1 target that card's {magic} Cold Damage.",
+        "Put 1 card from the River deck under Riverbank."
       ],
       "magicNumbers": [ 2, 2, 2, 2 ],
       "icons": [ "Manipulate", "DealDamageCold" ],
@@ -285,7 +287,8 @@
       "keywords": [ "river", "one-shot" ],
       "body": [
         "Aqua Cost: 6",
-        "Play 1 card from the Riverbank. (It is treated as your card afterward.) "
+        "Discard a card. ", 
+        "Play a card from the Riverbank. (It is treated as your card afterward.)"
       ],
       "icons": [ "PlayCardNow", "Manipulate" ],
       "magicNumbers": [ 4, 4, 4, 4 ],
@@ -307,8 +310,7 @@
       "title": "Meeting The Ocean",
       "keywords": [ "river", "ongoing" ],
       "powers": [
-
-        "Discard up to 3 cards. For each card discarded this way, {Cassie} deals 1 target Cold Damage equal to that card's {magic}."
+        "Discard up to 3 cards. {Cassie} deals 1 target Cold Damage equal to the discards cards' total {magic}. Draw until you have 3 cards."
       ],
       "body": "Aqua Cost: 6",
       "icons": [ "DealDamageCold", "Discard" ],

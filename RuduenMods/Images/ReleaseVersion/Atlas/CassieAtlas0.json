@@ -1,108 +1,116 @@
 {"frames": {
 
-"CondensedOrb.jpg":
+"CassieHero.jpg":
 {
-	"frame": {"x":0,"y":0,"w":600,"h":464},
+	"frame": {"x":0,"y":0,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"CondensedOrb.jpg":
+{
+	"frame": {"x":253,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "Droplet.jpg":
 {
-	"frame": {"x":603,"y":0,"w":600,"h":464},
+	"frame": {"x":506,"y":0,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "MeetingTheOcean.jpg":
 {
-	"frame": {"x":1206,"y":0,"w":600,"h":464},
+	"frame": {"x":759,"y":0,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "PerpetualFlow.jpg":
 {
-	"frame": {"x":0,"y":467,"w":600,"h":464},
+	"frame": {"x":0,"y":203,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
-},
-"RippledVisions.jpg":
-{
-	"frame": {"x":603,"y":467,"w":600,"h":464},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "RisingWaters.jpg":
 {
-	"frame": {"x":1206,"y":467,"w":600,"h":464},
+	"frame": {"x":253,"y":203,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "Riverbank.jpg":
 {
-	"frame": {"x":0,"y":934,"w":600,"h":464},
+	"frame": {"x":506,"y":203,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "RiverWornStone.jpg":
 {
-	"frame": {"x":603,"y":934,"w":600,"h":464},
+	"frame": {"x":759,"y":203,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "RushingWaters.jpg":
 {
-	"frame": {"x":1206,"y":934,"w":600,"h":464},
+	"frame": {"x":0,"y":406,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "StormSwell.jpg":
 {
-	"frame": {"x":0,"y":1401,"w":600,"h":464},
+	"frame": {"x":253,"y":406,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"StreamShot.jpg":
+{
+	"frame": {"x":506,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "Waterlog.jpg":
 {
-	"frame": {"x":603,"y":1401,"w":600,"h":464},
+	"frame": {"x":759,"y":406,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 },
 "WaterSurge.jpg":
 {
-	"frame": {"x":1206,"y":1401,"w":600,"h":464},
+	"frame": {"x":0,"y":609,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":464},
-	"sourceSize": {"w":600,"h":464}
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "CassieAtlas0.png",
 	"format": "RGBA8888",
-	"size": {"w":2048,"h":2048},
+	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:1d7f095ad0054805e434eb9dcb3d9252:7aee916ea21af1af6d599eaadccb415b:0189780c3cc87c08831050582226ea32$"
+	"smartupdate": "$TexturePacker:SmartUpdate:989f2c5d91f616c708048975d4c5d651:c35073002dc11b74cd1712f3806f5b61:0189780c3cc87c08831050582226ea32$"
 }
 }

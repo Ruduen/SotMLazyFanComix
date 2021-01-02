@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>SpellforgeAtlas0.png</filename>
+        <filename>ReleaseVersion/Atlas/SpellforgeAtlas0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -207,21 +207,25 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">Originals/Spellforge/MeanderingDissertation.jpg</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>63,50,125,100</rect>
+                <key>scale9Paddings</key>
+                <rect>63,50,125,100</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>Originals/Spellforge/ArticulateTheLethological.jpg</filename>
-            <filename>Originals/Spellforge/Controlled.jpg</filename>
-            <filename>Originals/Spellforge/Impact.jpg</filename>
-            <filename>Originals/Spellforge/Inspired.jpg</filename>
-            <filename>Originals/Spellforge/OfAura.jpg</filename>
-            <filename>Originals/Spellforge/OfDisruption.jpg</filename>
-            <filename>Originals/Spellforge/OfHealing.jpg</filename>
-            <filename>Originals/Spellforge/OfResonance.jpg</filename>
-            <filename>Originals/Spellforge/Piercing.jpg</filename>
-            <filename>Originals/Spellforge/Ray.jpg</filename>
-            <filename>Originals/Spellforge/Shock.jpg</filename>
-            <filename>Originals/Spellforge/Wave.jpg</filename>
+            <filename>Originals/Spellforge</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
