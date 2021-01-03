@@ -132,17 +132,16 @@ namespace RuduenModsTest
 
             Card breach = FindCardInPlay("BreachIII");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
+            Card card = PutInHand("FlareCascade");
 
             // Use 2 times to open. 
             UsePower(breach);
             UsePower(breach);
 
-            DecisionSelectTarget = mdp;
-            DecisionSelectCard = breach;
-
-            Card card = PutIntoPlay("FlareCascade");
+            DecisionSelectCards = new Card[] { breach, card, mdp };
 
 
+            PlayCard(card);
             QuickHPStorage(mdp);
             GoToStartOfTurn(BreachMage);
             QuickHPCheck(-4); // MDP took 4 damage.
@@ -233,7 +232,6 @@ namespace RuduenModsTest
             AssertInTrash(usedCards); // All used charges in trash.
         }
 
-
         //[Test()]
         //public void TestBreachMageCastSpellStartOfTurn()
         //{
@@ -264,12 +262,9 @@ namespace RuduenModsTest
 
         //}
 
-        // TODO: Fix if Handlabra fix!
-        [Test(Description = "Failing Handlabra Case", ExpectedResult = false)]
-        public bool TestBreachMageCastSpellStartOfTurn()
+        [Test()]
+        public void TestBreachMageCastSpellStartOfTurn()
         {
-            // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional. 
-
             SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
 
             StartGame();
@@ -286,22 +281,52 @@ namespace RuduenModsTest
             };
             QuickHPStorage(mdp);
 
-            DecisionActivateAbilities = new Card[] { spells[0], null };
-            DecisionSelectTarget = mdp;
+            DecisionSelectCards = new Card[] { spells[0], mdp, null };
 
-            try
-            {
-                GoToStartOfTurn(BreachMage);
-            }
-            catch(Exception e)
-            {
-                if (e is System.NullReferenceException)
-                {
-                    return false; // The card should be in the play area! Expect a fail right now.
-                }
-            }
-            return true;
+            GoToStartOfTurn(BreachMage);
+
+            QuickHPCheck(-1); // Zapped.
+
         }
+
+        //// TODO: Fix if Handlabra fix!
+        //[Test(Description = "Failing Handlabra Case", ExpectedResult = false)]
+        //public bool TestBreachMageCastSpellStartOfTurnFailingHandelabra()
+        //{
+        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional. 
+
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
+
+        //    StartGame();
+
+        //    Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+        //    PlayCard("FocusCharm");
+        //    PlayCard("FocusCharm");
+        //    PlayCard("FocusCharm");
+
+        //    Card[] spells = new Card[]{
+        //        PlayCard("Zap"),
+        //        PlayCard("MoltenWave")
+        //    };
+        //    QuickHPStorage(mdp);
+
+        //    DecisionActivateAbilities = new Card[] { spells[0], null };
+        //    DecisionSelectTarget = mdp;
+
+        //    try
+        //    {
+        //        GoToStartOfTurn(BreachMage);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        if (e is System.NullReferenceException)
+        //        {
+        //            return false; // The card should be in the play area! Expect a fail right now.
+        //        }
+        //    }
+        //    return true;
+        //}
 
         [Test()]
         public void TestCardCycleOfMagic()
@@ -427,6 +452,7 @@ namespace RuduenModsTest
 
             Card breach = FindCardInPlay("BreachIII");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card spell = PutInHand("FlareCascade");
 
             // Use 2 times to open. 
             UsePower(breach);
@@ -438,9 +464,9 @@ namespace RuduenModsTest
             PlayCards(charges);
 
 
-            DecisionSelectCards = new List<Card>() { breach, mdp, charges[0], mdp, null };
+            DecisionSelectCards = new List<Card>() { breach, spell, mdp, charges[0], mdp, null };
 
-            Card spell = PlayCard("FlareCascade");
+            PlayCard(spell);
 
             QuickHPStorage(mdp);
             GoToStartOfTurn(BreachMage);

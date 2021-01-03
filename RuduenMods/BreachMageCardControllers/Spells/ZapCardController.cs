@@ -27,7 +27,6 @@ namespace RuduenWorkshop.BreachMage
 
         public IEnumerator MoveInsteadResponse(DestroyCardAction d)
         {
-            IEnumerator coroutine;
             CardSource actionCardSource = this.GetCardSource();
 
             if (d.PostDestroyDestinationCanBeChanged)
