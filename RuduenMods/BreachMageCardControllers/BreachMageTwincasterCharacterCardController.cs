@@ -20,11 +20,11 @@ namespace RuduenWorkshop.BreachMage
         {
             // Break down into two powers.
             IEnumerator coroutine;
-            int powerNumeral = this.GetPowerNumeral(0, 2); // Number of charges. 
+            int powerNumeral = this.GetPowerNumeral(0, 1); // Number of charges. 
 
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
 
-            // Destroy two of your charges.
+            // Destroy 1 of your charges.
             coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
                 new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
                 powerNumeral, false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource(null));

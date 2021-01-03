@@ -22,7 +22,7 @@
       "setup": [ "Put two \"Stable Breach\" into play with 0 and 1 tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 2 and 3 tokens in their Focus Pools." ],
       "gameplay": [ "At the start of your turn, you may activate a [u]Cast[/u] text of each of your Spells and destroy those spells." ],
       "powers": [
-        "Destroy a Charge card. If you do, any player draws 2 cards."
+        "Destroy 1 of your Charge card. If you do, any player draws 2 cards."
       ],
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 27,
@@ -295,7 +295,7 @@
       "setup": [ "Put two \"Stable Breach\" into play with no tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 3 and 4 tokens in their Focus Pools." ],
       "gameplay": [ "At the start of your turn, you may activate the [u]Cast[/u] text of each of your Spells and destroy those spells." ],
       "powers": [
-        "Destroy 2 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
+        "Destroy 1 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
       ],
       "icons": [ "HasPower", "Destroy" ],
       "hitpoints": 27,
