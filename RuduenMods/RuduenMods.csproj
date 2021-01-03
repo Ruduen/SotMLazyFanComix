@@ -66,6 +66,7 @@
     <Compile Include="BreachMageCardControllers\Spells\ShineCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageTurnTakerController.cs" />
+    <Compile Include="CassieCardControllers\CassieEssenceFlowCharacterCardController.cs" />
     <Compile Include="RuduenFlippableCardController.cs" />
     <Compile Include="CassieCardControllers\CassieCharacterCardController.cs" />
     <Compile Include="CassieCardControllers\CassieRiverSharedCardController.cs" />

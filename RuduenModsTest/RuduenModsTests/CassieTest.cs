@@ -135,6 +135,26 @@ namespace RuduenModsTest
         }
 
         [Test()]
+        public void TestEssenceFlowInnatePower()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Cassie/CassieEssenceFlowCharacter", "Megalopolis");
+
+            StartGame();
+
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            MoveCards(Cassie, (Card c) => c.Location == GetCard("Riverbank").UnderLocation, Cassie.TurnTaker.FindSubDeck("RiverDeck"), numberOfCards: 4, overrideIndestructible: true); // Move all cards back to the river deck just in case.
+            Card cardToBuy = MoveCard(Cassie, "RushingWaters", GetCard("Riverbank").UnderLocation); // Move Storm Swell under so we definitely have something to purchase. (Cost 3.)
+            Card cardToSpend = PutInHand("Droplet");
+
+            DecisionSelectCards = new Card[] { cardToSpend, cardToBuy };
+            DecisionYesNo = true;
+
+            QuickHandStorage(Cassie);
+            UsePower(Cassie.CharacterCard, 0); // Default Innate. Cast. Any card we use should qualify, since they have a base cost of 1. 
+            Assert.IsTrue(cardToBuy.Location == Cassie.TurnTaker.Trash || cardToBuy.Location == Cassie.TurnTaker.Deck || cardToBuy.Location == Cassie.HeroTurnTaker.Hand); // Bought.
+        }
+
+        [Test()]
         public void TestDropletWithMove()
         {
             // Most basic purchase equivalent!

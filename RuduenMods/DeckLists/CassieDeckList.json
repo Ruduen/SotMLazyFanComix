@@ -44,7 +44,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "..."
+        "default": "And here I was hoping for a fresh start. I suppose this will do."
       },
       "complexity": 3,
       "tempImage": "⛹"
@@ -401,20 +401,20 @@
       ]
     }
   ],
-  "dummyPromoCards": [
+  "promoCards": [
     {
       "identifier": "CassieCharacter",
-      "promoIdentifier": "CassieControlledCharacter",
+      "promoIdentifier": "CassieEssenceFlowCharacter",
       "count": 1,
-      "title": "Cassie",
-      "body": "Controlled Rise",
+      "title": "Cassie - Essence Flow",
+      "body": "Essense Flow",
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
       "character": true,
-      "setup": [ "At the start of the game, put The Riverbank into play." ],
-      "powers": "Discard up to 2 cards with {magic} of 2 or more. For each card discarded this way, move 1 card from under Riverbank to the bottom of the River deck, ignoring its indestructible status. Move the card under the Riverbank with the lowest Gain Cost to your Trash, ignoring its indestructible status.",
-      "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
-      "hitpoints": 27,
+      "setup": [ "At the start of the game, put The Riverbank into play. Shuffle all of your River cards to make the River deck. [i](This is not currently displayed due to engine restrictions.)[/i]" ],
+      "powers": "Move a card from your hand to the bottom of the River deck. Select a card under Riverbank with an Aqua Cost of up to 2 higher than the moved card and move it to your Trash. Draw until you have 3 cards.",
+      "icons": [ "HasPower", "Manipulate", "DrawCardNow" ],
+      "hitpoints": 24,
       "nemesisIdentifiers": [
         "Cassie"
       ],
@@ -433,18 +433,20 @@
         "OblivAeonFrontPageCharacter": "Here's hoping I can last enough to make things happen..."
       },
       "complexity": 3
-    },
+    }
+  ],
+  "dummyPromoCards": [
     {
       "identifier": "CassieCharacter",
-      "promoIdentifier": "CassieEssenceCharacter",
+      "promoIdentifier": "CassieControlledCharacter",
       "count": 1,
       "title": "Cassie",
-      "body": "Essense Flow",
+      "body": "Controlled Rise",
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
       "character": true,
       "setup": [ "At the start of the game, put The Riverbank into play." ],
-      "powers": "Move 1 card from your hand to the bottom of the River deck. Select a card under Riverbank with an Aqua Cost of up to 2 higher than the moved card and move it to your Trash. Draw until you have 3 cards.",
+      "powers": "Discard up to 2 cards with {magic} of 2 or more. For each card discarded this way, move 1 card from under Riverbank to the bottom of the River deck, ignoring its indestructible status. Move the card under the Riverbank with the lowest Gain Cost to your Trash, ignoring its indestructible status.",
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
