@@ -27,7 +27,7 @@ namespace RuduenWorkshop.Parse
             {
                 // Reveal a card.
                 List<Card> storedCardResults = new List<Card>();
-                coroutine = this.GameController.RevealCards(base.TurnTakerController, env.TurnTaker.Deck, 1, storedCardResults, false, RevealedCardDisplay.ShowRevealedCards, null, this.GetCardSource(null));
+                coroutine = this.GameController.RevealCards(base.TurnTakerController, env.TurnTaker.Deck, 1, storedCardResults, false, RevealedCardDisplay.ShowRevealedCards, null, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 coroutine = this.CleanupCardsAtLocations(new List<Location> { env.TurnTaker.Revealed }, env.TurnTaker.Deck, cardsInList: storedCardResults);

@@ -36,7 +36,7 @@ namespace RuduenPromosWorkshop.HeroPromos
         //    }
         //    else
         //    {
-        //        coroutine = this.GameController.SendMessageAction("There are no {avian}, so none will be added or removed.", Priority.Medium, this.GetCardSource(null));
+        //        coroutine = this.GameController.SendMessageAction("There are no {avian}, so none will be added or removed.", Priority.Medium, this.GetCardSource());
         //        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         //    }
 

@@ -22,7 +22,7 @@ namespace RuduenWorkshop.Inquirer
         private IEnumerator EndOfTurnResponse(PhaseChangeAction p)
         {
             // If there are no distortions, draw.
-            if(this.FindCardsWhere((Card c)=>c.IsInPlay && c.IsDistortion).Count() == 0)
+            if (this.FindCardsWhere((Card c) => c.IsInPlay && c.IsDistortion).Count() == 0)
             {
                 IEnumerator coroutine = this.GameController.DrawCard(this.HeroTurnTaker, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

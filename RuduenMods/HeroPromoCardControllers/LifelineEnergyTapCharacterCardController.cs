@@ -27,7 +27,7 @@ namespace RuduenWorkshop.Lifeline
             IEnumerator coroutine;
 
             // Deal up to 2 targets damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, 0, storedResultsDamage: storedResults, cardSource: this.GetCardSource(null));
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, 0, storedResultsDamage: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Count unique targets damaged this way.

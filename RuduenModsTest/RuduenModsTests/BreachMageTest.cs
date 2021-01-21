@@ -3,7 +3,6 @@ using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
 using RuduenWorkshop.BreachMage;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -59,7 +58,7 @@ namespace RuduenModsTest
             }
 
             DestroyCards(breaches);
-            AssertIsInPlay(breaches); // Confirm they're indestructible, too. 
+            AssertIsInPlay(breaches); // Confirm they're indestructible, too.
         }
 
         [Test()]
@@ -85,12 +84,11 @@ namespace RuduenModsTest
 
             QuickHandStorage(BreachMage);
 
-            UsePower(breaches[0]); // Stable Breach: Play up to 3 spells. 
-            UsePower(breaches[3]); // Open breach: Play + Draw. 
-            // Four spells should be in play. 
+            UsePower(breaches[0]); // Stable Breach: Play up to 3 spells.
+            UsePower(breaches[3]); // Open breach: Play + Draw.
+            // Four spells should be in play.
             AssertIsInPlay(spells[0], spells[1], spells[2], spells[3]);
             QuickHandCheck(-3); // 4 spells played, 1 drawn.
-
         }
 
         [Test()]
@@ -134,12 +132,11 @@ namespace RuduenModsTest
             Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card card = PutInHand("FlareCascade");
 
-            // Use 2 times to open. 
+            // Use 2 times to open.
             UsePower(breach);
             UsePower(breach);
 
             DecisionSelectCards = new Card[] { breach, card, mdp };
-
 
             PlayCard(card);
             QuickHPStorage(mdp);
@@ -147,7 +144,6 @@ namespace RuduenModsTest
             QuickHPCheck(-4); // MDP took 4 damage.
             AssertInTrash(card);
         }
-
 
         [Test()]
         public void TestBreachMageInnatePower()
@@ -187,16 +183,16 @@ namespace RuduenModsTest
             {
                 PlayCard("HammerCharm", 0),
                 PlayCard("HammerCharm", 1),
-                PlayCard("VisionShock")
+                PlayCard("Zap")
             };
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
-            DecisionSelectTarget = mdp;
+            DecisionSelectCards = new List<Card>() { usedCards[0], mdp, mdp, usedCards[1] };
 
             QuickHPStorage(mdp);
             UsePower(BreachMage.CharacterCard);
-            QuickHPCheck(-8); // Damage Dealt twice.
-            AssertInTrash(usedCards); // All used charges in trash.
+            QuickHPCheck(-2); // Damage Dealt twice.
+            AssertInTrash(usedCards[0]); // All used charges in trash.
         }
 
         [Test()]
@@ -229,13 +225,13 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             UsePower(BreachMage.CharacterCard);
             QuickHPCheck(-2); // Damage Dealt by bee, but not by spell.
-            AssertInTrash(usedCards); // All used charges in trash.
+            AssertInTrash(usedCards[0]); // All used charges in trash.
         }
 
         //[Test()]
         //public void TestBreachMageCastSpellStartOfTurn()
         //{
-        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional. 
+        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional.
 
         //    SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
 
@@ -286,14 +282,13 @@ namespace RuduenModsTest
             GoToStartOfTurn(BreachMage);
 
             QuickHPCheck(-1); // Zapped.
-
         }
 
         //// TODO: Fix if Handlabra fix!
         //[Test(Description = "Failing Handlabra Case", ExpectedResult = false)]
         //public bool TestBreachMageCastSpellStartOfTurnFailingHandelabra()
         //{
-        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional. 
+        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional.
 
         //    SetupGameController("BaronBlade", "RuduenWorkshop.BreachMage", "Megalopolis");
 
@@ -449,12 +444,11 @@ namespace RuduenModsTest
 
             StartGame();
 
-
             Card breach = FindCardInPlay("BreachIII");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             Card spell = PutInHand("FlareCascade");
 
-            // Use 2 times to open. 
+            // Use 2 times to open.
             UsePower(breach);
             UsePower(breach);
 
@@ -462,7 +456,6 @@ namespace RuduenModsTest
 
             PutInHand(charges);
             PlayCards(charges);
-
 
             DecisionSelectCards = new List<Card>() { breach, spell, mdp, charges[0], mdp, null };
 
@@ -473,7 +466,6 @@ namespace RuduenModsTest
             QuickHPCheck(-8); // Damage Dealt.
             AssertInTrash(spell); // Spell destroyed.
         }
-
 
         [Test()]
         public void TestSpellHauntingEcho()

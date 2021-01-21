@@ -27,7 +27,7 @@ namespace RuduenWorkshop.BreachMage
 
         public override IEnumerator UseOpenPower()
         {
-            // Play a card 
+            // Play a card
             IEnumerator coroutine;
             coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -36,6 +36,5 @@ namespace RuduenWorkshop.BreachMage
             coroutine = this.DrawCards(this.DecisionMaker, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

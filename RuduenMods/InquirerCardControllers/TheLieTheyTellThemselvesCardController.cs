@@ -15,13 +15,13 @@ namespace RuduenWorkshop.Inquirer
 
         public override void AddTriggers()
         {
-            // Add trigger for play Distortion. Must be a played distortion, and the distortion must've been played next to a non-hero target. 
+            // Add trigger for play Distortion. Must be a played distortion, and the distortion must've been played next to a non-hero target.
             this.AddTrigger<PlayCardAction>((PlayCardAction pca) => pca.CardToPlay.IsDistortion && pca.WasCardPlayed && pca.CardToPlay.Location.IsNextToCard && !pca.CardToPlay.Location.OwnerCard.IsHero && pca.CardToPlay.Location.OwnerCard.IsTarget, this.DealDamageResponse, TriggerType.DealDamage, TriggerTiming.After);
         }
 
         private IEnumerator DealDamageResponse(PlayCardAction pca)
         {
-            // Viability of target was checked with trigger, so only worry about the card. 
+            // Viability of target was checked with trigger, so only worry about the card.
             Card nextToCard = pca.CardToPlay.Location.OwnerCard;
 
             // That target damages themselves.

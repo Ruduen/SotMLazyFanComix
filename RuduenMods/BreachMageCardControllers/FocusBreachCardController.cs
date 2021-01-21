@@ -17,7 +17,6 @@ namespace RuduenWorkshop.BreachMage
             IEnumerator coroutine;
             List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
 
-
             // Draw a card.
             coroutine = this.DrawCard(this.HeroTurnTaker, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

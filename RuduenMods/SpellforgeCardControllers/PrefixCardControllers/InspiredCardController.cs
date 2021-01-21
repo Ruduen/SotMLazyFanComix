@@ -25,7 +25,7 @@ namespace RuduenWorkshop.Spellforge
         {
             // Mostly copied from AddReduceDamageToSetAmountTrigger since that doesn't return an ITrigger.
             ITrigger trigger = null;
-            bool damageCriteria(DealDamageAction dd) => dd.CardSource.Card == cardSource.Card; // Only if the action sources of this play and the damage are an exact match, AKA the triggering step is the same.
+            bool damageCriteria(DealDamageAction dd) => dd.CardSource.CardController == cardSource.CardController; // Only if the action sources of this play and the damage are an exact match, AKA the triggering step is the same.
 
             trigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => damageCriteria(dd),
                 (DealDamageAction dd) => this.TrackOriginalTargetsAndRunResponse(dd, cardSource),

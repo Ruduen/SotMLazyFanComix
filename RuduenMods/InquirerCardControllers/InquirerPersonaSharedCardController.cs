@@ -63,7 +63,7 @@ namespace RuduenWorkshop.Inquirer
             {
                 // Not enough cards - automatically destroy.
                 // TODO: Add message if appropriate.
-                coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource(null));
+                coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

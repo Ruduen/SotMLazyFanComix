@@ -27,15 +27,14 @@ namespace RuduenWorkshop.Cassie
 
             if (mcaResults.Count > 0 && mcaResults.FirstOrDefault().CardToMove.MagicNumber != null)
             {
-                // Deal damage equal to the moved card. 
+                // Deal damage equal to the moved card.
                 coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), (int)mcaResults.FirstOrDefault().CardToMove.MagicNumber, DamageType.Cold, 1, false, 1, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            // Move a card from the River deck to the Riverbank. 
-            coroutine = this.GameController.MoveCards(this.DecisionMaker, RiverDeck().GetTopCards(1), Riverbank().UnderLocation,cardSource: this.GetCardSource());
+            // Move a card from the River deck to the Riverbank.
+            coroutine = this.GameController.MoveCards(this.DecisionMaker, RiverDeck().GetTopCards(1), Riverbank().UnderLocation, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
     }
 }

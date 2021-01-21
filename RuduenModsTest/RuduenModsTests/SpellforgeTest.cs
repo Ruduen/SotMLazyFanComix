@@ -22,7 +22,7 @@ namespace RuduenModsTest
             { "Controlled", -1 },
             { "OfResonance", -1 },
             { "OfDisruption", -1 },
-            { "OfHealing", 4 }
+            { "OfHealing", 3 }
         };
 
         [OneTimeSetUp]
@@ -51,7 +51,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestDefineInnatePower()
+        public void TestDecreeInnatePower()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -59,7 +59,7 @@ namespace RuduenModsTest
             };
             Dictionary<string, string> promos = new Dictionary<string, string>
             {
-                { "SpellforgeCharacter", "SpellforgeDefineCharacter" }
+                { "SpellforgeCharacter", "SpellforgeDecreeCharacter" }
             };
             SetupGameController(setupItems, promoIdentifiers: promos);
 
@@ -77,7 +77,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestDefineInnatePowerDiscardPrefix()
+        public void TestDecreeInnatePowerDiscardPrefix()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -85,7 +85,7 @@ namespace RuduenModsTest
             };
             Dictionary<string, string> promos = new Dictionary<string, string>
             {
-                { "SpellforgeCharacter", "SpellforgeDefineCharacter" }
+                { "SpellforgeCharacter", "SpellforgeDecreeCharacter" }
             };
             SetupGameController(setupItems, promoIdentifiers: promos);
 
@@ -105,7 +105,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestDefineInnatePowerDiscardSuffix()
+        public void TestDecreeInnatePowerDiscardSuffix()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -113,7 +113,7 @@ namespace RuduenModsTest
             };
             Dictionary<string, string> promos = new Dictionary<string, string>
             {
-                { "SpellforgeCharacter", "SpellforgeDefineCharacter" }
+                { "SpellforgeCharacter", "SpellforgeDecreeCharacter" }
             };
             SetupGameController(setupItems, promoIdentifiers: promos);
 
@@ -131,7 +131,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestDefineInnatePowerDiscardPrefixSuffix()
+        public void TestDecreeInnatePowerDiscardPrefixSuffix()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -139,7 +139,7 @@ namespace RuduenModsTest
             };
             Dictionary<string, string> promos = new Dictionary<string, string>
             {
-                { "SpellforgeCharacter", "SpellforgeDefineCharacter" }
+                { "SpellforgeCharacter", "SpellforgeDecreeCharacter" }
             };
             SetupGameController(setupItems, promoIdentifiers: promos);
 
@@ -158,6 +158,52 @@ namespace RuduenModsTest
             UsePower(Spellforge);
             QuickHPCheck(-1 + CardDamage["OfHealing"]); // Hit for 1, healed 4.
         }
+
+        //[Test()]
+        //public void TestRedefineInnatePower()
+        //{
+        //    IEnumerable<string> setupItems = new List<string>()
+        //    {
+        //        "BaronBlade", "RuduenWorkshop.Spellforge/SpellforgeRedefineCharacter", "Fanatic", "Megalopolis"
+        //    };
+
+        //    SetupGameController(setupItems);
+
+        //    StartGame();
+
+        //    DiscardAllCards(Spellforge);
+        //    DiscardAllCards(fanatic);
+
+        //    PutInHand("HolyNova");
+        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+        //    QuickHPStorage(mdp);
+        //    UsePower(Spellforge);
+        //    QuickHPCheck(-1);
+        //}
+
+        //[Test()]
+        //public void TestRedefineInnatePowerDiscardPrefix()
+        //{
+        //    IEnumerable<string> setupItems = new List<string>()
+        //    {
+        //        "BaronBlade", "RuduenWorkshop.Spellforge/SpellforgeRedefineCharacter", "Fanatic", "Megalopolis"
+        //    };
+
+        //    SetupGameController(setupItems);
+
+        //    StartGame();
+
+        //    DiscardAllCards(Spellforge);
+        //    DiscardAllCards(fanatic);
+        //    PutInHand("Inspired");
+        //    PutInHand("HolyNova");
+        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+        //    QuickHPStorage(mdp);
+        //    UsePower(Spellforge);
+        //    QuickHPCheck(-1 + CardDamage["Inspired"]);
+        //}
 
         [Test()]
         public void TestEssenceNoDiscard()

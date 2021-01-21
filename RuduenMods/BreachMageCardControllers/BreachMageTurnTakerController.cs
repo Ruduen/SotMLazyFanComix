@@ -21,14 +21,14 @@ namespace RuduenWorkshop.BreachMage
                 int[] breachInitialFocus = breachMageController.BreachInitialFocus;
                 Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("breach")).ToArray();
 
-                for (int i = 0; i < breachInitialFocus.Count() && i<breaches.Count(); i++)
+                for (int i = 0; i < breachInitialFocus.Count() && i < breaches.Count(); i++)
                 {
                     TokenPool focusPool = breaches[i].FindTokenPool("FocusPool");
                     if (focusPool != null)
                     {
-                        if (breachInitialFocus[i]<0 || breachInitialFocus[i] > 4)
+                        if (breachInitialFocus[i] < 0 || breachInitialFocus[i] > 4)
                         {
-                            // Out of bounds breach - remove the breach from the game. 
+                            // Out of bounds breach - remove the breach from the game.
                             coroutine = this.GameController.MoveCard(this, breaches[i], this.HeroTurnTaker.OutOfGame, evenIfIndestructible: true, cardSource: this.CharacterCardController.GetCardSource());
                             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         }
@@ -41,7 +41,5 @@ namespace RuduenWorkshop.BreachMage
                 }
             }
         }
-
-
     }
 }

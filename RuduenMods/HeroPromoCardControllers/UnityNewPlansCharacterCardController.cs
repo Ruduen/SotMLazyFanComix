@@ -46,7 +46,7 @@ namespace RuduenWorkshop.Unity
             }
             else
             {
-                // Play one of the mechanical golems with the lowest HP. 
+                // Play one of the mechanical golems with the lowest HP.
                 coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, consideredCards.Where((Card c) => c.IsMechanicalGolem && c.MaximumHitPoints == lowestHP), cardSource: this.GetCardSource());
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

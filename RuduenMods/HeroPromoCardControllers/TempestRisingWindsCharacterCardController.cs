@@ -10,12 +10,11 @@ namespace RuduenWorkshop.Tempest
 {
     public class TempestRisingWindsCharacterCardController : PromoDefaultCharacterCardController
     {
-
         private readonly List<Card> actedEnvironments;
+
         public TempestRisingWindsCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-
             this.actedEnvironments = new List<Card>();
         }
 
@@ -28,7 +27,7 @@ namespace RuduenWorkshop.Tempest
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             SelectCardsDecision selectCardsDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlay && c.IsEnvironment && !c.IsTarget, SelectionType.CardToDealDamage, null, false, null, true, true, false, new Func<int>(this.NumEnvironmentToDamage), null, null, null, this.GetCardSource());
-            
+
             coroutine = this.GameController.SelectCardsAndDoAction(selectCardsDecision, (SelectCardDecision sc) => this.EnvironmentDamageResponse(sc, powerNumeral), null, null, this.GetCardSource(), null, false, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RuduenWorkshop
 {
-    // Card controller for flippable cards with immediate effects on flip. Used because 
+    // Card controller for flippable cards with immediate effects on flip. Used because
     public class RuduenFlippableCardController : CardController
     {
         protected bool AddedFlipTriggers;
@@ -28,6 +28,7 @@ namespace RuduenWorkshop
         {
             this.AddSideTriggers();
         }
+
         public virtual void AddSideTriggers()
         {
         }
@@ -40,6 +41,7 @@ namespace RuduenWorkshop
             }
             this.SideTriggers.Clear();
         }
+
         protected void AddSideTrigger(ITrigger trigger)
         {
             this.SideTriggers.Add(trigger);

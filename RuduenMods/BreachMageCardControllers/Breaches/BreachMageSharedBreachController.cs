@@ -9,8 +9,8 @@ namespace RuduenWorkshop.BreachMage
 {
     public abstract class BreachMageSharedBreachController : CardController
     {
-
         protected TokenPool FocusPool;
+
         public BreachMageSharedBreachController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -48,7 +48,6 @@ namespace RuduenWorkshop.BreachMage
                 coroutine = this.UseFocusPower(powerNumeral);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
 
         // Make this card indestructible if any other card asks. This is true on both sides!
@@ -69,7 +68,5 @@ namespace RuduenWorkshop.BreachMage
                     where c.IsSpell
                     select c).Count<Card>();
         }
-
-
     }
 }

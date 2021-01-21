@@ -32,7 +32,7 @@ namespace RuduenWorkshop.BreachMage
             List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
 
             // Use a Cast.
-            coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource(null));
+            coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (storedResults.Count > 0)

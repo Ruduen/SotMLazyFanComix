@@ -29,7 +29,7 @@ namespace RuduenWorkshop.Inquirer
             // You may destroy a distortion.
             coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker,
                 new LinqCardCriteria((Card c) => c.IsDistortion, "distortion", true, false, null, null, false),
-                true, storedResults, null, this.GetCardSource(null));
+                true, storedResults, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // If you do, play a card.
@@ -55,7 +55,7 @@ namespace RuduenWorkshop.Inquirer
                     }
                 case 1:
                     {
-                        coroutine = this.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = this.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

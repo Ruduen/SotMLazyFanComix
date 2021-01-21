@@ -26,7 +26,7 @@ namespace RuduenWorkshop.AbsoluteZero
             IEnumerator coroutine;
 
             // Deal self damage.
-            coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), this.CharacterCard, powerNumerals[0], DamageType.Cold, cardSource: this.GetCardSource(null));
+            coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), this.CharacterCard, powerNumerals[0], DamageType.Cold, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // You may play equipment card.

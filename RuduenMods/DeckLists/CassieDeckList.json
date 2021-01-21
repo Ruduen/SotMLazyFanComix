@@ -287,7 +287,7 @@
       "keywords": [ "river", "one-shot" ],
       "body": [
         "This card has an Aqua Cost of 6.",
-        "Discard a card. ", 
+        "Discard a card. ",
         "Play a card from the Riverbank. (It is treated as your card afterward.)"
       ],
       "icons": [ "PlayCardNow", "Manipulate" ],

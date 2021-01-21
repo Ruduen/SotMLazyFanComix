@@ -59,7 +59,7 @@ namespace RuduenModsTest
             Card card = PlayCard("TheLegacyRing");
             DestroyCard(Inquirer);
             UseIncapacitatedAbility(Inquirer, 2);
-            AssertInHand(card); // Returned to hand. 
+            AssertInHand(card); // Returned to hand.
         }
 
         [Test()]
@@ -237,7 +237,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(mdp);
             PlayCard("YoureLookingPale");
-            QuickHPCheck(-5); // 4 from self-damage, 1 from additional self-damage. 
+            QuickHPCheck(-5); // 4 from self-damage, 1 from additional self-damage.
         }
 
         [Test()]
@@ -249,7 +249,7 @@ namespace RuduenModsTest
 
             Card power = PlayCard("UndeniableFacts");
 
-            Card[] cards = new Card[] { PutInHand("YoureLookingPale"), FindCardInPlay("MobileDefensePlatform"), PutInHand("IveFixedTheWound")  };
+            Card[] cards = new Card[] { PutInHand("YoureLookingPale"), FindCardInPlay("MobileDefensePlatform"), PutInHand("IveFixedTheWound") };
 
             DecisionSelectCards = cards;
 
@@ -296,8 +296,6 @@ namespace RuduenModsTest
 
             QuickHPCheck(-2, 2); // Two total damage - 1 base, 1 buff. 2 Healing - 1 base, 1 buff.
         }
-
-
 
         [Test()]
         public void TestBackupPlan()

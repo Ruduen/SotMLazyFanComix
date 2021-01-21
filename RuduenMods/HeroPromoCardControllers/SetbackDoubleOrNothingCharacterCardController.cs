@@ -42,7 +42,7 @@ namespace RuduenWorkshop.Setback
                 coroutine = this.GameController.RevealCards(this.DecisionMaker, this.HeroTurnTaker.Deck, 2, revealedCards, true, RevealedCardDisplay.ShowRevealedCards, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // If there are exactly 2 cards, compare keywords. 
+                // If there are exactly 2 cards, compare keywords.
                 if (revealedCards.Count == 2)
                 {
                     IEnumerable<string>[] keywordSets = new IEnumerable<string>[]
@@ -64,15 +64,15 @@ namespace RuduenWorkshop.Setback
 
                     if (this.HeroTurnTaker.Revealed.NumberOfCards > 0)
                     {
-                        // Discard all remaining cards revealed, if movement failed for some reason. 
-                        // SelectCardsFromLocationAndMoveThem seems to be the cleanest way to be allowed to control the order. 
-                        // Note that just MoveCards will probably work fine, since Captain Cosmic and the like use it. But SS Tachyon does something more specific. 
+                        // Discard all remaining cards revealed, if movement failed for some reason.
+                        // SelectCardsFromLocationAndMoveThem seems to be the cleanest way to be allowed to control the order.
+                        // Note that just MoveCards will probably work fine, since Captain Cosmic and the like use it. But SS Tachyon does something more specific.
                         coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, this.HeroTurnTaker.Revealed, this.HeroTurnTaker.Revealed.NumberOfCards, this.HeroTurnTaker.Revealed.NumberOfCards, new LinqCardCriteria(), new List<MoveCardDestination>() { new MoveCardDestination(this.HeroTurnTaker.Trash) }, isDiscardIfMovingToTrash: true, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                 }
 
-                // Cleanup. This is only for emergency use - graceful selection for discard order is preferred! 
+                // Cleanup. This is only for emergency use - graceful selection for discard order is preferred!
                 coroutine = this.CleanupCardsAtLocations(new List<Location>() { this.HeroTurnTaker.Revealed }, this.HeroTurnTaker.Deck, true, isDiscard: true, isReturnedToOriginalLocation: false, cardsInList: revealedCards);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

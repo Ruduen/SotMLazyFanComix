@@ -41,7 +41,7 @@ namespace RuduenWorkshop.CaptainCosmic
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // Construct Damages Self.
-                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, selectedCard), selectedCard, powerNumeral, DamageType.Energy, cardSource: this.GetCardSource(null));
+                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, selectedCard), selectedCard, powerNumeral, DamageType.Energy, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

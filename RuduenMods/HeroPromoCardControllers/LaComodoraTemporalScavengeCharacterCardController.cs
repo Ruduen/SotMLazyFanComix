@@ -44,7 +44,6 @@ namespace RuduenWorkshop.LaComodora
             IEnumerator coroutine;
             if (hero != null && destroy.CanBeCancelled)
             {
-
                 List<YesNoCardDecision> storedResults = new List<YesNoCardDecision>();
                 coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.MoveCardToPlayArea, destroy.CardToDestroy.Card, storedResults: storedResults, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -56,6 +55,7 @@ namespace RuduenWorkshop.LaComodora
                 }
             }
         }
+
 #pragma warning restore IDE0060 // Remove unused parameter
 
         public IEnumerator MoveAndFlipResponse(HeroTurnTaker hero, Card card)
@@ -72,7 +72,5 @@ namespace RuduenWorkshop.LaComodora
             coroutine = this.GameController.MoveCard(decisionMaker, card, hero.PlayArea, false, false, card.IsMissionCard, responsibleTurnTaker: decisionMaker.TurnTaker, flipFaceDown: !card.IsMissionCard, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
-
     }
 }

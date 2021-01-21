@@ -31,7 +31,7 @@ namespace RuduenWorkshop.Spellforge
             ITrigger trigger = null;
             // Only if the action sources of this play and the damage are an exact match, AKA the triggering step is the same.
             // Also confirm hero target that was damaged.
-            bool damageCriteria(DealDamageAction dd) => dd.CardSource.Card == cardSource.Card && dd.Target.IsHero && dd.DidDealDamage;
+            bool damageCriteria(DealDamageAction dd) => dd.CardSource.CardController == cardSource.CardController && dd.Target.IsHero && dd.DidDealDamage;
 
             trigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => damageCriteria(dd),
                 (DealDamageAction dd) => this.TrackOriginalTargetsAndRunResponse(dd, cardSource),
@@ -45,7 +45,7 @@ namespace RuduenWorkshop.Spellforge
 
         protected override IEnumerator RunResponse(DealDamageAction dd, CardSource cardSource, params object[] otherObjects)
         {
-            IEnumerator coroutine = this.GameController.GainHP(dd.Target, 4, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.GainHP(dd.Target, 3, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

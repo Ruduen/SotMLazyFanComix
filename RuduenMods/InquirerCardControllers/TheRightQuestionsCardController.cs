@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Inquirer
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
 
             // Destroy Ongoing/Environment.
-            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment", true, false, null, null, false), false, storedResultsAction, null, this.GetCardSource(null));
+            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment", true, false, null, null, false), false, storedResultsAction, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.GetNumberOfCardsDestroyed(storedResultsAction) > 0)

@@ -45,7 +45,7 @@ namespace RuduenWorkshop.TheWraith
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
 
-                    // Destory the card. 
+                    // Destory the card.
                     coroutine = this.GameController.DestroyCard(this.DecisionMaker, card, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }

@@ -128,6 +128,7 @@
     <Compile Include="HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheHarpyArcaneFlockCharacterCardController.cs" />
     <Compile Include="SpellforgeCardControllers\MeanderingDissertationCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeRedefineCharacterCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfAuraCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfResonanceCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfDisruptionCardController.cs" />
@@ -141,7 +142,7 @@
     <Compile Include="SpellforgeCardControllers\ArticulateTheLethologicalCardController.cs" />
     <Compile Include="SpellforgeCardControllers\EssenceCardControllers\WaveCardController.cs" />
     <Compile Include="SpellforgeCardControllers\PrefixCardControllers\ControlledCardController.cs" />
-    <Compile Include="SpellforgeCardControllers\SpellforgeDefineCharacterCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeDecreeCharacterCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SpellforgeSharedEssenceCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SpellforgeSharedModifierCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SpellforgeTurnTakerController.cs" />

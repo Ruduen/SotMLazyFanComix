@@ -20,14 +20,14 @@ namespace RuduenWorkshop.BreachMage
         {
             // Break down into two powers.
             IEnumerator coroutine;
-            int powerNumeral = this.GetPowerNumeral(0, 1); // Number of charges. 
+            int powerNumeral = this.GetPowerNumeral(0, 1); // Number of charges.
 
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
 
             // Destroy 1 of your charges.
             coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
                 new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
-                powerNumeral, false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource(null));
+                powerNumeral, false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.GetNumberOfCardsDestroyed(storedResultsAction) == powerNumeral)
@@ -37,13 +37,13 @@ namespace RuduenWorkshop.BreachMage
 
                 // Use a Cast.
                 //coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults);
-                coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource(null));
+                coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 if (storedResults.Count > 0)
                 {
                     // Select an ability on that card. Just in case a card has multiple Cast effects, or is no longer valid due to being destroyed.
-                    coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", new LinqCardCriteria(storedResults.FirstOrDefault().SelectedCard), null, false, this.GetCardSource(null));
+                    coroutine = this.ActivateCast(storedResults.FirstOrDefault().SelectedCard);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     // Destroy the cast card.
@@ -67,13 +67,13 @@ namespace RuduenWorkshop.BreachMage
                     }
                 case 1:
                     {
-                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 2:
                     {
-                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

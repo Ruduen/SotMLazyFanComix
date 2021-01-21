@@ -31,7 +31,7 @@ namespace RuduenWorkshop.Cassie
             {
                 if (discardCardAction.IsSuccessful && discardCardAction.CardToDiscard.MagicNumber != null)
                 {
-                    totalDamage += (int) discardCardAction.CardToDiscard.MagicNumber;
+                    totalDamage += (int)discardCardAction.CardToDiscard.MagicNumber;
                 }
             }
 

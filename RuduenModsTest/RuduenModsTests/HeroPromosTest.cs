@@ -1277,7 +1277,7 @@ namespace RuduenModsTest
             QuickHPStorage(baron.CharacterCard);
             UsePower(ra);
             AssertInTrash(mdp); // MDP destroyed.
-            QuickHPCheck(-1); // 1 Piercing Damage from repeat. 
+            QuickHPCheck(-1); // 1 Piercing Damage from repeat.
         }
 
         [Test()]
@@ -1299,7 +1299,7 @@ namespace RuduenModsTest
             QuickHPStorage(fixer.CharacterCard, baron.CharacterCard);
             UsePower(ra);
             AssertInTrash(mdp); // MDP destroyed.
-            QuickHPCheck(0, -1); // 1 Piercing Damage from repeat. 
+            QuickHPCheck(0, -1); // 1 Piercing Damage from repeat.
         }
 
         [Test()]
@@ -1354,9 +1354,9 @@ namespace RuduenModsTest
 
             QuickHandStorage(setback);
             UsePower(setback);
-            AssertIsInPlay(play); // Played ongoing card is in play. 
+            AssertIsInPlay(play); // Played ongoing card is in play.
             QuickHandCheck(-1); // 1 card played, 0 drawn.
-            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 2); // 2 tokens added. 
+            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 2); // 2 tokens added.
             AssertInTrash(bottom);
         }
 
@@ -1377,9 +1377,9 @@ namespace RuduenModsTest
 
             QuickHandStorage(setback);
             UsePower(setback);
-            AssertIsInPlay(play); // Played ongoing card is in play. 
+            AssertIsInPlay(play); // Played ongoing card is in play.
             QuickHandCheck(1); // 1 card played, 1 drawn.
-            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 0); // 0 tokens added. 
+            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 0); // 0 tokens added.
             AssertInHand(bottom);
         }
 
@@ -1531,9 +1531,9 @@ namespace RuduenModsTest
 
             StartGame();
 
-            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets. 
+            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets.
 
-            // Make fixer lowest for Dreamer redirect. 
+            // Make fixer lowest for Dreamer redirect.
             DealDamage(fixer, fixer.CharacterCard, 15, DamageType.Melee);
 
             PutIntoPlay("DrivingMantis");
@@ -1551,7 +1551,7 @@ namespace RuduenModsTest
             QuickHandStorage(tempest);
             QuickHPStorage(dreamer);
             UsePower(tempest);
-            QuickHPCheck(0); // 0 Damage - first hit was redirected, second should've been cancelled. 
+            QuickHPCheck(0); // 0 Damage - first hit was redirected, second should've been cancelled.
             QuickHandCheck(1);
         }
 
@@ -1563,9 +1563,9 @@ namespace RuduenModsTest
 
             StartGame();
 
-            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets. 
+            DestroyCards((Card c) => c.IsInPlay && c.IsVillain && !c.IsCharacter); // Destroy all villain setup cards to remove non-Dreamer targets.
 
-            // Make fixer lowest for Dreamer redirect. 
+            // Make fixer lowest for Dreamer redirect.
             DealDamage(fixer, fixer.CharacterCard, 15, DamageType.Melee);
 
             PutIntoPlay("DrivingMantis");
@@ -1606,8 +1606,8 @@ namespace RuduenModsTest
             UsePower(unity);
             AssertExpectedMessageWasShown();
             AssertInTrash(cards); // Discarded all that were in hand.
-            AssertNotInPlay((Card c) => c.IsMechanicalGolem); // No mechanical golems in play. 
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+            AssertNotInPlay((Card c) => c.IsMechanicalGolem); // No mechanical golems in play.
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
         }
 
         [Test()]
@@ -1629,7 +1629,7 @@ namespace RuduenModsTest
             UsePower(unity);
             AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
             AssertIsInPlay(cards[2]); // Chomps in play!
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
         }
 
         [Test()]
@@ -1652,8 +1652,8 @@ namespace RuduenModsTest
             DecisionSelectCardToPlay = cards[1];
             UsePower(unity);
             AssertInTrash(cards[0], cards[2]); // Discarded all that were in hand.
-            AssertIsInPlay(cards[1]); // Chomps in play! Yes, only ties that require choice are the same bot! 
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+            AssertIsInPlay(cards[1]); // Chomps in play! Yes, only ties that require choice are the same bot!
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
         }
 
         [Test()]
@@ -1677,10 +1677,8 @@ namespace RuduenModsTest
             AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
             AssertIsInPlay(cards[2]); // Bees in play, no decision to make.
             AssertNoDecision(); // Smallest was auto-detected, no choice was necessary.
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all. 
+            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
         }
-
-
 
         [Test()]
         public void TestVoidGuardIdealistNoConceptCards()
@@ -1726,7 +1724,7 @@ namespace RuduenModsTest
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             PutIntoPlay("SynapticInterruption");
 
-            // First heal/damage Medico and MDP, then redirect to MDP so it no longer qualifies. What happens? 
+            // First heal/damage Medico and MDP, then redirect to MDP so it no longer qualifies. What happens?
             DecisionSelectCards = new Card[] { tachyon.CharacterCard, mdp, tachyon.CharacterCard, mdp, mdp };
 
             QuickHPStorage(tachyon.CharacterCard, mdp);
@@ -1753,9 +1751,9 @@ namespace RuduenModsTest
 
             QuickHPStorage(mdp);
             UsePower(voidIdealist);
-            QuickHPCheck(-2); // Damaged by play. 
+            QuickHPCheck(-2); // Damaged by play.
             AssertUnderCard(concept, fragment); // Moved back under the concept.
-            AssertOnTopOfDeck(top); // Not played. 
+            AssertOnTopOfDeck(top); // Not played.
         }
 
         [Test()]
@@ -1852,7 +1850,7 @@ namespace RuduenModsTest
 
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
 
-            // Stack with mind spikes for simplicity. 
+            // Stack with mind spikes for simplicity.
             PutOnDeck(visionary, FindCardsWhere((Card c) => c.Identifier == "MindSpike"));
 
             UsePower(legacy);
@@ -1862,13 +1860,12 @@ namespace RuduenModsTest
 
             AssertHitPoints(baron, 40);
             UsePower(visionary);
-            AssertHitPoints(baron, 35); // Spike 1. 
+            AssertHitPoints(baron, 35); // Spike 1.
             UsePower(visionary);
-            AssertHitPoints(baron, 30); // Spike 2. 
+            AssertHitPoints(baron, 30); // Spike 2.
             UsePower(visionary);
             AssertHitPoints(baron, 26); // Environment hit. Not Legacy boosted.
         }
-
 
         [Test()]
         public void TestWraithPlaySafe()
@@ -1905,7 +1902,7 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             UsePower(wraith);
             AssertInTrash(card);
-            QuickHPCheck(-2); // Bolted twice. 
+            QuickHPCheck(-2); // Bolted twice.
         }
     }
 }

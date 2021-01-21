@@ -22,13 +22,12 @@ namespace RuduenWorkshop.Stuntman
             coroutine = this.DrawCards(this.DecisionMaker, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Off-turn, draw a card. 
+            // Off-turn, draw a card.
             if (this.GameController.ActiveTurnTaker != this.TurnTaker)
             {
                 coroutine = this.DrawCards(this.DecisionMaker, 1);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
     }
 }

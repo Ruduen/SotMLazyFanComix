@@ -44,7 +44,7 @@
       "count": 3,
       "title": "Ray",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix card to add its [u]Prefix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals 1 Target 4 Energy Damage." ],
+      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals 1 Target 4 Energy Damage." ],
       "icons": [ "DealDamageEnergy", "Discard" ],
       "flavorQuotes": [
         {
@@ -56,7 +56,7 @@
       "count": 3,
       "title": "Shock",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix card to add its [u]Prefix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals 3 Targets 3 Lightning Damage." ],
+      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 3 Targets 3 Lightning Damage." ],
       "icons": [ "DealDamageLightning", "Discard" ],
       "flavorQuotes": [
         {
@@ -68,7 +68,7 @@
       "count": 3,
       "title": "Wave",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix card to add its [u]Prefix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals 5 Targets 3 Sonic Damage." ],
+      "body": [ "You may discard a Prefix and a Suffix, to add their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 5 Targets 3 Sonic Damage." ],
       "icons": [ "DealDamageSonic", "Discard" ],
       "flavorQuotes": [
         {
@@ -158,7 +158,7 @@
       "title": "...of Healing",
       "alternateTitle": "of Healing",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 4 HP." ],
+      "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 3 HP." ],
       "icons": [ "DrawCardNow", "DestroyEnvironment", "GainHP" ],
       "flavorQuotes": [
         {
@@ -219,15 +219,15 @@
   "promoCards": [
     {
       "identifier": "SpellforgeCharacter",
-      "promoIdentifier": "SpellforgeDefineCharacter",
+      "promoIdentifier": "SpellforgeDecreeCharacter",
       "count": 1,
       "title": "Spellforge",
-      "body": "Define",
+      "body": "Decree",
       "backgroundColor": "CC6666",
       "foilBackgroundColor": "CC6666",
       "character": true,
       "powers": [
-        "You may discard a Prefix card to add its [u]Prefix[/u] text to this power. You may discard a Suffix card to apply its [u]Suffix[/u] text to this power. {Spellforge} deals up to 3 Targets 1 Infernal Damage."
+        "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this power. {Spellforge} deals up to 3 Targets 1 Infernal Damage."
       ],
       "icons": [
         "HasPower",
@@ -235,6 +235,44 @@
         "DealDamageInfernal"
       ],
       "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "Spellforge"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "..."
+      },
+      "complexity": 2
+    }
+  ],
+  "dummy": [
+    {
+      "identifier": "SpellforgeCharacter",
+      "promoIdentifier": "SpellforgeRedefineCharacter",
+      "count": 1,
+      "title": "Spellforge",
+      "body": "Redefine",
+      "backgroundColor": "CC6666",
+      "foilBackgroundColor": "CC6666",
+      "character": true,
+      "powers": [
+        "You may discard a Prefix and a Suffix. One other player may play a One-Shot, applying the discarded cards' [u]Prefix[/u] and [u]Suffix[/u] text to that card."
+      ],
+      "icons": [
+        "HasPower",
+        "DiscardCard",
+        "DealDamageInfernal"
+      ],
+      "hitpoints": 22,
       "nemesisIdentifiers": [
         "Spellforge"
       ],

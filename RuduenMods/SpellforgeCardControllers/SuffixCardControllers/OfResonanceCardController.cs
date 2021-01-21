@@ -17,7 +17,7 @@ namespace RuduenWorkshop.Spellforge
             IEnumerator coroutine;
 
             // Deal 1 target 2 sonic.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 2, DamageType.Sonic, 1, false, 1, false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 2, DamageType.Sonic, 1, false, 1, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw.
@@ -31,7 +31,7 @@ namespace RuduenWorkshop.Spellforge
             ITrigger trigger = null; // Use null base to initialize.
 
             // Only if the action sources of this play and the damage are an exact match, AKA the triggering step is the same.
-            bool damageCriteria(DealDamageAction dd) => dd.CardSource.Card == cardSource.Card && !dd.Target.IsHero && dd.DidDealDamage;
+            bool damageCriteria(DealDamageAction dd) => dd.CardSource.CardController == cardSource.CardController && !dd.Target.IsHero && dd.DidDealDamage;
 
             trigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => damageCriteria(dd),
                 (DealDamageAction dd) => this.TrackOriginalTargetsAndRunResponse(dd, cardSource),
@@ -48,7 +48,7 @@ namespace RuduenWorkshop.Spellforge
         {
             IEnumerator coroutine;
 
-            // Self Damage Response
+            // Spellforge Damage Response
             coroutine = this.DealDamage(this.CharacterCard, dd.Target, 1, DamageType.Sonic, cardSource: cardSource);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

@@ -36,7 +36,7 @@ namespace RuduenWorkshop.Cassie
             coroutine = this.GameController.SelectAndMoveCard(this.DecisionMaker, (Card c) => this.HeroTurnTaker.Hand.Cards.Contains(c), RiverDeck(), true, storedResults: scdResults, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // If there is an aqua cost on it, then select a card with a value of up to 2 more. 
+            // If there is an aqua cost on it, then select a card with a value of up to 2 more.
             selectedCard = this.GetSelectedCard(scdResults);
             if (selectedCard != null && selectedCard.FindTokenPool("CassieCostPool").MaximumValue != null)
             {
@@ -55,9 +55,7 @@ namespace RuduenWorkshop.Cassie
             // Draw until you have 3 cards.
             coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, powerNumerals[1]);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
-
 
         // TODO: Replace with something more unique!
         public override IEnumerator UseIncapacitatedAbility(int index)
@@ -73,13 +71,13 @@ namespace RuduenWorkshop.Cassie
                     }
                 case 1:
                     {
-                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 2:
                     {
-                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

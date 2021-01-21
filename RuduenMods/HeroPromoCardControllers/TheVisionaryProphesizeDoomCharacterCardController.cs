@@ -16,7 +16,7 @@ namespace RuduenWorkshop.TheVisionary
 
         public override IEnumerator UsePower(int index = 0)
         {
-            int[] powerNumerals = new int[] { 
+            int[] powerNumerals = new int[] {
                 GetPowerNumeral(0, 2), // 2 Cards Beneath
                 GetPowerNumeral(1, 1), // 1 Target
                 GetPowerNumeral(2, 4), // 4 Damage
@@ -29,16 +29,15 @@ namespace RuduenWorkshop.TheVisionary
             {
                 // Destroy all cards under this.
                 // TODO: Can AutoDecide do this?
-                coroutine = this.GameController.DestroyCards(this.DecisionMaker, 
+                coroutine = this.GameController.DestroyCards(this.DecisionMaker,
                     new LinqCardCriteria(
-                        (Card c)=> c.Location == this.Card.UnderLocation || c.Location == this.Card.BelowLocation, "cards below " + this.Card.Title),
+                        (Card c) => c.Location == this.Card.UnderLocation || c.Location == this.Card.BelowLocation, "cards below " + this.Card.Title),
                     cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // Select a target for the environment to deal damage.
                 coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.FindEnvironment().TurnTaker), powerNumerals[2], DamageType.Projectile, powerNumerals[1], false, powerNumerals[1], cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             }
             else
             {
@@ -49,9 +48,7 @@ namespace RuduenWorkshop.TheVisionary
                 // Play one of the cards under/below this. Yes, both must be checked based on Omnicannon.
                 coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.Card.UnderLocation || c.Location == this.Card.BelowLocation, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             }
-
         }
     }
 }

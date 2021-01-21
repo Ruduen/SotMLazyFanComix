@@ -57,7 +57,7 @@ namespace RuduenWorkshop.Inquirer
         {
             Card selectedCard = sc.SelectedCard;
             this.actedDistortions.Add(selectedCard);
-            IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, selectedCard), (Card c) => new int?(damageAmount), DamageType.Psychic, () => numberOfTargets, false, new int?(numberOfTargets), cardSource: this.GetCardSource(null));
+            IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, selectedCard), (Card c) => new int?(damageAmount), DamageType.Psychic, () => numberOfTargets, false, new int?(numberOfTargets), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
@@ -75,13 +75,13 @@ namespace RuduenWorkshop.Inquirer
                     }
                 case 1:
                     {
-                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 2:
                     {
-                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

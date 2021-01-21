@@ -10,7 +10,7 @@ using System.Reflection;
 namespace RuduenModsTest
 {
     [TestFixture]
-    public class CassieMageTest : BaseTest
+    public class CassieTest : BaseTest
     {
         [OneTimeSetUp]
         public void DoSetup()
@@ -150,7 +150,7 @@ namespace RuduenModsTest
             DecisionYesNo = true;
 
             QuickHandStorage(Cassie);
-            UsePower(Cassie.CharacterCard, 0); // Default Innate. Cast. Any card we use should qualify, since they have a base cost of 1. 
+            UsePower(Cassie.CharacterCard, 0); // Default Innate. Cast. Any card we use should qualify, since they have a base cost of 1.
             Assert.IsTrue(cardToBuy.Location == Cassie.TurnTaker.Trash || cardToBuy.Location == Cassie.TurnTaker.Deck || cardToBuy.Location == Cassie.HeroTurnTaker.Hand); // Bought.
         }
 
@@ -391,7 +391,7 @@ namespace RuduenModsTest
             PlayCard(play);
             QuickHPCheck(-2); // 1 damage for cost, 1 for boost.
             AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
-            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged. 
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged.
         }
 
         [Test()]
@@ -416,7 +416,7 @@ namespace RuduenModsTest
             PlayCard(play);
             QuickHPCheck(0); // 0 damage, since no magic number exists.
             AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
-            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged. 
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged.
         }
 
         [Test()]
@@ -590,7 +590,7 @@ namespace RuduenModsTest
             PlayCard("MeetingTheOcean");
             UsePower("MeetingTheOcean");
             QuickHPCheck(-6); // Instance of 1 and 2, increased by 1.
-            AssertNumberOfCardsInHand(Cassie, 3); // Drawn back up to 3. 
+            AssertNumberOfCardsInHand(Cassie, 3); // Drawn back up to 3.
         }
 
         // TODO: Add riverbank tests when the River deck has been emptied! Yes, it will stop drawing cards - but you have a full deck to play with already, so at that stage that's your own fault!

@@ -6,11 +6,11 @@ using System.Linq;
 
 namespace RuduenWorkshop.Spellforge
 {
-    public class SpellforgeDefineCharacterCardController : HeroCharacterCardController
+    public class SpellforgeDecreeCharacterCardController : HeroCharacterCardController
     {
         public string str;
 
-        public SpellforgeDefineCharacterCardController(Card card, TurnTakerController turnTakerController)
+        public SpellforgeDecreeCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
@@ -90,13 +90,13 @@ namespace RuduenWorkshop.Spellforge
                     }
                 case 1:
                     {
-                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 2:
                     {
-                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource(null));
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

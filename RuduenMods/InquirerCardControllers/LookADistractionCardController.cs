@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Inquirer
             if (nextTo != null)
             {
                 // Damage another target.
-                IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, nextTo), 3, DamageType.Melee, 1, false, 1, false, false, false, (Card c) => !c.IsHero && c != nextTo, null, null, null, null, false, null, null, false, null, this.GetCardSource(null));
+                IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, nextTo), 3, DamageType.Melee, 1, false, 1, false, false, false, (Card c) => !c.IsHero && c != nextTo, null, null, null, null, false, null, null, false, null, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

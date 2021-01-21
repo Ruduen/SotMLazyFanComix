@@ -27,14 +27,13 @@ namespace RuduenWorkshop.VoidGuardDrMedico
 
             IEnumerator coroutine;
 
-            // Heal 2 targets. 
+            // Heal 2 targets.
             coroutine = this.GameController.SelectAndGainHP(this.DecisionMaker, powerNumerals[1], numberOfTargets: powerNumerals[0], requiredDecisions: powerNumerals[0], storedResults: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Deal damage to each full HP target. They only had to be selected - no healing is necessary. 
+            // Deal damage to each full HP target. They only had to be selected - no healing is necessary.
             coroutine = this.GameController.DealDamage(this.DecisionMaker, this.CharacterCard, (Card c) => storedResults.Select((GainHPAction a) => a.HpGainer).Contains(c) && c.HitPoints >= c.MaximumHitPoints, powerNumerals[2], DamageType.Toxic, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
     }
 }

@@ -25,7 +25,7 @@ namespace RuduenWorkshop.Spellforge
             numberOfCardsDiscarded = this.GetNumberOfCardsDiscarded(storedResults);
             if (numberOfCardsDiscarded > 0)
             {
-                coroutine = this.GameController.SelectHeroToDrawCards(this.DecisionMaker, numberOfCardsDiscarded, false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource(null));
+                coroutine = this.GameController.SelectHeroToDrawCards(this.DecisionMaker, numberOfCardsDiscarded, false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else

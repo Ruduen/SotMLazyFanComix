@@ -25,7 +25,7 @@ namespace RuduenWorkshop.Spellforge
             // Mostly copied from AddReduceDamageToSetAmountTrigger since that doesn't return an ITrigger.
             ITrigger trigger = null; // Use null base to initialize.
             int amountToSet = 1;
-            bool damageCriteria(DealDamageAction dd) => dd.CardSource.Card == cardSource.Card && dd.CanDealDamage && dd.Amount > amountToSet && dd.Target.IsHero;
+            bool damageCriteria(DealDamageAction dd) => dd.CardSource.CardController == cardSource.CardController && dd.CanDealDamage && dd.Amount > amountToSet && dd.Target.IsHero;
 
             trigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => damageCriteria(dd),
                 (DealDamageAction dd) => this.TrackOriginalTargetsAndRunResponse(dd, cardSource, amountToSet, trigger),

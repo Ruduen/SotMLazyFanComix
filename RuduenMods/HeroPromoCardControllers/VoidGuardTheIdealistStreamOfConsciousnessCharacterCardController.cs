@@ -26,7 +26,7 @@ namespace RuduenWorkshop.VoidGuardTheIdealist
             underConceptLocations.AddRange(conceptCards.Select((Card c) => c.UnderLocation));
             underConceptLocations.AddRange(conceptCards.Select((Card c) => c.BelowLocation));
 
-            // Play one of your cards from under/below a concepts. 
+            // Play one of your cards from under/below a concepts.
             coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => underConceptLocations.Contains(c.Location) && c.Owner == this.HeroTurnTaker, storedResults: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -44,7 +44,6 @@ namespace RuduenWorkshop.VoidGuardTheIdealist
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }
-
         }
     }
 }
