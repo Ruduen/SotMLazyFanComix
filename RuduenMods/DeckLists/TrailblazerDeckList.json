@@ -90,7 +90,7 @@
       "title": "Climbing Harness",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "The first time one of your Positions enters play each turn, increase the next damage dealt by {Trailblazer} by 2. "
+        "At the start of your turn, increase the next damage dealt by {Trailblazer} by 1. If there is a Position in play, increase the next damage dealt by {Trailblazer} by 2 instead."
       ],
       "icons": [ "IncreaseDamageDealt" ],
       "flavorQuotes": [
@@ -98,8 +98,7 @@
           "identifier": "Trailblazer",
           "text": "Sometimes, the high ground is enough."
         }
-      ],
-      "notes": "Does the timing for this work right if it's only enabled for overlapping positions? I can probably increase it to 3 if so. Otherwise, maybe if Position is in play at the start of the turn? That's likely a little easier, but could use another small benefit. '"
+      ]
     },
     {
       "identifier": "WornBinoculars",
@@ -107,7 +106,8 @@
       "title": "Worn Binoculars",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "The first time one of your Positions enters play each turn, you may look at the top Card of a deck, then either put it on the top or bottom of that deck."
+        "You may use an additional Power during your Power Phase.",
+        "After you use a Power on a Position, you may look at the top Card of a deck, then either put it on the top or bottom of that deck."
       ],
       "icons": [ "Manipulate" ],
       "flavorQuotes": [
@@ -123,7 +123,7 @@
       "count": 2,
       "title": "Supply Pack",
       "keywords": [ "equipment", "limited" ],
-      "body": "The first time one of your Positions enters play each turn, use the power on it.",
+      "body": "After the first time one of your Positions enters play each turn, use the power on it.",
       "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
         {
@@ -134,11 +134,11 @@
     },
     {
       "identifier": "RapidRepositioning",
-      "count": 2,
+      "count": 3,
       "title": "Rapid Repositioning",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "After a Position is destroyed, you may play a card."
+        "After an Environment card enters play, you may destroy a Position to play a card."
       ],
       "icons": [ "PlayCardNow" ],
       "flavorQuotes": [
@@ -154,25 +154,25 @@
     },
     {
       "identifier": "PartingGift",
-      "count": 2,
+      "count": 3,
       "title": "Parting Gift",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "After a Position is destroyed, {Trailblazer} deals up to 2 Targets 2 Fire Damage."
+        "When a Position is destroyed, {Trailblazer} deals up to 2 Targets 2 Fire Damage."
       ],
       "icons": [ "DealDamageFire" ],
       "flavorQuotes": [
       ],
-      "notes": "Similarly, can this be triggered by enemy damage? To destroy positions when you'd be hit?'"
+      "notes": "Similarly, can this be triggered by enemy damage? To destroy positions when you'd be hit? When Environment cards are in play? "
     },
     {
       "identifier": "WastelandWanderer",
       "count": 2,
       "title": "Wasteland Wanderer",
-      "keywords": [ "ongoing", "limited" ],
+      "keywords": [ "ongoing" ],
       "powers": [ "Place 2 Tokens on this card. Destroy this." ],
       "body": [
-        "After a Position is destroyed, place 1 Token on this card.",
+        "After an Environment card is destroyed, place 1 Token on this card.",
         "When this card is destroyed, {Trailblazer} deals 1 Target Fire Damage equal to the number of Tokens on this card."
       ],
       "tokenPools": [
@@ -241,10 +241,10 @@
     {
       "identifier": "TacticalWithdrawl",
       "count": 3,
-      "title": "TacticalWithdrawl",
+      "title": "Tactical Withdrawl",
       "keywords": [ "one-shot" ],
       "body": [
-        "Select a Position. Use the Power on that Position twice.",
+        "Use the Power on one of your Positions twice.",
         "Destroy that Position."
       ],
       "icons": [ "UsePowerNow", "Destroy" ],
@@ -260,14 +260,15 @@
     },
     {
       "identifier": "TrailOfAshes",
-      "count": 4,
+      "count": 3,
       "title": "Trail of Ashes",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Trailblazer} deals each non-Hero Target and themselves 2 Fire Damage.",
-        "If there is a Position in play, Draw 2 Cards and Destroy a Position."
+        "{Trailblazer} deals each non-Hero Target 2 Fire Damage.",
+        "Destroy an Environment Card. If you do, draw a card.", 
+        "Destroy a Position. If you do, draw a card."
       ],
-      "icons": [ "DealDamageFire", "DrawCardNow", "Destroy" ],
+      "icons": [ "DealDamageFire", "DestroyEnvironment", "Destroy", "DrawCardNow" ],
       "flavorQuotes": [
         {
         }
@@ -275,7 +276,7 @@
     },
     {
       "identifier": "GuidedOdyssey",
-      "count": 4,
+      "count": 3,
       "title": "Guided Odyssey",
       "keywords": [ "one-shot" ],
       "body": [

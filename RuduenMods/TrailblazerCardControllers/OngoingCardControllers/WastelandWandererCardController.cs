@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace RuduenWorkshop.Trailblazer
 {
-    public class WastelandWandererCardController : TrailblazerOnDestroyedPositionCardController
+    public class WastelandWandererCardController : CardController
     {
         private TokenPool _tokenPool;
         public WastelandWandererCardController(Card card, TurnTakerController turnTakerController)
@@ -14,8 +14,8 @@ namespace RuduenWorkshop.Trailblazer
 
         public override void AddTriggers()
         {
-            base.AddTriggers();
-            this.AddWhenDestroyedTrigger((DestroyCardAction dca) => this.OnDestroyedTrigger(), TriggerType.Hidden);
+            this.AddTrigger<DestroyCardAction>((DestroyCardAction dca) => dca.CardToDestroy.Card.IsEnvironment && dca.WasCardDestroyed, this.ResponseAction, TriggerType.AddTokensToPool, TriggerTiming.After);
+            this.AddWhenDestroyedTrigger((DestroyCardAction dca) => this.OnDestroyedTrigger(), new TriggerType[] { TriggerType.Hidden, TriggerType.DealDamage });
         }
 
         private IEnumerator OnDestroyedTrigger()
@@ -48,7 +48,7 @@ namespace RuduenWorkshop.Trailblazer
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        protected override IEnumerator ResponseAction(DestroyCardAction dca)
+        protected IEnumerator ResponseAction(DestroyCardAction dca)
         {
             IEnumerator coroutine = this.GameController.AddTokensToPool(GetTokenPool(), 1, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -57,11 +57,6 @@ namespace RuduenWorkshop.Trailblazer
         {
             GetTokenPool().SetToInitialValue();
             yield break;
-        }
-
-        protected override TriggerType[] ResponseTriggerTypes()
-        {
-            return new TriggerType[] { TriggerType.AddTokensToPool };
         }
 
         private TokenPool GetTokenPool()

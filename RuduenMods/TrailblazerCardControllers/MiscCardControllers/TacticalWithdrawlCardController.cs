@@ -33,7 +33,6 @@ namespace RuduenWorkshop.Trailblazer
             if (scd.SelectedCard != null)
             {
                 // Select the card and use the power twice. Again, this should be fine without more complex checks due to restrictions. 
-
                 coroutine = this.GameController.UsePower(scd.SelectedCard, 0, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

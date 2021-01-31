@@ -6,13 +6,19 @@ using System.Linq;
 
 namespace RuduenWorkshop.Trailblazer
 {
-    public class WornBinocularsCardController : TrailblazerOnPlayPositionCardController
+    public class WornBinocularsCardController : CardController
     {
         public WornBinocularsCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.GameController.AddCardControllerToList(CardControllerListType.IncreasePhaseActionCount, this);
         }
-        protected override IEnumerator ResponseAction(CardEntersPlayAction cepa)
+        public override void AddTriggers()
+        {
+            this.AddAdditionalPhaseActionTrigger((TurnTaker tt) => this.ShouldIncreasePhaseActionCount(tt), Phase.UsePower, 1);
+            this.AddTrigger<UsePowerAction>((UsePowerAction upa) => upa.HeroUsingPower == this.DecisionMaker && upa.Power.CardController.Card.IsPosition && upa.IsSuccessful, ResponseAction, TriggerType.RevealCard, TriggerTiming.After);
+        }
+        protected IEnumerator ResponseAction(UsePowerAction upa)
         {
             List<SelectLocationDecision> storedResults = new List<SelectLocationDecision>();
             IEnumerator coroutine;
@@ -43,9 +49,9 @@ namespace RuduenWorkshop.Trailblazer
             }
         }
 
-        protected override TriggerType ResponseTriggerType()
+        private bool ShouldIncreasePhaseActionCount(TurnTaker tt)
         {
-            return TriggerType.RevealCard;
+            return tt == this.HeroTurnTaker;
         }
     }
 }

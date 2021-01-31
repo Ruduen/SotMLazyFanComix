@@ -193,15 +193,12 @@ namespace RuduenModsTest
             DecisionSelectTurnTaker = legacy.TurnTaker;
 
             QuickHPStorage(mdp);
-            PlayCard(position);
-            PutInHand(position);
+            GoToStartOfTurn(Trailblazer);
+            DealDamage(Trailblazer, mdp, 0, DamageType.Melee); // Deal 0+1 Damage.
             PlayCard(position);
             GoToStartOfTurn(Trailblazer);
-            PutInHand(position);
-            PlayCard(position);
-            DealDamage(Trailblazer, mdp, 0, DamageType.Melee); // Deal 0+2+2 Damage.
-            DealDamage(Trailblazer, mdp, 0, DamageType.Melee); // Deal 0 Damage.
-            QuickHPCheck(-4 - 0);
+            DealDamage(Trailblazer, mdp, 0, DamageType.Melee); // Deal 0+1+1 Damage.
+            QuickHPCheck(-1 - 2);
         }
 
         [Test()]
@@ -224,7 +221,8 @@ namespace RuduenModsTest
             AssertNotUsablePower(Trailblazer, position); // Power used. 
             PutInHand(position);
             PlayCard(position);
-            AssertUsablePower(Trailblazer, position); // Power reset and usable.
+            AssertUsablePower(Trailblazer, position); // Power refreshed and unused. 
+
         }
 
         [Test()]
@@ -241,7 +239,7 @@ namespace RuduenModsTest
             Card position = PutInHand("VantagePoint");
             PlayCard("WornBinoculars");
 
-            DecisionSelectTurnTaker = baron.TurnTaker;
+            DecisionSelectTurnTaker = Trailblazer.TurnTaker;
             DecisionMoveCardDestinations = new MoveCardDestination[] {
                 new MoveCardDestination(baron.TurnTaker.Deck, false, false, false),
                 new MoveCardDestination(baron.TurnTaker.Deck, true, false, false)
@@ -250,13 +248,17 @@ namespace RuduenModsTest
 
             // Moved to top without error.
             PlayCard(position);
+            UsePower(position);
             AssertOnTopOfDeck(revealedCard);
 
             // Move BB's top card to the bottom. 
-            GoToStartOfTurn(Trailblazer);
             PutInHand(position);
             PlayCard(position);
+            UsePower(position);
             AssertOnBottomOfDeck(revealedCard);
+
+            GoToUsePowerPhase(Trailblazer);
+            AssertPhaseActionCount(2);
         }
         #endregion OnPositionPlay
 
@@ -272,15 +274,14 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card position = PutInHand("VantagePoint");
+            Card position = PlayCard("VantagePoint");
             Card play = PutInHand("SupplyPack");
 
-            DecisionSelectCardToPlay = play;
+            DecisionSelectCards = new Card[] { position, play }; // Destroy position, play pack.
 
             PlayCard("RapidRepositioning");
 
-            PlayCard(position);
-            DestroyCard(position);
+            PlayCard("ImpendingCasualty");
 
             AssertIsInPlay(play);
         }
@@ -311,8 +312,12 @@ namespace RuduenModsTest
 
         }
 
+        #endregion OnPositionDestroy
+
+        #region Ungrouped Cards
+
         [Test()]
-        public void TestOnPositionDestroyWastelandWanderer()
+        public void TestUngroupedDestroyWastelandWanderer()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -322,23 +327,20 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card position = PutInHand("VantagePoint");
+            Card environment = PlayCard("ImpendingCasualty");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             Card power = PlayCard("WastelandWanderer");
 
             DecisionSelectTarget = mdp;
 
-            PlayCard(position);
-            DestroyCard(position);
+            PlayCard(environment);
+            DestroyCard(environment);
             AssertTokenPoolCount(power.TokenPools.FirstOrDefault(), 1); // One token added.
 
             QuickHPStorage(mdp);
             UsePower(power);
             QuickHPCheck(-3); // One token, two bonus tokens.
         }
-        #endregion OnPositionDestroy
-
-        #region Ungrouped Cards
         [Test()]
         public void TestUngroupedLeadTheWay()
         {
@@ -437,7 +439,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestUngroupedTrailOfAshes()
+        public void TestUngroupedTrailOfAshesDestroys()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -450,6 +452,7 @@ namespace RuduenModsTest
 
             Card position = PlayCard("VantagePoint");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
+            PlayCard("ImpendingCasualty");
 
             QuickHandStorage(Trailblazer);
             QuickHPStorage(mdp, Trailblazer.CharacterCard);
@@ -460,7 +463,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestUngroupedTrailOfAshesNoPosition()
+        public void TestUngroupedTrailOfAshesNoDestroy()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
