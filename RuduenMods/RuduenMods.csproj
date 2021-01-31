@@ -166,6 +166,7 @@
     <Compile Include="InquirerCardControllers\YoureLookingPaleCardController.cs" />
     <Compile Include="InquirerCardControllers\YoureOnOurSideCardController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrailblazerCardControllers\TrailblazerSpatialAlignmentCharacterCardController.cs" />
     <Compile Include="TrailblazerCardControllers\TrailblazerOnDestroyedPositionCardController.cs" />
     <Compile Include="TrailblazerCardControllers\TrailblazerOnPlayPositionCardController.cs" />
     <Compile Include="TrailblazerCardControllers\MiscCardControllers\GuidedOdysseyCardController.cs" />

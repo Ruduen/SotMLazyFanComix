@@ -72,7 +72,7 @@
     {
       "identifier": "StrikingZone",
       "count": 2,
-      "title": "StrikingZone",
+      "title": "Striking Zone",
       "keywords": [ "position" ],
       "powers": "{Trailblazer} deals all non-Hero Targets 1 Projectile Damage. ",
       "body": [ "When this card enters play, destroy all other Positions.", "Increase damage damage dealt by Trailblazer by 1." ],
@@ -170,7 +170,7 @@
       "count": 2,
       "title": "Wasteland Wanderer",
       "keywords": [ "ongoing", "limited" ],
-      "powers": [ "Power: Place 2 Tokens on this card. Destroy this." ],
+      "powers": [ "Place 2 Tokens on this card. Destroy this." ],
       "body": [
         "After a Position is destroyed, place 1 Token on this card.",
         "When this card is destroyed, {Trailblazer} deals 1 Target Fire Damage equal to the number of Tokens on this card."
@@ -208,7 +208,7 @@
     {
       "identifier": "UnchartedGrounds",
       "count": 4,
-      "title": "UnchartedGrounds",
+      "title": "Uncharted Grounds",
       "keywords": [ "one-shot" ],
       "body": [
         "Shuffle your Trash into your Deck.",
