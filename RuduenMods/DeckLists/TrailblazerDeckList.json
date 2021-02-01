@@ -44,7 +44,7 @@
       "count": 2,
       "title": "Vantage Point",
       "keywords": [ "position" ],
-      "powers": "Any player Draws 2 Cards.",
+      "powers": "Any player draws 2 Cards.",
       "body": [ "When this card enters play, destroy all other Positions.", "You may draw an additional card during your Draw Phase." ],
       "icons": [ "Destroy", "DrawCardExtra", "HasPower", "DrawCardNow" ],
       "flavorQuotes": [
@@ -116,7 +116,7 @@
           "text": "They still work, so I'll still keep 'em."
         }
       ],
-      "notes": "Potentially swap this to be an on-power trigger? Reducing simultaneity might be good. Mostly likely give an extra power use in those cases - seems like a good mixed benefit."
+      "notes": "May need nerfing to first time. "
     },
     {
       "identifier": "SupplyPack",
@@ -138,7 +138,7 @@
       "title": "Rapid Repositioning",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "After an Environment card enters play, you may destroy a Position to play a card."
+        "The first time an Environment card enters play each turn, you may destroy a Position to play a card."
       ],
       "icons": [ "PlayCardNow" ],
       "flavorQuotes": [
@@ -146,10 +146,6 @@
           "identifier": "Trailblazer",
           "text": "Sometimes, there's a better spot if you keep your eyes open."
         }
-      ],
-      "notes": [
-        "Can this be distinguished if it's made to only trigger during your turn?",
-        "Current thought: After an Environment card enters play, you may destroy a Position to play a card."
       ]
     },
     {
@@ -280,8 +276,8 @@
       "title": "Guided Odyssey",
       "keywords": [ "one-shot" ],
       "body": [
-        "Play a Position from your Trash.",
         "Play a card from the Environment Trash.",
+        "Play a Position from your Trash.",
         "Up to 2 players play the top card of their deck."
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],

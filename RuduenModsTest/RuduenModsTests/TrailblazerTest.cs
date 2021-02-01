@@ -373,10 +373,10 @@ namespace RuduenModsTest
 
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-            QuickHPStorage(mdp);
             PlayCard("UnchartedGrounds");
             AssertNumberOfCardsAtLocation(Trailblazer.TurnTaker.PlayArea, 2); // Confirm character card + position is now in play. 
-            QuickHPCheck(-1); // Two damaged, MDP should be included.
+            // MDP should be damaged. Can't use specific number in case the played card boosted damage.
+            Assert.AreNotEqual(mdp.HitPoints, 10);
         }
 
         [Test()]

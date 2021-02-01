@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Trailblazer
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, ResponseAction, TriggerType.IncreaseDamage);
         }
 
-        protected  IEnumerator ResponseAction(PhaseChangeAction pca)
+        protected IEnumerator ResponseAction(PhaseChangeAction pca)
         {
             IEnumerator coroutine;
             StatusEffect se;
@@ -34,12 +34,12 @@ namespace RuduenWorkshop.Trailblazer
                 _statusEffect = idse;
                 _statusEffect.Identifier = "IncreaseNextDamageDealtBy" + this.DecisionMaker.CharacterCard.ToString() + "ThanksTo" + this.Card.Identifier;
             }
-            
+
             coroutine = this.GameController.AddStatusEffect(_statusEffect, true, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // If there is a position in play, increase the next damage by an additional 1. 
-            if (this.FindCardsWhere((Card c)=>c.IsPosition && c.IsInPlay).Count() > 0)
+            if (this.FindCardsWhere((Card c) => c.IsPosition && c.IsInPlay).Count() > 0)
             {
                 coroutine = this.GameController.AddStatusEffect(_statusEffect, true, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

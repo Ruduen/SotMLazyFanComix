@@ -8,6 +8,7 @@ namespace RuduenWorkshop.Trailblazer
 {
     public class RapidRepositioningCardController : CardController
     {
+        private const string _FirstEnvironmentPlayedThisTurn = "_FirstEnvironmentPlayedThisTurn";
         public RapidRepositioningCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -15,11 +16,12 @@ namespace RuduenWorkshop.Trailblazer
 
         public override void AddTriggers()
         {
-            this.AddTrigger<CardEntersPlayAction>((CardEntersPlayAction cepa) => cepa.CardEnteringPlay.IsEnvironment, this.ResponseAction, TriggerType.PlayCard, TriggerTiming.After);
+            this.AddTrigger<CardEntersPlayAction>((CardEntersPlayAction cepa) => !this.IsPropertyTrue(_FirstEnvironmentPlayedThisTurn) && cepa.CardEnteringPlay.IsEnvironment, this.ResponseAction, TriggerType.PlayCard, TriggerTiming.After);
         }
 
         protected IEnumerator ResponseAction(CardEntersPlayAction cepa)
         {
+            this.SetCardPropertyToTrueIfRealAction(_FirstEnvironmentPlayedThisTurn);
             IEnumerator coroutine;
             List<DestroyCardAction> dcaResults = new List<DestroyCardAction>();
 

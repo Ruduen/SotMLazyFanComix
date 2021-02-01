@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Trailblazer
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Reveal two positions, play one, shuffle the others. 
-            coroutine = this.RevealCards_SelectSome_MoveThem_ReturnTheRest(this.DecisionMaker,this.DecisionMaker, this.TurnTaker.Deck, (Card c) => c.IsPosition, 2, 1, false, true, false, "positions");
+            coroutine = this.RevealCards_SelectSome_MoveThem_ReturnTheRest(this.DecisionMaker, this.DecisionMaker, this.TurnTaker.Deck, (Card c) => c.IsPosition, 2, 1, false, true, false, "positions");
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Up to 2 Targets 1 Fire.

@@ -1,7 +1,7 @@
 {
   "title": "Ruduen's Collection v0.3.2",
   "author": "Ruduen",
-  "description": [ "Ruduen's custom content for Sentinels of the Multiverse. Currently includes:", "- 43 Completely Custom Heroes", "- 1 Aeon's End Inspired Hero", "- 1-2 Variants for each Official Hero", "Ruduen is not an artist, so art will likely remain random-Unicode quality." ],
+  "description": [ "Ruduen's custom content for Sentinels of the Multiverse. Currently includes:", "- 4 Completely Custom Heroes", "- 1 Aeon's End Inspired Hero", "- 1-2 Variants for each Official Hero", "Ruduen is not an artist, so art will likely remain random-Unicode quality." ],
   "namespace": "RuduenWorkshop",
   "dll": "RuduenMod.dll",
   "decks": {

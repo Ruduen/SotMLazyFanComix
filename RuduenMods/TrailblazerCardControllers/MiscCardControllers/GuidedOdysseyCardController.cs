@@ -15,12 +15,12 @@ namespace RuduenWorkshop.Trailblazer
         {
             IEnumerator coroutine;
 
-            // Play a position from your trash. 
-            coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.IsPosition && c.Location == this.HeroTurnTaker.Trash, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             // Play a card from the environment trash. 
             coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.GameController.FindEnvironmentTurnTakerController().TurnTaker.Trash, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Play a position from your trash. 
+            coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.IsPosition && c.Location == this.HeroTurnTaker.Trash, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Up to two players may play the top card of their deck. 

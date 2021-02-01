@@ -25,7 +25,7 @@ namespace RuduenWorkshop.Trailblazer
             // Shared Destroy logic.
             coroutine = base.Play();
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            
+
             // Increase phase count if appropriate, based on trigger.
             coroutine = this.IncreasePhaseActionCountIfInPhase((TurnTaker tt) => tt == this.HeroTurnTaker, Phase.DrawCard, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
