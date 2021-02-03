@@ -34,13 +34,13 @@ namespace RuduenModsTest
             Assert.IsInstanceOf(typeof(HeroTurnTakerController), Trailblazer);
             Assert.IsInstanceOf(typeof(TrailblazerCharacterCardController), Trailblazer.CharacterCardController);
 
-            Assert.AreEqual(29, Trailblazer.CharacterCard.HitPoints);
+            Assert.AreEqual(24, Trailblazer.CharacterCard.HitPoints);
             AssertNumberOfCardsInDeck(Trailblazer, 36);
             AssertNumberOfCardsInHand(Trailblazer, 4);
         }
 
         [Test()]
-        public void TestDriftersShotInnatePower()
+        public void TestInnatePowerDriftersShot()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -63,7 +63,44 @@ namespace RuduenModsTest
             AssertIsInPlay(play);
         }
 
+        [Test()]
+        public void TestInnatePowerSpatialAlignment()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Trailblazer/RuduenWorkshop.TrailblazerSpatialAlignmentCharacter", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
 
+            StartGame();
+            Card initial = PlayCard("StrikingZone");
+            Card play = PutInHand("VantagePoint");
+
+            DecisionSelectCard = play;
+
+            UsePower(Trailblazer);
+            AssertIsInPlay(initial, play);
+        }
+
+        [Test()]
+        public void TestInnatePowerSpatialAlignmentNoCard()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Trailblazer/RuduenWorkshop.TrailblazerSpatialAlignmentCharacter", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            Card play = PutInHand("VantagePoint");
+
+            DecisionSelectCard = play;
+
+            AssertNextMessages("There are no Positions in play, so Trailblazer cannot make any indestructible.", "There are no position cards for Vantage Point to destroy.");
+            UsePower(Trailblazer);
+            AssertIsInPlay(play);
+
+        }
         #region Positions
 
         [Test()]
@@ -176,7 +213,7 @@ namespace RuduenModsTest
         #region OnPositionPlay
 
         [Test()]
-        public void TestOnPositionPlayClimbingHarnessWithMultiTrigger()
+        public void TestEquipmentClimbingHarnessWithMultiTrigger()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -202,7 +239,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestOnPositionPlaySupplyPack()
+        public void TestEquipmentSupplyPack()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -226,7 +263,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestOnPositionPlayWornBinoculars()
+        public void TestEquipmentWornBinoculars()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -258,6 +295,22 @@ namespace RuduenModsTest
             AssertOnBottomOfDeck(revealedCard);
 
             GoToUsePowerPhase(Trailblazer);
+            AssertPhaseActionCount(2);
+        }
+
+        [Test()]
+        public void TestEquipmentWornBinocularsDuringPower()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Trailblazer", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            GoToUsePowerPhase(Trailblazer);
+            PlayCard("WornBinoculars");
             AssertPhaseActionCount(2);
         }
         #endregion OnPositionPlay

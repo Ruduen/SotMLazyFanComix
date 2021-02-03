@@ -12,6 +12,7 @@ namespace RuduenWorkshop.Trailblazer
         public RapidRepositioningCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.SpecialStringMaker.ShowHasBeenUsedThisTurn(_FirstEnvironmentPlayedThisTurn, "An Environment card has already been played this turn.", "An Environment card has not yet been played this turn.");
         }
 
         public override void AddTriggers()

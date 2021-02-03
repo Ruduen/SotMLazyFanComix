@@ -3,6 +3,7 @@ using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 // Manually tested!
 
@@ -20,20 +21,47 @@ namespace RuduenWorkshop.Trailblazer
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            List<int> powerNumerals = new List<int>
+
+            List<SelectCardsDecision> storedResults = new List<SelectCardsDecision>();
+
+            // Make a Position Indestructible until the end of the turn.
+            if (this.FindCardsWhere((Card c) => c.IsPosition && c.IsInPlayAndHasGameText).Count() > 0)
             {
-                this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1)
-            };
+                // Select a position.
+                coroutine = this.GameController.SelectCardsAndStoreResults(this.DecisionMaker, SelectionType.MakeIndestructible,
+                    (Card c) => c.IsPosition && c.IsInPlayAndHasGameText, 1,
+                    storedResults, false, 1, cardSource: this.GetCardSource());
+                if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Deal Damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                List<Card> selectedCards = this.GetSelectedCards(storedResults).ToList();
+                if (selectedCards != null && selectedCards.Count() > 0)
+                {
+                    MakeIndestructibleStatusEffect makeIndestructibleStatusEffect = new MakeIndestructibleStatusEffect();
+                    makeIndestructibleStatusEffect.CardsToMakeIndestructible.IsOneOfTheseCards = selectedCards;
+                    makeIndestructibleStatusEffect.CardsToMakeIndestructible.OwnedBy = this.HeroTurnTaker;
+                    makeIndestructibleStatusEffect.UntilThisTurnIsOver(this.Game);
+                    coroutine = this.AddStatusEffect(makeIndestructibleStatusEffect, true);
+                    if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
+            }
+            else
+            {
+                string turnTakerName;
+                // Set up response.
+                if (base.TurnTaker.IsHero)
+                {
+                    turnTakerName = this.TurnTaker.Name;
+                }
+                else
+                {
+                    turnTakerName = this.Card.Title;
+                }
+                coroutine = this.GameController.SendMessageAction("There are no Positions in play, so " + turnTakerName + " cannot make any indestructible.", Priority.Medium, this.GetCardSource(), null, true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
 
-            // Deal 1 projectile damage.
-
-            // You may play a position. 
-            coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardCriteria: new LinqCardCriteria((Card c) => c.IsPosition), cardSource: this.GetCardSource());
+            // You may play a card. 
+            coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

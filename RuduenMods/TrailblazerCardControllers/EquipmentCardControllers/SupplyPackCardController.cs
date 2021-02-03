@@ -10,6 +10,7 @@ namespace RuduenWorkshop.Trailblazer
         public SupplyPackCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.SpecialStringMaker.ShowHasBeenUsedThisTurn(_FirstPositionPlayedThisTurn, "A Position has already been played this turn.", "A Position has not yet been played this turn.");
         }
         public override void AddTriggers()
         {

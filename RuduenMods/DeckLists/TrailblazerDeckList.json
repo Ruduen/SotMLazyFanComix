@@ -20,7 +20,7 @@
         "HasPower",
         "DealDamageProjectile"
       ],
-      "hitpoints": 29,
+      "hitpoints": 24,
       "nemesisIdentifiers": [
         "Trailblazer"
       ],
@@ -341,14 +341,14 @@
       "character": true,
 
       "powers": [
-        "Select a Position. That Position is Indestructible until the end of the turn. You may play a card."
+        "Select a Position. That Position is Indestructible for the rest of this turn. You may play a card."
       ],
       "icons": [
         "HasPower",
         "PlayCardNow",
         "DealDamagePsychic"
       ],
-      "hitpoints": 26,
+      "hitpoints": 21,
       "nemesisIdentifiers": [
         "Inquirer"
       ],
