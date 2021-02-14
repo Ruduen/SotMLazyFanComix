@@ -16,7 +16,7 @@ namespace RuduenWorkshop.Trailblazer
             IEnumerator coroutine;
 
             // Search for position.
-            coroutine = this.SearchForCards(this.DecisionMaker, true, true, 1, 1, new LinqCardCriteria((Card c) => c.IsPosition, "position"), true, true, false, shuffleAfterwards: true);
+            coroutine = this.SearchForCards(this.DecisionMaker, true, false, 1, 1, new LinqCardCriteria((Card c) => c.IsPosition, "position"), false, true, false, shuffleAfterwards: true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw card.

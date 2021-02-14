@@ -276,7 +276,7 @@ namespace RuduenModsTest
             Card position = PutInHand("VantagePoint");
             PlayCard("WornBinoculars");
 
-            DecisionSelectTurnTaker = Trailblazer.TurnTaker;
+            DecisionSelectTurnTaker = legacy.TurnTaker;
             DecisionMoveCardDestinations = new MoveCardDestination[] {
                 new MoveCardDestination(baron.TurnTaker.Deck, false, false, false),
                 new MoveCardDestination(baron.TurnTaker.Deck, true, false, false)
@@ -361,7 +361,7 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             PlayCard(position);
             DestroyCard(position);
-            QuickHPCheck(-2);
+            QuickHPCheck(-1);
 
         }
 
@@ -410,7 +410,8 @@ namespace RuduenModsTest
             DecisionSelectCards = new Card[] { position, play };
 
             PlayCard("LeadTheWay");
-            AssertIsInPlay(position, play);
+            AssertIsInPlay(play);
+            AssertInHand(position);
         }
 
         [Test()]
@@ -546,7 +547,6 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card mdp = GetCardInPlay("MobileDefensePlatform");
             Card[] cards = new Card[] { GetCardWithLittleEffect(Trailblazer), GetCardWithLittleEffect(legacy) };
 
             PutOnDeck(Trailblazer, cards[0]);

@@ -44,7 +44,7 @@
       "count": 2,
       "title": "Vantage Point",
       "keywords": [ "position" ],
-      "powers": "Any player draws 2 Cards.",
+      "powers": "Another player draws 2 Cards.",
       "body": [ "When this card enters play, destroy all other Positions.", "You may draw an additional card during your Draw Phase." ],
       "icons": [ "Destroy", "DrawCardExtra", "HasPower", "DrawCardNow" ],
       "flavorQuotes": [
@@ -154,7 +154,7 @@
       "title": "Parting Gift",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "When a Position is destroyed, {Trailblazer} deals up to 2 Targets 2 Fire Damage."
+        "When a Position is destroyed, {Trailblazer} deals up to 2 Targets 1 Fire Damage."
       ],
       "icons": [ "DealDamageFire" ],
       "flavorQuotes": [
@@ -166,7 +166,7 @@
       "count": 2,
       "title": "Wasteland Wanderer",
       "keywords": [ "ongoing" ],
-      "powers": [ "Place 2 Tokens on this card. Destroy this." ],
+      "powers": [ "Place 2 Tokens on this card. Destroy this card." ],
       "body": [
         "After an Environment card is destroyed, place 1 Token on this card.",
         "When this card is destroyed, {Trailblazer} deals 1 Target Fire Damage equal to the number of Tokens on this card."
@@ -191,7 +191,7 @@
       "title": "Lead the Way",
       "keywords": [ "one-shot" ],
       "body": [
-        "Search your Deck for a Position and either play it or put it in hand. Shuffle your deck.",
+        "Search your Deck for a Position and put it in hand. Shuffle your deck.",
         "You may draw a card.",
         "You may play a card."
       ],
