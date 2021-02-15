@@ -36,8 +36,8 @@ namespace RuduenWorkshop.Inquirer
             coroutine = this.AddStatusEffect(makeTargetStatusEffect, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            SelectCardsDecision selectCardsDecision = new SelectCardsDecision(base.GameController, this.DecisionMaker, (Card c) => c.IsInPlay && c.IsDistortion, SelectionType.CardToDealDamage, null, false, null, true, true, false, new Func<int>(this.NumDistortionsToDamage), null, null, null, base.GetCardSource(null));
-            coroutine = base.GameController.SelectCardsAndDoAction(selectCardsDecision, (SelectCardDecision sc) => this.DistortionDamageResponse(sc, numerals[1], numerals[2]), null, null, base.GetCardSource(null), null, false, null);
+            SelectCardsDecision selectCardsDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlay && c.IsDistortion, SelectionType.CardToDealDamage, null, false, null, true, true, false, new Func<int>(this.NumDistortionsToDamage), null, null, null, this.GetCardSource(null));
+            coroutine = this.GameController.SelectCardsAndDoAction(selectCardsDecision, (SelectCardDecision sc) => this.DistortionDamageResponse(sc, numerals[1], numerals[2]), null, null, this.GetCardSource(null), null, false, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             this.actedDistortions.Clear();
@@ -45,9 +45,9 @@ namespace RuduenWorkshop.Inquirer
 
         private int NumDistortionsToDamage()
         {
-            if (!base.Card.IsIncapacitatedOrOutOfGame)
+            if (!this.Card.IsIncapacitatedOrOutOfGame)
             {
-                int num = base.FindCardsWhere((Card c) => c.IsDistortion && c.IsInPlay, false, null, false).Except(this.actedDistortions).Count<Card>();
+                int num = this.GameController.FindCardsWhere((Card c) => c.IsDistortion && c.IsInPlay).Except(this.actedDistortions).Count<Card>();
                 return this.actedDistortions.Count<Card>() + num;
             }
             return 0;

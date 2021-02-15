@@ -468,7 +468,7 @@ namespace RuduenModsTest
 
             Card position = PlayCard("VantagePoint");
 
-            QuickHandStorage(Trailblazer);
+            QuickHandStorage(legacy);
             PlayCard("TacticalWithdrawl");
             QuickHandCheck(4); // 4 Cards from using power twice. 
             AssertInTrash(position);

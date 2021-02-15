@@ -166,6 +166,16 @@
     <Compile Include="InquirerCardControllers\YoureLookingPaleCardController.cs" />
     <Compile Include="InquirerCardControllers\YoureOnOurSideCardController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SynthesistCardControllers\SynthesistRelicSharedCardController.cs" />
+    <Compile Include="SynthesistCardControllers\SynthesistTurnTakerController.cs" />
+    <Compile Include="SynthesistCardControllers\SynthesistScatteredFormCharacterCardController.cs" />
+    <Compile Include="SynthesistCardControllers\SynthesistYourTargetSharedCardController.cs" />
+    <Compile Include="SynthesistCardControllers\SynthesistCharacterCardController.cs" />
+    <Compile Include="SynthesistCardControllers\TargetCardControllers\BoneOfIronCardController.cs" />
+    <Compile Include="SynthesistCardControllers\TargetCardControllers\VialOfMercuryCardController.cs" />
+    <Compile Include="SynthesistCardControllers\TargetCardControllers\HeartOfLightningCardController.cs" />
+    <Compile Include="SynthesistCardControllers\TargetCardControllers\WoodenEffigyCardController.cs" />
+    <Compile Include="SynthesistCardControllers\TargetCardControllers\ClayDollCardController.cs" />
     <Compile Include="TrailblazerCardControllers\TrailblazerSpatialAlignmentCharacterCardController.cs" />
     <Compile Include="TrailblazerCardControllers\MiscCardControllers\GuidedOdysseyCardController.cs" />
     <Compile Include="TrailblazerCardControllers\MiscCardControllers\TrailOfAshesCardController.cs" />
@@ -197,6 +207,7 @@
     <EmbeddedResource Include="DeckLists\PromoCardList.json" />
     <EmbeddedResource Include="DeckLists\SpellforgeDeckList.json" />
     <EmbeddedResource Include="DeckLists\TrailblazerDeckList.json" />
+    <EmbeddedResource Include="DeckLists\SynthesistDeckList.json" />
     <None Include="manifest.json" />
   </ItemGroup>
   <ItemGroup />

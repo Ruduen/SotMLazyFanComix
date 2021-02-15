@@ -26,8 +26,8 @@
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One player may draw a card.",
-        "Put a Hero non-character card back into their Player's hand."
+        "One hero may use a power.",
+        "One player may draw a card."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -60,7 +60,7 @@
       "title": "Defensive Bulwark",
       "keywords": [ "position" ],
       "powers": "Each Hero Target regains 2 HP.",
-      "body": [ "When this card enters play, destroy all other Positions.", "Reduce the first damage dealt to Trailblazer each turn by 2." ],
+      "body": [ "When this card enters play, destroy all other Positions.", "Reduce the first damage dealt to {Trailblazer} each turn by 2." ],
       "icons": [ "Destroy", "ReduceDamageTaken", "HasPower", "GainHP" ],
       "flavorQuotes": [
         {
@@ -75,7 +75,7 @@
       "title": "Striking Zone",
       "keywords": [ "position" ],
       "powers": "{Trailblazer} deals all non-Hero Targets 1 Projectile Damage. ",
-      "body": [ "When this card enters play, destroy all other Positions.", "Increase damage damage dealt by Trailblazer by 1." ],
+      "body": [ "When this card enters play, destroy all other Positions.", "Increase damage damage dealt by {Trailblazer} by 1." ],
       "icons": [ "Destroy", "IncreaseDamageDealt", "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
         {
