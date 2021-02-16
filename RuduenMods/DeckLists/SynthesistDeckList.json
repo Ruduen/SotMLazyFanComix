@@ -115,8 +115,7 @@
       ]
     }
   ],
-  "dummyCards": [],
-  "promoCards": [
+  "dummyCards": [
     {
       "identifier": "SynthesistCharacter",
       "promoIdentifier": "SynthesistScatteredFormCharacter",

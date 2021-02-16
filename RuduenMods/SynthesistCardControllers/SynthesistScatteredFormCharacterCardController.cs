@@ -22,14 +22,13 @@ namespace RuduenWorkshop.Synthesist
         {
             if (!this.Card.IsFlipped)
             {
-                this.AddSideTrigger(this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PutRelicIntoPlayTrigger, TriggerType.PutIntoPlay));
+                this.AddSideTrigger(this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PutRelicIntoPlayTrigger, new TriggerType[] { TriggerType.PutIntoPlay, TriggerType.FlipCard }));
             }
         }
         public override IEnumerator AfterFlipCardImmediateResponse()
         {
             this.RemoveAllTriggers(true, true, true, false, false);
             this.AddSideTriggers();
-            yield return null;
             yield break;
         }
 
@@ -77,7 +76,7 @@ namespace RuduenWorkshop.Synthesist
         {
             IEnumerator coroutine;
             // If there are no other targets in play and the relic deck is not empty...
-            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard && c != this.Card).Count() == 0)
+            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard).Count() == 0)
             {
                 if (RelicDeck().Cards.Count() > 0)
                 {
@@ -87,7 +86,7 @@ namespace RuduenWorkshop.Synthesist
             }
 
             // Re-check. If it fails, incap. 
-            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard && c != this.Card).Count() == 0)
+            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard).Count() == 0)
             {
                 coroutine = this.GameController.FlipCard(this, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
