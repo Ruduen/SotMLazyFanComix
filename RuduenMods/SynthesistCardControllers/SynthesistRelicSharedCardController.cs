@@ -7,31 +7,38 @@ using System.Linq;
 
 namespace RuduenWorkshop.Synthesist
 {
-    public abstract class SynthesistRelicSharedCardController : CardController
+    public abstract class SynthesistRelicSharedCardController : HeroCharacterCardController
     {
         public SynthesistRelicSharedCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
 
-        public override void AddTriggers()
+        public override void AddSideTriggers()
         {
-            this.AddIndividualTrigger();
-            this.AddWhenDestroyedTrigger(OnDestroyResponse, new TriggerType[] { TriggerType.RemoveFromGame, TriggerType.ChangePostDestroyDestination });
-        }
-
-        private IEnumerator OnDestroyResponse(DestroyCardAction dc)
-        {
-            // Trigger should specifically only trigger on this particular card, and other destruction handling should otherwise be set. 
-            if (dc.CardToDestroy.CanBeMovedOutOfGame)
+            if (!this.CardWithoutReplacements.IsFlipped)
             {
-                this.AddInhibitorException((GameAction ga) => ga is MoveCardAction && (ga as MoveCardAction).Destination.IsOutOfGame);
-                this.AddInhibitorException((GameAction ga) => ga is MessageAction && (ga as MessageAction).AssociatedCards.Contains(this.Card));
-                this.AddInhibitorException((GameAction ga) => ga is TargetLeavesPlayAction);
-                dc.SetPostDestroyDestination(dc.CardToDestroy.TurnTaker.OutOfGame, showMessage: true, cardSource: this.GetCardSource());
+                this.AddIndividualTrigger();
+            }
+        }
+        public override IEnumerator BeforeFlipCardImmediateResponse(FlipCardAction flip)
+        {
+            if (!this.CardWithoutReplacements.IsFlipped)
+            {
+                RemoveTargetAction action = new RemoveTargetAction(this.GameController, this.CardWithoutReplacements, true);
+                IEnumerator coroutine;
+                    coroutine = this.GameController.DoAction(action);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                // If appropriate, remove card from game. 
+
+                coroutine = this.GameController.MoveCard(this.DecisionMaker, this.CardWithoutReplacements, this.HeroTurnTaker.OutOfGame, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                this.RemoveAllTriggers();
             }
             yield break;
         }
+
         protected abstract void AddIndividualTrigger();
     }
 }

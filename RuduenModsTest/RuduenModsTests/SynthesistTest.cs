@@ -41,6 +41,22 @@ namespace RuduenModsTest
         #region Character Triggers
 
         [Test()]
+        public void TestSetup()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Synthesist", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            // Confirm all three relics are in their flipped state. 
+            AssertFlipped(new Card[] { GetCard("BoneOfIron"), GetCard("HeartOfLightning"), GetCard("VialOfMercury")});
+        }
+
+
+        [Test()]
         public void TestStartOfTurnTriggerMain()
         {
             IEnumerable<string> setupItems = new List<string>()
@@ -55,16 +71,16 @@ namespace RuduenModsTest
             DecisionSelectCards = cards;
 
             GoToStartOfTurn(Synthesist);
-            AssertIsInPlay(cards[0]);
+            AssertNotFlipped(cards[0]);
 
             GoToStartOfTurn(Synthesist);
-            AssertIsInPlay(cards[0]);
-            AssertNotInPlay(cards[1]);
+            AssertNotFlipped(cards[0]);
+            AssertFlipped(cards[1]);
 
             DestroyCard(cards[0]);
             GoToStartOfTurn(Synthesist);
             AssertOutOfGame(cards[0]);
-            AssertIsInPlay(cards[1]);
+            AssertNotFlipped(cards[1]);
         }
 
         [Test()]
@@ -80,53 +96,57 @@ namespace RuduenModsTest
 
             Card[] cards = FindCardsWhere((Card c) => c.IsRelic && c.Owner == Synthesist.HeroTurnTaker).ToArray();
 
+
+            GoToStartOfTurn(Synthesist);
+
             DestroyCard(Synthesist);
+            AssertIncapacitated(Synthesist);
+
+
+            GoToUseIncapacitatedAbilityPhase(Synthesist);
+        }
+
+        [Test()]
+        public void TestStartOfTurnTriggerScattered()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Synthesist/RuduenWorkshop.SynthesistScatteredFormCharacter", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            Card[] cards = new Card[] { GetCard("BoneOfIron"), GetCard("HeartOfLightning"), GetCard("VialOfMercury") };
+            DecisionSelectCards = cards;
+
+            AssertNotIncapacitatedOrOutOfGame(Synthesist);
+
+            GoToStartOfTurn(Synthesist);
+            AssertIsInPlay(cards[0]);
+
+            GoToStartOfTurn(Synthesist);
+            AssertIsInPlay(cards[0]);
+            AssertFlipped(cards[1]);
+
+            DestroyCard(cards[0]);
+            GoToStartOfTurn(Synthesist);
+            AssertOutOfGame(cards[0]);
+            AssertNotFlipped(cards[1]);
+
+            DestroyCard(cards[1]);
+            GoToStartOfTurn(Synthesist);
+
+            DestroyCard(cards[2]);
+
+            AssertNotIncapacitatedOrOutOfGame(Synthesist);
+            GoToStartOfTurn(Synthesist);
+            AssertIncapacitated(Synthesist);
 
             GoToStartOfTurn(Synthesist);
             AssertNotInPlay(cards);
+            GoToUseIncapacitatedAbilityPhase(Synthesist); // Confirm this does not loop. 
         }
-
-        //[Test()]
-        //public void TestStartOfTurnTriggerScattered()
-        //{
-        //    IEnumerable<string> setupItems = new List<string>()
-        //    {
-        //        "BaronBlade", "RuduenWorkshop.Synthesist/RuduenWorkshop.SynthesistScatteredFormCharacter", "Megalopolis"
-        //    };
-        //    SetupGameController(setupItems);
-
-        //    StartGame();
-
-        //    Card[] cards = new Card[] { GetCard("BoneOfIron"), GetCard("HeartOfLightning"), GetCard("VialOfMercury") };
-        //    DecisionSelectCards = cards;
-
-        //    AssertNotIncapacitatedOrOutOfGame(Synthesist);
-
-        //    GoToStartOfTurn(Synthesist);
-        //    AssertIsInPlay(cards[0]);
-
-        //    GoToStartOfTurn(Synthesist);
-        //    AssertIsInPlay(cards[0]);
-        //    AssertNotInPlay(cards[1]);
-
-        //    DestroyCard(cards[0]);
-        //    GoToStartOfTurn(Synthesist);
-        //    AssertOutOfGame(cards[0]);
-        //    AssertIsInPlay(cards[1]);
-
-        //    DestroyCard(cards[1]);
-        //    GoToStartOfTurn(Synthesist);
-
-        //    DestroyCard(cards[2]);
-
-        //    AssertNotIncapacitatedOrOutOfGame(Synthesist);
-        //    GoToStartOfTurn(Synthesist);
-        //    AssertIncapacitated((TurnTakerController)Synthesist);
-
-        //    GoToStartOfTurn(Synthesist);
-        //    AssertNotInPlay(cards);
-        //    GoToUseIncapacitatedAbilityPhase(Synthesist); // Confirm this does not loop. 
-        //}
 
         #endregion Character Triggers
 

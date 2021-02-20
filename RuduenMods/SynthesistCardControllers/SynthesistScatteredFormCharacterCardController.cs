@@ -9,9 +9,10 @@ using System.Linq;
 
 namespace RuduenWorkshop.Synthesist
 {
-    public class SynthesistScatteredFormCharacterCardController : CharacterCardWithIncapacitationController
+    public class SynthesistScatteredFormCharacterCardController : CharacterCardController
     {
-        Location _relicDeck;
+
+        private string[] _synthesistRelics;
 
         public SynthesistScatteredFormCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -75,14 +76,11 @@ namespace RuduenWorkshop.Synthesist
         protected IEnumerator PutRelicIntoPlayTrigger(PhaseChangeAction action)
         {
             IEnumerator coroutine;
-            // If there are no other targets in play and the relic deck is not empty...
+            // If there are no targets in play and the relic deck is not empty...
             if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard).Count() == 0)
             {
-                if (RelicDeck().Cards.Count() > 0)
-                {
-                    coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, RelicDeck(), 1, 1, new LinqCardCriteria((Card c) => c.IsRelic, "relic"), new List<MoveCardDestination> { new MoveCardDestination(this.HeroTurnTaker.PlayArea, false, true) }, true, cardSource: this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                }
+                coroutine = this.GameController.SelectAndUnincapacitateHeroCharacter(this.DecisionMaker, 9, null, false, null, new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && (this.GameController.IsOblivAeonMode || SynthesistRelics.Contains(c.PromoIdentifierOrIdentifier)), "incapacitated Synthesist character"), this.GetCardSource(), true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
             // Re-check. If it fails, incap. 
@@ -91,16 +89,9 @@ namespace RuduenWorkshop.Synthesist
                 coroutine = this.GameController.FlipCard(this, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
+
         }
 
-        protected Location RelicDeck()
-        {
-            if (_relicDeck == null)
-            {
-                _relicDeck = this.HeroTurnTaker.FindSubDeck("SynthesistRelicDeck");
-            }
-            return _relicDeck;
-        }
         // TODO: Replace Incap with something more unique!
         public override IEnumerator UseIncapacitatedAbility(int index)
         {
@@ -127,6 +118,18 @@ namespace RuduenWorkshop.Synthesist
                     }
             }
             yield break;
+        }
+
+        private string[] SynthesistRelics
+        {
+            get
+            {
+                if (_synthesistRelics == null)
+                {
+                    _synthesistRelics = new string[] { "BoneOfIron", "HeartOfLightning", "VialOfMercury" };
+                }
+                return _synthesistRelics;
+            }
         }
     }
 }

@@ -18,8 +18,8 @@
       "backgroundColor": "55FF55",
       "foilBackgroundColor": "55FF55",
       "character": true,
-      "setup": [ "At the start of the game, shuffle all of your Relic cards to make the Relic deck. [i](This is not currently displayed due to engine restrictions.)[/i]" ],
-      "gameplay": [ "At the start of your turn, if you have no other Targets in play, search your Relic deck for a Relic and put it into play." ],
+      "setup": [ "At the start of the game, place Bone of Iron, Vial of Mercury, and Heart of Iron into play in their Incapacitated sides." ],
+      "gameplay": [ "At the start of your turn, if you have no other Targets in play, flip one of your incapacitated relics and restore it to 9 HP." ],
       "powers": [ "One other Hero Target deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
       "icons": [
         "HasPower",
@@ -48,9 +48,10 @@
       "identifier": "HeartOfLightning",
       "count": 1,
       "title": "Heart of Lightning",
+      "character": true,
       "hitpoints": 9,
       "keywords": [ "elemental", "relic" ],
-      "body": [ "When this card is destroyed, remove it from the game.", "Increase damage dealt by this card by 1." ],
+      "body": [ "When this card would be incapacitated, remove it from the game.", "Increase damage dealt by this card by 1." ],
       "icons": [ "RemoveFromGame", "IncreaseDamageDealt" ],
       "flavorQuotes": [
       ]
@@ -59,9 +60,10 @@
       "identifier": "VialOfMercury",
       "count": 1,
       "title": "Vial of Mercury",
+      "character": true,
       "hitpoints": 9,
       "keywords": [ "elemental", "relic" ],
-      "body": [ "When this card is destroyed, remove it from the game.", "You may play an additional card during your Play Phases." ],
+      "body": [ "When this card would be incapacitated, remove it from the game.", "You may play an additional card during your Play Phases." ],
       "icons": [ "RemoveFromGame", "PlayCardExtra" ],
       "flavorQuotes": [
       ]
@@ -70,9 +72,10 @@
       "identifier": "BoneOfIron",
       "count": 1,
       "title": "Bone of Iron",
+      "character": true,
       "hitpoints": 9,
       "keywords": [ "elemental", "relic" ],
-      "body": [ "When this card is destroyed, remove it from the game.", "Reduce damage dealt to this card by 1." ],
+      "body": [ "When this card would be incapacitated, remove it from the game.", "Reduce damage dealt to this card by 1." ],
       "icons": [ "RemoveFromGame", "ReduceDamageTaken" ],
       "flavorQuotes": [
       ]
@@ -112,7 +115,7 @@
       ]
     }
   ],
-  "dummyCards": [
+  "promoCards": [
     {
       "identifier": "SynthesistCharacter",
       "promoIdentifier": "SynthesistScatteredFormCharacter",
@@ -123,8 +126,8 @@
       "foilBackgroundColor": "55FF55",
       "character": true,
       "isReal": false,
-      "setup": [ "At the start of the game, shuffle all of your Relic cards to make the Relic deck. [i](This is not currently displayed due to engine restrictions.)[/i]" ],
-      "gameplay": [ "At the start of your turn, if you have no Targets in play, search your Relic deck for a Relic and put it into play. Then, if you have no Targets in play, flip this card." ],
+      "setup": [ "At the start of the game, place Bone of Iron, Vial of Mercury, and Heart of Iron into play in their Incapacitated sides." ],
+      "gameplay": [ "At the start of your turn, if you have no other Targets in play, flip one of your incapacitated relics and restore it to 9 HP. Then, if you still have no other Targets in play, flip this card." ],
       "powers": [ "Until the start of your next turn, reduce damage dealt to your Targets by 1. Remove 1 Ritual Token from a Ritual." ],
       "icons": [
         "HasPower",
