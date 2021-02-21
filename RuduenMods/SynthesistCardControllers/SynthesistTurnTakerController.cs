@@ -16,18 +16,33 @@ namespace RuduenWorkshop.Synthesist
         public override IEnumerator StartGame()
         {
             IEnumerator coroutine;
-            Location relicDeck = this.TurnTaker.FindSubDeck("SynthesistRelicDeck");
 
-            // At the start of game, flip the relevant cards, then move all Relics cards into the Relic deck. (This best preserves the 'identity' of the cards.)
-            IEnumerable<Card> relicCards = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("relic") && c.Owner == this.TurnTaker);
-            IEnumerable<CardController> relicCardControllers = this.GameController.FindCardControllersWhere((Card c) => relicCards.Contains(c));
+            // At the start of game, flip the relevant cards,
+            IEnumerable<Card> cards = this.GameController.FindCardsWhere((Card c) => c.IsHeroCharacterCard && c.Owner == this.HeroTurnTaker && c.Identifier != "SynthesistCharacter");
+            IEnumerable<CardController> cardControllers = this.GameController.FindCardControllersWhere((Card c) => cards.Contains(c));
 
-            coroutine = this.GameController.FlipCards(relicCardControllers);
+            coroutine = this.GameController.FlipCards(cardControllers);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
 
-            coroutine = this.GameController.MoveCards(this, relicCards, this.HeroTurnTaker.PlayArea);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
+        public override bool IsIncapacitated
+        {
+            // Also checks odd turn taker status. Use IsIncapacitated instead of IsFlipped due to checking at the moment of incapacitation for before triggers. 
+            get { 
+                if(this.TurnTaker.Identifier == "Synthesist")
+                {
+                    return this.IncapacitationCardController.Card.IsIncapacitated;
+                }
+                return base.IsIncapacitated; 
+            }
+        }
+
+        public override bool IsIncapacitatedOrOutOfGame
+        {
+            get { 
+                return this.IsIncapacitated || this.IncapacitationCardController.Card.IsOutOfGame; 
+            }
         }
     }
 }

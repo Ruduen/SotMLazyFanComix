@@ -18,9 +18,22 @@ namespace RuduenWorkshop.Synthesist
         {
         }
 
-        public override void AddTriggers()
+        public override void AddSideTriggers()
         {
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PutRelicIntoPlayTrigger, TriggerType.FlipCard);
+            if (!this.Card.IsFlipped)
+            {
+                this.AddSideTrigger(this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PutRelicIntoPlayTrigger, TriggerType.FlipCard));
+                this.AddSideTrigger(this.AddTrigger<DestroyCardAction>((DestroyCardAction d) => d.CardToDestroy.Card.Owner == this.HeroTurnTaker,
+                    MoveUnderThisCardResponse,
+                    new TriggerType[] { TriggerType.ChangePostDestroyDestination }, TriggerTiming.After, priority: TriggerPriority.High));
+            }
+
+        }
+
+        public override IEnumerator BeforeFlipCardImmediateResponse(FlipCardAction flip)
+        {
+            IEnumerator coroutine = base.BeforeFlipCardImmediateResponse(flip);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         public override IEnumerator UsePower(int index = 0)
@@ -56,41 +69,36 @@ namespace RuduenWorkshop.Synthesist
 
         protected IEnumerator PutRelicIntoPlayTrigger(PhaseChangeAction action)
         {
-            // If there are no other targets in play and the relic deck is not empty...
-            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard && c != this.Card).Count() == 0)
+            // If there are no other active Heroes in play and not under cards
+            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsCharacter && c.IsActive && c.IsInPlayAndNotUnderCard && c != this.Card).Count() == 0)
             {
-                IEnumerator coroutine = this.GameController.SelectAndUnincapacitateHeroCharacter(this.DecisionMaker, 9, null, false, null, new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && (this.GameController.IsOblivAeonMode || SynthesistRelics.Contains(c.PromoIdentifierOrIdentifier)), "incapacitated Synthesist character"), this.GetCardSource(), true);
+                IEnumerator coroutine = this.GameController.SelectAndUnincapacitateHeroCharacter(this.DecisionMaker, 9, null, false, null, new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsInPlayAndNotUnderCard && (this.GameController.IsOblivAeonMode || this.TurnTaker.InitialCharacterCardIdentifiers.Contains(c.PromoIdentifierOrIdentifier)), "incapacitated Synthesist character"), this.GetCardSource(), true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
 
-        public override IEnumerator BeforeFlipCardImmediateResponse(FlipCardAction flip)
+        public override IEnumerator AfterFlipCardImmediateResponse()
         {
             IEnumerator coroutine;
 
-            if (!this.CardWithoutReplacements.IsFlipped)
+            if (this.CardWithoutReplacements.IsFlipped)
             {
-                coroutine = this.GameController.FlipCards(this.GameController.FindCardControllersWhere((Card c) => SynthesistRelics.Contains(c.PromoIdentifierOrIdentifier) && c.IsActive));
+                coroutine = this.GameController.FlipCards(this.GameController.FindCardControllersWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsInPlayAndNotUnderCard && c.IsHeroCharacterCard && c.IsActive));
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.MoveCards(this.DecisionMaker, this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsInPlayAndNotUnderCard && this.TurnTaker.InitialCharacterCardIdentifiers.Contains(c.PromoIdentifierOrIdentifier) && c != this.Card), this.Card.UnderLocation);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            // Do default flipping. 
-            coroutine = base.BeforeFlipCardImmediateResponse(flip);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
+            // Also do default trigger handling. 
+            this.RemoveAllTriggers();
+            this.AddSideTriggers();
         }
 
-
-        private string[] SynthesistRelics
+        private IEnumerator MoveUnderThisCardResponse(DestroyCardAction dca)
         {
-            get
-            {
-                if (_synthesistRelics == null)
-                {
-                    _synthesistRelics = new string[] { "BoneOfIron", "HeartOfLightning", "VialOfMercury" };
-                }
-                return _synthesistRelics;
-            }
+            IEnumerator coroutine = this.GameController.MoveCard(this.DecisionMaker, dca.CardToDestroy.Card, this.Card.UnderLocation, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         // TODO: Replace Incap with something more unique!

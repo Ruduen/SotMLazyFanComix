@@ -28,7 +28,7 @@ namespace RuduenWorkshop.Synthesist
         }
         public override IEnumerator AfterFlipCardImmediateResponse()
         {
-            this.RemoveAllTriggers(true, true, true, false, false);
+            this.RemoveAllTriggers();
             this.AddSideTriggers();
             yield break;
         }
@@ -77,19 +77,11 @@ namespace RuduenWorkshop.Synthesist
         {
             IEnumerator coroutine;
             // If there are no targets in play and the relic deck is not empty...
-            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard).Count() == 0)
+            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsHeroCharacterCard && c.IsInPlayAndNotUnderCard).Count() == 0)
             {
-                coroutine = this.GameController.SelectAndUnincapacitateHeroCharacter(this.DecisionMaker, 9, null, false, null, new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && (this.GameController.IsOblivAeonMode || SynthesistRelics.Contains(c.PromoIdentifierOrIdentifier)), "incapacitated Synthesist character"), this.GetCardSource(), true);
+                coroutine = this.GameController.SelectAndUnincapacitateHeroCharacter(this.DecisionMaker, 9, null, false, null, new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && (this.GameController.IsOblivAeonMode || this.TurnTaker.InitialCharacterCardIdentifiers.Contains(c.PromoIdentifierOrIdentifier)), "incapacitated Synthesist character"), this.GetCardSource(), true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
-            // Re-check. If it fails, incap. 
-            if (this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndNotUnderCard).Count() == 0)
-            {
-                coroutine = this.GameController.FlipCard(this, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
-
         }
 
         // TODO: Replace Incap with something more unique!

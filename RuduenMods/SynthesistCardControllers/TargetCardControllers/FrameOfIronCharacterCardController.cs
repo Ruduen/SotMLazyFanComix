@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace RuduenWorkshop.Synthesist
 {
-    public class BoneOfIronCardController : SynthesistRelicSharedCardController
+    public class FrameOfIronCharacterCardController : SynthesistSharedMultiCharacterCardController
     {
-        public BoneOfIronCardController(Card card, TurnTakerController turnTakerController)
+        public FrameOfIronCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }

@@ -2,12 +2,10 @@
   "name": "Synthesist",
   "kind": "Hero",
   "initialCardIdentifiers": [
-    "SynthesistCharacter"
-  ],
-  "initialOffToTheSideCardIdentifiers": [
-    "HeartOfLightning",
-    "VialOfMercury",
-    "BoneOfIron"
+    "SynthesistCharacter",
+    "FrameOfIronCharacter",
+    "FleshOfMercuryCharacter",
+    "HeartOfLightningCharacter"
   ],
   "cards": [
     {
@@ -19,7 +17,10 @@
       "foilBackgroundColor": "55FF55",
       "character": true,
       "setup": [ "At the start of the game, place Bone of Iron, Vial of Mercury, and Heart of Iron into play in their Incapacitated sides." ],
-      "gameplay": [ "At the start of your turn, if you have no other Targets in play, flip one of your incapacitated relics and restore it to 9 HP." ],
+      "gameplay": [
+        "At the start of your turn, if you have no other active Heroes in play, flip one of your incapacitated relics and restore it to 9 HP.",
+        "After one of your other Heroes is incapacitated, move it under this card."
+      ],
       "powers": [ "One other Hero Target deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
       "icons": [
         "HasPower",
@@ -34,6 +35,7 @@
         "One hero may use a power.",
         "One player may draw a card."
       ],
+      "flippedGameplay": [ "After this card is flipped to this side, incapacitate all of your other Heroes and move them under this card." ],
       "flippedIcons": [
         "PlayCardNow",
         "UsePowerNow",
@@ -45,7 +47,7 @@
       "complexity": 3
     },
     {
-      "identifier": "HeartOfLightning",
+      "identifier": "HeartOfLightningCharacter",
       "count": 1,
       "title": "Heart of Lightning",
       "character": true,
@@ -57,9 +59,9 @@
       ]
     },
     {
-      "identifier": "VialOfMercury",
+      "identifier": "FleshOfMercuryCharacter",
       "count": 1,
-      "title": "Vial of Mercury",
+      "title": "Flesh of Mercury",
       "character": true,
       "hitpoints": 9,
       "keywords": [ "elemental", "relic" ],
@@ -69,9 +71,9 @@
       ]
     },
     {
-      "identifier": "BoneOfIron",
+      "identifier": "FrameOfIronCharacter",
       "count": 1,
-      "title": "Bone of Iron",
+      "title": "Frame of Iron",
       "character": true,
       "hitpoints": 9,
       "keywords": [ "elemental", "relic" ],
@@ -105,16 +107,6 @@
       ]
     }
   ],
-  "subdecks": [
-    {
-      "identifier": "SynthesistRelicDeck",
-      "name": "The Relic Deck",
-      "kind": "Other",
-      "reshufflesWhenEmpty": false,
-      "cards": [
-      ]
-    }
-  ],
   "promoCards": [
     {
       "identifier": "SynthesistCharacter",
@@ -127,7 +119,11 @@
       "character": true,
       "isReal": false,
       "setup": [ "At the start of the game, place Bone of Iron, Vial of Mercury, and Heart of Iron into play in their Incapacitated sides." ],
-      "gameplay": [ "At the start of your turn, if you have no other Targets in play, flip one of your incapacitated relics and restore it to 9 HP. Then, if you still have no other Targets in play, flip this card." ],
+      "gameplay": [
+        "At the start of your turn, if you have no other active Heroes in play, flip one of your incapacitated Heroes and restore it to 9 HP.",
+        "After one of your other Heroes is incapacitated, move it under this card.",
+        "If you have no other Heroes in play except for those under this card, flip this."
+      ],
       "powers": [ "Until the start of your next turn, reduce damage dealt to your Targets by 1. Remove 1 Ritual Token from a Ritual." ],
       "icons": [
         "HasPower",

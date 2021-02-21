@@ -21,7 +21,11 @@ namespace RuduenModsTest
             ModHelper.AddAssembly("RuduenWorkshop", Assembly.GetAssembly(typeof(SynthesistCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Synthesist { get { return FindHero("Synthesist"); } }
+        private HeroTurnTakerController synthesist { get { return FindHero("Synthesist"); } }
+        private Card frame { get { return GetCard("FrameOfIronCharacter"); } }
+        private Card flesh { get { return GetCard("FleshOfMercuryCharacter"); } }
+        private Card heart { get { return GetCard("HeartOfLightningCharacter"); } }
+        private Card[] multiChars { get { return new Card[] { frame, flesh, heart }; } }
 
         [Test(Description = "Basic Setup and Health")]
         public void Test1ModWorks()
@@ -30,11 +34,11 @@ namespace RuduenModsTest
 
             Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
 
-            Assert.IsNotNull(Synthesist);
-            Assert.IsInstanceOf(typeof(HeroTurnTakerController), Synthesist);
-            Assert.IsInstanceOf(typeof(SynthesistCharacterCardController), Synthesist.CharacterCardController);
+            Assert.IsNotNull(synthesist);
+            Assert.IsInstanceOf(typeof(HeroTurnTakerController), synthesist);
+            Assert.IsInstanceOf(typeof(SynthesistCharacterCardController), synthesist.CharacterCardController);
 
-            Assert.AreEqual(20, Synthesist.CharacterCard.HitPoints);
+            Assert.AreEqual(20, synthesist.CharacterCard.HitPoints);
             // TODO: Add Synthesist card count checks.
         }
 
@@ -52,7 +56,8 @@ namespace RuduenModsTest
             StartGame();
 
             // Confirm all three relics are in their flipped state. 
-            AssertFlipped(new Card[] { GetCard("BoneOfIron"), GetCard("HeartOfLightning"), GetCard("VialOfMercury")});
+            AssertFlipped(multiChars);
+            AssertIsInPlay(multiChars);
         }
 
 
@@ -67,19 +72,19 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card[] cards = new Card[] { GetCard("BoneOfIron"), GetCard("HeartOfLightning") };
+            Card[] cards = new Card[] { frame, heart };
             DecisionSelectCards = cards;
 
-            GoToStartOfTurn(Synthesist);
+            GoToStartOfTurn(synthesist);
             AssertNotFlipped(cards[0]);
 
-            GoToStartOfTurn(Synthesist);
+            GoToStartOfTurn(synthesist);
             AssertNotFlipped(cards[0]);
             AssertFlipped(cards[1]);
 
             DestroyCard(cards[0]);
-            GoToStartOfTurn(Synthesist);
-            AssertOutOfGame(cards[0]);
+            GoToStartOfTurn(synthesist);
+            AssertUnderCard(synthesist.CharacterCard, cards[0]);
             AssertNotFlipped(cards[1]);
         }
 
@@ -94,20 +99,20 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card[] cards = FindCardsWhere((Card c) => c.IsRelic && c.Owner == Synthesist.HeroTurnTaker).ToArray();
+            Card[] cards = FindCardsWhere((Card c) => c.IsRelic && c.Owner == synthesist.HeroTurnTaker).ToArray();
 
+            GoToStartOfTurn(synthesist);
 
-            GoToStartOfTurn(Synthesist);
+            DestroyCard(synthesist);
+            AssertIncapacitated(synthesist);
 
-            DestroyCard(Synthesist);
-            AssertIncapacitated(Synthesist);
+            AssertNumberOfCardsUnderCard(synthesist.CharacterCard, 3);
 
-
-            GoToUseIncapacitatedAbilityPhase(Synthesist);
+            GoToUseIncapacitatedAbilityPhase(synthesist);
         }
 
         [Test()]
-        public void TestStartOfTurnTriggerScattered()
+        public void TestStartOfTurnTriggerScatteredForm()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -117,35 +122,33 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card[] cards = new Card[] { GetCard("BoneOfIron"), GetCard("HeartOfLightning"), GetCard("VialOfMercury") };
+            Card[] cards = multiChars;
             DecisionSelectCards = cards;
 
-            AssertNotIncapacitatedOrOutOfGame(Synthesist);
+            AssertNotIncapacitatedOrOutOfGame(synthesist);
 
-            GoToStartOfTurn(Synthesist);
-            AssertIsInPlay(cards[0]);
+            AssertIsInPlay(cards);
+            AssertFlipped(cards);
+            GoToStartOfTurn(synthesist);
+            AssertNotFlipped(cards[0]);
+            AssertFlipped(cards[1]);
 
-            GoToStartOfTurn(Synthesist);
-            AssertIsInPlay(cards[0]);
+            GoToStartOfTurn(synthesist);
+            AssertNotFlipped(cards[0]);
             AssertFlipped(cards[1]);
 
             DestroyCard(cards[0]);
-            GoToStartOfTurn(Synthesist);
-            AssertOutOfGame(cards[0]);
+            GoToStartOfTurn(synthesist);
+            AssertUnderCard(synthesist.CharacterCard, cards[0]);
             AssertNotFlipped(cards[1]);
 
             DestroyCard(cards[1]);
-            GoToStartOfTurn(Synthesist);
+            GoToStartOfTurn(synthesist);
 
             DestroyCard(cards[2]);
+            AssertIncapacitated(synthesist);
 
-            AssertNotIncapacitatedOrOutOfGame(Synthesist);
-            GoToStartOfTurn(Synthesist);
-            AssertIncapacitated(Synthesist);
-
-            GoToStartOfTurn(Synthesist);
-            AssertNotInPlay(cards);
-            GoToUseIncapacitatedAbilityPhase(Synthesist); // Confirm this does not loop. 
+            GoToUseIncapacitatedAbilityPhase(synthesist); // Confirm this does not loop. 
         }
 
         #endregion Character Triggers
@@ -165,12 +168,12 @@ namespace RuduenModsTest
 
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-            DecisionSelectCards = new Card[] { GetCard("VialOfMercury"), legacy.CharacterCard, mdp };
+            DecisionSelectCards = new Card[] { flesh, legacy.CharacterCard, mdp };
 
-            GoToUsePowerPhase(Synthesist);
+            GoToUsePowerPhase(synthesist);
 
             QuickHPStorage(mdp, legacy.CharacterCard);
-            UsePower(Synthesist);
+            UsePower(synthesist);
             QuickHPCheck(-3, -1);
         }
 
@@ -185,16 +188,16 @@ namespace RuduenModsTest
 
         //    StartGame();
 
-        //    Card relic = GetCard("VialOfMercury");
+        //    Card relic = flesh;
 
         //    DecisionSelectCard = relic;
 
-        //    GoToStartOfTurn(Synthesist);
+        //    GoToStartOfTurn(synthesist);
 
-        //    GoToUsePowerPhase(Synthesist);
+        //    GoToUsePowerPhase(synthesist);
 
-        //    AssertNextMessages(new string[] { "Reduce damage dealt to Synthesist's Targets by 1.", "There are no rituals with Ritual Tokens in play." });
-        //    UsePower(Synthesist);
+        //    AssertNextMessages(new string[] { "Reduce damage dealt to synthesist's Targets by 1.", "There are no rituals with Ritual Tokens in play." });
+        //    UsePower(synthesist);
 
         //    QuickHPStorage(relic);
         //    DealDamage(relic, relic, 3, DamageType.Infernal);
@@ -217,11 +220,11 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card relic = GetCard("HeartOfLightning");
+            Card relic = heart;
 
             DecisionSelectCard = relic;
 
-            GoToStartOfTurn(Synthesist);
+            GoToStartOfTurn(synthesist);
 
             QuickHPStorage(relic);
             DealDamage(relic, relic, 3, DamageType.Infernal);
@@ -239,11 +242,11 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card relic = GetCard("BoneOfIron");
+            Card relic = frame;
 
             DecisionSelectCard = relic;
 
-            GoToStartOfTurn(Synthesist);
+            GoToStartOfTurn(synthesist);
 
             QuickHPStorage(relic);
             DealDamage(relic, relic, 3, DamageType.Infernal);
@@ -262,11 +265,11 @@ namespace RuduenModsTest
 
             StartGame();
 
-            Card relic = GetCard("VialOfMercury");
+            Card relic = flesh;
 
             DecisionSelectCard = relic;
 
-            GoToPlayCardPhase(Synthesist);
+            GoToPlayCardPhase(synthesist);
             AssertPhaseActionCount(2);
         }
         #endregion Targets
