@@ -120,12 +120,24 @@
     },
     {
       "identifier": "ClayDoll",
-      "count": 4,
+      "count": 3,
       "title": "Clay Doll",
-      "hitpoints": 4,
+      "hitpoints": 5,
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may draw a card and play a card." ],
       "powers": [ "Select 1 Target. Each of your Targets deals that Target 1 Infernal Damage." ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "WoodenEffigy",
+      "count": 3,
+      "title": "Wooden Effigy",
+      "hitpoints": 5,
+      "keywords": [ "elemental" ],
+      "body": [ "When this card enters play, you may draw a card and play a card." ],
+      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and Regains 2 HP." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal" ],
       "flavorQuotes": [
       ]
@@ -151,7 +163,7 @@
         "If you have no active heroes in play, flip this card."
       ],
       "power": [
-        "One of your Targets deals 1 other Target 3 Infernal Damage and itself 1 Infernal Damage."
+        "Draw 1 card. Remove 1 Ritual Token from a Ritual."
       ],
       "icons": [
         "HasPower"

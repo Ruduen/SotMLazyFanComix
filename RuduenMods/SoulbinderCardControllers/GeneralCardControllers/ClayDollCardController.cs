@@ -10,11 +10,10 @@ namespace RuduenWorkshop.Soulbinder
     public class ClayDollCardController : CardController
     {
 
-        private readonly List<Card> _actedTargets;
+        private readonly List<Card> _actedTargets = new List<Card>();
         public ClayDollCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            _actedTargets = new List<Card>();
         }
 
         public override IEnumerator Play()

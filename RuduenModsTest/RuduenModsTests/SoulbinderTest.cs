@@ -28,6 +28,8 @@ namespace RuduenModsTest
 
         protected Card SoulbinderMortal { get { return GetCard("SoulbinderMortalFormCharacter"); } }
 
+        protected Card SoulbinderInstruction { get { return GetCard("SoulbinderCharacter"); } }
+
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
         {
@@ -52,6 +54,7 @@ namespace RuduenModsTest
 
             DecisionSelectCard = Soulshards[0];
 
+            ResetDecisions();
             StartGame(false);
 
             AssertNotInPlay(SoulbinderMortal);
@@ -68,6 +71,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Megalopolis");
 
+            ResetDecisions();
             DecisionSelectCard = Soulshards[0];
 
             StartGame(false);
@@ -90,6 +94,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Megalopolis");
 
+            ResetDecisions();
             DecisionSelectCards = Soulshards;
 
             StartGame(false);
@@ -113,6 +118,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Megalopolis");
 
+            ResetDecisions();
             DecisionSelectCards = Soulshards;
 
             StartGame(false);
@@ -138,6 +144,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Megalopolis");
 
+            ResetDecisions();
             DecisionSelectCards = Soulshards;
 
             StartGame(false);
@@ -170,6 +177,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
+            ResetDecisions();
             DecisionSelectCards = Soulshards;
 
             StartGame(false);
@@ -187,8 +195,8 @@ namespace RuduenModsTest
             DestroyCard(Soulshards[1]);
             AssertOutOfGame(Soulshards[1]);
             AssertNotFlipped(Soulshards[2]);
-            
-            Card card=PlayCard("UnforgivingWasteland");
+
+            Card card = PlayCard("UnforgivingWasteland");
             DealDamage(card, Soulshards[2], 100, DamageType.Melee);
             AssertOutOfGame(Soulshards[2]);
 
@@ -203,6 +211,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "Megalopolis");
 
+            ResetDecisions();
             DecisionSelectCards = Soulshards;
 
             StartGame(false);
@@ -240,6 +249,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "Megalopolis");
 
+            ResetDecisions();
             DecisionSelectCards = Soulshards;
 
             StartGame(false);
@@ -265,6 +275,8 @@ namespace RuduenModsTest
         public void TestIncapMortalRemoved()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
 
             DecisionSelectCards = Soulshards;
 
@@ -303,5 +315,44 @@ namespace RuduenModsTest
 
 
         #endregion Multi-Character and Incap Tests
+
+        #region Powers
+        [Test]
+        public void TestPowerBasic()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[1];
+
+            StartGame(false);
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(Soulshards[1], mdp);
+            UsePower(SoulbinderInstruction);
+            QuickHPCheck(-1, -3);
+
+        }
+
+        [Test]
+        public void TestPowerMortalNoRitual()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+
+            StartGame(false);
+
+            AssertNextMessage("There are no rituals with Ritual Tokens in play.");
+
+            QuickHandStorage(Soulbinder);
+            UsePower(SoulbinderMortal);
+            QuickHandCheck(1);
+
+            AssertExpectedMessageWasShown();
+        }
+        #endregion Powers
     }
 }
