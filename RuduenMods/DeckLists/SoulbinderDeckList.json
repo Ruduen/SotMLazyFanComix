@@ -1,0 +1,175 @@
+﻿{
+  "name": "SoulbinderCharacter",
+  "kind": "Hero",
+  "initialCardIdentifiers": [
+    "SoulbinderCharacter"
+  ],
+  "initialOffToTheSideCardIdentifiers": [
+    "SoulshardOfLightningCharacter",
+    "SoulshardOfMercuryCharacter",
+    "SoulshardOfIronCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "SoulbinderCharacter",
+      "count": 1,
+      "title": "Soulbinder",
+      "backgroundColor": "FF5555",
+      "foilBackgroundColor": "FF5555",
+      "character": true,
+      "isReal": false,
+      "setup": [
+        "At the start of the game, put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
+        "Shuffle the hero deck and draw 4 cards."
+      ],
+      "gameplay": [
+        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first flip another of your Incapacitated Heroes and restore it to 9 HP. Then, remove the incapacitated Hero from the game.",
+        "If you have no active heroes in play, flip this card."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageProjectile"
+      ],
+
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "This place's aura is unique. I won't have you disturbing it."
+      },
+      "complexity": 3
+    },
+    {
+      "identifier": "SoulbinderMortalFormCharacter",
+      "count": 1,
+      "title": "Soulbinder",
+      "body": "Mortal Form",
+      "backgroundColor": "D4E6B5",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "D4E6B5",
+      "character": true,
+      "powers": [
+        "Draw 1 card. Remove 1 Ritual Token from a Ritual."
+      ],
+      "icons": [
+        "HasPower"
+      ],
+      "hitpoints": 20,
+      "nemesisIdentifiers": [
+        "Soulbinder"
+      ],
+      "flippedTitle": "Incapacitated"
+    },
+    {
+      "identifier": "SoulshardOfLightningCharacter",
+      "count": 1,
+      "title": "Soulshard of Lightning",
+      "backgroundColor": "D4E6B5",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "D4E6B5",
+      "character": true,
+      "icons": [
+        "HasPower"
+      ],
+      "hitpoints": 9,
+      "nemesisIdentifiers": [
+        "Soulbinder"
+      ],
+      "flippedTitle": "Incapacitated"
+    },
+    {
+      "identifier": "SoulshardOfMercuryCharacter",
+      "count": 1,
+      "title": "Soulshard of Mercury",
+      "backgroundColor": "D4E6B5",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "D4E6B5",
+      "character": true,
+      "icons": [
+        "HasPower"
+      ],
+      "hitpoints": 9,
+      "nemesisIdentifiers": [
+        "Soulbinder"
+      ],
+      "flippedTitle": "Incapacitated"
+    },
+    {
+      "identifier": "SoulshardOfIronCharacter",
+      "count": 1,
+      "title": "Soulshard of Iron",
+      "backgroundColor": "D4E6B5",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "D4E6B5",
+      "character": true,
+      "icons": [
+        "HasPower"
+      ],
+      "hitpoints": 9,
+      "nemesisIdentifiers": [
+        "Soulbinder"
+      ],
+      "flippedTitle": "Incapacitated"
+    },
+    {
+      "identifier": "ClayDoll",
+      "count": 4,
+      "title": "Clay Doll",
+      "hitpoints": 4,
+      "keywords": [ "elemental" ],
+      "body": [ "When this card enters play, you may draw a card and play a card." ],
+      "powers": [ "Select 1 Target. Each of your Targets deals that Target 1 Infernal Damage." ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal" ],
+      "flavorQuotes": [
+      ]
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "SoulbinderCharacter",
+      "promoIdentifier": "SoulbinderScatteredFormCharacter",
+      "count": 1,
+      "title": "Soulbinder",
+      "body": "Scattered Form",
+      "backgroundColor": "FF5555",
+      "foilBackgroundColor": "FF5555",
+      "character": true,
+      "isReal": false,
+      "setup": [
+        "At the start of the game, put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
+        "Shuffle the hero deck and draw 4 cards."
+      ],
+      "gameplay": [
+        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first flip another of your Incapacitated Heroes and restore it to 9 HP. Then, remove the incapacitated Hero from the game.",
+        "If you have no active heroes in play, flip this card."
+      ],
+      "power": [
+        "One of your Targets deals 1 other Target 3 Infernal Damage and itself 1 Infernal Damage."
+      ],
+      "icons": [
+        "HasPower"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Seems I'm still around. May as well get some good out of that."
+      },
+      "complexity": 3
+    }
+  ]
+}
