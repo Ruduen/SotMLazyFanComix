@@ -11,6 +11,7 @@ namespace RuduenWorkshop.Soulbinder
     public class SoulbinderTurnTakerController : HeroTurnTakerController
     {
         private CharacterCardController _instructions = null;
+        private Boolean _initializeDone = false;
         private CharacterCardController InstructionsCardController
         {
             get
@@ -37,6 +38,8 @@ namespace RuduenWorkshop.Soulbinder
 
             IEnumerator coroutine;
 
+            _initializeDone = true;
+
             // Base character card means no promo identifier. 
 
             IEnumerable<Card> heroCards = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.Identifier == "SoulbinderMortalFormCharacter");
@@ -48,11 +51,9 @@ namespace RuduenWorkshop.Soulbinder
             }
             else
             {
-                coroutine = this.GameController.MoveCards(this, heroCards, this.TurnTaker.OutOfGame, isPutIntoPlay: true, cardSource: new CardSource(InstructionsCardController));
+                coroutine = this.GameController.MoveCards(this, heroCards, this.TurnTaker.InTheBox, isPutIntoPlay: true, cardSource: new CardSource(InstructionsCardController));
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
-            // TODO: Verify if other promo identifiers cause issues. 
 
             // Shared soulbinder logic - Move one of the three into play.
             coroutine = this.GameController.SelectCardFromLocationAndMoveIt(this, this.HeroTurnTaker.OffToTheSide, new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && ShardIdentifiers.Contains(c.Identifier), "soulshard"), new List<MoveCardDestination> { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: new CardSource(InstructionsCardController));
@@ -61,20 +62,16 @@ namespace RuduenWorkshop.Soulbinder
             // For remaining cards, incapacitate and move into play. 
             IEnumerable<CardController> ssCardControllers = this.GameController.FindCardControllersWhere((Card c) => c.Owner == this.TurnTaker && c.Location == this.HeroTurnTaker.OffToTheSide && ShardIdentifiers.Contains(c.Identifier));
 
-            // Incapacitate and move remaining cards. 
-            coroutine = this.GameController.FlipCards(ssCardControllers, cardSource: new CardSource(InstructionsCardController));
+            // Move remaining cards under the instruction card.
+
+            coroutine = this.GameController.MoveCards(this, ssCardControllers.Select((CardController cc) => cc.Card), InstructionsCardController.Card.UnderLocation, cardSource: new CardSource(InstructionsCardController));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            coroutine = this.GameController.MoveCards(this, ssCardControllers.Select((CardController cc) => cc.Card), this.TurnTaker.PlayArea, isPutIntoPlay: true, cardSource: new CardSource(InstructionsCardController));
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-
         }
         public override Card CharacterCard
         {
             get
             {
-                if (this.HasMultipleCharacterCards)
+                if (_initializeDone)
                 {
                     Log.Warning("There was a request for Soulbinder's character card, which is null.");
                     return null;
@@ -84,6 +81,14 @@ namespace RuduenWorkshop.Soulbinder
                     Log.Warning("There was a request for Soulbinder's character card prior to Setup. Returning the instructions card to avoid null reference errors.");
                     return base.CharacterCard;
                 }
+            }
+        }
+
+        public override CharacterCardController IncapacitationCardController
+        {
+            get
+            {
+                return InstructionsCardController;
             }
         }
 

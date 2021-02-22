@@ -19,11 +19,11 @@
       "character": true,
       "isReal": false,
       "setup": [
-        "At the start of the game, put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
+        "At the start of the game, put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card.",
         "Shuffle the hero deck and draw 4 cards."
       ],
       "gameplay": [
-        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first flip another of your Incapacitated Heroes and restore it to 9 HP. Then, remove the incapacitated Hero from the game.",
+        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first put one of the other cards under this card into play.",
         "If you have no active heroes in play, flip this card."
       ],
       "powers": ["One of your Targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage."],
@@ -155,11 +155,11 @@
       "character": true,
       "isReal": false,
       "setup": [
-        "At the start of the game, put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
+        "At the start of the game, put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card.",
         "Shuffle the hero deck and draw 4 cards."
       ],
       "gameplay": [
-        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first flip another of your Incapacitated Heroes and restore it to 9 HP. If you do, remove the incapacitated Hero from the game.",
+        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first put one of the other cards under this card into play.",
         "If you have no active heroes in play, flip this card."
       ],
       "power": [

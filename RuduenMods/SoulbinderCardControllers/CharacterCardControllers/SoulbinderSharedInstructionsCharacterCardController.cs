@@ -56,16 +56,9 @@ namespace RuduenWorkshop.Soulbinder
             IEnumerator coroutine;
             List<UnincapacitateHeroAction> uhaResult = new List<UnincapacitateHeroAction>();
 
-            // Flip an already incapacitated card.
-            coroutine = this.GameController.SelectAndUnincapacitateHeroCharacter(this.DecisionMaker, 9, null, false, uhaResult, new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && (!this.GameController.IsOblivAeonMode || ShardIdentifiers.Contains(c.Identifier))), this.GetCardSource(), true);
+            // Move a card from under this into play.
+            coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, this.Card.UnderLocation, 1, 1, new LinqCardCriteria(), new List<MoveCardDestination>() { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // If you do, remove this card.
-            if(uhaResult.Count > 0 && uhaResult.FirstOrDefault().IsSuccessful)
-            {
-                coroutine = this.GameController.MoveCard(this.DecisionMaker, fca.CardToFlip.Card, this.TurnTaker.OutOfGame, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
         }
 
         public override IEnumerator AfterFlipCardImmediateResponse()
