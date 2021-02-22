@@ -1,4 +1,5 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
@@ -49,18 +50,258 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Megalopolis");
 
-            StartGame();
+            DecisionSelectCard = Soulshards[0];
+
+            StartGame(false);
+
+            AssertNotInPlay(SoulbinderMortal);
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
+        }
+
+        [Test]
+        public void TestSetupMortal()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Megalopolis");
+
+            DecisionSelectCard = Soulshards[0];
+
+            StartGame(false);
 
             AssertIsInPlay(SoulbinderMortal);
             AssertIsInPlay(Soulshards);
 
-            // TODO: Add test to make sure the initial one worked!
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
 
             AssertNotIncapacitatedOrOutOfGame(Soulbinder);
         }
+
         #endregion Basic Setup Tests
 
         #region Multi-Character and Incap Tests
+
+        [Test]
+        public void TestIncapBasicOne()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Megalopolis");
+
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+            // First is destroyed, second flips to take its place.
+            DestroyCard(Soulshards[0]);
+            AssertOutOfGame(Soulshards[0]);
+            AssertNotFlipped(Soulshards[1]);
+
+            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
+            GoToPlayCardPhase(Soulbinder);
+        }
+
+        [Test]
+        public void TestIncapMortalOne()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Megalopolis");
+
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            AssertIsInPlay(SoulbinderMortal);
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+            // First is destroyed, second flips to take its place.
+            DestroyCard(Soulshards[0]);
+            AssertOutOfGame(Soulshards[0]);
+            AssertNotFlipped(Soulshards[1]);
+
+            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
+            GoToPlayCardPhase(Soulbinder);
+        }
+
+
+        [Test]
+        public void TestIncapBasicAll()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Megalopolis");
+
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+            // First is destroyed, second flips to take its place.
+            DestroyCard(Soulshards[0]);
+            AssertOutOfGame(Soulshards[0]);
+            AssertNotFlipped(Soulshards[1]);
+
+            DestroyCard(Soulshards[1]);
+            AssertOutOfGame(Soulshards[1]);
+            AssertNotFlipped(Soulshards[2]);
+
+            DestroyCard(Soulshards[2]);
+            AssertFlipped(Soulshards[2]);
+            AssertIsInPlay(Soulshards[2]);
+
+            AssertIncapacitated(Soulbinder);
+
+            GoToUseIncapacitatedAbilityPhase(Soulbinder);
+        }
+
+        [Test]
+        public void TestIncapBasicAllRemoved()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+            // First is destroyed, second flips to take its place.
+            DestroyCard(Soulshards[0]);
+            AssertOutOfGame(Soulshards[0]);
+            AssertNotFlipped(Soulshards[1]);
+
+            DestroyCard(Soulshards[1]);
+            AssertOutOfGame(Soulshards[1]);
+            AssertNotFlipped(Soulshards[2]);
+            
+            Card card=PlayCard("UnforgivingWasteland");
+            DealDamage(card, Soulshards[2], 100, DamageType.Melee);
+            AssertOutOfGame(Soulshards[2]);
+
+            AssertIncapacitated(Soulbinder);
+
+            //GoToUseIncapacitatedAbilityPhase(Soulbinder);
+            // THIS SHOULD CAUSE A UNIT TEST TO FAIL! 
+        }
+
+        [Test]
+        public void TestIncapMortalAll()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "Megalopolis");
+
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            AssertIsInPlay(SoulbinderMortal);
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+            // First is destroyed, second flips to take its place.
+            DestroyCard(Soulshards[0]);
+            AssertOutOfGame(Soulshards[0]);
+            AssertNotFlipped(Soulshards[1]);
+
+            DestroyCard(Soulshards[1]);
+            AssertOutOfGame(Soulshards[1]);
+            AssertNotFlipped(Soulshards[2]);
+
+            DestroyCard(Soulshards[2]);
+            AssertIsInPlay(Soulshards[2]);
+            AssertIsInPlay(Soulshards[2]);
+            AssertNotFlipped(SoulbinderMortal);
+
+            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
+
+            DestroyCard(SoulbinderMortal);
+            AssertIncapacitated(Soulbinder);
+
+            GoToUseIncapacitatedAbilityPhase(Soulbinder);
+        }
+
+        [Test]
+        public void TestIncapMortalFirst()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "Megalopolis");
+
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            AssertIsInPlay(SoulbinderMortal);
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+
+            DestroyCard(SoulbinderMortal);
+
+            AssertOutOfGame(Soulshards);
+            AssertIsInPlay(SoulbinderMortal);
+
+            AssertIncapacitated(Soulbinder);
+
+            GoToUseIncapacitatedAbilityPhase(Soulbinder);
+        }
+
+        [Test]
+        public void TestIncapMortalRemoved()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "TheFinalWasteland");
+
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            AssertIsInPlay(SoulbinderMortal);
+            AssertIsInPlay(Soulshards);
+
+            AssertNotFlipped(Soulshards[0]);
+            AssertFlipped(Soulshards[1], Soulshards[2]);
+
+            Card card = PlayCard("UnforgivingWasteland");
+            DealDamage(card, SoulbinderMortal, 100, DamageType.Melee);
+            AssertOutOfGame(SoulbinderMortal);
+
+            // Still in play - one soulshard left!
+            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
+
+            // First is destroyed, second flips to take its place.
+            DestroyCard(Soulshards[0]);
+            AssertOutOfGame(Soulshards[0]);
+            AssertNotFlipped(Soulshards[1]);
+
+            DestroyCard(Soulshards[1]);
+            AssertOutOfGame(Soulshards[1]);
+            AssertNotFlipped(Soulshards[2]);
+
+            DestroyCard(Soulshards[2]);
+            AssertIsInPlay(Soulshards[2]);
+            AssertIsInPlay(Soulshards[2]);
+
+            AssertIncapacitated(Soulbinder);
+
+            GoToUseIncapacitatedAbilityPhase(Soulbinder);
+        }
+
+
         #endregion Multi-Character and Incap Tests
     }
 }

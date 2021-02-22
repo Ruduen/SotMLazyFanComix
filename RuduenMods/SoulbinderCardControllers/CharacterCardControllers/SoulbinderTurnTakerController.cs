@@ -17,7 +17,6 @@ namespace RuduenWorkshop.Soulbinder
             {
                 if (this._instructions == null)
                 {
-                    // TODO: Verify this works for variants! 
                     Card card = this.TurnTaker.FindCard("SoulbinderCharacter", false);
                     if (card != null)
                     {
@@ -27,7 +26,7 @@ namespace RuduenWorkshop.Soulbinder
                 return this._instructions;
             }
         }
-        private string[] soulstoneIdentifiers { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
+        private string[] ShardIdentifiers { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
 
         public SoulbinderTurnTakerController(TurnTaker tt, GameController gc) : base(tt, gc)
         {
@@ -39,21 +38,28 @@ namespace RuduenWorkshop.Soulbinder
             IEnumerator coroutine;
 
             // Base character card means no promo identifier. 
-            if (this.TurnTaker.PromoIdentifier == null)
+
+            IEnumerable<Card> heroCards = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.Identifier == "SoulbinderMortalFormCharacter");
+
+            if (this.TurnTaker.PromoIdentifier == "SoulbinderMortalCharacter")
             {
-                IEnumerable<Card> heroCards = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.Identifier == "SoulbinderMortalFormCharacter");
                 coroutine = this.GameController.MoveCards(this, heroCards, this.TurnTaker.PlayArea, isPutIntoPlay: true, cardSource: new CardSource(InstructionsCardController));
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
+            {
+                coroutine = this.GameController.MoveCards(this, heroCards, this.TurnTaker.OutOfGame, isPutIntoPlay: true, cardSource: new CardSource(InstructionsCardController));
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
             // TODO: Verify if other promo identifiers cause issues. 
 
             // Shared soulbinder logic - Move one of the three into play.
-            coroutine = this.GameController.SelectCardFromLocationAndMoveIt(this, this.HeroTurnTaker.OffToTheSide, new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && soulstoneIdentifiers.Contains(c.Identifier), "soulshard"), new List<MoveCardDestination> { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: new CardSource(InstructionsCardController));
+            coroutine = this.GameController.SelectCardFromLocationAndMoveIt(this, this.HeroTurnTaker.OffToTheSide, new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && ShardIdentifiers.Contains(c.Identifier), "soulshard"), new List<MoveCardDestination> { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: new CardSource(InstructionsCardController));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // For remaining cards, incapacitate and move into play. 
-            IEnumerable<CardController> ssCardControllers = this.GameController.FindCardControllersWhere((Card c) => c.Owner == this.TurnTaker && c.Location == this.HeroTurnTaker.OffToTheSide && soulstoneIdentifiers.Contains(c.Identifier));
+            IEnumerable<CardController> ssCardControllers = this.GameController.FindCardControllersWhere((Card c) => c.Owner == this.TurnTaker && c.Location == this.HeroTurnTaker.OffToTheSide && ShardIdentifiers.Contains(c.Identifier));
 
             // Incapacitate and move remaining cards. 
             coroutine = this.GameController.FlipCards(ssCardControllers, cardSource: new CardSource(InstructionsCardController));

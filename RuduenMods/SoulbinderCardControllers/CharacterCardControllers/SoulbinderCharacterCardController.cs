@@ -3,12 +3,13 @@ using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 // Manually tested!
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class SoulbinderCharacterCardController : PromoDefaultCharacterCardController
+    public class SoulbinderCharacterCardController : SoulbinderSharedInstructionsCharacterCardController
     {
         public string str;
 
@@ -19,42 +20,33 @@ namespace RuduenWorkshop.Soulbinder
 
         public override IEnumerator UsePower(int index = 0)
         {
-            IEnumerator coroutine;
             List<int> powerNumerals = new List<int>
             {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1)
+                this.GetPowerNumeral(1, 3),
+                this.GetPowerNumeral(2, 1)
             };
+            IEnumerator coroutine;
 
-            // Deal Damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
+            List<SelectCardDecision> storedDecision = new List<SelectCardDecision>();
+            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.CardToDealDamage,
+                new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && c.IsTarget && c.IsInPlayAndHasGameText),
+                storedDecision, false, false,
+                new DealDamageAction(this.GetCardSource(), null, null, powerNumerals[2], DamageType.Infernal)
+            );
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Deal 1 projectile damage.
 
-            // You may play a position. 
-            coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardCriteria: new LinqCardCriteria((Card c) => c.IsPosition), cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        }
-
-        public override void AddSideTriggers()
-        {
-            if (!this.Card.IsFlipped)
+            if (storedDecision.FirstOrDefault().SelectedCard != null)
             {
-                // ADD APPROPRIATE TRIGGER for running start-of turn logic. 
-                // ADD APPROPRIATE TRIGGER TO FLIP WHEN ALL CHARACTERS ARE INCAPACITATED. 
-            }
-            else
-            {
-                // ADD APPROPRIATE TRIGGER FOR FLIPPING BACK IF ONE OF THE CHARACTERS IS FLIPPED BACK.
-            }
-        }
+                Card target = storedDecision.FirstOrDefault().SelectedCard;
+                // The selected target deals another 3 damage and themselves 1 damage. 
+                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, target), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-        public override IEnumerator AfterFlipCardImmediateResponse()
-        {
-            this.RemoveAllTriggers();
-            this.AddSideTriggers();
-            yield break;
+                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, target), target, powerNumerals[2], DamageType.Infernal, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
 
         // TODO: Replace Incap with something more unique!

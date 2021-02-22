@@ -19,18 +19,18 @@
       "character": true,
       "isReal": false,
       "setup": [
-        "At the start of the game, put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
+        "At the start of the game, put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
         "Shuffle the hero deck and draw 4 cards."
       ],
       "gameplay": [
         "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first flip another of your Incapacitated Heroes and restore it to 9 HP. Then, remove the incapacitated Hero from the game.",
         "If you have no active heroes in play, flip this card."
       ],
+      "powers": ["One of your Targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage."],
       "icons": [
         "HasPower",
         "DealDamageProjectile"
       ],
-
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",
@@ -65,7 +65,7 @@
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
-      "flippedTitle": "Incapacitated"
+      "flippedBody": "Incapacitated"
     },
     {
       "identifier": "SoulshardOfLightningCharacter",
@@ -82,7 +82,7 @@
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
-      "flippedTitle": "Incapacitated"
+      "flippedBody": "Incapacitated"
     },
     {
       "identifier": "SoulshardOfMercuryCharacter",
@@ -99,7 +99,7 @@
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
-      "flippedTitle": "Incapacitated"
+      "flippedBody": "Incapacitated"
     },
     {
       "identifier": "SoulshardOfIronCharacter",
@@ -116,7 +116,7 @@
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
-      "flippedTitle": "Incapacitated"
+      "flippedBody": "Incapacitated"
     },
     {
       "identifier": "ClayDoll",
@@ -134,7 +134,7 @@
   "promoCards": [
     {
       "identifier": "SoulbinderCharacter",
-      "promoIdentifier": "SoulbinderScatteredFormCharacter",
+      "promoIdentifier": "SoulbinderMortalCharacter",
       "count": 1,
       "title": "Soulbinder",
       "body": "Scattered Form",
@@ -143,11 +143,11 @@
       "character": true,
       "isReal": false,
       "setup": [
-        "At the start of the game, put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
+        "At the start of the game, put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards into play, incapacitated side up.",
         "Shuffle the hero deck and draw 4 cards."
       ],
       "gameplay": [
-        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first flip another of your Incapacitated Heroes and restore it to 9 HP. Then, remove the incapacitated Hero from the game.",
+        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first flip another of your Incapacitated Heroes and restore it to 9 HP. If you do, remove the incapacitated Hero from the game.",
         "If you have no active heroes in play, flip this card."
       ],
       "power": [
