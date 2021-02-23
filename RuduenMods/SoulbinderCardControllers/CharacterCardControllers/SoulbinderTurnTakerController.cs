@@ -63,9 +63,9 @@ namespace RuduenWorkshop.Soulbinder
             IEnumerable<CardController> ssCardControllers = this.GameController.FindCardControllersWhere((Card c) => c.Owner == this.TurnTaker && c.Location == this.HeroTurnTaker.OffToTheSide && ShardIdentifiers.Contains(c.Identifier));
 
             // Move remaining cards under the instruction card.
-
             coroutine = this.GameController.MoveCards(this, ssCardControllers.Select((CardController cc) => cc.Card), InstructionsCardController.Card.UnderLocation, cardSource: new CardSource(InstructionsCardController));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
         }
         public override Card CharacterCard
         {

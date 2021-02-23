@@ -15,6 +15,13 @@ namespace RuduenWorkshop.Soulbinder
             : base(card, turnTakerController)
         {
         }
+        public override void AddSideTriggers()
+        {
+            if (!this.CardWithoutReplacements.IsFlipped)
+            {
+                this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.IsSameCard(this.Card), 1);
+            }
+        }
 
     }
 }

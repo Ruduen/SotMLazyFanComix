@@ -1,5 +1,5 @@
 ﻿{
-  "name": "SoulbinderCharacter",
+  "name": "Soulbinder",
   "kind": "Hero",
   "initialCardIdentifiers": [
     "SoulbinderCharacter"
@@ -7,29 +7,35 @@
   "initialOffToTheSideCardIdentifiers": [
     "SoulshardOfLightningCharacter",
     "SoulshardOfMercuryCharacter",
-    "SoulshardOfIronCharacter"
+    "SoulshardOfIronCharacter",
+    "SoulbinderMortalFormCharacter"
   ],
   "cards": [
     {
       "identifier": "SoulbinderCharacter",
       "count": 1,
       "title": "Soulbinder",
-      "backgroundColor": "FF5555",
-      "foilBackgroundColor": "FF5555",
+      "body": [ "Conduit Surge" ],
+      "backgroundColor": "CCCCFF",
+      "foilBackgroundColor": "CCCCFF",
       "character": true,
       "isReal": false,
       "setup": [
-        "At the start of the game, put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card.",
-        "Shuffle the hero deck and draw 4 cards."
+        "At the start of the game, shuffle the hero deck and draw 4 cards.",
+        "Put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card."
       ],
       "gameplay": [
         "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first put one of the other cards under this card into play.",
         "If you have no active heroes in play, flip this card."
       ],
-      "powers": ["One of your Targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage."],
+      "powers": [ "One of your Targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
       "icons": [
+        "PlayCard",
         "HasPower",
-        "DealDamageProjectile"
+        "DealDamageInfernal"
+      ],
+      "nemesisIdentifiers": [
+        "Soulbinder"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -59,7 +65,9 @@
         "Draw 1 card. Remove 1 Ritual Token from a Ritual."
       ],
       "icons": [
-        "HasPower"
+        "HasPower",
+        "DrawCardNow",
+        "RemoveTokens"
       ],
       "hitpoints": 20,
       "nemesisIdentifiers": [
@@ -75,8 +83,9 @@
       "foilBackgroundColor": "FEFEFE",
       "hitpointColor": "D4E6B5",
       "character": true,
+      "gameplay": "Increase damage dealt by this card by 1.",
       "icons": [
-        "HasPower"
+        "IncreaseDamageDealt"
       ],
       "hitpoints": 9,
       "nemesisIdentifiers": [
@@ -92,8 +101,9 @@
       "foilBackgroundColor": "FEFEFE",
       "hitpointColor": "D4E6B5",
       "character": true,
+      "gameplay": "You may draw an additional card during your draw phase.",
       "icons": [
-        "HasPower"
+        "DrawCardExtra"
       ],
       "hitpoints": 9,
       "nemesisIdentifiers": [
@@ -109,14 +119,28 @@
       "foilBackgroundColor": "FEFEFE",
       "hitpointColor": "D4E6B5",
       "character": true,
+      "gameplay": "Reduce damage dealt to this card by 1.",
       "icons": [
-        "HasPower"
+        "ReduceDamageTaken"
       ],
       "hitpoints": 9,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
       "flippedBody": "Incapacitated"
+    },
+    {
+      "identifier": "Reliquary",
+      "count": 3,
+      "title": "Reliquary",
+      "keywords": [ "equipment", "relic", "limited" ],
+      "body": [
+        "When this card enters play, you may may put a card from under your Instructions card into play.",
+        "When one of your characters would be destroyed, you may instead restore it to 6 HP and destroy this card."
+      ],
+      "icons": [ "PlayCardNow", "GainHP", "DestroySelf" ],
+      "flavorQuotes": [
+      ]
     },
     {
       "identifier": "ClayDoll",
@@ -138,7 +162,190 @@
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may draw a card and play a card." ],
       "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and Regains 2 HP." ],
-      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal" ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageToxic", "GainHP" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "RitualOfCatastrophe",
+      "count": 3,
+      "title": "Ritual of Catastrophe",
+      "keywords": [ "ongoing", "ritual" ],
+      "body": [
+        "When this card enters play, place 4 Ritual Tokens on it.",
+        "At the start of your turn, remove 1 Ritual Token from this card.",
+        "When the last token is removed from this, each non-Hero target deals itself 4 irreducible Infernal Damage. Then, destroy this card."
+      ],
+      "tokenPools": [
+        {
+          "identifier": "RitualTokenPool",
+          "name": "Ritual Pool",
+          "initialValue": 4,
+          "minimumValue": 0,
+          "color": "D1426D"
+        }
+      ],
+      "icons": [ "AddTokens", "RemoveTokens", "DealDamageInfernal" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "RitualOfSalvation",
+      "count": 3,
+      "title": "Ritual of Salvation",
+      "keywords": [ "ongoing", "ritual" ],
+      "body": [
+        "When this card enters play, place 4 Ritual Tokens on it.",
+        "At the start of your turn, remove 1 Ritual Token from this card.",
+        "When the last token is removed from this, each Hero target regains 3 HP and each player draws 2 cards. Then, destroy this card."
+      ],
+      "tokenPools": [
+        {
+          "identifier": "RitualTokenPool",
+          "name": "Ritual Pool",
+          "initialValue": 4,
+          "minimumValue": 0,
+          "color": "D1426D"
+        }
+      ],
+      "icons": [ "RemoveTokens", "DealDamageInfernal", "DestroySelf" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "RitualOfTransferrence",
+      "count": 3,
+      "title": "Ritual of Transferrence",
+      "keywords": [ "ongoing", "ritual" ],
+      "body": [
+        "When this card enters play, place 4 Ritual Tokens on it.",
+        "At the start of your turn, remove 1 Ritual Token from this card.",
+        "When the last token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself irreducible Toxic damage equal to the total amount of HP regained this way. Then, destroy this card."
+      ],
+      "tokenPools": [
+        {
+          "identifier": "RitualTokenPool",
+          "name": "Ritual Pool",
+          "initialValue": 4,
+          "minimumValue": 0,
+          "color": "D1426D"
+        }
+      ],
+      "icons": [ "RemoveTokens", "GainHP", "DealDamageToxic", "DestroySelf" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "RitualOfCausality",
+      "count": 3,
+      "title": "Ritual of Causality",
+      "keywords": [ "ongoing", "ritual" ],
+      "body": [
+        "When this card enters play, place 4 Ritual Tokens on it.",
+        "At the start of your turn, remove 1 Ritual Token from this card.",
+        "When the last token is removed from this, draw 4 cards and play up to 2 cards. Then, destroy this card."
+      ],
+      "tokenPools": [
+        {
+          "identifier": "RitualTokenPool",
+          "name": "Ritual Pool",
+          "initialValue": 4,
+          "minimumValue": 0,
+          "color": "D1426D"
+        }
+      ],
+      "icons": [ "RemoveTokens", "GainHP", "DealDamageToxic", "DestroySelf" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "RitualComponents",
+      "count": 2,
+      "title": "Ritual Components",
+      "keywords": [ "equipment", "limited" ],
+      "body": [
+        "After a Ritual enters play, remove 1 Ritual Token from that Ritual. Then, if you have at least 3 Targets in play, remove 1 Ritual Token from that Ritual."
+      ],
+      "powers": [ "Remove 1 Ritual Token from each Ritual." ],
+      "icons": [ "HasPower", "RemoveTokens" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "RepeatedRites",
+      "count": 2,
+      "title": "Repeated Rites",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "When one of your Rituals would be destroyed, you may instead add 2 Ritual Tokens to it and destroy this card."
+      ],
+      "icons": [ "AddTokens", "DestroyThis" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "ArcaneDetonation",
+      "count": 3,
+      "title": "Arcane Detonation",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "One of your targets deals each non-Hero target and themselves 3 Infernal Damage."
+      ],
+      "icons": [ "AddTokens", "DestroyThis" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "SacrificialRite",
+      "count": 3,
+      "title": "Sacrificial Rite",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "One of your targets deals 1 target and themselves 3 Infernal Damage.",
+        "Remove 1 Ritual Token from a Ritual."
+      ],
+      "powers": [ "Remove 1 Ritual Token from each Ritual." ],
+      "icons": [ "AddTokens", "DestroyThis" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "KeystoneOfSpirit",
+      "count": 3,
+      "title": "Keystone of Spirit",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Each Hero Target regains 1 HP.",
+        "You may use a power now."
+      ],
+      "icons": [ "AddTokens", "DestroyThis" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "FinalEruption",
+      "count": 2,
+      "title": "Final Eruption",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Select one of your Targets. It deals 1 target Infernal Damage equal to its current HP.",
+        "Then, remove the selected target from the game."
+      ],
+      "icons": [ "AddTokens", "DestroyThis" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "BlindBeckoning",
+      "count": 4,
+      "title": "Blind Beckoning",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "One of your Targets deals themselves 2 Infernal Damage.",
+        "Reveal cards from the top of your deck until you reveal a Ritual and put it in play.",
+        "You may play a card."
+      ],
+      "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
       ]
     }
@@ -149,24 +356,21 @@
       "promoIdentifier": "SoulbinderMortalCharacter",
       "count": 1,
       "title": "Soulbinder",
-      "body": "Scattered Form",
-      "backgroundColor": "FF5555",
-      "foilBackgroundColor": "FF5555",
+      "body": "Mortal",
+      "backgroundColor": "CCCCFF",
+      "foilBackgroundColor": "CCCCFF",
       "character": true,
       "isReal": false,
       "setup": [
-        "At the start of the game, put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card.",
-        "Shuffle the hero deck and draw 4 cards."
+        "At the start of the game, shuffle the hero deck and draw 4 cards.",
+        "Put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card."
       ],
       "gameplay": [
         "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first put one of the other cards under this card into play.",
         "If you have no active heroes in play, flip this card."
       ],
-      "power": [
-        "Draw 1 card. Remove 1 Ritual Token from a Ritual."
-      ],
       "icons": [
-        "HasPower"
+        "PlayCardNow"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -179,7 +383,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Seems I'm still around. May as well get some good out of that."
+        "default": "This is one way to warm up while I'm readjusting to having a body."
       },
       "complexity": 3
     }

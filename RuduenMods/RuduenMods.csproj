@@ -127,16 +127,29 @@
     <Compile Include="HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheHarpyArcaneFlockCharacterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\BlindBeckoningCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\KeystoneOfSpiritCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\FinalEruptionCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SacrificialRiteCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RepeatedRitesCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ReliquaryCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ArcaneDetonationCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCausalityCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfTransferrenceCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfSalvationCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCatastropheCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedRitualCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedYourTargetDamageCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalCharacterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderSharedInstructionsCharacterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedInstructionsCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderTurnTakerController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenEffigyCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ClayDollCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfIronCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfMercuryCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfLightningCharacterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderSharedMultiCharacterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedMultiCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalFormCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderCharacterCardController.cs" />
     <Compile Include="SpellforgeCardControllers\MeanderingDissertationCardController.cs" />
@@ -212,8 +225,6 @@
     <EmbeddedResource Include="DeckLists\SoulbinderDeckList.json" />
     <None Include="manifest.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SoulbinderCardControllers\RitualCardControllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

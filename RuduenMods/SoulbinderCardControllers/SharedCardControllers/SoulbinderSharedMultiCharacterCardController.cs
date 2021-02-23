@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class SoulbinderSharedMultiCharacterCardController : HeroCharacterCardController
+    public abstract class SoulbinderSharedMultiCharacterCardController : HeroCharacterCardController
     {
 
         public SoulbinderSharedMultiCharacterCardController(Card card, TurnTakerController turnTakerController)

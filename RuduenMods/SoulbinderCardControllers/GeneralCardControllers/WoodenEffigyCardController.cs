@@ -35,21 +35,21 @@ namespace RuduenWorkshop.Soulbinder
                             this.GetPowerNumeral(1, 2),   // Damage. 
                             this.GetPowerNumeral(2, 2)    // HP to regain.
             };
-            List<Card> target = new List<Card>();
+            List<Card> targetList = new List<Card>();
             IEnumerator coroutine;
 
             // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(target, numerals[1], DamageType.Infernal);
+            coroutine = this.SelectYourTargetToDealDamage(targetList, (Card c)=>new int?(numerals[1]), DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if(target != null)
+            if(targetList.Count > 0)
             {
                 // That target deals 1 Target 1 Toxic Damage
-                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, target.FirstOrDefault()), numerals[1], DamageType.Toxic, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), numerals[1], DamageType.Toxic, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // Regains 2 HP. 
-                coroutine = this.GameController.GainHP(target.FirstOrDefault(), numerals[2], cardSource: this.GetCardSource());
+                coroutine = this.GameController.GainHP(targetList.FirstOrDefault(), numerals[2], cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

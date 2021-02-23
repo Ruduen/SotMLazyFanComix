@@ -14,5 +14,14 @@ namespace RuduenWorkshop.Soulbinder
         {
         }
 
+        public override void AddSideTriggers()
+        {
+            if (!this.CardWithoutReplacements.IsFlipped)
+            {
+                this.AddSideTrigger(this.AddReduceDamageTrigger((Card c) => c == this.Card, 1));
+            }
+        }
+
+
     }
 }

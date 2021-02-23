@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class SoulbinderSharedInstructionsCharacterCardController : PromoDefaultCharacterCardController
+    public abstract class SoulbinderSharedInstructionsCharacterCardController : PromoDefaultCharacterCardController
     {
         private string[] ShardIdentifiers { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
         public SoulbinderSharedInstructionsCharacterCardController(Card card, TurnTakerController turnTakerController)
@@ -54,7 +54,6 @@ namespace RuduenWorkshop.Soulbinder
         private IEnumerator FlipDifferentCardResponse(FlipCardAction fca)
         {
             IEnumerator coroutine;
-            List<UnincapacitateHeroAction> uhaResult = new List<UnincapacitateHeroAction>();
 
             // Move a card from under this into play.
             coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, this.Card.UnderLocation, 1, 1, new LinqCardCriteria(), new List<MoveCardDestination>() { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: this.GetCardSource());

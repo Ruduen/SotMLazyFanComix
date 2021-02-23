@@ -41,7 +41,7 @@ namespace RuduenModsTest
             Assert.IsInstanceOf(typeof(HeroTurnTakerController), Soulbinder);
             Assert.IsInstanceOf(typeof(SoulbinderCharacterCardController), Soulbinder.CharacterCardController);
 
-            // No character cards, so just assert the four exist. 
+            AssertNumberOfCardsInDeck(Soulbinder, 36);
             AssertNumberOfCardsInHand(Soulbinder, 4);
         }
 
@@ -138,7 +138,6 @@ namespace RuduenModsTest
 
             StartGame(false);
 
-            AssertIsInPlay(Soulshards);
             AssertIsInPlayAndNotUnderCard(Soulshards[0]);
             AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
             AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
@@ -279,7 +278,68 @@ namespace RuduenModsTest
 
         #endregion Multi-Character and Incap Tests
 
-        #region Powers
+        #region Character Triggers
+        [Test]
+        public void TestTriggerLightningBasic()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[0];
+
+            StartGame(false);
+
+            QuickHPStorage(Soulshards[0]);
+            DealDamage(Soulshards[0], Soulshards[0], 3, DamageType.Melee);
+            QuickHPCheck(-4);
+
+        }
+
+        [Test]
+        public void TestTriggerMercuryBasic()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            GoToDrawCardPhase(Soulbinder);
+            DestroyCard(Soulshards[0]);
+
+            // Soulshard of Mercury was played during the draw phase. 
+            // Note all phase actions are at +1 due to skipped play/power.
+            AssertPhaseActionCount(3);
+
+            GoToDrawCardPhase(Soulbinder);
+            AssertPhaseActionCount(3);
+
+            DestroyCard(Soulshards[1]); // Destroyed - lose phase actions.
+            AssertPhaseActionCount(2);
+
+            GoToDrawCardPhase(Soulbinder);
+            AssertPhaseActionCount(2);
+        }
+
+        [Test]
+        public void TestTriggerIronBasic()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[2];
+
+            StartGame(false);
+
+            QuickHPStorage(Soulshards[2]);
+            DealDamage(Soulshards[2], Soulshards[2], 3, DamageType.Melee);
+            QuickHPCheck(-2);
+
+        }
+        #endregion Character Triggers
+
+        #region Powers Cards
         [Test]
         public void TestPowerBasic()
         {
@@ -318,6 +378,49 @@ namespace RuduenModsTest
         }
 
         [Test]
+        public void TestPowerMortalRitual()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+
+            StartGame(false);
+
+            Card card = PlayCard("RitualOfCatastrophe");
+
+            QuickHandStorage(Soulbinder);
+            UsePower(SoulbinderMortal);
+            QuickHandCheck(1);
+
+            AssertTokenPoolCount(card.TokenPools[0], 3); // One removed from 4. 
+        }
+
+        [Test]
+        public void TestPowerClay()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = new Card[] { Soulshards[1] };
+
+            StartGame(false);
+
+            ResetDecisions();
+
+
+            Card clay = PutInHand("ClayDoll");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCards = new Card[] { null, mdp, clay };
+            QuickHandStorage(Soulbinder);
+            QuickHPStorage(mdp);
+            PlayCard(clay);
+            UsePower(clay);
+            QuickHandCheck(0); // Play 1, draw 1.
+            QuickHPCheck(-2);
+        }
+
+        [Test]
         public void TestPowerWood()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
@@ -330,17 +433,388 @@ namespace RuduenModsTest
             ResetDecisions();
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
-            Card wood = PlayCard("WoodenEffigy");
+            Card wood = PutInHand("WoodenEffigy");
 
-            DecisionSelectCards = new Card[] { wood, mdp };
+            DecisionSelectCards = new Card[] { null, wood, mdp };
 
+
+            QuickHandStorage(Soulbinder);
+            PlayCard(wood);
+            QuickHandCheck(0); // Play 1, Draw 1. 
             DealDamage(wood, wood, 3, DamageType.Melee);
 
             QuickHPStorage(wood, mdp);
             UsePower(wood);
             QuickHPCheck(2, -2);
-
         }
+
         #endregion Powers
+
+        #region Rituals
+        [Test]
+        public void TestCardRitualStartRemoved()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfCatastrophe");
+
+            GoToStartOfTurn(Soulbinder);
+            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), 3);
+        }
+
+        [Test]
+        public void TestCardRitualOfCatastrophe()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfCatastrophe");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            QuickHPStorage(mdp);
+            RemoveTokensFromPool(ritual.TokenPools[0], 4);
+            QuickHPCheck(-4);
+            AssertInTrash(ritual);
+        }
+
+
+        [Test]
+        public void TestCardRitualOfCausality()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfCausality");
+            Card[] plays = new Card[] { PutInHand("RitualOfCatastrophe"), PutInHand("RitualOfTransferrence") };
+            DecisionSelectCards = plays;
+
+            QuickHandStorage(Soulbinder);
+            RemoveTokensFromPool(ritual.TokenPools[0], 4);
+            QuickHandCheck(2); // Draw 4, play 2. 
+            AssertIsInPlay(plays);
+            AssertInTrash(ritual);
+        }
+
+        [Test]
+        public void TestCardRitualOfTransferrence()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfTransferrence");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+            Card[] targets = new Card[] { Soulshards[0], legacy.CharacterCard, ra.CharacterCard, mdp };
+            DealDamage(baron.CharacterCard, targets, 3, DamageType.Melee);
+
+            DecisionSelectCards = targets;
+            QuickHPStorage(targets);
+            RemoveTokensFromPool(ritual.TokenPools[0], 4);
+            QuickHPCheck(2, 2, 2, -6);
+            AssertInTrash(ritual);
+        }
+
+        [Test]
+        public void TestCardRitualOfSalvation()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfSalvation");
+            Card[] targets = new Card[] { Soulshards[0], legacy.CharacterCard, ra.CharacterCard };
+            DealDamage(baron.CharacterCard, targets, 4, DamageType.Melee);
+
+            DecisionSelectCards = targets;
+            QuickHPStorage(targets);
+            QuickHandStorage(Soulbinder, legacy, ra);
+            RemoveTokensFromPool(ritual.TokenPools[0], 4);
+            QuickHPCheck(3, 3, 3);
+            QuickHandCheck(2, 2, 2);
+            AssertInTrash(ritual);
+        }
+
+        [Test]
+        public void TestCardRitualComponents()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+
+            Card card = PlayCard("RitualComponents");
+
+            Card ritualA = PlayCard("RitualOfSalvation");
+            AssertTokenPoolCount(ritualA.TokenPools[0], 3);
+
+            DecisionSelectCards = new Card[] { null };
+
+            PlayCard("ClayDoll");
+            PlayCard("WoodenEffigy");
+
+            Card ritualB = PlayCard("RitualOfCatastrophe");
+            AssertTokenPoolCount(ritualB.TokenPools[0], 2);
+
+            ResetDecisions();
+
+            UsePower(card);
+            AssertTokenPoolCount(ritualA.TokenPools[0], 2);
+            AssertTokenPoolCount(ritualB.TokenPools[0], 1);
+        }
+
+        [Test]
+        public void TestCardRitualComponentsTriggered()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card[] playRituals = new Card[] { PutInHand("RitualOfCatastrophe"), PutInHand("RitualOfSalvation") };
+
+            Card ritual = PlayCard("RitualOfCausality");
+            RemoveTokensFromPool(ritual.TokenPools[0], 3);
+
+            DecisionSelectCards = playRituals;
+            Card card = PlayCard("RitualComponents");
+            UsePower(card);
+            AssertInTrash(ritual);
+            AssertIsInPlay(playRituals);
+            // Two tokens removed - one for component, one for power.
+            AssertTokenPoolCount(playRituals[0].TokenPools[0], 2);
+            AssertTokenPoolCount(playRituals[1].TokenPools[0], 2);
+        }
+
+
+        [Test]
+        public void TestCardRepeatedRitesOutsideTrigger()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfCausality");
+            Card card = PlayCard("RepeatedRites");
+
+            DecisionYesNo = true;
+
+            DestroyCard(ritual);
+
+            AssertInTrash(card);
+            AssertIsInPlay(ritual);
+            // Check tokens added.
+            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), 6);
+        }
+
+        [Test]
+        public void TestCardRepeatedRitesCompleteTrigger()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+            Card ritual = PlayCard("RitualOfCatastrophe");
+            Card card = PlayCard("RepeatedRites");
+
+            DecisionYesNo = true;
+
+            QuickHPStorage(mdp);
+            RemoveTokensFromPool(ritual.TokenPools.FirstOrDefault(), 4);
+
+            AssertInTrash(card);
+            AssertIsInPlay(ritual);
+
+            RemoveTokensFromPool(ritual.TokenPools.FirstOrDefault(), 2);
+            AssertInTrash(ritual);
+            QuickHPCheck(-8);
+        }
+
+        #endregion Rituals
+
+        #region Other Cards
+
+        [Test]
+        public void TestCardReliquary()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+
+            DecisionYesNo = true;
+
+            QuickHandStorage(Soulbinder);
+            PlayCard("Reliquary");
+
+            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
+            AssertIsInPlayAndNotUnderCard(Soulshards[1]);
+
+            DestroyCard(Soulshards[0]);
+            AssertNotFlipped(Soulshards[0]);
+        }
+
+        [Test]
+        public void TestCardArcaneDetonation()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[1];
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCards = new Card[] { mdp };
+
+            QuickHPStorage(Soulshards[1], mdp);
+            PlayCard("ArcaneDetonation");
+            QuickHPCheck(-3, -3);
+        }
+
+        [Test]
+        public void TestCardSacrificialRite()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[1];
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfCatastrophe");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCards = new Card[] { mdp };
+
+            QuickHPStorage(Soulshards[1], mdp);
+            PlayCard("SacrificialRite");
+            QuickHPCheck(-3, -3);
+            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), 3);
+        }
+
+        [Test]
+        public void TestCardKeystoneOfSpirit()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[1];
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card[] targets = new Card[] { Soulshards[1], ra.CharacterCard };
+            DealDamage(baron.CharacterCard, targets, 3, DamageType.Melee);
+
+            QuickHPStorage(Soulshards[1], ra.CharacterCard);
+
+            PlayCard("KeystoneOfSpirit");
+
+            QuickHPCheck(0,1);
+            AssertNotUsablePower(Soulbinder,SoulbinderInstruction);
+        }
+
+
+        [Test]
+        public void TestCardFinalEruption()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[1];
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCards = new Card[] { mdp, Soulshards[0] };
+
+            QuickHPStorage(mdp);
+            PlayCard("FinalEruption");
+            QuickHPCheck(-Soulshards[1].HitPoints);
+            AssertOutOfGame(Soulshards[1]);
+        }
+
+        [Test]
+        public void TestCardBlindBeckoning()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[1];
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            DecisionSelectCards = new Card[] { null };
+
+            QuickHPStorage(Soulshards[1]);
+            PlayCard("BlindBeckoning");
+            QuickHPCheck(-2);
+            AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("ritual"), 1);
+        }
+
+        #endregion Other Cards
     }
 }
