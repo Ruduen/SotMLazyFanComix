@@ -21,17 +21,17 @@ namespace RuduenWorkshop.Soulbinder
             List<Card> targetList = new List<Card>();
 
             // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, (Card c) => new int?(3), DamageType.Infernal);
+            coroutine = this.SelectYourTargetToDealDamage(targetList, 2, DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (targetList.Count > 0 )
             {
                 // That target deals another 3 damage.
-                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), 3, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // That target deals itself 3 Infernal damage.
-                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 3, DamageType.Infernal, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 2, DamageType.Infernal, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 

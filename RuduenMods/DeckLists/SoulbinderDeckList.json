@@ -28,7 +28,7 @@
         "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first put one of the other cards under this card into play.",
         "If you have no active heroes in play, flip this card."
       ],
-      "powers": [ "One of your Targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
+      "powers": [ "One of your targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
       "icons": [
         "PlayCard",
         "HasPower",
@@ -61,6 +61,7 @@
       "foilBackgroundColor": "FEFEFE",
       "hitpointColor": "D4E6B5",
       "character": true,
+      "gameplay": "When this card is flipped, first remove all of your other Character Cards from play.",
       "powers": [
         "Draw 1 card. Remove 1 Ritual Token from a Ritual."
       ],
@@ -83,7 +84,7 @@
       "foilBackgroundColor": "FEFEFE",
       "hitpointColor": "D4E6B5",
       "character": true,
-      "gameplay": "Increase damage dealt by this card by 1.",
+      "gameplay": "Increase damage dealt by this card to non-Hero targets by 1.",
       "icons": [
         "IncreaseDamageDealt"
       ],
@@ -131,7 +132,7 @@
     },
     {
       "identifier": "Reliquary",
-      "count": 3,
+      "count": 2,
       "title": "Reliquary",
       "keywords": [ "equipment", "relic", "limited" ],
       "body": [
@@ -144,43 +145,55 @@
     },
     {
       "identifier": "ClayDoll",
-      "count": 3,
+      "count": 4,
       "title": "Clay Doll",
       "hitpoints": 5,
       "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may draw a card and play a card." ],
-      "powers": [ "Select 1 Target. Each of your Targets deals that Target 1 Infernal Damage." ],
-      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal" ],
+      "body": [ "When this card enters play, you may draw a card or play a card." ],
+      "powers": [ "Select 1 Target. Each of your Targets deals that Target 1 Melee Damage." ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageMelee" ],
       "flavorQuotes": [
       ]
     },
     {
-      "identifier": "WoodenEffigy",
-      "count": 3,
-      "title": "Wooden Effigy",
+      "identifier": "WoodenPuppet",
+      "count": 4,
+      "title": "Wooden Puppet",
       "hitpoints": 5,
       "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may draw a card and play a card." ],
-      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and Regains 2 HP." ],
+      "body": [ "When this card enters play, you may draw a card or play a card." ],
+      "powers": [ "Each Hero target regains 1 HP. One of your targets deals each non-Hero target 1 Infernal Damage." ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal", "GainHP" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "StrawEffigy",
+      "count": 4,
+      "title": "Straw Effigy",
+      "hitpoints": 5,
+      "keywords": [ "elemental" ],
+      "body": [ "When this card enters play, you may draw a card or play a card." ],
+      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageToxic", "GainHP" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "RitualOfCatastrophe",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Catastrophe",
-      "keywords": [ "ongoing", "ritual" ],
+      "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
-        "When this card enters play, place 4 Ritual Tokens on it.",
-        "At the start of your turn, remove 1 Ritual Token from this card.",
+        "When this card enters play, place 3 Ritual Tokens on it.",
+        "At the end of your turn, remove 1 Ritual Token from this card.",
         "When the last token is removed from this, each non-Hero target deals itself 4 irreducible Infernal Damage. Then, destroy this card."
       ],
       "tokenPools": [
         {
           "identifier": "RitualTokenPool",
           "name": "Ritual Pool",
-          "initialValue": 4,
+          "initialValue": 0,
           "minimumValue": 0,
           "color": "D1426D"
         }
@@ -191,19 +204,19 @@
     },
     {
       "identifier": "RitualOfSalvation",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Salvation",
-      "keywords": [ "ongoing", "ritual" ],
+      "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
-        "When this card enters play, place 4 Ritual Tokens on it.",
-        "At the start of your turn, remove 1 Ritual Token from this card.",
+        "When this card enters play, place 3 Ritual Tokens on it.",
+        "At the end of your turn, remove 1 Ritual Token from this card.",
         "When the last token is removed from this, each Hero target regains 3 HP and each player draws 2 cards. Then, destroy this card."
       ],
       "tokenPools": [
         {
           "identifier": "RitualTokenPool",
           "name": "Ritual Pool",
-          "initialValue": 4,
+          "initialValue": 0,
           "minimumValue": 0,
           "color": "D1426D"
         }
@@ -214,19 +227,19 @@
     },
     {
       "identifier": "RitualOfTransferrence",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Transferrence",
-      "keywords": [ "ongoing", "ritual" ],
+      "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
-        "When this card enters play, place 4 Ritual Tokens on it.",
-        "At the start of your turn, remove 1 Ritual Token from this card.",
+        "When this card enters play, place 3 Ritual Tokens on it.",
+        "At the end of your turn, remove 1 Ritual Token from this card.",
         "When the last token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself irreducible Toxic damage equal to the total amount of HP regained this way. Then, destroy this card."
       ],
       "tokenPools": [
         {
           "identifier": "RitualTokenPool",
           "name": "Ritual Pool",
-          "initialValue": 4,
+          "initialValue": 0,
           "minimumValue": 0,
           "color": "D1426D"
         }
@@ -237,19 +250,19 @@
     },
     {
       "identifier": "RitualOfCausality",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Causality",
-      "keywords": [ "ongoing", "ritual" ],
+      "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
-        "When this card enters play, place 4 Ritual Tokens on it.",
-        "At the start of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, draw 4 cards and play up to 2 cards. Then, destroy this card."
+        "When this card enters play, place 3 Ritual Tokens on it.",
+        "At the end of your turn, remove 1 Ritual Token from this card.",
+        "When the last token is removed from this, draw 3 cards and play up to 3 cards. Then, destroy this card."
       ],
       "tokenPools": [
         {
           "identifier": "RitualTokenPool",
           "name": "Ritual Pool",
-          "initialValue": 4,
+          "initialValue": 0,
           "minimumValue": 0,
           "color": "D1426D"
         }
@@ -263,10 +276,7 @@
       "count": 2,
       "title": "Ritual Components",
       "keywords": [ "equipment", "limited" ],
-      "body": [
-        "After a Ritual enters play, remove 1 Ritual Token from that Ritual. Then, if you have at least 3 Targets in play, remove 1 Ritual Token from that Ritual."
-      ],
-      "powers": [ "Remove 1 Ritual Token from each Ritual." ],
+      "powers": [ "Remove 1 Ritual Token from a Ritual. If you have at least 3 Targets, remove 1 Ritual Token from each Ritual." ],
       "icons": [ "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
       ]
@@ -277,7 +287,7 @@
       "title": "Repeated Rites",
       "keywords": [ "ongoing" ],
       "body": [
-        "When one of your Rituals would be destroyed, you may instead add 2 Ritual Tokens to it and destroy this card."
+        "When one of your Rituals would be destroyed, you may instead add 1 Ritual Token to it and destroy this card."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
@@ -301,17 +311,16 @@
       "title": "Sacrificial Rite",
       "keywords": [ "one-shot" ],
       "body": [
-        "One of your targets deals 1 target and themselves 3 Infernal Damage.",
+        "One of your targets deals 1 target and themselves 2 Infernal Damage.",
         "Remove 1 Ritual Token from a Ritual."
       ],
-      "powers": [ "Remove 1 Ritual Token from each Ritual." ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "KeystoneOfSpirit",
-      "count": 3,
+      "count": 2,
       "title": "Keystone of Spirit",
       "keywords": [ "one-shot" ],
       "body": [
@@ -328,8 +337,8 @@
       "title": "Final Eruption",
       "keywords": [ "one-shot" ],
       "body": [
-        "Select one of your Targets. It deals 1 target Infernal Damage equal to its current HP.",
-        "Then, remove the selected target from the game."
+        "Select one of your targets. It deals 1 target Infernal Damage equal to its current HP plus 2.",
+        "Then, destroy the selected target from the game."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
@@ -342,7 +351,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "One of your Targets deals themselves 2 Infernal Damage.",
-        "Reveal cards from the top of your deck until you reveal a Ritual and put it in play.",
+        "Reveal cards from the top of your deck until you reveal a Ritual. Put it in play or in your hand.",
         "You may play a card."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
@@ -383,7 +392,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "This is one way to warm up while I'm readjusting to having a body."
+        "default": "I needed a warm-up for this new body."
       },
       "complexity": 3
     }

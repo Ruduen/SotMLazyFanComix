@@ -21,7 +21,7 @@ namespace RuduenWorkshop.Soulbinder
             List<Card> targetList = new List<Card>();
 
             // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, (Card c)=>new int?(3), DamageType.Infernal);
+            coroutine = this.SelectYourTargetToDealDamage(targetList, 3, DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (targetList.Count > 0 )

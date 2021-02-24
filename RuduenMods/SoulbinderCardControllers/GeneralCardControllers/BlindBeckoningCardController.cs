@@ -21,7 +21,7 @@ namespace RuduenWorkshop.Soulbinder
             List<Card> targetList = new List<Card>();
 
             // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, (Card c) => new int?(2), DamageType.Infernal);
+            coroutine = this.SelectYourTargetToDealDamage(targetList, 2, DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (targetList.Count > 0)
@@ -31,7 +31,8 @@ namespace RuduenWorkshop.Soulbinder
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.DecisionMaker, this.TurnTaker.Deck, false, true, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain("ritual")), 1);
+            IEnumerable<string> ritualsInPlay = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual")).Select((Card c) => c.Identifier);
+            coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.DecisionMaker, this.TurnTaker.Deck, false, true, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain("ritual") && !ritualsInPlay.Contains(c.Identifier)), 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardSource: this.GetCardSource());

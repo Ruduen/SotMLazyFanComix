@@ -14,13 +14,13 @@ namespace RuduenWorkshop.Soulbinder
         {
         }
 
-        public IEnumerator SelectYourTargetToDealDamage(List<Card> storedResults, Func<Card,int?> damageAmount, DamageType damageType)
+        public IEnumerator SelectYourTargetToDealDamage(List<Card> storedResults, int? damageAmount, DamageType damageType)
         {
             List<SelectCardDecision> storedDecision = new List<SelectCardDecision>();
             IEnumerator coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.CardToDealDamage,
                 new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndHasGameText),
                 storedDecision, false, false,
-                new DealDamageAction(this.GetCardSource(), null, null, damageAmount, damageType)
+                new DealDamageAction(this.GetCardSource(), null, null, (Card c) => damageAmount, damageType)
             );
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

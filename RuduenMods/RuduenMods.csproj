@@ -135,6 +135,7 @@
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ReliquaryCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ArcaneDetonationCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenPuppetCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCausalityCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfTransferrenceCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfSalvationCardController.cs" />
@@ -144,7 +145,7 @@
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedInstructionsCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderTurnTakerController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenEffigyCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\StrawEffigyCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ClayDollCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfIronCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfMercuryCharacterCardController.cs" />
