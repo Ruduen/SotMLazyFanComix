@@ -351,7 +351,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "One of your Targets deals themselves 2 Infernal Damage.",
-        "Reveal cards from the top of your deck until you reveal a Ritual. Put it in play or in your hand.",
+        "Reveal cards from the top of your deck until you reveal a copy of a Ritual not already in play. Put it in play.",
         "You may play a card."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],

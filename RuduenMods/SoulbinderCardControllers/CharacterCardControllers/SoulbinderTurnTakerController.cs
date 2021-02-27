@@ -51,7 +51,7 @@ namespace RuduenWorkshop.Soulbinder
             }
             else
             {
-                coroutine = this.GameController.MoveCards(this, heroCards, this.TurnTaker.InTheBox, isPutIntoPlay: true, cardSource: new CardSource(InstructionsCardController));
+                coroutine = this.GameController.MoveCards(this, heroCards, this.TurnTaker.OutOfGame, isPutIntoPlay: true, cardSource: new CardSource(InstructionsCardController));
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 

@@ -829,7 +829,38 @@
       }
     }
   ],
-  "DummiedSkyScraper": [
+  "UnusedSetback": [
+    {
+      "identifier": "SetbackCharacter",
+      "promoIdentifier": "SetbackRunOfLuckCharacter",
+      "count": 1,
+      "title": "Setback",
+      "promoTitle": "Setback - Run of Luck",
+      "body": [ "Run of Luck" ],
+      "character": true,
+      "backgroundColor": "DFE6E5",
+      "foilBackgroundColor": "DFE6E5",
+      "powers": "Add 1 token to your Unlucky pool. Move the top 2 cards of your deck under this card. If any pair of cards under this card do not share a keyword, play all of the cards under this card.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "PlayCardNow", "AddTokens" ],
+      "nemesisIdentifiers": [ "Setback" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "UnusedSkyScraper": [
     {
       "identifier": "SkyScraperNormalCharacter",
       "promoIdentifier": "SkyScraperConsistentNormalCharacter",

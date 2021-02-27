@@ -1384,6 +1384,26 @@ namespace RuduenModsTest
         }
 
         //[Test()]
+        //public void TestSetbackRunOfLuckNoMatch()
+        //{
+        //    SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackRunOfLuckCharacter", "Legacy", "Megalopolis");
+        //    Assert.IsTrue(setback.CharacterCard.IsPromoCard);
+
+        //    StartGame();
+        //    Card play = PutInHand("FriendlyFire");
+        //    Card[] top = new Card[] {
+        //        PutOnDeck("ExceededExpectations"),
+        //        PutOnDeck("HighRiskBehavior")
+        //    };
+
+        //    DecisionSelectCardToPlay = play;
+
+        //    QuickHandStorage(setback);
+        //    UsePower(setback);
+        //    AssertInTrash(top);
+        //}
+
+        //[Test()]
         //public void TestSkyScraper()
         //{
         //    SetupGameController("BaronBlade", "SkyScraper/RuduenWorkshop.SkyScraperConsistentNormalCharacter", "Megalopolis");

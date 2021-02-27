@@ -65,6 +65,8 @@ namespace RuduenModsTest
             AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
             AssertNotIncapacitatedOrOutOfGame(Soulbinder);
 
+            Assert.IsTrue(Soulbinder.HasMultipleCharacterCards);
+
         }
 
         [Test]
