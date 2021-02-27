@@ -42,7 +42,7 @@ namespace RuduenWorkshop.Soulbinder
                 // Only add tokens if the pool is valid, in case of some weird crossover. 
                 if (ritualPool != null)
                 {
-                    coroutine = this.GameController.AddTokensToPool(ritualPool, 1, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.AddTokensToPool(ritualPool, 2, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
 
