@@ -338,7 +338,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "Select one of your targets. It deals 1 target Infernal Damage equal to its current HP plus 2.",
-        "Then, destroy the selected target from the game."
+        "Then, destroy the selected target."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
