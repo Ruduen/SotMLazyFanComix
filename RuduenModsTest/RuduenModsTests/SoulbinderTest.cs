@@ -1,5 +1,4 @@
-﻿using Handelabra;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
@@ -66,7 +65,6 @@ namespace RuduenModsTest
             AssertNotIncapacitatedOrOutOfGame(Soulbinder);
 
             Assert.IsTrue(Soulbinder.HasMultipleCharacterCards);
-
         }
 
         [Test]
@@ -281,6 +279,7 @@ namespace RuduenModsTest
         #endregion Multi-Character and Incap Tests
 
         #region Character Triggers
+
         [Test]
         public void TestTriggerLightningBasic()
         {
@@ -296,7 +295,6 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             DealDamage(Soulshards[0], mdp, 3, DamageType.Melee);
             QuickHPCheck(-4);
-
         }
 
         [Test]
@@ -312,7 +310,7 @@ namespace RuduenModsTest
             GoToDrawCardPhase(Soulbinder);
             DestroyCard(Soulshards[0]);
 
-            // Soulshard of Mercury was played during the draw phase. 
+            // Soulshard of Mercury was played during the draw phase.
             // Note all phase actions are at +1 due to skipped play/power.
             AssertPhaseActionCount(3);
 
@@ -339,11 +337,12 @@ namespace RuduenModsTest
             QuickHPStorage(Soulshards[2]);
             DealDamage(Soulshards[2], Soulshards[2], 3, DamageType.Melee);
             QuickHPCheck(-2);
-
         }
+
         #endregion Character Triggers
 
         #region Powers Cards
+
         [Test]
         public void TestPowerBasic()
         {
@@ -360,7 +359,6 @@ namespace RuduenModsTest
             QuickHPStorage(Soulshards[1], mdp);
             UsePower(SoulbinderInstruction);
             QuickHPCheck(-1, -3);
-
         }
 
         [Test]
@@ -396,7 +394,7 @@ namespace RuduenModsTest
             UsePower(SoulbinderMortal);
             QuickHandCheck(1);
 
-            AssertTokenPoolCount(card.TokenPools.FirstOrDefault(), 2); // One removed from 4. 
+            AssertTokenPoolCount(card.TokenPools.FirstOrDefault(), 2); // One removed from 4.
         }
 
         [Test]
@@ -410,7 +408,6 @@ namespace RuduenModsTest
             StartGame(false);
 
             ResetDecisions();
-
 
             Card clay = PutInHand("ClayDoll");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
@@ -444,9 +441,9 @@ namespace RuduenModsTest
 
             QuickHandStorage(Soulbinder);
             PlayCard(wood);
-            QuickHandCheck(0); // 1 Played, Draw 1. 
+            QuickHandCheck(0); // 1 Played, Draw 1.
 
-            DealDamage(wood, wood, 4, DamageType.Melee);
+            DealDamage(wood, wood, 3, DamageType.Melee);
 
             ResetDecisions();
             QuickHPStorage(wood, mdp);
@@ -474,17 +471,18 @@ namespace RuduenModsTest
 
             QuickHandStorage(Soulbinder);
             PlayCard(straw);
-            QuickHandCheck(0); // 1 Played, Draw 1. 
-            DealDamage(straw, straw, 4, DamageType.Melee);
+            QuickHandCheck(0); // 1 Played, Draw 1.
+            DealDamage(straw, straw, 3, DamageType.Melee);
 
             QuickHPStorage(straw, mdp);
             UsePower(straw);
-            QuickHPCheck(3, -2);
+            QuickHPCheck(2, -2);
         }
 
-        #endregion Powers
+        #endregion Powers Cards
 
         #region Rituals
+
         [Test]
         public void TestCardRitualEndRemoved()
         {
@@ -524,7 +522,6 @@ namespace RuduenModsTest
             AssertInTrash(ritual);
         }
 
-
         [Test]
         public void TestCardRitualOfCausality()
         {
@@ -538,12 +535,12 @@ namespace RuduenModsTest
             ResetDecisions();
 
             Card ritual = PlayCard("RitualOfCausality");
-            Card[] plays = new Card[] { PutInHand("RitualOfCatastrophe"), PutInHand("RitualOfTransferrence"), PutInHand("RitualOfSalvation") };
+            Card[] plays = new Card[] { PutInHand("RitualOfCatastrophe"), PutInHand("RitualOfTransferrence") };
             DecisionSelectCards = plays;
 
             QuickHandStorage(Soulbinder);
             RemoveTokensFromPool(ritual.TokenPools[0], 4);
-            QuickHandCheck(0); // Draw 3, play 3 
+            QuickHandCheck(0); // Draw 2, play 2
             AssertIsInPlay(plays);
             AssertInTrash(ritual);
         }
@@ -593,7 +590,7 @@ namespace RuduenModsTest
             QuickHandStorage(Soulbinder, legacy, ra);
             RemoveTokensFromPool(ritual.TokenPools[0], 4);
             QuickHPCheck(3, 3, 3);
-            QuickHandCheck(2, 2, 2);
+            QuickHandCheck(1, 1, 1);
             AssertInTrash(ritual);
         }
 
@@ -652,22 +649,20 @@ namespace RuduenModsTest
 
             ResetDecisions();
 
-            Card[] playRituals = new Card[] { PutInHand("RitualOfCatastrophe"), PutInHand("RitualOfSalvation"), PutInHand("RitualOfTransferrence") };
+            Card[] playRituals = new Card[] { PutInHand("RitualOfCatastrophe"), PutInHand("RitualOfSalvation") };
 
             Card card = PlayCard("RitualComponents");
             Card ritual = PlayCard("RitualOfCausality");
             RemoveTokensFromPool(ritual.TokenPools[0], 1);
 
-            DecisionSelectCards = new Card[] { playRituals[0], playRituals[1], playRituals[2], playRituals[0], playRituals[1] };
+            DecisionSelectCards = new Card[] { playRituals[0], playRituals[1], playRituals[0] };
             UsePower(card);
             AssertInTrash(ritual);
             AssertIsInPlay(playRituals);
             // Power removed 1 again.
             AssertTokenPoolCount(playRituals[0].TokenPools[0], 2);
             AssertTokenPoolCount(playRituals[1].TokenPools[0], 2);
-            AssertTokenPoolCount(playRituals[2].TokenPools[0], 2);
         }
-
 
         [Test]
         public void TestCardRepeatedRitesOutsideTrigger()
@@ -691,7 +686,7 @@ namespace RuduenModsTest
             AssertInTrash(card);
             AssertIsInPlay(ritual);
             // Check tokens added.
-            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), 4);
+            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), 5);
         }
 
         [Test]
@@ -736,7 +731,6 @@ namespace RuduenModsTest
             DecisionSelectCards = Soulshards;
 
             StartGame(false);
-
 
             DecisionYesNo = true;
 
@@ -816,7 +810,6 @@ namespace RuduenModsTest
             QuickHPCheck(0, 1);
             AssertNotUsablePower(Soulbinder, SoulbinderInstruction);
         }
-
 
         [Test]
         public void TestCardFinalEruption()

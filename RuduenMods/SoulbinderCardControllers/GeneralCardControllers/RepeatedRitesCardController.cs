@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class RepeatedRitesCardController : CardController
     {
-
         public RepeatedRitesCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -39,7 +38,7 @@ namespace RuduenWorkshop.Soulbinder
                 coroutine = this.GameController.CancelAction(dca, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // Only add tokens if the pool is valid, in case of some weird crossover. 
+                // Only add tokens if the pool is valid, in case of some weird crossover.
                 if (ritualPool != null)
                 {
                     coroutine = this.GameController.AddTokensToPool(ritualPool, 2, cardSource: this.GetCardSource());

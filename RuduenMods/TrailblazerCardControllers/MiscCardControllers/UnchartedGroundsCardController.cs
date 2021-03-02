@@ -10,15 +10,16 @@ namespace RuduenWorkshop.Trailblazer
             : base(card, turnTakerController)
         {
         }
+
         public override IEnumerator Play()
         {
             IEnumerator coroutine;
 
-            // Shuffle Trash into Deck. 
+            // Shuffle Trash into Deck.
             coroutine = this.GameController.ShuffleTrashIntoDeck(this.DecisionMaker, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Reveal two positions, play one, shuffle the others. 
+            // Reveal two positions, play one, shuffle the others.
             coroutine = this.RevealCards_SelectSome_MoveThem_ReturnTheRest(this.DecisionMaker, this.DecisionMaker, this.TurnTaker.Deck, (Card c) => c.IsPosition, 2, 1, false, true, false, "positions");
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

@@ -21,7 +21,7 @@ namespace RuduenWorkshop.Soulbinder
             coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero, 3, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.DrawCards(new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame, "active heroes"), 2, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame, "active heroes"), 1, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

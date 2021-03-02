@@ -261,7 +261,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "{Trailblazer} deals each non-Hero Target and themselves 2 Fire Damage.",
-        "Destroy an Environment Card. If you do, draw a card.", 
+        "Destroy an Environment Card. If you do, draw a card.",
         "Destroy a Position. If you do, draw a card."
       ],
       "icons": [ "DealDamageFire", "DestroyEnvironment", "Destroy", "DrawCardNow" ],

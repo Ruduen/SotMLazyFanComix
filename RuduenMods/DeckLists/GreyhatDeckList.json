@@ -1,0 +1,118 @@
+﻿{
+  "name": "Greyhat",
+  "kind": "Hero",
+  "initialCardIdentifiers": [
+    "GreyhatCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "GreyhatCharacter",
+      "count": 1,
+      "title": "Greyhat",
+      "body": [ "Dial Up" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "Discard a card. Search your deck for a Link card and put it in hand. Shuffle your deck." ],
+      "icons": [
+        "HasPower",
+        "Discard",
+        "Manipulate",
+        "DrawCardNow"
+      ],
+      "hitpoints": 23,
+      "nemesisIdentifiers": [
+        "Greyhat"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Ah, another node to add."
+      },
+      "complexity": 2
+    },
+    {
+      "identifier": "CoercedUplink",
+      "count": 4,
+      "title": "Coerced Uplink",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to a non-Hero target.",
+        "When this card enters play, {Greyhat} deals that target 1 Lightning Damage and you may draw a card."
+      ],
+      "icons": [ "DamageLightning", "DrawCardNow" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "DigitalUplink",
+      "count": 4,
+      "title": "Digital Uplink",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to a Hero other than {Greyhat}.",
+        "When this card enters play, that Hero may use a power and you may draw a card."
+      ],
+      "icons": [ "UsePowerNow", "DrawCardNow" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "DirectControl",
+      "count": 3,
+      "title": "Direct Control",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Greyhat} and each Hero with a Link in their play area uses a power.",
+        "Each non-Hero Target next to a Link deals themselves 3 Energy damage."
+      ],
+      "icons": [ "UsePowerNow", "DrawCardNow" ],
+      "flavorQuotes": [
+      ]
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "GreyhatCharacter",
+      "promoIdentifier": "GreyhatWhiteNoiseCharacter",
+      "count": 1,
+      "title": "Greyhat",
+      "body": [ "White Noise" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "Draw a card. One target next to a Link deals 1 Target 1 Sonic Damage." ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "DealDamageSonic"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "Greyhat"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "This place's aura is unique. I won't have you disturbing it."
+      },
+      "complexity": 2
+    }
+  ]
+}

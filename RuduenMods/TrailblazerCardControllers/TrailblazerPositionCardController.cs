@@ -16,7 +16,7 @@ namespace RuduenWorkshop.Trailblazer
             IEnumerator coroutine;
 
             // Destroy all other positions.
-            // Should there be a position check? It's probably fine, but the official source has one. 
+            // Should there be a position check? It's probably fine, but the official source has one.
             coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsPosition && c != this.Card, "position"), false, selectionType: SelectionType.DestroyCard, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

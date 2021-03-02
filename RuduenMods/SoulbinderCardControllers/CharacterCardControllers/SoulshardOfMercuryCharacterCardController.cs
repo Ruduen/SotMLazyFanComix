@@ -10,7 +10,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class SoulshardOfMercuryCharacterCardController : SoulbinderSharedMultiCharacterCardController
     {
-
         public SoulshardOfMercuryCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -33,7 +32,7 @@ namespace RuduenWorkshop.Soulbinder
 
         public override IEnumerator BeforeFlipCardImmediateResponse(FlipCardAction flip)
         {
-            // Remove normal trigger if appropriate, since normally this is only handled by the destruction/removal of the card. 
+            // Remove normal trigger if appropriate, since normally this is only handled by the destruction/removal of the card.
             IEnumerator coroutine;
             coroutine = this.ReducePhaseActionCountIfInPhase((TurnTaker tt) => tt == this.TurnTaker, Phase.DrawCard, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -41,6 +40,5 @@ namespace RuduenWorkshop.Soulbinder
             coroutine = base.BeforeFlipCardImmediateResponse(flip);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

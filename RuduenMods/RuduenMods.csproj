@@ -67,6 +67,12 @@
     <Compile Include="BreachMageCardControllers\BreachMageCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageTurnTakerController.cs" />
     <Compile Include="CassieCardControllers\CassieEssenceFlowCharacterCardController.cs" />
+    <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\DirectControlCardController.cs" />
+    <Compile Include="GreyhatCardControllers\GreyhatCharacterCardController.cs" />
+    <Compile Include="GreyhatCardControllers\LinkCardControllers\DigitalUplinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\LinkCardControllers\CoercedUplinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
     <Compile Include="RuduenFlippableCardController.cs" />
     <Compile Include="CassieCardControllers\CassieCharacterCardController.cs" />
     <Compile Include="CassieCardControllers\CassieRiverSharedCardController.cs" />
@@ -224,6 +230,7 @@
     <EmbeddedResource Include="DeckLists\SpellforgeDeckList.json" />
     <EmbeddedResource Include="DeckLists\TrailblazerDeckList.json" />
     <EmbeddedResource Include="DeckLists\SoulbinderDeckList.json" />
+    <EmbeddedResource Include="DeckLists\GreyhatDeckList.json" />
     <None Include="manifest.json" />
   </ItemGroup>
   <ItemGroup />

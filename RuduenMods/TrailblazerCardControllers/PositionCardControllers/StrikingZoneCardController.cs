@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Trailblazer
     // TODO: TEST!
     public class StrikingZoneCardController : TrailblazerPositionCardController
     {
-
         public StrikingZoneCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -17,7 +16,7 @@ namespace RuduenWorkshop.Trailblazer
 
         public override void AddTriggers()
         {
-            // Increase the first damage by Trailblazer each turn by 2. 
+            // Increase the first damage by Trailblazer each turn by 2.
             this.AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.IsSameCard(this.CharacterCard), 1);
         }
 

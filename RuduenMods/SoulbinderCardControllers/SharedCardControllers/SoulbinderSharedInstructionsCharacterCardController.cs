@@ -12,6 +12,7 @@ namespace RuduenWorkshop.Soulbinder
     public abstract class SoulbinderSharedInstructionsCharacterCardController : PromoDefaultCharacterCardController
     {
         private string[] ShardIdentifiers { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
+
         public SoulbinderSharedInstructionsCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -21,7 +22,7 @@ namespace RuduenWorkshop.Soulbinder
         {
             if (!this.Card.IsFlipped)
             {
-                // Flip if all chars are flipped. 
+                // Flip if all chars are flipped.
                 this.AddSideTrigger(
                     this.AddTrigger<GameAction>(
                         (GameAction ga) => (ga is FlipCardAction || ga is BulkRemoveTargetsAction || ga is MoveCardAction) && !this.Card.IsFlipped && this.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.IsHeroCharacterCard && c.IsActive && c != base.Card, false, null, false).Count() == 0,
@@ -29,7 +30,7 @@ namespace RuduenWorkshop.Soulbinder
                         TriggerType.FlipCard, TriggerTiming.After
                     )
                 );
-                // General logic for flipping when incapping a relic. 
+                // General logic for flipping when incapping a relic.
                 this.AddSideTrigger(
                     this.AddTrigger<FlipCardAction>(
                         (FlipCardAction fca) => fca.CardToFlip.Card.Owner == this.TurnTaker && ShardIdentifiers.Contains(fca.CardToFlip.Card.Identifier) && !fca.CardToFlip.Card.IsFlipped,
@@ -40,7 +41,7 @@ namespace RuduenWorkshop.Soulbinder
             }
             else
             {
-                // Restore when unflipping. 
+                // Restore when unflipping.
                 this.AddSideTriggers(
                     this.AddTargetEntersPlayTrigger(
                         (Card c) => this.Card.IsFlipped && this.CharacterCards.Contains(c),
@@ -66,6 +67,5 @@ namespace RuduenWorkshop.Soulbinder
             this.AddSideTriggers();
             yield break;
         }
-
     }
 }

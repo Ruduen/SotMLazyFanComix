@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System;
-using Handelabra;
+﻿using Handelabra;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
@@ -12,6 +12,7 @@ namespace RuduenWorkshop.Soulbinder
     {
         private CharacterCardController _instructions = null;
         private Boolean _initializeDone = false;
+
         private CharacterCardController InstructionsCardController
         {
             get
@@ -27,6 +28,7 @@ namespace RuduenWorkshop.Soulbinder
                 return this._instructions;
             }
         }
+
         private string[] ShardIdentifiers { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
 
         public SoulbinderTurnTakerController(TurnTaker tt, GameController gc) : base(tt, gc)
@@ -35,12 +37,11 @@ namespace RuduenWorkshop.Soulbinder
 
         public override IEnumerator StartGame()
         {
-
             IEnumerator coroutine;
 
             _initializeDone = true;
 
-            // Base character card means no promo identifier. 
+            // Base character card means no promo identifier.
 
             IEnumerable<Card> heroCards = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.Identifier == "SoulbinderMortalFormCharacter");
 
@@ -59,14 +60,14 @@ namespace RuduenWorkshop.Soulbinder
             coroutine = this.GameController.SelectCardFromLocationAndMoveIt(this, this.HeroTurnTaker.OffToTheSide, new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && ShardIdentifiers.Contains(c.Identifier), "soulshard"), new List<MoveCardDestination> { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: new CardSource(InstructionsCardController));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // For remaining cards, incapacitate and move into play. 
+            // For remaining cards, incapacitate and move into play.
             IEnumerable<CardController> ssCardControllers = this.GameController.FindCardControllersWhere((Card c) => c.Owner == this.TurnTaker && c.Location == this.HeroTurnTaker.OffToTheSide && ShardIdentifiers.Contains(c.Identifier));
 
             // Move remaining cards under the instruction card.
             coroutine = this.GameController.MoveCards(this, ssCardControllers.Select((CardController cc) => cc.Card), InstructionsCardController.Card.UnderLocation, cardSource: new CardSource(InstructionsCardController));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
+
         public override Card CharacterCard
         {
             get
@@ -103,6 +104,7 @@ namespace RuduenWorkshop.Soulbinder
                 return base.IsIncapacitated;
             }
         }
+
         public override bool IsIncapacitatedOrOutOfGame
         {
             get

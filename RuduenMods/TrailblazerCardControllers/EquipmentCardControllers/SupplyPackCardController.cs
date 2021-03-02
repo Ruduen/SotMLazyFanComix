@@ -7,11 +7,13 @@ namespace RuduenWorkshop.Trailblazer
     public class SupplyPackCardController : CardController
     {
         private const string _FirstPositionPlayedThisTurn = "FirstPositionPlayedThisTurn";
+
         public SupplyPackCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
             this.SpecialStringMaker.ShowHasBeenUsedThisTurn(_FirstPositionPlayedThisTurn, "A Position has already been played this turn.", "A Position has not yet been played this turn.");
         }
+
         public override void AddTriggers()
         {
             this.AddTrigger<CardEntersPlayAction>((CardEntersPlayAction cepa) => !this.IsPropertyTrue(_FirstPositionPlayedThisTurn) && cepa.CardEnteringPlay.IsPosition && cepa.CardEnteringPlay.Owner == this.HeroTurnTaker, ResponseAction, TriggerType.UsePower, TriggerTiming.After);
@@ -19,7 +21,6 @@ namespace RuduenWorkshop.Trailblazer
 
         protected IEnumerator ResponseAction(CardEntersPlayAction cepa)
         {
-
             this.SetCardPropertyToTrueIfRealAction(_FirstPositionPlayedThisTurn);
 
             // All of the relevant ownership means the positions should only have 1 power, so we can skip more complex handling.

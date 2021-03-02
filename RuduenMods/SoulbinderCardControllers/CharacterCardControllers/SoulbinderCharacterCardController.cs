@@ -22,7 +22,7 @@ namespace RuduenWorkshop.Soulbinder
         {
             List<int> numerals = new List<int>(){
                             this.GetPowerNumeral(0, 1),   // Number of Targets
-                            this.GetPowerNumeral(1, 3),   // Damage. 
+                            this.GetPowerNumeral(1, 3),   // Damage.
                             this.GetPowerNumeral(2, 1)    // Damage to deal.
             };
             List<Card> target = new List<Card>();
@@ -42,7 +42,6 @@ namespace RuduenWorkshop.Soulbinder
                 // Deals themselves 1 damage.
                 coroutine = this.GameController.DealDamageToTarget(targetSource, target.FirstOrDefault(), (Card c) => numerals[2], DamageType.Infernal, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             }
         }
 
@@ -61,8 +60,6 @@ namespace RuduenWorkshop.Soulbinder
                 storedResults.Add(storedDecision.FirstOrDefault().SelectedCard);
             }
         }
-
-
 
         // TODO: Replace Incap with something more unique!
     }

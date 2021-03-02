@@ -9,6 +9,5 @@ namespace RuduenWorkshop.Trailblazer
             : base(card, turnTakerController)
         {
         }
-
     }
 }

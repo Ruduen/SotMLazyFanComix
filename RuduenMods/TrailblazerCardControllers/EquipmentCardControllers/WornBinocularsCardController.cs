@@ -13,6 +13,7 @@ namespace RuduenWorkshop.Trailblazer
         {
             this.GameController.AddCardControllerToList(CardControllerListType.IncreasePhaseActionCount, this);
         }
+
         public override void AddTriggers()
         {
             this.AddAdditionalPhaseActionTrigger((TurnTaker tt) => this.ShouldIncreasePhaseActionCount(tt), Phase.UsePower, 1);
@@ -24,6 +25,7 @@ namespace RuduenWorkshop.Trailblazer
             IEnumerator coroutine = base.IncreasePhaseActionCountIfInPhase((TurnTaker tt) => tt == base.TurnTaker, Phase.UsePower, 1, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         protected IEnumerator ResponseAction(UsePowerAction upa)
         {
             List<SelectLocationDecision> storedResults = new List<SelectLocationDecision>();

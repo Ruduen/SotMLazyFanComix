@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class BlindBeckoningCardController : SoulbinderSharedYourTargetDamageCardController
     {
-
         public BlindBeckoningCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -38,6 +37,5 @@ namespace RuduenWorkshop.Soulbinder
             coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

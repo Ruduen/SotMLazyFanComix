@@ -136,7 +136,7 @@
       "title": "Reliquary",
       "keywords": [ "equipment", "relic", "limited" ],
       "body": [
-        "When this card enters play, you may may put a card from under your Instructions card into play.",
+        "When this card enters play, you may put a card from under your Instructions card into play.",
         "When one of your characters would be destroyed, you may instead restore it to 6 HP and destroy this card."
       ],
       "icons": [ "PlayCardNow", "GainHP", "DestroySelf" ],
@@ -147,7 +147,7 @@
       "identifier": "ClayDoll",
       "count": 4,
       "title": "Clay Doll",
-      "hitpoints": 5,
+      "hitpoints": 4,
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may draw a card or play a card." ],
       "powers": [ "Select 1 Target. Each of your Targets deals that Target 1 Melee Damage." ],
@@ -159,10 +159,10 @@
       "identifier": "WoodenPuppet",
       "count": 4,
       "title": "Wooden Puppet",
-      "hitpoints": 5,
+      "hitpoints": 4,
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may draw a card or play a card." ],
-      "powers": [ "Each Hero target regains 1 HP. One of your targets deals each non-Hero target 1 Infernal Damage." ],
+      "powers": [ "Each of your Hero targets regains 1 HP. One of your targets deals each non-Hero target 1 Infernal Damage." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal", "GainHP" ],
       "flavorQuotes": [
       ]
@@ -171,7 +171,7 @@
       "identifier": "StrawEffigy",
       "count": 4,
       "title": "Straw Effigy",
-      "hitpoints": 5,
+      "hitpoints": 4,
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may draw a card or play a card." ],
       "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP." ],
@@ -210,7 +210,7 @@
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
         "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, each Hero target regains 3 HP and each player draws 2 cards. Then, destroy this card."
+        "When the last token is removed from this, each Hero target regains 3 HP and each player draws a card. Then, destroy this card."
       ],
       "tokenPools": [
         {
@@ -256,7 +256,7 @@
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
         "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, draw 3 cards and play up to 3 cards. Then, destroy this card."
+        "When the last token is removed from this, draw 2 cards and play up to 2 cards. Then, destroy this card."
       ],
       "tokenPools": [
         {

@@ -99,8 +99,8 @@ namespace RuduenModsTest
             AssertNextMessages("There are no Positions in play, so Trailblazer cannot make any indestructible.", "There are no position cards for Vantage Point to destroy.");
             UsePower(Trailblazer);
             AssertIsInPlay(play);
-
         }
+
         #region Positions
 
         [Test()]
@@ -122,12 +122,12 @@ namespace RuduenModsTest
 
             AssertIsInPlay(positions[0]);
 
-            // Destroys other Position. 
+            // Destroys other Position.
             PlayCard(positions[1]);
             AssertIsInPlay(positions[1]);
             AssertInTrash(positions[0]);
 
-            // Destroys same Position. 
+            // Destroys same Position.
             PlayCard(positions[2]);
             AssertIsInPlay(positions[2]);
             AssertInTrash(positions[1]);
@@ -159,7 +159,7 @@ namespace RuduenModsTest
             GoToUsePowerPhase(Trailblazer);
             UsePower(play);
             GoToDrawCardPhase(Trailblazer);
-            QuickHandCheck(2); // Legacy drew 2. 
+            QuickHandCheck(2); // Legacy drew 2.
             AssertPhaseActionCount(2); // 2 Draws for Trailblazer on turn.
         }
 
@@ -183,8 +183,8 @@ namespace RuduenModsTest
             DealDamage(baron.CharacterCard, Trailblazer.CharacterCard, 3, DamageType.Melee);
             DealDamage(baron.CharacterCard, Trailblazer.CharacterCard, 3, DamageType.Melee);
             QuickHPCheck(2 - 1 - 3, 2); // Fixer just heals 2. Trailblazer Healed 2, but took 1 and 3 damage.
-
         }
+
         [Test()]
         public void TestPositionStrikingZone()
         {
@@ -205,9 +205,9 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             PlayCard(play);
             UsePower(play);
-            QuickHPCheck(-2); // Base 1, increased by 1. 
-
+            QuickHPCheck(-2); // Base 1, increased by 1.
         }
+
         #endregion Positions
 
         #region OnPositionPlay
@@ -255,11 +255,10 @@ namespace RuduenModsTest
             DecisionSelectTurnTaker = legacy.TurnTaker;
 
             PlayCard(position);
-            AssertNotUsablePower(Trailblazer, position); // Power used. 
+            AssertNotUsablePower(Trailblazer, position); // Power used.
             PutInHand(position);
             PlayCard(position);
-            AssertUsablePower(Trailblazer, position); // Power refreshed and unused. 
-
+            AssertUsablePower(Trailblazer, position); // Power refreshed and unused.
         }
 
         [Test()]
@@ -288,7 +287,7 @@ namespace RuduenModsTest
             UsePower(position);
             AssertOnTopOfDeck(revealedCard);
 
-            // Move BB's top card to the bottom. 
+            // Move BB's top card to the bottom.
             PutInHand(position);
             PlayCard(position);
             UsePower(position);
@@ -313,9 +312,11 @@ namespace RuduenModsTest
             PlayCard("WornBinoculars");
             AssertPhaseActionCount(2);
         }
+
         #endregion OnPositionPlay
 
         #region OnPositionDestroy
+
         [Test()]
         public void TestOnPositionDestroyRapidRepositioning()
         {
@@ -353,7 +354,6 @@ namespace RuduenModsTest
             Card position = PutInHand("VantagePoint");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-
             DecisionSelectCards = new Card[] { mdp, baron.CharacterCard };
 
             PlayCard("PartingGift");
@@ -362,7 +362,6 @@ namespace RuduenModsTest
             PlayCard(position);
             DestroyCard(position);
             QuickHPCheck(-1);
-
         }
 
         #endregion OnPositionDestroy
@@ -394,6 +393,7 @@ namespace RuduenModsTest
             UsePower(power);
             QuickHPCheck(-3); // One token, two bonus tokens.
         }
+
         [Test()]
         public void TestUngroupedLeadTheWay()
         {
@@ -428,7 +428,7 @@ namespace RuduenModsTest
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
             PlayCard("UnchartedGrounds");
-            AssertNumberOfCardsAtLocation(Trailblazer.TurnTaker.PlayArea, 2); // Confirm character card + position is now in play. 
+            AssertNumberOfCardsAtLocation(Trailblazer.TurnTaker.PlayArea, 2); // Confirm character card + position is now in play.
             // MDP should be damaged. Can't use specific number in case the played card boosted damage.
             Assert.AreNotEqual(mdp.HitPoints, 10);
         }
@@ -452,7 +452,6 @@ namespace RuduenModsTest
             AssertNotUsablePower(Trailblazer, Trailblazer.CharacterCard);
             AssertNotUsablePower(legacy, legacy.CharacterCard);
             AssertInTrash(destroyed);
-
         }
 
         [Test()]
@@ -470,9 +469,8 @@ namespace RuduenModsTest
 
             QuickHandStorage(legacy);
             PlayCard("TacticalWithdrawl");
-            QuickHandCheck(4); // 4 Cards from using power twice. 
+            QuickHandCheck(4); // 4 Cards from using power twice.
             AssertInTrash(position);
-
         }
 
         [Test()]
@@ -488,8 +486,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(Trailblazer);
             PlayCard("TacticalWithdrawl");
-            QuickHandCheck(0); // No Change. 
-
+            QuickHandCheck(0); // No Change.
         }
 
         [Test()]
@@ -503,7 +500,6 @@ namespace RuduenModsTest
 
             StartGame();
 
-
             Card position = PlayCard("VantagePoint");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             PlayCard("ImpendingCasualty");
@@ -511,7 +507,7 @@ namespace RuduenModsTest
             QuickHandStorage(Trailblazer);
             QuickHPStorage(mdp, Trailblazer.CharacterCard);
             PlayCard("TrailOfAshes");
-            QuickHandCheck(2); // Draws. 
+            QuickHandCheck(2); // Draws.
             AssertInTrash(position);
             QuickHPCheck(-2, -2);
         }
@@ -532,7 +528,7 @@ namespace RuduenModsTest
             QuickHandStorage(Trailblazer);
             QuickHPStorage(mdp, Trailblazer.CharacterCard);
             PlayCard("TrailOfAshes");
-            QuickHandCheck(0); // No Draws. 
+            QuickHandCheck(0); // No Draws.
             QuickHPCheck(-2, -2);
         }
 

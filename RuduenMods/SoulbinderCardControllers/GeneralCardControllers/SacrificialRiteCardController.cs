@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class SacrificialRiteCardController : SoulbinderSharedYourTargetDamageCardController
     {
-
         public SacrificialRiteCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -24,7 +23,7 @@ namespace RuduenWorkshop.Soulbinder
             coroutine = this.SelectYourTargetToDealDamage(targetList, 2, DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (targetList.Count > 0 )
+            if (targetList.Count > 0)
             {
                 // That target deals another 3 damage.
                 coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
@@ -59,6 +58,5 @@ namespace RuduenWorkshop.Soulbinder
             }
             yield break;
         }
-
     }
 }

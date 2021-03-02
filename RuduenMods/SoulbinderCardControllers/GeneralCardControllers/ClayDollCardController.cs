@@ -9,8 +9,8 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class ClayDollCardController : CardController
     {
-
         private readonly List<Card> _actedTargets = new List<Card>();
+
         public ClayDollCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -40,7 +40,7 @@ namespace RuduenWorkshop.Soulbinder
         private IEnumerator TargetSelectedResponse(SelectCardDecision scdTarget, int damageAmount)
         {
             // Each source deals damage to the selected target.
-            SelectCardsDecision scdTargets = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsTarget && c.IsInPlayAndNotUnderCard && c.Owner == this.HeroTurnTaker, SelectionType.CardToDealDamage, null, false, null, true, true, false, ()=>NumTargetsToDamage(scdTarget.SelectedCard), null, null, null, this.GetCardSource());
+            SelectCardsDecision scdTargets = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsTarget && c.IsInPlayAndNotUnderCard && c.Owner == this.HeroTurnTaker, SelectionType.CardToDealDamage, null, false, null, true, true, false, () => NumTargetsToDamage(scdTarget.SelectedCard), null, null, null, this.GetCardSource());
             IEnumerator coroutine = this.GameController.SelectCardsAndDoAction(scdTargets, (SelectCardDecision scd) => this.TargetDamageResponse(scd, scdTarget, damageAmount), null, null, this.GetCardSource(), null, false, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -49,7 +49,7 @@ namespace RuduenWorkshop.Soulbinder
 
         private int NumTargetsToDamage(Card target)
         {
-            // I we should ever stop, drop this to 0. 
+            // If we should ever stop, drop this to 0.
             if (!this.Card.IsIncapacitatedOrOutOfGame && !target.IsBeingDestroyed && target.Location.IsInPlay)
             {
                 int num = this.GameController.FindCardsWhere((Card c) => c.IsTarget && c.IsInPlayAndNotUnderCard && c.Owner == this.HeroTurnTaker).Except(_actedTargets).Count<Card>();
@@ -66,6 +66,5 @@ namespace RuduenWorkshop.Soulbinder
             IEnumerator coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, selectedCard), selectedTarget, damageAmount, DamageType.Melee, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

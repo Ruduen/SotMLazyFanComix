@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class FinalEruptionCardController : SoulbinderSharedYourTargetDamageCardController
     {
-
         public FinalEruptionCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -37,6 +36,5 @@ namespace RuduenWorkshop.Soulbinder
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
     }
 }

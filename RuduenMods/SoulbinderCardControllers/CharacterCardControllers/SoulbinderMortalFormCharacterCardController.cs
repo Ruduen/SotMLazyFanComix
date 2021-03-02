@@ -11,7 +11,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class SoulbinderMortalFormCharacterCardController : SoulbinderSharedMultiCharacterCardController
     {
-
         protected string[] ShardIdentifiers { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
 
         public SoulbinderMortalFormCharacterCardController(Card card, TurnTakerController turnTakerController)

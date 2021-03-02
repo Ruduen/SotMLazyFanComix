@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class WoodenPuppetCardController : SoulbinderSharedYourTargetDamageCardController
     {
-
         public WoodenPuppetCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -33,8 +32,8 @@ namespace RuduenWorkshop.Soulbinder
             List<Card> targetList = new List<Card>();
             IEnumerator coroutine;
 
-            // Each Hero Target regains 1 HP.  
-            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero, powerNumerals[0], cardSource: this.GetCardSource());
+            // Each of your Hero Targets regains 1 HP.
+            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero && c.Owner == this.TurnTaker, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Select target.
@@ -46,7 +45,6 @@ namespace RuduenWorkshop.Soulbinder
                 // That target deals 1 each non-Hero 1 Infernal Damage
                 coroutine = this.GameController.DealDamage(this.DecisionMaker, targetList.FirstOrDefault(), (Card c) => !c.IsHero, powerNumerals[1], DamageType.Infernal, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             }
         }
     }

@@ -10,11 +10,11 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class SoulshardOfLightningCharacterCardController : SoulbinderSharedMultiCharacterCardController
     {
-
         public SoulshardOfLightningCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
+
         public override void AddSideTriggers()
         {
             if (!this.CardWithoutReplacements.IsFlipped)
@@ -22,6 +22,5 @@ namespace RuduenWorkshop.Soulbinder
                 this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.IsSameCard(this.Card) && !dda.Target.IsHero, 1);
             }
         }
-
     }
 }

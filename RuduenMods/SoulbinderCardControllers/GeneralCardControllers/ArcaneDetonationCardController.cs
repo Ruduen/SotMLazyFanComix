@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class ArcaneDetonationCardController : SoulbinderSharedYourTargetDamageCardController
     {
-
         public ArcaneDetonationCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -24,7 +23,7 @@ namespace RuduenWorkshop.Soulbinder
             coroutine = this.SelectYourTargetToDealDamage(targetList, 3, DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (targetList.Count > 0 )
+            if (targetList.Count > 0)
             {
                 // That target deals all others 3 Infernal damage.
                 coroutine = this.GameController.DealDamage(this.DecisionMaker, targetList.FirstOrDefault(), (Card c) => !c.IsHero, 3, DamageType.Infernal, cardSource: this.GetCardSource());
@@ -35,6 +34,5 @@ namespace RuduenWorkshop.Soulbinder
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
     }
 }

@@ -32,7 +32,7 @@ namespace RuduenWorkshop.Trailblazer
 
             // Deal 1 projectile damage.
 
-            // You may play a position. 
+            // You may play a position.
             coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardCriteria: new LinqCardCriteria((Card c) => c.IsPosition), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

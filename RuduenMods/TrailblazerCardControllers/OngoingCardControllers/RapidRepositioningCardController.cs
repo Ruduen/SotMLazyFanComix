@@ -9,6 +9,7 @@ namespace RuduenWorkshop.Trailblazer
     public class RapidRepositioningCardController : CardController
     {
         private const string _FirstEnvironmentPlayedThisTurn = "_FirstEnvironmentPlayedThisTurn";
+
         public RapidRepositioningCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -26,7 +27,7 @@ namespace RuduenWorkshop.Trailblazer
             IEnumerator coroutine;
             List<DestroyCardAction> dcaResults = new List<DestroyCardAction>();
 
-            // You may destroy a Position. If you do, play a card. 
+            // You may destroy a Position. If you do, play a card.
             coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsPosition), true, dcaResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -36,6 +37,5 @@ namespace RuduenWorkshop.Trailblazer
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
     }
 }

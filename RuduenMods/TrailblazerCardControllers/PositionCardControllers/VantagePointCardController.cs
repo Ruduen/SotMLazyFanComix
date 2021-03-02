@@ -39,10 +39,11 @@ namespace RuduenWorkshop.Trailblazer
                 this.GetPowerNumeral(0, 2)
             };
 
-            // Another player draws 2 cards. 
+            // Another player draws 2 cards.
             coroutine = this.GameController.SelectTurnTakersAndDoAction(this.DecisionMaker, new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && tt.IsHero && tt != this.TurnTaker), SelectionType.DrawCard, (TurnTaker tt) => this.GameController.DrawCards(this.GameController.FindHeroTurnTakerController(tt.ToHero()), powerNumerals[0], cardSource: this.GetCardSource()), 1, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         private bool ShouldIncreasePhaseActionCount(TurnTaker tt)
         {
             return tt == this.HeroTurnTaker;

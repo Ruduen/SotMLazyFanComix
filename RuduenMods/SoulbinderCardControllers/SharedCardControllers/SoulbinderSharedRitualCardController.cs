@@ -24,6 +24,7 @@ namespace RuduenWorkshop.Soulbinder
         }
 
         protected abstract TriggerType[] RitualTriggerTypes { get; }
+
         public SoulbinderSharedRitualCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -40,7 +41,6 @@ namespace RuduenWorkshop.Soulbinder
 
         public override IEnumerator Play()
         {
-
             IEnumerator coroutine;
 
             coroutine = ResetTokenValue();
@@ -66,7 +66,6 @@ namespace RuduenWorkshop.Soulbinder
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-
         private IEnumerator RitualCompleteInitialResponse(RemoveTokensFromPoolAction rtfpa)
         {
             IEnumerator coroutine;
@@ -82,6 +81,5 @@ namespace RuduenWorkshop.Soulbinder
         }
 
         protected abstract IEnumerator RitualCompleteResponse();
-
     }
 }

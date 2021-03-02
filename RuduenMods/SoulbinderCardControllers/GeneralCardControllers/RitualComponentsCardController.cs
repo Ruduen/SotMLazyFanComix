@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class RitualComponentsCardController : CardController
     {
-
         public RitualComponentsCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -17,7 +16,6 @@ namespace RuduenWorkshop.Soulbinder
 
         public override IEnumerator UsePower(int index = 0)
         {
-
             IEnumerator coroutine;
             List<Card> actedTargets = new List<Card>();
             // Select target to deal damage to.
@@ -53,7 +51,6 @@ namespace RuduenWorkshop.Soulbinder
             }
         }
 
-
         private IEnumerator RemoveTokenEachResponse(SelectCardDecision scd, List<Card> actedTargets, int numeral)
         {
             if (scd.SelectedCard != null)
@@ -63,6 +60,7 @@ namespace RuduenWorkshop.Soulbinder
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
+
         private int NumRitualsToRemoveToken(List<Card> actedTargets)
         {
             if (!this.TurnTaker.IsIncapacitatedOrOutOfGame)
@@ -73,7 +71,6 @@ namespace RuduenWorkshop.Soulbinder
             return 0;
         }
 
-
         private IEnumerator RemoveTokenResponse(SelectCardDecision scd, int number)
         {
             if (scd.SelectedCard != null)
@@ -83,7 +80,5 @@ namespace RuduenWorkshop.Soulbinder
             }
             yield break;
         }
-
-
     }
 }

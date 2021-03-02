@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class KeystoneOfSpiritCardController : CardController
     {
-
         public KeystoneOfSpiritCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -26,6 +25,5 @@ namespace RuduenWorkshop.Soulbinder
             coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

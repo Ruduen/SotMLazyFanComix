@@ -43,6 +43,7 @@
     <Compile Include="RuduenModsTests\BreachMageTest.cs" />
     <Compile Include="RuduenModsTests\HeroPromosTest.cs" />
     <Compile Include="RuduenModsTests\SoulbinderTest.cs" />
+    <Compile Include="RuduenModsTests\GreyhatTest.cs" />
     <Compile Include="RuduenModsTests\TrailblazerTest.cs" />
     <Compile Include="RuduenModsTests\SpellforgeTest.cs" />
     <Compile Include="RuduenModsTests\InquirerTest.cs" />

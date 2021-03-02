@@ -7,6 +7,7 @@ namespace RuduenWorkshop.Trailblazer
     public class WastelandWandererCardController : CardController
     {
         private TokenPool _tokenPool;
+
         public WastelandWandererCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -26,10 +27,11 @@ namespace RuduenWorkshop.Trailblazer
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), GetTokenPool().CurrentValue, DamageType.Fire, 1, false, 1, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Clear values for future uses. 
+            // Clear values for future uses.
             coroutine = this.ResetTokenValue();
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         public override IEnumerator Play()
         {
             IEnumerator coroutine = this.ResetTokenValue();
@@ -53,6 +55,7 @@ namespace RuduenWorkshop.Trailblazer
             IEnumerator coroutine = this.GameController.AddTokensToPool(GetTokenPool(), 1, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         public IEnumerator ResetTokenValue()
         {
             GetTokenPool().SetToInitialValue();
