@@ -149,7 +149,7 @@
       "title": "Clay Doll",
       "hitpoints": 4,
       "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may draw a card or play a card." ],
+      "body": [ "When this card enters play, you may play a one-shot." ],
       "powers": [ "Select 1 Target. Each of your Targets deals that Target 1 Melee Damage." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageMelee" ],
       "flavorQuotes": [
@@ -161,7 +161,7 @@
       "title": "Wooden Puppet",
       "hitpoints": 4,
       "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may draw a card or play a card." ],
+      "body": [ "When this card enters play, you may play a one-shot." ],
       "powers": [ "Each of your Hero targets regains 1 HP. One of your targets deals each non-Hero target 1 Infernal Damage." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal", "GainHP" ],
       "flavorQuotes": [
@@ -173,7 +173,7 @@
       "title": "Straw Effigy",
       "hitpoints": 4,
       "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may draw a card or play a card." ],
+      "body": [ "When this card enters play, you may play a one-shot." ],
       "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageToxic", "GainHP" ],
       "flavorQuotes": [
@@ -256,7 +256,7 @@
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
         "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, draw 2 cards and play up to 2 cards. Then, destroy this card."
+        "When the last token is removed from this, draw 3 cards and play up to 2 cards. Then, destroy this card."
       ],
       "tokenPools": [
         {
@@ -350,9 +350,8 @@
       "title": "Blind Beckoning",
       "keywords": [ "one-shot" ],
       "body": [
-        "One of your Targets deals themselves 2 Infernal Damage.",
         "Reveal cards from the top of your deck until you reveal a copy of a Ritual not already in play. Put it in play.",
-        "You may play a card."
+        "One of your Targets deals 1 target and themselves Infernal Damage equal to the number of Rituals in play."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [

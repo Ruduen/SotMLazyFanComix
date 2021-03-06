@@ -56,6 +56,140 @@ namespace RuduenModsTest
             AssertNumberOfCardsInTrash(Greyhat, 1);
         }
 
+        #region Devices
+
+        [Test()]
+        public void TestDeviceDeployedRelay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            Card allyLink = PutInHand("DigitalUplink");
+            Card enemyLink = PutInTrash("CoercedUplink");
+
+            DecisionSelectCards = new Card[] { allyLink, enemyLink, baron.CharacterCard };
+
+            Card device = PlayCard("DeployedRelay");
+            UsePower(device);
+            AssertIsInPlay(allyLink);
+            GoToEndOfTurn(Greyhat);
+            AssertIsInPlay(enemyLink);
+        }
+
+        [Test()]
+        public void TestDeviceInstantFirewall()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+            Card device = PlayCard("InstantFirewall");
+
+            DecisionSelectTarget = mdp;
+            UsePower(device);
+            AssertHitPoints(mdp, 7);
+            GoToEndOfTurn(Greyhat);
+            AssertHitPoints(mdp, 6);
+        }
+
+        [Test()]
+        public void TestDeviceProxyPod()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            GoToPlayCardPhase(Greyhat);
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+            Card device = PlayCard("ProxyPod");
+            Card ongoing = PlayCard("LivingForceField");
+
+            UsePower(device);
+            AssertInTrash(ongoing);
+
+            DealDamage(mdp, device, 3, DamageType.Fire);
+
+            QuickHPStorage(device);
+            GoToEndOfTurn(Greyhat);
+            QuickHPCheck(2);
+
+        }
+
+        #endregion Devices
+
+        #region UsesLinkCards
+
+        [Test()]
+        public void TestPlayDirectControl()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+            PlayCard("DigitalUplink");
+            PlayCard("CoercedUplink");
+            GoToPlayCardPhase(Greyhat);
+
+            QuickHPStorage(baron);
+            PlayCard("DirectControl");
+            QuickHPCheck(-2);
+            AssertNumberOfUsablePowers(Greyhat, 0);
+            AssertNumberOfUsablePowers(legacy, 0);
+            // TODO: If necessary, add tests for bounce cases. This is using the same code as other similar areas.
+        }
+
+        [Test()]
+        public void TestPlayShockTherapy()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "TheScholar", "CaptainCosmic","Unity", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            PlayCard("MortalFormToEnergy");
+            PlayCard("BeeBot");
+            DecisionSelectCard = Greyhat.CharacterCard;
+            Card siphon = PlayCard("DynamicSiphon");
+            Card device = PlayCard("DeployedRelay");
+            // TODO: TEST CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Schollar healing trigger construct play) 
+            Card[] uplinks = new Card[] { PutInHand(Greyhat, "DigitalUplink", 0), PutInHand(Greyhat, "DigitalUplink", 1), PutInHand(Greyhat, "DigitalUplink", 2), PutInHand(Greyhat, "DigitalUplink", 3) };
+
+            DecisionSelectCard = scholar.CharacterCard;
+            PlayCard(uplinks[0]);
+
+            DealDamage(baron, (Card c) => c.IsCharacter, 10, DamageType.Cold);
+
+            ResetDecisions();
+            DecisionSelectCards = new Card[] { siphon, uplinks[1], cosmic.CharacterCard };
+            DecisionSelectPower = device;
+            PlayCard("ShockTherapy");
+
+            // TODO: Test convoluted case of damage dealing (Link played midway, link removed midway). 
+        }
+
+        #endregion UsesLinkCards
+
         #region Ungrouped Cards
 
         [Test()]
@@ -91,30 +225,6 @@ namespace RuduenModsTest
             Card link = PlayCard("DigitalUplink");
             AssertNextToCard(link, legacy.CharacterCard);
             AssertNumberOfUsablePowers(legacy, 0); // Power was used.
-        }
-
-        [Test()]
-        public void TestPlayDirectControl()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
-            PlayCard("DigitalUplink");
-            PlayCard("CoercedUplink");
-            GoToPlayCardPhase(Greyhat);
-
-            QuickHPStorage(baron);
-            PlayCard("DirectControl");
-            QuickHPCheck(-2);
-            AssertNumberOfUsablePowers(Greyhat, 0);
-            AssertNumberOfUsablePowers(legacy, 0);
-
-            // TODO: If necessary, add tests for bounce cases. This is using the same code as other similar areas.
         }
 
         #endregion Ungrouped Cards

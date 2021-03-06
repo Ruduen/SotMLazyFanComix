@@ -18,8 +18,8 @@ namespace RuduenWorkshop.Soulbinder
         {
             IEnumerator coroutine;
 
-            // You may draw a card or play a card.
-            coroutine = this.DrawACardOrPlayACard(this.DecisionMaker, true);
+            // You may play a one-shot.
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

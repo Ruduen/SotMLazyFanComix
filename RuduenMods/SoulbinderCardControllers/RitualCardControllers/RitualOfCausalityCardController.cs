@@ -18,7 +18,7 @@ namespace RuduenWorkshop.Soulbinder
         protected override IEnumerator RitualCompleteResponse()
         {
             IEnumerator coroutine;
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 2, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, 3, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, false, 0, cardSource: this.GetCardSource());

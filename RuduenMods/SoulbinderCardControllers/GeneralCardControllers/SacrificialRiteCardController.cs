@@ -25,11 +25,11 @@ namespace RuduenWorkshop.Soulbinder
 
             if (targetList.Count > 0)
             {
-                // That target deals another 3 damage.
+                // That target deals another 2 damage.
                 coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // That target deals itself 3 Infernal damage.
+                // That target deals itself 2 Infernal damage.
                 coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 2, DamageType.Infernal, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

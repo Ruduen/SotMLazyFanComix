@@ -20,6 +20,11 @@ namespace RuduenWorkshop.Cassie
             _riverDeck = null;
         }
 
+        public override void AddStartOfGameTriggers()
+        {
+            base.AddStartOfGameTriggers();
+        }
+
         public override IEnumerator UsePower(int index = 0)
         {
             int[] powerNumerals = new int[] { this.GetPowerNumeral(0, 3), this.GetPowerNumeral(1, 3) };

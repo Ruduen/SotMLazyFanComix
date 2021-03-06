@@ -66,16 +66,81 @@
       ]
     },
     {
+      "identifier": "DeployedRelay",
+      "count": 3,
+      "title": "Deployed Relay",
+      "hitpoints": 5,
+      "keywords": [ "device" ],
+      "body": [
+        "At the end of your turn, you may search your Trash for a Link and put it into play."
+      ],
+      "powers": [
+        "You may play a card."
+      ],
+      "icons": [ "Manipulate", "PlayCardNow", "HasPower" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "InstantFirewall",
+      "count": 3,
+      "title": "Instant Firewall",
+      "hitpoints": 5,
+      "keywords": [ "device" ],
+      "body": [
+        "At the end of your turn, {Greyhat} deals each non-Hero target 1 Fire Damage."
+      ],
+      "powers": [
+        "{Greyhat} deals 1 Target 3 Fire Damage."
+      ],
+      "icons": [ "DealDamageFire", "HasPower" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "ProxyPod",
+      "count": 3,
+      "title": "Proxy Pod",
+      "hitpoints": 5,
+      "keywords": [ "device" ],
+      "body": [
+        "At the end of your turn, this card regains 2 HP."
+      ],
+      "powers": [
+        "Destroy 1 Ongoing."
+      ],
+      "icons": [ "DealDamageFire", "HasPower" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
       "identifier": "DirectControl",
       "count": 3,
       "title": "Direct Control",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Greyhat} and each Hero with a Link in their play area uses a power.",
-        "Each non-Hero Target next to a Link deals themselves 3 Energy damage."
+        "{Greyhat} and each Hero next to a Link in their play area uses a power.",
+        "Each non-Hero Target next to a Link deals themselves 3 Energy Damage."
       ],
-      "icons": [ "UsePowerNow", "DrawCardNow" ],
+      "icons": [ "UsePowerNow", "DealDamageEnergy" ],
       "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "ShockTherapy",
+      "count": 3,
+      "title": "Shock Therapy",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Greyhat} and each Hero next to a Link regains 2 HP.",
+        "{Greyhat} deals each non-Hero Target next to a Link deals 3 Lightning Damage."
+      ],
+      "icons": [ "GainHP", "DealDamageLightning" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Greyhat",
+          "text": "You may feel a slight tingle."
+        }
       ]
     }
   ],

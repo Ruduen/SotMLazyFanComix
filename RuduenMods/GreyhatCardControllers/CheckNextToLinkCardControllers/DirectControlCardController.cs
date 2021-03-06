@@ -25,7 +25,7 @@ namespace RuduenWorkshop.Greyhat
             coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Each player with a link next to them uses a power. Note that this is a 'criteria can change' effect if a power plays or destroys a link, directly or indirectly.
+            // Each hero with a link next to them uses a power. Note that this is a 'criteria can change' effect if a power plays or destroys a link, directly or indirectly.
             SelectCardsDecision selectHeroDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextTo.Where((Card c) => c.IsHeroCharacterCard).Contains(c), SelectionType.SelectTargetFriendly, null, false, null, true, true, false, () => NumHeroesToUsePower(usedPowerCards), cardSource: this.GetCardSource());
             coroutine = this.GameController.SelectCardsAndDoAction(selectHeroDecision, (SelectCardDecision scd) => SelectedHeroUsesPower(scd, usedPowerCards), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

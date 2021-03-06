@@ -67,10 +67,14 @@
     <Compile Include="BreachMageCardControllers\BreachMageCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageTurnTakerController.cs" />
     <Compile Include="CassieCardControllers\CassieEssenceFlowCharacterCardController.cs" />
+    <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\ShockTherapyCardController.cs" />
     <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\DirectControlCardController.cs" />
     <Compile Include="GreyhatCardControllers\GreyhatCharacterCardController.cs" />
     <Compile Include="GreyhatCardControllers\LinkCardControllers\DigitalUplinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\LinkCardControllers\CoercedUplinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\ProxyPodCardController.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\InstantFirewallCardController.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\DeployedRelayCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
     <Compile Include="RuduenFlippableCardController.cs" />

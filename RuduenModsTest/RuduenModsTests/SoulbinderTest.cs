@@ -408,7 +408,7 @@ namespace RuduenModsTest
             StartGame(false);
 
             ResetDecisions();
-
+            DiscardAllCards(Soulbinder);
             Card clay = PutInHand("ClayDoll");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
@@ -418,7 +418,7 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             PlayCard(clay);
             UsePower(clay);
-            QuickHandCheck(0); // 1 Played, Draw 1.
+            QuickHandCheck(-1); // 1 Played,
             QuickHPCheck(-2);
         }
 
@@ -438,10 +438,11 @@ namespace RuduenModsTest
             Card wood = PutInHand("WoodenPuppet");
 
             DecisionSelectFunction = 1;
+            DecisionSelectCards = new Card[] { null };
 
             QuickHandStorage(Soulbinder);
             PlayCard(wood);
-            QuickHandCheck(0); // 1 Played, Draw 1.
+            QuickHandCheck(-1); // 1 Played.
 
             DealDamage(wood, wood, 3, DamageType.Melee);
 
@@ -462,7 +463,7 @@ namespace RuduenModsTest
             StartGame(false);
 
             ResetDecisions();
-
+            DiscardAllCards(Soulbinder);
             Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card straw = PutInHand("StrawEffigy");
 
@@ -471,7 +472,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(Soulbinder);
             PlayCard(straw);
-            QuickHandCheck(0); // 1 Played, Draw 1.
+            QuickHandCheck(-1); // 1 Played.
             DealDamage(straw, straw, 3, DamageType.Melee);
 
             QuickHPStorage(straw, mdp);
@@ -540,7 +541,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(Soulbinder);
             RemoveTokensFromPool(ritual.TokenPools[0], 4);
-            QuickHandCheck(0); // Draw 2, play 2
+            QuickHandCheck(1); // Draw 3, play 2
             AssertIsInPlay(plays);
             AssertInTrash(ritual);
         }
@@ -850,7 +851,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(Soulshards[1]);
             PlayCard("BlindBeckoning");
-            QuickHPCheck(-2);
+            QuickHPCheck(-1);
             AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("ritual"), 1);
         }
 
