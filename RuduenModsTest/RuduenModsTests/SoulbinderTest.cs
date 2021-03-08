@@ -307,21 +307,15 @@ namespace RuduenModsTest
 
             StartGame(false);
 
-            GoToDrawCardPhase(Soulbinder);
             DestroyCard(Soulshards[0]);
+            ResetDecisions();
+            Card discard = GetCardFromHand(Soulbinder);
+            DecisionSelectCard = discard;
+            QuickHandStorage(Soulbinder);
+            GoToEndOfTurn(Soulbinder);
+            QuickHandCheck(0);
+            AssertInTrash(discard);
 
-            // Soulshard of Mercury was played during the draw phase.
-            // Note all phase actions are at +1 due to skipped play/power.
-            AssertPhaseActionCount(3);
-
-            GoToDrawCardPhase(Soulbinder);
-            AssertPhaseActionCount(3);
-
-            DestroyCard(Soulshards[1]); // Destroyed - lose phase actions.
-            AssertPhaseActionCount(2);
-
-            GoToDrawCardPhase(Soulbinder);
-            AssertPhaseActionCount(2);
         }
 
         [Test]

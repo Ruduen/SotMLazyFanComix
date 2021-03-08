@@ -1,6 +1,7 @@
 ﻿{
   "name": "Soulbinder",
   "kind": "Hero",
+  "expansionIdentifier": "RuduenWorkshop",
   "initialCardIdentifiers": [
     "SoulbinderCharacter"
   ],
@@ -70,7 +71,7 @@
         "DrawCardNow",
         "RemoveTokens"
       ],
-      "hitpoints": 20,
+      "hitpoints": 15,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
@@ -88,7 +89,7 @@
       "icons": [
         "IncreaseDamageDealt"
       ],
-      "hitpoints": 9,
+      "hitpoints": 8,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
@@ -102,11 +103,11 @@
       "foilBackgroundColor": "FEFEFE",
       "hitpointColor": "D4E6B5",
       "character": true,
-      "gameplay": "You may draw an additional card during your draw phase.",
+      "gameplay": "At the end of your turn, you may discard a card to draw a card.",
       "icons": [
         "DrawCardExtra"
       ],
-      "hitpoints": 9,
+      "hitpoints": 8,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
@@ -124,7 +125,7 @@
       "icons": [
         "ReduceDamageTaken"
       ],
-      "hitpoints": 9,
+      "hitpoints": 8,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],

@@ -1,6 +1,7 @@
 ﻿{
   "name": "Inquirer",
   "kind": "Hero",
+  "expansionIdentifier": "RuduenWorkshop",
   "initialCardIdentifiers": [
     "InquirerCharacter"
   ],

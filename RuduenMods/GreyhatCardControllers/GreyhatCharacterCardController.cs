@@ -21,10 +21,6 @@ namespace RuduenWorkshop.Greyhat
         {
             IEnumerator coroutine;
 
-            // Discard Card.
-            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 1, false, 1, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             coroutine = this.SearchForCards(this.DecisionMaker, true, false, 1, 1, new LinqCardCriteria((Card c) => c.IsLink, "link"), false, true, false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

@@ -1,6 +1,7 @@
 ﻿{
   "name": "Cassie",
   "kind": "Hero",
+  "expansionIdentifier": "RuduenWorkshop",
   "initialCardIdentifiers": [
     "CassieCharacter",
     "Riverbank"

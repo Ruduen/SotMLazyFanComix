@@ -1,6 +1,7 @@
 ﻿{
   "name": "Greyhat",
   "kind": "Hero",
+  "expansionIdentifier": "RuduenWorkshop",
   "initialCardIdentifiers": [
     "GreyhatCharacter"
   ],
@@ -13,7 +14,7 @@
       "backgroundColor": "999999",
       "foilBackgroundColor": "999999",
       "character": true,
-      "powers": [ "Discard a card. Search your deck for a Link card and put it in hand. Shuffle your deck." ],
+      "powers": [ "Search your deck for a Link card and put it in hand. Shuffle your deck." ],
       "icons": [
         "HasPower",
         "Discard",
@@ -35,7 +36,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Ah, another node to add."
+        "default": "Another node for the network."
       },
       "complexity": 2
     },
@@ -46,7 +47,7 @@
       "keywords": [ "equipment", "link" ],
       "body": [
         "Play this card next to a non-Hero target.",
-        "When this card enters play, {Greyhat} deals that target 1 Lightning Damage and you may draw a card."
+        "When this card enters play, {Greyhat} deals that target 1 Lightning Damage."
       ],
       "icons": [ "DamageLightning", "DrawCardNow" ],
       "flavorQuotes": [
@@ -59,7 +60,7 @@
       "keywords": [ "equipment", "link" ],
       "body": [
         "Play this card next to a Hero other than {Greyhat}.",
-        "When this card enters play, that Hero may use a power and you may draw a card."
+        "When this card enters play, that Hero may use a power."
       ],
       "icons": [ "UsePowerNow", "DrawCardNow" ],
       "flavorQuotes": [
@@ -119,8 +120,8 @@
       "title": "Direct Control",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Greyhat} and each Hero next to a Link in their play area uses a power.",
-        "Each non-Hero Target next to a Link deals themselves 3 Energy Damage."
+        "{Greyhat} and each other Hero next to a Link in their play area uses a power.",
+        "Each non-Hero Target next to a Link deals themselves 2 Energy Damage."
       ],
       "icons": [ "UsePowerNow", "DealDamageEnergy" ],
       "flavorQuotes": [
@@ -132,7 +133,7 @@
       "title": "Shock Therapy",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Greyhat} and each Hero next to a Link regains 2 HP.",
+        "{Greyhat} and each other Hero next to a Link regains 2 HP.",
         "{Greyhat} deals each non-Hero Target next to a Link deals 3 Lightning Damage."
       ],
       "icons": [ "GainHP", "DealDamageLightning" ],
@@ -142,19 +143,110 @@
           "text": "You may feel a slight tingle."
         }
       ]
+    },
+    {
+      "identifier": "DataTransfer",
+      "count": 3,
+      "title": "Data Transfer",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Draw a card.",
+        "Each other Player draws a card for each of their Heroes next to a link.",
+        "Draw a card for each non-Hero Target next to a Link."
+      ],
+      "icons": [ "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "DDoS",
+      "count": 3,
+      "title": "DDoS",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Greyhat} and each other Hero next to a link deals each non-Hero Target next to a Link 1 Energy Damage."
+      ],
+      "icons": [ "DealDamageEnergy" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "SystemReboot",
+      "count": 4,
+      "title": "System Reboot",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Search your deck or trash for a Link and put it in your hand.",
+        "Put any number of Links in play back in your hand.",
+        "You may play a number of Link cards equal to the number of Links returned to your hand by this card."
+      ],
+      "icons": [ "Search", "Manipulate", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "BandwidthRestriction",
+      "count": 2,
+      "title": "Bandwidth Restriction",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a Link.",
+        "Reduce damage dealt to {Greyhat} and other Heroes next to a Link or by non-Hero Targets next to a Link by 1."
+      ],
+      "icons": [ "ReduceDamageTaken", "ReduceDamageDealt", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "OverclockSystems",
+      "count": 2,
+      "title": "Overclock Systems",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a Link.",
+        "Increase damage dealt by {Greyhat} and other Heroes next to a Link or to non-Hero Targets next to a Link by 1."
+      ],
+      "icons": [ "IncreaseDamageDealt", "IncreaseDamageTaken", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "AutoRedirect",
+      "count": 3,
+      "title": "Auto-Redirect",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a Link.",
+        "The first time each turn {Greyhat} or another Hero next to a Link would be dealt 3 or fewer damage, you may redirect that damage to a non-Hero target next to a link."
+      ],
+      "icons": [ "IncreaseDamageDealt", "IncreaseDamageTaken", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
     }
   ],
   "promoCards": [
     {
       "identifier": "GreyhatCharacter",
-      "promoIdentifier": "GreyhatWhiteNoiseCharacter",
+      "promoIdentifier": "GreyhatBurstNoiseCharacter",
       "count": 1,
       "title": "Greyhat",
-      "body": [ "White Noise" ],
+      "body": [ "Burst Noise" ],
       "backgroundColor": "999999",
       "foilBackgroundColor": "999999",
       "character": true,
-      "powers": [ "Draw a card. One target next to a Link deals 1 Target 1 Sonic Damage." ],
+      "powers": [ "{Greyhat} deals 1 Target 1 Sonic Damage. 1 Target next to a Link deals that Target 1 Sonic Damage." ],
       "icons": [
         "HasPower",
         "DrawCardNow",
@@ -175,7 +267,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "This place's aura is unique. I won't have you disturbing it."
+        "default": "Too much noise in the signal - time to clean it up."
       },
       "complexity": 2
     }

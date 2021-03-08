@@ -26,11 +26,11 @@ namespace RuduenWorkshop.Greyhat
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Healing Portion.
-            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => this.CardsLinksAreNextTo.Where((Card c) => c.IsHero).Contains(c), 2, cardSource: this.GetCardSource());
+            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => this.CardsLinksAreNextToOtherHeroes.Contains(c), 2, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Damage Portion.
-            coroutine = this.GameController.DealDamage(this.DecisionMaker, this.CharacterCard, (Card c) => this.CardsLinksAreNextTo.Where((Card c) => !c.IsHero).Contains(c), 2, DamageType.Energy, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DealDamage(this.DecisionMaker, this.CharacterCard, (Card c) => this.CardsLinksAreNextToNonHero.Contains(c), 2, DamageType.Energy, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

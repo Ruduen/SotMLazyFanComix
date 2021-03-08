@@ -22,13 +22,10 @@ namespace RuduenWorkshop.Greyhat
             IEnumerator coroutine;
             if (nextTo != null)
             {
-                // Damage.
+                // Power.
                 coroutine = this.GameController.SelectAndUsePower(this.GameController.FindCardController(nextTo).HeroTurnTakerControllerWithoutReplacements, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 1, true, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -19,26 +20,24 @@ namespace RuduenWorkshop.Soulbinder
         {
             if (!this.CardWithoutReplacements.IsFlipped)
             {
-                this.AddAdditionalPhaseActionTrigger((TurnTaker tt) => tt == this.HeroTurnTaker, Phase.DrawCard, 1);
+                this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, DiscardToDrawResponse, new TriggerType[] { TriggerType.DiscardCard, TriggerType.DrawCard });
             }
         }
 
-        public override IEnumerator Play()
+        private IEnumerator DiscardToDrawResponse(PhaseChangeAction arg)
         {
-            // Increase phase count if appropriate, based on trigger.
-            IEnumerator coroutine = this.IncreasePhaseActionCountIfInPhase((TurnTaker tt) => tt == this.TurnTaker, Phase.DrawCard, 1);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        }
-
-        public override IEnumerator BeforeFlipCardImmediateResponse(FlipCardAction flip)
-        {
-            // Remove normal trigger if appropriate, since normally this is only handled by the destruction/removal of the card.
+            List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             IEnumerator coroutine;
-            coroutine = this.ReducePhaseActionCountIfInPhase((TurnTaker tt) => tt == this.TurnTaker, Phase.DrawCard, 1);
+            // Discard card.
+            coroutine = this.GameController.SelectAndDiscardCard(this.DecisionMaker, true, null, storedResults, SelectionType.DiscardCard);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = base.BeforeFlipCardImmediateResponse(flip);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            if (this.DidDiscardCards(storedResults))
+            {
+                // If you do, draw a card.
+                coroutine = this.DrawCard(this.HeroTurnTaker, false, null, true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
     }
 }

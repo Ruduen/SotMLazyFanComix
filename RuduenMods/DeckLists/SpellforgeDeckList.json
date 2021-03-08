@@ -1,6 +1,7 @@
 ﻿{
   "name": "Spellforge",
   "kind": "Hero",
+  "expansionIdentifier": "RuduenWorkshop",
   "initialCardIdentifiers": [
     "SpellforgeCharacter"
   ],

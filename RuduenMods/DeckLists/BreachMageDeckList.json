@@ -1,6 +1,7 @@
 ﻿{
   "name": "Breach Mage",
   "kind": "Hero",
+  "expansionIdentifier": "RuduenWorkshop",
   "initialCardIdentifiers": [
     "BreachMageCharacter",
     "BreachI",

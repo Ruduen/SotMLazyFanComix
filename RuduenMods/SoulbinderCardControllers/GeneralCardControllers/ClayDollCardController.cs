@@ -32,7 +32,7 @@ namespace RuduenWorkshop.Soulbinder
                             this.GetPowerNumeral(0, 1),  // Number of Targets
                             this.GetPowerNumeral(1, 1)   // Damage.
             };
-            SelectCardsDecision scdTarget = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsTarget && c.IsInPlayAndNotUnderCard, SelectionType.SelectTargetNoDamage, numerals[0], false, numerals[0], eliminateOptions: true, allAtOnce: true, cardSource: this.GetCardSource());
+            SelectCardsDecision scdTarget = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => !c.IsHero && c.IsTarget && c.IsInPlayAndNotUnderCard, SelectionType.SelectTarget, numerals[0], false, numerals[0], eliminateOptions: true, allAtOnce: true, cardSource: this.GetCardSource());
             IEnumerator coroutine = this.GameController.SelectCardsAndDoAction(scdTarget, (SelectCardDecision sc) => this.TargetSelectedResponse(sc, numerals[1]), null, null, this.GetCardSource(), null, false, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

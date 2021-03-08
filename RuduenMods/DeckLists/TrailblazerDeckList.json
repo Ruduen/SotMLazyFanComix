@@ -1,6 +1,7 @@
 ﻿{
   "name": "Trailblazer",
   "kind": "Hero",
+  "expansionIdentifier": "RuduenWorkshop",
   "initialCardIdentifiers": [
     "TrailblazerCharacter"
   ],
