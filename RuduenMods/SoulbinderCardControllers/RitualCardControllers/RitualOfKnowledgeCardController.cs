@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class RitualOfCausalityCardController : SoulbinderSharedRitualCardController
+    public class RitualOfKnowledgeCardController : SoulbinderSharedRitualCardController
     {
-        public RitualOfCausalityCardController(Card card, TurnTakerController turnTakerController)
+        public RitualOfKnowledgeCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
@@ -18,10 +18,13 @@ namespace RuduenWorkshop.Soulbinder
         protected override IEnumerator RitualCompleteResponse()
         {
             IEnumerator coroutine;
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 3, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, 4, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, false, 0, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

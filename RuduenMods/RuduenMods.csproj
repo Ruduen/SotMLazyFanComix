@@ -153,10 +153,9 @@
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SacrificialRiteCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RepeatedRitesCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ReliquaryCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ArcaneDetonationCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenSoulsplinterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCausalityCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfKnowledgeCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfTransferrenceCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfSalvationCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCatastropheCardController.cs" />
@@ -176,11 +175,9 @@
     <Compile Include="SpellforgeCardControllers\MeanderingDissertationCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SpellforgeRedefineCharacterCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfAuraCardController.cs" />
-    <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfResonanceCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfDisruptionCardController.cs" />
     <Compile Include="SpellforgeCardControllers\PrefixCardControllers\PiercingCardController.cs" />
     <Compile Include="SpellforgeCardControllers\PrefixCardControllers\InspiredCardController.cs" />
-    <Compile Include="SpellforgeCardControllers\EssenceCardControllers\ShockCardController.cs" />
     <Compile Include="SpellforgeCardControllers\EssenceCardControllers\RayCardController.cs" />
     <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfHealingCardController.cs" />
     <Compile Include="SpellforgeCardControllers\EssenceCardControllers\ImpactCardController.cs" />

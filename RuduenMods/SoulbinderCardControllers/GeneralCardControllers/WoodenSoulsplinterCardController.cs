@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class WoodenSoulsplinterCardController : SoulbinderSharedYourTargetDamageCardController
+    public class WoodenSoulsplinterCardController : CardController
     {
         public WoodenSoulsplinterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -18,8 +18,8 @@ namespace RuduenWorkshop.Soulbinder
         {
             IEnumerator coroutine;
 
-            // You may play a one-shot.
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot"), cardSource: this.GetCardSource());
+            // You may play a one-shot or a ritual.
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot || c.DoKeywordsContain("ritual"), "one-shot or ritual"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
@@ -32,20 +32,10 @@ namespace RuduenWorkshop.Soulbinder
             List<Card> targetList = new List<Card>();
             IEnumerator coroutine;
 
-            // Each of your Hero Targets regains 1 HP.
+            // Each of your Hero Targets regains 2 HP.
             coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero && c.Owner == this.TurnTaker, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, powerNumerals[1], DamageType.Infernal);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (targetList.Count > 0)
-            {
-                // That target deals 1 each non-Hero 1 Infernal Damage
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, targetList.FirstOrDefault(), (Card c) => !c.IsHero, powerNumerals[1], DamageType.Infernal, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
         }
     }
 }

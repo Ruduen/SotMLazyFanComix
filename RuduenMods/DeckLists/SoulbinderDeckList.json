@@ -121,7 +121,7 @@
       "foilBackgroundColor": "FEFEFE",
       "hitpointColor": "D4E6B5",
       "character": true,
-      "gameplay": "Reduce damage dealt to this card by 1.",
+      "gameplay": "Reduce damage dealt to this card by non-Hero targets by 1.",
       "icons": [
         "ReduceDamageTaken"
       ],
@@ -132,26 +132,13 @@
       "flippedBody": "Incapacitated"
     },
     {
-      "identifier": "Reliquary",
-      "count": 2,
-      "title": "Reliquary",
-      "keywords": [ "equipment", "relic", "limited" ],
-      "body": [
-        "When this card enters play, you may put a card from under your Instructions card into play.",
-        "When one of your characters would be destroyed, you may instead restore it to 6 HP and destroy this card."
-      ],
-      "icons": [ "PlayCardNow", "GainHP", "DestroySelf" ],
-      "flavorQuotes": [
-      ]
-    },
-    {
       "identifier": "ClaySoulsplinter",
       "count": 3,
       "title": "Clay Soulsplinter",
       "hitpoints": 4,
-      "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may play a one-shot." ],
-      "powers": [ "Select 1 Target. Each of your Targets deals that Target 1 Melee Damage." ],
+      "keywords": [ "soulsplinter" ],
+      "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
+      "powers": [ "TO BE REDONE" ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageMelee" ],
       "flavorQuotes": [
       ]
@@ -161,9 +148,9 @@
       "count": 3,
       "title": "Wooden Soulsplinter",
       "hitpoints": 4,
-      "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may play a one-shot." ],
-      "powers": [ "Each of your Hero targets regains 1 HP. One of your targets deals each non-Hero target 1 Infernal Damage." ],
+      "keywords": [ "soulsplinter" ],
+      "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
+      "powers": [ "Each of your Hero targets regains 2 HP." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal", "GainHP" ],
       "flavorQuotes": [
       ]
@@ -173,8 +160,8 @@
       "count": 3,
       "title": "Straw Soulsplinter",
       "hitpoints": 4,
-      "keywords": [ "elemental" ],
-      "body": [ "When this card enters play, you may play a one-shot." ],
+      "keywords": [ "soulsplinter" ],
+      "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
       "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP." ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageToxic", "GainHP" ],
       "flavorQuotes": [
@@ -184,11 +171,11 @@
       "identifier": "RitualOfCatastrophe",
       "count": 3,
       "title": "Ritual of Catastrophe",
-      "keywords": [ "ongoing", "ritual", "limited" ],
+      "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
         "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, each non-Hero target deals itself 4 irreducible Infernal Damage. Then, destroy this card."
+        "When the last token is removed from this, each non-Hero target deals itself 3 irreducible Infernal Damage. Then, destroy this card."
       ],
       "tokenPools": [
         {
@@ -207,7 +194,7 @@
       "identifier": "RitualOfSalvation",
       "count": 3,
       "title": "Ritual of Salvation",
-      "keywords": [ "ongoing", "ritual", "limited" ],
+      "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
         "At the end of your turn, remove 1 Ritual Token from this card.",
@@ -230,7 +217,7 @@
       "identifier": "RitualOfTransferrence",
       "count": 3,
       "title": "Ritual of Transferrence",
-      "keywords": [ "ongoing", "ritual", "limited" ],
+      "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
         "At the end of your turn, remove 1 Ritual Token from this card.",
@@ -250,14 +237,14 @@
       ]
     },
     {
-      "identifier": "RitualOfCausality",
+      "identifier": "RitualOfKnowledge",
       "count": 3,
-      "title": "Ritual of Causality",
-      "keywords": [ "ongoing", "ritual", "limited" ],
+      "title": "Ritual of Knowledge",
+      "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
         "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, draw 3 cards and play up to 2 cards. Then, destroy this card."
+        "When the last token is removed from this, you may draw 4 cards, you may play a card, and you may use a power. Then, destroy this card."
       ],
       "tokenPools": [
         {
@@ -274,12 +261,19 @@
     },
     {
       "identifier": "RitualComponents",
-      "count": 3,
+      "count": 4,
       "title": "Ritual Components",
       "keywords": [ "equipment", "limited" ],
-      "powers": [ "Remove 1 Ritual Token from a Ritual. If you have at least 3 Targets, remove 1 Ritual Token from each Ritual." ],
+      "powers": [ "Deal 1 Target 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
+        {
+          "text": "I thought those were ceremonial."
+        },
+        {
+          "identifier": "Soulbinder",
+          "text": "They're also sharp."
+        }
       ]
     },
     {
@@ -288,7 +282,7 @@
       "title": "Arcane Detonation",
       "keywords": [ "one-shot" ],
       "body": [
-        "One of your targets deals each non-Hero target and themselves 3 Infernal Damage."
+        "1 of your targets deals each non-Hero target and themselves 3 Infernal Damage."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
@@ -300,8 +294,8 @@
       "title": "Sacrificial Rite",
       "keywords": [ "one-shot" ],
       "body": [
-        "One of your targets deals 1 target and themselves 2 Infernal Damage.",
-        "Remove 1 Ritual Token from a Ritual."
+        "1 of your targets deals 1 target and themselves 2 Infernal Damage.",
+        "Remove 1 Ritual Token from each of your Rituals."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
@@ -313,7 +307,8 @@
       "title": "Keystone of Spirit",
       "keywords": [ "one-shot" ],
       "body": [
-        "Each Hero Target regains 1 HP.",
+        "1 of your targets deals 1 themselves 1 Infernal Damage.",
+        "Each other Hero Target regains 1 HP.",
         "You may use a power now."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
@@ -326,7 +321,7 @@
       "title": "Final Eruption",
       "keywords": [ "one-shot" ],
       "body": [
-        "Select one of your targets. It deals 1 target Infernal Damage equal to its current HP plus 2.",
+        "Select 1 of your Targets. It deals 1 Target Infernal Damage equal to its current HP plus 2.",
         "Then, destroy the selected target."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
@@ -339,8 +334,8 @@
       "title": "Blind Beckoning",
       "keywords": [ "one-shot" ],
       "body": [
-        "Reveal cards from the top of your deck until you reveal a copy of a Ritual not already in play. Put it in play.",
-        "One of your Targets deals 1 target and themselves Infernal Damage equal to the number of Rituals in play."
+        "Reveal cards from the top of your deck until you reveal a copy of a Ritual. Put it in play.",
+        "One of your Targets deals 1 Target and themselves Infernal Damage equal to the number of Rituals in play."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
@@ -357,6 +352,19 @@
         "When one of your Rituals would be destroyed, you may instead add 2 Ritual Tokens to it and destroy this card."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "Reliquary",
+      "count": 2,
+      "title": "Reliquary",
+      "keywords": [ "equipment", "relic", "limited" ],
+      "body": [
+        "When this card enters play, you may put a card from under your Instructions card into play.",
+        "When one of your characters would be destroyed, you may instead restore it to 6 HP and destroy this card."
+      ],
+      "icons": [ "PlayCardNow", "GainHP", "DestroySelf" ],
       "flavorQuotes": [
       ]
     }

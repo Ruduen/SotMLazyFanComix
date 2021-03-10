@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class KeystoneOfSpiritCardController : CardController
+    public class KeystoneOfSpiritCardController : SoulbinderSharedYourTargetDamageCardController
     {
         public KeystoneOfSpiritCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -16,10 +16,15 @@ namespace RuduenWorkshop.Soulbinder
 
         public override IEnumerator Play()
         {
-            IEnumerator coroutine;
             List<Card> targetList = new List<Card>();
+            IEnumerator coroutine;
 
-            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero, 1, cardSource: this.GetCardSource());
+            // Select target.
+            coroutine = this.SelectYourTargetToDealDamage(targetList, 1, DamageType.Infernal);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // All others gain HP. If target was invalid somehow, it will be null, which will still be fine for this check. 
+            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero && c != targetList.FirstOrDefault(), 1, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, true, cardSource: this.GetCardSource());

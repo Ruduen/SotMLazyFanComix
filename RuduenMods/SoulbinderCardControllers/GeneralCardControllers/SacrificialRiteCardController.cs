@@ -18,6 +18,7 @@ namespace RuduenWorkshop.Soulbinder
         {
             IEnumerator coroutine;
             List<Card> targetList = new List<Card>();
+            List<Card> actedRituals = new List<Card>();
 
             // Select target.
             coroutine = this.SelectYourTargetToDealDamage(targetList, 2, DamageType.Infernal);
@@ -38,8 +39,9 @@ namespace RuduenWorkshop.Soulbinder
             IEnumerable<Card> ritualTokenCards = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0);
             if (ritualTokenCards.Any())
             {
-                coroutine = this.GameController.SelectCardAndDoAction(
-                    new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.RemoveTokens, ritualTokenCards, cardSource: this.GetCardSource()), (SelectCardDecision scd) => RemoveTokenFromRitual(scd, 1));
+                // Each valid ritual loses a token. This needs to be done to handle scenarios where things are destroyed or played mid-way!
+                SelectCardsDecision scdRituals = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0, SelectionType.RemoveTokens, null, false, null, true, true, false, () => NumRitualsToRemoveToken(actedRituals), null, null, null, this.GetCardSource());
+                coroutine = this.GameController.SelectCardsAndDoAction(scdRituals, (SelectCardDecision scd) => this.RemoveTokenEachResponse(scd, actedRituals, 1), null, null, this.GetCardSource(), null, false, null);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
@@ -49,14 +51,24 @@ namespace RuduenWorkshop.Soulbinder
             }
         }
 
-        private IEnumerator RemoveTokenFromRitual(SelectCardDecision scd, int number)
+        private IEnumerator RemoveTokenEachResponse(SelectCardDecision scd, List<Card> actedTargets, int numeral)
         {
             if (scd.SelectedCard != null)
             {
-                IEnumerator coroutine = this.GameController.RemoveTokensFromPool(scd.SelectedCard.FindTokenPool("RitualTokenPool"), number, cardSource: this.GetCardSource());
+                actedTargets.Add(scd.SelectedCard);
+                IEnumerator coroutine = this.GameController.RemoveTokensFromPool(scd.SelectedCard.FindTokenPool("RitualTokenPool"), numeral, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-            yield break;
+        }
+
+        private int NumRitualsToRemoveToken(List<Card> actedTargets)
+        {
+            if (!this.TurnTaker.IsIncapacitatedOrOutOfGame)
+            {
+                int num = this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0).Except(actedTargets).Count();
+                return actedTargets.Count() + num;
+            }
+            return 0;
         }
     }
 }
