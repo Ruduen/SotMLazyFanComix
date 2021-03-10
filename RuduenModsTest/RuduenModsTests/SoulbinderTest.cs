@@ -403,7 +403,7 @@ namespace RuduenModsTest
 
             ResetDecisions();
             DiscardAllCards(Soulbinder);
-            Card clay = PutInHand("ClayDoll");
+            Card clay = PutInHand("ClaySoulsplinter");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectCards = new Card[] { mdp, clay };
@@ -429,7 +429,7 @@ namespace RuduenModsTest
             ResetDecisions();
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
-            Card wood = PutInHand("WoodenPuppet");
+            Card wood = PutInHand("WoodenSoulsplinter");
 
             DecisionSelectFunction = 1;
             DecisionSelectCards = new Card[] { null };
@@ -459,7 +459,7 @@ namespace RuduenModsTest
             ResetDecisions();
             DiscardAllCards(Soulbinder);
             Card mdp = FindCardInPlay("MobileDefensePlatform");
-            Card straw = PutInHand("StrawEffigy");
+            Card straw = PutInHand("StrawSoulsplinter");
 
             DecisionSelectCards = new Card[] { straw, mdp };
             DecisionSelectFunction = 1;
@@ -609,8 +609,8 @@ namespace RuduenModsTest
 
             DecisionSelectCards = new Card[] { null };
 
-            PlayCard("ClayDoll");
-            PlayCard("StrawEffigy");
+            PlayCard("ClaySoulsplinter");
+            PlayCard("StrawSoulsplinter");
             PutInHand(card);
             PlayCard(card);
             PutInHand(ritualA);
@@ -639,8 +639,8 @@ namespace RuduenModsTest
             ResetDecisions();
             DecisionSelectCards = new Card[] { null };
 
-            PlayCard("ClayDoll");
-            PlayCard("StrawEffigy");
+            PlayCard("ClaySoulsplinter");
+            PlayCard("StrawSoulsplinter");
 
             ResetDecisions();
 

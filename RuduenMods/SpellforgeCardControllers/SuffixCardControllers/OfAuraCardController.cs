@@ -17,7 +17,7 @@ namespace RuduenWorkshop.Spellforge
             IEnumerator coroutine;
 
             // Destroy.
-            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsEnvironment, "environment", true, false, null, null, false), false, null, null, this.GetCardSource());
+            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment"), false, null, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw 1.

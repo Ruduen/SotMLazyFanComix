@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class WoodenPuppetCardController : SoulbinderSharedYourTargetDamageCardController
+    public class StrawSoulsplinterCardController : SoulbinderSharedYourTargetDamageCardController
     {
-        public WoodenPuppetCardController(Card card, TurnTakerController turnTakerController)
+        public StrawSoulsplinterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
@@ -25,25 +25,26 @@ namespace RuduenWorkshop.Soulbinder
 
         public override IEnumerator UsePower(int index = 0)
         {
-            List<int> powerNumerals = new List<int>(){
-                            this.GetPowerNumeral(0, 1), // HP to regain
-                            this.GetPowerNumeral(1, 1)  // Damage to inflict.
+            List<int> numerals = new List<int>(){
+                            this.GetPowerNumeral(0, 1),   // Number of Targets
+                            this.GetPowerNumeral(1, 2),   // Damage.
+                            this.GetPowerNumeral(2, 2)    // HP to regain.
             };
             List<Card> targetList = new List<Card>();
             IEnumerator coroutine;
 
-            // Each of your Hero Targets regains 1 HP.
-            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero && c.Owner == this.TurnTaker, powerNumerals[0], cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, powerNumerals[1], DamageType.Infernal);
+            coroutine = this.SelectYourTargetToDealDamage(targetList, numerals[1], DamageType.Toxic);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (targetList.Count > 0)
             {
-                // That target deals 1 each non-Hero 1 Infernal Damage
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, targetList.FirstOrDefault(), (Card c) => !c.IsHero, powerNumerals[1], DamageType.Infernal, cardSource: this.GetCardSource());
+                // That target deals 1 Target 2 Toxic Damage
+                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), numerals[1], DamageType.Toxic, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                // Regains 2 HP.
+                coroutine = this.GameController.GainHP(targetList.FirstOrDefault(), numerals[2], cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

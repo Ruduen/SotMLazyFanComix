@@ -68,6 +68,7 @@
     <Compile Include="BreachMageCardControllers\BreachMageTurnTakerController.cs" />
     <Compile Include="CassieCardControllers\CassieEssenceFlowCharacterCardController.cs" />
     <Compile Include="GreyhatCardControllers\GreyhatBurstNoiseCharacterCardController.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\SystemRebootCardController - Copy.cs" />
     <Compile Include="GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\AutoRedirectCardController.cs" />
     <Compile Include="GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\OverclockSystemsCardController.cs" />
     <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\DDoSCardController.cs" />
@@ -79,12 +80,13 @@
     <Compile Include="GreyhatCardControllers\LinkCardControllers\DigitalUplinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\LinkCardControllers\CoercedUplinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\MiscCardControllers\SystemRebootCardController.cs" />
-    <Compile Include="GreyhatCardControllers\MiscCardControllers\ProxyPodCardController.cs" />
-    <Compile Include="GreyhatCardControllers\MiscCardControllers\InstantFirewallCardController.cs" />
-    <Compile Include="GreyhatCardControllers\MiscCardControllers\DeployedRelayCardController.cs" />
+    <Compile Include="GreyhatCardControllers\DeviceCardControllers\ProxyPodCardController.cs" />
+    <Compile Include="GreyhatCardControllers\DeviceCardControllers\InstantFirewallCardController.cs" />
+    <Compile Include="GreyhatCardControllers\DeviceCardControllers\DeployedRelayCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedOngoingCheckNextToLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedDeviceCardController.cs" />
     <Compile Include="RuduenFlippableCardController.cs" />
     <Compile Include="CassieCardControllers\CassieCharacterCardController.cs" />
     <Compile Include="CassieCardControllers\CassieRiverSharedCardController.cs" />
@@ -153,7 +155,7 @@
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ReliquaryCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ArcaneDetonationCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenPuppetCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenSoulsplinterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCausalityCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfTransferrenceCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfSalvationCardController.cs" />
@@ -163,8 +165,8 @@
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedInstructionsCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderTurnTakerController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\StrawEffigyCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ClayDollCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\StrawSoulsplinterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ClaySoulsplinterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfIronCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfMercuryCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfLightningCharacterCardController.cs" />
@@ -247,4 +249,9 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

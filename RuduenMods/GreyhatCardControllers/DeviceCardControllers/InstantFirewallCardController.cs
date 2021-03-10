@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace RuduenWorkshop.Greyhat
 {
-    public class InstantFirewallCardController : CardController
+    public class InstantFirewallCardController : GreyhatSharedDeviceCardController
     {
 
         public InstantFirewallCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)

@@ -177,6 +177,8 @@ namespace RuduenModsTest
 
             Card play = PutInHand("DefensiveBulwark");
 
+            DecisionSelectCards = new Card[] { Trailblazer.CharacterCard, fixer.CharacterCard };
+
             QuickHPStorage(Trailblazer, fixer);
             PlayCard(play);
             UsePower(play);

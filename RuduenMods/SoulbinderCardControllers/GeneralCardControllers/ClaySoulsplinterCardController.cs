@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class ClayDollCardController : CardController
+    public class ClaySoulsplinterCardController : CardController
     {
         private readonly List<Card> _actedTargets = new List<Card>();
 
-        public ClayDollCardController(Card card, TurnTakerController turnTakerController)
+        public ClaySoulsplinterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }

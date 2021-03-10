@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace RuduenWorkshop.Greyhat
 {
-    public class ProxyPodCardController : CardController
+    public class ProxyPodCardController : GreyhatSharedDeviceCardController
     {
 
         public ProxyPodCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)

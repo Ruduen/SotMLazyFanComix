@@ -14,8 +14,8 @@ namespace RuduenModsTest
     {
         private readonly Dictionary<string, int> CardDamage = new Dictionary<string, int>()
         {
-            { "Impact", -2 },
-            { "Wave", -3 },
+            { "Impact", -1 },
+            { "Wave", -2 },
             { "Shock", -3 },
             { "Ray", -4 },
             { "Inspired", -1 },
@@ -293,7 +293,7 @@ namespace RuduenModsTest
 
             DiscardAllCards(Spellforge);
             PutInHand("Controlled");
-            PutInHand("OfResonance");
+            PutInHand("OfDisruption");
 
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
@@ -301,7 +301,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
             PlayCard(play);
-            QuickHPCheck(CardDamage["Controlled"], CardDamage["Controlled"], CardDamage["Impact"] - 1 + CardDamage["OfResonance"] - 1); // 1 controlled. 4 boosted to MDP, doubled by Resonance.
+            QuickHPCheck(CardDamage["Controlled"], CardDamage["Controlled"], CardDamage["Impact"] - 1 + CardDamage["OfDisruption"]); // 1 controlled. 4 boosted to MDP, doubled by Resonance on the first hit only.
         }
 
         [Test()]
@@ -314,7 +314,7 @@ namespace RuduenModsTest
 
             DiscardAllCards(Spellforge);
             PutInHand("Inspired");
-            PutInHand("OfResonance");
+            PutInHand("OfDisruption");
 
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
@@ -324,7 +324,7 @@ namespace RuduenModsTest
             PlayCard(play);
             QuickHPCheck(CardDamage["Inspired"] + CardDamage["Impact"],
                 CardDamage["Inspired"] + CardDamage["Impact"],
-                CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfResonance"]); // 1 controlled. 2 boosted to MDP, doubled by Resonance.
+                CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfDisruption"]); // 1 controlled. 2 boosted to MDP, doubled by Resonance.
         }
 
         [Test()]
@@ -339,7 +339,7 @@ namespace RuduenModsTest
 
             DiscardAllCards(Spellforge);
             PutInHand("Piercing");
-            PutInHand("OfResonance");
+            PutInHand("OfDisruption");
 
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
@@ -347,7 +347,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
             PlayCard(play);
-            QuickHPCheck(CardDamage["Impact"], CardDamage["Impact"], CardDamage["Impact"] + CardDamage["OfResonance"]); // 1 base and irreducible. Self-damage is also irreducible.
+            QuickHPCheck(CardDamage["Impact"], CardDamage["Impact"], CardDamage["Impact"] + CardDamage["OfDisruption"]); // 1 base and irreducible. Self-damage is also irreducible.
         }
 
         [Test()]
@@ -377,26 +377,26 @@ namespace RuduenModsTest
         [Category("DiscardModifier")]
         public void TestDiscardOfDisruptionRedirect()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "Tachyon", "Megalopolis");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "MrFixer", "Megalopolis");
 
             StartGame();
 
             DiscardAllCards(Spellforge);
             PutInHand("Inspired");
             PutInHand("OfDisruption");
-            PutIntoPlay("SynapticInterruption");
+            PutIntoPlay("DrivingMantis");
 
             DestroyCard(GetCardInPlay("MobileDefensePlatform"));
 
             Card bb = GetCardInPlay("BaronBladeCharacter");
 
-            DecisionSelectTargets = new List<Card>() { tachyon.CharacterCard, bb, Spellforge.CharacterCard, baron.CharacterCard }.ToArray();
+            DecisionSelectTargets = new List<Card>() { fixer.CharacterCard, bb, Spellforge.CharacterCard, baron.CharacterCard }.ToArray();
 
             DecisionRedirectTarget = bb;
 
             Card play = PutInHand("Impact");
 
-            QuickHPStorage(Spellforge.CharacterCard, tachyon.CharacterCard, bb);
+            QuickHPStorage(Spellforge.CharacterCard, fixer.CharacterCard, bb);
             PlayCard(play);
             QuickHPCheck(CardDamage["Inspired"] + CardDamage["Impact"],
                 0,
@@ -447,28 +447,28 @@ namespace RuduenModsTest
             QuickHandCheck(-2, 1); // 3 used, 1 drawn for Spellforge, 1 drawn for others.
         }
 
-        [Test()]
-        [Category("DiscardModifier")]
-        public void TestDiscardOfResonance()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "Legacy", "Megalopolis");
+        //[Test()]
+        //[Category("DiscardModifier")]
+        //public void TestDiscardOfResonance()
+        //{
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "Legacy", "Megalopolis");
 
-            StartGame();
+        //    StartGame();
 
-            DiscardAllCards(Spellforge);
-            PutInHand("Inspired");
-            PutInHand("OfResonance");
+        //    DiscardAllCards(Spellforge);
+        //    PutInHand("Inspired");
+        //    PutInHand("OfResonance");
 
-            Card play = PutInHand("Impact");
+        //    Card play = PutInHand("Impact");
 
-            Card mdp = GetCardInPlay("MobileDefensePlatform");
+        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-            QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
-            PlayCard(play);
-            QuickHPCheck(CardDamage["Inspired"] + CardDamage["Impact"],
-                CardDamage["Inspired"] + CardDamage["Impact"],
-                CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfResonance"]); //  2 boosted to MDP, doubled by Resonance.
-        }
+        //    QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
+        //    PlayCard(play);
+        //    QuickHPCheck(CardDamage["Inspired"] + CardDamage["Impact"],
+        //        CardDamage["Inspired"] + CardDamage["Impact"],
+        //        CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfResonance"]); //  2 boosted to MDP, doubled by Resonance.
+        //}
 
         [Test]
         [Category("DiscardModifier")]
@@ -544,22 +544,22 @@ namespace RuduenModsTest
             AssertInTrash(environment); // Destroyed.
         }
 
-        [Test]
-        [Category("DiscardModifier")]
-        public void TestPlayOfDisruption()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
+        //[Test]
+        //[Category("DiscardModifier")]
+        //public void TestPlayOfDisruption()
+        //{
+        //    SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
 
-            StartGame();
+        //    StartGame();
 
-            Card card = PutInHand("OfDisruption");
-            Card ongoing = PutIntoPlay("LivingForceField");
+        //    Card card = PutInHand("OfDisruption");
+        //    Card ongoing = PutIntoPlay("LivingForceField");
 
-            QuickHandStorage(Spellforge);
-            PlayCard(card);
-            QuickHandCheckZero(); // One played, one drawn.
-            AssertInTrash(ongoing); // Destroyed.
-        }
+        //    QuickHandStorage(Spellforge);
+        //    PlayCard(card);
+        //    QuickHandCheckZero(); // One played, one drawn.
+        //    AssertInTrash(ongoing); // Destroyed.
+        //}
 
         [Test]
         [Category("DiscardModifier")]
@@ -582,7 +582,7 @@ namespace RuduenModsTest
 
         [Test]
         [Category("DiscardModifier")]
-        public void TestPlayOfResonance()
+        public void TestPlayOfDisruption()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Spellforge", "TheBlock");
 
@@ -594,7 +594,7 @@ namespace RuduenModsTest
 
             DecisionSelectTarget = mdp;
 
-            Card card = PutInHand("OfResonance");
+            Card card = PutInHand("OfDisruption");
 
             DealDamage(Spellforge, Spellforge.CharacterCard, 5, DamageType.Melee);
 
@@ -694,7 +694,7 @@ namespace RuduenModsTest
 
             Card[] discard = FindCardsWhere((Card c) => c.Identifier == "Controlled").ToArray();
             PutInHand(discard);
-            Card safeish = PutInHand("OfDisruption");
+            Card safeish = PutInHand("OfHealing");
 
             DecisionSelectCards = new Card[] { discard[0], discard[1], null, safeish };
 

@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace RuduenWorkshop.Greyhat
 {
-    public class DeployedRelayCardController : CardController
+    public class DeployedRelayCardController : GreyhatSharedDeviceCardController
     {
 
         public DeployedRelayCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)

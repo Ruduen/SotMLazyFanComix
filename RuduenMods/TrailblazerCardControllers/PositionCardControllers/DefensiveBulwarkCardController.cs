@@ -37,11 +37,12 @@ namespace RuduenWorkshop.Trailblazer
             IEnumerator coroutine;
             List<int> powerNumerals = new List<int>
             {
-                this.GetPowerNumeral(0, 2)
+                this.GetPowerNumeral(0, 2),
+                this.GetPowerNumeral(1, 2)
             };
 
-            // Each Hero Target regains 2 HP.
-            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero, powerNumerals[0], cardSource: this.GetCardSource());
+            // Up to 2 Targets Regain 2 HP.
+            coroutine = this.GameController.SelectAndGainHP(this.DecisionMaker, powerNumerals[1], false, null, powerNumerals[0], 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

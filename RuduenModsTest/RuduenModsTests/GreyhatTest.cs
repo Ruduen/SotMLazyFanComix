@@ -72,6 +72,7 @@ namespace RuduenModsTest
             UsePower(Greyhat);
             QuickHPCheck(-2);
         }
+
         [Test()]
         public void TestInnatePowerBurstNoiseNoLink()
         {
@@ -87,6 +88,25 @@ namespace RuduenModsTest
             QuickHPStorage(baron);
             UsePower(Greyhat);
             QuickHPCheck(-1);
+        }
+
+
+        [Test()]
+        public void TestInnatePowerBurstNoiseSkyScraperCounts()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat/GreyhatBurstNoiseCharacter", "SkyScraper", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+            PlayCard("MicroAssembler");
+            QuickHPStorage(baron);
+            UsePower(Greyhat);
+            QuickHPCheck(-2);
         }
 
         #region Devices
@@ -213,6 +233,7 @@ namespace RuduenModsTest
 
             DealDamage(baron, (Card c) => c.IsCharacter, 10, DamageType.Cold);
             PutOnDeck("CosmicCrest"); // Put on so Captain's power doesn't break.
+            PutOnDeck("DDoS"); // Put on top so potential draw doesn't affect.
 
             ResetDecisions();
             DecisionSelectCards = new Card[] { siphon, uplinks[1], cosmic.CharacterCard };
@@ -409,7 +430,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(mdp);
             Card link = PlayCard("CoercedUplink");
-            QuickHPCheck(-1);
+            QuickHPCheck(-2);
             AssertNextToCard(link, mdp);
         }
 
@@ -457,7 +478,22 @@ namespace RuduenModsTest
             DecisionSelectCards = new Card[] { search, plays[0], plays[1], plays[0], plays[1] };
             QuickHPStorage(baron.CharacterCard);
             PlayCard(card);
-            QuickHPCheck(-2);
+            QuickHPCheck(-4);
+        }
+
+        [Test()]
+        public void TestPlayPingSweep()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "TheSentinels", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            PlayCard("PingSweep");
+            AssertNumberOfCardsInPlay((Card c) => c.IsLink, 2);
         }
 
         #endregion Ungrouped Cards

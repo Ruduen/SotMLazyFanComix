@@ -20,8 +20,8 @@
       "backgroundColor": "FAFA00",
       "foilBackgroundColor": "FAFA00",
       "character": true,
-      "setup": [ "Put two \"Stable Breach\" into play with 0 and 1 tokens in their Focus Pools.", "Put two \"Potent Breach\" into play with 2 and 3 tokens in their Focus Pools." ],
-      "gameplay": [ "At the start of your turn, you may activate a [u]Cast[/u] text of each of your Spells and destroy those spells." ],
+      "setup": [ "Put two {BreachI} into play with 0 and 1 tokens in their Focus Pools.", "Put two {BreachIII} into play with 2 and 3 tokens in their Focus Pools." ],
+      "gameplay": [ "At the start of your turn, you may activate a [u]Cast[/u] text on each of your Spells and destroy those spells." ],
       "powers": [
         "Destroy 1 of your Charge cards. If you do, any player draws 2 cards."
       ],
@@ -51,7 +51,11 @@
       "count": 1,
       "title": "Stable Breach",
       "keywords": [ "breach" ],
-      "body": [ "This card is indestructible." ],
+      "body": [
+        "This card is indestructible.",
+        "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.",
+        "Otherwise, up to 1 Spell may be in play next to this card at a time."
+      ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play up to 3 Spells. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
@@ -70,7 +74,11 @@
       "count": 1,
       "title": "Stable Breach",
       "keywords": [ "breach" ],
-      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool." ],
+      "body": [
+        "This card is indestructible.",
+        "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.",
+        "Otherwise, up to 1 Spell may be in play next to this card at a time."
+      ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play up to 3 Spells. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
@@ -89,7 +97,12 @@
       "count": 1,
       "title": "Potent Breach",
       "keywords": [ "breach" ],
-      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1." ],
+      "body": [
+        "This card is indestructible.",
+        "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.",
+        "Otherwise, up to 1 Spell may be in play next to this card at a time.",
+        "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1."
+      ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play a card and draw a card. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
@@ -108,7 +121,12 @@
       "count": 1,
       "title": "Potent Breach",
       "keywords": [ "breach" ],
-      "body": [ "This card is indestructible.", "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.", "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1." ],
+      "body": [
+        "This card is indestructible.",
+        "Spell cards cannot be placed next to this card if it has any tokens in its Focus Pool.",
+        "Otherwise, up to 1 Spell may be in play next to this card at a time.",
+        "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1."
+      ],
       "powers": [ "If this card has no tokens in its Focus Pool, you may play a card and draw a card. Otherwise, remove 1 token from this card's Focus Pool." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [

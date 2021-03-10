@@ -145,9 +145,9 @@
       ]
     },
     {
-      "identifier": "ClayDoll",
-      "count": 4,
-      "title": "Clay Doll",
+      "identifier": "ClaySoulsplinter",
+      "count": 3,
+      "title": "Clay Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may play a one-shot." ],
@@ -157,9 +157,9 @@
       ]
     },
     {
-      "identifier": "WoodenPuppet",
-      "count": 4,
-      "title": "Wooden Puppet",
+      "identifier": "WoodenSoulsplinter",
+      "count": 3,
+      "title": "Wooden Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may play a one-shot." ],
@@ -169,9 +169,9 @@
       ]
     },
     {
-      "identifier": "StrawEffigy",
-      "count": 4,
-      "title": "Straw Effigy",
+      "identifier": "StrawSoulsplinter",
+      "count": 3,
+      "title": "Straw Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "elemental" ],
       "body": [ "When this card enters play, you may play a one-shot." ],
@@ -182,7 +182,7 @@
     },
     {
       "identifier": "RitualOfCatastrophe",
-      "count": 2,
+      "count": 3,
       "title": "Ritual of Catastrophe",
       "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
@@ -205,7 +205,7 @@
     },
     {
       "identifier": "RitualOfSalvation",
-      "count": 2,
+      "count": 3,
       "title": "Ritual of Salvation",
       "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
@@ -228,7 +228,7 @@
     },
     {
       "identifier": "RitualOfTransferrence",
-      "count": 2,
+      "count": 3,
       "title": "Ritual of Transferrence",
       "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
@@ -251,7 +251,7 @@
     },
     {
       "identifier": "RitualOfCausality",
-      "count": 2,
+      "count": 3,
       "title": "Ritual of Causality",
       "keywords": [ "ongoing", "ritual", "limited" ],
       "body": [
@@ -274,23 +274,11 @@
     },
     {
       "identifier": "RitualComponents",
-      "count": 2,
+      "count": 3,
       "title": "Ritual Components",
       "keywords": [ "equipment", "limited" ],
       "powers": [ "Remove 1 Ritual Token from a Ritual. If you have at least 3 Targets, remove 1 Ritual Token from each Ritual." ],
       "icons": [ "HasPower", "RemoveTokens" ],
-      "flavorQuotes": [
-      ]
-    },
-    {
-      "identifier": "RepeatedRites",
-      "count": 2,
-      "title": "Repeated Rites",
-      "keywords": [ "ongoing" ],
-      "body": [
-        "When one of your Rituals would be destroyed, you may instead add 2 Ritual Tokens to it and destroy this card."
-      ],
-      "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
       ]
     },
@@ -321,7 +309,7 @@
     },
     {
       "identifier": "KeystoneOfSpirit",
-      "count": 2,
+      "count": 3,
       "title": "Keystone of Spirit",
       "keywords": [ "one-shot" ],
       "body": [
@@ -353,6 +341,20 @@
       "body": [
         "Reveal cards from the top of your deck until you reveal a copy of a Ritual not already in play. Put it in play.",
         "One of your Targets deals 1 target and themselves Infernal Damage equal to the number of Rituals in play."
+      ],
+      "icons": [ "AddTokens", "DestroyThis" ],
+      "flavorQuotes": [
+      ]
+    }
+  ],
+  "dummyCards": [
+    {
+      "identifier": "RepeatedRites",
+      "count": 2,
+      "title": "Repeated Rites",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "When one of your Rituals would be destroyed, you may instead add 2 Ritual Tokens to it and destroy this card."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [

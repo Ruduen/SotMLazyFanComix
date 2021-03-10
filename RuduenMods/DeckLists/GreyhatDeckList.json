@@ -70,9 +70,10 @@
       "identifier": "DeployedRelay",
       "count": 3,
       "title": "Deployed Relay",
-      "hitpoints": 5,
+      "hitpoints": 4,
       "keywords": [ "device" ],
       "body": [
+        "When this card enters play, you may draw a card.",
         "At the end of your turn, you may search your Trash for a Link and put it into play."
       ],
       "powers": [
@@ -86,9 +87,10 @@
       "identifier": "InstantFirewall",
       "count": 3,
       "title": "Instant Firewall",
-      "hitpoints": 5,
+      "hitpoints": 4,
       "keywords": [ "device" ],
       "body": [
+        "When this card enters play, you may draw a card.",
         "At the end of your turn, {Greyhat} deals each non-Hero target 1 Fire Damage."
       ],
       "powers": [
@@ -102,9 +104,10 @@
       "identifier": "ProxyPod",
       "count": 3,
       "title": "Proxy Pod",
-      "hitpoints": 5,
+      "hitpoints": 4,
       "keywords": [ "device" ],
       "body": [
+        "When this card enters play, you may draw a card.",
         "At the end of your turn, this card regains 2 HP."
       ],
       "powers": [
@@ -176,7 +179,7 @@
     },
     {
       "identifier": "SystemReboot",
-      "count": 4,
+      "count": 2,
       "title": "System Reboot",
       "keywords": [ "one-shot" ],
       "body": [
@@ -185,6 +188,20 @@
         "You may play a number of Link cards equal to the number of Links returned to your hand by this card."
       ],
       "icons": [ "Search", "Manipulate", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "PingSweep",
+      "count": 3,
+      "title": "Ping Sweep",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Reveal cards from the top of your deck until 2 link cards have been revealed. Play those cards. Shuffle the other revealed cards into your deck."
+      ],
+      "icons": [ "Manipulate", "PlayCardNow" ],
       "flavorQuotes": [
         {
         }
@@ -222,7 +239,7 @@
     },
     {
       "identifier": "AutoRedirect",
-      "count": 3,
+      "count": 2,
       "title": "Auto-Redirect",
       "keywords": [ "ongoing", "limited" ],
       "body": [

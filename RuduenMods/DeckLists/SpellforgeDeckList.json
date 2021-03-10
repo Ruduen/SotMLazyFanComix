@@ -42,7 +42,7 @@
     },
     {
       "identifier": "Ray",
-      "count": 3,
+      "count": 4,
       "title": "Ray",
       "keywords": [ "one-shot", "essence" ],
       "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals 1 Target 4 Energy Damage." ],
@@ -53,11 +53,11 @@
       ]
     },
     {
-      "identifier": "Shock",
-      "count": 3,
-      "title": "Shock",
+      "identifier": "Wave",
+      "count": 4,
+      "title": "Wave",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 3 Targets 3 Lightning Damage." ],
+      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 5 Targets 2 Lightning Damage." ],
       "icons": [ "DealDamageLightning", "Discard" ],
       "flavorQuotes": [
         {
@@ -65,23 +65,11 @@
       ]
     },
     {
-      "identifier": "Wave",
-      "count": 3,
-      "title": "Wave",
-      "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix and a Suffix, to add their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 5 Targets 3 Sonic Damage." ],
-      "icons": [ "DealDamageSonic", "Discard" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
-    },
-    {
       "identifier": "Impact",
-      "count": 3,
+      "count": 4,
       "title": "Impact",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix card to add its [u]Prefix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals each Target 2 Melee Damage." ],
+      "body": [ "You may discard a Prefix card to add its [u]Prefix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals each Target 1 Melee Damage." ],
       "icons": [ "DealDamageMelee", "Discard" ],
       "flavorQuotes": [
         {
@@ -129,11 +117,11 @@
     },
     {
       "identifier": "OfAura",
-      "count": 3,
+      "count": 4,
       "title": "...of Aura",
       "alternateTitle": "of Aura",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "You may destroy an Environment card. Draw a card.", "[u]Suffix[/u]: After a Hero is dealt damage this way, their player draws a card." ],
+      "body": [ "You may destroy an Ongoing or Environment card. Draw a card.", "[u]Suffix[/u]: After a Hero is dealt damage this way, their player draws a card." ],
       "icons": [ "DrawCardNow" ],
       "flavorQuotes": [
         {
@@ -142,11 +130,11 @@
     },
     {
       "identifier": "OfDisruption",
-      "count": 3,
+      "count": 4,
       "title": "...of Disruption",
       "alternateTitle": "of Disruption",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "You may destroy an Ongoing card. Draw a card.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, it deals itself 1 Sonic Damage." ],
+      "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw a card.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, it deals itself 1 Sonic Damage." ],
       "icons": [ "DrawCardNow", "DealDamageSonic" ],
       "flavorQuotes": [
         {
@@ -155,25 +143,12 @@
     },
     {
       "identifier": "OfHealing",
-      "count": 3,
+      "count": 4,
       "title": "...of Healing",
       "alternateTitle": "of Healing",
       "keywords": [ "one-shot", "suffix" ],
       "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 3 HP." ],
       "icons": [ "DrawCardNow", "DestroyEnvironment", "GainHP" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
-    },
-    {
-      "identifier": "OfResonance",
-      "count": 3,
-      "title": "...of Resonance",
-      "alternateTitle": "of Resonance",
-      "keywords": [ "one-shot", "suffix" ],
-      "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw a card.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, {Spellforge} deals it 1 Sonic Damage." ],
-      "icons": [ "DrawCardNow" ],
       "flavorQuotes": [
         {
         }

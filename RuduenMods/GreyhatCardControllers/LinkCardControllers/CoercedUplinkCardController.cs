@@ -23,7 +23,7 @@ namespace RuduenWorkshop.Greyhat
             if (nextTo != null)
             {
                 // Damage.
-                coroutine = this.DealDamage(this.CharacterCard, nextTo, 1, DamageType.Lightning, cardSource: this.GetCardSource());
+                coroutine = this.DealDamage(this.CharacterCard, nextTo, 2, DamageType.Lightning, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
