@@ -17,7 +17,7 @@ namespace RuduenWorkshop.Greyhat
 
         public override void AddUniqueTriggers()
         {
-            this.AddIncreaseDamageTrigger((DealDamageAction dd) => this.CardsLinksAreNextToGreyhatAndHeroes.Contains(dd.DamageSource.Card) || this.CardsLinksAreNextToNonHero.Contains(dd.Target), Amount);
+            this.AddIncreaseDamageTrigger((DealDamageAction dd) =>  (dd.DamageSource.Card != null && this.CardsLinksAreNextToGreyhatAndHeroes.Contains(dd.DamageSource.Card)) || this.CardsLinksAreNextToNonHero.Contains(dd.Target), Amount);
         }
 
         private int Amount(DealDamageAction dda)

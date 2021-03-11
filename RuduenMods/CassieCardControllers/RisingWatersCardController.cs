@@ -15,7 +15,7 @@ namespace RuduenWorkshop.Cassie
         public override void AddTriggers()
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.DestroyOngoingResponse), TriggerType.DestroyCard, null, false);
-            this.AddIncreaseDamageTrigger((DealDamageAction dealDamage) => dealDamage.DamageSource.IsHero, 1, null, null, false);
+            this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.IsHero, 1, null, null, false);
         }
 
         protected IEnumerator DestroyOngoingResponse(PhaseChangeAction phaseChange)

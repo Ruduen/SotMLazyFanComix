@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Soulbinder
         {
             if (!this.CardWithoutReplacements.IsFlipped)
             {
-                this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.IsSameCard(this.Card) && !dda.Target.IsHero, 1);
+                this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.Card != null && dda.DamageSource.IsSameCard(this.Card) && !dda.Target.IsHero, 1);
             }
         }
     }

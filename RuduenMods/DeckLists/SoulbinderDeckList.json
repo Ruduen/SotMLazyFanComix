@@ -71,7 +71,7 @@
         "DrawCardNow",
         "RemoveTokens"
       ],
-      "hitpoints": 15,
+      "hitpoints": 17,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
@@ -89,7 +89,7 @@
       "icons": [
         "IncreaseDamageDealt"
       ],
-      "hitpoints": 8,
+      "hitpoints": 11,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
@@ -107,7 +107,7 @@
       "icons": [
         "DrawCardExtra"
       ],
-      "hitpoints": 8,
+      "hitpoints": 11,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
@@ -125,7 +125,7 @@
       "icons": [
         "ReduceDamageTaken"
       ],
-      "hitpoints": 8,
+      "hitpoints": 11,
       "nemesisIdentifiers": [
         "Soulbinder"
       ],
@@ -133,49 +133,51 @@
     },
     {
       "identifier": "ClaySoulsplinter",
-      "count": 3,
+      "count": 4,
       "title": "Clay Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
-      "powers": [ "TO BE REDONE" ],
-      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageMelee" ],
+      "powers": [ "Draw a Card." ],
+      "icons": [ "PlayCardNow", "HasPower", "DrawCardNow" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "WoodenSoulsplinter",
-      "count": 3,
+      "count": 4,
       "title": "Wooden Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
-      "powers": [ "Each of your Hero targets regains 2 HP." ],
-      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageInfernal", "GainHP" ],
+      "powers": [ "Each of your targets regains 2 HP." ],
+      "icons": [ "PlayCardNow", "HasPower", "GainHP" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "StrawSoulsplinter",
-      "count": 3,
+      "count": 4,
       "title": "Straw Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
       "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP." ],
-      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageToxic", "GainHP" ],
+      "icons": [ "PlayCardNow", "HasPower", "DealDamageToxic", "GainHP" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "RitualOfCatastrophe",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Catastrophe",
       "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
-        "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, each non-Hero target deals itself 3 irreducible Infernal Damage. Then, destroy this card."
+        "When the last token is removed from this, each non-Hero target deals itself 3 Irreducible Infernal Damage. Then, destroy this card."
+      ],
+      "powers": [
+        "Remove Ritual Tokens from this card equal to the number of your Targets."
       ],
       "tokenPools": [
         {
@@ -192,13 +194,15 @@
     },
     {
       "identifier": "RitualOfSalvation",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Salvation",
       "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
-        "At the end of your turn, remove 1 Ritual Token from this card.",
         "When the last token is removed from this, each Hero target regains 3 HP and each player draws a card. Then, destroy this card."
+      ],
+      "powers": [
+        "Remove Ritual Tokens from this card equal to the number of your Targets."
       ],
       "tokenPools": [
         {
@@ -215,13 +219,15 @@
     },
     {
       "identifier": "RitualOfTransferrence",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Transferrence",
       "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
-        "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself irreducible Toxic damage equal to the total amount of HP regained this way. Then, destroy this card."
+        "When the last token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself irreducible Toxic damage equal to the total HP regained this way. Then, destroy this card."
+      ],
+      "powers": [
+        "Remove Ritual Tokens from this card equal to the number of your Targets."
       ],
       "tokenPools": [
         {
@@ -238,13 +244,15 @@
     },
     {
       "identifier": "RitualOfKnowledge",
-      "count": 3,
+      "count": 2,
       "title": "Ritual of Knowledge",
       "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
-        "At the end of your turn, remove 1 Ritual Token from this card.",
-        "When the last token is removed from this, you may draw 4 cards, you may play a card, and you may use a power. Then, destroy this card."
+        "When the last token is removed from this, you may draw 4 cards, play a card, and use a power. Then, destroy this card."
+      ],
+      "powers": [
+        "Remove Ritual Tokens from this card equal to the number of your Targets."
       ],
       "tokenPools": [
         {
@@ -261,13 +269,15 @@
     },
     {
       "identifier": "RitualComponents",
-      "count": 4,
+      "count": 3,
       "title": "Ritual Components",
       "keywords": [ "equipment", "limited" ],
-      "powers": [ "Deal 1 Target 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
+      "body": [ "At the end of your turn, remove 1 Ritual Token from 1 of your Ritual Cards." ],
+      "powers": [ "One of your targets deals 1 Target 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
         {
+          "identifier": "Greyhat",
           "text": "I thought those were ceremonial."
         },
         {
@@ -278,7 +288,7 @@
     },
     {
       "identifier": "ArcaneDetonation",
-      "count": 3,
+      "count": 4,
       "title": "Arcane Detonation",
       "keywords": [ "one-shot" ],
       "body": [
@@ -290,7 +300,7 @@
     },
     {
       "identifier": "SacrificialRite",
-      "count": 3,
+      "count": 4,
       "title": "Sacrificial Rite",
       "keywords": [ "one-shot" ],
       "body": [
@@ -303,7 +313,7 @@
     },
     {
       "identifier": "KeystoneOfSpirit",
-      "count": 3,
+      "count": 4,
       "title": "Keystone of Spirit",
       "keywords": [ "one-shot" ],
       "body": [
@@ -330,7 +340,7 @@
     },
     {
       "identifier": "BlindBeckoning",
-      "count": 4,
+      "count": 3,
       "title": "Blind Beckoning",
       "keywords": [ "one-shot" ],
       "body": [

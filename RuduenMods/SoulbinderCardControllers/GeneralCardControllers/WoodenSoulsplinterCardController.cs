@@ -26,8 +26,7 @@ namespace RuduenWorkshop.Soulbinder
         public override IEnumerator UsePower(int index = 0)
         {
             List<int> powerNumerals = new List<int>(){
-                            this.GetPowerNumeral(0, 1), // HP to regain
-                            this.GetPowerNumeral(1, 1)  // Damage to inflict.
+                            this.GetPowerNumeral(0, 2) // HP to regain
             };
             List<Card> targetList = new List<Card>();
             IEnumerator coroutine;

@@ -18,7 +18,7 @@ namespace RuduenWorkshop.Inquirer
         {
             base.AddTriggers();
             // Add trigger for increasing damage.
-            this.AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.Card == this.CharacterCard, 1, null, null, false);
+            this.AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.Card != null && dd.DamageSource.Card == this.CharacterCard, 1, null, null, false);
 
             // Add trigger for discard-for-power.
             this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.DiscardToUsePowerResponse), new TriggerType[]

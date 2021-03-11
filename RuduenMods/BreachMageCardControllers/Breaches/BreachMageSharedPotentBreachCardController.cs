@@ -17,7 +17,7 @@ namespace RuduenWorkshop.BreachMage
             {
                 // Increase damage if the spell cast is next to this card.
                 // TODO: Also check if the damage is from a Cast effect!
-                return (dd.CardSource.Card.Location == this.Card.NextToLocation && dd.CardSource.Card.IsSpell);
+                return (dd.CardSource.Card != null && dd.CardSource.Card.Location == this.Card.NextToLocation && dd.CardSource.Card.IsSpell);
             }
             this.AddTrigger(this.AddIncreaseDamageTrigger(criteria, 1, null, null, false));
         }

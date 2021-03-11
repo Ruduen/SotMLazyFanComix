@@ -212,6 +212,7 @@ namespace RuduenModsTest
         [Test()]
         public void TestPlayShockTherapy()
         {
+            // TO CHECK: SEED 210116367
             IEnumerable<string> setupItems = new List<string>()
             {
                 "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "TheScholar", "CaptainCosmic", "Unity", "Megalopolis"

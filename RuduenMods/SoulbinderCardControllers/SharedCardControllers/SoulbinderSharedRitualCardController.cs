@@ -32,7 +32,6 @@ namespace RuduenWorkshop.Soulbinder
 
         public override void AddTriggers()
         {
-            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, RemoveTokenResponse, TriggerType.ModifyTokens);
             this.AddTrigger<RemoveTokensFromPoolAction>(
                 (RemoveTokensFromPoolAction rtfpa) => rtfpa.TokenPool == RitualPool && rtfpa.TokenPool.CurrentValue == 0, RitualCompleteInitialResponse, RitualTriggerTypes, TriggerTiming.After
             );
@@ -56,13 +55,15 @@ namespace RuduenWorkshop.Soulbinder
             yield break;
         }
 
-        private IEnumerator RemoveTokenResponse(PhaseChangeAction pca)
+        public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            coroutine = this.GameController.SendMessageAction("Removing 1 Ritual Token from " + this.Card.AlternateTitleOrTitle + ".", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
+            int tokensToRemove = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.IsTarget && c.Owner == this.TurnTaker).Count();
+
+            coroutine = this.GameController.SendMessageAction("Removing " + tokensToRemove + " Ritual Token from " + this.Card.AlternateTitleOrTitle + ".", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.RemoveTokensFromPool(RitualPool, 1, cardSource: this.GetCardSource());
+            coroutine = this.GameController.RemoveTokensFromPool(RitualPool, tokensToRemove, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
