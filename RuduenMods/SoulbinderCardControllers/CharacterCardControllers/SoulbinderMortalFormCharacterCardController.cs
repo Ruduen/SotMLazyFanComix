@@ -67,7 +67,7 @@ namespace RuduenWorkshop.Soulbinder
 
         private IEnumerator RemoveTokenFromRitual(SelectCardDecision scd, int number)
         {
-            if (scd.SelectedCard != null)
+            if (scd.SelectedCard != null && scd.SelectedCard.FindTokenPool("RitualTokenPool").CurrentValue > 0)
             {
                 IEnumerator coroutine = this.GameController.RemoveTokensFromPool(scd.SelectedCard.FindTokenPool("RitualTokenPool"), number, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

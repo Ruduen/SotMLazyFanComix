@@ -33,7 +33,7 @@ namespace RuduenWorkshop.Soulbinder
         public override void AddTriggers()
         {
             this.AddTrigger<RemoveTokensFromPoolAction>(
-                (RemoveTokensFromPoolAction rtfpa) => rtfpa.TokenPool == RitualPool && rtfpa.TokenPool.CurrentValue == 0, RitualCompleteInitialResponse, RitualTriggerTypes, TriggerTiming.After
+                (RemoveTokensFromPoolAction rtfpa) => rtfpa.TokenPool == RitualPool && rtfpa.IsSuccessful && rtfpa.TokenPool.CurrentValue == 0, RitualCompleteInitialResponse, RitualTriggerTypes, TriggerTiming.After
             );
             this.AddWhenDestroyedTrigger((DestroyCardAction dc) => this.ResetTokenValue(), TriggerType.Hidden);
         }
@@ -58,22 +58,31 @@ namespace RuduenWorkshop.Soulbinder
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            string plural = "";
-            int tokensToRemove = 1;
-            if (this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("soulsplinter")).Count() > 0)
+            if (RitualPool.CurrentValue == 0)
             {
-                tokensToRemove++;
-            };
-            if (tokensToRemove > 1)
+                coroutine = this.GameController.SendMessageAction(this.Card.AlternateTitleOrTitle + " has no tokens in its ritual pool, so no tokens can be removed.", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
             {
-                plural = "s";
+                string plural = "";
+                int tokensToRemove = 1;
+                if (RitualPool.CurrentValue > 1 && this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("soulsplinter")).Count() > 0)
+                {
+                    tokensToRemove++;
+                };
+                if (tokensToRemove > 1)
+                {
+                    plural = "s";
+                }
+
+                coroutine = this.GameController.SendMessageAction("Removing " + tokensToRemove + " Ritual Token" + plural + " from " + this.Card.AlternateTitleOrTitle + ".", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.RemoveTokensFromPool(RitualPool, tokensToRemove, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            coroutine = this.GameController.SendMessageAction("Removing " + tokensToRemove + " Ritual Token" + plural + " from " + this.Card.AlternateTitleOrTitle + ".", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            coroutine = this.GameController.RemoveTokensFromPool(RitualPool, tokensToRemove, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         private IEnumerator RitualCompleteInitialResponse(RemoveTokensFromPoolAction rtfpa)

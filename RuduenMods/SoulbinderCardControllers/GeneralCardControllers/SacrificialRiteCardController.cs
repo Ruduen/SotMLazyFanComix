@@ -20,6 +20,10 @@ namespace RuduenWorkshop.Soulbinder
             List<Card> targetList = new List<Card>();
             List<Card> actedRituals = new List<Card>();
 
+            // You may play a ritual or soulsplinter.
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("ritual") || c.DoKeywordsContain("soulsplinter"), "ritual or soulsplinter"), cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
             // Select target.
             coroutine = this.SelectYourTargetToDealDamage(targetList, 2, DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -53,7 +57,7 @@ namespace RuduenWorkshop.Soulbinder
 
         private IEnumerator RemoveTokenEachResponse(SelectCardDecision scd, List<Card> actedTargets, int numeral)
         {
-            if (scd.SelectedCard != null)
+            if (scd.SelectedCard != null && scd.SelectedCard.FindTokenPool("RitualTokenPool").CurrentValue > 0)
             {
                 actedTargets.Add(scd.SelectedCard);
                 IEnumerator coroutine = this.GameController.RemoveTokensFromPool(scd.SelectedCard.FindTokenPool("RitualTokenPool"), numeral, cardSource: this.GetCardSource());

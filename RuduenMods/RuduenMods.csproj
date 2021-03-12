@@ -153,7 +153,6 @@
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\FinalEruptionCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\DebtOfTheSoullessCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SacrificialRiteCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RepeatedRitesCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ArcaneDetonationCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenSoulsplinterCardController.cs" />

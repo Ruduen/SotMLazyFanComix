@@ -582,6 +582,28 @@ namespace RuduenModsTest
         }
 
         [Test]
+        public void TestCardRitualOfKnowledgePossibleRepeatedTrigger()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCards = Soulshards;
+
+            StartGame(false);
+
+            ResetDecisions();
+
+            Card ritual = PlayCard("RitualOfKnowledge");
+            DecisionSelectCards = new Card[] {  null };
+            DecisionSelectPower = ritual;
+
+            QuickHandStorage(Soulbinder);
+            RemoveTokensFromPool(ritual.TokenPools[0], InitialRitual);
+            QuickHandCheck(4); // Draw 4
+            AssertInTrash(ritual);
+        }
+
+        [Test]
         public void TestCardRitualOfTransferrence()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
@@ -742,6 +764,7 @@ namespace RuduenModsTest
 
             DecisionSelectCards = new Card[] { mdp };
 
+            DiscardAllCards(Soulbinder);
             QuickHPStorage(Soulshards[1], mdp);
             PlayCard("ArcaneDetonation");
             QuickHPCheck(-3, -3);
@@ -764,6 +787,7 @@ namespace RuduenModsTest
 
             DecisionSelectCards = new Card[] { mdp, rituals[0] };
 
+            DiscardAllCards(Soulbinder);
             QuickHPStorage(Soulshards[1], mdp);
             PlayCard("SacrificialRite");
             QuickHPCheck(-2, -2);
@@ -810,6 +834,7 @@ namespace RuduenModsTest
 
             DecisionSelectCards = new Card[] { mdp, Soulshards[0] };
 
+            DiscardAllCards(Soulbinder);
             SetHitPoints(Soulshards[1], 5);
             QuickHPStorage(mdp);
             PlayCard("FinalEruption");
@@ -830,10 +855,13 @@ namespace RuduenModsTest
             ResetDecisions();
 
             DecisionSelectCards = new Card[] { null };
+            DiscardAllCards(Soulbinder);
 
             QuickHPStorage(Soulshards[1]);
+            QuickHandStorage(Soulbinder);
             PlayCard("SpiritialResonance");
             QuickHPCheck(-1);
+            QuickHandCheck(2);
             AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("ritual") || c.DoKeywordsContain("soulsplinter"), 1);
         }
 

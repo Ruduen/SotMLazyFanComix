@@ -80,7 +80,7 @@ namespace RuduenWorkshop.Soulbinder
 
         private IEnumerator RemoveTokenResponse(SelectCardDecision scd, int number)
         {
-            if (scd.SelectedCard != null)
+            if (scd.SelectedCard != null && scd.SelectedCard.FindTokenPool("RitualTokenPool").CurrentValue > 0)
             {
                 IEnumerator coroutine;
 

@@ -19,20 +19,6 @@ namespace RuduenWorkshop.Soulbinder
             IEnumerator coroutine;
             List<Card> targetList = new List<Card>();
 
-            // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, 1, DamageType.Infernal);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (targetList.Count > 0)
-            {
-                // That target deals itself 1 damage.
-                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 1, DamageType.Infernal, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
-
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 1, true, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             // Select type.
             List<Function> list = new List<Function>
                 {
@@ -47,6 +33,21 @@ namespace RuduenWorkshop.Soulbinder
             SelectFunctionDecision selectFunction = new SelectFunctionDecision(this.GameController, this.DecisionMaker, list, false, null, this.TurnTaker.Name + " does not have any cards in their deck, so" + this.Card.AlternateTitleOrTitle + " has no effect.", null, this.GetCardSource());
             coroutine = this.GameController.SelectAndPerformFunction(selectFunction, null, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Select target.
+            coroutine = this.SelectYourTargetToDealDamage(targetList, 1, DamageType.Infernal);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (targetList.Count > 0)
+            {
+                // That target deals itself 1 damage.
+                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 1, DamageType.Infernal, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, 2, true, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
         }
     }
 }

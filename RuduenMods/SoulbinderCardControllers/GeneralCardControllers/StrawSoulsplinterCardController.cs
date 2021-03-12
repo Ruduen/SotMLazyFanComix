@@ -14,15 +14,6 @@ namespace RuduenWorkshop.Soulbinder
         {
         }
 
-        public override IEnumerator Play()
-        {
-            IEnumerator coroutine;
-
-            // You may play a one-shot or a ritual.
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot || c.DoKeywordsContain("ritual"), "one-shot or ritual"), cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        }
-
         public override IEnumerator UsePower(int index = 0)
         {
             List<int> numerals = new List<int>(){

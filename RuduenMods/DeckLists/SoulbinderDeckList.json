@@ -137,7 +137,6 @@
       "title": "Clay Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
-      "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
       "powers": [ "Draw a Card." ],
       "icons": [ "PlayCardNow", "HasPower", "DrawCardNow" ],
       "flavorQuotes": [
@@ -149,7 +148,6 @@
       "title": "Wooden Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
-      "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
       "powers": [ "Each of your targets regains 2 HP." ],
       "icons": [ "PlayCardNow", "HasPower", "GainHP" ],
       "flavorQuotes": [
@@ -161,7 +159,6 @@
       "title": "Straw Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
-      "body": [ "When this card enters play, you may play a One-Shot or a Ritual." ],
       "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP." ],
       "icons": [ "PlayCardNow", "HasPower", "DealDamageToxic", "GainHP" ],
       "flavorQuotes": [
@@ -292,6 +289,7 @@
       "title": "Arcane Detonation",
       "keywords": [ "one-shot" ],
       "body": [
+        "You may play a Ritual or Soulsplinter.",
         "1 of your targets deals each non-Hero target and themselves 3 Infernal Damage."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
@@ -304,6 +302,7 @@
       "title": "Sacrificial Rite",
       "keywords": [ "one-shot" ],
       "body": [
+        "You may play a Ritual or Soulsplinter.",
         "1 of your targets deals 1 target and themselves 2 Infernal Damage.",
         "Remove 1 Ritual Token from each of your Rituals."
       ],
@@ -317,6 +316,7 @@
       "title": "Keystone of Spirit",
       "keywords": [ "one-shot" ],
       "body": [
+        "You may play a Ritual or Soulsplinter.",
         "1 of your targets deals 1 themselves 1 Infernal Damage.",
         "Each other Hero Target regains 1 HP.",
         "You may use a power now."
@@ -331,6 +331,7 @@
       "title": "Final Eruption",
       "keywords": [ "one-shot" ],
       "body": [
+        "You may play a Ritual or Soulsplinter.",
         "Select 1 of your Targets. It deals 1 Target Infernal Damage equal to its current HP plus 2.",
         "Then, destroy the selected target."
       ],
@@ -356,10 +357,10 @@
       "title": "Spiritual Resonance",
       "keywords": [ "one-shot" ],
       "body": [
-        "One of your Targets deals themselves 1 Infernal Damage.",
-        "You may draw a card.",
         "Select Ritual or Soulsplinter.",
-        "Reveal cards from the top of your deck until you reveal a card of the selected type. Play that card. Shuffle the other revealed cards into your deck."
+        "Reveal cards from the top of your deck until you reveal a card of the selected type. Play that card. Shuffle the other revealed cards into your deck.",
+        "One of your Targets deals themselves 1 Infernal Damage.",
+        "You may draw 2 cards."
       ],
       "icons": [ "Manipulate", "PlayCardNow", "DrawCardNow" ],
       "flavorQuotes": [

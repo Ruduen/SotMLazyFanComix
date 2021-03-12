@@ -124,11 +124,14 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may play a link.",
-        "{Greyhat} and each other Hero next to a Link in their play area uses a power.",
+        "{Greyhat} and each other Hero next to a Link in their play area may use a power.",
         "Each non-Hero Target next to a Link deals themselves 2 Energy Damage."
       ],
       "icons": [ "UsePowerNow", "DealDamageEnergy" ],
       "flavorQuotes": [
+        { "identifier": "Greyhat",
+          "text": "Stop... Oh, who am I kidding. Keep hitting yourself!"
+        }
       ]
     },
     {
