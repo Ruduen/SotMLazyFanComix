@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace RuduenWorkshop.Greyhat
 {
-    public class DDoSCardController : GreyhatSharedCheckNextToLinkCardController
+    public class DDoSCardController : GreyhatSharedPlayLinkFirstCardController
     {
         public DDoSCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
-        public override IEnumerator Play()
+        protected override IEnumerator PostLinkPlay()
         {
             IEnumerator coroutine;
             List<Card> didDamageCards = new List<Card>();

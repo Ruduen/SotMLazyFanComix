@@ -58,9 +58,18 @@ namespace RuduenWorkshop.Soulbinder
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            int tokensToRemove = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.IsTarget && c.Owner == this.TurnTaker).Count();
+            string plural = "";
+            int tokensToRemove = 1;
+            if (this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("soulsplinter")).Count() > 0)
+            {
+                tokensToRemove++;
+            };
+            if (tokensToRemove > 1)
+            {
+                plural = "s";
+            }
 
-            coroutine = this.GameController.SendMessageAction("Removing " + tokensToRemove + " Ritual Token from " + this.Card.AlternateTitleOrTitle + ".", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
+            coroutine = this.GameController.SendMessageAction("Removing " + tokensToRemove + " Ritual Token" + plural + " from " + this.Card.AlternateTitleOrTitle + ".", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.RemoveTokensFromPool(RitualPool, tokensToRemove, cardSource: this.GetCardSource());

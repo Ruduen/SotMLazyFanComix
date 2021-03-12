@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Greyhat
         public override IEnumerator Play()
         {
             // Draw
-            IEnumerator coroutine = this.GameController.DrawCards(this.DecisionMaker, 1, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.DrawCards(this.DecisionMaker, 1, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

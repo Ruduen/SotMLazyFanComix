@@ -9,13 +9,13 @@ using System.Linq;
 
 namespace RuduenWorkshop.Greyhat
 {
-    public class ShockTherapyCardController : GreyhatSharedCheckNextToLinkCardController
+    public class ShockTherapyCardController : GreyhatSharedPlayLinkFirstCardController
     {
         public ShockTherapyCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
 
-        public override IEnumerator Play()
+        protected override IEnumerator PostLinkPlay()
         {
             IEnumerator coroutine;
             List<Card> gainedHPCards = new List<Card>();

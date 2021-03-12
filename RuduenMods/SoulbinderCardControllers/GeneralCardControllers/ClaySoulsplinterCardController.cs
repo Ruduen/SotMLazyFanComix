@@ -9,7 +9,6 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class ClaySoulsplinterCardController : CardController
     {
-        private readonly List<Card> _actedTargets = new List<Card>();
 
         public ClaySoulsplinterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -32,7 +31,7 @@ namespace RuduenWorkshop.Soulbinder
                             this.GetPowerNumeral(0, 1)
             };
 
-            IEnumerator coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.DrawCards(this.DecisionMaker, numerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

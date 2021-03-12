@@ -21,7 +21,7 @@ namespace RuduenModsTest
             ModHelper.AddAssembly("RuduenWorkshop", Assembly.GetAssembly(typeof(SoulbinderCharacterCardController))); // replace with your own namespace
         }
 
-        private int initialRitual { get { return 3; } }
+        private int InitialRitual { get { return 3; } }
 
         protected HeroTurnTakerController Soulbinder { get { return FindHero("Soulbinder"); } }
 
@@ -390,7 +390,7 @@ namespace RuduenModsTest
             UsePower(SoulbinderMortal);
             QuickHandCheck(1);
 
-            AssertTokenPoolCount(card.TokenPools.FirstOrDefault(), initialRitual - 1); // One removed from 4.
+            AssertTokenPoolCount(card.TokenPools.FirstOrDefault(), InitialRitual - 1); // One removed from 4.
         }
 
         [Test]
@@ -415,7 +415,7 @@ namespace RuduenModsTest
             PlayCard(clay);
             QuickHandStorage(Soulbinder);
             UsePower(clay);
-            QuickHandCheck(-1); // 1 Played,
+            QuickHandCheck(1); // 1 Drawn,
         }
 
         [Test]
@@ -494,20 +494,20 @@ namespace RuduenModsTest
         //    Card ritual = PlayCard("RitualOfCatastrophe");
 
         //    GoToEndOfTurn(Soulbinder);
-        //    AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), initialRitual - 1);
+        //    AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual - 1);
 
         //    GoToStartOfTurn(Soulbinder);
 
         //    // Bonus Damage
         //    UsePower(legacy);
         //    GoToEndOfTurn(Soulbinder);
-        //    AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), initialRitual - 3);
+        //    AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual - 3);
 
         //    // Negated Damage
         //    GoToStartOfTurn(Soulbinder);
         //    PlayCard("HeroicInterception");
         //    GoToEndOfTurn(Soulbinder);
-        //    AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), initialRitual - 3);
+        //    AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual - 3);
         //}
 
         [Test]
@@ -522,12 +522,18 @@ namespace RuduenModsTest
 
             ResetDecisions();
 
-            PlayCard("ClaySoulsplinter");
-            Card ritual = PlayCard("RitualOfCatastrophe");
+            Card[] rituals = new Card[] { PlayCard("RitualOfCatastrophe"), PlayCard("RitualOfKnowledge") };
 
-            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), initialRitual);
-            UsePower(ritual);
-            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), initialRitual - 2);
+            AssertTokenPoolCount(rituals[0].TokenPools.FirstOrDefault(), InitialRitual);
+            UsePower(rituals[0]);
+            AssertTokenPoolCount(rituals[0].TokenPools.FirstOrDefault(), InitialRitual - 1);
+
+            PlayCard("ClaySoulsplinter");
+            AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), InitialRitual);
+            UsePower(rituals[1]);
+            AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), InitialRitual - 2);
+
+
         }
 
         [Test]
@@ -546,7 +552,7 @@ namespace RuduenModsTest
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             QuickHPStorage(mdp);
-            RemoveTokensFromPool(ritual.TokenPools[0], initialRitual);
+            RemoveTokensFromPool(ritual.TokenPools[0], InitialRitual);
             QuickHPCheck(-3);
             AssertInTrash(ritual);
         }
@@ -594,7 +600,7 @@ namespace RuduenModsTest
 
             DecisionSelectCards = targets;
             QuickHPStorage(targets);
-            RemoveTokensFromPool(ritual.TokenPools[0], initialRitual);
+            RemoveTokensFromPool(ritual.TokenPools[0], InitialRitual);
             QuickHPCheck(2, 2, 2, -6);
             AssertInTrash(ritual);
         }
@@ -618,7 +624,7 @@ namespace RuduenModsTest
             DecisionSelectCards = targets;
             QuickHPStorage(targets);
             QuickHandStorage(Soulbinder, legacy, ra);
-            RemoveTokensFromPool(ritual.TokenPools[0], initialRitual);
+            RemoveTokensFromPool(ritual.TokenPools[0], InitialRitual);
             QuickHPCheck(3, 3, 3);
             QuickHandCheck(1, 1, 1);
             AssertInTrash(ritual);
@@ -641,7 +647,7 @@ namespace RuduenModsTest
 
             Card ritualA = PlayCard("RitualOfSalvation");
             UsePower(card);
-            AssertTokenPoolCount(ritualA.TokenPools[0], initialRitual - 1);
+            AssertTokenPoolCount(ritualA.TokenPools[0], InitialRitual - 1);
 
             DecisionSelectCards = new Card[] { null };
 
@@ -658,8 +664,8 @@ namespace RuduenModsTest
             QuickHPStorage(mdp);
             UsePower(card);
             QuickHPCheck(-2 - 1);
-            AssertTokenPoolCount(ritualA.TokenPools[0], initialRitual - 1); // Selected reduced.
-            AssertTokenPoolCount(ritualB.TokenPools[0], initialRitual); // Other not reduced.
+            AssertTokenPoolCount(ritualA.TokenPools[0], InitialRitual - 1); // Selected reduced.
+            AssertTokenPoolCount(ritualB.TokenPools[0], InitialRitual); // Other not reduced.
         }
 
         //[Test]
@@ -761,8 +767,8 @@ namespace RuduenModsTest
             QuickHPStorage(Soulshards[1], mdp);
             PlayCard("SacrificialRite");
             QuickHPCheck(-2, -2);
-            AssertTokenPoolCount(rituals[0].TokenPools.FirstOrDefault(), initialRitual - 1);
-            AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), initialRitual - 1);
+            AssertTokenPoolCount(rituals[0].TokenPools.FirstOrDefault(), InitialRitual - 1);
+            AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), InitialRitual - 1);
         }
 
         [Test]
@@ -812,7 +818,7 @@ namespace RuduenModsTest
         }
 
         [Test]
-        public void TestCardBlindBeckoning()
+        public void TestCardSpiritialResonance()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
@@ -826,9 +832,29 @@ namespace RuduenModsTest
             DecisionSelectCards = new Card[] { null };
 
             QuickHPStorage(Soulshards[1]);
-            PlayCard("BlindBeckoning");
+            PlayCard("SpiritialResonance");
             QuickHPCheck(-1);
-            AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("ritual"), 1);
+            AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("ritual") || c.DoKeywordsContain("soulsplinter"), 1);
+        }
+
+        [Test]
+        public void TestCardDebtOfTheSoulless()
+        {
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            ResetDecisions();
+            DecisionSelectCard = Soulshards[1];
+
+            StartGame(false);
+
+            ResetDecisions();
+            PlayCard("DebtOfTheSoulless");
+
+            QuickHPStorage(Soulshards[1]);
+            QuickHandStorage(Soulbinder);
+            DealDamage(Soulshards[1], Soulshards[1], 1, DamageType.Melee);
+            DealDamage(Soulshards[1], Soulshards[1], 1, DamageType.Melee);
+            QuickHPCheck(-1);
         }
 
         #endregion Other Cards

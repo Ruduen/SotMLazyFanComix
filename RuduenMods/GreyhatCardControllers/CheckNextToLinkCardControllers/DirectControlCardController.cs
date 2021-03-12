@@ -9,13 +9,13 @@ using System.Linq;
 
 namespace RuduenWorkshop.Greyhat
 {
-    public class DirectControlCardController : GreyhatSharedCheckNextToLinkCardController
+    public class DirectControlCardController : GreyhatSharedPlayLinkFirstCardController
     {
         public DirectControlCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
 
-        public override IEnumerator Play()
+        protected override IEnumerator PostLinkPlay()
         {
             IEnumerator coroutine;
             List<Card> usedPowerCards = new List<Card>();

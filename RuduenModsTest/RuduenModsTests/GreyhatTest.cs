@@ -200,6 +200,7 @@ namespace RuduenModsTest
             PlayCard("DigitalUplink");
             PlayCard("CoercedUplink");
             GoToPlayCardPhase(Greyhat);
+            DiscardAllCards(Greyhat);
 
             QuickHPStorage(baron);
             PlayCard("DirectControl");
@@ -235,6 +236,7 @@ namespace RuduenModsTest
             DealDamage(baron, (Card c) => c.IsCharacter, 10, DamageType.Cold);
             PutOnDeck("CosmicCrest"); // Put on so Captain's power doesn't break.
             PutOnDeck("DDoS"); // Put on top so potential draw doesn't affect.
+            DiscardAllCards(Greyhat);
 
             ResetDecisions();
             DecisionSelectCards = new Card[] { siphon, uplinks[1], cosmic.CharacterCard };
@@ -258,6 +260,7 @@ namespace RuduenModsTest
             PlayCard("DigitalUplink");
             PlayCard("CoercedUplink");
             GoToPlayCardPhase(Greyhat);
+            DiscardAllCards(Greyhat);
 
             QuickHandStorage(Greyhat, legacy);
             PlayCard("DataTransfer");
@@ -279,6 +282,7 @@ namespace RuduenModsTest
             PlayCard("DigitalUplink", 1);
             PlayCard("CoercedUplink");
             GoToPlayCardPhase(Greyhat);
+            DiscardAllCards(Greyhat);
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
@@ -297,10 +301,11 @@ namespace RuduenModsTest
             StartGame();
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
             DecisionSelectCards = new Card[] { medico, idealist };
+            DiscardAllCards(Greyhat);
             PlayCard("DigitalUplink", 0);
             PlayCard("DigitalUplink", 1);
             PlayCard("CoercedUplink");
-            GoToPlayCardPhase(Greyhat);
+            DiscardAllCards(Greyhat);
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
@@ -330,6 +335,7 @@ namespace RuduenModsTest
 
             RestoreToMaxHP(target);
             ResetDecisions();
+            DiscardAllCards(Greyhat);
 
             QuickHPStorage(baron.CharacterCard, target);
             PlayCard("DDoS");

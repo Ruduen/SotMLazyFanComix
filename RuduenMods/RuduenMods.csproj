@@ -68,7 +68,7 @@
     <Compile Include="BreachMageCardControllers\BreachMageTurnTakerController.cs" />
     <Compile Include="CassieCardControllers\CassieEssenceFlowCharacterCardController.cs" />
     <Compile Include="GreyhatCardControllers\GreyhatBurstNoiseCharacterCardController.cs" />
-    <Compile Include="GreyhatCardControllers\MiscCardControllers\SystemRebootCardController - Copy.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\PingSweepCardController.cs" />
     <Compile Include="GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\AutoRedirectCardController.cs" />
     <Compile Include="GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\OverclockSystemsCardController.cs" />
     <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\DDoSCardController.cs" />
@@ -83,6 +83,7 @@
     <Compile Include="GreyhatCardControllers\DeviceCardControllers\ProxyPodCardController.cs" />
     <Compile Include="GreyhatCardControllers\DeviceCardControllers\InstantFirewallCardController.cs" />
     <Compile Include="GreyhatCardControllers\DeviceCardControllers\DeployedRelayCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedPlayLinkFirstCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedOngoingCheckNextToLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
@@ -147,9 +148,10 @@
     <Compile Include="HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheHarpyArcaneFlockCharacterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\BlindBeckoningCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SpiritialResonanceCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\KeystoneOfSpiritCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\FinalEruptionCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\DebtOfTheSoullessCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SacrificialRiteCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RepeatedRitesCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
