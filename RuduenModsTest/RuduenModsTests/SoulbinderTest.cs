@@ -25,11 +25,6 @@ namespace RuduenModsTest
 
         protected HeroTurnTakerController Soulbinder { get { return FindHero("Soulbinder"); } }
 
-        protected Card[] Soulshards { get { return new Card[] { GetCard("SoulshardOfLightningCharacter"), GetCard("SoulshardOfMercuryCharacter"), GetCard("SoulshardOfIronCharacter") }; } }
-
-        protected Card SoulbinderMortal { get { return GetCard("SoulbinderMortalFormCharacter"); } }
-
-        protected Card SoulbinderInstruction { get { return GetCard("SoulbinderCharacter"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -53,289 +48,14 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Megalopolis");
 
-            DecisionSelectCard = Soulshards[0];
-
             ResetDecisions();
             StartGame(false);
 
-            AssertNotInPlay(SoulbinderMortal);
-            AssertIsInPlay(Soulshards);
-
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            Assert.IsTrue(Soulbinder.HasMultipleCharacterCards);
+            AssertIsInPlay(Soulbinder.CharacterCard);
         }
 
-        [Test]
-        public void TestSetupMortal()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Megalopolis");
-
-            ResetDecisions();
-            DecisionSelectCard = Soulshards[0];
-
-            StartGame(false);
-
-            AssertIsInPlay(SoulbinderMortal);
-            AssertIsInPlay(Soulshards);
-
-            AssertIsInPlay(Soulshards);
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-        }
 
         #endregion Basic Setup Tests
-
-        #region Multi-Character and Incap Tests
-
-        [Test]
-        public void TestIncapBasicAll()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Megalopolis");
-
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            AssertIsInPlay(Soulshards);
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            // First is destroyed, second flips to take its place.
-            DestroyCard(Soulshards[0]);
-            AssertFlipped(Soulshards[0]);
-            AssertIsInPlay(Soulshards[1]);
-
-            DestroyCard(Soulshards[1]);
-            AssertFlipped(Soulshards[1]);
-            AssertIsInPlay(Soulshards[2]);
-
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            DestroyCard(Soulshards[2]);
-            AssertFlipped(Soulshards[2]);
-            AssertIsInPlay(Soulshards[2]);
-
-            AssertIncapacitated(Soulbinder);
-
-            GoToUseIncapacitatedAbilityPhase(Soulbinder);
-        }
-
-        [Test]
-        public void TestIncapBasicOneRemoved()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
-
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            Card card = PlayCard("UnforgivingWasteland");
-            DealDamage(card, Soulshards[0], 100, DamageType.Melee);
-            AssertOutOfGame(Soulshards[0]);
-
-            //AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-
-            AssertIncapacitated(Soulbinder);
-
-            GoToStartOfTurn(Soulbinder);
-            EnterNextTurnPhase();
-            AssertCurrentTurnPhase(Soulbinder, Phase.End);
-        }
-
-        [Test]
-        public void TestIncapMortalAll()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "Megalopolis");
-
-            ResetDecisions();
-            List<Card> SoulshardsDecision = new List<Card>();
-            SoulshardsDecision.AddRange(Soulshards);
-            SoulshardsDecision.AddRange(Soulshards);
-            DecisionSelectCards = SoulshardsDecision;
-
-            StartGame(false);
-
-            AssertIsInPlay(SoulbinderMortal);
-            AssertIsInPlay(Soulshards);
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-
-            // First is destroyed, second flips to take its place.
-            DestroyCard(Soulshards[0]);
-            AssertFlipped(Soulshards[0]);
-            AssertIsInPlayAndNotUnderCard(Soulshards[1]);
-
-            DestroyCard(Soulshards[1]);
-            AssertFlipped(Soulshards[1]);
-            AssertIsInPlayAndNotUnderCard(Soulshards[2]);
-
-            DestroyCard(Soulshards[2]);
-            AssertIsInPlayAndNotUnderCard(Soulshards[2]);
-            AssertNotFlipped(SoulbinderMortal);
-
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            DestroyCard(SoulbinderMortal);
-            AssertOutOfGame(Soulshards);
-            AssertIncapacitated(Soulbinder);
-
-            GoToUseIncapacitatedAbilityPhase(Soulbinder);
-        }
-
-        [Test]
-        public void TestIncapMortalFirst()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "Megalopolis");
-
-            ResetDecisions();
-            List<Card> SoulshardsDecision = new List<Card>
-            {
-                Soulshards[0]
-            };
-            SoulshardsDecision.AddRange(Soulshards);
-            DecisionSelectCards = SoulshardsDecision;
-
-            StartGame(false);
-
-            AssertIsInPlay(SoulbinderMortal);
-            AssertIsInPlay(Soulshards);
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            DestroyCard(SoulbinderMortal);
-
-            AssertOutOfGame(Soulshards);
-            AssertIsInPlay(SoulbinderMortal);
-
-            AssertIncapacitated(Soulbinder);
-
-            GoToUseIncapacitatedAbilityPhase(Soulbinder);
-        }
-
-        [Test]
-        public void TestIncapMortalRemoved()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "TheFinalWasteland");
-
-            ResetDecisions();
-
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            AssertIsInPlay(SoulbinderMortal);
-            AssertIsInPlay(Soulshards);
-            AssertIsInPlayAndNotUnderCard(Soulshards[0]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[1]);
-            AssertUnderCard(SoulbinderInstruction, Soulshards[2]);
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            Card card = PlayCard("UnforgivingWasteland");
-            DealDamage(card, SoulbinderMortal, 100, DamageType.Melee);
-            AssertOutOfGame(SoulbinderMortal);
-
-            // Still in play - one soulshard left!
-            AssertNotIncapacitatedOrOutOfGame(Soulbinder);
-
-            // First is destroyed, second flips to take its place.
-            DestroyCard(Soulshards[0]);
-            AssertFlipped(Soulshards[0]);
-            AssertIsInPlayAndNotUnderCard(Soulshards[1]);
-
-            DestroyCard(Soulshards[1]);
-            AssertFlipped(Soulshards[1]);
-            AssertIsInPlayAndNotUnderCard(Soulshards[2]);
-
-            DestroyCard(Soulshards[2]);
-            AssertFlipped(Soulshards[2]);
-
-            AssertIncapacitated(Soulbinder);
-
-            GoToUseIncapacitatedAbilityPhase(Soulbinder);
-        }
-
-        #endregion Multi-Character and Incap Tests
-
-        #region Character Triggers
-
-        [Test]
-        public void TestTriggerLightningBasic()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
-
-            ResetDecisions();
-            DecisionSelectCard = Soulshards[0];
-
-            StartGame(false);
-
-            Card mdp = FindCardInPlay("MobileDefensePlatform");
-
-            QuickHPStorage(mdp);
-            DealDamage(Soulshards[0], mdp, 3, DamageType.Melee);
-            QuickHPCheck(-4);
-        }
-
-        [Test]
-        public void TestTriggerMercuryBasic()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
-
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            DestroyCard(Soulshards[0]);
-            ResetDecisions();
-            Card discard = GetCardFromHand(Soulbinder);
-            DecisionSelectCard = discard;
-            QuickHandStorage(Soulbinder);
-            GoToEndOfTurn(Soulbinder);
-            QuickHandCheck(0);
-            AssertInTrash(discard);
-
-        }
-
-        [Test]
-        public void TestTriggerIronBasic()
-        {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
-
-            ResetDecisions();
-            DecisionSelectCard = Soulshards[2];
-
-            StartGame(false);
-
-            QuickHPStorage(Soulshards[2]);
-            DealDamage(baron, Soulshards[2], 3, DamageType.Melee);
-            QuickHPCheck(-2);
-        }
-
-        #endregion Character Triggers
 
         #region Powers Cards
 
@@ -345,22 +65,21 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
-            DecisionSelectCard = Soulshards[1];
 
             StartGame(false);
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectTarget = mdp;
 
-            QuickHPStorage(Soulshards[1], mdp);
-            UsePower(SoulbinderInstruction);
+            QuickHPStorage(Soulbinder.CharacterCard, mdp);
+            UsePower(Soulbinder);
             QuickHPCheck(-1, -3);
         }
 
         [Test]
         public void TestPowerMortalNoRitual()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "TheFinalWasteland");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalFormCharacter", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
 
@@ -369,7 +88,7 @@ namespace RuduenModsTest
             AssertNextMessage("There are no rituals with Ritual Tokens in play.");
 
             QuickHandStorage(Soulbinder);
-            UsePower(SoulbinderMortal);
+            UsePower(Soulbinder);
             QuickHandCheck(1);
 
             AssertExpectedMessageWasShown();
@@ -378,7 +97,7 @@ namespace RuduenModsTest
         [Test]
         public void TestPowerMortalRitual()
         {
-            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalCharacter", "Legacy", "TheFinalWasteland");
+            SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder/SoulbinderMortalFormCharacter", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
 
@@ -387,7 +106,7 @@ namespace RuduenModsTest
             Card card = PlayCard("RitualOfCatastrophe");
 
             QuickHandStorage(Soulbinder);
-            UsePower(SoulbinderMortal);
+            UsePower(Soulbinder);
             QuickHandCheck(1);
 
             AssertTokenPoolCount(card.TokenPools.FirstOrDefault(), InitialRitual - 1); // One removed from 4.
@@ -398,12 +117,8 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = new Card[] { Soulshards[1] };
 
             StartGame(false);
-
-            ResetDecisions();
             DiscardAllCards(Soulbinder);
             Card[] rituals = new Card[] { PutInHand("RitualOfSalvation"), PutInHand("RitualOfTransferrence") };
             Card clay = PutInHand("ClaySoulsplinter");
@@ -423,13 +138,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = new Card[] { Soulshards[1] };
-
-            StartGame(false);
-
-            ResetDecisions();
-
+            StartGame();
             Card wood = PutInHand("WoodenSoulsplinter");
 
             DecisionSelectFunction = 1;
@@ -452,12 +161,8 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = new Card[] { Soulshards[1] };
+            StartGame();
 
-            StartGame(false);
-
-            ResetDecisions();
             DiscardAllCards(Soulbinder);
             Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card straw = PutInHand("StrawSoulsplinter");
@@ -515,12 +220,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            ResetDecisions();
+            StartGame();
 
             Card[] rituals = new Card[] { PlayCard("RitualOfCatastrophe"), PlayCard("RitualOfKnowledge") };
 
@@ -541,12 +241,7 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            ResetDecisions();
+            StartGame();
 
             Card ritual = PlayCard("RitualOfCatastrophe");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
@@ -562,20 +257,16 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            ResetDecisions();
+            StartGame();
 
             Card ritual = PlayCard("RitualOfKnowledge");
-            Card[] cards = new Card[] { PutInHand("RitualOfCatastrophe"), Soulshards[0] };
+            Card[] cards = new Card[] { PutInHand("RitualOfCatastrophe") };
             DecisionSelectCards = cards;
+            DecisionSelectPower = cards[0];
 
             QuickHandStorage(Soulbinder);
             RemoveTokensFromPool(ritual.TokenPools[0], 5);
-            QuickHandCheck(3); // Draw 4, play 1
+            QuickHandCheck(3); // Draw 4, play 1, use a power. 
             AssertIsInPlay(cards[0]);
             AssertNumberOfUsablePowers(Soulbinder, 1); // Only ritual power remaining.
             AssertInTrash(ritual);
@@ -586,15 +277,10 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
             StartGame(false);
 
-            ResetDecisions();
-
             Card ritual = PlayCard("RitualOfKnowledge");
-            DecisionSelectCards = new Card[] {  null };
+            DecisionSelectCards = new Card[] { null };
             DecisionSelectPower = ritual;
 
             QuickHandStorage(Soulbinder);
@@ -608,16 +294,12 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
 
-            StartGame(false);
-
-            ResetDecisions();
+            StartGame();
 
             Card ritual = PlayCard("RitualOfTransferrence");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
-            Card[] targets = new Card[] { Soulshards[0], legacy.CharacterCard, ra.CharacterCard, mdp };
+            Card[] targets = new Card[] { Soulbinder.CharacterCard, legacy.CharacterCard, ra.CharacterCard, mdp };
             DealDamage(baron.CharacterCard, targets, 3, DamageType.Melee);
 
             DecisionSelectCards = targets;
@@ -632,15 +314,9 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
-
-            StartGame(false);
-
-            ResetDecisions();
-
+            StartGame();
             Card ritual = PlayCard("RitualOfSalvation");
-            Card[] targets = new Card[] { Soulshards[0], legacy.CharacterCard, ra.CharacterCard };
+            Card[] targets = new Card[] { Soulbinder.CharacterCard, legacy.CharacterCard, ra.CharacterCard };
             DealDamage(baron.CharacterCard, targets, 4, DamageType.Melee);
 
             DecisionSelectCards = targets;
@@ -657,12 +333,8 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCards = Soulshards;
 
-            StartGame(false);
-
-            ResetDecisions();
+            StartGame();
 
             Card card = PlayCard("RitualComponents");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
@@ -685,7 +357,7 @@ namespace RuduenModsTest
 
             QuickHPStorage(mdp);
             UsePower(card);
-            QuickHPCheck(-2 - 1);
+            QuickHPCheck(-2);
             AssertTokenPoolCount(ritualA.TokenPools[0], InitialRitual - 1); // Selected reduced.
             AssertTokenPoolCount(ritualB.TokenPools[0], InitialRitual); // Other not reduced.
         }
@@ -753,19 +425,14 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCard = Soulshards[1];
-
-            StartGame(false);
-
-            ResetDecisions();
+            StartGame();
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectCards = new Card[] { mdp };
 
             DiscardAllCards(Soulbinder);
-            QuickHPStorage(Soulshards[1], mdp);
+            QuickHPStorage(Soulbinder.CharacterCard, mdp);
             PlayCard("ArcaneDetonation");
             QuickHPCheck(-3, -3);
         }
@@ -776,7 +443,7 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
-            DecisionSelectCard = Soulshards[1];
+
 
             StartGame(false);
 
@@ -788,7 +455,7 @@ namespace RuduenModsTest
             DecisionSelectCards = new Card[] { mdp, rituals[0] };
 
             DiscardAllCards(Soulbinder);
-            QuickHPStorage(Soulshards[1], mdp);
+            QuickHPStorage(Soulbinder.CharacterCard, mdp);
             PlayCard("SacrificialRite");
             QuickHPCheck(-2, -2);
             AssertTokenPoolCount(rituals[0].TokenPools.FirstOrDefault(), InitialRitual - 1);
@@ -801,21 +468,21 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
 
             ResetDecisions();
-            DecisionSelectCard = Soulshards[1];
+
 
             StartGame(false);
 
             ResetDecisions();
 
-            Card[] targets = new Card[] { Soulshards[1], ra.CharacterCard };
+            Card[] targets = new Card[] { Soulbinder.CharacterCard, ra.CharacterCard };
             DealDamage(baron.CharacterCard, targets, 3, DamageType.Melee);
 
-            QuickHPStorage(Soulshards[1], ra.CharacterCard);
+            QuickHPStorage(Soulbinder.CharacterCard, ra.CharacterCard);
 
             PlayCard("KeystoneOfSpirit");
 
             QuickHPCheck(-2, 1); // -1 for play, -1 for power.
-            AssertNotUsablePower(Soulbinder, SoulbinderInstruction);
+            AssertNotUsablePower(Soulbinder, Soulbinder.CharacterCard);
         }
 
         [Test]
@@ -824,22 +491,23 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
-            DecisionSelectCard = Soulshards[1];
+
 
             StartGame(false);
 
             ResetDecisions();
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
+            Card soulsplinter = PlayCard("ClaySoulsplinter");
 
-            DecisionSelectCards = new Card[] { mdp, Soulshards[0] };
+            DecisionSelectCards = new Card[] { mdp, soulsplinter };
 
             DiscardAllCards(Soulbinder);
-            SetHitPoints(Soulshards[1], 5);
+            SetHitPoints(soulsplinter, 2);
             QuickHPStorage(mdp);
             PlayCard("FinalEruption");
-            QuickHPCheck(-7);
-            AssertFlipped(Soulshards[1]);
+            QuickHPCheck(-4);
+            AssertInTrash(soulsplinter);
         }
 
         [Test]
@@ -847,17 +515,12 @@ namespace RuduenModsTest
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            ResetDecisions();
-            DecisionSelectCard = Soulshards[1];
-
-            StartGame(false);
-
-            ResetDecisions();
+            StartGame();
 
             DecisionSelectCards = new Card[] { null };
             DiscardAllCards(Soulbinder);
 
-            QuickHPStorage(Soulshards[1]);
+            QuickHPStorage(Soulbinder.CharacterCard);
             QuickHandStorage(Soulbinder);
             PlayCard("SpiritialResonance");
             QuickHPCheck(-1);
@@ -871,17 +534,17 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
-            DecisionSelectCard = Soulshards[1];
+
 
             StartGame(false);
 
             ResetDecisions();
             PlayCard("DebtOfTheSoulless");
 
-            QuickHPStorage(Soulshards[1]);
+            QuickHPStorage(Soulbinder.CharacterCard);
             QuickHandStorage(Soulbinder);
-            DealDamage(Soulshards[1], Soulshards[1], 1, DamageType.Melee);
-            DealDamage(Soulshards[1], Soulshards[1], 1, DamageType.Melee);
+            DealDamage(Soulbinder.CharacterCard, Soulbinder.CharacterCard, 1, DamageType.Melee);
+            DealDamage(Soulbinder.CharacterCard, Soulbinder.CharacterCard, 1, DamageType.Melee);
             QuickHPCheck(-1);
         }
 

@@ -20,16 +20,8 @@
       "backgroundColor": "CCCCFF",
       "foilBackgroundColor": "CCCCFF",
       "character": true,
-      "isReal": false,
-      "setup": [
-        "At the start of the game, shuffle the hero deck and draw 4 cards.",
-        "Put one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card."
-      ],
-      "gameplay": [
-        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first put one of the other cards under this card into play.",
-        "If you have no active heroes in play, flip this card."
-      ],
-      "powers": [ "One of your targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
+      "hitpoints": 33,
+      "powers": [ "One of your Targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
       "icons": [
         "PlayCard",
         "HasPower",
@@ -52,84 +44,6 @@
         "default": "This place's aura is unique. I won't have you disturbing it."
       },
       "complexity": 3
-    },
-    {
-      "identifier": "SoulbinderMortalFormCharacter",
-      "count": 1,
-      "title": "Soulbinder",
-      "body": "Mortal Form",
-      "backgroundColor": "D4E6B5",
-      "foilBackgroundColor": "FEFEFE",
-      "hitpointColor": "D4E6B5",
-      "character": true,
-      "gameplay": "When this card is flipped, first remove all of your other Character Cards from play.",
-      "powers": [
-        "Draw 1 card. Remove 1 Ritual Token from a Ritual."
-      ],
-      "icons": [
-        "HasPower",
-        "DrawCardNow",
-        "RemoveTokens"
-      ],
-      "hitpoints": 17,
-      "nemesisIdentifiers": [
-        "Soulbinder"
-      ],
-      "flippedBody": "Incapacitated"
-    },
-    {
-      "identifier": "SoulshardOfLightningCharacter",
-      "count": 1,
-      "title": "Soulshard of Lightning",
-      "backgroundColor": "D4E6B5",
-      "foilBackgroundColor": "FEFEFE",
-      "hitpointColor": "D4E6B5",
-      "character": true,
-      "gameplay": "Increase damage dealt by this card to non-Hero targets by 1.",
-      "icons": [
-        "IncreaseDamageDealt"
-      ],
-      "hitpoints": 11,
-      "nemesisIdentifiers": [
-        "Soulbinder"
-      ],
-      "flippedBody": "Incapacitated"
-    },
-    {
-      "identifier": "SoulshardOfMercuryCharacter",
-      "count": 1,
-      "title": "Soulshard of Mercury",
-      "backgroundColor": "D4E6B5",
-      "foilBackgroundColor": "FEFEFE",
-      "hitpointColor": "D4E6B5",
-      "character": true,
-      "gameplay": "At the end of your turn, you may discard a card to draw a card.",
-      "icons": [
-        "DrawCardExtra"
-      ],
-      "hitpoints": 11,
-      "nemesisIdentifiers": [
-        "Soulbinder"
-      ],
-      "flippedBody": "Incapacitated"
-    },
-    {
-      "identifier": "SoulshardOfIronCharacter",
-      "count": 1,
-      "title": "Soulshard of Iron",
-      "backgroundColor": "D4E6B5",
-      "foilBackgroundColor": "FEFEFE",
-      "hitpointColor": "D4E6B5",
-      "character": true,
-      "gameplay": "Reduce damage dealt to this card by non-Hero targets by 1.",
-      "icons": [
-        "ReduceDamageTaken"
-      ],
-      "hitpoints": 11,
-      "nemesisIdentifiers": [
-        "Soulbinder"
-      ],
-      "flippedBody": "Incapacitated"
     },
     {
       "identifier": "ClaySoulsplinter",
@@ -171,10 +85,10 @@
       "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
-        "When the last token is removed from this, each non-Hero target deals itself 3 Irreducible Infernal Damage. Then, destroy this card."
+        "When the last token is removed from this, destroy up to 2 other Ongoing or Environment cards and each non-Hero target deals itself 3 Irreducible Infernal Damage. Then, destroy this card."
       ],
       "powers": [
-        "Remove 1 Ritual Token from this card. If you have a Soulsplinter in play, remove an additional Ritual Token from this card."
+        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
       ],
       "tokenPools": [
         {
@@ -199,7 +113,7 @@
         "When the last token is removed from this, each Hero target regains 3 HP and each player draws a card. Then, destroy this card."
       ],
       "powers": [
-        "Remove 1 Ritual Token from this card. If you have a non-Character target in play, remove an additional Ritual Token from this card."
+        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
       ],
       "tokenPools": [
         {
@@ -221,10 +135,10 @@
       "keywords": [ "ongoing", "ritual" ],
       "body": [
         "When this card enters play, place 3 Ritual Tokens on it.",
-        "When the last token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself irreducible Toxic damage equal to the total HP regained this way. Then, destroy this card."
+        "When the last token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself Toxic damage equal to the total HP regained this way. Then, destroy this card."
       ],
       "powers": [
-        "Remove 1 Ritual Token from this card. If you have a non-Character target in play, remove an additional Ritual Token from this card."
+        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
       ],
       "tokenPools": [
         {
@@ -249,7 +163,7 @@
         "When the last token is removed from this, you may draw 4 cards, play a card, and use a power. Then, destroy this card."
       ],
       "powers": [
-        "Remove 1 Ritual Token from this card. If you have a non-Character target in play, remove an additional Ritual Token from this card."
+        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
       ],
       "tokenPools": [
         {
@@ -332,7 +246,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may play a Ritual or Soulsplinter.",
-        "Select 1 of your Targets. It deals 1 Target Infernal Damage equal to its current HP plus 2.",
+        "Select 1 of your non-Character Targets. It deals 1 Target Infernal Damage equal to its current HP plus 2.",
         "Then, destroy the selected target."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
@@ -397,24 +311,25 @@
   "promoCards": [
     {
       "identifier": "SoulbinderCharacter",
-      "promoIdentifier": "SoulbinderMortalCharacter",
+      "promoIdentifier": "SoulbinderMortalFormCharacter",
       "count": 1,
       "title": "Soulbinder",
-      "body": "Mortal",
-      "backgroundColor": "CCCCFF",
-      "foilBackgroundColor": "CCCCFF",
+      "body": "Mortal Form",
+      "backgroundColor": "D4E6B5",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "D4E6B5",
       "character": true,
-      "isReal": false,
-      "setup": [
-        "At the start of the game, shuffle the hero deck and draw 4 cards.",
-        "Put the character card for {SoulbinderMortalFormCharacter} and one of the character cards for {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, and {SoulshardOfIronCharacter} into play, active side up. Put the rest of the character cards under this card."
-      ],
-      "gameplay": [
-        "When {SoulshardOfLightningCharacter}, {SoulshardOfMercuryCharacter}, or {SoulshardOfIronCharacter} would be incapacitated, first put one of the other cards under this card into play.",
-        "If you have no active heroes in play, flip this card."
+      "powers": [
+        "Draw 1 card. Remove 1 Ritual Token from a Ritual."
       ],
       "icons": [
-        "PlayCardNow"
+        "HasPower",
+        "DrawCardNow",
+        "RemoveTokens"
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "Soulbinder"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -427,7 +342,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "I needed a warm-up for this new body."
+        "default": "This body needed breaking in."
       },
       "complexity": 3
     }

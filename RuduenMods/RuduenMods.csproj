@@ -162,15 +162,10 @@
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCatastropheCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedRitualCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedYourTargetDamageCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedInstructionsCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderTurnTakerController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\StrawSoulsplinterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ClaySoulsplinterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfIronCharacterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfMercuryCharacterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulshardOfLightningCharacterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedMultiCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalFormCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderCharacterCardController.cs" />
     <Compile Include="SpellforgeCardControllers\MeanderingDissertationCardController.cs" />

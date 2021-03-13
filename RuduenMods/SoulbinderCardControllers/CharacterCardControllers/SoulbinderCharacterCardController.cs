@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace RuduenWorkshop.Soulbinder
 {
-    public class SoulbinderCharacterCardController : SoulbinderSharedInstructionsCharacterCardController
+    public class SoulbinderCharacterCardController : HeroCharacterCardController
     {
         public string str;
 

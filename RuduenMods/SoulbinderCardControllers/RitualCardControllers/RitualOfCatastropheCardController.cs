@@ -17,7 +17,12 @@ namespace RuduenWorkshop.Soulbinder
 
         protected override IEnumerator RitualCompleteResponse()
         {
-            IEnumerator coroutine = this.GameController.DealDamageToSelf(this.DecisionMaker, (Card c) => !c.IsHero, 3, DamageType.Infernal, true, cardSource: this.GetCardSource());
+            IEnumerator coroutine;
+
+            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c != this.Card && (c.IsOngoing || c.IsEnvironment), "ongoing or environment"), 2, false, 0, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.DealDamageToSelf(this.DecisionMaker, (Card c) => !c.IsHero, 3, DamageType.Infernal, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

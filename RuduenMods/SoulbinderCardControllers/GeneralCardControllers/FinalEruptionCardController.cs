@@ -24,7 +24,7 @@ namespace RuduenWorkshop.Soulbinder
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, null, DamageType.Infernal);
+            coroutine = this.SelectYourTargetToDealDamage(targetList, null, DamageType.Infernal, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (targetList.Count > 0)

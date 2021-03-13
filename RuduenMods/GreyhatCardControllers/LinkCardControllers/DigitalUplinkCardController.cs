@@ -3,6 +3,7 @@ using Handelabra.Sentinels.Engine.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 // Manually tested!
 
@@ -22,9 +23,18 @@ namespace RuduenWorkshop.Greyhat
             IEnumerator coroutine;
             if (nextTo != null)
             {
-                // Power.
-                coroutine = this.GameController.SelectAndUsePower(this.GameController.FindCardController(nextTo).HeroTurnTakerControllerWithoutReplacements, cardSource: this.GetCardSource());
+                // Discard. 
+                List<DiscardCardAction> dcaResults = new List<DiscardCardAction>();
+                HeroTurnTakerController httc = this.GameController.FindCardController(nextTo).HeroTurnTakerControllerWithoutReplacements;
+                coroutine = this.GameController.SelectAndDiscardCards(httc, 1, false, 0, dcaResults, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                if (dcaResults.Count > 0 && dcaResults.FirstOrDefault().WasCardDiscarded)
+                {
+                    // Power.
+                    coroutine = this.GameController.SelectAndUsePower(httc, cardSource: this.GetCardSource());
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
             }
         }
     }

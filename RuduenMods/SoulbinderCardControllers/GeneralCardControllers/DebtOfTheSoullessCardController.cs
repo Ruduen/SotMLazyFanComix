@@ -9,7 +9,7 @@ namespace RuduenWorkshop.Soulbinder
 {
     public class DebtOfTheSoullessCardController : SoulbinderSharedYourTargetDamageCardController
     {
-        private string _propertyKey = "SoulbinderFirstTimeDamage";
+        private readonly string _propertyKey = "SoulbinderFirstTimeDamage";
         private ITrigger _reduceTrigger;
         public DebtOfTheSoullessCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -19,7 +19,7 @@ namespace RuduenWorkshop.Soulbinder
 
         public override void AddTriggers()
         {
-            _reduceTrigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => !this.IsPropertyTrue(_propertyKey) && dd.Amount > 0 && (dd.DamageSource.Card != null && dd.DamageSource.Card.IsHero && dd.Target != null && dd.Target.Owner == this.TurnTaker), ReduceResponse, new TriggerType[] { TriggerType.ReduceDamage, TriggerType.DrawCard }, TriggerTiming.Before);
+            _reduceTrigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => !this.IsPropertyTrue(_propertyKey) && dd.Amount > 0 && (dd.DamageSource.Card != null && dd.DamageSource.Card.IsHero && dd.Target != null && dd.Target.Owner == this.TurnTaker), ReduceResponse, new TriggerType[] { TriggerType.ReduceDamage, TriggerType.DrawCard }, TriggerTiming.Before, orderMatters: true);
             this.AddAfterLeavesPlayAction((GameAction ga) => this.ResetFlagAfterLeavesPlay(_propertyKey), TriggerType.Hidden);
         }
 

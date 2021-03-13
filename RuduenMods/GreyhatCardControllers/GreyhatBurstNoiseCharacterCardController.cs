@@ -39,7 +39,7 @@ namespace RuduenWorkshop.Greyhat
             if (scdResults.Where((SelectCardDecision scd) => scd.SelectedCard.IsTarget && scd.SelectedCard.IsInPlayAndHasGameText).Count() > 0)
             {
                 // Select targets next to links to deal damage.
-                SelectCardsDecision selectTargetDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextTo.Contains(c), SelectionType.CardToDealDamage, null, false, powerNumerals[2], true, true, false, () => DoesLinkDamageContinue(scdResults, powerNumerals[2]), cardSource: this.GetCardSource());
+                SelectCardsDecision selectTargetDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextTo.Contains(c), SelectionType.CardToDealDamage, null, false, powerNumerals[2], true, false, false, () => DoesLinkDamageContinue(scdResults, powerNumerals[2]), cardSource: this.GetCardSource());
                 coroutine = this.GameController.SelectCardsAndDoAction(selectTargetDecision, (SelectCardDecision scd) => SelectedTargetDealsDamage(scd, scdResults, powerNumerals[3]), cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

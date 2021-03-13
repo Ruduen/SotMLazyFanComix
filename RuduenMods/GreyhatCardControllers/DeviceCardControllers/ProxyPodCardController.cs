@@ -23,9 +23,18 @@ namespace RuduenWorkshop.Greyhat
 
         public override IEnumerator UsePower(int index = 0)
         {
-            int powerNumeral = this.GetPowerNumeral(0, 1);
-            // Destroy.
-            IEnumerator coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing"), powerNumeral, cardSource: this.GetCardSource());
+            List<int> numerals = new List<int>(){
+                this.GetPowerNumeral(0, 1),
+                this.GetPowerNumeral(1, 1),
+                this.GetPowerNumeral(2, 1)
+            };
+
+            IEnumerator coroutine;
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), numerals[1], DamageType.Lightning, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Destroy. 
+            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing"), numerals[2], false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

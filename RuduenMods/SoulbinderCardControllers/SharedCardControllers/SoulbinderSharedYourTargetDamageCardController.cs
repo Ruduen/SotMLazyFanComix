@@ -14,11 +14,11 @@ namespace RuduenWorkshop.Soulbinder
         {
         }
 
-        public IEnumerator SelectYourTargetToDealDamage(List<Card> storedResults, int? damageAmount, DamageType damageType)
+        public IEnumerator SelectYourTargetToDealDamage(List<Card> storedResults, int? damageAmount, DamageType damageType, bool excludeCharacter = false)
         {
             List<SelectCardDecision> storedDecision = new List<SelectCardDecision>();
             IEnumerator coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.CardToDealDamage,
-                new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndHasGameText),
+                new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndHasGameText && (!excludeCharacter || !c.IsCharacter)),
                 storedDecision, false, false,
                 new DealDamageAction(this.GetCardSource(), null, null, (Card c) => damageAmount, damageType)
             );

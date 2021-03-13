@@ -60,7 +60,7 @@
       "keywords": [ "equipment", "link" ],
       "body": [
         "Play this card next to a Hero other than {Greyhat}.",
-        "When this card enters play, that Hero may use a power."
+        "When this card enters play, that Hero may discard a card to use a power."
       ],
       "icons": [ "UsePowerNow", "DrawCardNow" ],
       "flavorQuotes": [
@@ -111,7 +111,7 @@
         "At the end of your turn, this card regains 2 HP."
       ],
       "powers": [
-        "Destroy 1 Ongoing."
+        "{Greyhat} deals 1 Target 1 Lightning Damage. You may destroy 1 Ongoing."
       ],
       "icons": [ "DealDamageFire", "HasPower" ],
       "flavorQuotes": [

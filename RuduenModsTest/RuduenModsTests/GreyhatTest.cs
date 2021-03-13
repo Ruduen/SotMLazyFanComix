@@ -125,7 +125,7 @@ namespace RuduenModsTest
             Card allyLink = PutInHand("DigitalUplink");
             Card enemyLink = PutInTrash("CoercedUplink");
 
-            DecisionSelectCards = new Card[] { allyLink, enemyLink, baron.CharacterCard };
+            DecisionSelectCards = new Card[] { allyLink, null, enemyLink, baron.CharacterCard };
 
             Card device = PlayCard("DeployedRelay");
             UsePower(device);
@@ -171,14 +171,16 @@ namespace RuduenModsTest
             Card device = PlayCard("ProxyPod");
             Card ongoing = PlayCard("LivingForceField");
 
+            DealDamage(mdp, device, 3, DamageType.Fire);
+
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(device, mdp);
             UsePower(device);
             AssertInTrash(ongoing);
 
-            DealDamage(mdp, device, 3, DamageType.Fire);
-
-            QuickHPStorage(device);
             GoToEndOfTurn(Greyhat);
-            QuickHPCheck(2);
+            QuickHPCheck(2, -1);
 
         }
 
@@ -230,15 +232,15 @@ namespace RuduenModsTest
             // TODO: TEST CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Schollar healing trigger construct play) 
             Card[] uplinks = new Card[] { PutInHand(Greyhat, "DigitalUplink", 0), PutInHand(Greyhat, "DigitalUplink", 1), PutInHand(Greyhat, "DigitalUplink", 2), PutInHand(Greyhat, "DigitalUplink", 3) };
 
-            DecisionSelectCard = scholar.CharacterCard;
+            DecisionSelectCards = new Card[] { scholar.CharacterCard, null };
             PlayCard(uplinks[0]);
 
+            ResetDecisions();
             DealDamage(baron, (Card c) => c.IsCharacter, 10, DamageType.Cold);
             PutOnDeck("CosmicCrest"); // Put on so Captain's power doesn't break.
             PutOnDeck("DDoS"); // Put on top so potential draw doesn't affect.
             DiscardAllCards(Greyhat);
 
-            ResetDecisions();
             DecisionSelectCards = new Card[] { siphon, uplinks[1], cosmic.CharacterCard };
             DecisionSelectPower = device;
             PlayCard("ShockTherapy");
@@ -300,7 +302,7 @@ namespace RuduenModsTest
 
             StartGame();
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
-            DecisionSelectCards = new Card[] { medico, idealist };
+            DecisionSelectCards = new Card[] { medico, null, idealist, null };
             DiscardAllCards(Greyhat);
             PlayCard("DigitalUplink", 0);
             PlayCard("DigitalUplink", 1);
@@ -324,7 +326,7 @@ namespace RuduenModsTest
             StartGame();
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
             Card target = PlayCard("BladeBattalion");
-            DecisionSelectCards = new Card[] { medico, idealist };
+            DecisionSelectCards = new Card[] { medico, null, idealist, null };
             PlayCard("DigitalUplink", 0);
             PlayCard("DigitalUplink", 1);
 

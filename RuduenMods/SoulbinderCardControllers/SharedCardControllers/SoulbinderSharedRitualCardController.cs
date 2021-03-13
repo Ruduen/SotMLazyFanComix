@@ -58,6 +58,11 @@ namespace RuduenWorkshop.Soulbinder
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
+            List<int> numerals = new List<int>() {
+                this.GetPowerNumeral(0, 1),
+                this.GetPowerNumeral(1, 1)
+            };
+
             if (RitualPool.CurrentValue == 0)
             {
                 coroutine = this.GameController.SendMessageAction(this.Card.AlternateTitleOrTitle + " has no tokens in its ritual pool, so no tokens can be removed.", Priority.Low, cardSource: this.GetCardSource(), new Card[] { this.Card }, true);
@@ -66,10 +71,10 @@ namespace RuduenWorkshop.Soulbinder
             else
             {
                 string plural = "";
-                int tokensToRemove = 1;
+                int tokensToRemove = numerals[0];
                 if (RitualPool.CurrentValue > 1 && this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("soulsplinter")).Count() > 0)
                 {
-                    tokensToRemove++;
+                    tokensToRemove += numerals[1];
                 };
                 if (tokensToRemove > 1)
                 {
