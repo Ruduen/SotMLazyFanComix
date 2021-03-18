@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using RuduenWorkshop.HeroPromos;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ namespace RuduenWorkshop.Soulbinder
             : base(card, turnTakerController)
         {
         }
+
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;

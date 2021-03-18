@@ -1,9 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 // Manually tested!
 
@@ -11,7 +8,6 @@ namespace RuduenWorkshop.Greyhat
 {
     public abstract class GreyhatSharedPlayLinkFirstCardController : GreyhatSharedCheckNextToLinkCardController
     {
-
         public GreyhatSharedPlayLinkFirstCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }

@@ -7,11 +7,13 @@ using System.Collections.Generic;
 
 namespace RuduenWorkshop.Greyhat
 {
-    public abstract class GreyhatSharedLinkCardController : CardController
+    public abstract class GreyhatSharedLinkCheckNextToLinkCardController : GreyhatSharedCheckNextToLinkCardController
     {
+
+        protected abstract void AddUniqueTriggers();
         protected abstract LinqCardCriteria NextToCriteria { get; }
 
-        public GreyhatSharedLinkCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+        public GreyhatSharedLinkCheckNextToLinkCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
 
@@ -19,6 +21,7 @@ namespace RuduenWorkshop.Greyhat
         {
             // For "next to" cards - adjust location.
             this.AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToTheirPlayAreaTrigger(false, true);
+            this.AddUniqueTriggers();
         }
 
         public override IEnumerator DeterminePlayLocation(List<MoveCardDestination> storedResults, bool isPutIntoPlay, List<IDecision> decisionSources, Location overridePlayArea = null, LinqTurnTakerCriteria additionalTurnTakerCriteria = null)

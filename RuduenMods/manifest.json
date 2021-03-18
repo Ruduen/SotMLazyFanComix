@@ -46,7 +46,7 @@
     "Setback": [ "SetbackDoubleOrNothingCharacter" ],
     "Stuntman": [ "StuntmanForeshadowCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
-    "Unity": [ "UnityNewPlansCharacter" ],
+    "Unity": [ "UnitySparePartsCharacter", "UnityToolkitCharacter" ],
     "TheVisionary": [ "TheVisionaryProphesizeDoomCharacter" ],
     "Tempest": [ "TempestRisingWindsCharacter" ],
     "VoidGuardDrMedico": [ "VoidGuardDrMedicoOverdoseCharacter" ],

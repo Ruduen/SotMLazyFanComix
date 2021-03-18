@@ -35,7 +35,7 @@ namespace RuduenWorkshop.Greyhat
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Lightning, powerNumerals[0], false, powerNumerals[0], storedResultsDecisions: scdResults, selectTargetsEvenIfCannotDealDamage: true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Select other targets next to links to deal damage. 
+            // Select other targets next to links to deal damage.
             if (scdResults.Where((SelectCardDecision scd) => scd.SelectedCard.IsTarget && scd.SelectedCard.IsInPlayAndHasGameText).Count() > 0)
             {
                 // Select targets next to links to deal damage.
@@ -59,6 +59,7 @@ namespace RuduenWorkshop.Greyhat
             IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, source.SelectedCard, (Card c) => targets.Select((SelectCardDecision scd) => scd.SelectedCard).Contains(c), amount, DamageType.Energy, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         public IEnumerable<Card> CardsLinksAreNextTo
         {
             get

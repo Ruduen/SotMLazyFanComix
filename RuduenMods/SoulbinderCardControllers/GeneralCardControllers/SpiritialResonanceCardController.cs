@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +46,6 @@ namespace RuduenWorkshop.Soulbinder
 
             coroutine = this.GameController.DrawCards(this.DecisionMaker, 2, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
     }
 }

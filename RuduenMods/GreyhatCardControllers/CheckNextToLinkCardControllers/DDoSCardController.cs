@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +11,14 @@ namespace RuduenWorkshop.Greyhat
         public DDoSCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
+
         protected override IEnumerator PostLinkPlay()
         {
             IEnumerator coroutine;
             List<Card> didDamageCards = new List<Card>();
 
-            // Greyhat deals damage. 
-            coroutine = this.GameController.DealDamage(this.DecisionMaker, this.CharacterCard, (Card c) => this.CardsLinksAreNextToNonHero.Contains(c), 1, DamageType.Energy, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             // Select players next to links to deal damage.
-            SelectCardsDecision selectHeroDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextToOtherHeroes.Contains(c), SelectionType.SelectTargetFriendly, null, false, null, true, true, false, () => NumHeroesToDealDamage(didDamageCards), cardSource: this.GetCardSource());
+            SelectCardsDecision selectHeroDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextToHeroes.Contains(c), SelectionType.SelectTargetFriendly, null, false, null, true, true, false, () => NumHeroesToDealDamage(didDamageCards), cardSource: this.GetCardSource());
             coroutine = this.GameController.SelectCardsAndDoAction(selectHeroDecision, (SelectCardDecision scd) => SelectedHeroDealsDamage(scd, didDamageCards), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
@@ -40,7 +36,7 @@ namespace RuduenWorkshop.Greyhat
 
         private int NumHeroesToDealDamage(List<Card> didDamageCards)
         {
-            int num = this.GameController.FindCardsWhere((Card c) => this.CardsLinksAreNextToOtherHeroes.Contains(c)).Except(didDamageCards).Count();
+            int num = this.GameController.FindCardsWhere((Card c) => this.CardsLinksAreNextToHeroes.Contains(c)).Except(didDamageCards).Count();
             return didDamageCards.Count() + num;
         }
     }

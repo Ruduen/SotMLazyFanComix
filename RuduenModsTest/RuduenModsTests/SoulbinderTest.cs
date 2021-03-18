@@ -3,7 +3,6 @@ using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
 using RuduenWorkshop.Soulbinder;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -24,7 +23,6 @@ namespace RuduenModsTest
         private int InitialRitual { get { return 3; } }
 
         protected HeroTurnTakerController Soulbinder { get { return FindHero("Soulbinder"); } }
-
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -53,7 +51,6 @@ namespace RuduenModsTest
 
             AssertIsInPlay(Soulbinder.CharacterCard);
         }
-
 
         #endregion Basic Setup Tests
 
@@ -116,7 +113,6 @@ namespace RuduenModsTest
         public void TestPowerClay()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
-
 
             StartGame(false);
             DiscardAllCards(Soulbinder);
@@ -232,8 +228,6 @@ namespace RuduenModsTest
             AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), InitialRitual);
             UsePower(rituals[1]);
             AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), InitialRitual - 2);
-
-
         }
 
         [Test]
@@ -266,7 +260,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(Soulbinder);
             RemoveTokensFromPool(ritual.TokenPools[0], 5);
-            QuickHandCheck(3); // Draw 4, play 1, use a power. 
+            QuickHandCheck(3); // Draw 4, play 1, use a power.
             AssertIsInPlay(cards[0]);
             AssertNumberOfUsablePowers(Soulbinder, 1); // Only ritual power remaining.
             AssertInTrash(ritual);
@@ -293,7 +287,6 @@ namespace RuduenModsTest
         public void TestCardRitualOfTransferrence()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
-
 
             StartGame();
 
@@ -332,7 +325,6 @@ namespace RuduenModsTest
         public void TestCardRitualComponents()
         {
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
-
 
             StartGame();
 
@@ -394,6 +386,7 @@ namespace RuduenModsTest
         //    AssertTokenPoolCount(playRituals[0].TokenPools[0], 2);
         //    AssertTokenPoolCount(playRituals[1].TokenPools[0], 2);
         //}
+
         #endregion Rituals
 
         #region Other Cards
@@ -444,7 +437,6 @@ namespace RuduenModsTest
 
             ResetDecisions();
 
-
             StartGame(false);
 
             ResetDecisions();
@@ -469,7 +461,6 @@ namespace RuduenModsTest
 
             ResetDecisions();
 
-
             StartGame(false);
 
             ResetDecisions();
@@ -491,7 +482,6 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
-
 
             StartGame(false);
 
@@ -534,7 +524,6 @@ namespace RuduenModsTest
             SetupGameController("BaronBlade", "RuduenWorkshop.Soulbinder", "Legacy", "TheFinalWasteland");
 
             ResetDecisions();
-
 
             StartGame(false);
 

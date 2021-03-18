@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +19,7 @@ namespace RuduenWorkshop.Soulbinder
             IEnumerator coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.CardToDealDamage,
                 new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndHasGameText && (!excludeCharacter || !c.IsCharacter)),
                 storedDecision, false, false,
-                new DealDamageAction(this.GetCardSource(), null, null, (Card c) => damageAmount, damageType)
+                new DealDamageAction(this.GetCardSource(), null, null, (Card c) => damageAmount, damageType), cardSource: this.GetCardSource()
             );
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

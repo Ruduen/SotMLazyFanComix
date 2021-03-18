@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using RuduenWorkshop.HeroPromos;
 using System.Collections;
-using System.Collections.Generic;
 
 // Manually tested!
 
@@ -19,9 +18,10 @@ namespace RuduenWorkshop.Greyhat
 
         public override IEnumerator UsePower(int index = 0)
         {
+            int numeral = this.GetPowerNumeral(0, 1);
             IEnumerator coroutine;
 
-            coroutine = this.SearchForCards(this.DecisionMaker, true, false, 1, 1, new LinqCardCriteria((Card c) => c.IsLink, "link"), false, true, false);
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, numeral, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

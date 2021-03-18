@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,7 +86,6 @@ namespace RuduenWorkshop.Soulbinder
                 coroutine = this.GameController.RemoveTokensFromPool(RitualPool, tokensToRemove, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
 
         private IEnumerator RitualCompleteInitialResponse(RemoveTokensFromPoolAction rtfpa)

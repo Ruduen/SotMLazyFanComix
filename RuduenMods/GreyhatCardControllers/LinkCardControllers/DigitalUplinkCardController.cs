@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,7 @@ namespace RuduenWorkshop.Greyhat
             IEnumerator coroutine;
             if (nextTo != null)
             {
-                // Discard. 
+                // Discard.
                 List<DiscardCardAction> dcaResults = new List<DiscardCardAction>();
                 HeroTurnTakerController httc = this.GameController.FindCardController(nextTo).HeroTurnTakerControllerWithoutReplacements;
                 coroutine = this.GameController.SelectAndDiscardCards(httc, 1, false, 0, dcaResults, cardSource: this.GetCardSource());

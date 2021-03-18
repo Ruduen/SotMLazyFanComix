@@ -1,9 +1,7 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RuduenWorkshop.Greyhat
 {
@@ -12,6 +10,7 @@ namespace RuduenWorkshop.Greyhat
         public SystemRebootCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
+
         public override IEnumerator Play()
         {
             List<MoveCardAction> mcaResults = new List<MoveCardAction>();
@@ -37,6 +36,5 @@ namespace RuduenWorkshop.Greyhat
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
     }
 }

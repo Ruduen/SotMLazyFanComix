@@ -1608,99 +1608,59 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestUnityNoGolemsDiscarded()
+        public void TestUnityPowerSpareParts()
         {
-            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
-            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
-
-            DiscardAllCards(unity);
-
-            Card[] cards = new Card[]
-            {
-                PutInHand("Brainstorm"),
-                PutInHand("ConstructionPylon")
-            };
-
-            StartGame();
-            AssertNextMessage("No appropriate Mechanical Golems were discarded, so none cannot be played.");
-            UsePower(unity);
-            AssertExpectedMessageWasShown();
-            AssertInTrash(cards); // Discarded all that were in hand.
-            AssertNotInPlay((Card c) => c.IsMechanicalGolem); // No mechanical golems in play.
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
-        }
-
-        [Test()]
-        public void TestUnityGolemDiscarded()
-        {
-            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
-            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
-
-            DiscardAllCards(unity);
-
-            Card[] cards = new Card[]
-            {
-                PutInHand("Brainstorm"),
-                PutInHand("ConstructionPylon"),
-                PutInHand("RaptorBot")
-            };
-
-            StartGame();
-            UsePower(unity);
-            AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
-            AssertIsInPlay(cards[2]); // Chomps in play!
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
-        }
-
-        [Test()]
-        public void TestUnityTwoGolemDiscarded()
-        {
-            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnitySpareParts", "Megalopolis");
             Assert.IsTrue(unity.CharacterCard.IsPromoCard);
 
             StartGame();
 
-            DiscardAllCards(unity);
-
-            Card[] cards = new Card[]
-            {
-                PutInHand("Brainstorm"),
-                PutInHand(unity, "RaptorBot", 0),
-                PutInHand(unity, "RaptorBot", 1)
-            };
-
-            DecisionSelectCardToPlay = cards[1];
+            QuickHandStorage(unity);
             UsePower(unity);
-            AssertInTrash(cards[0], cards[2]); // Discarded all that were in hand.
-            AssertIsInPlay(cards[1]); // Chomps in play! Yes, only ties that require choice are the same bot!
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
+            QuickHandCheck(1); // Card draw, no play.
+            AssertNumberOfCardsInPlay(unity, 1); // Only character card in play.
+            AssertNumberOfCardsInTrash(unity, 0);
         }
 
         [Test()]
-        public void TestUnitySmallestGolemDiscarded()
+        public void TestUnityPowerSparePartsPlay()
         {
-            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityNewPlans", "Megalopolis");
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnitySpareParts", "Megalopolis");
             Assert.IsTrue(unity.CharacterCard.IsPromoCard);
 
             StartGame();
 
-            DiscardAllCards(unity);
+            GoToUsePowerPhase(unity);
 
-            Card[] cards = new Card[]
-            {
-                PutInHand("Brainstorm"),
-                PutInHand("RaptorBot"),
-                PutInHand("BeeBot")
-            };
+            PlayCard("ModularWorkbench", 0);
+            PlayCard("ModularWorkbench", 1);
+            PlayCard("ConstructionPylon", 0);
 
+            Card play = PutInHand("BeeBot");
+
+            DecisionSelectCardToPlay = play;
+
+            QuickHandStorage(unity);
             UsePower(unity);
-            AssertInTrash(cards[0], cards[1]); // Discarded all that were in hand.
-            AssertIsInPlay(cards[2]); // Bees in play, no decision to make.
-            AssertNoDecision(); // Smallest was auto-detected, no choice was necessary.
-            AssertNumberOfCardsInHand(unity, 2); // 2 Cards drawn after discarding all.
+            QuickHandCheck(0); // Card draw, card play.
+            AssertIsInPlay(play);
         }
 
         [Test()]
+        public void TestUnityPowerToolkit()
+        {
+            SetupGameController("BaronBlade", "Unity/RuduenWorkshop.UnityToolkit", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            // Set equipment so no unusual ones are used.
+            Card card = PutOnDeck("ModularWorkbench");
+
+            UsePower(unity);
+            AssertIsInPlay(card);
+        }
+
         public void TestVoidGuardIdealistNoConceptCards()
         {
             SetupGameController("BaronBlade", "VoidGuardTheIdealist/RuduenWorkshop.VoidGuardTheIdealistStreamOfConsciousnessCharacter", "TheBlock");

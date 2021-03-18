@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +33,7 @@ namespace RuduenWorkshop.Soulbinder
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            // All others gain HP. If target was invalid somehow, it will be null, which will still be fine for this check. 
+            // All others gain HP. If target was invalid somehow, it will be null, which will still be fine for this check.
             coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero && c != targetList.FirstOrDefault(), 1, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

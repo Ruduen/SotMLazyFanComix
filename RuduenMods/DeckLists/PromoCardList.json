@@ -104,7 +104,7 @@
       "foilBackgroundColor": "EC4647",
       "character": true,
       "powers": "You may play a Software card. Until the end of your next turn, that Software is indestructible. {Benchmark} deals 1 Target Lightning Damage equal to the number of Software cards in play.",
-      "hitpoints": 26,
+      "hitpoints": 23,
       "icons": [ "HasPower", "PlayCardNow", "Indestructible", "DealDamageLightning" ],
       "nemesisIdentifiers": [ "Benchmark" ],
       "incapacitatedAbilities": [
@@ -381,7 +381,7 @@
       "character": true,
       "backgroundColor": "E17FB0",
       "foilBackgroundColor": "E17FB0",
-      "powers": "Draw a card. Flip all but 1 of your {arcana} or {avian} tokens. {TheHarpy} deals herself Psychic Damage equal to the number of tokens flipped this way.",
+      "powers": "Draw a card. Flip all but 1 of your {arcana} or {avian} tokens. {TheHarpy} deals themselves Psychic Damage equal to the number of tokens flipped this way.",
       "hitpoints": 25,
       "icons": [ "HasPower", "DrawCardNow", "FlipControlToken", "DealDamagePsychic" ],
       "nemesisIdentifiers": [ "OblivAeon" ],
@@ -1078,17 +1078,17 @@
   "Unity": [
     {
       "identifier": "UnityCharacter",
-      "promoIdentifier": "UnityNewPlansCharacter",
+      "promoIdentifier": "UnityToolkitCharacter",
       "count": 1,
       "title": "Unity",
-      "promoTitle": "Unity - New Plans",
-      "body": [ "New Plans" ],
+      "promoTitle": "Unity - Toolkit",
+      "body": [ "Toolkit" ],
       "backgroundColor": "ED7BAF",
       "foilBackgroundColor": "ED7BAF",
       "character": true,
-      "powers": "Discard 3 cards. Play the Mechanical Golem with the lowest HP discarded this way. Draw 2 cards.",
-      "hitpoints": 24,
-      "icons": [ "HasPower", "Discard", "PlayCardNow", "DrawCardNow" ],
+      "powers": "Reveal cards from your deck until you reveal a card with a power. Play that card. Shuffle the other revealed cards into your deck.",
+      "hitpoints": 22,
+      "icons": [ "HasPower", "Search", "PlayCardNow" ],
       "nemesisIdentifiers": [ "Unity" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -1103,6 +1103,35 @@
       "complexity": 2,
       "openingLines": {
         "default": "Hm."
+      }
+    },
+    {
+      "identifier": "UnityCharacter",
+      "promoIdentifier": "UnitySparePartsCharacter",
+      "count": 1,
+      "title": "Unity",
+      "promoTitle": "Unity - Spare Parts",
+      "body": [ "Spare Parts" ],
+      "backgroundColor": "ED7BAF",
+      "foilBackgroundColor": "ED7BAF",
+      "character": true,
+      "powers": "Draw a card. If you have at least 3 Equipment cards in play, you may play a card.",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Unity" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "I only need a few spare screws for this one!"
       }
     }
   ],
