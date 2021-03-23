@@ -31,7 +31,7 @@ namespace RuduenModsTest
             Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
 
             Assert.IsNotNull(Cassie);
-            Assert.IsInstanceOf(typeof(CassieTurnTakerController), Cassie);
+            Assert.IsInstanceOf(typeof(HeroTurnTakerController), Cassie);
             Assert.IsInstanceOf(typeof(CassieCharacterCardController), Cassie.CharacterCardController);
 
             Assert.AreEqual(27, Cassie.CharacterCard.HitPoints);
@@ -48,6 +48,27 @@ namespace RuduenModsTest
             AssertNumberOfCardsInHand(Cassie, 4); // And 4 cards in hand.
             AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And 4 cards in the Riverbank.
             AssertNumberOfCardsAtLocation(Cassie.TurnTaker.FindSubDeck("RiverDeck"), 30); // And 30 cards in the River Deck.
+        }
+
+        [Test()]
+        public void TestSetupOblivaeon()
+        {
+            SetupGameController("OblivAeon", "Legacy", "Megalopolis", "TimeCataclysm");
+
+            StartGame();
+
+            DecisionSelectFromBoxIdentifiers = new string[] { "RuduenWorkshop.Cassie" };
+
+            DestroyCard(legacy);
+            GoToNextTurn();
+            GoToNextTurn();
+
+
+
+            //AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            //AssertNumberOfCardsInHand(Cassie, 4); // And 4 cards in hand.
+            //AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And 4 cards in the Riverbank.
+            //AssertNumberOfCardsAtLocation(Cassie.TurnTaker.FindSubDeck("RiverDeck"), 30); // And 30 cards in the River Deck.
         }
 
         [Test()]

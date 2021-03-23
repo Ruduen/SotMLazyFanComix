@@ -10,7 +10,7 @@
       "backgroundColor": "77d2f7",
       "foilBackgroundColor": "77d2f7",
       "character": true,
-      "powers": "{AbsoluteZero} deals himself 1 Cold Damage. You may play an Equipment card. If you do not, destroy one of your Equipment cards. Draw 2 Cards.",
+      "powers": "{AbsoluteZero} deals himself 1 Cold Damage. You may play an Equipment or Draw 3 Cards. If you draw any cards this way, destroy one of your equipment.",
       "hitpoints": 26,
       "icons": [ "HasPower", "DealDamageCold", "PlayCardNow", "DrawCardNow" ],
       "nemesisIdentifiers": [ "AbsoluteZero" ],
@@ -88,7 +88,7 @@
       ],
       "complexity": 3,
       "openingLines": {
-        "default": "I wonder if I can carry a tune all the way through this..."
+        "default": "I wonder if I can carry a tune all the way through this."
       }
     }
   ],
@@ -103,7 +103,7 @@
       "backgroundColor": "EC4647",
       "foilBackgroundColor": "EC4647",
       "character": true,
-      "powers": "You may play a Software card. Until the end of your next turn, that Software is indestructible. {Benchmark} deals 1 Target Lightning Damage equal to the number of Software cards in play.",
+      "powers": "You may play a Software card. {Benchmark} deals 1 Target Lightning Damage equal to the number of Software cards in play.",
       "hitpoints": 23,
       "icons": [ "HasPower", "PlayCardNow", "Indestructible", "DealDamageLightning" ],
       "nemesisIdentifiers": [ "Benchmark" ],
@@ -195,6 +195,37 @@
       "foilBackgroundColor": "FFDD00",
       "character": true,
       "powers": "Draw a card. Select a Construct Target. Until the start of your next turn, that Construct is Indestructible. That Construct deals itself 2 Energy Damage.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DrawCardNow", "Indestructible", "DealDamageEnergy" ],
+      "nemesisIdentifiers": [ "CaptainCosmic" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "unusedCaptainCosmic": [
+    {
+      "identifier": "CaptainCosmicCharacter",
+      "promoIdentifier": "CaptainCosmicCosmicShieldingBCharacter",
+      "count": 1,
+      "title": "Captain Cosmic",
+      "promoTitle": "Captain Cosmic - Cosmic Shielding",
+      "body": [ "Cosmic Shielding" ],
+      "backgroundColor": "FFDD00",
+      "foilBackgroundColor": "FFDD00",
+      "character": true,
+      "powers": "Draw a card. You may play a Construct. Until the start of your next turn, all damage that would be dealt to Hero Targets is redirected to that construct.",
       "hitpoints": 26,
       "icons": [ "HasPower", "DrawCardNow", "Indestructible", "DealDamageEnergy" ],
       "nemesisIdentifiers": [ "CaptainCosmic" ],
@@ -430,7 +461,7 @@
       "character": true,
       "backgroundColor": "FDEC45",
       "foilBackgroundColor": "FDEC45",
-      "powers": "Draw a card. Until the end of your next turn, when {Knyfe} deals themselves damage, they regain 1 HP.",
+      "powers": "Until the end of your next turn, when {Knyfe} deals themselves damage, they regain 1 HP. Draw a card or play a card.",
       "hitpoints": 29,
       "icons": [ "HasPower", "DrawCardNow", "GainHP" ],
       "nemesisIdentifiers": [ "Knyfe" ],
@@ -492,7 +523,7 @@
       "character": true,
       "backgroundColor": "fbf8f9",
       "foilBackgroundColor": "fbf8f9",
-      "powers": "You may play a One-Shot. If you do not, draw a card.",
+      "powers": "You may draw a card or play a One-Shot.",
       "hitpoints": 30,
       "icons": [ "HasPower", "PlayCardNow", "DrawCardsNow" ],
       "nemesisIdentifiers": [ "Legacy" ],
@@ -586,7 +617,7 @@
       "character": true,
       "backgroundColor": "DF7501",
       "foilBackgroundColor": "DF7501",
-      "powers": "{MrFixer} deals 1 Target 1 Melee Damage and himself 0 Melee Damage. Play a Tool card. If you do not, reveal cards from the top of your deck until you reveal a Tool card, play it, and shuffle the other cards revealed this way into your deck.",
+      "powers": "{MrFixer} deals 1 Target 1 Melee Damage and himself 0 Melee Damage. Draw 2 cards or Play a Style or Tool.",
       "hitpoints": 26,
       "icons": [ "HasPower", "DealDamageMelee", "PlayCardNow" ],
       "nemesisIdentifiers": [ "MrFixer" ],
@@ -648,7 +679,7 @@
       "character": true,
       "backgroundColor": "bd9dca",
       "foilBackgroundColor": "bd9dca",
-      "powers": "Until the end of the turn, when {NightMist} would deal a Hero Target damage, reduce that damage by 1. You may play a card. If you do not, draw a card.",
+      "powers": "Until the end of the turn, when {NightMist} would deal a Hero Target damage, reduce that damage by 1. You may draw a card or play a card.",
       "hitpoints": 26,
       "icons": [ "HasPower", "ReduceDamageDealt", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "NightMist" ],
@@ -679,7 +710,7 @@
       "character": true,
       "backgroundColor": "bd3a3d",
       "foilBackgroundColor": "bd3a3d",
-      "powers": "Until the start of your next turn, your Components are indestructible. {OmnitronX} deals 1 Target and themselves Lightning Damage equal to the number of your Components in play.",
+      "powers": "Until the start of your next turn, your Components are indestructible. {OmnitronX} deals 1 Target and themselves Lightning Damage equal to the number of Components in play.",
       "hitpoints": 26,
       "icons": [ "HasPower", "Indestructible", "DealDamageLightning" ],
       "nemesisIdentifiers": [ "OmnitronX" ],
@@ -711,7 +742,7 @@
       "backgroundColor": "86BB71",
       "foilBackgroundColor": "86BB71",
       "hitpointsColor": "F6AD41",
-      "powers": "Look at the top card of the Environment Deck. {Parse} may deal 1 Target Projectile Damage equal to the number of cards in that Deck's Trash. If damage is dealt this way, shuffle the Environment Trash into the Environment Deck.",
+      "powers": "{Parse} may deal 1 Target Projectile Damage equal to the number of cards in that Deck's Trash. If damage is dealt this way, shuffle the Environment Trash into the Environment Deck.",
       "hitpoints": 27,
       "icons": [ "HasPower", "Manipulate", "DealDamageProjectile" ],
       "nemesisIdentifiers": [ "Parse" ],
@@ -801,6 +832,35 @@
   "Setback": [
     {
       "identifier": "SetbackCharacter",
+      "promoIdentifier": "SetbackRunOfLuckCharacter",
+      "count": 1,
+      "title": "Setback",
+      "promoTitle": "Setback - Run of Luck",
+      "body": [ "Run of Luck" ],
+      "character": true,
+      "backgroundColor": "DFE6E5",
+      "foilBackgroundColor": "DFE6E5",
+      "powers": "Add 2 tokens to your Unlucky pool. Draw 1 card. If there are more tokens in your Unlucky pool than cards in your hand, Play 2 cards.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "AddTokens", "DrawCardNow", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Setback" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    },
+    {
+      "identifier": "SetbackCharacter",
       "promoIdentifier": "SetbackDoubleOrNothingCharacter",
       "count": 1,
       "title": "Setback",
@@ -832,7 +892,7 @@
   "UnusedSetback": [
     {
       "identifier": "SetbackCharacter",
-      "promoIdentifier": "SetbackRunOfLuckCharacter",
+      "promoIdentifier": "SetbackRunOfLuckBCharacter",
       "count": 1,
       "title": "Setback",
       "promoTitle": "Setback - Run of Luck",
@@ -840,7 +900,7 @@
       "character": true,
       "backgroundColor": "DFE6E5",
       "foilBackgroundColor": "DFE6E5",
-      "powers": "Add 1 token to your Unlucky pool. Move the top 2 cards of your deck under this card. If any pair of cards under this card do not share a keyword, play all of the cards under this card.",
+      "powers": "Add 2 tokens to your Unlucky pool. Move the top 2 cards of your deck under this card. If any pair of cards under this card do not share a keyword, play all of the cards under this card.",
       "hitpoints": 29,
       "icons": [ "HasPower", "PlayCardNow", "AddTokens" ],
       "nemesisIdentifiers": [ "Setback" ],
@@ -1115,7 +1175,7 @@
       "backgroundColor": "ED7BAF",
       "foilBackgroundColor": "ED7BAF",
       "character": true,
-      "powers": "Draw a card. If you have at least 3 Equipment cards in play, you may play a card.",
+      "powers": "Draw a card. If you have at least 2 Equipment cards in play, you may play a card.",
       "hitpoints": 23,
       "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "Unity" ],

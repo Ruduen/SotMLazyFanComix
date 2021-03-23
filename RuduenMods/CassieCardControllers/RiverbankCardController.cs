@@ -2,6 +2,7 @@
 using Handelabra.Sentinels.Engine.Model;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RuduenWorkshop.Cassie
@@ -34,6 +35,12 @@ namespace RuduenWorkshop.Cassie
                 cardStr = "None";
             }
             return cardStr;
+        }
+
+        public override void AddStartOfGameTriggers()
+        {
+            // Start of Game trigger is the best trigger for handling potential oddities with Oblivaeon, so do Riverbank setup here.
+            SetupRiverbank();
         }
 
         public override void AddTriggers()
@@ -78,6 +85,20 @@ namespace RuduenWorkshop.Cassie
             // Then, move the top card to the riverbank. Normal empty deck logic should work if they aren't available.
             coroutine = this.GameController.MoveCards(this.DecisionMaker, RiverDeck().GetTopCards(cardsToMove), Riverbank().UnderLocation);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
+        private void SetupRiverbank()
+        {
+            Location riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
+            IEnumerable<Card> riverCards = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("river") && c.Owner == this.TurnTaker);
+            foreach (Card c in riverCards)
+            {
+                this.TurnTaker.MoveCard(c, riverDeck);
+            }
+            riverDeck.ShuffleCards();
+            for (int i = 0; i < 4; i++)
+            {
+                this.TurnTaker.MoveCard(riverDeck.TopCard, this.Card.UnderLocation);
+            }
         }
     }
 }

@@ -30,15 +30,9 @@ namespace RuduenWorkshop.NightMist
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Play a card
-            coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, storedResults: storedResults, cardSource: this.GetCardSource());
+            coroutine = this.DrawACardOrPlayACard(this.DecisionMaker, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (storedResults.Count == 0 || !storedResults.FirstOrDefault().WasCardPlayed)
-            {
-                // If you didn't, draw a card.
-                coroutine = this.DrawCards(this.DecisionMaker, 1);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
         }
     }
 }

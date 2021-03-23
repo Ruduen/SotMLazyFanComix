@@ -109,62 +109,6 @@ namespace RuduenModsTest
             QuickHPCheck(-2);
         }
 
-        #region Devices
-
-        [Test()]
-        public void TestDeviceDeployedRelay()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-
-            Card allyLink = PutInHand("DigitalUplink");
-            Card enemyLink = PutInTrash("CoercedUplink");
-
-            DecisionSelectCards = new Card[] { allyLink, null, enemyLink, baron.CharacterCard };
-
-            Card device = PlayCard("DeployedRelay");
-            UsePower(device);
-            AssertIsInPlay(allyLink);
-            GoToEndOfTurn(Greyhat);
-            AssertIsInPlay(enemyLink);
-        }
-
-        [Test()]
-        public void TestDeviceProxyPod()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-
-            GoToPlayCardPhase(Greyhat);
-
-            Card mdp = FindCardInPlay("MobileDefensePlatform");
-            Card device = PlayCard("ProxyPod");
-            Card ongoing = PlayCard("LivingForceField");
-
-            DealDamage(mdp, device, 3, DamageType.Fire);
-
-            DecisionSelectTarget = mdp;
-
-            QuickHPStorage(device, mdp);
-            UsePower(device);
-            AssertInTrash(ongoing);
-
-            GoToEndOfTurn(Greyhat);
-            QuickHPCheck(2, -1);
-        }
-
-        #endregion Devices
-
         #region UsesLinkCards
 
         [Test()]
@@ -186,7 +130,7 @@ namespace RuduenModsTest
             QuickHPStorage(baron);
             PlayCard("DirectControl");
             QuickHPCheck(-2);
-            AssertNumberOfUsablePowers(Greyhat, 0);
+            AssertNumberOfUsablePowers(Greyhat, 1);
             AssertNumberOfUsablePowers(legacy, 0);
             // TODO: If necessary, add tests for bounce cases. This is using the same code as other similar areas.
         }
@@ -205,13 +149,11 @@ namespace RuduenModsTest
 
             PlayCard("MortalFormToEnergy");
             PlayCard("BeeBot");
-            DecisionSelectCard = Greyhat.CharacterCard;
+            DecisionSelectCards = new Card[] { Greyhat.CharacterCard, null, scholar.CharacterCard, null };
             Card siphon = PlayCard("DynamicSiphon");
-            Card device = PlayCard("DeployedRelay");
-            // TODO: TEST CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Schollar healing trigger construct play)
+            Card playPower = PlayCard("CommunicationRelay");
+            // TODO: TEST CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Scholar healing trigger construct play)
             Card[] uplinks = new Card[] { PutInHand(Greyhat, "DigitalUplink", 0), PutInHand(Greyhat, "DigitalUplink", 1), PutInHand(Greyhat, "DigitalUplink", 2), PutInHand(Greyhat, "DigitalUplink", 3) };
-
-            DecisionSelectCards = new Card[] { scholar.CharacterCard, null };
             PlayCard(uplinks[0]);
 
             ResetDecisions();
@@ -221,7 +163,7 @@ namespace RuduenModsTest
             DiscardAllCards(Greyhat);
 
             DecisionSelectCards = new Card[] { Greyhat.CharacterCard, siphon, uplinks[1], cosmic.CharacterCard };
-            DecisionSelectPower = device;
+            DecisionSelectPower = playPower;
             PlayCard("ShockTherapy");
 
             // TODO: Test convoluted case of damage dealing (Link played midway, link removed midway).
@@ -245,7 +187,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(Greyhat, legacy);
             PlayCard("DataTransfer");
-            QuickHandCheck(2, 1);
+            QuickHandCheck(1, 1);
         }
 
         [Test()]
@@ -267,7 +209,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
-            QuickHandCheck(2, 1);
+            QuickHandCheck(1, 1);
         }
 
         [Test()]
@@ -290,7 +232,7 @@ namespace RuduenModsTest
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
-            QuickHandCheck(2, 2);
+            QuickHandCheck(1, 2);
         }
 
         [Test()]
@@ -320,11 +262,11 @@ namespace RuduenModsTest
 
             QuickHPStorage(baron.CharacterCard, target);
             PlayCard("DDoS");
-            QuickHPCheck(-3, -3);
+            QuickHPCheck(-2, -2);
         }
 
         [Test()]
-        public void TestPlayBandwidthHub()
+        public void TestPlayBandwidthRestriction()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -336,8 +278,11 @@ namespace RuduenModsTest
             Card mdp = (FindCardInPlay("MobileDefensePlatform"));
 
             DiscardAllCards(Greyhat);
-            PlayCard("CoercedUplink");
-            PlayCard("BandwidthHub");
+            PlayCard("ProxyRelay");
+            DecisionSelectCards = new Card[] { PutInHand("CoercedUplink"), baron.CharacterCard };
+            PlayCard("BandwidthRestriction");
+
+            ResetDecisions();
 
             QuickHPStorage(Greyhat, ra);
             DealDamage(baron, Greyhat, 3, DamageType.Fire);
@@ -361,8 +306,11 @@ namespace RuduenModsTest
             Card prt = (PlayCard("PoweredRemoteTurret"));
 
             DiscardAllCards(Greyhat);
-            PlayCard("CoercedUplink");
-            PlayCard("OverclockHub");
+            PlayCard("ProxyRelay");
+            DecisionSelectCards = new Card[] { PutInHand("CoercedUplink"), baron.CharacterCard };
+            PlayCard("OverclockSystems");
+
+            ResetDecisions();
 
             QuickHPStorage(baron.CharacterCard, prt);
             DealDamage(Greyhat, baron, 1, DamageType.Fire);
@@ -385,8 +333,11 @@ namespace RuduenModsTest
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
 
             DiscardAllCards(Greyhat);
-            PlayCard("CoercedUplink");
-            PlayCard("AutoRedirectHub");
+            PlayCard("ProxyRelay");
+            DecisionSelectCard = PutInHand("CoercedUplink");
+            PlayCard("AutoRedirect");
+
+            ResetDecisions();
 
             QuickHPStorage(Greyhat, baron);
             DecisionRedirectTarget = baron.CharacterCard;
@@ -397,7 +348,7 @@ namespace RuduenModsTest
 
         #endregion UsesLinkCards
 
-        #region Ungrouped Cards
+        #region Link Cards
 
         [Test()]
         public void TestPlayCoercedUplink()
@@ -434,6 +385,89 @@ namespace RuduenModsTest
             AssertNumberOfUsablePowers(legacy, 0); // Power was used.
         }
 
+
+
+
+        [Test()]
+        public void TestPlayFlareRelay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+
+            QuickHPStorage(Greyhat, legacy, baron);
+            Card link = PlayCard("FlareRelay");
+            AssertNextToCard(link, Greyhat.CharacterCard);
+            QuickHPCheck(-1, -1, -1);
+
+            QuickHPStorage(baron);
+            UsePower(Greyhat, 1);
+            QuickHPCheck(-3);
+        }
+
+
+
+
+
+        [Test()]
+        public void TestPlayProxyRelay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+
+            DealDamage(Greyhat, Greyhat, 5, DamageType.Melee);
+            QuickHPStorage(Greyhat);
+            Card link = PlayCard("ProxyRelay");
+            AssertNextToCard(link, Greyhat.CharacterCard);
+            QuickHPCheck(2);
+
+            QuickHPStorage(Greyhat);
+            QuickHandStorage(Greyhat);
+            UsePower(Greyhat, 1);
+            DealDamage(Greyhat, Greyhat, 2, DamageType.Melee);
+            QuickHPCheck(-1);
+            QuickHandCheck(1);
+        }
+
+
+
+        [Test()]
+        public void TestPlayCommunicationRelay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "RuduenWorkshop.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+
+            Card ongoing = PlayCard("LivingForceField");
+            Card link = PlayCard("CommunicationRelay");
+            AssertNextToCard(link, Greyhat.CharacterCard);
+            AssertInTrash(ongoing);
+
+            Card play = PutInHand("DDoS");
+            DecisionSelectCards = new Card[] { play, null };
+            UsePower(Greyhat, 1);
+            AssertInTrash(play);
+        }
+
+        #endregion Link Cards
+
+        #region Ungrouped Cards
         [Test()]
         public void TestPlaySystemReboot()
         {

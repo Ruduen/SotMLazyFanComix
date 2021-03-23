@@ -26,20 +26,6 @@ namespace RuduenWorkshop.Benchmark
             coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, cardCriteria: new LinqCardCriteria((Card c) => c.IsSoftware, "software"), storedResults: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // No successful card play means destroy.
-            if (storedResults.Count > 0 && storedResults.FirstOrDefault().WasCardPlayed)
-            {
-                Card playedCard = storedResults.FirstOrDefault().CardToPlay;
-                if (playedCard != null)
-                {
-                    MakeIndestructibleStatusEffect makeIndestructibleStatusEffect = new MakeIndestructibleStatusEffect();
-                    makeIndestructibleStatusEffect.CardsToMakeIndestructible.IsSpecificCard = playedCard;
-                    makeIndestructibleStatusEffect.UntilEndOfNextTurn(this.HeroTurnTaker);
-                    coroutine = this.AddStatusEffect(makeIndestructibleStatusEffect, true);
-                    if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                }
-            }
-
             // Deal damage to two targets equal to number of software.
             int amount = this.FindCardsWhere((Card c) => c.IsInPlay && c.IsSoftware).Count();
 

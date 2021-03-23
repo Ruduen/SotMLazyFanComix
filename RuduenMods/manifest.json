@@ -2,7 +2,7 @@
   "title": "Ruduen's Collection",
   "author": "Ruduen",
   "description": [ "Ruduen's custom content for Sentinels of the Multiverse. Currently includes:", "- 6 Completely Custom Heroes", "- 1 Aeon's End Inspired Hero", "- 1-2 Variants for each Official Hero", "Ruduen is not an artist, so art will likely remain random-Unicode quality." ],
-  "version": "0.4.5",
+  "version": "0.4.6",
   "credits": [ "New work by Ruduen. Available under CC BY 4.0.", "Original scripting Copyright © 2020 Handelabra Games Inc. Available under MIT License.", "Breach Mage concept based on Aeon's End, Copyright © 2016 Lone Oak Games. Used with (tentative) permission." ],
   "color": "AAAAFF",
   "dll": "RuduenMod.dll",

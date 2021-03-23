@@ -67,82 +67,45 @@
       ]
     },
     {
-      "identifier": "BandwidthHub",
-      "count": 1,
-      "title": "Bandwidth Hub",
-      "keywords": [ "equipment", "link" ],
-      "body": [
-        "Play this card next to {Greyhat}.",
-        "When this card enters play, {Greyhat} Regains 2 HP.",
-        "Reduce damage dealt to Heroes next to a Link by non-Hero Targets next to a Link by 1."
-      ],
-      "icons": [ "ReduceDamageTaken", "ReduceDamageDealt", "DestroySelf" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
-    },
-    {
-      "identifier": "OverclockHub",
-      "count": 1,
-      "title": "Overclock Hub",
+      "identifier": "FlareRelay",
+      "count": 2,
+      "title": "Flare Relay",
       "keywords": [ "equipment", "link" ],
       "body": [
         "Play this card next to {Greyhat}.",
         "When this card enters play, {Greyhat} deals up to 3 Targets 1 Fire Damage.",
-        "Increase damage dealt by Heroes next to a Link to non-Hero Targets next to a Link by 1."
-      ],
-      "icons": [ "IncreaseDamageDealt", "IncreaseDamageTaken", "DestroySelf" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
-    },
-    {
-      "identifier": "AutoRedirectHub",
-      "count": 1,
-      "title": "Auto-Redirect Hub",
-      "keywords": [ "equipment", "link" ],
-      "body": [
-        "Play this card next to {Greyhat}.",
-        "When this card enters play, you may destroy an Ongoing or Environment card.",
-        "The first time each turn a Hero next to a Link would be dealt 2 or fewer damage, you may redirect that damage to a non-Hero target next to a link."
-      ],
-      "icons": [ "IncreaseDamageDealt", "IncreaseDamageTaken", "DestroySelf" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
-    },
-    {
-      "identifier": "DeployedRelay",
-      "count": 3,
-      "title": "Deployed Relay",
-      "hitpoints": 4,
-      "keywords": [ "device" ],
-      "body": [
-        "When this card enters play, you may draw a card.",
-        "At the end of your turn, you may search your Trash for a Link and put it into play."
-      ],
-      "powers": [
-        "You may play a card."
+        "The hero next to this card gains the following power:",
+        "[b]Power:[/b] This hero deals 1 Target 3 Fire Damage."
       ],
       "icons": [ "Manipulate", "PlayCardNow", "HasPower" ],
       "flavorQuotes": [
       ]
     },
     {
-      "identifier": "ProxyPod",
-      "count": 3,
-      "title": "Proxy Pod",
-      "hitpoints": 4,
-      "keywords": [ "device" ],
+      "identifier": "ProxyRelay",
+      "count": 2,
+      "title": "Proxy Relay",
+      "keywords": [ "equipment", "link" ],
       "body": [
-        "When this card enters play, you may draw a card.",
-        "At the end of your turn, this card regains 2 HP."
+        "Play this card next to {Greyhat}.",
+        "When this card enters play, {Greyhat} regains 2 HP.",
+        "The hero next to this card gains the following power:",
+        "[b]Power:[/b] Draw 1 Card. Until the start of your next turn, reduce damage dealt to this hero by 1."
       ],
-      "powers": [
-        "{Greyhat} deals 1 Target 1 Lightning Damage."
+      "icons": [ "DealDamageFire", "HasPower" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "CommunicationRelay",
+      "count": 2,
+      "title": "Communication Relay",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to {Greyhat}.",
+        "When this card enters play, you may destroy an Ongoing or Environment card.",
+        "The hero next to this card gains the following power:",
+        "[b]Power:[/b] Play 1 Card."
       ],
       "icons": [ "DealDamageFire", "HasPower" ],
       "flavorQuotes": [
@@ -150,7 +113,7 @@
     },
     {
       "identifier": "DirectControl",
-      "count": 4,
+      "count": 3,
       "title": "Direct Control",
       "keywords": [ "one-shot" ],
       "body": [
@@ -168,7 +131,7 @@
     },
     {
       "identifier": "ShockTherapy",
-      "count": 4,
+      "count": 3,
       "title": "Shock Therapy",
       "keywords": [ "one-shot" ],
       "body": [
@@ -186,7 +149,7 @@
     },
     {
       "identifier": "DataTransfer",
-      "count": 4,
+      "count": 3,
       "title": "Data Transfer",
       "keywords": [ "one-shot" ],
       "body": [
@@ -217,11 +180,12 @@
     },
     {
       "identifier": "SystemReboot",
-      "count": 2,
+      "count": 3,
       "title": "System Reboot",
       "keywords": [ "one-shot" ],
       "body": [
-        "Search your deck or trash for a Link and put it in your hand.",
+        "Shuffle your trash into your deck.",
+        "Search your deck for a Link and put it in your hand.",
         "Put any number of Links in play back in your hand.",
         "You may play a number of Link cards equal to the number of Links returned to your hand by this card."
       ],
@@ -233,7 +197,7 @@
     },
     {
       "identifier": "PingSweep",
-      "count": 3,
+      "count": 2,
       "title": "Ping Sweep",
       "keywords": [ "one-shot" ],
       "body": [
@@ -256,6 +220,51 @@
         "You may play a card."
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "BandwidthRestriction",
+      "count": 2,
+      "title": "Bandwidth Restriction",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a link.",
+        "Reduce damage dealt to Heroes next to a Link by non-Hero Targets next to a Link by 1."
+      ],
+      "icons": [ "PlayCardNow", "ReduceDamageTaken" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "OverclockSystems",
+      "count": 2,
+      "title": "Overclock Systems",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a link.",
+        "Increase damage dealt by Heroes next to a Link to non-Hero Targets next to a Link by 1."
+      ],
+      "icons": [ "PlayCardNow", "IncreaseDamageDealt" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "AutoRedirect",
+      "count": 2,
+      "title": "Auto-Redirect",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a link.",
+        "The first time each turn a Hero next to a Link would be dealt 2 or fewer damage, you may redirect that damage to a non-Hero target next to a link."
+      ],
+      "icons": [ "PlayCardNow", "Redirect" ],
       "flavorQuotes": [
         {
         }

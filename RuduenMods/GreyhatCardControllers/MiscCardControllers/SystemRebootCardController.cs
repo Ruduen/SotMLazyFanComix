@@ -16,8 +16,12 @@ namespace RuduenWorkshop.Greyhat
             List<MoveCardAction> mcaResults = new List<MoveCardAction>();
             IEnumerator coroutine;
 
+            // Shuffle your trash into your deck. 
+            coroutine = this.GameController.ShuffleTrashIntoDeck(this.DecisionMaker, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
             // Search for and add a link.
-            coroutine = this.SearchForCards(this.DecisionMaker, true, true, 1, 1, new LinqCardCriteria((Card c) => c.IsLink, "link"), false, true, false);
+            coroutine = this.SearchForCards(this.DecisionMaker, true, false, 1, 1, new LinqCardCriteria((Card c) => c.IsLink, "link"), false, true, false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Bounce links.

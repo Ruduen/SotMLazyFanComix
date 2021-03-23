@@ -37,7 +37,7 @@ namespace RuduenModsTest
             QuickHandStorage(az);
             UsePower(az);
             QuickHPCheck(-1); // Damage dealt through DR.
-            QuickHandCheck(1); // 1 Played, 2 Drawn.
+            QuickHandCheck(-1); // 1 Played, 0 Drawn.
             AssertInPlayArea(az, card);
         }
 
@@ -62,7 +62,7 @@ namespace RuduenModsTest
             QuickHandStorage(az);
             UsePower(az);
             QuickHPCheck(-1); // Damage dealt through DR.
-            QuickHandCheck(2); // No play, draw 2.
+            QuickHandCheck(3); // No play, draw 3.
             AssertInTrash(az, transducers[0]);
         }
 
@@ -179,7 +179,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestBenchmarkSoftwareAndIncap()
+        public void TestBenchmarkSoftware()
         {
             SetupGameController("BaronBlade", "Benchmark/RuduenWorkshop.BenchmarkDownloadManagerCharacter", "Legacy", "TheBlock");
 
@@ -194,12 +194,8 @@ namespace RuduenModsTest
 
             QuickHPStorage(mdp);
             UsePower(bench);
-            GoToStartOfTurn(bench);
             QuickHPCheck(-1);
             AssertInPlayArea(bench, software); // Card is in play.
-
-            DestroyCard(bench.CharacterCard);
-            AssertNotInPlay(software); // Removed after during incap.
         }
 
         // TODO: Fix if Handlabra fix!
@@ -599,8 +595,11 @@ namespace RuduenModsTest
 
             QuickHandStorage(knyfe);
             QuickHPStorage(knyfe);
+
+            DecisionSelectFunction = 1;
             UsePower(knyfe);
             DealDamage(knyfe, knyfe, 1, DamageType.Energy);
+
             QuickHPCheck(0); // 1 damage, healed 1.
             QuickHandCheck(1); // Card drawn.
         }
@@ -619,10 +618,33 @@ namespace RuduenModsTest
 
             QuickHandStorage(knyfe);
             QuickHPStorage(knyfe);
+
+            DecisionSelectFunction = 1;
             UsePower(knyfe);
             DealDamage(knyfe, knyfe, 1, DamageType.Energy);
+
             QuickHPCheck(0); // No damage or healing.
             QuickHandCheck(1); // Card drawn.
+        }
+
+        [Test()]
+        public void TestKnyfePlay()
+        {
+            // No cards in deck test.
+            SetupGameController("BaronBlade", "Knyfe/RuduenWorkshop.KnyfeKineticLoopCharacter", "Megalopolis");
+            Assert.IsTrue(knyfe.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DecisionSelectCard = PutInHand("IncidentalContact");
+
+            QuickHandStorage(knyfe);
+            QuickHPStorage(knyfe);
+
+            UsePower(knyfe);
+
+            QuickHPCheck(0); // 1 damage, healed 1.
+            QuickHandCheck(-1); // Card played.
         }
 
         [Test()]
@@ -656,6 +678,8 @@ namespace RuduenModsTest
             DiscardAllCards(legacy);
             Card card = PutInHand("TheLegacyRing");
             GoToUsePowerPhase(legacy);
+
+            DecisionSelectFunction = 1;
 
             QuickHandStorage(legacy);
             UsePower(legacy);
@@ -970,26 +994,26 @@ namespace RuduenModsTest
             QuickHandCheck(2);
         }
 
-        [Test()]
-        public void TestMrFixerPowerA()
-        {
-            // Tool in hand.
-            SetupGameController("BaronBlade", "MrFixer/RuduenWorkshop.MrFixerFlowingStrikeCharacter", "Legacy", "Megalopolis");
-            Assert.IsTrue(fixer.CharacterCard.IsPromoCard);
+        //[Test()]
+        //public void TestMrFixerPowerA()
+        //{
+        //    // Tool in hand.
+        //    SetupGameController("BaronBlade", "MrFixer/RuduenWorkshop.MrFixerFlowingStrikeCharacter", "Legacy", "Megalopolis");
+        //    Assert.IsTrue(fixer.CharacterCard.IsPromoCard);
 
-            StartGame();
-            UsePower(legacy);
-            Card tool = PutInHand("DualCrowbars");
-            Card mdp = GetCardInPlay("MobileDefensePlatform");
+        //    StartGame();
+        //    UsePower(legacy);
+        //    Card tool = PutInHand("DualCrowbars");
+        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-            DecisionSelectCardToPlay = tool;
-            DecisionSelectTarget = mdp;
+        //    DecisionSelectCardToPlay = tool;
+        //    DecisionSelectTarget = mdp;
 
-            QuickHPStorage(fixer.CharacterCard, mdp);
-            UsePower(fixer);
-            QuickHPCheck(-1, -2);
-            AssertInPlayArea(fixer, tool); // Card put into play.
-        }
+        //    QuickHPStorage(fixer.CharacterCard, mdp);
+        //    UsePower(fixer);
+        //    QuickHPCheck(-1, -2);
+        //    AssertInPlayArea(fixer, tool); // Card put into play.
+        //}
 
         [Test()]
         public void TestMrFixerPowerB()
@@ -1003,7 +1027,7 @@ namespace RuduenModsTest
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             MoveAllCards(fixer, fixer.HeroTurnTaker.Hand, fixer.HeroTurnTaker.Deck);
 
-            Card tool = PutOnDeck("DualCrowbars");
+            Card tool = PutInHand("DualCrowbars");
 
             DecisionSelectTarget = mdp;
 
@@ -1029,8 +1053,10 @@ namespace RuduenModsTest
             DecisionSelectTarget = mdp;
 
             QuickHPStorage(fixer.CharacterCard, mdp);
+            QuickHandStorage(fixer);
             UsePower(fixer);
             QuickHPCheck(-1, -2);
+            QuickHandCheck(2);
             AssertNotInPlay((Card c) => c.IsTool);
         }
 
@@ -1105,7 +1131,7 @@ namespace RuduenModsTest
 
             StartGame();
 
-            DecisionSelectCards = new Card[] { null };
+            DecisionSelectFunction = 1;
 
             QuickHandStorage(mist);
             QuickHPStorage(mist, legacy);
@@ -1125,7 +1151,6 @@ namespace RuduenModsTest
             StartGame();
             Card play = PutInHand("TomeOfElderMagic");
 
-            DecisionSelectFunction = 1;
             DecisionSelectCardToPlay = play;
 
             QuickHandStorage(mist);
@@ -1338,7 +1363,36 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestSetbackNoMatch()
+        public void TestSetbackRunOfLuck()
+        {
+            SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackRunOfLuckCharacter", "Legacy", "Megalopolis");
+            Assert.IsTrue(setback.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card[] plays = new Card[] {
+                PutInHand ("SilverLining"),
+                PutInHand("HighRiskBehavior")
+            };
+
+            DecisionSelectCards = plays;
+
+            QuickHandStorage(setback);
+            UsePower(setback);
+            QuickHandCheck(1);
+            AssertNotInPlay(plays);
+            AssertTokenPoolCount(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 2);
+
+            GoToStartOfTurn(setback);
+            QuickHandUpdate();
+            AddTokensToPool(setback.CharacterCard.FindTokenPool(TokenPool.UnluckyPoolIdentifier), 10);
+            UsePower(setback);
+            AssertIsInPlay(plays); // Played ongoing card is in play.
+            QuickHandCheck(-1); // 2 card played, 1 drawn.
+        }
+
+        [Test()]
+        public void TestSetbackDoubleOrNothingNoMatch()
         {
             SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackDoubleOrNothingCharacter", "Legacy", "Megalopolis");
             Assert.IsTrue(setback.CharacterCard.IsPromoCard);
@@ -1361,7 +1415,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestSetbackMatch()
+        public void TestSetbackDoubleOrNothingMatch()
         {
             SetupGameController("BaronBlade", "Setback/RuduenWorkshop.SetbackDoubleOrNothingCharacter", "Legacy", "Megalopolis");
             Assert.IsTrue(setback.CharacterCard.IsPromoCard);

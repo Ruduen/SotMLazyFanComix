@@ -19,10 +19,6 @@ namespace RuduenWorkshop.Knyfe
             IEnumerator coroutine;
             int powerNumeral = this.GetPowerNumeral(0, 1);
 
-            // Draw a card.
-            coroutine = this.GameController.DrawCard(this.HeroTurnTaker);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             // Set up heal response.
             if (base.TurnTaker.IsHero)
             {
@@ -40,6 +36,9 @@ namespace RuduenWorkshop.Knyfe
             onDealDamageStatusEffect.UntilEndOfNextTurn(this.HeroTurnTaker);
 
             coroutine = this.AddStatusEffect(onDealDamageStatusEffect);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.DrawACardOrPlayACard(this.DecisionMaker, false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

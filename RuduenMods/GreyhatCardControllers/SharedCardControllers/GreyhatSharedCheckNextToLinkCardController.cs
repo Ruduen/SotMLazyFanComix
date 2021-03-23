@@ -23,7 +23,7 @@ namespace RuduenWorkshop.Greyhat
             get
             {
                 // Find all links in play. Check for any next to a card. Check if it is a hero character. Append Greyhat. Make distinct.
-                return this.GameController.FindCardsWhere((Card c) => c.IsLink && c.IsInPlayAndNotUnderCard && c.Location.IsNextToCard).Select((Card c) => c.Location.OwnerCard).Where((Card c) => c.IsHeroCharacterCard).Concat(new Card[] { this.CharacterCard }).Distinct();
+                return this.GameController.FindCardsWhere((Card c) => c.IsLink && c.IsInPlayAndNotUnderCard && c.Location.IsNextToCard).Select((Card c) => c.Location.OwnerCard).Where((Card c) => c.IsHeroCharacterCard).Distinct();
             }
         }
 
