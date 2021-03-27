@@ -182,7 +182,7 @@
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">Originals/SetupGame/BreachMageCharacter.png</key>
-            <key type="filename">Originals/SetupGame/Greyhat.png</key>
+            <key type="filename">Originals/SetupGame/GreyhatCharacter.png</key>
             <key type="filename">Originals/SetupGame/InquirerCharacter.png</key>
             <key type="filename">Originals/SetupGame/SpellforgeCharacter.png</key>
             <key type="filename">Originals/SetupGame/TrailblazerCharacter.png</key>

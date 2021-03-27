@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":256},
 	"sourceSize": {"w":177,"h":256}
 },
-"Greyhat.png":
+"GreyhatCharacter.png":
 {
 	"frame": {"x":363,"y":0,"w":180,"h":256},
 	"rotated": false,
@@ -63,6 +63,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:789d4bd246c5c6b567f04d2476376340:24cd241e563c6f6810e389c3c7700c26:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1d7aae7b43c23e03c2d4a26ea8697ec0:24cd241e563c6f6810e389c3c7700c26:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }
