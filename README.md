@@ -21,5 +21,5 @@ I've set up a Discord to discuss this project - any thoughts, comments, and feed
 # Licenses
 
 - New work by Ruduen. Available under CC BY 4.0. See "License - Ruduen" for details.
-- Original work Copyright © 2020 Handelabra Games Inc. Available under MIT License. See "License - Handlabra" for details.
+- Original work Copyright © 2020 Handelabra Games Inc. Available under MIT License. See "License - Handelabra" for details.
 - Breach Mage concept based on Aeon's End, Copyright © 2016 Lone Oak Games. Used with (tentative) permission. 
