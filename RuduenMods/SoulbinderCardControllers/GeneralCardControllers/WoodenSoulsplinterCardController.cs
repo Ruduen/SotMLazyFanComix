@@ -15,12 +15,12 @@ namespace RuduenWorkshop.Soulbinder
         public override IEnumerator UsePower(int index = 0)
         {
             List<int> powerNumerals = new List<int>(){
-                            this.GetPowerNumeral(0, 2) // HP to regain
+                            this.GetPowerNumeral(0, 1) // HP to regain
             };
             List<Card> targetList = new List<Card>();
             IEnumerator coroutine;
 
-            // Each of your Hero Targets regains 2 HP.
+            // Each of your Hero Targets regains 1 HP.
             coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero && c.Owner == this.TurnTaker, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

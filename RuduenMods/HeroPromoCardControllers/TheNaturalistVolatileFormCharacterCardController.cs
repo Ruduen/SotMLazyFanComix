@@ -55,12 +55,8 @@ namespace RuduenWorkshop.TheNaturalist
                     {
                         // If we reach this, we've searched and confirm we have the icon, so run the add icon status!
                         ActivateEffectStatusEffect activateEffectStatusEffect = new ActivateEffectStatusEffect(this.HeroTurnTaker, card, selectedWord);
-
-                        // Lasts until the next power use!
-                        if (this.TurnTaker.IsHero)
-                        { activateEffectStatusEffect.UsePowerExpiryCriteria.HeroUsingPower = this.HeroTurnTaker; }
-                        else
-                        { activateEffectStatusEffect.UsePowerExpiryCriteria.IsSpecificCard = this.Card; }
+                        // Lasts until next turn!
+                        activateEffectStatusEffect.UntilEndOfNextTurn(this.HeroTurnTaker);
 
                         coroutine = this.AddStatusEffect(activateEffectStatusEffect, true);
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

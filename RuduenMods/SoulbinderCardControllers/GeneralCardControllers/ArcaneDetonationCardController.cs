@@ -23,17 +23,17 @@ namespace RuduenWorkshop.Soulbinder
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, 3, DamageType.Infernal);
+            coroutine = this.SelectYourTargetToDealDamage(targetList, 2, DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (targetList.Count > 0)
             {
-                // That target deals all others 3 Infernal damage.
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, targetList.FirstOrDefault(), (Card c) => !c.IsHero, 3, DamageType.Infernal, cardSource: this.GetCardSource());
+                // That target deals all others 2 Infernal damage.
+                coroutine = this.GameController.DealDamage(this.DecisionMaker, targetList.FirstOrDefault(), (Card c) => !c.IsHero, 2, DamageType.Infernal, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // That target deals itself 3 Infernal damage.
-                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 3, DamageType.Infernal, cardSource: this.GetCardSource());
+                // That target deals itself 2 Infernal damage.
+                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 2, DamageType.Infernal, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

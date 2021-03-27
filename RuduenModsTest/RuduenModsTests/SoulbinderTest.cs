@@ -149,7 +149,7 @@ namespace RuduenModsTest
             ResetDecisions();
             QuickHPStorage(wood);
             UsePower(wood);
-            QuickHPCheck(2);
+            QuickHPCheck(1);
         }
 
         [Test]
@@ -427,7 +427,7 @@ namespace RuduenModsTest
             DiscardAllCards(Soulbinder);
             QuickHPStorage(Soulbinder.CharacterCard, mdp);
             PlayCard("ArcaneDetonation");
-            QuickHPCheck(-3, -3);
+            QuickHPCheck(-2, -2);
         }
 
         [Test]

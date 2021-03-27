@@ -62,7 +62,7 @@
       "title": "Wooden Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
-      "powers": [ "Each of your targets regains 2 HP." ],
+      "powers": [ "Each of your targets regains 1 HP." ],
       "icons": [ "PlayCardNow", "HasPower", "GainHP" ],
       "flavorQuotes": [
       ]
@@ -204,7 +204,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may play a Ritual or Soulsplinter.",
-        "1 of your targets deals each non-Hero target and themselves 3 Infernal Damage."
+        "1 of your targets deals each non-Hero target and themselves 2 Infernal Damage."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [

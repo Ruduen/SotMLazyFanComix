@@ -17,47 +17,37 @@ namespace RuduenWorkshop.Luminary
         public override IEnumerator UsePower(int index = 0)
         {
             int[] powerNumerals = new int[] {
-                this.GetPowerNumeral(0, 5),
-                this.GetPowerNumeral(1, 2)
+                this.GetPowerNumeral(0, 1),
+                this.GetPowerNumeral(1, 1),
+                this.GetPowerNumeral(2, 4),
+                this.GetPowerNumeral(3, 2)
             };
-            List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
+            List<DealDamageAction> ddaResults = new List<DealDamageAction>();
 
             IEnumerator coroutine;
 
-            // Discard the top card of the deck.
-            coroutine = DiscardCardsFromTopOfDeck(this.DecisionMaker, 1, responsibleTurnTaker: this.HeroTurnTaker);
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Lightning, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddaResults, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Select a device target.
-            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.SelectTarget,
-                new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsDevice && c.IsTarget, "device target"),
-                storedResults, false, cardSource: this.GetCardSource());
-            if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            Card selectedCard = this.GetSelectedCard(storedResults);
-            if (selectedCard != null)
+            // Get all damaged cards that are devices. 
+            IEnumerable<Card> devices = ddaResults.Where((DealDamageAction dda) => dda.DidDealDamage && dda.Target.IsDevice).Select((DealDamageAction dda) => dda.Target);
+
+            if (devices.Count() > 0)
             {
-                // Device Damages Self.
-                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, selectedCard), selectedCard, powerNumerals[0], DamageType.Lightning, cardSource: this.GetCardSource());
+                // Targets in the Device list deal damage to themselves.
+                coroutine = this.GameController.SelectTargetsToDealDamageToSelf(this.DecisionMaker, powerNumerals[2], DamageType.Lightning, null, false, null, additionalCriteria: (Card c) => devices.Contains(c), cardSource: this.GetCardSource());
+                if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                // Draw 2 cards.
+                coroutine = this.DrawCards(this.DecisionMaker, powerNumerals[3]);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // If device was destroyed...
-                DestroyCardJournalEntry destroyCardJournalEntry =
-                    (from dcje in this.Journal.DestroyCardEntriesThisTurn()
-                     where selectedCard == dcje.Card
-                     select dcje).LastOrDefault<DestroyCardJournalEntry>();
-                if (destroyCardJournalEntry != null && destroyCardJournalEntry.Card != null)
-                {
-                    // Draw 2 cards.
-                    coroutine = this.DrawCards(this.DecisionMaker, powerNumerals[1]);
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    // You may play a device.
-                    coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true,
-                        cardCriteria: new LinqCardCriteria((Card c) => c.IsDevice, "device"),
-                        cardSource: this.GetCardSource());
-                    if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                }
+                // You may play a device.
+                coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true,
+                    cardCriteria: new LinqCardCriteria((Card c) => c.IsDevice, "device"),
+                    cardSource: this.GetCardSource());
+                if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
     }

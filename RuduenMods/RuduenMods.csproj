@@ -128,7 +128,7 @@
     <Compile Include="HeroPromoCardControllers\LifelineEnergyTapCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LegacyInTheFrayCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
-    <Compile Include="HeroPromoCardControllers\AkashThriyaSeedRotationCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\AkashThriyaPlantEssenceCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\FanaticZealCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\GuiseShenanigansCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\ParseLaplaceShotCharacterCardController.cs" />

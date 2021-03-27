@@ -1,8 +1,15 @@
 {
-  "title": "Ruduen's Collection",
+  "title": "Lazy Fan Comix",
   "author": "Ruduen",
-  "description": [ "Ruduen's custom content for Sentinels of the Multiverse. Currently includes:", "- 6 Completely Custom Heroes", "- 1 Aeon's End Inspired Hero", "- 1-2 Variants for each Official Hero", "Ruduen is not an artist, so art will likely remain random-Unicode quality." ],
-  "version": "0.4.6",
+  "description": [
+    "No solid backstory! No quality art! Just ideas and refinement for what hope to be solid, playable characters for your SotM Game!",
+    "This is a collection of Ruduen's custom content for Sentinels of the Multiverse. It currently includes:",
+    "- 6 Completely Custom Heroes",
+    "- 1 Aeon's End Inspired Hero",
+    "- 1-2 Variants for each Official Hero",
+    "Ruduen is not an artist, so art will likely remain random-Unicode quality."
+  ],
+  "version": "0.4.8",
   "credits": [ "New work by Ruduen. Available under CC BY 4.0.", "Original scripting Copyright © 2020 Handelabra Games Inc. Available under MIT License.", "Breach Mage concept based on Aeon's End, Copyright © 2016 Lone Oak Games. Used with (tentative) permission." ],
   "color": "AAAAFF",
   "dll": "RuduenMod.dll",
@@ -20,7 +27,7 @@
   },
   "variants": {
     "AbsoluteZero": [ "AbsoluteZeroOverchillCharacter" ],
-    "AkashThriya": [ "AkashThriyaSeedRotationCharacter" ],
+    "AkashThriya": [ "AkashThriyaPlantEssenceCharacter" ],
     "TheArgentAdept": [ "TheArgentAdeptAriaCharacter" ],
     "Benchmark": [ "BenchmarkDownloadManagerCharacter" ],
     "Bunker": [ "BunkerFullSalvoCharacter", "BunkerModeShiftCharacter" ],
@@ -58,5 +65,6 @@
   "devVariants": {
     "SkyScraper": [ "SkyScraperConsistentCharacter" ],
     "SkyScraperNotes": "Adding all characters only inserts one character and they swap back to normal. No clean way of implementing the unified character. So, this is dummied out."
-  }
+  },
+  "publishedFileId": 2436856735
 }

@@ -27,7 +27,7 @@ namespace RuduenWorkshop.Parse
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), env.TurnTaker.Trash.NumberOfCards, DamageType.Projectile, powerNumeral, false, 0, storedResultsDamage: storedResultsDamage, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (storedResultsDamage.Count > 0 && storedResultsDamage.Any((DealDamageAction dd) => dd.DidDealDamage) && env.TurnTaker.Trash.NumberOfCards > 0)
+            if (storedResultsDamage.Any((DealDamageAction dd) => dd.DidDealDamage))
             {
                 coroutine = this.GameController.ShuffleTrashIntoDeck(env, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

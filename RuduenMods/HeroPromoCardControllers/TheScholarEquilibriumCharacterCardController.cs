@@ -15,6 +15,11 @@ namespace RuduenWorkshop.TheScholar
 
         public override IEnumerator UsePower(int index = 0)
         {
+            int[] numerals = new int[]
+            {
+                this.GetPowerNumeral(0, 1),
+                this.GetPowerNumeral(1, 2)
+            };
             IEnumerator coroutine;
 
             // Draw a card.
@@ -25,9 +30,18 @@ namespace RuduenWorkshop.TheScholar
             coroutine = this.DrawCards(this.HeroTurnTakerController, this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsElemental).Count());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Deal self damage. Re-check elemental count since it could've changed as a result of draw->damage->shenanigans!
-            coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), this.CharacterCard, this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsElemental).Count(), DamageType.Psychic, true, cardSource: this.GetCardSource());
+            // Trigger to increase damage dealt to self by 2 per elemental. 
+            ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => ElementalDamage(numerals[1]));
+
+            // Deal self 1 damage. Trigger will increase damage as necessary.
+            coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), this.CharacterCard, numerals[0], DamageType.Psychic, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            this.RemoveTrigger(tempIncrease);
+        }
+        private int ElementalDamage(int numeral)
+        {
+            return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsElemental).Count() * numeral;
         }
     }
 }

@@ -67,37 +67,37 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestAkashThriyaNoTrash()
+        public void TestAkashThriyaEnvDestroy()
         {
-            SetupGameController("BaronBlade", "AkashThriya/RuduenWorkshop.AkashThriyaSeedRotationCharacter", "TheBlock");
+            SetupGameController("BaronBlade", "AkashThriya/RuduenWorkshop.AkashThriyaPlantEssenceCharacter", "TheBlock");
 
             StartGame();
 
             Assert.IsTrue(thriya.CharacterCard.IsPromoCard);
+            Card envCard = PutOnDeck("DefensiveDisplacement");
 
-            // Set seed so it doesn't randomly use the self-destructing one.
-            Card seed = PutOnDeck("NoxiousPod");
+            MoveAllCards(thriya, thriya.HeroTurnTaker.Deck, thriya.HeroTurnTaker.Trash);
 
             UsePower(thriya);
-            AssertIsInPlay(seed);
+            AssertInTrash(envCard);
         }
 
         [Test()]
-        public void TestAkashThriyaTrash()
+        public void TestAkashThriyaMove()
         {
-            SetupGameController("BaronBlade", "AkashThriya/RuduenWorkshop.AkashThriyaSeedRotationCharacter", "TheBlock");
+            SetupGameController("BaronBlade", "AkashThriya/RuduenWorkshop.AkashThriyaPlantEssenceCharacter", "TheBlock");
 
             StartGame();
 
             Assert.IsTrue(thriya.CharacterCard.IsPromoCard);
+            Card envCard = PutOnDeck("DefensiveDisplacement");
+            Card akCard = PutOnDeck("NoxiousPod");
 
-            // Set seed so it doesn't randomly use the self-destructing one.
-            Card seed = PutOnDeck("NoxiousPod");
-            Card cycled = PutInTrash("VitalizedThorns");
+            DecisionSelectFunction = 1;
 
             UsePower(thriya);
-            AssertIsInPlay(seed);
-            AssertInDeck(cycled);
+            AssertIsInPlay(envCard);
+            AssertAtLocation(akCard, env.TurnTaker.Deck);
         }
 
         [Test()]
@@ -736,9 +736,13 @@ namespace RuduenModsTest
             StartGame();
 
             GoToUsePowerPhase(luminary);
+            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
 
+            QuickHPStorage(baron);
+            QuickHandStorage(luminary);
             UsePower(luminary);
-            AssertNumberOfCardsInTrash(luminary, 1);
+            QuickHPCheck(-1);
+            QuickHandCheck(0);
         }
 
         [Test()]
@@ -762,7 +766,7 @@ namespace RuduenModsTest
         }
 
         [Test()]
-        public void TestLuminaryDevicenotDestroyed()
+        public void TestLuminaryDeviceNotDestroyed()
         {
             SetupGameController("BaronBlade", "Luminary/RuduenWorkshop.LuminaryReprogramCharacter", "Megalopolis");
             Assert.IsTrue(luminary.CharacterCard.IsPromoCard);
@@ -778,7 +782,7 @@ namespace RuduenModsTest
 
             UsePower(luminary);
             AssertIsInPlay(mdp);
-            AssertInHand(card);
+            AssertIsInPlay(card);
         }
 
         [Test()]
@@ -1341,7 +1345,7 @@ namespace RuduenModsTest
             QuickHandStorage(scholar);
             UsePower(scholar);
             QuickHandCheck(1);
-            QuickHPCheck(-1); // 1 damage dealt for 0+1.
+            QuickHPCheck(-2); // 1 damage dealt for 1+1.
         }
 
         [Test()]
@@ -1359,7 +1363,7 @@ namespace RuduenModsTest
             QuickHandStorage(scholar);
             UsePower(scholar);
             QuickHandCheck(2);
-            QuickHPCheck(-2); // 2 damage dealt for 1+1.
+            QuickHPCheck(-4); // 3 damage dealt for 1+1+2.
         }
 
         [Test()]

@@ -34,15 +34,23 @@
 },
 "BreachIV.jpg":
 {
-	"frame": {"x":0,"y":203,"w":250,"h":200},
+	"frame": {"x":1012,"y":0,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
+"BreachMageCharacter.png":
+{
+	"frame": {"x":1265,"y":0,"w":180,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
+	"sourceSize": {"w":180,"h":256}
+},
 "CycleOfMagic.jpg":
 {
-	"frame": {"x":253,"y":203,"w":250,"h":200},
+	"frame": {"x":1448,"y":0,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -50,7 +58,7 @@
 },
 "FlareCascade.jpg":
 {
-	"frame": {"x":506,"y":203,"w":250,"h":200},
+	"frame": {"x":1701,"y":0,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -58,7 +66,7 @@
 },
 "FocusBreach.jpg":
 {
-	"frame": {"x":759,"y":203,"w":250,"h":200},
+	"frame": {"x":0,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -66,7 +74,7 @@
 },
 "FocusCharm.jpg":
 {
-	"frame": {"x":0,"y":406,"w":250,"h":200},
+	"frame": {"x":253,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -74,7 +82,7 @@
 },
 "HammerCharm.jpg":
 {
-	"frame": {"x":253,"y":406,"w":250,"h":200},
+	"frame": {"x":506,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -82,7 +90,7 @@
 },
 "HauntingEcho.jpg":
 {
-	"frame": {"x":506,"y":406,"w":250,"h":200},
+	"frame": {"x":759,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -90,7 +98,7 @@
 },
 "MoltenWave.jpg":
 {
-	"frame": {"x":759,"y":406,"w":250,"h":200},
+	"frame": {"x":1012,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -98,7 +106,7 @@
 },
 "Shine.jpg":
 {
-	"frame": {"x":0,"y":609,"w":250,"h":200},
+	"frame": {"x":1265,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -106,7 +114,7 @@
 },
 "SpiralCharm.jpg":
 {
-	"frame": {"x":253,"y":609,"w":250,"h":200},
+	"frame": {"x":1518,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -114,7 +122,7 @@
 },
 "VigorCharm.jpg":
 {
-	"frame": {"x":506,"y":609,"w":250,"h":200},
+	"frame": {"x":1771,"y":259,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -122,7 +130,7 @@
 },
 "VisionShock.jpg":
 {
-	"frame": {"x":759,"y":609,"w":250,"h":200},
+	"frame": {"x":0,"y":462,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -130,7 +138,7 @@
 },
 "Zap.jpg":
 {
-	"frame": {"x":0,"y":812,"w":250,"h":200},
+	"frame": {"x":253,"y":462,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -141,8 +149,8 @@
 	"version": "1.0",
 	"image": "BreachMageAtlas0.png",
 	"format": "RGBA8888",
-	"size": {"w":1024,"h":1024},
+	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:5d45624d1b14b9619a948d35f66f6358:3ddd7a58698628a7be86a89f15b3ecc1:472fa949e7fbf02b45c3f709a5d5c720$"
+	"smartupdate": "$TexturePacker:SmartUpdate:a7e250fec58a74323fa0f3bf061e35fa:746452753f0477baf6d2022185c9ba2d:472fa949e7fbf02b45c3f709a5d5c720$"
 }
 }

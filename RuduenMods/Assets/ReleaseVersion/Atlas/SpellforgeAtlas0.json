@@ -96,9 +96,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
+"SpellforgeCharacter.png":
+{
+	"frame": {"x":0,"y":609,"w":180,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
+	"sourceSize": {"w":180,"h":256}
+},
 "Wave.jpg":
 {
-	"frame": {"x":0,"y":609,"w":250,"h":200},
+	"frame": {"x":183,"y":609,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -111,6 +119,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:c3eca4149446c48d30ada06e4f6655df:8f62736de00eb4e1dc4aac2429d1b8d1:343e25e2fda7a441cf00ddb7f39b2d67$"
+	"smartupdate": "$TexturePacker:SmartUpdate:7b51f4723c234ce987f24d8cc1932579:0477513761efc5bd7bbaa8241afbe7d2:343e25e2fda7a441cf00ddb7f39b2d67$"
 }
 }
