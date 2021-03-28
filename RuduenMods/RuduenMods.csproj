@@ -241,12 +241,94 @@
     <EmbeddedResource Include="DeckLists\GreyhatDeckList.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="manifest.json" />
+    <None Include="AssetsRelease\Atlas\BreachMageAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\CassieAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\GreyhatAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\InquirerAtlas0" />
+    <None Include="AssetsRelease\Atlas\InquirerAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\SetupGame0.json" />
+    <None Include="AssetsRelease\Atlas\SoulbinderAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\SpellforgeAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\TrailblazerAtlas0.json" />
+    <None Include="AssetsRelease\manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\CassieAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\GreyhatAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\InquirerAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\SetupGame0.png" />
+    <Content Include="AssetsRelease\Atlas\SoulbinderAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\SpellforgeAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\TrailblazerAtlas0.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\AuraCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachI.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachII.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachIII.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachIV.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachMageCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\CycleOfMagic.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\FlareCascade.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\FocusBreach.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\FocusCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\HammerCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\HauntingEcho.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\MoltenWave.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\Shine.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\SpiralCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\VigorCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\VisionShock.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\Zap.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\CassieCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\CondensedOrb.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\Droplet.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\MeetingTheOcean.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\PerpetualFlow.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\RisingWaters.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\Riverbank.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\RiverWornStone.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\RushingWaters.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\StormSwell.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\StreamShot.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\Waterlog.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\WaterSurge.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Greyhat\GreyhatCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\BackupPlan.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\Fisticuffs.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\ImAMolePerson.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\ImANinja.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\ImAVictorian.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\InquirerCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\IveFixedTheWound.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\LookADistraction.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\TheLieTheyTellThemselves.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\TheRightQuestions.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\UndeniableFacts.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\UntilYouMakeIt.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\YoureLookingPale.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\YoureOnOurSide.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Soulbinder\SoulbinderCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\ArticulateTheLethological.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Controlled.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Impact.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Inspired.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\MeanderingDissertation.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfAura.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfDisruption.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfHealing.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfResonance.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Piercing.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Ray.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Shock.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\SpellforgeCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Wave.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Trailblazer\TrailblazerCharacter.png" />
+    <Content Include="AssetsRelease\preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
+      <UserProperties assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
