@@ -22,7 +22,6 @@ namespace RuduenWorkshop.Trailblazer
         protected IEnumerator ResponseAction(PhaseChangeAction pca)
         {
             IEnumerator coroutine;
-            StatusEffect se;
 
             if (_statusEffect == null)
             {

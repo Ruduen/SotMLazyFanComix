@@ -1,0 +1,124 @@
+{"frames": {
+
+"ArticulateTheLethological.jpg":
+{
+	"frame": {"x":0,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Controlled.jpg":
+{
+	"frame": {"x":253,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Impact.jpg":
+{
+	"frame": {"x":506,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Inspired.jpg":
+{
+	"frame": {"x":759,"y":0,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"MeanderingDissertation.jpg":
+{
+	"frame": {"x":0,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"OfAura.jpg":
+{
+	"frame": {"x":253,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"OfDisruption.jpg":
+{
+	"frame": {"x":506,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"OfHealing.jpg":
+{
+	"frame": {"x":759,"y":203,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"OfResonance.jpg":
+{
+	"frame": {"x":0,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Piercing.jpg":
+{
+	"frame": {"x":253,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Ray.jpg":
+{
+	"frame": {"x":506,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"Shock.jpg":
+{
+	"frame": {"x":759,"y":406,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+},
+"SpellforgeCharacter.png":
+{
+	"frame": {"x":0,"y":609,"w":180,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
+	"sourceSize": {"w":180,"h":256}
+},
+"Wave.jpg":
+{
+	"frame": {"x":183,"y":609,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "SpellforgeAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7b51f4723c234ce987f24d8cc1932579:0477513761efc5bd7bbaa8241afbe7d2:343e25e2fda7a441cf00ddb7f39b2d67$"
+}
+}

@@ -476,16 +476,42 @@ namespace RuduenModsTest
 
             StartGame();
             GoToUsePowerPhase(guise);
-            Card ongoing = PutIntoPlay("GrittyReboot");
+            Card ongoing = PutInHand("GrittyReboot");
+
+            DecisionSelectFunction = 0;
+            DecisionSelectCard = ongoing;
 
             QuickHandStorage(guise);
             UsePower(guise);
-            QuickHandCheck(1); // 1 Card Drawn.
+            QuickHandCheck(-1); // 1 Card Played.
             DestroyCard(ongoing);
             AssertIsInPlay(ongoing);
             GoToStartOfTurn(guise);
             AssertIsInPlay(ongoing); // First new turn, should survive self-destruct.
             GoToStartOfTurn(guise);
+            AssertInTrash(ongoing); // Second new turn. Without a power, it's gone!
+        }
+
+        [Test()]
+        public void TestGuiseOngoingAlreadyDestroyed()
+        {
+            SetupGameController("BaronBlade", "Guise/RuduenWorkshop.GuiseShenanigansCharacter", "Unity", "TimeCataclysm");
+            Assert.IsTrue(guise.CharacterCard.IsPromoCard);
+
+            StartGame();
+            GoToUsePowerPhase(guise);
+            Card bee = PlayCard("BeeBot");
+            PlayCard("SurpriseShoppingTrip");
+            Card ongoing = PutInHand("GrittyReboot");
+
+            DecisionSelectFunction = 0;
+            DecisionSelectCard = ongoing;
+
+            AssertNextMessage("Guise does not have any valid Ongoings in play, so he cannot make any indestructible. Whoops!");
+            QuickHandStorage(guise);
+            UsePower(guise);
+            QuickHandCheck(0); // 1 Card Played, 1 Card Drawn from Gritty Reboot
+            DestroyCard(ongoing);
             AssertInTrash(ongoing); // Second new turn. Without a power, it's gone!
         }
 
@@ -498,8 +524,10 @@ namespace RuduenModsTest
             StartGame();
             GoToUsePowerPhase(guise);
 
+            DiscardAllCards(guise);
+
             QuickHandStorage(guise);
-            AssertNextMessage("Guise does not have any Ongoings in play, so he cannot make any indestructible. Whoops!");
+            AssertNextMessage("Guise cannot play any ongoings, so they must draw 1 card.");
             UsePower(guise);
             QuickHandCheck(1); // 1 Card Drawn.
         }
@@ -683,8 +711,8 @@ namespace RuduenModsTest
 
             QuickHandStorage(legacy);
             UsePower(legacy);
-            AssertInHand(card);
-            QuickHandCheck(1); // 0 played, 1 drawn.
+            AssertInTrash(card);
+            QuickHandCheck(0); // 1 Discarded, 1 Drawn
         }
 
         [Test()]

@@ -88,6 +88,7 @@
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedPlayLinkFirstCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SetbackRunOfLuckCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\UnityToolkitCharacterCardController.cs" />
     <Compile Include="RuduenFlippableCardController.cs" />
@@ -127,7 +128,6 @@
     <Compile Include="HeroPromoCardControllers\LuminaryReprogramCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LifelineEnergyTapCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LegacyInTheFrayCharacterCardController.cs" />
-    <Compile Include="HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\AkashThriyaPlantEssenceCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\FanaticZealCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\GuiseShenanigansCharacterCardController.cs" />
@@ -239,13 +239,14 @@
     <EmbeddedResource Include="DeckLists\TrailblazerDeckList.json" />
     <EmbeddedResource Include="DeckLists\SoulbinderDeckList.json" />
     <EmbeddedResource Include="DeckLists\GreyhatDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="manifest.json" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
+      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
