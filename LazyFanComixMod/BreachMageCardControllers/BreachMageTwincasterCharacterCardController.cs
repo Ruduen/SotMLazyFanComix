@@ -9,11 +9,12 @@ namespace LazyFanComix.BreachMage
     public class BreachMageTwincasterCharacterCardController : BreachMageSharedCharacterCardController
     {
         public string str;
+        protected override int[] BreachInitialFocus { get { return new int[] { 0, 0, 3, 4 }; } }
 
         public BreachMageTwincasterCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            BreachInitialFocus = new int[] { 0, 0, 3, 4 };
+            
         }
 
         public override IEnumerator UsePower(int index = 0)

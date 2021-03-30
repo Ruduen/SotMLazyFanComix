@@ -45,7 +45,7 @@
       "count": 4,
       "title": "Ray",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals 1 Target 4 Energy Damage." ],
+      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 1 Target 4 Energy Damage." ],
       "icons": [ "DealDamageEnergy", "Discard" ],
       "flavorQuotes": [
         {
@@ -69,7 +69,7 @@
       "count": 4,
       "title": "Impact",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix card to add its [u]Prefix[/u] text to this card.", "You may discard a Suffix card to add its [u]Suffix[/u] text to this card.", "{Spellforge} deals each Target 1 Melee Damage." ],
+      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals each Target 1 Melee Damage." ],
       "icons": [ "DealDamageMelee", "Discard" ],
       "flavorQuotes": [
         {

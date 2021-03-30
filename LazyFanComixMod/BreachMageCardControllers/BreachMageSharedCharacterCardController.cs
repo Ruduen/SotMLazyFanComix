@@ -9,12 +9,16 @@ namespace LazyFanComix.BreachMage
 {
     public class BreachMageSharedCharacterCardController : HeroCharacterCardController
     {
-        public int[] BreachInitialFocus { get; protected set; }
+        protected virtual int[] BreachInitialFocus { get { return new int[] { 4, 4, 4, 4 }; } }
 
         public BreachMageSharedCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            BreachInitialFocus = new int[] { 4, 4, 4, 4 };
+        }
+
+        public override void AddStartOfGameTriggers()
+        {
+            SetupBreaches();
         }
 
         // Start of turn trigger to optionally cast spells.
@@ -22,6 +26,28 @@ namespace LazyFanComix.BreachMage
         {
             // add start-of-turn trigger to cast a spell
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.CastResponse), TriggerType.DestroyCard);
+        }
+
+        private void SetupBreaches()
+        {
+            Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("breach")).ToArray();
+
+            for (int i = 0; i < BreachInitialFocus.Count() && i < breaches.Count(); i++)
+            {
+                TokenPool focusPool = breaches[i].FindTokenPool("FocusPool");
+                if (focusPool != null)
+                {
+                    if (BreachInitialFocus[i] < 0 || BreachInitialFocus[i] > 4)
+                    {
+                        // Out of bounds breach - remove the breach from the game.
+                        this.TurnTaker.MoveCard(breaches[i], this.TurnTaker.OutOfGame);
+                    }
+                    else
+                    {
+                        focusPool.RemoveTokens(4 - BreachInitialFocus[i]);
+                    }
+                }
+            }
         }
 
         // Temporary method - select a card and activate its cast effect. Not great, but it will do while Handelabra is fixing the issue.
