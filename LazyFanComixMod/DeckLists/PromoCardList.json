@@ -1,0 +1,1417 @@
+﻿{
+  "AbsoluteZero": [
+    {
+      "identifier": "AbsoluteZeroCharacter",
+      "promoIdentifier": "AbsoluteZeroOverchillCharacter",
+      "count": 1,
+      "title": "Absolute Zero",
+      "promoTitle": "Lazyverse Absolute Zero",
+      "body": [ "Overchill" ],
+      "backgroundColor": "77d2f7",
+      "foilBackgroundColor": "77d2f7",
+      "character": true,
+      "powers": "{AbsoluteZero} deals himself 1 Cold Damage. You may play an Equipment, or Draw 3 Cards and destroy one of your equipment.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DealDamageCold", "PlayCardNow", "DrawCardNow" ],
+      "nemesisIdentifiers": [ "AbsoluteZero" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Sorry, I don't have a cold pun in storage right now."
+      }
+    }
+  ],
+  "AkashThriya": [
+    {
+      "identifier": "AkashThriyaCharacter",
+      "promoIdentifier": "AkashThriyaPlantEssenceCharacter",
+      "count": 1,
+      "title": "Akash'Thriya",
+      "promoTitle": "Lazyverse Akash'Thriya",
+      "body": [ "Plant Essence" ],
+      "backgroundColor": "C87B40",
+      "foilBackgroundColor": "C87B40",
+      "character": true,
+      "powers": "Play the top card of the environment deck. Destroy an environment card or shuffle the top card of your deck into the Environment deck.",
+      "hitpoints": 45,
+      "icons": [ "HasPower", "Manipulate" ],
+      "nemesisIdentifiers": [ "AkashThriya" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "TheArgentAdept": [
+    {
+      "identifier": "TheArgentAdeptCharacter",
+      "promoIdentifier": "TheArgentAdeptAriaCharacter",
+      "count": 1,
+      "title": "The Argent Adept",
+      "promoTitle": "Fanverse Argent Adept",
+      "body": [ "Aria" ],
+      "backgroundColor": "a97436",
+      "foilBackgroundColor": "a97436",
+      "character": true,
+      "powers": "Play a card. Activate that card's [u]perform[/u] text and [u]accompany[/u] text.",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "PlayCardNow", "Perform", "Accompany" ],
+      "nemesisIdentifiers": [ "TheArgentAdept" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "I wonder if I can carry a tune all the way through this."
+      }
+    }
+  ],
+  "Benchmark": [
+    {
+      "identifier": "BenchmarkCharacter",
+      "promoIdentifier": "BenchmarkDownloadManagerCharacter",
+      "count": 1,
+      "title": "Benchmark",
+      "promoTitle": "Fanverse Benchmark",
+      "body": [ "Download Manager" ],
+      "backgroundColor": "EC4647",
+      "foilBackgroundColor": "EC4647",
+      "character": true,
+      "powers": "You may play a Software card. {Benchmark} deals 1 Target Lightning Damage equal to the number of Software cards in play.",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "PlayCardNow", "Indestructible", "DealDamageLightning" ],
+      "nemesisIdentifiers": [ "Benchmark" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Bunker": [
+    {
+      "identifier": "BunkerCharacter",
+      "promoIdentifier": "BunkerFullSalvoCharacter",
+      "count": 1,
+      "title": "Bunker",
+      "promoTitle": "Fanverse Bunker",
+      "body": [ "Full Salvo" ],
+      "backgroundColor": "fcf170",
+      "foilBackgroundColor": "fcf170",
+      "character": true,
+      "powers": "Draw 3 cards. Discard a card for each of your cards with powers in play. This turn, you may use as many powers as you have cards with powers in play.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DrawCardNow", "Discard", "UsePowerExtra" ],
+      "nemesisIdentifiers": [ "Bunker" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    },
+    {
+      "identifier": "BunkerCharacter",
+      "promoIdentifier": "BunkerModeShiftCharacter",
+      "count": 1,
+      "title": "Bunker",
+      "promoTitle": "Lazyverse Bunker",
+      "body": [ "Mode Shift" ],
+      "backgroundColor": "fcf170",
+      "foilBackgroundColor": "fcf170",
+      "character": true,
+      "powers": "Search your deck or trash for a Mode and put it into play. If you searched your deck, shuffle your deck. Play a card.",
+      "hitpoints": 27,
+      "icons": [ "HasPower", "Search", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Bunker" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "CaptainCosmic": [
+    {
+      "identifier": "CaptainCosmicCharacter",
+      "promoIdentifier": "CaptainCosmicCosmicShieldingCharacter",
+      "count": 1,
+      "title": "Captain Cosmic",
+      "promoTitle": "Lazyverse Captain Cosmic",
+      "body": [ "Cosmic Shielding" ],
+      "backgroundColor": "FFDD00",
+      "foilBackgroundColor": "FFDD00",
+      "character": true,
+      "powers": "Draw a card. Select a Construct Target. Until the start of your next turn, that Construct is Indestructible. That Construct deals itself 2 Energy Damage.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DrawCardNow", "Indestructible", "DealDamageEnergy" ],
+      "nemesisIdentifiers": [ "CaptainCosmic" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "unusedCaptainCosmic": [
+    {
+      "identifier": "CaptainCosmicCharacter",
+      "promoIdentifier": "CaptainCosmicCosmicShieldingBCharacter",
+      "count": 1,
+      "title": "Captain Cosmic",
+      "promoTitle": "Captain Cosmic - Cosmic Shielding",
+      "body": [ "Cosmic Shielding" ],
+      "backgroundColor": "FFDD00",
+      "foilBackgroundColor": "FFDD00",
+      "character": true,
+      "powers": "Draw a card. You may play a Construct. Until the start of your next turn, all damage that would be dealt to Hero Targets is redirected to that construct.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DrawCardNow", "Indestructible", "DealDamageEnergy" ],
+      "nemesisIdentifiers": [ "CaptainCosmic" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "ChronoRanger": [
+    {
+      "identifier": "ChronoRangerCharacter",
+      "promoIdentifier": "ChronoRangerHighNoonCharacter",
+      "count": 1,
+      "title": "Chrono-Ranger",
+      "promoTitle": "Fanverse Chrono-Ranger",
+      "body": [ "High Noon" ],
+      "backgroundColor": "7399d0",
+      "foilBackgroundColor": "7399d0",
+      "character": true,
+      "powers": "Draw a card. Until the end of your next turn, damage dealt to and by {ChronoRanger} is irreducible.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DrawCardNow", "MakeDamageIrreducible" ],
+      "nemesisIdentifiers": [ "ChronoRanger" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "It's about that time..."
+      }
+    }
+  ],
+  "Expatriette": [
+    {
+      "identifier": "ExpatrietteCharacter",
+      "promoIdentifier": "ExpatrietteQuickShotCharacter",
+      "count": 1,
+      "title": "Expatriette",
+      "promoTitle": "Fanverse Expatriette",
+      "body": [ "Quick-Shot" ],
+      "character": true,
+      "backgroundColor": "996cae",
+      "foilBackgroundColor": "996cae",
+      "powers": "Until the end of the turn, reduce damage dealt by {Expatriette} by 1. Play the top card of your deck. You may use an additional power this turn.",
+      "hitpoints": 27,
+      "icons": [ "HasPower", "ReduceDamageDealt", "PlayCardNow", "UsePowerExtra" ],
+      "nemesisIdentifiers": [ "Expatriette" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "I've brought the whole arsenal this time."
+      }
+    }
+  ],
+  "Fanatic": [
+    {
+      "identifier": "FanaticCharacter",
+      "promoIdentifier": "FanaticZealCharacter",
+      "count": 1,
+      "title": "Fanatic",
+      "promoTitle": "Fanverse Fanatic",
+      "body": [ "Zeal" ],
+      "character": true,
+      "backgroundColor": "f4ee71",
+      "foilBackgroundColor": "f4ee71",
+      "powers": "{Fanatic} deals up to 2 Targets and themselves 1 Radiant Damage. Draw a card or use a Power now.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DealDamageRadiant", "PlayCardNow", "UsePowerNow" ],
+      "nemesisIdentifiers": [ "Fanatic" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Guise": [
+    {
+      "identifier": "GuiseCharacter",
+      "promoIdentifier": "GuiseShenanigansCharacter",
+      "count": 1,
+      "title": "Guise",
+      "promoTitle": "Fanverse Guise",
+      "body": [ "Shenanigans" ],
+      "character": true,
+      "backgroundColor": "FFDD00",
+      "foilBackgroundColor": "FFDD00",
+      "powers": "Draw 1 card. Wait, that's it? Fine, alternatively, play 1 Ongoing and make it indestructible until the end of your next turn.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DrawCardsNow", "Indestructible" ],
+      "nemesisIdentifiers": [ "Guise" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2.555555,
+      "openingLines": {
+        "default": "Wait, I'm here? That means I've got a fan! Woo!"
+      }
+    }
+  ],
+  "Haka": [
+    {
+      "identifier": "HakaCharacter",
+      "promoIdentifier": "HakaVigorCharacter",
+      "count": 1,
+      "title": "Haka",
+      "promoTitle": "Fanverse Haka",
+      "body": [ "Vigor" ],
+      "character": true,
+      "backgroundColor": "c3af3c",
+      "foilBackgroundColor": "c3af3c",
+      "hitpointsColor": "F6AD41",
+      "powers": "Play a card. Draw until you have 1 cards in your hand.",
+      "hitpoints": 31,
+      "icons": [ "HasPower", "PlayCardNow", "DrawCardsNow" ],
+      "nemesisIdentifiers": [ "Haka" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "TheHarpy": [
+    {
+      "identifier": "TheHarpyCharacter",
+      "promoIdentifier": "TheHarpyExtremeCallingCharacter",
+      "count": 1,
+      "title": "The Harpy",
+      "promoTitle": "Lazyverse Harpy",
+      "body": [ "Extreme Calling" ],
+      "character": true,
+      "backgroundColor": "E17FB0",
+      "foilBackgroundColor": "E17FB0",
+      "powers": "Draw a card. Flip all but 1 of your {arcana} or {avian} tokens. {TheHarpy} deals themselves Psychic Damage equal to the number of tokens flipped this way.",
+      "hitpoints": 25,
+      "icons": [ "HasPower", "DrawCardNow", "FlipControlToken", "DealDamagePsychic" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
+      "tokenPools": [
+        {
+          "identifier": "AvianControlPool",
+          "name": "The Harpy's {avian} Control Pool",
+          "initialValue": 2,
+          "minimumValue": 0,
+          "maximumValue": 5,
+          "color": "DFE6E5"
+        },
+        {
+          "identifier": "ArcanaControlPool",
+          "name": "The Harpy's {arcana} Control Pool",
+          "initialValue": 3,
+          "minimumValue": 0,
+          "maximumValue": 5,
+          "color": "DFE6E5"
+        }
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Knyfe": [
+    {
+      "identifier": "KnyfeCharacter",
+      "promoIdentifier": "KnyfeKineticLoopCharacter",
+      "count": 1,
+      "title": "K.N.Y.F.E.",
+      "promoTitle": "Fanverse K.N.Y.F.E.",
+      "body": [ "Kinetic Loop" ],
+      "character": true,
+      "backgroundColor": "FDEC45",
+      "foilBackgroundColor": "FDEC45",
+      "powers": "Until the end of your next turn, when {Knyfe} deals themselves damage, they regain 1 HP. Draw a card or play a card.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DrawCardNow", "GainHP" ],
+      "nemesisIdentifiers": [ "Knyfe" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "A chance to take a few more risks, eh?"
+      }
+    }
+  ],
+  "LaComodora": [
+    {
+      "identifier": "LaComodoraCharacter",
+      "promoIdentifier": "LaComodoraTemporalScavengeCharacter",
+      "count": 1,
+      "title": "La Comodora",
+      "promoTitle": "Lazyverse La Comodora",
+      "body": [ "Temporal Scavenge" ],
+      "character": true,
+      "backgroundColor": "EA3F3D",
+      "foilBackgroundColor": "EA3F3D",
+      "powers": "Flip a face-down Card in your play area, treating it as if it were just put into play. Until the end of your next turn, whenever one of your Equipment cards is destroyed, you may put it face-down in your play area.",
+      "hitpoints": 30,
+      "icons": [ "HasPower", "FlipFaceUp", "FlipFaceDown" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Legacy": [
+    {
+      "identifier": "LegacyCharacter",
+      "promoIdentifier": "LegacyInTheFrayCharacter",
+      "count": 1,
+      "title": "Legacy",
+      "promoTitle": "Fanverse Legacy",
+      "body": [ "In The Fray" ],
+      "character": true,
+      "backgroundColor": "fbf8f9",
+      "foilBackgroundColor": "fbf8f9",
+      "powers": "Play a One-Shot or Discard a Card and Draw a Card.",
+      "hitpoints": 30,
+      "icons": [ "HasPower", "PlayCardNow", "DrawCardsNow" ],
+      "nemesisIdentifiers": [ "Legacy" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Lifeline": [
+    {
+      "identifier": "LifelineCharacter",
+      "promoIdentifier": "LifelineEnergyTapCharacter",
+      "count": 1,
+      "title": "Lifeline",
+      "promoTitle": "Fanverse Lifeline",
+      "body": [ "Energy Tap" ],
+      "character": true,
+      "backgroundColor": "EEBC54",
+      "foilBackgroundColor": "EEBC54",
+      "hitpointsColor": "F6AD41",
+      "powers": "{Lifeline} deals up to 2 Targets 1 Infernal Damage. {Lifeline} Regains HP equal to the number of targets damaged this way.",
+      "hitpoints": 32,
+      "icons": [ "HasPower", "DealDamageInfernal", "GainHP" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Luminary": [
+    {
+      "identifier": "LuminaryCharacter",
+      "promoIdentifier": "LuminaryReprogramCharacter",
+      "count": 1,
+      "title": "Luminary",
+      "promoTitle": "Lazyverse Luminary",
+      "body": [ "Reprogram" ],
+      "character": true,
+      "backgroundColor": "E6E8E8",
+      "foilBackgroundColor": "E6E8E8",
+      "powers": "{Luminary} deals 1 Target 1 Lightning Damage. If any devices are dealt damage this way, they deal themselves 4 Lightning Damage, draw 2 cards, and you may play a Device.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DealDamageLightning", "DrawCardNow", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "MrFixer": [
+    {
+      "identifier": "MrFixerCharacter",
+      "promoIdentifier": "MrFixerFlowingStrikeCharacter",
+      "count": 1,
+      "title": "Mr. Fixer",
+      "promoTitle": "Fanverse Mr. Fixer",
+      "body": [ "Flowing Strike" ],
+      "character": true,
+      "backgroundColor": "DF7501",
+      "foilBackgroundColor": "DF7501",
+      "powers": "{MrFixer} deals 1 Target and themselves 1 Melee Damage. Discard the top 3 cards of your deck. You may play a Style, Tool, or “{Harmony}” discarded this way.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DealDamageMelee", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "MrFixer" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "This seems like the right time to strike."
+      }
+    },
+    {
+      "identifier": "MrFixerCharacter",
+      "promoIdentifier": "MrFixerFocusedStrikeCharacter",
+      "count": 1,
+      "title": "Mr. Fixer",
+      "promoTitle": "Lazyverse Mr. Fixer",
+      "body": [ "Focused Strike" ],
+      "character": true,
+      "backgroundColor": "DF7501",
+      "foilBackgroundColor": "DF7501",
+      "powers": "{MrFixer} deals 1 Target and themselves 1 Melee Damage. Draw 1 card or Play a Style or Tool.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DealDamageMelee", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "MrFixer" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "This seems like the right time to strike."
+      }
+    }
+  ],
+  "TheNaturalist": [
+    {
+      "identifier": "TheNaturalistCharacter",
+      "promoIdentifier": "TheNaturalistVolatileFormCharacter",
+      "count": 1,
+      "title": "The Naturalist",
+      "promoTitle": "Lazyverse Naturalist",
+      "body": [ "Volatile Form" ],
+      "character": true,
+      "backgroundColor": "BA7848",
+      "foilBackgroundColor": "BA7848",
+      "powers": "Draw a card. Play a card. Select one of {gazelle}, {rhinoceros} or {crocodile} that the played card has in its text. Until the end of your next turn, you may activate that icon's effects.",
+      "hitpoints": 28,
+      "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "TheNaturalist" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "NightMist": [
+    {
+      "identifier": "NightMistCharacter",
+      "promoIdentifier": "NightMistLimitedNumerologyCharacter",
+      "count": 1,
+      "title": "NightMist",
+      "promoTitle": "Fanverse NightMist",
+      "body": [ "Limited Numerology" ],
+      "character": true,
+      "backgroundColor": "bd9dca",
+      "foilBackgroundColor": "bd9dca",
+      "powers": "Until the end of the turn, when {NightMist} would deal a Hero Target damage, reduce that damage by 1. You may draw a card or play a card.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "ReduceDamageDealt", "DrawCardNow", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "NightMist" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Let's see if I can practice what I teach."
+      }
+    }
+  ],
+  "OmnitronX": [
+    {
+      "identifier": "OmnitronXCharacter",
+      "promoIdentifier": "OmnitronXElectroShieldedSystemsCharacter",
+      "count": 1,
+      "title": "Omnitron-X",
+      "promoTitle": "Lazyverse Omnitron-X",
+      "body": [ "Electro-Shielded Systems" ],
+      "character": true,
+      "backgroundColor": "bd3a3d",
+      "foilBackgroundColor": "bd3a3d",
+      "powers": "Until the start of your next turn, your Components are indestructible. {OmnitronX} deals 1 Target and themselves Lightning Damage equal to the number of Components in play.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "Indestructible", "DealDamageLightning" ],
+      "nemesisIdentifiers": [ "OmnitronX" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Parse": [
+    {
+      "identifier": "ParseCharacter",
+      "promoIdentifier": "ParseLaplaceShotCharacter",
+      "count": 1,
+      "title": "Parse",
+      "promoTitle": "Fanverse Parse",
+      "body": [ "Laplace Shot" ],
+      "character": true,
+      "backgroundColor": "86BB71",
+      "foilBackgroundColor": "86BB71",
+      "hitpointsColor": "F6AD41",
+      "powers": "{Parse} may deal 1 Target Projectile Damage equal to the number of cards in the Environment Trash. If damage is dealt this way, shuffle the Environment Trash into the Environment Deck.",
+      "hitpoints": 27,
+      "icons": [ "HasPower", "Manipulate", "DealDamageProjectile" ],
+      "nemesisIdentifiers": [ "Parse" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
+      },
+      "devNotes": [
+        "This is coded as 'up to 1', but making it actually optional is messy. I'll fix it if there's every something that interacts with it, but since Chrono-Ranger uses similar logic for his optional damage, this is the default for playability.",
+        "This might still be a bit strong in certain combos. Allowing this to mess with Villain decks was a bit much, though, due to those that use the discard as a resource."
+      ]
+    }
+  ],
+  "Ra": [
+    {
+      "identifier": "RaCharacter",
+      "promoIdentifier": "RaPiercingBlastCharacter",
+      "count": 1,
+      "title": "Ra",
+      "promoTitle": "Fanverse Ra",
+      "body": [ "Piercing Blast" ],
+      "character": true,
+      "backgroundColor": "ec9322",
+      "foilBackgroundColor": "ec9322",
+      "powers": "{Ra} deals 1 Target 1 Irreducible Fire Damage. If that target is destroyed, repeat this power.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DealDamageFire", "UsePowerNow" ],
+      "nemesisIdentifiers": [ "Ra" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "..."
+      },
+      "devNotes": "The wording is technically 'If a damaged target is destroyed' due to how it'd interact with a theroetical numerology clone, but due to Wrecking Uppercut overlap, I didn't want to make that distinction."
+    }
+  ],
+  "TheScholar": [
+    {
+      "identifier": "TheScholarCharacter",
+      "promoIdentifier": "TheScholarEquilibriumCharacter",
+      "count": 1,
+      "title": "The Scholar",
+      "promoTitle": "Fanverse Scholar",
+      "body": [ "Equilibrium" ],
+      "character": true,
+      "backgroundColor": "e9c11e",
+      "foilBackgroundColor": "e9c11e",
+      "powers": "Draw a card. Draw a card for each Elemental in play. {TheScholar} deals themselves 1 Irreducible Psychic Damage, increased by 2 for each Elemental in play.",
+      "hitpoints": 31,
+      "icons": [ "HasPower", "DrawCardNow", "DealDamagePsychic" ],
+      "nemesisIdentifiers": [ "TheScholar" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "Setback": [
+    {
+      "identifier": "SetbackCharacter",
+      "promoIdentifier": "SetbackRunOfLuckCharacter",
+      "count": 1,
+      "title": "Setback",
+      "promoTitle": "Fanverse Setback",
+      "body": [ "Run of Luck" ],
+      "character": true,
+      "backgroundColor": "DFE6E5",
+      "foilBackgroundColor": "DFE6E5",
+      "powers": "Add 2 tokens to your Unlucky pool. Draw 1 card. If there are more tokens in your Unlucky pool than cards in your hand, Play 2 cards.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "AddTokens", "DrawCardNow", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Setback" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    },
+    {
+      "identifier": "SetbackCharacter",
+      "promoIdentifier": "SetbackDoubleOrNothingCharacter",
+      "count": 1,
+      "title": "Setback",
+      "promoTitle": "Lazyverse Setback",
+      "body": [ "Double or Nothing" ],
+      "character": true,
+      "backgroundColor": "DFE6E5",
+      "foilBackgroundColor": "DFE6E5",
+      "powers": "Play a card. Reveal the bottom two cards of your deck. If those cards share a keyword, put them into your hand. Otherwise, discard them and add 2 tokens to your Unlucky pool.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "PlayCardNow", "AddTokens" ],
+      "nemesisIdentifiers": [ "Setback" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "UnusedSetback": [
+    {
+      "identifier": "SetbackCharacter",
+      "promoIdentifier": "SetbackRunOfLuckBCharacter",
+      "count": 1,
+      "title": "Setback",
+      "promoTitle": "Setback - Run of Luck",
+      "body": [ "Run of Luck" ],
+      "character": true,
+      "backgroundColor": "DFE6E5",
+      "foilBackgroundColor": "DFE6E5",
+      "powers": "Add 2 tokens to your Unlucky pool. Move the top 2 cards of your deck under this card. If any pair of cards under this card do not share a keyword, play all of the cards under this card.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "PlayCardNow", "AddTokens" ],
+      "nemesisIdentifiers": [ "Setback" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "UnusedSkyScraper": [
+    {
+      "identifier": "SkyScraperNormalCharacter",
+      "promoIdentifier": "SkyScraperConsistentNormalCharacter",
+      "sharedIdentifier": "SkyScraperConsistentCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "body": "Consistent Size",
+      "keywords": [
+        "Normal"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "Play a card. If {SkyScraper}'s character card is Normal, draw 2 cards."
+      ],
+      "hitpoints": 32,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    },
+    {
+      "identifier": "SkyScraperHugeCharacter",
+      "promoIdentifier": "SkyScraperConsistentHugeCharacter",
+      "sharedIdentifier": "SkyScraperConsistentCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "body": "Consistent Strength",
+      "keywords": [
+        "Normal"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "Play a card. If {SkyScraper}'s character card is Huge, deal each non-Hero Target 2 Melee Damage."
+      ],
+      "hitpoints": 32,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    },
+    {
+      "identifier": "SkyScraperTinyCharacter",
+      "promoIdentifier": "SkyScraperConsistentTinyCharacter",
+      "sharedIdentifier": "SkyScraperConsistentCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "body": "Consistent Stealth",
+      "keywords": [
+        "Normal"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "Play a card. If {SkyScraper}'s character card is Tiny, play a card."
+      ],
+      "hitpoints": 32,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Stuntman": [
+    {
+      "identifier": "StuntmanCharacter",
+      "promoIdentifier": "StuntmanForeshadowCharacter",
+      "count": 1,
+      "title": "Stuntman",
+      "promoTitle": "Fanverse Stuntman",
+      "body": [ "Foreshadow" ],
+      "backgroundColor": "4B749D",
+      "foilBackgroundColor": "4B749D",
+      "character": true,
+      "powers": "Draw a card. When this power is used outside your turn, draw an additional card.",
+      "hitpoints": 29,
+      "icons": [ "HasPower", "DrawCardNow" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Tachyon": [
+    {
+      "identifier": "TachyonCharacter",
+      "promoIdentifier": "TachyonControlledPaceCharacter",
+      "count": 1,
+      "title": "Tachyon",
+      "promoTitle": "Fanverse Tachyon",
+      "body": [ "Controlled Pace" ],
+      "backgroundColor": "f26d71",
+      "foilBackgroundColor": "f26d71",
+      "character": true,
+      "powers": "Play the top card of your Trash. Move the top card of your Trash to the bottom of your deck.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Tachyon" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Tempest": [
+    {
+      "identifier": "TempestCharacter",
+      "promoIdentifier": "TempestRisingWindsCharacter",
+      "count": 1,
+      "title": "Tempest",
+      "promoTitle": "Lazyverse Tempest",
+      "body": [ "Rising Winds" ],
+      "backgroundColor": "7accf3",
+      "foilBackgroundColor": "7accf3",
+      "character": true,
+      "powers": "Draw a card. Each non-Target Environment Card in play deals the non-Hero Target with the highest HP 1 Projectile Damage.",
+      "hitpoints": 27,
+      "icons": [ "HasPower", "DrawCardNow", "DealDamageProjectile" ],
+      "nemesisIdentifiers": [ "Tempest" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "Hm."
+      }
+    }
+  ],
+  "Unity": [
+    {
+      "identifier": "UnityCharacter",
+      "promoIdentifier": "UnityToolkitCharacter",
+      "count": 1,
+      "title": "Unity",
+      "promoTitle": "Fanverse Unity",
+      "body": [ "Toolkit" ],
+      "backgroundColor": "ED7BAF",
+      "foilBackgroundColor": "ED7BAF",
+      "character": true,
+      "powers": "Reveal Cards from your Deck until you reveal a Card with a power. Play that Card. Shuffle the other revealed Cards into your Deck.",
+      "hitpoints": 22,
+      "icons": [ "HasPower", "Search", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Unity" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hang on, I'm sure I have something in here that will help!"
+      }
+    },
+    {
+      "identifier": "UnityCharacter",
+      "promoIdentifier": "UnitySparePartsCharacter",
+      "count": 1,
+      "title": "Unity",
+      "promoTitle": "Lazyverse Unity",
+      "body": [ "Spare Parts" ],
+      "backgroundColor": "ED7BAF",
+      "foilBackgroundColor": "ED7BAF",
+      "character": true,
+      "powers": "Draw a card. If you have at least 2 Equipment cards in play, you may play a card.",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "Unity" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "I only need a few spare screws for this one!"
+      }
+    }
+  ],
+  "VoidGuardDrMedico": [
+    {
+      "identifier": "VoidGuardDrMedicoCharacter",
+      "promoIdentifier": "VoidGuardDrMedicoOverdoseCharacter",
+      "count": 1,
+      "title": "Dr. Medico",
+      "promoTitle": "Lazyverse Dr. Medico",
+      "body": [ "Overdose" ],
+      "character": true,
+      "backgroundColor": "FEED44",
+      "foilBackgroundColor": "FEED44",
+      "powers": "2 Targets regains 1 HP. {VoidGuardDrMedico} deals each of those Targets at full HP 4 Toxic Damage.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "GainHP", "DealDamageToxic" ],
+      "nemesisIdentifiers": [ "TheSentinels" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "VoidGuardTheIdealist": [
+    {
+      "identifier": "VoidGuardTheIdealistCharacter",
+      "promoIdentifier": "VoidGuardTheIdealistStreamOfConsciousnessCharacter",
+      "count": 1,
+      "title": "The Idealist",
+      "promoTitle": "Lazyverse Idealist",
+      "body": [ "Stream of Consciousness" ],
+      "character": true,
+      "backgroundColor": "6ACEF3",
+      "foilBackgroundColor": "6ACEF3",
+      "powers": "Play one of your cards from under a Concept. If you do not, play the top card of your deck.",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "TheSentinels" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "VoidGuardMainstay": [
+    {
+      "identifier": "VoidGuardMainstayCharacter",
+      "promoIdentifier": "VoidGuardMainstayShrugItOffCharacter",
+      "count": 1,
+      "title": "Mainstay",
+      "promoTitle": "Lazyverse Mainstay",
+      "body": "Shrug it Off",
+      "backgroundColor": "C87243",
+      "foilBackgroundColor": "C87243",
+      "character": true,
+      "powers": [
+        "Draw a card. Until the start of your next turn, whenever exactly 1 Damage would be dealt to {VoidGuardMainstayCharacter}, prevent that damage."
+      ],
+      "icons": [ "HasPower", "DrawCardNow", "CancelledDamageGreen" ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [ "TheSentinels" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm..."
+      }
+    }
+  ],
+  "VoidGuardWrithe": [
+    {
+      "identifier": "VoidGuardWritheCharacter",
+      "promoIdentifier": "VoidGuardWritheAmorphousGearCharacter",
+      "count": 1,
+      "title": "Writhe",
+      "promoTitle": "Fanverse Writhe",
+      "body": [ "Amorphous Gear" ],
+      "character": true,
+      "backgroundColor": "889195",
+      "foilBackgroundColor": "889195",
+      "powers": "Reveal cards from the top of your deck until you reveal a card that has a power, play it, and shuffle the rest of the revealed cards into your deck.",
+      "hitpoints": 27,
+      "icons": [ "HasPower", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "TheSentinels" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ],
+  "TheVisionary": [
+    {
+      "identifier": "TheVisionaryCharacter",
+      "promoIdentifier": "TheVisionaryProphecyCharacter",
+      "count": 1,
+      "title": "The Visionary",
+      "promoTitle": "Fanverse Visionary",
+      "body": "Prophesize Doom",
+      "backgroundColor": "bf7bb4",
+      "foilBackgroundColor": "bf7bb4",
+      "character": true,
+      "powers": [
+        "Move the top card of your deck beneath this card or play a card from beneath this card. "
+      ],
+      "icons": [ "HasPower", "DealDamageProjectile", "Manipulate", "PlayCardNow" ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [ "TheVisionary" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Hm..."
+      }
+    }
+  ],
+  "TheWraith": [
+    {
+      "identifier": "TheWraithCharacter",
+      "promoIdentifier": "TheWraithImprovisedGearCharacter",
+      "count": 1,
+      "title": "The Wraith",
+      "promoTitle": "Fanverse Wraith",
+      "body": [ "Improvised Gear" ],
+      "character": true,
+      "backgroundColor": "8a69ad",
+      "foilBackgroundColor": "8a69ad",
+      "powers": "Play a card. If that card has a Power, immediately use its Power twice, then destroy it.",
+      "hitpoints": 25,
+      "icons": [ "HasPower", "PlayCardNow", "UsePowerNow", "DestroyCard" ],
+      "nemesisIdentifiers": [ "TheWraith" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "..."
+      }
+    }
+  ]
+}

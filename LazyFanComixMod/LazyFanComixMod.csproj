@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16E9E49A-4EA1-4C5C-8A7F-1DEC6BD64E0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LazyFanComix</RootNamespace>
+    <AssemblyName>LazyFanComix</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EngineCommon, Version=1.0.6479.23224, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="SentinelsEngine">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedPotentBreachCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedStableBreachCardController.cs" />
+    <Compile Include="BreachMageCardControllers\BreachMageTwincasterCharacterCardController.cs" />
+    <Compile Include="BreachMageCardControllers\BreachMageSpellSharedCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Charges\FocusCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\FocusBreachCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Charges\HammerCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Charges\AuraCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\CycleOfMagicCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Charges\VigorCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Charges\SpiralCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Archive\StaffCharmCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachICardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachIIICardController.cs" />
+    <Compile Include="BreachMageCardControllers\BreachMageSharedCharacterCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedBreachController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachIVCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\BreachIICardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\FlareCascadeCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\MoltenWaveCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\HauntingEchoCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\ZapCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\VisionShockCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\ShineCardController.cs" />
+    <Compile Include="BreachMageCardControllers\BreachMageCharacterCardController.cs" />
+    <Compile Include="BreachMageCardControllers\BreachMageTurnTakerController.cs" />
+    <Compile Include="CassieCardControllers\CassieEssenceFlowCharacterCardController.cs" />
+    <Compile Include="GreyhatCardControllers\GreyhatBurstNoiseCharacterCardController.cs" />
+    <Compile Include="GreyhatCardControllers\LinkCardControllers\FlareRelayCardController.cs" />
+    <Compile Include="GreyhatCardControllers\LinkCardControllers\CommunicationRelayCardController.cs" />
+    <Compile Include="GreyhatCardControllers\LinkCardControllers\ProxyRelayCardController.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\NodeCheckCardController.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\PingSweepCardController.cs" />
+    <Compile Include="GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\AutoRedirectCardController.cs" />
+    <Compile Include="GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\OverclockSystemsCardController.cs" />
+    <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\DDoSCardController.cs" />
+    <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\DataTransferCardController.cs" />
+    <Compile Include="GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\BandwidthRestrictionCardController.cs" />
+    <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\ShockTherapyCardController.cs" />
+    <Compile Include="GreyhatCardControllers\CheckNextToLinkCardControllers\DirectControlCardController.cs" />
+    <Compile Include="GreyhatCardControllers\GreyhatCharacterCardController.cs" />
+    <Compile Include="GreyhatCardControllers\LinkCardControllers\DigitalUplinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\LinkCardControllers\CoercedUplinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\MiscCardControllers\SystemRebootCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedOngoingCheckNextToLinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedPlayLinkFirstCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\MrFixerFocusedStrikeCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SetbackRunOfLuckCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\UnityToolkitCharacterCardController.cs" />
+    <Compile Include="CassieCardControllers\CassieCharacterCardController.cs" />
+    <Compile Include="CassieCardControllers\CassieRiverSharedCardController.cs" />
+    <Compile Include="CassieCardControllers\CondensedOrbCardController.cs" />
+    <Compile Include="CassieCardControllers\DivergingWatersCardController.cs" />
+    <Compile Include="CassieCardControllers\DropletCardController.cs" />
+    <Compile Include="CassieCardControllers\MeetingTheOceanCardController.cs" />
+    <Compile Include="CassieCardControllers\PerpetualFlowCardController.cs" />
+    <Compile Include="CassieCardControllers\StreamShotCardController.cs" />
+    <Compile Include="CassieCardControllers\RisingWatersCardController.cs" />
+    <Compile Include="CassieCardControllers\RiverbankCardController.cs" />
+    <Compile Include="CassieCardControllers\RiverWornStoneCardController.cs" />
+    <Compile Include="CassieCardControllers\RushingWatersCardController.cs" />
+    <Compile Include="CassieCardControllers\ShapeTheStreamCardController.cs" />
+    <Compile Include="CassieCardControllers\StormSwellCardController.cs" />
+    <Compile Include="CassieCardControllers\StreamSurgeCardController.cs" />
+    <Compile Include="CassieCardControllers\WaterlogCardController.cs" />
+    <Compile Include="CassieCardControllers\WaterSurgeCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TempestRisingWindsCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardDrMedicoOverdoseCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardTheIdealistStreamOfConsciousnessCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardWritheAmorphousGearCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\BunkerModeShiftCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SetbackDoubleOrNothingCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheWraithImprovisedGearCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheScholarEquilibriumCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\RaPiercingBlastCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\UnitySparePartsCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\StuntmanForeshadowCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheVisionaryProphecyCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SkyScraperConsistentTinyCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SkyScraperConsistentHugeCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\SkyScraperConsistentNormalCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheNaturalistVolatileFormCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\LuminaryReprogramCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\LifelineEnergyTapCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\LegacyInTheFrayCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\AkashThriyaPlantEssenceCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\FanaticZealCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\GuiseShenanigansCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\ParseLaplaceShotCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\OmnitronXElectroShieldedSystemsCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\BenchmarkDownloadManagerCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\CaptainCosmicCosmicShieldingCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\NightMistLimitedNumerologyCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\HakaVigorCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheArgentAdeptAriaCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TachyonControlledPaceCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\KnyfeKineticLoopCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\BunkerFullSalvoCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\AbsoluteZeroOverchillCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\PromoDefaultCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\ChronoRangerHighNoonCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\ExpatrietteQuickShotCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\MrFixerFlowingStrikeCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SpiritialResonanceCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\KeystoneOfSpiritCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\FinalEruptionCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\DebtOfTheSoullessCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SacrificialRiteCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ArcaneDetonationCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenSoulsplinterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfKnowledgeCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfTransferrenceCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfSalvationCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCatastropheCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedRitualCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedYourTargetDamageCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedInstructionsCharacterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderTurnTakerController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\StrawSoulsplinterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ClaySoulsplinterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalFormCharacterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderCharacterCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\MeanderingDissertationCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeRedefineCharacterCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfAuraCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfDisruptionCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\PrefixCardControllers\PiercingCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\PrefixCardControllers\InspiredCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\EssenceCardControllers\RayCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SuffixCardControllers\OfHealingCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\EssenceCardControllers\ImpactCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeCharacterCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\ArticulateTheLethologicalCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\EssenceCardControllers\WaveCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\PrefixCardControllers\ControlledCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeDecreeCharacterCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeSharedEssenceCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeSharedModifierCardController.cs" />
+    <Compile Include="SpellforgeCardControllers\SpellforgeTurnTakerController.cs" />
+    <Compile Include="InquirerCardControllers\BackupPlanCardController.cs" />
+    <Compile Include="InquirerCardControllers\FisticuffsCardController.cs" />
+    <Compile Include="InquirerCardControllers\ImAMolePersonCardController.cs" />
+    <Compile Include="InquirerCardControllers\ImANinjaCardController.cs" />
+    <Compile Include="InquirerCardControllers\ImAVictorianCardController.cs" />
+    <Compile Include="InquirerCardControllers\InquirerCharacterCardController.cs" />
+    <Compile Include="InquirerCardControllers\InquirerDistortionSharedCardController.cs" />
+    <Compile Include="InquirerCardControllers\InquirerPersonaSharedCardController.cs" />
+    <Compile Include="InquirerCardControllers\InquirerHardFactsCharacterCardController.cs" />
+    <Compile Include="InquirerCardControllers\InquirerLiesOnLiesCharacterCardController.cs" />
+    <Compile Include="InquirerCardControllers\InquirerTurnTakerController.cs" />
+    <Compile Include="InquirerCardControllers\IveFixedTheWoundCardController.cs" />
+    <Compile Include="InquirerCardControllers\LookADistractionCardController.cs" />
+    <Compile Include="InquirerCardControllers\TheLieTheyTellThemselvesCardController.cs" />
+    <Compile Include="InquirerCardControllers\TheRightQuestionsCardController.cs" />
+    <Compile Include="InquirerCardControllers\UndeniableFactsCardController.cs" />
+    <Compile Include="InquirerCardControllers\UntilYouMakeItCardController.cs" />
+    <Compile Include="InquirerCardControllers\YoureLookingPaleCardController.cs" />
+    <Compile Include="InquirerCardControllers\YoureOnOurSideCardController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrailblazerCardControllers\TrailblazerSpatialAlignmentCharacterCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\MiscCardControllers\GuidedOdysseyCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\MiscCardControllers\TrailOfAshesCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\MiscCardControllers\TacticalWithdrawlCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\MiscCardControllers\PreparedAmbushCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\MiscCardControllers\UnchartedGroundsCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\MiscCardControllers\LeadTheWayCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\OngoingCardControllers\WastelandWandererCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\OngoingCardControllers\PartingGiftCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\OngoingCardControllers\RapidRepositioningCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\EquipmentCardControllers\WornBinocularsCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\MiscCardControllers\ThrowToTheTrailsCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\EquipmentCardControllers\SupplyPackCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\EquipmentCardControllers\ClimbingHarnessCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\PositionCardControllers\StrikingZoneCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\PositionCardControllers\DefensiveBulwarkCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\TrailblazerPositionCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\PositionCardControllers\VantagePointCardController.cs" />
+    <Compile Include="TrailblazerCardControllers\TrailblazerCharacterCardController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\BreachMageDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\InquirerDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\CassieDeckList.json" />
+    <EmbeddedResource Include="DeckLists\PromoCardList.json" />
+    <EmbeddedResource Include="DeckLists\SpellforgeDeckList.json" />
+    <EmbeddedResource Include="DeckLists\TrailblazerDeckList.json" />
+    <EmbeddedResource Include="DeckLists\SoulbinderDeckList.json" />
+    <EmbeddedResource Include="DeckLists\GreyhatDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AssetsRelease\Atlas\BreachMageAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\CassieAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\GreyhatAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\InquirerAtlas0" />
+    <None Include="AssetsRelease\Atlas\InquirerAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\SetupGame0.json" />
+    <None Include="AssetsRelease\Atlas\SoulbinderAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\SpellforgeAtlas0.json" />
+    <None Include="AssetsRelease\Atlas\TrailblazerAtlas0.json" />
+    <None Include="AssetsRelease\manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\CassieAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\GreyhatAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\InquirerAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\SetupGame0.png" />
+    <Content Include="AssetsRelease\Atlas\SoulbinderAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\SpellforgeAtlas0.png" />
+    <Content Include="AssetsRelease\Atlas\TrailblazerAtlas0.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\AuraCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachI.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachII.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachIII.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachIV.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\BreachMageCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\CycleOfMagic.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\FlareCascade.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\FocusBreach.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\FocusCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\HammerCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\HauntingEcho.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\MoltenWave.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\Shine.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\SpiralCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\VigorCharm.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\VisionShock.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\BreachMage\Zap.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\CassieCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\CondensedOrb.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\Droplet.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\MeetingTheOcean.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\PerpetualFlow.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\RisingWaters.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\Riverbank.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\RiverWornStone.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\RushingWaters.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\StormSwell.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\StreamShot.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\Waterlog.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Cassie\WaterSurge.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Greyhat\GreyhatCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\BackupPlan.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\Fisticuffs.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\ImAMolePerson.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\ImANinja.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\ImAVictorian.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\InquirerCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\IveFixedTheWound.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\LookADistraction.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\TheLieTheyTellThemselves.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\TheRightQuestions.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\UndeniableFacts.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\UntilYouMakeIt.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\YoureLookingPale.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Inquirer\YoureOnOurSide.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Soulbinder\SoulbinderCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\ArticulateTheLethological.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Controlled.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Impact.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Inspired.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\MeanderingDissertation.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfAura.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfDisruption.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfHealing.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\OfResonance.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Piercing.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Ray.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Shock.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\SpellforgeCharacter.png" />
+    <Content Include="AssetsRelease\LargeCardTextures\Spellforge\Wave.jpg" />
+    <Content Include="AssetsRelease\LargeCardTextures\Trailblazer\TrailblazerCharacter.png" />
+    <Content Include="AssetsRelease\preview.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

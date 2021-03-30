@@ -1,0 +1,360 @@
+﻿{
+  "name": "Inquirer",
+  "kind": "Hero",
+  "expansionIdentifier": "LazyFanComix",
+  "initialCardIdentifiers": [
+    "InquirerCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "InquirerCharacter",
+      "count": 1,
+      "title": "Inquirer",
+      "body": "Fast-Talk",
+      "backgroundColor": "FFFF00",
+      "foilBackgroundColor": "FFFF00",
+      "character": true,
+      "powers": [
+        "Draw a card. You may destroy a Distortion. If you do, play a card."
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "PlayCardNow"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "Inquirer"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One player may draw a card.",
+        "Put a Hero non-character card back into their Player's hand."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "The power of friendship will prevail! Also lies. Maybe just the lies.",
+        "ApostateCharacter": "Let's see who really understands the truths of the world."
+      },
+      "complexity": 3
+    },
+    {
+      "identifier": "TheLieTheyTellThemselves",
+      "count": 3,
+      "title": "The Lie they Tell Themselves",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Draw 2 cards.",
+      "body": "When you play a Distortion card next to a non-Hero Target, that Target deals itself 1 Psychic Damage.",
+      "icons": [ "DrawCardNow", "Destroy" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "You don't need words to deceive."
+        }
+      ]
+    },
+    {
+      "identifier": "UndeniableFacts",
+      "count": 3,
+      "title": "Undeniable Facts",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Play up to 2 Distortions.",
+      "body": "At the end of your turn, if there are no Distortions in play, draw a card.",
+      "icons": [ "PlayCardNow", "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Proof has always been optional."
+        }
+      ]
+    },
+    {
+      "identifier": "ImAMolePerson",
+      "count": 2,
+      "title": "\"I'm a Mole-Person!\"",
+      "keywords": [ "ongoing", "limited", "persona" ],
+      "body": [
+        "When {Inquirer} would regain HP, increase the amount of HP regained by 1.",
+        "At the end of your turn, {Inquirer} may deal 1 Target 1 Melee Damage.",
+        "At the start of your turn, you may place the top 3 cards of your trash on the bottom of your deck, one at a time. If you do not, destroy this."
+      ],
+      "icons": [ "IncreaseGainHP", "DealDamageMelee", "StartAndEndOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Why else would I be digging myself deeper into this pit?"
+        }
+      ]
+    },
+    {
+      "identifier": "ImANinja",
+      "count": 2,
+      "title": "\"I'm a Ninja!\"",
+      "keywords": [ "ongoing", "limited", "persona" ],
+      "body": [
+        "Increase Damage dealt by {Inquirer} by 1.",
+        "At the end of your turn, you may discard a card. If you do, use a power.",
+        "At the start of your turn, you may place the top 3 cards of your trash on the bottom of your deck, one at a time. If you do not, destroy this."
+      ],
+      "icons": [ "IncreaseDamageDealt", "UsePowerNow", "StartAndEndOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "How else could I have gotten up here?"
+        }
+      ]
+    },
+    {
+      "identifier": "ImAVictorian",
+      "count": 2,
+      "title": "\"I'm a Victorian!\"",
+      "keywords": [ "ongoing", "limited", "persona" ],
+      "body": [
+        "When you discard a card from your hand, discard the top card of your deck.",
+        "At the end of your turn, {Inquirer} regains 1 HP.",
+        "At the start of your turn, you may place the top 3 cards of your trash on the bottom of your deck, one at a time. If you do not, destroy this."
+      ],
+      "icons": [ "Discard", "GainHP", "StartAndEndOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Where did you think the hat came from?"
+        }
+      ]
+    },
+    {
+      "identifier": "BackupPlan",
+      "count": 3,
+      "title": "Backup Plan",
+      "keywords": [ "equipment" ],
+      "powers": "{Inquirer} deals 1 Target 1 Projectile Damage. {Inquirer} regains 1 HP. You may discard a card to draw a card. ",
+      "icons": [ "DealDamagePsychic", "DealDamageProjectile", "GainHP", "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Why wouldn't I keep a pistol on me?"
+        }
+      ]
+    },
+    {
+      "identifier": "YoureLookingPale",
+      "count": 4,
+      "title": "\"You're Looking Pale!\"",
+      "keywords": [ "ongoing", "distortion" ],
+      "body": [
+        "Play this card next to a non-Hero Target. That Target deals itself 4 Psychic Damage now. ",
+        "When this card is destroyed, that Target regains 2 HP. ",
+        "At the start of your turn, destroy this. "
+      ],
+      "icons": [ "DealDamagePsychic", "GainHP", "StartOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Just lay down for a little. Do you really think you can fight like that?"
+        }
+      ]
+    },
+    {
+      "identifier": "YoureOnOurSide",
+      "count": 4,
+      "title": "\"You're on Our Side!\"",
+      "keywords": [ "ongoing", "distortion" ],
+      "body": [
+        "Play this card next to a non-Hero Target. That Target deals all other non-Hero Targets 2 Melee Damage now. ",
+        "When this card is destroyed, that Target deals {Inquirer} 1 Melee Damage.",
+        "At the start of your turn, destroy this. "
+      ],
+      "icons": [ "DealDamageMelee", "StartOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Get over here before they start blasting you! Didn't you get the updated orders?"
+        }
+      ]
+    },
+    {
+      "identifier": "IveFixedTheWound",
+      "count": 4,
+      "title": "\"I've Fixed the Wound!\"",
+      "keywords": [ "ongoing", "distortion" ],
+      "body": [
+        "Play this card next to a Hero Target. That Target regains 5 HP now. ",
+        "When this card is destroyed, that Target deals itself 2 Psychic Damage.",
+        "At the start of your turn, destroy this. "
+      ],
+      "icons": [ "GainHP", "DealDamagePsychic", "StartOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Of course it's patched up! You're still walking, aren't you? "
+        }
+      ]
+    },
+    {
+      "identifier": "LookADistraction",
+      "count": 4,
+      "title": "\"Look! A Distraction!\"",
+      "keywords": [ "ongoing", "distortion" ],
+      "body": [
+        "Play this card next to a non-Hero Target. That Target deals 1 other non-Hero Target 3 Melee Damage now. ",
+        "When this card is destroyed, that Target deals {Inquirer} 1 Melee Damage.",
+        "At the start of your turn, destroy this. "
+      ],
+      "icons": [ "DealDamageMelee", "StartOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Did you really think those reinforcements were yours?"
+        }
+      ]
+    },
+    {
+      "identifier": "UntilYouMakeIt",
+      "count": 4,
+      "title": "Until you Make It",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Search your deck or trash for a persona card and put it into play. If you searched your deck, shuffle it.",
+        "You may draw a card.",
+        "You may play a Card. "
+      ],
+      "icons": [ "DrawCardNow", "Search", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Is it still a lie if it becomes the truth?"
+        }
+      ]
+    },
+    {
+      "identifier": "Fisticuffs",
+      "count": 3,
+      "title": "Fisticuffs",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Inquirer} deals 1 Target 3 Melee Damage.",
+        "{Inquirer} Regains 2 HP.",
+        "Discard a card."
+      ],
+      "icons": [ "DealDamageMelee", "GainHP", "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "Do you think it's the first time I've been challenged this way?"
+        }
+      ]
+    },
+    {
+      "identifier": "TheRightQuestions",
+      "count": 2,
+      "title": "The Right Questions",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Destroy an Ongoing or Environment card. If you do, you may play a Distortion card. ",
+        "Put one of your Distortion cards back in your hand."
+      ],
+      "icons": [ "DestroyOngoing", "DestroyEnvironment", "PlayCardNow", "Manipulate" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "So, why did you believe me in the first place?"
+        }
+      ]
+    }
+  ],
+  "dummyCards": [
+    {
+      "identifier": "YouCanDoThis",
+      "count": 3,
+      "title": "\"You Can Do This!\"",
+      "keywords": [ "ongoing", "distortion" ],
+      "body": [
+        "Play this card next to a Hero. That Hero uses up to 2 Powers now.",
+        "When this card is destroyed, that Hero deals themselves 3 Psychic Damage.",
+        "At the start of your turn, destroy this. "
+      ],
+      "icons": [ "UsePowerNow", "DealDamagePsychic", "StartOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Inquirer",
+          "text": "It's all part of being a hero, isn't it?"
+        }
+      ]
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "InquirerCharacter",
+      "promoIdentifier": "InquirerHardFactsCharacter",
+      "count": 1,
+      "title": "Inquirer",
+      "body": "Hard Facts",
+      "backgroundColor": "FFFF00",
+      "foilBackgroundColor": "FFFF00",
+      "character": true,
+
+      "powers": [
+        "You may play an Ongoing card. Until the start of your next turn, non-target Distortions have a maximum HP of 3. Each Distortion deals 1 Target 1 Psychic Damage."
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DealDamagePsychic"
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "Inquirer"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Don't worry. This will only hurt a little."
+      },
+      "complexity": 3
+    },
+    {
+      "identifier": "InquirerCharacter",
+      "promoIdentifier": "InquirerLiesOnLiesCharacter",
+      "count": 1,
+      "title": "Inquirer",
+      "body": "Lies on Lies",
+      "backgroundColor": "FFFF00",
+      "foilBackgroundColor": "FFFF00",
+      "character": true,
+      "powers": [
+        "Select a Distortion and put it on top of its deck. You may discard a card to play the top card of your deck."
+      ],
+      "icons": [ "HasPower", "DealDamageFire", "Destroy" ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "Inquirer"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "I'm only saying this once. Listen well."
+      },
+      "complexity": 3
+    }
+  ]
+}

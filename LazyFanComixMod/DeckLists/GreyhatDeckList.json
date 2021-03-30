@@ -1,0 +1,310 @@
+﻿{
+  "name": "Greyhat",
+  "kind": "Hero",
+  "expansionIdentifier": "LazyFanComix",
+  "initialCardIdentifiers": [
+    "GreyhatCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "GreyhatCharacter",
+      "count": 1,
+      "title": "Greyhat",
+      "body": [ "Dial Up" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "Draw 1 Card." ],
+      "icons": [
+        "HasPower",
+        "Discard",
+        "Manipulate",
+        "DrawCardNow"
+      ],
+      "hitpoints": 23,
+      "nemesisIdentifiers": [
+        "Greyhat"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Another node for the network."
+      },
+      "complexity": 2
+    },
+    {
+      "identifier": "CoercedUplink",
+      "count": 4,
+      "title": "Coerced Uplink",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to a non-Hero target.",
+        "When this card enters play, {Greyhat} deals that target 2 Lightning Damage."
+      ],
+      "icons": [ "DamageLightning", "DrawCardNow" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "DigitalUplink",
+      "count": 4,
+      "title": "Digital Uplink",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to a Hero other than {Greyhat}.",
+        "When this card enters play, that Hero may discard a card to use a power."
+      ],
+      "icons": [ "UsePowerNow", "DrawCardNow" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "FlareRelay",
+      "count": 2,
+      "title": "Flare Relay",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to {Greyhat}.",
+        "When this card enters play, {Greyhat} deals up to 3 Targets 1 Fire Damage.",
+        "The hero next to this card gains the following power:",
+        "[b]Power:[/b] This hero deals 1 Target 3 Fire Damage."
+      ],
+      "icons": [ "Manipulate", "PlayCardNow", "HasPower" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "ProxyRelay",
+      "count": 2,
+      "title": "Proxy Relay",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to {Greyhat}.",
+        "When this card enters play, {Greyhat} regains 2 HP.",
+        "The hero next to this card gains the following power:",
+        "[b]Power:[/b] Draw 1 Card. Until the start of your next turn, reduce damage dealt to this hero by 1."
+      ],
+      "icons": [ "DealDamageFire", "HasPower" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "CommunicationRelay",
+      "count": 2,
+      "title": "Communication Relay",
+      "keywords": [ "equipment", "link" ],
+      "body": [
+        "Play this card next to {Greyhat}.",
+        "When this card enters play, you may destroy an Ongoing or Environment card.",
+        "The hero next to this card gains the following power:",
+        "[b]Power:[/b] Play 1 Card."
+      ],
+      "icons": [ "DealDamageFire", "HasPower" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "DirectControl",
+      "count": 3,
+      "title": "Direct Control",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "You may play a link.",
+        "Each Hero next to a Link in their play area may use a power.",
+        "Each non-Hero Target next to a Link deals themselves 2 Melee Damage."
+      ],
+      "icons": [ "UsePowerNow", "DealDamageMelee" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Greyhat",
+          "text": "Stop... Oh, who am I kidding. Keep hitting yourself!"
+        }
+      ]
+    },
+    {
+      "identifier": "ShockTherapy",
+      "count": 3,
+      "title": "Shock Therapy",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "You may play a link.",
+        "Each Hero next to a Link regains 2 HP.",
+        "{Greyhat} deals each non-Hero Target next to a Link deals 3 Lightning Damage."
+      ],
+      "icons": [ "GainHP", "DealDamageLightning" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Greyhat",
+          "text": "You may feel a slight tingle."
+        }
+      ]
+    },
+    {
+      "identifier": "DataTransfer",
+      "count": 3,
+      "title": "Data Transfer",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "You may play a link.",
+        "Each Player draws a card for each of their Heroes next to a link.",
+        "Draw a card for each non-Hero Target next to a Link."
+      ],
+      "icons": [ "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "DDoS",
+      "count": 2,
+      "title": "DDoS",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "You may play a link.",
+        "Each Hero next to a link deals each non-Hero Target next to a Link 1 Energy Damage."
+      ],
+      "icons": [ "DealDamageEnergy" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "SystemReboot",
+      "count": 3,
+      "title": "System Reboot",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Shuffle your trash into your deck.",
+        "Search your deck for a Link and put it in your hand.",
+        "Put any number of Links in play back in your hand.",
+        "You may play a number of Link cards equal to the number of Links returned to your hand by this card."
+      ],
+      "icons": [ "Search", "Manipulate", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "PingSweep",
+      "count": 2,
+      "title": "Ping Sweep",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Reveal cards from the top of your deck until 2 Links have been revealed. Play those Links. Shuffle the other revealed cards into your deck."
+      ],
+      "icons": [ "Manipulate", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "NodeCheck",
+      "count": 4,
+      "title": "Node Check",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "You may draw a card.",
+        "Search your deck for a Link and put it in your hand. Shuffle your deck.",
+        "You may play a card."
+      ],
+      "icons": [ "Manipulate", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "BandwidthRestriction",
+      "count": 2,
+      "title": "Bandwidth Restriction",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a link.",
+        "Reduce damage dealt to Heroes next to a Link by non-Hero Targets next to a Link by 1."
+      ],
+      "icons": [ "PlayCardNow", "ReduceDamageTaken" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "OverclockSystems",
+      "count": 2,
+      "title": "Overclock Systems",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a link.",
+        "Increase damage dealt by Heroes next to a Link to non-Hero Targets next to a Link by 1."
+      ],
+      "icons": [ "PlayCardNow", "IncreaseDamageDealt" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "AutoRedirect",
+      "count": 2,
+      "title": "Auto-Redirect",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may play a link.",
+        "The first time each turn a Hero next to a Link would be dealt 2 or fewer damage, you may redirect that damage to a non-Hero target next to a link."
+      ],
+      "icons": [ "PlayCardNow", "Redirect" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "GreyhatCharacter",
+      "promoIdentifier": "GreyhatBurstNoiseCharacter",
+      "count": 1,
+      "title": "Greyhat",
+      "body": [ "Burst Noise" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "{Greyhat} deals 1 Target 1 Sonic Damage. 1 Target next to a Link deals that Target 1 Sonic Damage." ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "DealDamageSonic"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "Greyhat"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Too much noise in the signal - time to clean it up."
+      },
+      "complexity": 2
+    }
+  ]
+}
