@@ -31,10 +31,7 @@ namespace LazyFanComix.Trailblazer
             List<SelectLocationDecision> storedResults = new List<SelectLocationDecision>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectADeck(this.DecisionMaker, SelectionType.RevealTopCardOfDeck, (Location l) => true, storedResults, true, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            Location deck = base.GetSelectedLocation(storedResults);
+            Location deck = this.GameController.FindEnvironmentTurnTakerController().TurnTaker.Deck;
             if (deck != null)
             {
                 List<Card> storedResultsCard = new List<Card>();

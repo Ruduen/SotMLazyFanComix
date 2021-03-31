@@ -15,7 +15,7 @@ namespace LazyFanComix.BreachMage
         // Shared NextTo logic: If possible, put it next to a breach! If not, the default handling of next to logic should take care of it.
         public override IEnumerator DeterminePlayLocation(List<MoveCardDestination> storedResults, bool isPutIntoPlay, List<IDecision> decisionSources, Location overridePlayArea = null, LinqTurnTakerCriteria additionalTurnTakerCriteria = null)
         {
-            IEnumerator coroutine = this.SelectCardThisCardWillMoveNextTo(new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("breach"), "breach"), storedResults, isPutIntoPlay, decisionSources);
+            IEnumerator coroutine = this.SelectCardThisCardWillMoveNextTo(new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("breach") && (c.FindTokenPool("FocusPool") == null || c.FindTokenPool("FocusPool").CurrentValue == 0), "breach"), storedResults, isPutIntoPlay, decisionSources);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

@@ -31,7 +31,7 @@ namespace LazyFanComixText
             Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
 
             Assert.IsNotNull(BreachMage);
-            Assert.IsInstanceOf(typeof(BreachMageTurnTakerController), BreachMage);
+            Assert.IsInstanceOf(typeof(HeroTurnTakerController), BreachMage);
             Assert.IsInstanceOf(typeof(BreachMageCharacterCardController), BreachMage.CharacterCardController);
 
             Assert.AreEqual(27, BreachMage.CharacterCard.HitPoints);

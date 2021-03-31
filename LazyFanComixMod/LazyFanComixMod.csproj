@@ -43,7 +43,7 @@
     <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedPotentBreachCardController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedStableBreachCardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageTwincasterCharacterCardController.cs" />
-    <Compile Include="BreachMageCardControllers\BreachMageSpellSharedCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Spells\BreachMageSpellSharedCardController.cs" />
     <Compile Include="BreachMageCardControllers\Charges\FocusCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\FocusBreachCardController.cs" />
     <Compile Include="BreachMageCardControllers\Charges\HammerCharmCardController.cs" />
@@ -326,7 +326,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" />
+      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

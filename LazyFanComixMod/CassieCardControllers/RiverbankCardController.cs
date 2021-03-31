@@ -88,16 +88,19 @@ namespace LazyFanComix.Cassie
         }
         private void SetupRiverbank()
         {
-            Location riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
-            IEnumerable<Card> riverCards = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("river") && c.Owner == this.TurnTaker);
-            foreach (Card c in riverCards)
+            IEnumerable<Card> riverCards = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("river") && c.Owner == this.TurnTaker && c.Location == this.TurnTaker.OffToTheSide);
+            if(riverCards.Count() > 0)
             {
-                this.TurnTaker.MoveCard(c, riverDeck);
-            }
-            riverDeck.ShuffleCards();
-            for (int i = 0; i < 4; i++)
-            {
-                this.TurnTaker.MoveCard(riverDeck.TopCard, this.Card.UnderLocation);
+                Location riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
+                foreach (Card c in riverCards)
+                {
+                    this.TurnTaker.MoveCard(c, riverDeck);
+                }
+                riverDeck.ShuffleCards();
+                for (int i = 0; i < 4; i++)
+                {
+                    this.TurnTaker.MoveCard(riverDeck.TopCard, this.Card.UnderLocation);
+                }
             }
         }
     }

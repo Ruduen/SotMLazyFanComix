@@ -60,7 +60,7 @@
       "count": 2,
       "title": "Defensive Bulwark",
       "keywords": [ "position" ],
-      "powers": "Up to 2 Targets regain 2 HP.",
+      "powers": "Up to 2 Targets other than {Trailblazer} regain 2 HP.",
       "body": [ "When this card enters play, destroy all other Positions.", "Reduce the first damage dealt to {Trailblazer} each turn by 2." ],
       "icons": [ "Destroy", "ReduceDamageTaken", "HasPower", "GainHP" ],
       "flavorQuotes": [
@@ -109,7 +109,7 @@
       "keywords": [ "equipment", "limited" ],
       "body": [
         "You may use an additional Power during your Power Phase.",
-        "After you use a Power on a Position, you may look at the top Card of a deck, then either put it on the top or bottom of that deck."
+        "After you use a Power on a Position, you may look at the top Card of the Environment Deck, then either put it on the top or bottom of that deck."
       ],
       "icons": [ "Manipulate" ],
       "flavorQuotes": [

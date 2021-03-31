@@ -173,18 +173,19 @@ namespace LazyFanComixText
             SetupGameController(setupItems);
 
             StartGame();
-            DealDamage(baron.CharacterCard, (Card c) => c.IsHero, 10, DamageType.Melee);
+            DealDamage(baron.CharacterCard, (Card c) => true, 5, DamageType.Melee);
 
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card play = PutInHand("DefensiveBulwark");
 
-            DecisionSelectCards = new Card[] { Trailblazer.CharacterCard, fixer.CharacterCard };
+            DecisionSelectCards = new Card[] { mdp, fixer.CharacterCard };
 
-            QuickHPStorage(Trailblazer, fixer);
+            QuickHPStorage(Trailblazer.CharacterCard, mdp, fixer.CharacterCard);
             PlayCard(play);
             UsePower(play);
             DealDamage(baron.CharacterCard, Trailblazer.CharacterCard, 3, DamageType.Melee);
             DealDamage(baron.CharacterCard, Trailblazer.CharacterCard, 3, DamageType.Melee);
-            QuickHPCheck(2 - 1 - 3, 2); // Fixer just heals 2. Trailblazer Healed 2, but took 1 and 3 damage.
+            QuickHPCheck(- 1 - 3, 2, 2); // Fixer and mdp just heals 2. Trailblazer took 1 and 3 damage.
         }
 
         [Test()]
@@ -287,19 +288,18 @@ namespace LazyFanComixText
             Card position = PutInHand("VantagePoint");
             PlayCard("WornBinoculars");
 
-            DecisionSelectTurnTaker = legacy.TurnTaker;
             DecisionMoveCardDestinations = new MoveCardDestination[] {
-                new MoveCardDestination(baron.TurnTaker.Deck, false, false, false),
-                new MoveCardDestination(baron.TurnTaker.Deck, true, false, false)
+                new MoveCardDestination(env.TurnTaker.Deck, false, false, false),
+                new MoveCardDestination(env.TurnTaker.Deck, true, false, false)
             };
-            Card revealedCard = baron.TurnTaker.Deck.TopCard;
+            Card revealedCard = env.TurnTaker.Deck.TopCard;
 
             // Moved to top without error.
             PlayCard(position);
             UsePower(position);
             AssertOnTopOfDeck(revealedCard);
 
-            // Move BB's top card to the bottom.
+            // Move env's top card to the bottom.
             PutInHand(position);
             PlayCard(position);
             UsePower(position);

@@ -42,7 +42,7 @@ namespace LazyFanComix.BreachMage
                         // Out of bounds breach - remove the breach from the game.
                         this.TurnTaker.MoveCard(breaches[i], this.TurnTaker.OutOfGame);
                     }
-                    else
+                    else if (focusPool.CurrentValue == 4) // If breach has not yet been initialized. Used for sanity checking on loads.
                     {
                         focusPool.RemoveTokens(4 - BreachInitialFocus[i]);
                     }

@@ -41,7 +41,7 @@ namespace LazyFanComixText
         public void TestSetupWorks()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Cassie", "Megalopolis");
-
+            
             StartGame();
 
             AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
@@ -62,8 +62,6 @@ namespace LazyFanComixText
             DestroyCard(legacy);
             GoToNextTurn();
             GoToNextTurn();
-
-
 
             //AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
             //AssertNumberOfCardsInHand(Cassie, 4); // And 4 cards in hand.

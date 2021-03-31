@@ -196,7 +196,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Originals/Cassie/CassieHero.jpg</key>
             <key type="filename">Originals/Cassie/CondensedOrb.jpg</key>
             <key type="filename">Originals/Cassie/Droplet.jpg</key>
             <key type="filename">Originals/Cassie/MeetingTheOcean.jpg</key>
