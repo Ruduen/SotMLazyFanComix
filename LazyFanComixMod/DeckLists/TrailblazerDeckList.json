@@ -76,7 +76,7 @@
       "title": "Striking Zone",
       "keywords": [ "position" ],
       "powers": "{Trailblazer} deals all non-Hero Targets 1 Projectile Damage. ",
-      "body": [ "When this card enters play, destroy all other Positions.", "Increase damage damage dealt by {Trailblazer} by 1." ],
+      "body": [ "When this card enters play, destroy all other Positions.", "Increase damage dealt by {Trailblazer} by 1." ],
       "icons": [ "Destroy", "IncreaseDamageDealt", "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
         {

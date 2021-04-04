@@ -1,0 +1,288 @@
+﻿{
+  "name": "Recall",
+  "kind": "Hero",
+  "expansionIdentifier": "LazyFanComix",
+  "initialCardIdentifiers": [
+    "RecallCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "RecallCharacter",
+      "count": 1,
+      "title": "Recall",
+      "body": [ "Paradox Proof" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "Draw a Card or Shuffle a card from under this card into your deck." ],
+      "icons": [ "HasPower", "DrawCardNow", "Manipulate" ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "Recall"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Don't worry. We've already won this."
+      },
+      "complexity": 3
+    },
+    {
+      "identifier": "TemporalLoop",
+      "count": 4,
+      "title": "Temporal Loop",
+      "keywords": [ "ongoing", "loop" ],
+      "body": [
+        "At the end of your turn, go immediately to the start of {Recall}'s next turn.",
+        "At the start of your turn, {Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} and put this card under {Recall}."
+      ],
+      "icons": [ "StartAndEndOfTurnAction", "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "ImmediateJump",
+      "count": 4,
+      "title": "Immediate Jump",
+      "keywords": [ "one-shot", "loop" ],
+      "body": [
+        "Take a full turn now, out of turn order sequence.",
+        "{Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} and put this card under {Recall}."
+      ],
+      "icons": [ "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "Recalled",
+      "count": 4,
+      "title": "Recalled",
+      "hitpoints": 7,
+      "keywords": [ "paradox" ],
+      "body": [
+        "When this card enters play, {Recall} deals themselves 3 Psychic Damage.",
+        "When {Recall} would be destroyed, instead restore them to 7 HP and destroy this card.",
+        "At the start of your turn, this card deals 1 target 2 Projectile Damage."
+      ],
+      "powers": [ "This card deals 1 Target 2 Energy Damage. {Recall} deals that target 2 Energy Damage." ],
+      "icons": [ "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "ParadoxAnchor",
+      "count": 3,
+      "title": "Paradox Anchor",
+      "keywords": [ "equipment", "paradox", "limited" ],
+      "body": [
+        "Reduce damage dealt by {Recall} to themselves by 1.",
+        "The first time {Recall} deals damage to a non-Hero target each turn, increase it by 1."
+      ],
+      "icons": [ "DrawCardNow", "HasPower", "Manipulate" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "GoingThroughTheMotions",
+      "count": 3,
+      "title": "Going Through The Motions",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [ "You may skip your Play Phase. If you do, draw a card or use a power." ],
+      "icons": [ "DrawCardNow", "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+        }
+      ]
+    },
+    {
+      "identifier": "RefinedStrike",
+      "count": 3,
+      "title": "Refined Strike",
+      "keywords": [ "ongoing" ],
+      "powers": [ "Deal 1 Target 1 Projectile Damage. Until the start of the next Environment turn, increase damage dealt by {Recall} to that target by 1." ],
+      "icons": [ "HasPower", "DealDamageProjectile" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "You have no idea how many tries that shot took."
+        }
+      ]
+    },
+    {
+      "identifier": "SeenItBefore",
+      "count": 3,
+      "title": "Seen It Before",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "At the start of your turn, draw a card."
+      ],
+      "powers": [ "Reveal the top card of a deck and put it at the top or bottom of that deck." ],
+      "icons": [ "DrawCardNow", "HasPower", "Manipulate" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "... And I'll see it again."
+        }
+      ]
+    },
+    {
+      "identifier": "SeeItAgain",
+      "count": 3,
+      "title": "Seen It Before",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "At the start of your turn, you may discard the top 3 cards of a Hero deck."
+      ],
+      "powers": [ "Play an Equipment from any trash." ],
+      "icons": [ "Manipulate", "HasPower", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "I've seen it before..."
+        }
+      ]
+    },
+    {
+      "identifier": "DejaVu",
+      "count": 3,
+      "title": "Déjà Vu",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, play the top card of your trash, play the top card of your trash, and destroy this card."
+      ],
+      "icons": [ "PlayCardNow", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "Yes, this does seem familiar. No, this isn't the first time you've asked."
+        }
+      ]
+    },
+    {
+      "identifier": "NoteToSelf",
+      "count": 3,
+      "title": "Note to Self",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Draw 3 Cards.",
+        "Destroy 1 card under {Recall}."
+      ],
+      "icons": [ "DrawCardNow", "Manipulate" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "I'll leave myself a message."
+        }
+      ]
+    },
+    {
+      "identifier": "CloseTheLoop",
+      "count": 3,
+      "title": "Close The Loop",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Recall} deals up to 3 targets 2 Energy Damage.",
+        "Destroy 2 card under {Recall}."
+      ],
+      "icons": [ "DrawCardNow", "Manipulate" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "Everything's right where it needs to be. Even that broken drone."
+        }
+      ]
+    },
+    {
+      "identifier": "TemporalAnomaly",
+      "count": 4,
+      "title": "TemporalAnomaly",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Recall} regains 2 HP.",
+        "Search your deck or trash for a Loop or Paradox and put it into your hand. Shuffle your deck."
+      ],
+      "icons": [ "DrawCardNow", "Manipulate" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "Everything's right where it needs to be. Even that broken drone."
+        }
+      ]
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "RecallCharacter",
+      "promoIdentifier": "RecallUnstableJumpCharacter",
+      "count": 1,
+      "title": "Recall - Unstable Jump",
+      "body": [ "Unstable Jump" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "{Recall} deals themselves 1 Psychic damage, increased by the number of cards under this card. If {Recall} is dealt damage this way, put the top 2 cards of your deck under this card and take a full turn now, out of turn order sequence." ],
+      "icons": [ "HasPower", "DealDamagePsychic", "Manipulate", "TakeExtraTurn" ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "Recall"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Here we go again..."
+      },
+      "complexity": 3
+    },
+    {
+      "identifier": "RecallCharacter",
+      "promoIdentifier": "RecallForecastedBlowCharacter",
+      "count": 1,
+      "title": "Recall - Forecasted Blow",
+      "body": [ "Forecasted Blow" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "{Recall} deals 1 Target 1 Melee Damage, increased by the number of Cards under {Recall}." ],
+      "icons": [
+        "HasPower",
+        "DealDamageMelee"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "Recall"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Don't worry. We've already won this."
+      },
+      "complexity": 3
+    }
+  ]
+}

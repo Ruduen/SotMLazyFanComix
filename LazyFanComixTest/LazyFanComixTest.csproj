@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="RuduenModsTests\CassieTest.cs" />
     <Compile Include="RuduenModsTests\BreachMageTest.cs" />
+    <Compile Include="RuduenModsTests\RecallTest.cs" />
     <Compile Include="RuduenModsTests\HeroPromosTest.cs" />
     <Compile Include="RuduenModsTests\SoulbinderTest.cs" />
     <Compile Include="RuduenModsTests\GreyhatTest.cs" />

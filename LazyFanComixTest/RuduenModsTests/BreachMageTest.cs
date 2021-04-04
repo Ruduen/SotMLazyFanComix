@@ -99,7 +99,7 @@ namespace LazyFanComixText
             StartGame();
 
             Card card = PutIntoPlay("FlareCascade");
-            Card breach = FindCardInPlay("BreachI");
+            Card breach = FindCardInPlay("ABreachI");
 
             AssertNextToCard(card, breach);
         }
@@ -128,7 +128,7 @@ namespace LazyFanComixText
 
             StartGame();
 
-            Card breach = FindCardInPlay("BreachIII");
+            Card breach = FindCardInPlay("ABreachIII");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card card = PutInHand("FlareCascade");
 
@@ -356,7 +356,7 @@ namespace LazyFanComixText
 
             PutIntoPlay("FocusBreach");
 
-            AssertTokenPoolCount(FindCardInPlay("BreachII").TokenPools.FirstOrDefault(), 0);
+            AssertTokenPoolCount(FindCardInPlay("ABreachII").TokenPools.FirstOrDefault(), 0);
             AssertIsInPlay(play);
         }
 
@@ -444,7 +444,7 @@ namespace LazyFanComixText
 
             StartGame();
 
-            Card breach = FindCardInPlay("BreachIII");
+            Card breach = FindCardInPlay("ABreachIII");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             Card spell = PutInHand("FlareCascade");
 

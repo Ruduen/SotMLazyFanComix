@@ -3,9 +3,9 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.BreachMage
 {
-    public class BreachIVCardController : BreachMageSharedPotentBreachCardController
+    public class ABreachICardController : BreachMageSharedStableBreachCardController
     {
-        public BreachIVCardController(Card card, TurnTakerController turnTakerController)
+        public ABreachICardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }

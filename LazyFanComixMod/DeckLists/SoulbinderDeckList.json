@@ -99,7 +99,7 @@
           "color": "DD7777"
         }
       ],
-      "icons": [ "AddTokens", "RemoveTokens", "DealDamageInfernal" ],
+      "icons": [ "HasPower", "DestroyOngoingEnvironment", "DealDamageInfernal" ],
       "flavorQuotes": [
       ]
     },
@@ -124,7 +124,7 @@
           "color": "DD7777"
         }
       ],
-      "icons": [ "RemoveTokens", "DealDamageInfernal", "DestroySelf" ],
+      "icons": [ "HasPower", "DrawCardNow", "GainHP" ],
       "flavorQuotes": [
       ]
     },
@@ -149,7 +149,7 @@
           "color": "DD7777"
         }
       ],
-      "icons": [ "RemoveTokens", "GainHP", "DealDamageToxic", "DestroySelf" ],
+      "icons": [ "HasPower", "GainHP", "DealDamageToxic" ],
       "flavorQuotes": [
       ]
     },
@@ -174,7 +174,7 @@
           "color": "DD7777"
         }
       ],
-      "icons": [ "RemoveTokens", "GainHP", "DealDamageToxic", "DestroySelf" ],
+      "icons": [ "HasPower", "DrawCardNow", "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
       ]
     },

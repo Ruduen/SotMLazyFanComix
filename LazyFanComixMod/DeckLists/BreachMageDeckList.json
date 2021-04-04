@@ -4,10 +4,10 @@
   "expansionIdentifier": "LazyFanComix",
   "initialCardIdentifiers": [
     "BreachMageCharacter",
-    "BreachI",
-    "BreachII",
-    "BreachIII",
-    "BreachIV"
+    "ABreachI",
+    "ABreachII",
+    "ABreachIII",
+    "ABreachIV"
   ],
   "initialOffToTheSideCardIdentifiers": [
   ],
@@ -20,7 +20,7 @@
       "backgroundColor": "FAFA00",
       "foilBackgroundColor": "FAFA00",
       "character": true,
-      "setup": [ "Put two {BreachI} into play with 0 and 1 tokens in their Focus Pools.", "Put two {BreachIII} into play with 2 and 3 tokens in their Focus Pools." ],
+      "setup": [ "Put two {ABreachI} into play with 0 and 1 tokens in their Focus Pools.", "Put two {ABreachIII} into play with 2 and 3 tokens in their Focus Pools." ],
       "gameplay": [ "At the start of your turn, you may activate a [u]Cast[/u] text on each of your Spells and destroy those spells." ],
       "powers": [
         "Destroy 1 of your Charge cards. If you do, any player draws 2 cards."
@@ -47,7 +47,7 @@
       "complexity": 2
     },
     {
-      "identifier": "BreachI",
+      "identifier": "ABreachI",
       "count": 1,
       "title": "Stable Breach",
       "keywords": [ "breach" ],
@@ -69,7 +69,7 @@
       "flavorText": "..."
     },
     {
-      "identifier": "BreachII",
+      "identifier": "ABreachII",
       "count": 1,
       "title": "Stable Breach",
       "keywords": [ "breach" ],
@@ -91,7 +91,7 @@
       "flavorText": "..."
     },
     {
-      "identifier": "BreachIII",
+      "identifier": "ABreachIII",
       "count": 1,
       "title": "Potent Breach",
       "keywords": [ "breach" ],
@@ -114,7 +114,7 @@
       "flavorText": "..."
     },
     {
-      "identifier": "BreachIV",
+      "identifier": "ABreachIV",
       "count": 1,
       "title": "Potent Breach",
       "keywords": [ "breach" ],

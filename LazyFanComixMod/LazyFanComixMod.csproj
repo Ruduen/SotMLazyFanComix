@@ -52,12 +52,12 @@
     <Compile Include="BreachMageCardControllers\Charges\VigorCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\Charges\SpiralCharmCardController.cs" />
     <Compile Include="BreachMageCardControllers\Archive\StaffCharmCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Breaches\BreachICardController.cs" />
-    <Compile Include="BreachMageCardControllers\Breaches\BreachIIICardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\ABreachICardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\ABreachIIICardController.cs" />
     <Compile Include="BreachMageCardControllers\BreachMageSharedCharacterCardController.cs" />
     <Compile Include="BreachMageCardControllers\Breaches\BreachMageSharedBreachController.cs" />
-    <Compile Include="BreachMageCardControllers\Breaches\BreachIVCardController.cs" />
-    <Compile Include="BreachMageCardControllers\Breaches\BreachIICardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\ABreachIVCardController.cs" />
+    <Compile Include="BreachMageCardControllers\Breaches\ABreachIICardController.cs" />
     <Compile Include="BreachMageCardControllers\Spells\FlareCascadeCardController.cs" />
     <Compile Include="BreachMageCardControllers\Spells\MoltenWaveCardController.cs" />
     <Compile Include="BreachMageCardControllers\Spells\HauntingEchoCardController.cs" />
@@ -147,6 +147,22 @@
     <Compile Include="HeroPromoCardControllers\MrFixerFlowingStrikeCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
+    <Compile Include="RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />
+    <Compile Include="RecallCardControllers\CharacterCardControllers\RecallUnstableJumpCharacterCardController.cs" />
+    <Compile Include="RecallCardControllers\CharacterCardControllers\RecallForecastedBlowCharacterCardController.cs" />
+    <Compile Include="RecallCardControllers\GeneralCardControllers\CloseTheLoopCardController.cs" />
+    <Compile Include="RecallCardControllers\GeneralCardControllers\TemporalAnomalyCardController.cs" />
+    <Compile Include="RecallCardControllers\LingeringCardControllers\GoingThroughTheMotionsCardController.cs" />
+    <Compile Include="RecallCardControllers\LingeringCardControllers\RefinedStrikeCardController.cs" />
+    <Compile Include="RecallCardControllers\LingeringCardControllers\SeeItAgainCardController.cs" />
+    <Compile Include="RecallCardControllers\LingeringCardControllers\ParadoxAnchorCardController.cs" />
+    <Compile Include="RecallCardControllers\LingeringCardControllers\SeenItBeforeCardController.cs" />
+    <Compile Include="RecallCardControllers\LingeringCardControllers\RecalledCardController.cs" />
+    <Compile Include="RecallCardControllers\GeneralCardControllers\NoteToSelfCardController.cs" />
+    <Compile Include="RecallCardControllers\GeneralCardControllers\DejaVuCardController.cs" />
+    <Compile Include="RecallCardControllers\LoopCardControllers\RecallSharedDamageSelfCardController.cs" />
+    <Compile Include="RecallCardControllers\LoopCardControllers\ImmediateJumpCardController.cs" />
+    <Compile Include="RecallCardControllers\LoopCardControllers\TemporalLoopCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SpiritialResonanceCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\KeystoneOfSpiritCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\FinalEruptionCardController.cs" />
@@ -249,6 +265,7 @@
     <None Include="AssetsRelease\Atlas\SpellforgeAtlas0.json" />
     <None Include="AssetsRelease\Atlas\TrailblazerAtlas0.json" />
     <None Include="AssetsRelease\manifest.json" />
+    <EmbeddedResource Include="DeckLists\RecallDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />
@@ -323,10 +340,11 @@
     <Content Include="AssetsRelease\LargeCardTextures\Trailblazer\TrailblazerCharacter.png" />
     <Content Include="AssetsRelease\preview.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
+      <UserProperties assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
