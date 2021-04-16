@@ -226,7 +226,7 @@ namespace LazyFanComixText
 
             PutInTrash(trash);
 
-            AssertNextMessage("Recall tried to play Déjà Vu, but it is a limited card that is already in play. Moving it to Recall's trash.");
+            AssertNextMessage("Recall tried to play Deja Vu, but it is a limited card that is already in play. Moving it to Recall's trash.");
 
             PlayCard(play);
             AssertInTrash(trash);

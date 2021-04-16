@@ -42,7 +42,7 @@
       "keywords": [ "ongoing", "loop" ],
       "body": [
         "At the end of your turn, go immediately to the start of {Recall}'s next turn.",
-        "At the start of your turn, {Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} and put this card under {Recall}."
+        "At the start of your turn, {Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} and move this card under {Recall}."
       ],
       "icons": [ "StartAndEndOfTurnAction", "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
@@ -54,8 +54,8 @@
       "title": "Immediate Jump",
       "keywords": [ "one-shot", "loop" ],
       "body": [
-        "Take a full turn now, out of turn order sequence.",
-        "{Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} and put this card under {Recall}."
+        "{Recall} deals themselves Psychic Damage equal to the number of cards under {Recall}. Move this card under {Recall}.",
+        "Take a full turn now, out of turn order sequence."
       ],
       "icons": [ "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
@@ -155,7 +155,7 @@
     {
       "identifier": "DejaVu",
       "count": 3,
-      "title": "Déjà Vu",
+      "title": "Deja Vu",
       "keywords": [ "ongoing", "limited" ],
       "body": [
         "When this card enters play, play the top card of your trash, play the top card of your trash, and destroy this card."
@@ -205,7 +205,7 @@
     {
       "identifier": "TemporalAnomaly",
       "count": 4,
-      "title": "TemporalAnomaly",
+      "title": "Temporal Anomaly",
       "keywords": [ "one-shot" ],
       "body": [
         "{Recall} regains 2 HP.",

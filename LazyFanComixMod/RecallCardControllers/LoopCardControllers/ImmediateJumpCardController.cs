@@ -17,11 +17,12 @@ namespace LazyFanComix.Recall
         {
             IEnumerator coroutine;
 
+            coroutine = this.DamageSelfMoveCard();
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
             coroutine = this.TakeAFullTurnNow(this.DecisionMaker);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.DamageSelfMoveCard();
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         }
     }
