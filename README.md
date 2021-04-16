@@ -1,5 +1,5 @@
-# Ruduen's SotM Digital Fan Decks
-This is Ruduen's implementation of various Sentinels of the Multiplayers items.
+# Lazy Fan Comix - By Ruduen
+This is Ruduen's implementation of various Sentinels of the Multiverse items.
 
 This was originally branched from the Handlabra Sample Project, but primarily contains new creations and implementations. If you want to make new items, that will be a better starting point - this is meant to be a reference for anybody who wishes to use this work as a basis for further derivation, or would like to help address any issues once this is posted.
 
@@ -7,16 +7,9 @@ The mod currently includes:
  - 7 Heroes (6 Completely Custom, 1 Aeon's End Inspired)
  - 1-2 Variants for each Official Hero
 
-These changes are now testable! For the most up-to-date versions of these cards, please refer to the most recent release, available at: https://github.com/Ruduen/SotMDigitalFanDecks/releases
+These changes are now testable! For the most up-to-date version of this, refer to the steam workshop at https://steamcommunity.com/sharedfiles/filedetails/?id=2436856735 . The releases are only kept for historical purposes, and will not be kept up to date at this time. 
 
 I've set up a Discord to discuss this project - any thoughts, comments, and feedback would be appreciated! To join, use the following invite: https://discord.gg/VjD6pvgQnw
-
-# To Do
-
-- Make an overarching pass to distinguish between hero actions (when a hero/character does something) and player actions (when a player does something), because Guise effects can blur the two, and theoretical situations where cards change hands can occur.
-- Update Cascade's unique effects when the core functionality better supports some of the weirder things done. These include: 
-  - Update the initialization so everything starts in the River deck. (Right now, non-Hero cards will not have a back.) 
-  - Update the Aqua Cost to display in a better place (keyword or other icon). (Right now, the keywords cannot show numbers above 2.) 
 
 # Licenses
 
