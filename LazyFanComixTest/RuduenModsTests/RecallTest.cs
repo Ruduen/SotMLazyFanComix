@@ -54,14 +54,14 @@ namespace LazyFanComixText
 
             StartGame();
 
+            DiscardAllCards(Recall);
             QuickHandStorage(Recall);
             UsePower(Recall);
             QuickHandCheck(1);
 
-            MoveCard(Recall, "TemporalLoop", Recall.CharacterCard.UnderLocation);
-            AssertNumberOfCardsUnderCard(Recall.CharacterCard, 1);
+            DecisionSelectCard = PutInHand("ParadoxAnchor");
             UsePower(Recall);
-            AssertNumberOfCardsUnderCard(Recall.CharacterCard, 0);
+            AssertIsInPlay("ParadoxAnchor");
         }
 
 
@@ -105,7 +105,7 @@ namespace LazyFanComixText
             GoToStartOfTurn(baron);
             // If possible, figure out how to confirm all other turns were skipped. 
             AssertCurrentTurnPhase(baron, Phase.Start, false);
-            AssertNumberOfCardsUnderCard(Recall.CharacterCard, 2);
+            AssertNumberOfCardsUnderCard(Recall.CharacterCard, 1);
 
         }
         #endregion Innate Powers
@@ -359,7 +359,7 @@ namespace LazyFanComixText
         }
 
         [Test()]
-        public void TestCardRefinedStrike()
+        public void TestCardRefinedShot()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -368,7 +368,7 @@ namespace LazyFanComixText
             SetupGameController(setupItems);
 
             StartGame();
-            Card power = PlayCard("RefinedStrike");
+            Card power = PlayCard("RefinedShot");
             Card redirect = PlayCard("DrivingMantis");
 
             DecisionSelectCards = new Card[] { fixer.CharacterCard, baron.CharacterCard, fixer.CharacterCard };
@@ -379,7 +379,7 @@ namespace LazyFanComixText
             GoToEndOfTurn(env);
             DestroyCard(redirect);
             DealDamage(Recall, fixer, 0, DamageType.Cold);
-            QuickHPCheck(0-2-0); // 0 damage the first time, 2 the second, 0 the third due to environment wipe. 
+            QuickHPCheck(-2 - 5 - 0); // 0+2 damage the first time, 2+3 the second, 0 the third due to environment turn. 
         }
 
 
@@ -393,26 +393,40 @@ namespace LazyFanComixText
             SetupGameController(setupItems);
 
             StartGame();
-            
+            DestroyCard("MobileDefensePlatform");
             PlayCard("GoingThroughTheMotions");
 
+
+
             GoToStartOfTurn(Recall);
+            DecisionSelectFunction = 1;
             UsePower(Recall);
+            ResetDecisions();
+
             QuickHandStorage(Recall);
             GoToPlayCardPhase(Recall);
             QuickHandCheck(1); // No power usable, draw instead. 
 
+            ResetDecisions();
+
             QuickHandStorage(Recall);
             PlayCard("PaparazziOnTheScene");
-            GoToPlayCardPhase(Recall);
+            GoToPlayCardPhase(Recall); // No power usable, draw.
             QuickHandCheck(1);
             DestroyCard("PaparazziOnTheScene");
 
-            GoToStartOfTurn(Recall);
-            PlayCard("TrafficPileup");
+            ResetDecisions();
+            DecisionSelectFunctions = new int?[] { 0, 1 };
             GoToPlayCardPhase(Recall);
-            AssertNotUsablePower(Recall,Recall.CharacterCard); // No card draw available, use power instead.
+            AssertNotUsablePower(Recall, Recall.CharacterCard); // Use power by default.
 
+            ResetDecisions();
+            DecisionSelectFunction = 2;
+            QuickHPStorage(baron);
+            GoToPlayCardPhase(Recall);
+            QuickHPCheck(-2); // Damage.
+
+            ResetDecisions();
             DecisionSelectFunctions = new int?[] { null };
             GoToPlayCardPhase(Recall);
             AssertCanPerformPhaseAction();
@@ -436,6 +450,25 @@ namespace LazyFanComixText
             AssertPhaseActionCount(1);
         }
 
+        [Test()]
+        public void TestCardGoingThroughTheMotionsEphemeralTest()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Recall", "MrFixer", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            PlayCard("GoingThroughTheMotions");
+            PlayCard("ImmediateJump");
+
+            DecisionSelectFunctions = new int?[] { null };
+            GoToPlayCardPhase(Recall);
+            AssertPhaseActionCount(1);
+        }
+
 
         [Test()]
         public void TestCardTemporalAnomaly()
@@ -447,14 +480,16 @@ namespace LazyFanComixText
             SetupGameController(setupItems);
 
             StartGame();
-            Card search = PutOnDeck("TemporalLoop");
+
+            DestroyCard("MobileDefensePlatform");
+            Card search = PutOnDeck("ParadoxAnchor");
             DecisionSelectCard = search;
 
             DealDamage(Recall, Recall, 5, DamageType.Melee);
-            QuickHPStorage(Recall);
+            QuickHPStorage(Recall, baron);
             PlayCard("TemporalAnomaly");
-            QuickHPCheck(2);
-            AssertInHand(search);
+            QuickHPCheck(2, -2); // 1 damage, +1 for anchor.
+            AssertIsInPlay(search);
         }
 
         #endregion Other Cards

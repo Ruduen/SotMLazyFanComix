@@ -17,6 +17,7 @@ namespace LazyFanComix.Trailblazer
         public override void AddTriggers()
         {
             this.AddTrigger<CardEntersPlayAction>((CardEntersPlayAction cepa) => !this.IsPropertyTrue(_FirstPositionPlayedThisTurn) && cepa.CardEnteringPlay.IsPosition && cepa.CardEnteringPlay.Owner == this.HeroTurnTaker, ResponseAction, TriggerType.UsePower, TriggerTiming.After);
+            this.AddAfterLeavesPlayAction((GameAction ga) => this.ResetFlagAfterLeavesPlay(_FirstPositionPlayedThisTurn), TriggerType.Hidden);
         }
 
         protected IEnumerator ResponseAction(CardEntersPlayAction cepa)

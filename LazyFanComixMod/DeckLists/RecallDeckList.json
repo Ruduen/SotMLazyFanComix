@@ -14,7 +14,7 @@
       "backgroundColor": "999999",
       "foilBackgroundColor": "999999",
       "character": true,
-      "powers": [ "Draw a Card or Shuffle a card from under this card into your deck." ],
+      "powers": [ "Draw a Card or Play a Paradox." ],
       "icons": [ "HasPower", "DrawCardNow", "Manipulate" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
@@ -41,10 +41,9 @@
       "title": "Temporal Loop",
       "keywords": [ "ongoing", "loop" ],
       "body": [
-        "At the end of your turn, go immediately to the start of {Recall}'s next turn.",
-        "At the start of your turn, {Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} and move this card under {Recall}."
+        "At the end of your turn, {Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} times 2, move this card under {Recall}, and go immediately to the start of {Recall}'s next turn."
       ],
-      "icons": [ "StartAndEndOfTurnAction", "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
+      "icons": [ "EndOfTurnAction", "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
       ]
     },
@@ -54,7 +53,8 @@
       "title": "Immediate Jump",
       "keywords": [ "one-shot", "loop" ],
       "body": [
-        "{Recall} deals themselves Psychic Damage equal to the number of cards under {Recall}. Move this card under {Recall}.",
+        "{Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} times 2.",
+        "Move this card under {Recall}.",
         "Take a full turn now, out of turn order sequence."
       ],
       "icons": [ "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
@@ -75,6 +75,10 @@
       "powers": [ "This card deals 1 Target 2 Energy Damage. {Recall} deals that target 2 Energy Damage." ],
       "icons": [ "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
+        {
+          "identifier": "Recall",
+          "text": "The original? I haven't been 'the original' in quite a while."
+        }
       ]
     },
     {
@@ -96,8 +100,8 @@
       "identifier": "GoingThroughTheMotions",
       "count": 3,
       "title": "Going Through The Motions",
-      "keywords": [ "ongoing", "limited" ],
-      "body": [ "You may skip your Play Phase. If you do, draw a card or use a power." ],
+      "keywords": [ "ongoing", "paradox", "limited" ],
+      "body": [ "You may skip your Play Phase. If you do, draw a card, use a power, or {Recall} deals 1 Target 2 Energy Damage." ],
       "icons": [ "DrawCardNow", "UsePowerNow" ],
       "flavorQuotes": [
         {
@@ -105,11 +109,12 @@
       ]
     },
     {
-      "identifier": "RefinedStrike",
+      "identifier": "RefinedShot",
       "count": 3,
-      "title": "Refined Strike",
-      "keywords": [ "ongoing" ],
+      "title": "Refined Shot",
+      "keywords": [ "ongoing", "paradox" ],
       "powers": [ "Deal 1 Target 1 Projectile Damage. Until the start of the next Environment turn, increase damage dealt by {Recall} to that target by 1." ],
+      "body": [ "After {Recall} uses a power, {Recall} may deal 1 Target and themselves 1 Energy Damage." ],
       "icons": [ "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
         {
@@ -122,7 +127,7 @@
       "identifier": "SeenItBefore",
       "count": 3,
       "title": "Seen It Before",
-      "keywords": [ "ongoing", "limited" ],
+      "keywords": [ "ongoing", "paradox", "limited" ],
       "body": [
         "At the start of your turn, draw a card."
       ],
@@ -139,7 +144,7 @@
       "identifier": "SeeItAgain",
       "count": 3,
       "title": "Seen It Before",
-      "keywords": [ "ongoing", "limited" ],
+      "keywords": [ "ongoing", "paradox", "limited" ],
       "body": [
         "At the start of your turn, you may discard the top 3 cards of a Hero deck."
       ],
@@ -181,7 +186,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "I'll leave myself a message."
+          "text": "It's fine. I left a note to take care of it earlier."
         }
       ]
     },
@@ -192,7 +197,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "{Recall} deals up to 3 targets 2 Energy Damage.",
-        "Destroy 2 card under {Recall}."
+        "Destroy 2 cards under {Recall}."
       ],
       "icons": [ "DrawCardNow", "Manipulate" ],
       "flavorQuotes": [
@@ -209,9 +214,10 @@
       "keywords": [ "one-shot" ],
       "body": [
         "{Recall} regains 2 HP.",
-        "Search your deck or trash for a Loop or Paradox and put it into your hand. Shuffle your deck."
+        "Search your deck or trash for a Paradox and put it into play. If you searched your deck, shuffle it.",
+        "{Recall} deals 1 Target 1 Energy Damage."
       ],
-      "icons": [ "DrawCardNow", "Manipulate" ],
+      "icons": [ "GainHP", "PlayCardNow", "Manipulate", "DealDamageEnergy" ],
       "flavorQuotes": [
         {
           "identifier": "Recall",
@@ -230,7 +236,7 @@
       "backgroundColor": "999999",
       "foilBackgroundColor": "999999",
       "character": true,
-      "powers": [ "{Recall} deals themselves 1 Psychic damage, increased by the number of cards under this card. If {Recall} is dealt damage this way, put the top 2 cards of your deck under this card and take a full turn now, out of turn order sequence." ],
+      "powers": [ "{Recall} deals themselves 1 Psychic damage, increased by the number of cards under this card times 2. If {Recall} is dealt damage this way, put the top card of your deck under this card and take a full turn now, out of turn order sequence." ],
       "icons": [ "HasPower", "DealDamagePsychic", "Manipulate", "TakeExtraTurn" ],
       "hitpoints": 29,
       "nemesisIdentifiers": [

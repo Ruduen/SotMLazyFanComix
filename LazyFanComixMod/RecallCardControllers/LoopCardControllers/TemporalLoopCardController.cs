@@ -15,11 +15,8 @@ namespace LazyFanComix.Recall
 
         public override void AddTriggers()
         {
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker,
-                (PhaseChangeAction pca) => this.DamageSelfMoveCard(),
-                new TriggerType[] { TriggerType.DestroyCard, TriggerType.DestroySelf });
             this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => GoToStartOfTurn(),
-                new TriggerType[] { TriggerType.PhaseChange, TriggerType.SkipPhase });
+                new TriggerType[] { TriggerType.PhaseChange, TriggerType.SkipPhase, TriggerType.MoveCard, TriggerType.DealDamage });
         }
 
         protected IEnumerator GoToStartOfTurn()
@@ -30,12 +27,16 @@ namespace LazyFanComix.Recall
                                               select tp).FirstOrDefault();
             IEnumerator coroutine;
 
+            coroutine = this.DamageSelfMoveCard();
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
             coroutine = this.GameController.SkipToTurnPhase(destinationTurnPhase, false, true, true, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Temporarily prevent all other cards/turns/etc. from acting unexpectedly. 
             this.AddInhibitorException((GameAction ga) => true);
-            this.GameController.AddTemporaryTriggerInhibitor<PhaseChangeAction>((ITrigger t) => ((t is PhaseChangeTrigger && !(t as PhaseChangeTrigger).PhaseCriteria(destinationTurnPhase.Phase) && !(t as PhaseChangeTrigger).TurnTakerCriteria(destinationTurnPhase.TurnTaker)) || (!(t is PhaseChangeTrigger) && !t.Types.Contains(TriggerType.ChangePostDestroyDestination))) && t.CardSource != null && t.CardSource.Card != this.Card, (PhaseChangeAction p) => p.FromPhase == oldTurnPhase, this.GetCardSource(), true);
+            this.GameController.AddTemporaryTriggerInhibitor<PhaseChangeAction>((ITrigger t) => ((t is PhaseChangeTrigger && !(t as PhaseChangeTrigger).PhaseCriteria(destinationTurnPhase.Phase) && !(t as PhaseChangeTrigger).TurnTakerCriteria(destinationTurnPhase.TurnTaker)) || (!(t is PhaseChangeTrigger) && !t.Types.Contains(TriggerType.ChangePostDestroyDestination))) && t.CardSource != null && t.CardSource.Card != this.Card, (PhaseChangeAction p) => p.FromPhase == oldTurnPhase, this.GetCardSource());
+
 
             // Move all one-shots to the trash to prevent odd 'stasis' condition.
             coroutine = this.GameController.MoveCards(this.TurnTakerController,

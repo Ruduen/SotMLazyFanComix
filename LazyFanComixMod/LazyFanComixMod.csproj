@@ -153,7 +153,7 @@
     <Compile Include="RecallCardControllers\GeneralCardControllers\CloseTheLoopCardController.cs" />
     <Compile Include="RecallCardControllers\GeneralCardControllers\TemporalAnomalyCardController.cs" />
     <Compile Include="RecallCardControllers\LingeringCardControllers\GoingThroughTheMotionsCardController.cs" />
-    <Compile Include="RecallCardControllers\LingeringCardControllers\RefinedStrikeCardController.cs" />
+    <Compile Include="RecallCardControllers\LingeringCardControllers\RefinedShotCardController.cs" />
     <Compile Include="RecallCardControllers\LingeringCardControllers\SeeItAgainCardController.cs" />
     <Compile Include="RecallCardControllers\LingeringCardControllers\ParadoxAnchorCardController.cs" />
     <Compile Include="RecallCardControllers\LingeringCardControllers\SeenItBeforeCardController.cs" />
@@ -344,7 +344,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" />
+      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -50,52 +50,41 @@ namespace LazyFanComix.BreachMage
             }
         }
 
-        // Temporary method - select a card and activate its cast effect. Not great, but it will do while Handelabra is fixing the issue.
         protected virtual IEnumerator CastResponse(PhaseChangeAction phaseChange)
         {
             IEnumerator coroutine;
-            List<SelectCardDecision> scdResults = new List<SelectCardDecision>();
+            List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
             List<Card> usedAbilityCards = new List<Card>();
             bool finishedCasting = false;
 
-            // Only allow each card to be used once. This is to prevent indestructible shenanigans.
-            while (this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.HasActivatableAbility("cast") && !usedAbilityCards.Contains(c)).Count() > 0 && !finishedCasting)
+            // Only allow each card to be used once. This is to prevent indestructible shenanigans. 
+            while (this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.HasActivatableAbility("cast") && c.IsSpell && !usedAbilityCards.Contains(c)).Count() > 0 && !finishedCasting)
             {
-                scdResults.Clear();
+                storedResults.Clear();
 
-                // Select a card and use a cast on it.
+                // Use a Cast.
+                coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.IsSpell && !usedAbilityCards.Contains(c)), storedResults, true, this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.ActivateAbility, new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.IsSpell && c.HasActivatableAbility("cast") && !usedAbilityCards.Contains(c)), scdResults, true, cardSource: this.GetCardSource());
-                if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                if (scdResults.Count == 0 || !scdResults.FirstOrDefault().Completed || scdResults.FirstOrDefault().SelectedCard == null)
+                if (storedResults.Count > 0 && storedResults.FirstOrDefault().SelectedAbility != null)
                 {
-                    // No spell cast was selected for whatever reason, so abort.
-                    finishedCasting = true;
-                }
-                else
-                {
-                    Card castCard = scdResults.FirstOrDefault().SelectedCard;
+                    Card castCard = storedResults.FirstOrDefault().SelectedCard;
 
-                    // Use the cast on it.
-                    coroutine = this.ActivateCast(castCard);
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    // Destroy the cast card.
-                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, castCard);
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    // Track for future iterations if appropriate, to avoid indestructible edge cases.
+                    // Track for future iterations if appropriate, to avoid indestructible edge cases. 
                     if (castCard.IsInPlay)
                     {
                         usedAbilityCards.Add(castCard);
                     }
-                    else if (usedAbilityCards.Contains(castCard))
-                    {
-                        usedAbilityCards.Remove(castCard);
-                    }
+
+                    // Destroy the cast card.
+                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, castCard);
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
-                scdResults.Clear();
+                else
+                {
+                    // No spell cast was done, so abort. 
+                    finishedCasting = true;
+                }
             }
         }
 

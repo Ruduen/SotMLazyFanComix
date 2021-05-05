@@ -90,6 +90,35 @@
       "openingLines": {
         "default": "I wonder if I can carry a tune all the way through this."
       }
+    },
+    {
+      "identifier": "TheArgentAdeptCharacter",
+      "promoIdentifier": "TheArgentAdeptBugCharacter",
+      "count": 1,
+      "title": "The Argent Adept",
+      "promoTitle": "Bugverse Argent Adept",
+      "body": [ "DO NOT USE! For Handelabra debugging purposes only!" ],
+      "backgroundColor": "a97436",
+      "foilBackgroundColor": "a97436",
+      "character": true,
+      "powers": "You may activate any of your Perform texts. (Skipping this will crash the game!) ",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "Perform" ],
+      "nemesisIdentifiers": [ "TheArgentAdept" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "I wonder if I can carry a tune all the way through this."
+      }
     }
   ],
   "Benchmark": [

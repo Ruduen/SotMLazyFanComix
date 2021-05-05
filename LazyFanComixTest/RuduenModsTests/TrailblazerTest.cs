@@ -185,7 +185,7 @@ namespace LazyFanComixText
             UsePower(play);
             DealDamage(baron.CharacterCard, Trailblazer.CharacterCard, 3, DamageType.Melee);
             DealDamage(baron.CharacterCard, Trailblazer.CharacterCard, 3, DamageType.Melee);
-            QuickHPCheck(- 1 - 3, 2, 2); // Fixer and mdp just heals 2. Trailblazer took 1 and 3 damage.
+            QuickHPCheck(-1 - 3, 2, 2); // Fixer and mdp just heals 2. Trailblazer took 1 and 3 damage.
         }
 
         [Test()]
@@ -272,6 +272,35 @@ namespace LazyFanComixText
             PutInHand(position);
             PlayCard(position);
             AssertUsablePower(Trailblazer, position); // Power refreshed and unused.
+        }
+
+        [Test()]
+        public void TestEquipmentSupplyPackBug()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Trailblazer", "SkyScraper", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            Card position = PutInHand("StrikingZone");
+            Card binoculars = PutOnDeck("WornBinoculars");
+            PlayCard("SupplyPack");
+            DecisionSelectCard = Trailblazer.CharacterCard;
+            PlayCard("MicroAssembler");
+
+            GoToUsePowerPhase(Trailblazer);
+            ResetDecisions();
+            DecisionSelectCards = new Card[] { PutInHand("VantagePoint"), binoculars };
+            UsePower(Trailblazer, 1);
+            AssertIsInPlay(binoculars);
+            ResetDecisions();
+            DecisionSelectCard = position;
+            UsePower(Trailblazer);
+            AssertNotUsablePower(Trailblazer, position); // Power used.
+
         }
 
         [Test()]

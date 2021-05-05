@@ -111,7 +111,7 @@
         "You may use an additional Power during your Power Phase.",
         "After you use a Power on a Position, you may look at the top Card of the Environment Deck, then either put it on the top or bottom of that deck."
       ],
-      "icons": [ "Manipulate" ],
+      "icons": [ "Manipulate", "UsePowerExtra" ],
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
@@ -168,7 +168,7 @@
       "count": 2,
       "title": "Wasteland Wanderer",
       "keywords": [ "ongoing", "limited" ],
-      "powers": [ "Deal 1 Target 3 Fire Damage, increased by 1 for each card under this card. Destroy this card." ],
+      "powers": [ "{Trailblazer} deals 1 Target 3 Fire Damage, increased by 1 for each card under this card. Destroy this card." ],
       "body": [
         "After an Environment card is destroyed, you may move it under this card."
       ],

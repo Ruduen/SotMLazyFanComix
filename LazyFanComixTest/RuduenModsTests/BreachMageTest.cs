@@ -6,6 +6,7 @@ using LazyFanComix.BreachMage;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System;
 
 namespace LazyFanComixText
 {
@@ -136,7 +137,7 @@ namespace LazyFanComixText
             UsePower(breach);
             UsePower(breach);
 
-            DecisionSelectCards = new Card[] { breach, card, mdp };
+            DecisionSelectCards = new Card[] { breach, mdp };
 
             PlayCard(card);
             QuickHPStorage(mdp);
@@ -228,39 +229,11 @@ namespace LazyFanComixText
             AssertInTrash(usedCards[0]); // All used charges in trash.
         }
 
-        //[Test()]
-        //public void TestBreachMageCastSpellStartOfTurn()
-        //{
-        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional.
-
-        //    SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Megalopolis");
-
-        //    StartGame();
-
-        //    Card mdp = FindCardInPlay("MobileDefensePlatform");
-
-        //    PlayCard("FocusCharm");
-        //    PlayCard("FocusCharm");
-        //    PlayCard("FocusCharm");
-
-        //    Card[] spells = new Card[]{
-        //        PlayCard("Zap"),
-        //        PlayCard("MoltenWave")
-        //    };
-        //    QuickHPStorage(mdp);
-
-        //    DecisionActivateAbilities = new Card[] { spells[0], null };
-        //    DecisionSelectTarget = mdp;
-
-        //    GoToStartOfTurn(BreachMage);
-
-        //    QuickHPCheck(-1); // Zapped.
-
-        //}
-
         [Test()]
         public void TestBreachMageCastSpellStartOfTurn()
         {
+            // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional.
+
             SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Megalopolis");
 
             StartGame();
@@ -272,56 +245,41 @@ namespace LazyFanComixText
             PlayCard("FocusCharm");
 
             Card[] spells = new Card[]{
-                PlayCard("Zap"),
-                PlayCard("MoltenWave")
+                PlayCard("Zap")
             };
             QuickHPStorage(mdp);
 
-            DecisionSelectCards = new Card[] { spells[0], mdp, null };
+            DecisionActivateAbilities = new Card[] { spells[0] };
+            DecisionSelectTarget = mdp;
 
             GoToStartOfTurn(BreachMage);
 
-            QuickHPCheck(-1); // Zapped.
+            QuickHPCheck(-1);
         }
 
-        //// TODO: Fix if Handlabra fix!
-        //[Test(Description = "Failing Handlabra Case", ExpectedResult = false)]
-        //public bool TestBreachMageCastSpellStartOfTurnFailingHandelabra()
-        //{
-        //    // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional.
+        [Test()]
+        public void TestBreachMageCastSpellStartOfTurnNotUsed()
+        {
+            // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional.
 
-        //    SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Megalopolis");
+            SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Megalopolis");
 
-        //    StartGame();
+            StartGame();
 
-        //    Card mdp = FindCardInPlay("MobileDefensePlatform");
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
 
-        //    PlayCard("FocusCharm");
-        //    PlayCard("FocusCharm");
-        //    PlayCard("FocusCharm");
+            PlayCard("FocusCharm");
+            PlayCard("FocusCharm");
+            PlayCard("FocusCharm");
 
-        //    Card[] spells = new Card[]{
-        //        PlayCard("Zap"),
-        //        PlayCard("MoltenWave")
-        //    };
-        //    QuickHPStorage(mdp);
+            PlayCard("Zap");
+            
+            QuickHPStorage(mdp);
 
-        //    DecisionActivateAbilities = new Card[] { spells[0], null };
-        //    DecisionSelectTarget = mdp;
+            DecisionDoNotActivatableAbility = true;
 
-        //    try
-        //    {
-        //        GoToStartOfTurn(BreachMage);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        if (e is System.NullReferenceException)
-        //        {
-        //            return false; // The card should be in the play area! Expect a fail right now.
-        //        }
-        //    }
-        //    return true;
-        //}
+            GoToStartOfTurn(BreachMage);
+        }
 
         [Test()]
         public void TestCardCycleOfMagic()
@@ -457,7 +415,8 @@ namespace LazyFanComixText
             PutInHand(charges);
             PlayCards(charges);
 
-            DecisionSelectCards = new List<Card>() { breach, spell, mdp, charges[0], mdp, null };
+            DecisionSelectCards = new List<Card>() { breach, mdp, charges[0], mdp, null };
+            DecisionActivateAbilities = new Card[] { spell };
 
             PlayCard(spell);
 
