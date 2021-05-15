@@ -8,6 +8,7 @@ using System.Linq;
 using System.Collections;
 using Handelabra.Sentinels.UnitTest;
 using Workshopping.TheBaddies;
+using System.Collections.Generic;
 
 namespace MyModTest
 {
@@ -36,14 +37,19 @@ namespace MyModTest
             Assert.IsNotNull(env);
 
             Assert.AreEqual(40, baddies.CharacterCard.HitPoints);
-            Assert.AreEqual(39, migrant.CharacterCard.HitPoints);
+            Assert.AreEqual(30, migrant.CharacterCard.HitPoints);
             QuickHPStorage(baddies, migrant);
 
-            // Always deals 5 psychic!
-            PlayTopCard(baddies);
+            StartGame();
 
-            QuickHPCheck(-5, -6); // Nemesis!
+            AssertIsInPlay("SmashBackField");
 
+            // Always deals 5 psychic to non villains!
+            PlayCard("FireEverything");
+
+            QuickHPCheck(0, -6); // Nemesis!
+
+            StackDeck("DroppedFrame");
             PlayTopCard(env);
 
             // Deals 1 damage
@@ -52,42 +58,6 @@ namespace MyModTest
             // Heals 1 at the start of the environment turn
             GoToStartOfTurn(env);
             QuickHPCheck(1, 1);
-        }
-
-        [Test()]
-        public void TestPunchingBag()
-        {
-            SetupGameController("BaronBlade", "Workshopping.MigrantCoder", "Megalopolis");
-
-            StartGame();
-
-            GoToUsePowerPhase(migrant);
-
-            // Punching Bag does 1 damage!
-            QuickHPStorage(migrant);
-            PlayCard("PunchingBag");
-            QuickHPCheck(-1);
-        }
-
-        [Test()]
-        public void TestInnatePower()
-        {
-            SetupGameController("BaronBlade", "Workshopping.MigrantCoder", "Megalopolis");
-
-            StartGame();
-
-            var mdp = GetCardInPlay("MobileDefensePlatform");
-
-            // Base power draws 3 cards! Deals 1 target 2 damage!
-            QuickHandStorage(migrant.ToHero());
-            DecisionSelectTarget = mdp;
-            QuickHPStorage(mdp);
-
-            UsePower(migrant.CharacterCard);
-
-            QuickHandCheck(3);
-            QuickHPCheck(-2);
-
         }
 
         [Test()]
@@ -111,44 +81,50 @@ namespace MyModTest
         }
 
         [Test()]
-        public void TestMigrantCoderLockdown()
+        public void TestTheRealBaddies()
         {
-            SetupGameController("BaronBlade", "Workshopping.MigrantCoder/MigrantCoderLockdown", "Megalopolis");
+            SetupGameController("Workshopping.TheBaddies/Workshopping.TheRealBaddiesCharacter", "Workshopping.MigrantCoder", "Workshopping.DevStream");
+
+            Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
+
+            Assert.IsNotNull(baddies);
+            Assert.IsInstanceOf(typeof(TheRealBaddiesTurnTakerController), baddies);
+            Assert.IsInstanceOf(typeof(TheRealBaddiesCharacterCardController), baddies.CharacterCardController);
+
+            Assert.AreEqual(50, baddies.CharacterCard.HitPoints);
+            QuickHPStorage(baddies, migrant);
 
             StartGame();
 
-            Assert.IsInstanceOf(typeof(MigrantCoderLockdownCharacterCardController), migrant.CharacterCardController);
+            AssertNotInPlay("SmashBackField");
+            AssertIsInPlay("WrightWeigh");
 
-            GoToUsePowerPhase(migrant);
-
-            // Use power to reduce damage by 1
-            QuickHPStorage(migrant);
-            UsePower(migrant);
-            PlayCard("PunchingBag");
-            QuickHPCheck(0);
-
-            SaveAndLoad();
-
-            Assert.IsInstanceOf(typeof(MigrantCoderLockdownCharacterCardController), migrant.CharacterCardController);
+            GoToEndOfTurn();
         }
 
         [Test()]
-        public void TestBunkerVariant()
+        public void TestDevStream()
         {
-            SetupGameController("BaronBlade", "Bunker/Workshopping.WaywardBunkerCharacter", "Megalopolis");
+            SetupGameController("BaronBlade", "Workshopping.MigrantCoder", "Unity", "TheArgentAdept", "Workshopping.DevStream");
 
             StartGame();
 
-            Assert.IsTrue(bunker.CharacterCard.IsPromoCard);
-            Assert.AreEqual("WaywardBunkerCharacter", bunker.CharacterCard.PromoIdentifierOrIdentifier);
-            Assert.AreEqual(30, bunker.CharacterCard.MaximumHitPoints);
+            // Spam bot does H - 1 = 2 damage
+            GoToStartOfTurn(env);
+            PlayCard("SpamBot");
+            PlayCard("Modder");
+            QuickHPStorage(baron, migrant, unity, adept);
+            GoToEndOfTurn(env);
+            QuickHPCheck(0, -2, 0, 0);
 
-            GoToUsePowerPhase(bunker);
-
-            // Use the power, it draws 2 cards not 1!
-            QuickHandStorage(bunker);
-            UsePower(bunker);
-            QuickHandCheck(2);
+            // Modder plays cards at the start of turn
+            GoToEndOfTurn(adept);
+            var bb = StackDeck("BladeBattalion");
+            var keyboard = StackDeck("CodersKeyboard");
+            var raptor = StackDeck("RaptorBot");
+            var bell = StackDeck("XusBell");
+            GoToStartOfTurn(env);
+            AssertIsInPlay(bb, keyboard, raptor, bell);
         }
     }
 }
