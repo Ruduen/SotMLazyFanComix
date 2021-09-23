@@ -51,9 +51,10 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "It's a good view. Shame there isn't time to enjoy it."
+          "text": "It's a good view. {BR}Shame there isn't time to enjoy it."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "DefensiveBulwark",
@@ -66,7 +67,7 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "We'll be safe in here for a moment."
+          "text": "We'll be safe {BR}in here for a moment."
         }
       ],
       "flavorReference": "Trailblazer"
@@ -82,7 +83,7 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "This is as good of a battlefield as we're going to get."
+          "text": "This is as good of {BR}a battlefield as we're going to get."
         }
       ],
       "flavorReference": "Trailblazer"
@@ -100,7 +101,7 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "Sometimes, the high ground is enough."
+          "text": "Sometimes, the {BR}high ground is enough."
         }
       ],
       "flavorReference": "Trailblazer"
@@ -118,9 +119,10 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "They still work, so I'll still keep 'em."
+          "text": "They still work, {BR}so I'll still keep 'em."
         }
       ],
+      "flavorReference": "Trailblazer",
       "notes": "May need nerfing to first time. "
     },
     {
@@ -133,7 +135,7 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "I set up quick. Time is a luxury I don't have."
+          "text": "I set up quick. {BR}Time is a luxury I don't have."
         }
       ],
       "flavorReference": "Trailblazer"
@@ -150,7 +152,7 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "Sometimes, there's a better spot if you keep your eyes open."
+          "text": "Sometimes, there's a {BR}better spot if you keep your eyes open."
         }
       ],
       "flavorReference": "Trailblazer"
@@ -178,10 +180,7 @@
         "After an Environment card is destroyed, you may move it under this card."
       ],
       "icons": [ "DealDamageFire", "HasPower", "DestroySelf" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "LeadTheWay",
@@ -194,10 +193,7 @@
         "You may play a card."
       ],
       "icons": [ "Search", "DrawCardNow", "PlayCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "UnchartedGrounds",
@@ -213,7 +209,7 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "Of course I don't know where everything is. Finding out is the fun part."
+          "text": "Of course I don't know where {BR}everything is. Finding out is the fun part."
         }
       ],
       "flavorReference": "Trailblazer"
@@ -228,10 +224,7 @@
         "Destroy an Ongoing Card, an Environment Card, and a Position. "
       ],
       "icons": [ "UsePowerNow", "DestroyOngoing", "DestroyEnvironment", "Destroy" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "TacticalWithdrawl",
@@ -245,11 +238,8 @@
       "icons": [ "UsePowerNow", "Destroy" ],
       "flavorQuotes": [
         {
-          "text": "What was that about not retreating?"
-        },
-        {
           "identifier": "Trailblazer",
-          "text": "We're repositioning to a superior location. It just happens to be behind us."
+          "text": "We're not retreating. {BR}We're repositioning to a superior location. {BR}It just happens to be behind us."
         }
       ],
       "flavorReference": "Trailblazer"
@@ -265,10 +255,7 @@
         "Destroy a Position. If you do, draw a card."
       ],
       "icons": [ "DealDamageFire", "DestroyEnvironment", "Destroy", "DrawCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "GuidedOdyssey",
@@ -282,8 +269,6 @@
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
       "flavorQuotes": [
-        {
-        }
       ]
     }
   ],
@@ -298,10 +283,7 @@
         "{Trailblazer} deals each non-Hero Target and themselves 2 Fire Damage."
       ],
       "icons": [ "PlayCardNow", "DealDamageFire" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "ThrowToTheTrails",
@@ -323,10 +305,7 @@
         }
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     }
   ],
   "promoCards": [

@@ -92,10 +92,7 @@
         "The first time {Recall} deals damage to a non-Hero target each turn, increase it by 1."
       ],
       "icons": [ "DrawCardNow", "HasPower", "Manipulate" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "GoingThroughTheMotions",
@@ -104,10 +101,7 @@
       "keywords": [ "ongoing", "paradox", "limited" ],
       "body": [ "You may skip your Play Phase. If you do, draw a card, use a power, or {Recall} deals 1 Target 2 Energy Damage." ],
       "icons": [ "DrawCardNow", "UsePowerNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "RefinedShot",

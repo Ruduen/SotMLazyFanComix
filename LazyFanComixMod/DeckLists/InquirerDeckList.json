@@ -56,7 +56,7 @@
           "text": "You don't need words to deceive."
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "UndeniableFacts",
@@ -72,7 +72,7 @@
           "text": "Proof has always been optional."
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "ImAMolePerson",
@@ -88,10 +88,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Why else would I be digging myself deeper into this pit?"
+          "text": "Why else would I be {BR}digging myself deeper into this pit?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "ImANinja",
@@ -107,10 +107,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "How else could I have gotten up here?"
+          "text": "How else could {BR}I have gotten up here?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "ImAVictorian",
@@ -126,10 +126,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Where did you think the hat came from?"
+          "text": "Where did you {BR}think the hat came from?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "BackupPlan",
@@ -141,10 +141,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Why wouldn't I keep a pistol on me?"
+          "text": "Why wouldn't I {BR}keep a pistol on me?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "YoureLookingPale",
@@ -160,10 +160,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Just lay down for a little. Do you really think you can fight like that?"
+          "text": "Just lay down for a little. {BR}Do you really think you can fight like that?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "YoureOnOurSide",
@@ -179,10 +179,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Get over here before they start blasting you! Didn't you get the updated orders?"
+          "text": "Get over here before they {BR}start blasting you! Didn't you get {BR}the updated orders?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "IveFixedTheWound",
@@ -198,10 +198,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Of course it's patched up! You're still walking, aren't you? "
+          "text": "Of course it's patched up! {BR}You're still walking, aren't you? "
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "LookADistraction",
@@ -217,10 +217,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Did you really think those reinforcements were yours?"
+          "text": "Did you really think {BR}those reinforcements were yours?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "UntilYouMakeIt",
@@ -236,10 +236,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Is it still a lie if it becomes the truth?"
+          "text": "Is it still a lie {BR}if it becomes the truth?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "Fisticuffs",
@@ -255,10 +255,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "Do you think it's the first time I've been challenged this way?"
+          "text": "Do you think it's the {BR}first time I've been challenged this way?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     },
     {
       "identifier": "TheRightQuestions",
@@ -273,10 +273,10 @@
       "flavorQuotes": [
         {
           "identifier": "Inquirer",
-          "text": "So, why did you believe me in the first place?"
+          "text": "So, why did you {BR}believe me in the first place?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     }
   ],
   "dummyCards": [
@@ -297,7 +297,7 @@
           "text": "It's all part of being a hero, isn't it?"
         }
       ],
-      "flavorReference": "Inquirer"
+      "flavorReference": "Inquirer, Unknown"
     }
   ],
   "promoCards": [

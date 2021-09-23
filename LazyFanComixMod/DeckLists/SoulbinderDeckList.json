@@ -5,11 +5,6 @@
   "initialCardIdentifiers": [
     "SoulbinderCharacter"
   ],
-  "initialOffToTheSideCardIdentifiers": [
-    "SoulshardOfLightningCharacter",
-    "SoulshardOfMercuryCharacter",
-    "SoulshardOfIronCharacter"
-  ],
   "cards": [
     {
       "identifier": "SoulbinderCharacter",
@@ -192,10 +187,10 @@
         },
         {
           "identifier": "Soulbinder",
-          "text": "They're also sharp."
+          "text": "They are. They're also sharp."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Soulbinder"
     },
     {
       "identifier": "ArcaneDetonation",
@@ -204,7 +199,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may play a Ritual or Soulsplinter.",
-        "1 of your targets deals each non-Hero target and themselves 2 Infernal Damage."
+        "One of your targets deals each non-Hero target and themselves 2 Infernal Damage."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
       "flavorQuotes": [
@@ -217,7 +212,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may play a Ritual or Soulsplinter.",
-        "1 of your targets deals 1 target and themselves 2 Infernal Damage.",
+        "One of your targets deals 1 target and themselves 2 Infernal Damage.",
         "Remove 1 Ritual Token from each of your Rituals."
       ],
       "icons": [ "AddTokens", "DestroyThis" ],
@@ -231,7 +226,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may play a Ritual or Soulsplinter.",
-        "1 of your targets deals 1 themselves 1 Infernal Damage.",
+        "One of your targets deals 1 themselves 1 Infernal Damage.",
         "Each other Hero Target regains 1 HP.",
         "You may use a power now."
       ],

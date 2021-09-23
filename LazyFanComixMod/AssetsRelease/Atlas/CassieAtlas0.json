@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":256},
 	"sourceSize": {"w":177,"h":256}
 },
-"CassieHero.jpg":
+"CondensedOrb.jpg":
 {
 	"frame": {"x":180,"y":0,"w":250,"h":200},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"CondensedOrb.jpg":
+"Droplet.jpg":
 {
 	"frame": {"x":433,"y":0,"w":250,"h":200},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"Droplet.jpg":
+"MeetingTheOcean.jpg":
 {
 	"frame": {"x":686,"y":0,"w":250,"h":200},
 	"rotated": false,
@@ -32,7 +32,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"MeetingTheOcean.jpg":
+"PerpetualFlow.jpg":
 {
 	"frame": {"x":0,"y":259,"w":250,"h":200},
 	"rotated": false,
@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"PerpetualFlow.jpg":
+"RisingWaters.jpg":
 {
 	"frame": {"x":253,"y":259,"w":250,"h":200},
 	"rotated": false,
@@ -48,7 +48,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"RisingWaters.jpg":
+"Riverbank.jpg":
 {
 	"frame": {"x":506,"y":259,"w":250,"h":200},
 	"rotated": false,
@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"Riverbank.jpg":
+"RiverWornStone.jpg":
 {
 	"frame": {"x":759,"y":259,"w":250,"h":200},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"RiverWornStone.jpg":
+"RushingWaters.jpg":
 {
 	"frame": {"x":0,"y":462,"w":250,"h":200},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"RushingWaters.jpg":
+"StormSwell.jpg":
 {
 	"frame": {"x":253,"y":462,"w":250,"h":200},
 	"rotated": false,
@@ -80,7 +80,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"StormSwell.jpg":
+"StreamShot.jpg":
 {
 	"frame": {"x":506,"y":462,"w":250,"h":200},
 	"rotated": false,
@@ -88,7 +88,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"StreamShot.jpg":
+"Waterlog.jpg":
 {
 	"frame": {"x":759,"y":462,"w":250,"h":200},
 	"rotated": false,
@@ -96,17 +96,9 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
 	"sourceSize": {"w":250,"h":200}
 },
-"Waterlog.jpg":
-{
-	"frame": {"x":0,"y":665,"w":250,"h":200},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
-	"sourceSize": {"w":250,"h":200}
-},
 "WaterSurge.jpg":
 {
-	"frame": {"x":253,"y":665,"w":250,"h":200},
+	"frame": {"x":0,"y":665,"w":250,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
@@ -119,6 +111,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:ce5362928188e087807230ade2300fa2:de73ddff85576f38ab4aab5ebb80ac12:0189780c3cc87c08831050582226ea32$"
+	"smartupdate": "$TexturePacker:SmartUpdate:8ef4be7ee8d96500a7454b13ce547453:b64248101468084f10e1bf5108622af3:0189780c3cc87c08831050582226ea32$"
 }
 }

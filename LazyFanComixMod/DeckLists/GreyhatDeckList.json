@@ -125,7 +125,7 @@
       "flavorQuotes": [
         {
           "identifier": "Greyhat",
-          "text": "Stop... Oh, who am I kidding. Keep hitting yourself!"
+          "text": "Stop... Oh, who am {BR}I kidding. Keep hitting yourself!"
         }
       ],
       "flavorReference": "Greyhat"
@@ -160,10 +160,7 @@
         "Draw a card for each non-Hero Target next to a Link."
       ],
       "icons": [ "DrawCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "DDoS",
@@ -175,10 +172,7 @@
         "Each Hero next to a link deals each non-Hero Target next to a Link 1 Energy Damage."
       ],
       "icons": [ "DealDamageEnergy" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "SystemReboot",
@@ -192,10 +186,7 @@
         "You may play a number of Link cards equal to the number of Links returned to your hand by this card."
       ],
       "icons": [ "Search", "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "PingSweep",
@@ -206,10 +197,7 @@
         "Reveal cards from the top of your deck until 2 Links have been revealed. Play those Links. Shuffle the other revealed cards into your deck."
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "NodeCheck",
@@ -222,10 +210,7 @@
         "You may play a card."
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "BandwidthRestriction",
@@ -237,10 +222,7 @@
         "Reduce damage dealt to Heroes next to a Link by non-Hero Targets next to a Link by 1."
       ],
       "icons": [ "PlayCardNow", "ReduceDamageTaken" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "OverclockSystems",
@@ -252,10 +234,7 @@
         "Increase damage dealt by Heroes next to a Link to non-Hero Targets next to a Link by 1."
       ],
       "icons": [ "PlayCardNow", "IncreaseDamageDealt" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "AutoRedirect",
@@ -267,10 +246,7 @@
         "The first time each turn a Hero next to a Link would be dealt 2 or fewer damage, you may redirect that damage to a non-Hero target next to a link."
       ],
       "icons": [ "PlayCardNow", "Redirect" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     }
   ],
   "promoCards": [

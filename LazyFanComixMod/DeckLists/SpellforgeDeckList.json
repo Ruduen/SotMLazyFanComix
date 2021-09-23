@@ -49,8 +49,11 @@
       "icons": [ "DealDamageEnergy", "Discard" ],
       "flavorQuotes": [
         {
+          "identifier": "Spellforge",
+          "text": "Precision is important {BR} in both words and actions."
         }
-      ]
+      ],
+      "flavorReference": "Spellforge"
     },
     {
       "identifier": "Wave",
@@ -59,10 +62,7 @@
       "keywords": [ "one-shot", "essence" ],
       "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 5 Targets 2 Lightning Damage." ],
       "icons": [ "DealDamageLightning", "Discard" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "Impact",
@@ -71,10 +71,7 @@
       "keywords": [ "one-shot", "essence" ],
       "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals each Target 1 Melee Damage." ],
       "icons": [ "DealDamageMelee", "Discard" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "Controlled",
@@ -84,10 +81,7 @@
       "keywords": [ "one-shot", "prefix" ],
       "body": [ "One Player may play 1 card now.", "[u]Prefix[/u]: This effect's damage is reduced to 1 when targetting Hero Targets." ],
       "icons": [ "DrawCardNow", "DestroyOngoing", "ReduceDamageDealt" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "Inspired",
@@ -97,10 +91,7 @@
       "keywords": [ "one-shot", "prefix" ],
       "body": [ "Draw 3 cards.", "[u]Prefix[/u]: This effect's damage is increased by 1." ],
       "icons": [ "DrawCardNow", "DestroyEnvironment", "IncreaseDamageDealt" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "Piercing",
@@ -110,10 +101,7 @@
       "keywords": [ "one-shot", "prefix" ],
       "body": [ "One Hero may use a power. ", "[u]Prefix[/u]: This effect's damage is Irreducible." ],
       "icons": [ "DrawCardNow", "UsePowerNow", "MakeDamageIrreducible" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "OfAura",
@@ -123,10 +111,7 @@
       "keywords": [ "one-shot", "suffix" ],
       "body": [ "You may destroy an Ongoing or Environment card. Draw a card.", "[u]Suffix[/u]: After a Hero is dealt damage this way, their player draws a card." ],
       "icons": [ "DrawCardNow" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "OfDisruption",
@@ -136,10 +121,7 @@
       "keywords": [ "one-shot", "suffix" ],
       "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw a card.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, it deals itself 1 Sonic Damage." ],
       "icons": [ "DrawCardNow", "DealDamageSonic" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "OfHealing",
@@ -149,10 +131,7 @@
       "keywords": [ "one-shot", "suffix" ],
       "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 3 HP." ],
       "icons": [ "DrawCardNow", "DestroyEnvironment", "GainHP" ],
-      "flavorQuotes": [
-        {
-        }
-      ]
+      "flavorQuotes": []
     },
     {
       "identifier": "ArticulateTheLethological",
@@ -163,6 +142,7 @@
       "icons": [ "DrawCardNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
+          "identifier": "Unknown",
           "text": "Is that even a word?"
         },
         {
@@ -185,10 +165,12 @@
       "icons": [ "DrawCardNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
+          "identifier": "Unknown",
           "text": "Why are they still talking?"
         },
         {
-          "text": "Why are [i]we[/i] still listening?"
+          "identifier": "Unknown",
+          "text": "Why are we still listening?"
         }
       ]
     }
