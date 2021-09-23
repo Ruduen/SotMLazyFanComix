@@ -540,5 +540,23 @@ namespace LazyFanComixTest
             QuickHPCheck(-1); // Damage Dealt.
             AssertInHand(spell); // Spell returned to hand due to interruption.
         }
+
+        [Test()]
+        public void TestBreachMageRepresentative()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.BreachMage" });
+            SelectFromBoxForNextDecision("LazyFanComix.BreachMageCharacter", "LazyFanComix.BreachMage");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("BreachMageCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
     }
 }

@@ -25,15 +25,15 @@ namespace LazyFanComix.BreachMage
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
             // Charge ability attempt.
             // Destroy one of your charges.
-            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
-                new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
+            coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController,
+                new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.TurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
                 powerNumerals[0], false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.GetNumberOfCardsDestroyed(storedResultsAction) == powerNumerals[0])
             {
                 // If one were destroyed, someone draws 2.
-                coroutine = this.GameController.SelectHeroToDrawCards(this.DecisionMaker, powerNumerals[1], false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource());
+                coroutine = this.GameController.SelectHeroToDrawCards(this.HeroTurnTakerController, powerNumerals[1], false, false, null, false, null, new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame, "active heroes"), null, null, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
