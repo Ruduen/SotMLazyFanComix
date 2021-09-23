@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace LazyFanComixText
+namespace LazyFanComixTest
 {
     [TestFixture]
     public class GreyhatTest : BaseTest
@@ -383,6 +383,27 @@ namespace LazyFanComixText
             Card link = PlayCard("DigitalUplink");
             AssertNextToCard(link, legacy.CharacterCard);
             AssertNumberOfUsablePowers(legacy, 0); // Power was used.
+        }
+
+        [Test()]
+        public void TestPlayDigitalUplinkTribunal()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            SelectFromBoxForNextDecision("HakaCharacter", "Haka");
+            PlayCard("RepresentativeOfEarth");
+            Card hakaCard = FindCardInPlay("HakaCharacter");
+
+            DecisionSelectCard = hakaCard;
+
+            Card link = PlayCard("DigitalUplink");
+            AssertNextToCard(link, hakaCard);
+            AssertNumberOfUsablePowers(hakaCard, 1); // Power was not used.
         }
 
 

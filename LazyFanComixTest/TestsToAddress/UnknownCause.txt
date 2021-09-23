@@ -1,0 +1,1209 @@
+﻿
+	, 
+Journal=1035 entries, 
+RandomSeed=1064523689]
+Akash'Bhuta threatens the Multiverse!
+TheCelestialTribunal is the location of the conflict.
+Spellforge joins the team!
+ joins the team!
+Greyhat joins the team!
+Created game with random seed: 574528863
+[Game: TurnTakers=[ "AkashBhuta", "Spellforge", "Soulbinder", "Greyhat", "TheCelestialTribunal" ], Promos:= [ { "Soulbinder", "SoulbinderMortalFormCharacter" } ], IsAdvanced=False, IsChallenge=False, RandomSeed=574528863]
+DEBUG: Went to Akash'Bhuta's Start phase.
+DEBUG: Went from Akash'Bhuta's Start phase to PlayCard phase. 
+DEBUG: GameController plays Entomb.
+PLAY CARD SANITY: 10
+DEBUG: Went from Akash'Bhuta's PlayCard phase to End phase. 
+DEBUG: Went from Akash'Bhuta's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D1 Spellforge]
+DEBUG: GameController plays Ray.
+Message: Spellforge has no prefix in their hand. [ Ray ]
+DEBUG: Created decision [SelectCards/None D2 Spellforge]
+DEBUG: Created decision [SelectCard/None D2-1 Spellforge]
+Message: Spellforge has no suffix in their hand. [ Ray ]
+DEBUG: Created decision [SelectCards/None D3 Spellforge]
+DEBUG: Created decision [SelectCard/None D3-1 Spellforge]
+DEBUG: Created decision [SelectTargets/None D4 Spellforge]
+DEBUG: Created decision [SelectTarget/None D4-1 Spellforge]
+DEBUG: Spellforge initiates 4 Energy damage to Soulbinder.
+DEBUG: Spellforge deals Soulbinder 4 Energy damage.
+DEBUG: Soulbinder is now at 25 HP.
+DEBUG: GameController moved Ray to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D5 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Ray.
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws Meandering Dissertation.
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D6 Soulbinder]
+DEBUG: GameController plays Keystone of Spirit.
+DEBUG: Created decision [SelectCards/None D7 Soulbinder]
+DEBUG: Created decision [SelectCard/None D7-1 Soulbinder]
+DEBUG: Keystone of Spirit plays Ritual of Transferrence.
+DEBUG: Ritual of Transferrence adds 3 tokens to Ritual Pool.
+DEBUG: Created decision [SelectCard/None D8 Soulbinder]
+DEBUG: Created decision [SelectTargets/None D9 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D9-1 Soulbinder]
+DEBUG: Soulbinder initiates 1 Infernal damage to Soulbinder.
+DEBUG: Soulbinder deals Soulbinder 1 Infernal damage.
+DEBUG: Soulbinder is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D9-2 Soulbinder]
+DEBUG: Created decision [SelectCards/None D10 Soulbinder]
+DEBUG: Created decision [SelectCard/None D10-1 Soulbinder]
+DEBUG: Keystone of Spirit tried to increase Spellforge's HP, but they are already at their maximum HP.
+DEBUG: Created decision [SelectCard/None D10-2 Soulbinder]
+DEBUG: Keystone of Spirit tried to increase Greyhat's HP, but they are already at their maximum HP.
+DEBUG: Created decision [SelectCard/None D10-3 Soulbinder]
+DEBUG: Created decision [UsePower/UsePower D11 Soulbinder]
+DEBUG: Soulbinder uses the power on Soulbinder.
+DEBUG: Soulbinder draws Clay Soulsplinter.
+DEBUG: Created decision [SelectCard/None D12 Soulbinder]
+DEBUG: Soulbinder's Mortal Form removes 1 token from Ritual Pool.
+DEBUG: GameController moved Keystone of Spirit to Soulbinder's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D13 Soulbinder]
+DEBUG: Soulbinder uses the power on Ritual of Transferrence.
+Message: Removing 1 Ritual Token from Ritual of Transferrence. [ Ritual of Transferrence, Ritual of Transferrence ]
+DEBUG: Ritual of Transferrence removes 1 token from Ritual Pool.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Ritual Components.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D14 Greyhat]
+DEBUG: GameController plays Bandwidth Restriction.
+DEBUG: Created decision [SelectCards/None D15 Greyhat]
+DEBUG: Created decision [SelectCard/None D15-1 Greyhat]
+DEBUG: Bandwidth Restriction plays Proxy Relay.
+DEBUG: GameController moved Proxy Relay from Greyhat's hand next to Greyhat.
+DEBUG: Proxy Relay tried to increase Greyhat's HP, but they are already at their maximum HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D16 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat (contributed by Proxy Relay).
+DEBUG: Greyhat draws DDoS.
+DEBUG: Applying ongoing effect: Reduce damage dealt to Greyhat by 1.
+Message: Reduce damage dealt to Greyhat by 1. [  ]
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Communication Relay.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays The Celestial Chamber.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+Message: The Celestial Chamber plays the top card of the environment deck. [ The Celestial Chamber ]
+DEBUG: The Celestial Chamber plays Celestial Executioner.
+Message: Akash'Bhuta plays the top card of the villain deck... [ Akash'Bhuta ]
+DEBUG: Created decision [SelectLocation/None D17]
+DEBUG: Akash'Bhuta plays Entomb.
+DEBUG: Went from The Celestial Tribunal's End phase to Akash'Bhuta's Start phase. 
+DEBUG: Created decision [SelectTargets/None D18]
+DEBUG: Created decision [SelectTarget/None D18-1]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Spellforge.
+DEBUG: Akash'Bhuta deals Spellforge 3 Psychic damage.
+DEBUG: Spellforge is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D18-2]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Soulbinder.
+DEBUG: Akash'Bhuta deals Soulbinder 3 Psychic damage.
+DEBUG: Soulbinder is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D18-3]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Greyhat.
+DEBUG: Proxy Relay reduces the damage dealt to Greyhat by Akash'Bhuta by 1.
+DEBUG: Akash'Bhuta deals Greyhat 2 Psychic damage.
+DEBUG: Greyhat is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D18-4]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Celestial Executioner.
+DEBUG: Akash'Bhuta deals Celestial Executioner 3 Psychic damage.
+DEBUG: Celestial Executioner is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D18-5]
+DEBUG: Entomb destroys itself!
+DEBUG: GameController moved Entomb to the villain trash.
+DEBUG: Created decision [SelectTargets/None D19]
+DEBUG: Created decision [SelectTarget/None D19-1]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Spellforge.
+DEBUG: Akash'Bhuta deals Spellforge 3 Psychic damage.
+DEBUG: Spellforge is now at 20 HP.
+DEBUG: Created decision [SelectTarget/None D19-2]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Greyhat.
+DEBUG: Proxy Relay reduces the damage dealt to Greyhat by Akash'Bhuta by 1.
+DEBUG: Akash'Bhuta deals Greyhat 2 Psychic damage.
+DEBUG: Greyhat is now at 19 HP.
+DEBUG: Created decision [SelectTarget/None D19-3]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Celestial Executioner.
+DEBUG: Akash'Bhuta deals Celestial Executioner 3 Psychic damage.
+DEBUG: Celestial Executioner is now at 0 HP.
+DEBUG: Akash'Bhuta destroys Celestial Executioner!
+DEBUG: GameController moved Celestial Executioner to the environment trash.
+DEBUG: Created decision [SelectTarget/None D19-4]
+DEBUG: Akash'Bhuta initiates 3 Psychic damage to Soulbinder.
+DEBUG: Akash'Bhuta deals Soulbinder 3 Psychic damage.
+DEBUG: Soulbinder is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D19-5]
+DEBUG: Entomb destroys itself!
+DEBUG: GameController moved Entomb to the villain trash.
+DEBUG: Went from Akash'Bhuta's Start phase to PlayCard phase. 
+DEBUG: GameController plays Disrupt the Field.
+DEBUG: Created decision [SelectCards/None D20]
+DEBUG: Created decision [SelectCard/None D20-1]
+DEBUG: Disrupt the Field destroys The Celestial Chamber!
+DEBUG: GameController moved The Celestial Chamber to the environment trash.
+DEBUG: Disrupt the Field plays Mountainous Carapace.
+Message: Akash'Bhuta discards Representative of Earth from the top of the environment deck. [  ]
+DEBUG: Akash'Bhuta moved Representative of Earth from the environment deck to the environment trash.
+DEBUG: Disrupt the Field plays Celestial Adjudicator.
+Message: Akash'Bhuta plays the top card of the villain deck... [ Akash'Bhuta ]
+DEBUG: Created decision [SelectLocation/None D21]
+DEBUG: Akash'Bhuta plays Mountainous Carapace.
+Message: Akash'Bhuta discards Celestial Executioner from the top of the environment deck. [  ]
+DEBUG: Akash'Bhuta moved Celestial Executioner from the environment deck to the environment trash.
+DEBUG: GameController moved Disrupt the Field to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Akash'Bhuta's PlayCard phase to End phase. 
+DEBUG: Went from Akash'Bhuta's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D22 Spellforge]
+DEBUG: GameController plays Articulate the Lethological.
+DEBUG: Created decision [SelectFunction/SelectFunction D23 Spellforge]
+DEBUG: Revealed matching card: Impact
+DEBUG: Revealed card: Inspired...
+DEBUG: Revealed card: Inspired...
+DEBUG: Revealed card: ...of Aura
+DEBUG: Revealed matching card: Wave
+DEBUG: Articulate the Lethological moved Impact from Spellforge's revealed cards to Spellforge's hand.
+DEBUG: Articulate the Lethological moved Wave from Spellforge's revealed cards to Spellforge's hand.
+DEBUG: Articulate the Lethological moves 3 cards cards to the top of Spellforge's Deck.
+DEBUG: Spellforge shuffles their Spellforge's deck.
+DEBUG: Created decision [SelectCard/None D24 Spellforge]
+DEBUG: Articulate the Lethological plays Ray.
+Message: Spellforge has no prefix in their hand. [ Ray ]
+DEBUG: Created decision [SelectCards/None D25 Spellforge]
+DEBUG: Created decision [SelectCard/None D25-1 Spellforge]
+Message: Spellforge has no suffix in their hand. [ Ray ]
+DEBUG: Created decision [SelectCards/None D26 Spellforge]
+DEBUG: Created decision [SelectCard/None D26-1 Spellforge]
+DEBUG: Created decision [SelectTargets/None D27 Spellforge]
+DEBUG: Created decision [SelectTarget/None D27-1 Spellforge]
+DEBUG: Spellforge initiates 4 Energy damage to Greyhat.
+DEBUG: Proxy Relay reduces the damage dealt to Greyhat by Spellforge by 1.
+DEBUG: Spellforge deals Greyhat 3 Energy damage.
+DEBUG: Greyhat is now at 16 HP.
+DEBUG: GameController moved Ray to Spellforge's trash.
+DEBUG: GameController moved Articulate the Lethological to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D28 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws ...of Healing.
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws ...of Healing.
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D29 Soulbinder]
+DEBUG: GameController plays Ritual Components.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D30 Soulbinder]
+DEBUG: Soulbinder uses the power on Ritual Components.
+DEBUG: Created decision [SelectCard/None D31 Soulbinder]
+DEBUG: Created decision [SelectTargets/None D32 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D32-1 Soulbinder]
+DEBUG: Soulbinder initiates 2 Infernal damage to Spellforge.
+DEBUG: Soulbinder deals Spellforge 2 Infernal damage.
+DEBUG: Spellforge is now at 18 HP.
+DEBUG: Created decision [SelectCards/None D33 Soulbinder]
+DEBUG: Created decision [SelectCard/None D33-1 Soulbinder]
+Message: Removing 1 Ritual Token from Ritual of Transferrence. [ Ritual of Transferrence, Ritual Components ]
+DEBUG: Ritual Components removes 1 token from Ritual Pool, down to its minimum number.
+Message: Ritual of Transferrence's last Ritual Token has been removed, so it will now activate! [ Ritual of Transferrence ]
+DEBUG: Created decision [SelectCards/None D34 Soulbinder]
+DEBUG: Created decision [SelectCard/None D34-1 Soulbinder]
+DEBUG: Ritual of Transferrence caused Soulbinder to regain 2 HP. HP is now 20.
+DEBUG: Created decision [SelectCard/None D34-2 Soulbinder]
+DEBUG: Ritual of Transferrence tried to increase Mountainous Carapace's HP, but they are already at their maximum HP.
+DEBUG: Created decision [SelectCard/None D34-3 Soulbinder]
+DEBUG: Ritual of Transferrence caused Greyhat to regain 2 HP. HP is now 18.
+DEBUG: Created decision [SelectTargets/None D35 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D35-1 Soulbinder]
+DEBUG: Soulbinder initiates 4 Toxic damage to Soulbinder.
+DEBUG: Soulbinder deals Soulbinder 4 Toxic damage.
+DEBUG: Soulbinder is now at 16 HP.
+DEBUG: Ritual of Transferrence destroys itself!
+DEBUG: GameController moved Ritual of Transferrence to Soulbinder's trash.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Final Eruption.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+Message: There are no rituals with Ritual Tokens in play. [ Ritual Components ]
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Notice: an ongoing effect just expired: Reduce damage dealt to Greyhat by 1.
+Message: Expiring: Reduce damage dealt to Greyhat by 1. [ Proxy Relay ]
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D36 Greyhat]
+DEBUG: GameController plays System Reboot.
+Message: Greyhat reshuffles their trash into their deck. [  ]
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCard/None D37 Greyhat]
+DEBUG: System Reboot moved Digital Uplink from Greyhat's deck to Greyhat's hand.
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCards/None D38 Greyhat]
+DEBUG: Created decision [SelectCard/None D38-1 Greyhat]
+DEBUG: System Reboot moved Proxy Relay to Greyhat's hand.
+DEBUG: Created decision [SelectCards/None D39 Greyhat]
+DEBUG: Created decision [SelectCard/None D39-1 Greyhat]
+DEBUG: System Reboot plays Proxy Relay.
+DEBUG: GameController moved Proxy Relay from Greyhat's hand next to Greyhat.
+DEBUG: Proxy Relay caused Greyhat to regain 2 HP. HP is now 20.
+DEBUG: GameController moved System Reboot to Greyhat's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D40 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat (contributed by Proxy Relay).
+DEBUG: Greyhat draws DDoS.
+DEBUG: Applying ongoing effect: Reduce damage dealt to Greyhat by 1.
+Message: Reduce damage dealt to Greyhat by 1. [  ]
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Node Check.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Revealed card: Character Witness
+DEBUG: Revealed card: The Celestial Chamber
+DEBUG: Revealed matching card: Found Wanting
+Message: Celestial Adjudicator revealed Character Witness, The Celestial Chamber and Found Wanting. [ Character Witness ]
+DEBUG: Celestial Adjudicator puts Found Wanting into play.
+DEBUG: Created decision [SelectCard/None D41]
+DEBUG: GameController moved Found Wanting from The Celestial Tribunal's revealed cards next to Akash'Bhuta.
+DEBUG: Celestial Adjudicator moved Character Witness from The Celestial Tribunal's revealed cards to the environment trash.
+DEBUG: Celestial Adjudicator moved The Celestial Chamber from The Celestial Tribunal's revealed cards to the environment trash.
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Found Wanting.
+DEBUG: Created decision [SelectCard/None D42]
+DEBUG: GameController moved Found Wanting from the environment deck next to Mountainous Carapace.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Akash'Bhuta's Start phase. 
+DEBUG: Went from Akash'Bhuta's Start phase to PlayCard phase. 
+DEBUG: GameController plays Living Rockslide.
+Message: Akash'Bhuta discards Paragon of Sentience from the top of the environment deck. [  ]
+DEBUG: Akash'Bhuta moved Paragon of Sentience from the environment deck to the environment trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Akash'Bhuta's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D43]
+DEBUG: Created decision [SelectTarget/None D43-1]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Spellforge.
+DEBUG: Living Rockslide deals Spellforge 1 Projectile damage.
+DEBUG: Spellforge is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D43-2]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Celestial Adjudicator.
+DEBUG: Celestial Adjudicator reduces the damage dealt to Celestial Adjudicator by Living Rockslide by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D43-3]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Soulbinder.
+DEBUG: Living Rockslide deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 15 HP.
+DEBUG: Created decision [SelectTarget/None D43-4]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Greyhat.
+DEBUG: Proxy Relay reduces the damage dealt to Greyhat by Living Rockslide by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D43-5]
+DEBUG: Went from Akash'Bhuta's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D44 Spellforge]
+DEBUG: GameController plays Wave.
+Message: Spellforge has no prefix in their hand. [ Wave ]
+DEBUG: Created decision [SelectCards/None D45 Spellforge]
+DEBUG: Created decision [SelectCard/None D45-1 Spellforge]
+DEBUG: Created decision [SelectCards/None D46 Spellforge]
+DEBUG: Created decision [SelectCard/None D46-1 Spellforge]
+DEBUG: Spellforge discards ...of Healing.
+DEBUG: Wave moved ...of Healing from Spellforge's hand to Spellforge's trash.
+Message: {Spellforge} uses Wave of Healing! [  ]
+DEBUG: Created decision [SelectTargets/None D47 Spellforge]
+DEBUG: Created decision [SelectTarget/None D47-1 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Mountainous Carapace.
+DEBUG: Spellforge deals Mountainous Carapace 2 Lightning damage.
+DEBUG: Mountainous Carapace is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D47-2 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Soulbinder.
+DEBUG: Spellforge deals Soulbinder 2 Lightning damage.
+DEBUG: Soulbinder is now at 13 HP.
+DEBUG: ...of Healing caused Soulbinder to regain 3 HP. HP is now 16.
+DEBUG: Created decision [SelectTarget/None D47-3 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Spellforge.
+DEBUG: Spellforge deals Spellforge 2 Lightning damage.
+DEBUG: Spellforge is now at 15 HP.
+DEBUG: ...of Healing caused Spellforge to regain 3 HP. HP is now 18.
+DEBUG: Created decision [SelectTarget/None D47-4 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Greyhat.
+DEBUG: Proxy Relay reduces the damage dealt to Greyhat by Spellforge by 1.
+DEBUG: Spellforge deals Greyhat 1 Lightning damage.
+DEBUG: Greyhat is now at 19 HP.
+DEBUG: ...of Healing caused Greyhat to regain 3 HP. HP is now 22.
+DEBUG: Created decision [SelectTarget/None D47-5 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Akash'Bhuta.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Spellforge by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Spellforge by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: GameController moved Wave to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D48 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Wave.
+DEBUG: Spellforge draws Articulate the Lethological.
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws Meandering Dissertation.
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D49 Soulbinder]
+DEBUG: GameController plays Clay Soulsplinter.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D50 Soulbinder]
+DEBUG: Soulbinder uses the power on Ritual Components.
+DEBUG: Created decision [SelectCard/None D51 Soulbinder]
+DEBUG: Created decision [SelectTargets/None D52 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D52-1 Soulbinder]
+DEBUG: Clay Soulsplinter initiates 2 Infernal damage to Celestial Adjudicator.
+DEBUG: Celestial Adjudicator reduces the damage dealt to Celestial Adjudicator by Clay Soulsplinter by 1.
+DEBUG: Clay Soulsplinter deals Celestial Adjudicator 1 Infernal damage.
+DEBUG: Celestial Adjudicator is now at 11 HP.
+Message: There are no rituals with Ritual Tokens in play. [ Ritual Components ]
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Spiritual Resonance.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+Message: There are no rituals with Ritual Tokens in play. [ Ritual Components ]
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Notice: an ongoing effect just expired: Reduce damage dealt to Greyhat by 1.
+Message: Expiring: Reduce damage dealt to Greyhat by 1. [ Proxy Relay ]
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D53 Greyhat]
+DEBUG: GameController plays System Reboot.
+Message: Greyhat reshuffles their trash into their deck. [  ]
+DEBUG: System Reboot moves System Reboot cards to the top of Greyhat's Deck.
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCard/None D54 Greyhat]
+DEBUG: System Reboot moved Proxy Relay from Greyhat's deck to Greyhat's hand.
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCards/None D55 Greyhat]
+DEBUG: Created decision [SelectCard/None D55-1 Greyhat]
+DEBUG: System Reboot moved Proxy Relay to Greyhat's hand.
+DEBUG: Created decision [SelectCards/None D56 Greyhat]
+DEBUG: Created decision [SelectCard/None D56-1 Greyhat]
+DEBUG: System Reboot plays Communication Relay.
+DEBUG: GameController moved Communication Relay from Greyhat's hand next to Greyhat.
+DEBUG: Communication Relay will destroy 1 ongoing or environment cards.
+DEBUG: Created decision [SelectCards/None D57 Greyhat]
+DEBUG: Created decision [SelectCard/None D57-1 Greyhat]
+ChooseDestroyCard from <Bandwidth Restriction, Celestial Adjudicator, Found Wanting, Found Wanting> choosing Celestial Adjudicator
+DEBUG: Communication Relay destroys Celestial Adjudicator!
+DEBUG: GameController moved Celestial Adjudicator to the environment trash.
+DEBUG: GameController moved System Reboot to Greyhat's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D58 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat (contributed by Communication Relay).
+DEBUG: Created decision [SelectCards/None D59 Greyhat]
+DEBUG: Created decision [SelectCard/None D59-1 Greyhat]
+DEBUG: Communication Relay plays Proxy Relay.
+DEBUG: GameController moved Proxy Relay from Greyhat's hand next to Greyhat.
+DEBUG: Proxy Relay caused Greyhat to regain 1 HP, up to their maximum HP. HP is now 23.
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws System Reboot.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Paragon of Sentience.
+DEBUG: Created decision [SelectCard/None D60]
+DEBUG: GameController moved Paragon of Sentience from the environment deck next to Soulbinder.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Akash'Bhuta's Start phase. 
+DEBUG: Went from Akash'Bhuta's Start phase to PlayCard phase. 
+DEBUG: GameController plays Primeval Eruption.
+DEBUG: Revealed card: Mountainous Carapace
+DEBUG: Revealed card: Arboreal Phalanges
+DEBUG: Revealed card: Arboreal Phalanges
+Message: Primeval Eruption revealed Mountainous Carapace, Arboreal Phalanges and Arboreal Phalanges. [ Mountainous Carapace ]
+DEBUG: Primeval Eruption puts Mountainous Carapace into play.
+Message: Akash'Bhuta discards Called to Judgement from the top of the environment deck. [  ]
+DEBUG: Akash'Bhuta moved Called to Judgement from the environment deck to the environment trash.
+DEBUG: Primeval Eruption puts Arboreal Phalanges into play.
+Message: Akash'Bhuta discards Paragon of Sentience from the top of the environment deck. [  ]
+DEBUG: Akash'Bhuta moved Paragon of Sentience from the environment deck to the environment trash.
+DEBUG: Primeval Eruption puts Arboreal Phalanges into play.
+Message: Akash'Bhuta discards Celestial Executioner from the top of the environment deck. [  ]
+DEBUG: Akash'Bhuta moved Celestial Executioner from the environment deck to the environment trash.
+DEBUG: Primeval Eruption plays Rejuvenating Entropy.
+DEBUG: Rejuvenating Entropy will destroy 3 equipment cards.
+DEBUG: Created decision [SelectCards/None D61]
+DEBUG: Created decision [SelectCard/None D61-1]
+ChooseDestroyCard from <Ritual Components, Proxy Relay, Communication Relay> choosing Ritual Components
+DEBUG: Rejuvenating Entropy destroys Ritual Components!
+DEBUG: GameController moved Ritual Components to Soulbinder's trash.
+DEBUG: Created decision [SelectCard/None D61-2]
+ChooseDestroyCard from <Proxy Relay, Communication Relay> choosing Proxy Relay
+DEBUG: Rejuvenating Entropy destroys Proxy Relay!
+DEBUG: GameController moved Proxy Relay to Greyhat's trash.
+DEBUG: Created decision [SelectCard/None D61-3]
+DEBUG: Rejuvenating Entropy destroys Communication Relay!
+DEBUG: GameController moved Communication Relay to Greyhat's trash.
+DEBUG: Created decision [SelectCards/None D62]
+DEBUG: Created decision [SelectCard/None D62-1]
+DEBUG: Arboreal Phalanges regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D62-2]
+DEBUG: Arboreal Phalanges regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D62-3]
+DEBUG: Living Rockslide regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D62-4]
+DEBUG: Rejuvenating Entropy caused Mountainous Carapace to regain 2 HP, up to their maximum HP. HP is now 11.
+DEBUG: Created decision [SelectCard/None D62-5]
+DEBUG: Mountainous Carapace regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D62-6]
+DEBUG: Mountainous Carapace regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D62-7]
+DEBUG: GameController moved Rejuvenating Entropy to the villain trash.
+DEBUG: GameController moved Primeval Eruption to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Akash'Bhuta's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D63]
+DEBUG: Created decision [SelectTarget/None D63-1]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Spellforge.
+DEBUG: Living Rockslide deals Spellforge 1 Projectile damage.
+DEBUG: Spellforge is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D63-2]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Greyhat.
+DEBUG: Living Rockslide deals Greyhat 1 Projectile damage.
+DEBUG: Greyhat is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D63-3]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Soulbinder.
+DEBUG: Living Rockslide deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 15 HP.
+DEBUG: Created decision [SelectTarget/None D63-4]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Clay Soulsplinter.
+DEBUG: Living Rockslide deals Clay Soulsplinter 1 Projectile damage.
+DEBUG: Clay Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D63-5]
+DEBUG: Created decision [SelectTargets/None D64]
+DEBUG: Created decision [SelectTarget/None D64-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Greyhat.
+DEBUG: Arboreal Phalanges deals Greyhat 2 Melee damage.
+DEBUG: Greyhat is now at 20 HP.
+DEBUG: Created decision [SelectTarget/None D64-2]
+DEBUG: Created decision [SelectTargets/None D65]
+DEBUG: Created decision [SelectTarget/None D65-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Greyhat.
+DEBUG: Arboreal Phalanges deals Greyhat 2 Melee damage.
+DEBUG: Greyhat is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D65-2]
+DEBUG: Went from Akash'Bhuta's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D66 Spellforge]
+DEBUG: GameController plays Wave.
+Message: Spellforge has no prefix in their hand. [ Wave ]
+DEBUG: Created decision [SelectCards/None D67 Spellforge]
+DEBUG: Created decision [SelectCard/None D67-1 Spellforge]
+DEBUG: Created decision [SelectCards/None D68 Spellforge]
+DEBUG: Created decision [SelectCard/None D68-1 Spellforge]
+DEBUG: Spellforge discards ...of Healing.
+DEBUG: Wave moved ...of Healing from Spellforge's hand to Spellforge's trash.
+Message: {Spellforge} uses Wave of Healing! [  ]
+DEBUG: Created decision [SelectTargets/None D69 Spellforge]
+DEBUG: Created decision [SelectTarget/None D69-1 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Akash'Bhuta.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Spellforge by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Spellforge by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Spellforge by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D69-2 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Arboreal Phalanges.
+DEBUG: Spellforge deals Arboreal Phalanges 2 Lightning damage.
+DEBUG: Arboreal Phalanges is now at 10 HP.
+DEBUG: Created decision [SelectTarget/None D69-3 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Mountainous Carapace.
+DEBUG: Spellforge deals Mountainous Carapace 2 Lightning damage.
+DEBUG: Mountainous Carapace is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D69-4 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Mountainous Carapace.
+DEBUG: Spellforge deals Mountainous Carapace 2 Lightning damage.
+DEBUG: Mountainous Carapace is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D69-5 Spellforge]
+DEBUG: Spellforge initiates 2 Lightning damage to Clay Soulsplinter.
+DEBUG: Spellforge deals Clay Soulsplinter 2 Lightning damage.
+DEBUG: Clay Soulsplinter is now at 1 HP.
+DEBUG: ...of Healing caused Clay Soulsplinter to regain 3 HP, up to their maximum HP. HP is now 4.
+DEBUG: GameController moved Wave to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D70 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Articulate the Lethological.
+DEBUG: Spellforge draws Inspired....
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws ...of Aura.
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D71 Soulbinder]
+DEBUG: GameController plays Final Eruption.
+DEBUG: Created decision [SelectCards/None D72 Soulbinder]
+DEBUG: Created decision [SelectCard/None D72-1 Soulbinder]
+DEBUG: Final Eruption plays Straw Soulsplinter.
+DEBUG: Created decision [SelectCard/None D73 Soulbinder]
+DEBUG: Created decision [SelectTargets/None D74 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D74-1 Soulbinder]
+DEBUG: Clay Soulsplinter initiates 6 Infernal damage to Spellforge.
+DEBUG: Clay Soulsplinter deals Spellforge 6 Infernal damage.
+DEBUG: Spellforge is now at 11 HP.
+DEBUG: Final Eruption destroys Clay Soulsplinter!
+DEBUG: GameController moved Clay Soulsplinter to Soulbinder's trash.
+DEBUG: GameController moved Final Eruption to Soulbinder's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D75 Soulbinder]
+DEBUG: Soulbinder uses the power on Soulbinder.
+DEBUG: Soulbinder draws Clay Soulsplinter.
+Message: There are no rituals with Ritual Tokens in play. [ Soulbinder ]
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Ritual of Knowledge.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D76 Greyhat]
+DEBUG: GameController plays Node Check.
+DEBUG: Greyhat draws Flare Relay.
+DEBUG: Created decision [SelectCard/None D77 Greyhat]
+DEBUG: Node Check moved Coerced Uplink from Greyhat's deck to Greyhat's hand.
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCards/None D78 Greyhat]
+DEBUG: Created decision [SelectCard/None D78-1 Greyhat]
+DEBUG: Node Check plays Coerced Uplink.
+DEBUG: Created decision [SelectCard/None D79 Greyhat]
+DEBUG: GameController moved Coerced Uplink from Greyhat's hand next to Mountainous Carapace.
+DEBUG: Greyhat initiates 2 Lightning damage to Mountainous Carapace.
+DEBUG: Greyhat deals Mountainous Carapace 2 Lightning damage.
+DEBUG: Mountainous Carapace is now at 7 HP.
+DEBUG: GameController moved Node Check to Greyhat's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D80 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat.
+DEBUG: Greyhat draws Overclock Systems.
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Direct Control.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Celestial Executioner.
+Message: Akash'Bhuta plays the top card of the villain deck... [ Akash'Bhuta ]
+DEBUG: Created decision [SelectLocation/None D81]
+DEBUG: Akash'Bhuta plays Rejuvenating Entropy.
+DEBUG: Rejuvenating Entropy will destroy 3 equipment cards.
+DEBUG: Created decision [SelectCards/None D82]
+DEBUG: Created decision [SelectCard/None D82-1]
+DEBUG: Rejuvenating Entropy destroys Coerced Uplink!
+DEBUG: GameController moved Coerced Uplink to Greyhat's trash.
+DEBUG: Created decision [SelectCards/None D83]
+DEBUG: Created decision [SelectCard/None D83-1]
+DEBUG: Arboreal Phalanges regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D83-2]
+DEBUG: Rejuvenating Entropy caused Arboreal Phalanges to regain 2 HP, up to their maximum HP. HP is now 12.
+DEBUG: Created decision [SelectCard/None D83-3]
+DEBUG: Living Rockslide regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D83-4]
+DEBUG: Rejuvenating Entropy caused Mountainous Carapace to regain 4 HP, up to their maximum HP. HP is now 11.
+DEBUG: Created decision [SelectCard/None D83-5]
+DEBUG: Mountainous Carapace regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D83-6]
+DEBUG: Rejuvenating Entropy caused Mountainous Carapace to regain 2 HP, up to their maximum HP. HP is now 11.
+DEBUG: Created decision [SelectCard/None D83-7]
+DEBUG: Celestial Executioner regained no HP from Rejuvenating Entropy.
+DEBUG: Created decision [SelectCard/None D83-8]
+DEBUG: GameController moved Rejuvenating Entropy to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Akash'Bhuta's Start phase. 
+DEBUG: Went from Akash'Bhuta's Start phase to PlayCard phase. 
+DEBUG: GameController plays Ensnaring Brambles.
+Message: The Celestial Tribunal reshuffles their trash into their deck. [  ]
+DEBUG: Akash'Bhuta moves 11 cards cards to the top of The Celestial Tribunal's Deck.
+DEBUG: The Celestial Tribunal shuffles their the environment deck.
+DEBUG: Akash'Bhuta was flipped to its back side.
+Message: Akash'Bhuta discards Celestial Executioner from the top of the environment deck. [  ]
+DEBUG: Akash'Bhuta moved Celestial Executioner from the environment deck to the environment trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Akash'Bhuta's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D84]
+DEBUG: Created decision [SelectTarget/None D84-1]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Soulbinder.
+DEBUG: Living Rockslide deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 14 HP.
+DEBUG: Created decision [SelectTarget/None D84-2]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Celestial Executioner.
+DEBUG: Living Rockslide deals Celestial Executioner 1 Projectile damage.
+DEBUG: Celestial Executioner is now at 5 HP.
+DEBUG: Created decision [SelectTarget/None D84-3]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Spellforge.
+DEBUG: Living Rockslide deals Spellforge 1 Projectile damage.
+DEBUG: Spellforge is now at 10 HP.
+DEBUG: Created decision [SelectTarget/None D84-4]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Straw Soulsplinter.
+DEBUG: Living Rockslide deals Straw Soulsplinter 1 Projectile damage.
+DEBUG: Straw Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D84-5]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Greyhat.
+DEBUG: Living Rockslide deals Greyhat 1 Projectile damage.
+DEBUG: Greyhat is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D84-6]
+DEBUG: Created decision [SelectTargets/None D85]
+DEBUG: Created decision [SelectTarget/None D85-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Greyhat.
+DEBUG: Arboreal Phalanges deals Greyhat 2 Melee damage.
+DEBUG: Greyhat is now at 15 HP.
+DEBUG: Created decision [SelectTarget/None D85-2]
+DEBUG: Created decision [SelectTargets/None D86]
+DEBUG: Created decision [SelectTarget/None D86-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Greyhat.
+DEBUG: Arboreal Phalanges deals Greyhat 2 Melee damage.
+DEBUG: Greyhat is now at 13 HP.
+DEBUG: Created decision [SelectTarget/None D86-2]
+DEBUG: Applying ongoing effect: Straw Soulsplinter cannot deal damage.
+Message: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Went from Akash'Bhuta's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D87 Spellforge]
+DEBUG: GameController plays Inspired....
+DEBUG: Spellforge draws ...of Healing.
+DEBUG: Spellforge draws Wave.
+DEBUG: Spellforge draws Wave.
+DEBUG: GameController moved Inspired... to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D88 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Piercing....
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws Controlled....
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D89 Soulbinder]
+DEBUG: GameController plays Spiritual Resonance.
+DEBUG: Created decision [SelectFunction/SelectFunction D90 Soulbinder]
+DEBUG: Revealed card: Sacrificial Rite
+DEBUG: Revealed card: Sacrificial Rite
+DEBUG: Revealed card: Arcane Detonation
+DEBUG: Revealed matching card: Ritual of Catastrophe
+DEBUG: Spiritual Resonance plays Ritual of Catastrophe.
+DEBUG: Ritual of Catastrophe adds 3 tokens to Ritual Pool.
+DEBUG: Spiritual Resonance moves 3 cards cards to the top of Soulbinder's Deck.
+DEBUG: Soulbinder shuffles their Soulbinder's deck.
+DEBUG: Created decision [SelectCard/None D91 Soulbinder]
+DEBUG: Soulbinder initiates 1 Infernal damage to Soulbinder.
+DEBUG: Soulbinder deals Soulbinder 1 Infernal damage.
+DEBUG: Soulbinder is now at 13 HP.
+DEBUG: Soulbinder draws Sacrificial Rite.
+DEBUG: Soulbinder draws Spiritual Resonance.
+DEBUG: GameController moved Spiritual Resonance to Soulbinder's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D92 Soulbinder]
+DEBUG: Soulbinder uses the power on Straw Soulsplinter.
+DEBUG: Created decision [SelectCard/None D93 Soulbinder]
+Message: Ensnaring Brambles prevented Straw Soulsplinter from dealing damage. [ Ensnaring Brambles, Straw Soulsplinter ]
+DEBUG: Straw Soulsplinter caused Straw Soulsplinter to regain 1 HP, up to their maximum HP. HP is now 4.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Ritual Components.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D94 Greyhat]
+DEBUG: GameController plays Proxy Relay.
+DEBUG: GameController moved Proxy Relay from Greyhat's hand next to Greyhat.
+DEBUG: Proxy Relay caused Greyhat to regain 2 HP. HP is now 15.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D95 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat.
+DEBUG: Greyhat draws Digital Uplink.
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Coerced Uplink.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Created decision [SelectTargets/None D96]
+DEBUG: Created decision [SelectTarget/None D96-1]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Akash'Bhuta.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D96-2]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Mountainous Carapace.
+DEBUG: Celestial Executioner deals Mountainous Carapace 3 Energy damage.
+DEBUG: Mountainous Carapace is now at 8 HP.
+DEBUG: Created decision [SelectTarget/None D96-3]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Soulbinder.
+DEBUG: Celestial Executioner deals Soulbinder 3 Energy damage.
+DEBUG: Soulbinder is now at 10 HP.
+DEBUG: Created decision [SelectTarget/None D96-4]
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Paragon of Sentience.
+DEBUG: Created decision [SelectCard/None D97]
+DEBUG: GameController moved Paragon of Sentience from the environment deck next to Spellforge.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Akash'Bhuta's Start phase. 
+DEBUG: Notice: an ongoing effect just expired: Straw Soulsplinter cannot deal damage.
+Message: Expiring: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Went from Akash'Bhuta's Start phase to PlayCard phase. 
+DEBUG: GameController plays Ensnaring Brambles.
+PLAY CARD SANITY: 10
+DEBUG: Went from Akash'Bhuta's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D98]
+DEBUG: Created decision [SelectTarget/None D98-1]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Celestial Executioner.
+DEBUG: Living Rockslide deals Celestial Executioner 1 Projectile damage.
+DEBUG: Celestial Executioner is now at 4 HP.
+DEBUG: Created decision [SelectTarget/None D98-2]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Spellforge.
+DEBUG: Living Rockslide deals Spellforge 1 Projectile damage.
+DEBUG: Spellforge is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D98-3]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Soulbinder.
+DEBUG: Living Rockslide deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D98-4]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Greyhat.
+DEBUG: Living Rockslide deals Greyhat 1 Projectile damage.
+DEBUG: Greyhat is now at 14 HP.
+DEBUG: Created decision [SelectTarget/None D98-5]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Straw Soulsplinter.
+DEBUG: Living Rockslide deals Straw Soulsplinter 1 Projectile damage.
+DEBUG: Straw Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D98-6]
+DEBUG: Created decision [SelectTargets/None D99]
+DEBUG: Created decision [SelectTarget/None D99-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Greyhat.
+DEBUG: Arboreal Phalanges deals Greyhat 2 Melee damage.
+DEBUG: Greyhat is now at 12 HP.
+DEBUG: Created decision [SelectTarget/None D99-2]
+DEBUG: Created decision [SelectTargets/None D100]
+DEBUG: Created decision [SelectTarget/None D100-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Greyhat.
+DEBUG: Arboreal Phalanges deals Greyhat 2 Melee damage.
+DEBUG: Greyhat is now at 10 HP.
+DEBUG: Created decision [SelectTarget/None D100-2]
+DEBUG: Applying ongoing effect: Straw Soulsplinter cannot deal damage.
+Message: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Applying ongoing effect: Straw Soulsplinter cannot deal damage.
+Message: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Went from Akash'Bhuta's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D101 Spellforge]
+DEBUG: GameController plays Meandering Dissertation.
+DEBUG: Created decision [SelectCards/None D102 Spellforge]
+DEBUG: Created decision [SelectCard/None D102-1 Spellforge]
+DEBUG: Spellforge discards Meandering Dissertation.
+DEBUG: Meandering Dissertation moved Meandering Dissertation from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-2 Spellforge]
+DEBUG: Spellforge discards ...of Aura.
+DEBUG: Meandering Dissertation moved ...of Aura from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-3 Spellforge]
+DEBUG: Spellforge discards Impact.
+DEBUG: Meandering Dissertation moved Impact from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-4 Spellforge]
+DEBUG: Spellforge discards Articulate the Lethological.
+DEBUG: Meandering Dissertation moved Articulate the Lethological from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-5 Spellforge]
+DEBUG: Spellforge discards Wave.
+DEBUG: Meandering Dissertation moved Wave from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-6 Spellforge]
+DEBUG: Spellforge discards Piercing....
+DEBUG: Meandering Dissertation moved Piercing... from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-7 Spellforge]
+DEBUG: Spellforge discards ...of Healing.
+DEBUG: Meandering Dissertation moved ...of Healing from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-8 Spellforge]
+DEBUG: Spellforge discards Controlled....
+DEBUG: Meandering Dissertation moved Controlled... from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-9 Spellforge]
+DEBUG: Spellforge discards Impact.
+DEBUG: Meandering Dissertation moved Impact from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-10 Spellforge]
+DEBUG: Spellforge discards Articulate the Lethological.
+DEBUG: Meandering Dissertation moved Articulate the Lethological from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-11 Spellforge]
+DEBUG: Spellforge discards Wave.
+DEBUG: Meandering Dissertation moved Wave from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCard/None D102-12 Spellforge]
+DEBUG: Spellforge discards Impact.
+DEBUG: Meandering Dissertation moved Impact from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectTurnTaker/None D103 Spellforge]
+DEBUG: Greyhat draws Node Check.
+DEBUG: Greyhat draws Coerced Uplink.
+DEBUG: Greyhat draws Ping Sweep.
+DEBUG: Greyhat draws Digital Uplink.
+DEBUG: Greyhat draws Overclock Systems.
+DEBUG: Greyhat draws Data Transfer.
+DEBUG: Greyhat draws Auto-Redirect.
+DEBUG: Greyhat draws Shock Therapy.
+DEBUG: Greyhat draws Shock Therapy.
+DEBUG: Greyhat draws Node Check.
+DEBUG: Greyhat draws Coerced Uplink.
+DEBUG: Greyhat draws Digital Uplink.
+Message: Spellforge has no cards in their hand to play. [  ]
+DEBUG: GameController moved Meandering Dissertation to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D104 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Inspired....
+DEBUG: Spellforge draws Ray.
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws Impact.
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D105 Soulbinder]
+DEBUG: GameController plays Spiritual Resonance.
+DEBUG: Created decision [SelectFunction/SelectFunction D106 Soulbinder]
+DEBUG: Revealed card: Ritual of Salvation
+DEBUG: Revealed card: Debt of the Soulless
+DEBUG: Revealed card: Sacrificial Rite
+DEBUG: Revealed card: Ritual of Salvation
+DEBUG: Revealed card: Sacrificial Rite
+DEBUG: Revealed matching card: Wooden Soulsplinter
+DEBUG: Spiritual Resonance plays Wooden Soulsplinter.
+DEBUG: Spiritual Resonance moves 5 cards cards to the top of Soulbinder's Deck.
+DEBUG: Soulbinder shuffles their Soulbinder's deck.
+DEBUG: Created decision [SelectCard/None D107 Soulbinder]
+DEBUG: Soulbinder initiates 1 Infernal damage to Soulbinder.
+DEBUG: Soulbinder deals Soulbinder 1 Infernal damage.
+DEBUG: Soulbinder is now at 8 HP.
+DEBUG: Soulbinder draws Ritual of Salvation.
+DEBUG: Soulbinder draws Arcane Detonation.
+DEBUG: GameController moved Spiritual Resonance to Soulbinder's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D108 Soulbinder]
+DEBUG: Soulbinder uses the power on Soulbinder.
+DEBUG: Soulbinder draws Keystone of Spirit.
+DEBUG: Created decision [SelectCard/None D109 Soulbinder]
+DEBUG: Soulbinder's Mortal Form removes 1 token from Ritual Pool.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Wooden Soulsplinter.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D110 Greyhat]
+DEBUG: GameController plays System Reboot.
+Message: Greyhat reshuffles their trash into their deck. [  ]
+DEBUG: System Reboot moves 5 cards cards to the top of Greyhat's Deck.
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCard/None D111 Greyhat]
+DEBUG: System Reboot moved Flare Relay from Greyhat's deck to Greyhat's hand.
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCards/None D112 Greyhat]
+DEBUG: Created decision [SelectCard/None D112-1 Greyhat]
+DEBUG: System Reboot moved Proxy Relay to Greyhat's hand.
+DEBUG: Created decision [SelectCards/None D113 Greyhat]
+DEBUG: Created decision [SelectCard/None D113-1 Greyhat]
+DEBUG: System Reboot plays Coerced Uplink.
+DEBUG: Created decision [SelectCard/None D114 Greyhat]
+DEBUG: GameController moved Coerced Uplink from Greyhat's hand next to Living Rockslide.
+DEBUG: Greyhat initiates 2 Lightning damage to Living Rockslide.
+DEBUG: Greyhat deals Living Rockslide 2 Lightning damage.
+DEBUG: Living Rockslide is now at 8 HP.
+DEBUG: GameController moved System Reboot to Greyhat's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D115 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat.
+DEBUG: Greyhat draws Direct Control.
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Shock Therapy.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Created decision [SelectTargets/None D116]
+DEBUG: Created decision [SelectTarget/None D116-1]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Soulbinder.
+DEBUG: Celestial Executioner deals Soulbinder 3 Energy damage.
+DEBUG: Soulbinder is now at 5 HP.
+DEBUG: Created decision [SelectTarget/None D116-2]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Akash'Bhuta.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D116-3]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Spellforge.
+DEBUG: Celestial Executioner deals Spellforge 3 Energy damage.
+DEBUG: Spellforge is now at 6 HP.
+DEBUG: Created decision [SelectTarget/None D116-4]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Mountainous Carapace.
+DEBUG: Celestial Executioner deals Mountainous Carapace 3 Energy damage.
+DEBUG: Mountainous Carapace is now at 5 HP.
+DEBUG: Created decision [SelectTarget/None D116-5]
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Representative of Earth.
+In the box 0: LazyFanComix.BreachMageCharacter
+In the box 1: LazyFanComix.BreachMageTwincasterCharacter
+In the box 2: LazyFanComix.CassieCharacter
+In the box 3: LazyFanComix.CassieEssenceFlowCharacter
+In the box 4: LazyFanComix.GreyhatBurstNoiseCharacter
+In the box 5: LazyFanComix.InquirerCharacter
+In the box 6: LazyFanComix.InquirerHardFactsCharacter
+In the box 7: LazyFanComix.InquirerLiesOnLiesCharacter
+In the box 8: LazyFanComix.RecallCharacter
+In the box 9: LazyFanComix.RecallUnstableJumpCharacter
+In the box 10: LazyFanComix.RecallForecastedBlowCharacter
+In the box 11: LazyFanComix.SpellforgeDecreeCharacter
+In the box 12: LazyFanComix.SoulbinderCharacter
+In the box 13: LazyFanComix.TrailblazerCharacter
+In the box 14: LazyFanComix.TrailblazerSpatialAlignmentCharacter
+DEBUG: Created decision [SelectFromBox/None D117]
+DEBUG: Selected from box: SelectedIdentifier = LazyFanComix.BreachMageCharacter
+DEBUG: Selected from box: SelectedTurnTakerIdentifier = LazyFanComix.BreachMage
+DEBUG: Card definition: [CardDefinition: Identifier=BreachMageCharacter, Title=Breach Mage, Count=1, Namespace=LazyFanComix, PromoIdentifier=]
+DEBUG: Representative of Earth puts Breach Mage into play.
+DEBUG: GameController moved Breach Mage from The Celestial Tribunal's off to the side next to Representative of Earth.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Akash'Bhuta's Start phase. 
+DEBUG: Notice: an ongoing effect just expired: Straw Soulsplinter cannot deal damage.
+Message: Expiring: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Notice: an ongoing effect just expired: Straw Soulsplinter cannot deal damage.
+Message: Expiring: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Went from Akash'Bhuta's Start phase to PlayCard phase. 
+DEBUG: GameController plays Arboreal Phalanges.
+PLAY CARD SANITY: 10
+DEBUG: Went from Akash'Bhuta's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D118]
+DEBUG: Created decision [SelectTarget/None D118-1]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Wooden Soulsplinter.
+DEBUG: Living Rockslide deals Wooden Soulsplinter 1 Projectile damage.
+DEBUG: Wooden Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D118-2]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Celestial Executioner.
+DEBUG: Living Rockslide deals Celestial Executioner 1 Projectile damage.
+DEBUG: Celestial Executioner is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D118-3]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Greyhat.
+DEBUG: Living Rockslide deals Greyhat 1 Projectile damage.
+DEBUG: Greyhat is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D118-4]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Straw Soulsplinter.
+DEBUG: Living Rockslide deals Straw Soulsplinter 1 Projectile damage.
+DEBUG: Straw Soulsplinter is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D118-5]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Spellforge.
+DEBUG: Living Rockslide deals Spellforge 1 Projectile damage.
+DEBUG: Spellforge is now at 5 HP.
+DEBUG: Created decision [SelectTarget/None D118-6]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Soulbinder.
+DEBUG: Living Rockslide deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 4 HP.
+DEBUG: Created decision [SelectTarget/None D118-7]
+DEBUG: Living Rockslide initiates 1 Projectile damage to Breach Mage.
+DEBUG: Living Rockslide deals Breach Mage 1 Projectile damage.
+DEBUG: Breach Mage is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D118-8]
+DEBUG: Created decision [SelectCard/None D119]
+DEBUG: Created decision [SelectTargets/None D120]
+DEBUG: Created decision [SelectTarget/None D120-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Greyhat.
+DEBUG: Arboreal Phalanges deals Greyhat 2 Melee damage.
+DEBUG: Greyhat is now at 7 HP.
+DEBUG: Created decision [SelectTarget/None D120-2]
+DEBUG: Created decision [SelectTargets/None D121]
+DEBUG: Created decision [SelectTarget/None D121-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Breach Mage.
+DEBUG: Arboreal Phalanges deals Breach Mage 2 Melee damage.
+DEBUG: Breach Mage is now at 7 HP.
+DEBUG: Created decision [SelectTarget/None D121-2]
+DEBUG: Applying ongoing effect: Straw Soulsplinter cannot deal damage.
+Message: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Applying ongoing effect: Straw Soulsplinter cannot deal damage.
+Message: Straw Soulsplinter cannot deal damage. [ Ensnaring Brambles ]
+DEBUG: Created decision [SelectCard/None D122]
+DEBUG: Created decision [SelectTargets/None D123]
+DEBUG: Created decision [SelectTarget/None D123-1]
+DEBUG: Arboreal Phalanges initiates 2 Melee damage to Breach Mage.
+DEBUG: Arboreal Phalanges deals Breach Mage 2 Melee damage.
+DEBUG: Breach Mage is now at 5 HP.
+DEBUG: Created decision [SelectTarget/None D123-2]
+DEBUG: Went from Akash'Bhuta's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D124 Spellforge]
+DEBUG: GameController plays Ray.
+DEBUG: Created decision [SelectCards/None D125 Spellforge]
+DEBUG: Created decision [SelectCard/None D125-1 Spellforge]
+DEBUG: Spellforge discards Inspired....
+DEBUG: Ray moved Inspired... from Spellforge's hand to Spellforge's trash.
+Message: Spellforge has no suffix in their hand. [ Ray ]
+DEBUG: Created decision [SelectCards/None D126 Spellforge]
+DEBUG: Created decision [SelectCard/None D126-1 Spellforge]
+Message: {Spellforge} uses Inspired Ray! [  ]
+DEBUG: Created decision [SelectTargets/None D127 Spellforge]
+DEBUG: Created decision [SelectTarget/None D127-1 Spellforge]
+DEBUG: Spellforge initiates 4 Energy damage to Arboreal Phalanges.
+DEBUG: Ray increases the damage dealt by Spellforge by 1.
+DEBUG: Spellforge deals Arboreal Phalanges 5 Energy damage.
+DEBUG: Arboreal Phalanges is now at 7 HP.
+DEBUG: GameController moved Ray to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D128 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Meandering Dissertation.
+DEBUG: Spellforge draws Controlled....
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws Inspired....
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D129 Soulbinder]
+DEBUG: GameController plays Ritual of Knowledge.
+DEBUG: Ritual of Knowledge adds 3 tokens to Ritual Pool.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D130 Soulbinder]
+DEBUG: Soulbinder uses the power on Straw Soulsplinter.
+DEBUG: Created decision [SelectCard/None D131 Soulbinder]
+DEBUG: Created decision [SelectTargets/None D132 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D132-1 Soulbinder]
+DEBUG: Soulbinder initiates 2 Toxic damage to Celestial Executioner.
+DEBUG: Soulbinder deals Celestial Executioner 2 Toxic damage.
+DEBUG: Celestial Executioner is now at 1 HP.
+DEBUG: Straw Soulsplinter caused Soulbinder to regain 2 HP. HP is now 6.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Keystone of Spirit.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D133 Greyhat]
+DEBUG: GameController plays Auto-Redirect.
+DEBUG: Created decision [SelectCards/None D134 Greyhat]
+DEBUG: Created decision [SelectCard/None D134-1 Greyhat]
+DEBUG: Auto-Redirect plays Proxy Relay.
+DEBUG: GameController moved Proxy Relay from Greyhat's hand next to Greyhat.
+DEBUG: Proxy Relay caused Greyhat to regain 2 HP. HP is now 9.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D135 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat.
+DEBUG: Greyhat draws Ping Sweep.
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Node Check.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Created decision [SelectTargets/None D136]
+DEBUG: Created decision [SelectTarget/None D136-1]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Mountainous Carapace.
+DEBUG: Celestial Executioner deals Mountainous Carapace 3 Energy damage.
+DEBUG: Mountainous Carapace is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D136-2]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Breach Mage.
+DEBUG: Celestial Executioner deals Breach Mage 3 Energy damage.
+DEBUG: Breach Mage is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D136-3]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Akash'Bhuta.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Mountainous Carapace reduces the damage dealt to Akash'Bhuta by Celestial Executioner by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D136-4]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Soulbinder.
+DEBUG: Celestial Executioner deals Soulbinder 3 Energy damage.
+DEBUG: Soulbinder is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D136-5]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Spellforge.
+DEBUG: Celestial Executioner deals Spellforge 3 Energy damage.
+DEBUG: Spellforge is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D136-6]
+
+ TestMyStuff
+   Source: RandomTest.cs line 63
+   Duration: 9.2 sec
+
+  Message: 
+    System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace: 
+    CardController.get_HeroTurnTaker()
+    <>c__DisplayClass6_0.<CastResponse>b__1(Card c) line 61
+    <>c__DisplayClass281_1.<FindCardsWhere>b__0(Card c)
+    <>c__DisplayClass6_0`1.<CombinePredicates>b__0(TSource x)
+    WhereListIterator`1.MoveNext()
+    List`1.InsertRange(Int32 index, IEnumerable`1 collection)
+    GameController.FindCardsWhere(Func`2 where, Boolean realCardsOnly, CardSource visibleToCard, BattleZone battleZone)
+    <CastResponse>d__6.MoveNext() line 61
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <ActionPerformed>d__84.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <NotifyTrigger>d__51.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <ApplyTriggers>d__40.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <ResolveAction>d__38.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <AfterAction>d__31.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SetTurnPhase>d__404.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <EnterNextTurnPhase>d__272.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    RandomGameTest.RunGame(GameController gameController) line 191
+    RandomTest.TestMyStuff() line 69
+
+   Open additional output for this result

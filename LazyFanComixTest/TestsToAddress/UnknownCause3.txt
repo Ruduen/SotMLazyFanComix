@@ -1,0 +1,782 @@
+﻿
+Journal=993 entries, 
+RandomSeed=2082367738]
+The Matriarch threatens the Multiverse!
+Megalopolis is the location of the conflict.
+Inquirer joins the team!
+ joins the team!
+ joins the team!
+ joins the team!
+ joins the team!
+Created game with random seed: 1057991501
+[Game: TurnTakers=[ "TheMatriarch", "Inquirer", "Soulbinder", "Cassie", "Soulbinder", "Inquirer", "Megalopolis" ], Promos:= [ { "Inquirer", "InquirerHardFactsCharacter" }, { "Soulbinder", "SoulbinderMortalFormCharacter" }, { "Cassie", "CassieEssenceFlowCharacter" }, { "Soulbinder", "SoulbinderMortalFormCharacter" }, { "Inquirer", "InquirerHardFactsCharacter" } ], IsAdvanced=False, IsChallenge=False, RandomSeed=1057991501]
+DEBUG: The Matriarch puts Mask of the Matriarch into play.
+DEBUG: The Matriarch shuffles their the villain deck.
+DEBUG: Went to The Matriarch's Start phase.
+DEBUG: Mask of the Matriarch tried to increase The Matriarch's HP, but they are already at their maximum HP.
+DEBUG: Went from The Matriarch's Start phase to PlayCard phase. 
+DEBUG: GameController plays Unkindness of Ravens.
+DEBUG: Created decision [SelectLocation/None D1]
+DEBUG: The Matriarch plays Murder of Crows.
+DEBUG: Created decision [SelectLocation/None D2]
+DEBUG: The Matriarch plays Darken the Sky.
+Message: Mask of the Matriarch plays the top card of the villain deck... [ Mask of the Matriarch ]
+DEBUG: Created decision [SelectLocation/None D3]
+DEBUG: Mask of the Matriarch plays Murder of Crows.
+DEBUG: Created decision [SelectLocation/None D4]
+DEBUG: The Matriarch plays Building of Rooks.
+DEBUG: Created decision [SelectLocation/None D5]
+DEBUG: The Matriarch plays Murder of Crows.
+DEBUG: Created decision [SelectLocation/None D6]
+DEBUG: The Matriarch plays Clattering of Jackdaws.
+DEBUG: Created decision [SelectLocation/None D7]
+DEBUG: The Matriarch plays Carrion Fields.
+Message: There are no fowl cards in the villain trash to put into play. [  ]
+DEBUG: There are no fowl cards in the villain trash to put into play.
+Message: Mask of the Matriarch was not found in the villain trash. [ Darken the Sky ]
+DEBUG: GameController moved Darken the Sky to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Matriarch's PlayCard phase to End phase. 
+DEBUG: Went from The Matriarch's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D8 Inquirer]
+DEBUG: GameController plays "I've Fixed the Wound!".
+DEBUG: Created decision [SelectCard/None D9 Inquirer]
+DEBUG: GameController moved "I've Fixed the Wound!" from Inquirer's hand next to Inquirer.
+DEBUG: "I've Fixed the Wound!" tried to increase Inquirer's HP, but they are already at their maximum HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D10 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Created decision [SelectCards/None D11 Inquirer]
+DEBUG: Created decision [SelectCard/None D11-1 Inquirer]
+DEBUG: Inquirer's Hard Facts plays "I'm a Mole-Person!".
+DEBUG: Applying ongoing effect:  distortion cards are targets with a maximum HP of 3.
+Message:  distortion cards are targets with a maximum HP of 3. [  ]
+DEBUG: Created decision [SelectCards/None D12 Inquirer]
+DEBUG: Created decision [SelectCard/None D12-1 Inquirer]
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCard/None D12-2 Inquirer]
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCards/None D13 Inquirer]
+DEBUG: Created decision [SelectCard/None D13-1 Inquirer]
+DEBUG: Created decision [SelectTargets/None D14 Inquirer]
+DEBUG: Created decision [SelectTarget/None D14-1 Inquirer]
+DEBUG: "I've Fixed the Wound!" initiates 1 Psychic damage to Inquirer.
+DEBUG: "I've Fixed the Wound!" deals Inquirer 1 Psychic damage.
+DEBUG: Inquirer is now at 23 HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "Look! A Distraction!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D15 Inquirer]
+DEBUG: Created decision [SelectTarget/None D15-1 Inquirer]
+DEBUG: Inquirer initiates 1 Melee damage to Murder of Crows.
+DEBUG: Inquirer deals Murder of Crows 1 Melee damage.
+DEBUG: Murder of Crows is now at 0 HP.
+DEBUG: Inquirer's Hard Facts destroys Murder of Crows!
+DEBUG: Created decision [SelectCard/None D16]
+DEBUG: Created decision [SelectCard/None D17]
+DEBUG: Created decision [SelectTargets/None D18]
+DEBUG: Created decision [SelectTarget/None D18-1]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D18-2]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Cassie - Essence Flow.
+DEBUG: Carrion Fields deals Cassie - Essence Flow 1 Toxic damage.
+DEBUG: Cassie - Essence Flow is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D18-3]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D18-4]
+DEBUG: Carrion Fields initiates 1 Toxic damage to "I've Fixed the Wound!".
+DEBUG: Carrion Fields deals "I've Fixed the Wound!" 1 Toxic damage.
+DEBUG: "I've Fixed the Wound!" is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D18-5]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Soulbinder.
+DEBUG: Carrion Fields deals Soulbinder 1 Toxic damage.
+DEBUG: Soulbinder is now at 28 HP.
+DEBUG: Created decision [SelectTarget/None D18-6]
+Message: Soulbinder has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+DEBUG: The Matriarch initiates 3 Psychic damage to Soulbinder.
+DEBUG: The Matriarch deals Soulbinder 3 Psychic damage.
+DEBUG: Soulbinder is now at 26 HP.
+DEBUG: GameController moved Murder of Crows to the villain trash.
+DEBUG: Went from Inquirer's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D19 Soulbinder]
+DEBUG: GameController plays Ritual of Transferrence.
+DEBUG: Ritual of Transferrence adds 3 tokens to Ritual Pool.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D20 Soulbinder]
+DEBUG: Soulbinder uses the power on Ritual of Transferrence.
+Message: Removing 1 Ritual Token from Ritual of Transferrence. [ Ritual of Transferrence, Ritual of Transferrence ]
+DEBUG: Ritual of Transferrence removes 1 token from Ritual Pool.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Sacrificial Rite.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Cassie's Start phase. 
+DEBUG: Went from Cassie's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D21 Cassie]
+DEBUG: GameController plays Droplet.
+DEBUG: Created decision [SelectCards/None D22 Cassie]
+DEBUG: Created decision [SelectCard/None D22-1 Cassie]
+DEBUG: "I'm a Mole-Person!" increases the HP gained by Inquirer by 1.
+DEBUG: Droplet caused Inquirer to regain 1 HP, up to their maximum HP. HP is now 24.
+DEBUG: Created decision [SelectCard/None D22-2 Cassie]
+DEBUG: Droplet caused Soulbinder to regain 1 HP, up to their maximum HP. HP is now 29.
+DEBUG: Created decision [SelectCard/None D22-3 Cassie]
+DEBUG: Droplet caused Cassie - Essence Flow to regain 1 HP, up to their maximum HP. HP is now 24.
+DEBUG: Created decision [SelectCard/None D22-4 Cassie]
+DEBUG: Droplet caused Soulbinder to regain 1 HP. HP is now 27.
+DEBUG: Created decision [SelectCard/None D22-5 Cassie]
+DEBUG: Droplet caused Inquirer to regain 1 HP. HP is now 23.
+DEBUG: Created decision [SelectCard/None D22-6 Cassie]
+DEBUG: Created decision [YesNoAmount/None D23 Cassie]
+DEBUG: GameController moved Droplet to Cassie's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Cassie's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D24 Cassie]
+DEBUG: Cassie - Essence Flow uses the power on Cassie - Essence Flow.
+DEBUG: Created decision [SelectCard/None D25 Cassie]
+DEBUG: Cassie - Essence Flow moved Water Surge from Cassie's hand to the bottom of The River Deck.
+DEBUG: Created decision [SelectCard/None D26 Cassie]
+DEBUG: Cassie - Essence Flow moved Stream Shot from under Riverbank to Cassie's trash.
+DEBUG: GameController moved Rising Waters from The River Deck under Riverbank.
+Message: Cassie - Essence Flow moved Stream Shot from under Riverbank to Cassie's trash. [ Stream Shot ]
+DEBUG: Cassie draws Water Surge.
+POWER SANITY: 10
+DEBUG: Went from Cassie's UsePower phase to DrawCard phase. 
+DEBUG: Cassie draws Droplet.
+DRAW CARD SANITY: 10
+DEBUG: Went from Cassie's DrawCard phase to End phase. 
+DEBUG: Went from Cassie's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D27 Soulbinder]
+DEBUG: GameController plays Straw Soulsplinter.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D28 Soulbinder]
+DEBUG: Soulbinder uses the power on Straw Soulsplinter.
+DEBUG: Created decision [SelectCard/None D29 Soulbinder]
+DEBUG: Created decision [SelectTargets/None D30 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D30-1 Soulbinder]
+DEBUG: Straw Soulsplinter initiates 2 Toxic damage to Murder of Crows.
+DEBUG: Straw Soulsplinter deals Murder of Crows 2 Toxic damage.
+DEBUG: Murder of Crows is now at -1 HP.
+DEBUG: Straw Soulsplinter destroys Murder of Crows!
+DEBUG: Created decision [SelectCard/None D31]
+DEBUG: Created decision [SelectTargets/None D32]
+DEBUG: Created decision [SelectTarget/None D32-1]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Soulbinder.
+DEBUG: Carrion Fields deals Soulbinder 1 Toxic damage.
+DEBUG: Soulbinder is now at 26 HP.
+DEBUG: Created decision [SelectTarget/None D32-2]
+DEBUG: Carrion Fields initiates 1 Toxic damage to "I've Fixed the Wound!".
+DEBUG: Carrion Fields deals "I've Fixed the Wound!" 1 Toxic damage.
+DEBUG: "I've Fixed the Wound!" is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D32-3]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D32-4]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Straw Soulsplinter.
+DEBUG: Carrion Fields deals Straw Soulsplinter 1 Toxic damage.
+DEBUG: Straw Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D32-5]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Cassie - Essence Flow.
+DEBUG: Carrion Fields deals Cassie - Essence Flow 1 Toxic damage.
+DEBUG: Cassie - Essence Flow is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D32-6]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D32-7]
+DEBUG: Created decision [SelectFunction/SelectFunction D33 Soulbinder]
+DEBUG: Created decision [SelectCard/None D34 Soulbinder]
+DEBUG: The Matriarch destroys Ritual of Transferrence!
+DEBUG: GameController moved Ritual of Transferrence to Soulbinder's trash.
+DEBUG: GameController moved Murder of Crows to the villain trash.
+DEBUG: Straw Soulsplinter caused Straw Soulsplinter to regain 1 HP, up to their maximum HP. HP is now 4.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Arcane Detonation.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D35 Inquirer]
+DEBUG: GameController plays "You're Looking Pale!".
+DEBUG: Created decision [SelectCard/None D36 Inquirer]
+DEBUG: GameController moved "You're Looking Pale!" from Inquirer's hand next to Mask of the Matriarch.
+DEBUG: Mask of the Matriarch initiates 4 Psychic damage to Mask of the Matriarch.
+DEBUG: Mask of the Matriarch deals Mask of the Matriarch 4 Psychic damage.
+DEBUG: Mask of the Matriarch is now at 5 HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D37 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Created decision [SelectCards/None D38 Inquirer]
+DEBUG: Created decision [SelectCard/None D38-1 Inquirer]
+DEBUG: Inquirer's Hard Facts plays "I've Fixed the Wound!".
+DEBUG: Created decision [SelectCard/None D39 Inquirer]
+DEBUG: GameController moved "I've Fixed the Wound!" from Inquirer's hand next to Inquirer.
+DEBUG: "I'm a Mole-Person!" increases the HP gained by Inquirer by 1.
+DEBUG: "I've Fixed the Wound!" caused Inquirer to regain 1 HP, up to their maximum HP. HP is now 24.
+DEBUG: Applying ongoing effect:  distortion cards are targets with a maximum HP of 3.
+Message:  distortion cards are targets with a maximum HP of 3. [  ]
+DEBUG: Created decision [SelectCards/None D40 Inquirer]
+DEBUG: Created decision [SelectCard/None D40-1 Inquirer]
+DEBUG: Created decision [SelectCard/None D40-2 Inquirer]
+DEBUG: Created decision [SelectCard/None D40-3 Inquirer]
+DEBUG: Created decision [SelectCard/None D40-4 Inquirer]
+DEBUG: Created decision [SelectCards/None D41 Inquirer]
+DEBUG: Created decision [SelectCard/None D41-1 Inquirer]
+DEBUG: Created decision [SelectTargets/None D42 Inquirer]
+DEBUG: Created decision [SelectTarget/None D42-1 Inquirer]
+DEBUG: "I've Fixed the Wound!" initiates 1 Psychic damage to Building of Rooks.
+DEBUG: "I've Fixed the Wound!" deals Building of Rooks 1 Psychic damage.
+DEBUG: Building of Rooks is now at 0 HP.
+DEBUG: "I've Fixed the Wound!" destroys Building of Rooks!
+DEBUG: Created decision [SelectCard/None D43]
+Message: Soulbinder has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+DEBUG: The Matriarch initiates 3 Psychic damage to Soulbinder.
+DEBUG: The Matriarch deals Soulbinder 3 Psychic damage.
+DEBUG: Soulbinder is now at 26 HP.
+DEBUG: Created decision [SelectCard/None D44]
+DEBUG: Created decision [SelectTargets/None D45]
+DEBUG: Created decision [SelectTarget/None D45-1]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D45-2]
+DEBUG: Carrion Fields initiates 1 Toxic damage to "I've Fixed the Wound!".
+DEBUG: Carrion Fields deals "I've Fixed the Wound!" 1 Toxic damage.
+DEBUG: "I've Fixed the Wound!" is now at 0 HP.
+DEBUG: Inquirer initiates 2 Psychic damage to Inquirer.
+DEBUG: Inquirer deals Inquirer 2 Psychic damage.
+DEBUG: Inquirer is now at 19 HP.
+DEBUG: Carrion Fields destroys "I've Fixed the Wound!"!
+DEBUG: GameController moved "I've Fixed the Wound!" to Inquirer's trash.
+DEBUG: Created decision [SelectTarget/None D45-3]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Soulbinder.
+DEBUG: Carrion Fields deals Soulbinder 1 Toxic damage.
+DEBUG: Soulbinder is now at 25 HP.
+DEBUG: Created decision [SelectTarget/None D45-4]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D45-5]
+DEBUG: Carrion Fields initiates 1 Toxic damage to "You're Looking Pale!".
+DEBUG: Carrion Fields deals "You're Looking Pale!" 1 Toxic damage.
+DEBUG: "You're Looking Pale!" is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D45-6]
+DEBUG: Carrion Fields initiates 1 Toxic damage to "I've Fixed the Wound!".
+DEBUG: Carrion Fields deals "I've Fixed the Wound!" 1 Toxic damage.
+DEBUG: "I've Fixed the Wound!" is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D45-7]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Cassie - Essence Flow.
+DEBUG: Carrion Fields deals Cassie - Essence Flow 1 Toxic damage.
+DEBUG: Cassie - Essence Flow is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D45-8]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Straw Soulsplinter.
+DEBUG: Carrion Fields deals Straw Soulsplinter 1 Toxic damage.
+DEBUG: Straw Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D45-9]
+DEBUG: GameController moved Building of Rooks to the villain trash.
+DEBUG: Created decision [SelectCard/None D41-2 Inquirer]
+DEBUG: Created decision [SelectTargets/None D46 Inquirer]
+DEBUG: Created decision [SelectTarget/None D46-1 Inquirer]
+DEBUG: "You're Looking Pale!" initiates 1 Psychic damage to The Matriarch.
+DEBUG: "You're Looking Pale!" deals The Matriarch 1 Psychic damage.
+DEBUG: The Matriarch is now at 69 HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws Fisticuffs.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Megalopolis's Start phase. 
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Police Backup.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D47]
+DEBUG: Created decision [SelectTarget/None D47-1]
+DEBUG: Police Backup initiates 1 Projectile damage to The Matriarch.
+DEBUG: Police Backup deals The Matriarch 1 Projectile damage.
+DEBUG: The Matriarch is now at 68 HP.
+DEBUG: Created decision [SelectTarget/None D47-2]
+DEBUG: Went from Megalopolis's End phase to The Matriarch's Start phase. 
+DEBUG: Mask of the Matriarch caused The Matriarch to regain 2 HP, up to their maximum HP. HP is now 70.
+DEBUG: Created decision [SelectCard/None D48]
+DEBUG: Created decision [SelectTargets/None D49]
+DEBUG: Created decision [SelectTarget/None D49-1]
+DEBUG: Unkindness of Ravens initiates 1 Projectile damage to Soulbinder.
+DEBUG: Unkindness of Ravens deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D49-2]
+DEBUG: Unkindness of Ravens initiates 1 Projectile damage to Cassie - Essence Flow.
+DEBUG: Unkindness of Ravens deals Cassie - Essence Flow 1 Projectile damage.
+DEBUG: Cassie - Essence Flow is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D49-3]
+DEBUG: Unkindness of Ravens initiates 1 Projectile damage to Inquirer.
+DEBUG: Unkindness of Ravens deals Inquirer 1 Projectile damage.
+DEBUG: Inquirer is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D49-4]
+DEBUG: Unkindness of Ravens initiates 1 Projectile damage to "You're Looking Pale!".
+DEBUG: Unkindness of Ravens deals "You're Looking Pale!" 1 Projectile damage.
+DEBUG: "You're Looking Pale!" is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D49-5]
+DEBUG: Unkindness of Ravens initiates 1 Projectile damage to Inquirer.
+DEBUG: Unkindness of Ravens deals Inquirer 1 Projectile damage.
+DEBUG: Inquirer is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D49-6]
+DEBUG: Unkindness of Ravens initiates 1 Projectile damage to Straw Soulsplinter.
+DEBUG: Unkindness of Ravens deals Straw Soulsplinter 1 Projectile damage.
+DEBUG: Straw Soulsplinter is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D49-7]
+DEBUG: Unkindness of Ravens initiates 1 Projectile damage to Soulbinder.
+DEBUG: Unkindness of Ravens deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 25 HP.
+DEBUG: Created decision [SelectTarget/None D49-8]
+DEBUG: Created decision [SelectTargets/None D50]
+DEBUG: Created decision [SelectTarget/None D50-1]
+DEBUG: Murder of Crows initiates 1 Projectile damage to Straw Soulsplinter.
+DEBUG: Murder of Crows deals Straw Soulsplinter 1 Projectile damage.
+DEBUG: Straw Soulsplinter is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D50-2]
+DEBUG: Murder of Crows initiates 1 Projectile damage to Inquirer.
+DEBUG: Murder of Crows deals Inquirer 1 Projectile damage.
+DEBUG: Inquirer is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D50-3]
+DEBUG: Murder of Crows initiates 1 Projectile damage to Cassie - Essence Flow.
+DEBUG: Murder of Crows deals Cassie - Essence Flow 1 Projectile damage.
+DEBUG: Cassie - Essence Flow is now at 20 HP.
+DEBUG: Created decision [SelectTarget/None D50-4]
+DEBUG: Murder of Crows initiates 1 Projectile damage to "I've Fixed the Wound!".
+DEBUG: Murder of Crows deals "I've Fixed the Wound!" 1 Projectile damage.
+DEBUG: "I've Fixed the Wound!" is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D50-5]
+DEBUG: Murder of Crows initiates 1 Projectile damage to Soulbinder.
+DEBUG: Murder of Crows deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D50-6]
+DEBUG: Murder of Crows initiates 1 Projectile damage to "You're Looking Pale!".
+DEBUG: Murder of Crows deals "You're Looking Pale!" 1 Projectile damage.
+DEBUG: "You're Looking Pale!" is now at 0 HP.
+DEBUG: "You're Looking Pale!" caused Mask of the Matriarch to regain 2 HP. HP is now 7.
+DEBUG: Murder of Crows destroys "You're Looking Pale!"!
+DEBUG: GameController moved "You're Looking Pale!" to Inquirer's trash.
+DEBUG: Created decision [SelectTarget/None D50-7]
+DEBUG: Murder of Crows initiates 1 Projectile damage to Inquirer.
+DEBUG: Murder of Crows deals Inquirer 1 Projectile damage.
+DEBUG: Inquirer is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D50-8]
+DEBUG: Created decision [SelectTargets/None D51]
+DEBUG: Created decision [SelectTarget/None D51-1]
+DEBUG: Clattering of Jackdaws initiates 1 Projectile damage to Inquirer.
+DEBUG: Clattering of Jackdaws deals Inquirer 1 Projectile damage.
+DEBUG: Inquirer is now at 20 HP.
+DEBUG: Created decision [SelectTarget/None D51-2]
+DEBUG: Clattering of Jackdaws initiates 1 Projectile damage to Cassie - Essence Flow.
+DEBUG: Clattering of Jackdaws deals Cassie - Essence Flow 1 Projectile damage.
+DEBUG: Cassie - Essence Flow is now at 19 HP.
+DEBUG: Created decision [SelectTarget/None D51-3]
+DEBUG: Clattering of Jackdaws initiates 1 Projectile damage to Inquirer.
+DEBUG: Clattering of Jackdaws deals Inquirer 1 Projectile damage.
+DEBUG: Inquirer is now at 16 HP.
+DEBUG: Created decision [SelectTarget/None D51-4]
+DEBUG: Clattering of Jackdaws initiates 1 Projectile damage to Soulbinder.
+DEBUG: Clattering of Jackdaws deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D51-5]
+DEBUG: Clattering of Jackdaws initiates 1 Projectile damage to Straw Soulsplinter.
+DEBUG: Clattering of Jackdaws deals Straw Soulsplinter 1 Projectile damage.
+DEBUG: Straw Soulsplinter is now at 0 HP.
+DEBUG: Clattering of Jackdaws destroys Straw Soulsplinter!
+DEBUG: GameController moved Straw Soulsplinter to Soulbinder's trash.
+DEBUG: Created decision [SelectTarget/None D51-6]
+DEBUG: Clattering of Jackdaws initiates 1 Projectile damage to Soulbinder.
+DEBUG: Clattering of Jackdaws deals Soulbinder 1 Projectile damage.
+DEBUG: Soulbinder is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D51-7]
+DEBUG: Clattering of Jackdaws initiates 1 Projectile damage to "I've Fixed the Wound!".
+DEBUG: Clattering of Jackdaws deals "I've Fixed the Wound!" 1 Projectile damage.
+DEBUG: "I've Fixed the Wound!" is now at 0 HP.
+DEBUG: Inquirer initiates 2 Psychic damage to Inquirer.
+DEBUG: Inquirer deals Inquirer 2 Psychic damage.
+DEBUG: Inquirer is now at 18 HP.
+DEBUG: Clattering of Jackdaws destroys "I've Fixed the Wound!"!
+DEBUG: GameController moved "I've Fixed the Wound!" to Inquirer's trash.
+DEBUG: Created decision [SelectTarget/None D51-8]
+DEBUG: Went from The Matriarch's Start phase to PlayCard phase. 
+DEBUG: GameController plays Kettle of Vultures.
+DEBUG: Created decision [SelectLocation/None D52]
+DEBUG: The Matriarch plays Darken the Sky.
+Message: Mask of the Matriarch plays the top card of the villain deck... [ Mask of the Matriarch ]
+DEBUG: Created decision [SelectLocation/None D53]
+DEBUG: Mask of the Matriarch plays Building of Rooks.
+DEBUG: Created decision [SelectLocation/None D54]
+DEBUG: The Matriarch plays Darken the Sky.
+Message: Darken the Sky takes all of the fowl cards from the villain trash and puts them into play! [  ]
+DEBUG: Darken the Sky takes all of the fowl cards from the villain trash and puts them into play!
+DEBUG: Darken the Sky puts Building of Rooks into play.
+DEBUG: Darken the Sky puts Murder of Crows into play.
+DEBUG: Darken the Sky puts Murder of Crows into play.
+Message: Mask of the Matriarch was not found in the villain trash. [ Darken the Sky ]
+DEBUG: GameController moved Darken the Sky to the villain trash.
+Message: There are no fowl cards in the villain trash to put into play. [  ]
+DEBUG: There are no fowl cards in the villain trash to put into play.
+Message: Mask of the Matriarch was not found in the villain trash. [ Darken the Sky ]
+DEBUG: GameController moved Darken the Sky to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Matriarch's PlayCard phase to End phase. 
+DEBUG: Went from The Matriarch's End phase to Inquirer's Start phase. 
+DEBUG: Notice: an ongoing effect just expired:  distortion cards are targets with a maximum HP of 3.
+Message: Expiring:  distortion cards are targets with a maximum HP of 3. [ Inquirer ]
+DEBUG: "I'm a Mole-Person!" destroys itself!
+DEBUG: GameController moved "I'm a Mole-Person!" to Inquirer's trash.
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D55 Inquirer]
+DEBUG: GameController plays "Look! A Distraction!".
+DEBUG: Created decision [SelectCard/None D56 Inquirer]
+DEBUG: GameController moved "Look! A Distraction!" from Inquirer's hand next to Clattering of Jackdaws.
+DEBUG: Created decision [SelectTargets/None D57 Inquirer]
+DEBUG: Created decision [SelectTarget/None D57-1 Inquirer]
+DEBUG: Clattering of Jackdaws initiates 3 Melee damage to Murder of Crows.
+DEBUG: Clattering of Jackdaws deals Murder of Crows 3 Melee damage.
+DEBUG: Murder of Crows is now at -2 HP.
+DEBUG: Clattering of Jackdaws destroys Murder of Crows!
+DEBUG: Created decision [SelectCard/None D58]
+DEBUG: Created decision [SelectTargets/None D59]
+DEBUG: Created decision [SelectTarget/None D59-1]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D59-2]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Cassie - Essence Flow.
+DEBUG: Carrion Fields deals Cassie - Essence Flow 1 Toxic damage.
+DEBUG: Cassie - Essence Flow is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D59-3]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 15 HP.
+DEBUG: Created decision [SelectTarget/None D59-4]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Soulbinder.
+DEBUG: Carrion Fields deals Soulbinder 1 Toxic damage.
+DEBUG: Soulbinder is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D59-5]
+Message: Soulbinder has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+DEBUG: The Matriarch initiates 3 Psychic damage to Soulbinder.
+DEBUG: The Matriarch deals Soulbinder 3 Psychic damage.
+DEBUG: Soulbinder is now at 21 HP.
+DEBUG: GameController moved Murder of Crows to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D60 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Created decision [SelectCards/None D61 Inquirer]
+DEBUG: Created decision [SelectCard/None D61-1 Inquirer]
+DEBUG: Inquirer's Hard Facts plays "You're Looking Pale!".
+DEBUG: Created decision [SelectCard/None D62 Inquirer]
+DEBUG: GameController moved "You're Looking Pale!" from Inquirer's hand next to Building of Rooks.
+DEBUG: Building of Rooks initiates 4 Psychic damage to Building of Rooks.
+DEBUG: Building of Rooks deals Building of Rooks 4 Psychic damage.
+DEBUG: Building of Rooks is now at -3 HP.
+DEBUG: Building of Rooks destroys itself!
+DEBUG: Created decision [SelectCard/None D63]
+DEBUG: Created decision [SelectCard/None D64]
+Message: Soulbinder has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+DEBUG: The Matriarch initiates 3 Psychic damage to Soulbinder.
+DEBUG: The Matriarch deals Soulbinder 3 Psychic damage.
+DEBUG: Soulbinder is now at 18 HP.
+DEBUG: Created decision [SelectTargets/None D65]
+DEBUG: Created decision [SelectTarget/None D65-1]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 16 HP.
+DEBUG: Created decision [SelectTarget/None D65-2]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Soulbinder.
+DEBUG: Carrion Fields deals Soulbinder 1 Toxic damage.
+DEBUG: Soulbinder is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D65-3]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 14 HP.
+DEBUG: Created decision [SelectTarget/None D65-4]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Cassie - Essence Flow.
+DEBUG: Carrion Fields deals Cassie - Essence Flow 1 Toxic damage.
+DEBUG: Cassie - Essence Flow is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D65-5]
+DEBUG: GameController moved Building of Rooks to the villain trash.
+DEBUG: "You're Looking Pale!" was moved to The Matriarch's play area.
+DEBUG: Applying ongoing effect:  distortion cards are targets with a maximum HP of 3.
+Message:  distortion cards are targets with a maximum HP of 3. [  ]
+DEBUG: Created decision [SelectCards/None D66 Inquirer]
+DEBUG: Created decision [SelectCard/None D66-1 Inquirer]
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCard/None D66-2 Inquirer]
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCard/None D66-3 Inquirer]
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCards/None D67 Inquirer]
+DEBUG: Created decision [SelectCard/None D67-1 Inquirer]
+DEBUG: Created decision [SelectTargets/None D68 Inquirer]
+DEBUG: Created decision [SelectTarget/None D68-1 Inquirer]
+DEBUG: "Look! A Distraction!" initiates 1 Psychic damage to Mask of the Matriarch.
+DEBUG: "Look! A Distraction!" deals Mask of the Matriarch 1 Psychic damage.
+DEBUG: Mask of the Matriarch is now at 6 HP.
+DEBUG: Created decision [SelectCard/None D67-2 Inquirer]
+DEBUG: Created decision [SelectTargets/None D69 Inquirer]
+DEBUG: Created decision [SelectTarget/None D69-1 Inquirer]
+DEBUG: "You're Looking Pale!" initiates 1 Psychic damage to Soulbinder.
+DEBUG: "You're Looking Pale!" deals Soulbinder 1 Psychic damage.
+DEBUG: Soulbinder is now at 20 HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "I'm a Victorian!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D70 Soulbinder]
+DEBUG: GameController plays Clay Soulsplinter.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D71 Soulbinder]
+DEBUG: Soulbinder uses the power on Soulbinder.
+DEBUG: Soulbinder draws Debt of the Soulless.
+Message: There are no rituals with Ritual Tokens in play. [ Soulbinder ]
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Keystone of Spirit.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Cassie's Start phase. 
+DEBUG: Went from Cassie's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D72 Cassie]
+DEBUG: GameController plays Water Surge.
+DEBUG: Created decision [SelectTargets/None D73 Cassie]
+DEBUG: Created decision [SelectTarget/None D73-1 Cassie]
+DEBUG: Cassie - Essence Flow initiates 2 Cold damage to Kettle of Vultures.
+DEBUG: Cassie - Essence Flow deals Kettle of Vultures 2 Cold damage.
+DEBUG: Kettle of Vultures is now at -1 HP.
+DEBUG: Cassie - Essence Flow's Essense Flow destroys Kettle of Vultures!
+DEBUG: Created decision [SelectCard/None D74]
+Message: Soulbinder has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+DEBUG: The Matriarch initiates 3 Psychic damage to Soulbinder.
+DEBUG: The Matriarch deals Soulbinder 3 Psychic damage.
+DEBUG: Soulbinder is now at 17 HP.
+DEBUG: Created decision [SelectCard/None D75]
+DEBUG: Created decision [SelectTargets/None D76]
+DEBUG: Created decision [SelectTarget/None D76-1]
+DEBUG: Carrion Fields initiates 1 Toxic damage to "Look! A Distraction!".
+DEBUG: Carrion Fields deals "Look! A Distraction!" 1 Toxic damage.
+DEBUG: "Look! A Distraction!" is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D76-2]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Soulbinder.
+DEBUG: Carrion Fields deals Soulbinder 1 Toxic damage.
+DEBUG: Soulbinder is now at 16 HP.
+DEBUG: Created decision [SelectTarget/None D76-3]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Cassie - Essence Flow.
+DEBUG: Carrion Fields deals Cassie - Essence Flow 1 Toxic damage.
+DEBUG: Cassie - Essence Flow is now at 16 HP.
+DEBUG: Created decision [SelectTarget/None D76-4]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 13 HP.
+DEBUG: Created decision [SelectTarget/None D76-5]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Clay Soulsplinter.
+DEBUG: Carrion Fields deals Clay Soulsplinter 1 Toxic damage.
+DEBUG: Clay Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D76-6]
+DEBUG: Carrion Fields initiates 1 Toxic damage to "You're Looking Pale!".
+DEBUG: Carrion Fields deals "You're Looking Pale!" 1 Toxic damage.
+DEBUG: "You're Looking Pale!" is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D76-7]
+DEBUG: Carrion Fields initiates 1 Toxic damage to Inquirer.
+DEBUG: Carrion Fields deals Inquirer 1 Toxic damage.
+DEBUG: Inquirer is now at 15 HP.
+DEBUG: Created decision [SelectTarget/None D76-8]
+DEBUG: GameController moved Kettle of Vultures to the villain trash.
+DEBUG: Water Surge caused Cassie - Essence Flow to regain 1 HP. HP is now 17.
+DEBUG: GameController moved Water Surge to Cassie's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Cassie's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D77 Cassie]
+DEBUG: Cassie - Essence Flow uses the power on Cassie - Essence Flow.
+DEBUG: Created decision [SelectCard/None D78 Cassie]
+DEBUG: Cassie - Essence Flow moved Water Surge from Cassie's hand to the bottom of The River Deck.
+DEBUG: Created decision [SelectCard/None D79 Cassie]
+DEBUG: Cassie - Essence Flow moved Stream Shot from under Riverbank to Cassie's trash.
+DEBUG: GameController moved Storm Swell from The River Deck under Riverbank.
+Message: Cassie - Essence Flow moved Stream Shot from under Riverbank to Cassie's trash. [ Stream Shot ]
+Message: Cassie reshuffles their trash into their deck. [  ]
+DEBUG: Cassie - Essence Flow's Essense Flow moves 4 cards cards to the top of Cassie's Deck.
+DEBUG: Cassie shuffles their Cassie's deck.
+DEBUG: Cassie draws Water Surge.
+POWER SANITY: 10
+DEBUG: Went from Cassie's UsePower phase to DrawCard phase. 
+DEBUG: Cassie draws Stream Shot.
+DRAW CARD SANITY: 10
+DEBUG: Went from Cassie's DrawCard phase to End phase. 
+DEBUG: Went from Cassie's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D80 Soulbinder]
+DEBUG: GameController plays Spiritual Resonance.
+DEBUG: Created decision [SelectFunction/SelectFunction D81 Soulbinder]
+DEBUG: Revealed card: Spiritual Resonance
+DEBUG: Revealed card: Arcane Detonation
+DEBUG: Revealed card: Keystone of Spirit
+DEBUG: Revealed card: Sacrificial Rite
+DEBUG: Revealed matching card: Wooden Soulsplinter
+DEBUG: Spiritual Resonance plays Wooden Soulsplinter.
+DEBUG: Spiritual Resonance moves 4 cards cards to the top of Soulbinder's Deck.
+DEBUG: Soulbinder shuffles their Soulbinder's deck.
+DEBUG: Created decision [SelectCard/None D82 Soulbinder]
+DEBUG: Soulbinder initiates 1 Infernal damage to Soulbinder.
+DEBUG: Soulbinder deals Soulbinder 1 Infernal damage.
+DEBUG: Soulbinder is now at 15 HP.
+DEBUG: Soulbinder draws Arcane Detonation.
+DEBUG: Soulbinder draws Keystone of Spirit.
+DEBUG: GameController moved Spiritual Resonance to Soulbinder's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D83 Soulbinder]
+DEBUG: Soulbinder uses the power on Wooden Soulsplinter.
+DEBUG: Created decision [SelectCards/None D84 Soulbinder]
+DEBUG: Created decision [SelectCard/None D84-1 Soulbinder]
+DEBUG: Wooden Soulsplinter tried to increase Wooden Soulsplinter's HP, but they are already at their maximum HP.
+DEBUG: Created decision [SelectCard/None D84-2 Soulbinder]
+DEBUG: Wooden Soulsplinter caused Soulbinder to regain 1 HP. HP is now 16.
+DEBUG: Created decision [SelectCard/None D84-3 Soulbinder]
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Ritual of Catastrophe.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Inquirer's Start phase. 
+DEBUG: Notice: an ongoing effect just expired:  distortion cards are targets with a maximum HP of 3.
+Message: Expiring:  distortion cards are targets with a maximum HP of 3. [ Inquirer ]
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D85 Inquirer]
+DEBUG: GameController plays Fisticuffs.
+DEBUG: Created decision [SelectTargets/None D86 Inquirer]
+DEBUG: Created decision [SelectTarget/None D86-1 Inquirer]
+DEBUG: Inquirer initiates 3 Melee damage to Soulbinder.
+DEBUG: Inquirer deals Soulbinder 3 Melee damage.
+DEBUG: Soulbinder is now at 14 HP.
+DEBUG: Fisticuffs caused Inquirer to regain 2 HP. HP is now 15.
+DEBUG: Created decision [SelectCard/None D87 Inquirer]
+
+ TestSomewhatReasonableGameWithModsToCompletion
+   Source: RandomTest.cs line 51
+   Duration: 4.9 sec
+
+  Message: 
+    System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace: 
+    <>c.<AddTriggers>b__1_1(DiscardCardAction discardCard)
+    Trigger`1.CheckActionAgainstCriteria(T action)
+    Trigger`1.DoesMatchTypeAndCriteria(GameAction action)
+    TriggerManager.IsTriggerApplicableToSituation(ITrigger trigger, GameAction action, TriggerTiming timing, IEnumerable`1 usedTriggers, ActionDescription actionDescription, Nullable`1 mostRecentTriggerPlayIndex)
+    <ApplyTriggers>d__40.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <ResolveAction>d__38.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <BeforeAction>d__32.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DiscardCard>d__259.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectCardAndDoAction>d__211.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectAndDiscardCard>d__219.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <Play>d__1.MoveNext() line 29
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <RunAfterActionAndAfterTriggers>d__62.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <CleanupAction>d__166.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <PlayCard>d__229.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectCardAndDoAction>d__211.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectAndPlayCard>d__226.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectAndPlayCard>d__225.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    RandomGameTest.PlayCard(TurnTakerController taker) line 258
+    RandomGameTest.RunGame(GameController gameController) line 203
+    RandomTest.TestSomewhatReasonableGameWithModsToCompletion() line 57
+
+   Open additional output for this result

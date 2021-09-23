@@ -6,7 +6,7 @@ using LazyFanComix.Soulbinder;
 using System.Linq;
 using System.Reflection;
 
-namespace LazyFanComixText
+namespace LazyFanComixTest
 {
     [TestFixture]
     public class SoulbinderTest : BaseTest

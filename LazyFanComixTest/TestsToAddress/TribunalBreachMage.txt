@@ -1,0 +1,597 @@
+﻿Test Name:	TestMyStuff
+Test Outcome:	Failed
+Result Message:	System.NullReferenceException : Object reference not set to an instance of an object.
+Result StandardOutput:	
+Grand Warlord Voss threatens the Multiverse!
+TheCelestialTribunal is the location of the conflict.
+Inquirer joins the team!
+Cassie joins the team!
+ joins the team!
+Greyhat joins the team!
+Spellforge joins the team!
+Created game with random seed: 1288736536
+[Game: TurnTakers=[ "GrandWarlordVoss", "Inquirer", "Cassie", "Soulbinder", "Greyhat", "Spellforge", "TheCelestialTribunal" ], Promos:= [ { "Soulbinder", "SoulbinderMortalFormCharacter" } ], IsAdvanced=False, IsChallenge=False, RandomSeed=1288736536]
+Message: Grand Warlord Voss plays 5 minions! [  ]
+DEBUG: Grand Warlord Voss plays 5 minions!
+DEBUG: GameController puts Gene-Bound Firesworn into play.
+DEBUG: GameController puts Gene-Bound Frosthound into play.
+DEBUG: GameController puts Gene-Bound Ion-Lancer into play.
+DEBUG: GameController puts Gene-Bound Bionaut into play.
+DEBUG: GameController puts Gene-Bound Ion-Lancer into play.
+DEBUG: Grand Warlord Voss shuffles their the villain deck.
+DEBUG: Went to Grand Warlord Voss's Start phase.
+DEBUG: Went from Grand Warlord Voss's Start phase to PlayCard phase. 
+DEBUG: GameController plays Gene-Bound Soldier.
+PLAY CARD SANITY: 10
+DEBUG: Went from Grand Warlord Voss's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D1]
+DEBUG: Created decision [SelectTarget/None D1-1]
+DEBUG: Gene-Bound Firesworn initiates 2 Fire damage to Soulbinder.
+DEBUG: Gene-Bound Firesworn deals Soulbinder 2 Fire damage.
+DEBUG: Soulbinder is now at 27 HP.
+DEBUG: Created decision [SelectTarget/None D1-2]
+DEBUG: Created decision [SelectTargets/None D2]
+DEBUG: Created decision [SelectTarget/None D2-1]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Spellforge.
+DEBUG: Gene-Bound Frosthound deals Spellforge 2 Cold damage.
+DEBUG: Spellforge is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D2-2]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Cassie.
+DEBUG: Gene-Bound Frosthound deals Cassie 2 Cold damage.
+DEBUG: Cassie is now at 25 HP.
+DEBUG: Created decision [SelectTarget/None D2-3]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Inquirer.
+DEBUG: Gene-Bound Frosthound deals Inquirer 2 Cold damage.
+DEBUG: Inquirer is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D2-4]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Greyhat.
+DEBUG: Gene-Bound Frosthound deals Greyhat 2 Cold damage.
+DEBUG: Greyhat is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D2-5]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Soulbinder.
+DEBUG: Gene-Bound Frosthound deals Soulbinder 2 Cold damage.
+DEBUG: Soulbinder is now at 25 HP.
+DEBUG: Created decision [SelectTarget/None D2-6]
+DEBUG: Gene-Bound Ion-Lancer initiates 2 Energy damage to Greyhat.
+DEBUG: Gene-Bound Ion-Lancer deals Greyhat 2 Energy damage.
+DEBUG: Greyhat is now at 19 HP.
+DEBUG: Gene-Bound Bionaut initiates 2 Toxic damage to Greyhat.
+DEBUG: Gene-Bound Bionaut deals Greyhat 2 Toxic damage.
+DEBUG: Greyhat is now at 17 HP.
+DEBUG: Gene-Bound Ion-Lancer initiates 2 Energy damage to Greyhat.
+DEBUG: Gene-Bound Ion-Lancer deals Greyhat 2 Energy damage.
+DEBUG: Greyhat is now at 15 HP.
+DEBUG: Created decision [SelectCard/None D3]
+DEBUG: Created decision [SelectTargets/None D4]
+DEBUG: Created decision [SelectTarget/None D4-1]
+DEBUG: Gene-Bound Soldier initiates 2 Projectile damage to Cassie.
+DEBUG: Gene-Bound Soldier deals Cassie 2 Projectile damage.
+DEBUG: Cassie is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D4-2]
+DEBUG: Went from Grand Warlord Voss's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D5 Inquirer]
+DEBUG: GameController plays Undeniable Facts.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D6 Inquirer]
+DEBUG: Inquirer uses the power on Undeniable Facts.
+DEBUG: Created decision [SelectCards/None D7 Inquirer]
+DEBUG: Created decision [SelectCard/None D7-1 Inquirer]
+DEBUG: Undeniable Facts plays "You're Looking Pale!".
+DEBUG: Created decision [SelectCard/None D8 Inquirer]
+DEBUG: GameController moved "You're Looking Pale!" from Inquirer's hand next to Grand Warlord Voss.
+DEBUG: Grand Warlord Voss initiates 4 Psychic damage to Grand Warlord Voss.
+DEBUG: Grand Warlord Voss reduces the damage dealt to Grand Warlord Voss by Grand Warlord Voss by 12.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectCard/None D7-2 Inquirer]
+DEBUG: Undeniable Facts plays "You're Looking Pale!".
+DEBUG: Created decision [SelectCard/None D9 Inquirer]
+DEBUG: GameController moved "You're Looking Pale!" from Inquirer's hand next to Gene-Bound Ion-Lancer.
+DEBUG: Gene-Bound Ion-Lancer initiates 4 Psychic damage to Gene-Bound Ion-Lancer.
+DEBUG: Gene-Bound Ion-Lancer deals Gene-Bound Ion-Lancer 4 Psychic damage.
+DEBUG: Gene-Bound Ion-Lancer is now at -1 HP.
+DEBUG: Gene-Bound Ion-Lancer destroys itself!
+DEBUG: GameController moved Gene-Bound Ion-Lancer to the villain trash.
+DEBUG: "You're Looking Pale!" was moved to Grand Warlord Voss's play area.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "I'm a Mole-Person!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Cassie's Start phase. 
+DEBUG: Went from Cassie's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D10 Cassie]
+DEBUG: GameController plays Droplet.
+DEBUG: Created decision [SelectCards/None D11 Cassie]
+DEBUG: Created decision [SelectCard/None D11-1 Cassie]
+DEBUG: Droplet caused Inquirer to regain 1 HP. HP is now 25.
+DEBUG: Created decision [SelectCard/None D11-2 Cassie]
+DEBUG: Droplet caused Cassie to regain 1 HP. HP is now 24.
+DEBUG: Created decision [SelectCard/None D11-3 Cassie]
+DEBUG: Droplet caused Soulbinder to regain 1 HP. HP is now 26.
+DEBUG: Created decision [SelectCard/None D11-4 Cassie]
+DEBUG: Droplet caused Greyhat to regain 1 HP. HP is now 16.
+DEBUG: Created decision [SelectCard/None D11-5 Cassie]
+DEBUG: Droplet caused Spellforge to regain 1 HP. HP is now 25.
+DEBUG: Created decision [SelectCard/None D11-6 Cassie]
+DEBUG: Created decision [YesNoAmount/None D12 Cassie]
+DEBUG: GameController moved Droplet to Cassie's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Cassie's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D13 Cassie]
+DEBUG: Cassie uses the power on Cassie.
+DEBUG: Created decision [SelectCards/None D14 Cassie]
+DEBUG: Created decision [SelectCard/None D14-1 Cassie]
+DEBUG: Cassie discards Droplet.
+DEBUG: Cassie moved Droplet from Cassie's hand to Cassie's trash.
+DEBUG: Created decision [SelectCard/None D14-2 Cassie]
+DEBUG: Cassie discards Water Surge.
+DEBUG: Cassie moved Water Surge from Cassie's hand to Cassie's trash.
+DEBUG: Created decision [SelectCard/None D14-3 Cassie]
+DEBUG: Cassie discards Water Surge.
+DEBUG: Cassie moved Water Surge from Cassie's hand to Cassie's trash.
+DEBUG: Created decision [SelectCard/None D15 Cassie]
+DEBUG: Cassie moved Stream Shot from under Riverbank to Cassie's hand.
+DEBUG: GameController moved Condensed Orb from The River Deck under Riverbank.
+Message: Cassie moved Stream Shot from under Riverbank to Cassie's hand. [ Stream Shot ]
+DEBUG: Cassie draws Droplet.
+DEBUG: Cassie draws Water Surge.
+POWER SANITY: 10
+DEBUG: Went from Cassie's UsePower phase to DrawCard phase. 
+Message: Cassie reshuffles their trash into their deck. [  ]
+DEBUG: GameController moves 4 cards cards to the top of Cassie's Deck.
+DEBUG: Cassie shuffles their Cassie's deck.
+DEBUG: Cassie draws Water Surge.
+DRAW CARD SANITY: 10
+DEBUG: Went from Cassie's DrawCard phase to End phase. 
+DEBUG: Went from Cassie's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D16 Soulbinder]
+DEBUG: GameController plays Wooden Soulsplinter.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D17 Soulbinder]
+DEBUG: Soulbinder uses the power on Soulbinder.
+DEBUG: Soulbinder draws Keystone of Spirit.
+Message: There are no rituals with Ritual Tokens in play. [ Soulbinder ]
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Clay Soulsplinter.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D18 Greyhat]
+DEBUG: GameController plays Node Check.
+DEBUG: Greyhat draws Coerced Uplink.
+DEBUG: Created decision [SelectCard/None D19 Greyhat]
+DEBUG: Node Check moved Coerced Uplink from Greyhat's deck to Greyhat's hand.
+DEBUG: Greyhat shuffles their Greyhat's deck.
+DEBUG: Created decision [SelectCards/None D20 Greyhat]
+DEBUG: Created decision [SelectCard/None D20-1 Greyhat]
+DEBUG: Node Check plays Data Transfer.
+DEBUG: Created decision [SelectCards/None D21 Greyhat]
+DEBUG: Created decision [SelectCard/None D21-1 Greyhat]
+DEBUG: Data Transfer plays Communication Relay.
+DEBUG: GameController moved Communication Relay from Greyhat's hand next to Greyhat.
+DEBUG: Communication Relay will destroy 1 ongoing or environment cards.
+DEBUG: Created decision [SelectCards/None D22 Greyhat]
+DEBUG: Created decision [SelectCard/None D22-1 Greyhat]
+ChooseDestroyCard from <Undeniable Facts, "You're Looking Pale!", "You're Looking Pale!"> choosing Undeniable Facts
+DEBUG: Communication Relay destroys Undeniable Facts!
+DEBUG: GameController moved Undeniable Facts to Inquirer's trash.
+DEBUG: Created decision [SelectTurnTakers/None D23 Greyhat]
+DEBUG: Created decision [SelectTurnTaker/None D24 Greyhat]
+DEBUG: Greyhat draws Coerced Uplink.
+DEBUG: Created decision [SelectTurnTaker/None D25 Greyhat]
+DEBUG: GameController moved Data Transfer to Greyhat's trash.
+DEBUG: GameController moved Node Check to Greyhat's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D26 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat.
+DEBUG: Greyhat draws Shock Therapy.
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Bandwidth Restriction.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D27 Spellforge]
+DEBUG: GameController plays Impact.
+Message: Spellforge has no prefix in their hand. [ Impact ]
+DEBUG: Created decision [SelectCards/None D28 Spellforge]
+DEBUG: Created decision [SelectCard/None D28-1 Spellforge]
+DEBUG: Created decision [SelectCards/None D29 Spellforge]
+DEBUG: Created decision [SelectCard/None D29-1 Spellforge]
+DEBUG: Spellforge discards ...of Disruption.
+DEBUG: Impact moved ...of Disruption from Spellforge's hand to Spellforge's trash.
+Message: {Spellforge} uses Impact of Disruption! [  ]
+DEBUG: Created decision [SelectTargets/None D30 Spellforge]
+DEBUG: Created decision [SelectTarget/None D30-1 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Soulbinder.
+DEBUG: Spellforge deals Soulbinder 1 Melee damage.
+DEBUG: Soulbinder is now at 25 HP.
+DEBUG: Created decision [SelectTarget/None D30-2 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Cassie.
+DEBUG: Spellforge deals Cassie 1 Melee damage.
+DEBUG: Cassie is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D30-3 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Gene-Bound Frosthound.
+DEBUG: Spellforge deals Gene-Bound Frosthound 1 Melee damage.
+DEBUG: Gene-Bound Frosthound is now at 2 HP.
+DEBUG: Gene-Bound Frosthound initiates 1 Sonic damage to Gene-Bound Frosthound.
+DEBUG: Gene-Bound Frosthound deals Gene-Bound Frosthound 1 Sonic damage.
+DEBUG: Gene-Bound Frosthound is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D30-4 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Inquirer.
+DEBUG: Spellforge deals Inquirer 1 Melee damage.
+DEBUG: Inquirer is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D30-5 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Gene-Bound Soldier.
+DEBUG: Spellforge deals Gene-Bound Soldier 1 Melee damage.
+DEBUG: Gene-Bound Soldier is now at 2 HP.
+DEBUG: Gene-Bound Soldier initiates 1 Sonic damage to Gene-Bound Soldier.
+DEBUG: Gene-Bound Soldier deals Gene-Bound Soldier 1 Sonic damage.
+DEBUG: Gene-Bound Soldier is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D30-6 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Greyhat.
+DEBUG: Spellforge deals Greyhat 1 Melee damage.
+DEBUG: Greyhat is now at 15 HP.
+DEBUG: Created decision [SelectTarget/None D30-7 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Spellforge.
+DEBUG: Spellforge deals Spellforge 1 Melee damage.
+DEBUG: Spellforge is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D30-8 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Gene-Bound Ion-Lancer.
+DEBUG: Spellforge deals Gene-Bound Ion-Lancer 1 Melee damage.
+DEBUG: Gene-Bound Ion-Lancer is now at 2 HP.
+DEBUG: Gene-Bound Ion-Lancer initiates 1 Sonic damage to Gene-Bound Ion-Lancer.
+DEBUG: Gene-Bound Ion-Lancer deals Gene-Bound Ion-Lancer 1 Sonic damage.
+DEBUG: Gene-Bound Ion-Lancer is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D30-9 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Gene-Bound Bionaut.
+DEBUG: Spellforge deals Gene-Bound Bionaut 1 Melee damage.
+DEBUG: Gene-Bound Bionaut is now at 2 HP.
+DEBUG: Gene-Bound Bionaut initiates 1 Sonic damage to Gene-Bound Bionaut.
+DEBUG: Gene-Bound Bionaut deals Gene-Bound Bionaut 1 Sonic damage.
+DEBUG: Gene-Bound Bionaut is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D30-10 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Wooden Soulsplinter.
+DEBUG: Spellforge deals Wooden Soulsplinter 1 Melee damage.
+DEBUG: Wooden Soulsplinter is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D30-11 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Grand Warlord Voss.
+DEBUG: Grand Warlord Voss reduces the damage dealt to Grand Warlord Voss by Spellforge by 10.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D30-12 Spellforge]
+DEBUG: Spellforge initiates 1 Melee damage to Gene-Bound Firesworn.
+DEBUG: Spellforge deals Gene-Bound Firesworn 1 Melee damage.
+DEBUG: Gene-Bound Firesworn is now at 2 HP.
+DEBUG: Gene-Bound Firesworn initiates 1 Sonic damage to Gene-Bound Firesworn.
+DEBUG: Gene-Bound Firesworn deals Gene-Bound Firesworn 1 Sonic damage.
+DEBUG: Gene-Bound Firesworn is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D30-13 Spellforge]
+DEBUG: GameController moved Impact to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D31 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Articulate the Lethological.
+DEBUG: Spellforge draws Ray.
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws Piercing....
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Called to Judgement.
+DEBUG: Called to Judgement puts Representative of Earth into play.
+In the box 0: LazyFanComix.BreachMageCharacter
+In the box 1: LazyFanComix.BreachMageTwincasterCharacter
+In the box 2: LazyFanComix.CassieEssenceFlowCharacter
+In the box 3: LazyFanComix.GreyhatBurstNoiseCharacter
+In the box 4: LazyFanComix.InquirerHardFactsCharacter
+In the box 5: LazyFanComix.InquirerLiesOnLiesCharacter
+In the box 6: LazyFanComix.RecallCharacter
+In the box 7: LazyFanComix.RecallUnstableJumpCharacter
+In the box 8: LazyFanComix.RecallForecastedBlowCharacter
+In the box 9: LazyFanComix.SpellforgeDecreeCharacter
+In the box 10: LazyFanComix.SoulbinderCharacter
+In the box 11: LazyFanComix.TrailblazerCharacter
+In the box 12: LazyFanComix.TrailblazerSpatialAlignmentCharacter
+DEBUG: Created decision [SelectFromBox/None D32]
+DEBUG: Selected from box: SelectedIdentifier = LazyFanComix.BreachMageTwincasterCharacter
+DEBUG: Selected from box: SelectedTurnTakerIdentifier = LazyFanComix.BreachMage
+DEBUG: Card definition: [CardDefinition: Identifier=BreachMageCharacter, Title=Breach Mage, Count=1, Namespace=LazyFanComix, PromoIdentifier=BreachMageTwincasterCharacter]
+DEBUG: Representative of Earth puts Breach Mage into play.
+DEBUG: GameController moved Breach Mage from The Celestial Tribunal's off to the side next to Representative of Earth.
+DEBUG: Created decision [SelectCard/None D33]
+DEBUG: Created decision [UsePower/UsePower D34 Spellforge]
+DEBUG: Spellforge uses the power on Breach Mage.
+Message: There are no charge cards in play for Breach Mage to destroy. [ Breach Mage ]
+DEBUG: Called to Judgement was moved to the environment trash.
+Message: The Celestial Tribunal reshuffles their trash into their deck. [  ]
+DEBUG: Called to Judgement moves Called to Judgement cards to the top of The Celestial Tribunal's Deck.
+DEBUG: The Celestial Tribunal shuffles their the environment deck.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Grand Warlord Voss's Start phase. 
+DEBUG: Went from Grand Warlord Voss's Start phase to PlayCard phase. 
+DEBUG: GameController plays Gene-Bound Shock Infantry.
+PLAY CARD SANITY: 10
+DEBUG: Went from Grand Warlord Voss's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D35]
+DEBUG: Created decision [SelectTarget/None D35-1]
+DEBUG: Gene-Bound Firesworn initiates 2 Fire damage to Soulbinder.
+DEBUG: Gene-Bound Firesworn deals Soulbinder 2 Fire damage.
+DEBUG: Soulbinder is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D35-2]
+DEBUG: Created decision [SelectTargets/None D36]
+DEBUG: Created decision [SelectTarget/None D36-1]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Inquirer.
+DEBUG: Gene-Bound Frosthound deals Inquirer 2 Cold damage.
+DEBUG: Inquirer is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D36-2]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Greyhat.
+DEBUG: Gene-Bound Frosthound deals Greyhat 2 Cold damage.
+DEBUG: Greyhat is now at 13 HP.
+DEBUG: Created decision [SelectTarget/None D36-3]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Spellforge.
+DEBUG: Gene-Bound Frosthound deals Spellforge 2 Cold damage.
+DEBUG: Spellforge is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D36-4]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Wooden Soulsplinter.
+DEBUG: Gene-Bound Frosthound deals Wooden Soulsplinter 2 Cold damage.
+DEBUG: Wooden Soulsplinter is now at 1 HP.
+DEBUG: Created decision [SelectTarget/None D36-5]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Cassie.
+DEBUG: Gene-Bound Frosthound deals Cassie 2 Cold damage.
+DEBUG: Cassie is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D36-6]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Breach Mage.
+DEBUG: Gene-Bound Frosthound deals Breach Mage 2 Cold damage.
+DEBUG: Breach Mage is now at 8 HP.
+DEBUG: Created decision [SelectTarget/None D36-7]
+DEBUG: Gene-Bound Frosthound initiates 2 Cold damage to Soulbinder.
+DEBUG: Gene-Bound Frosthound deals Soulbinder 2 Cold damage.
+DEBUG: Soulbinder is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D36-8]
+DEBUG: Gene-Bound Ion-Lancer initiates 2 Energy damage to Wooden Soulsplinter.
+DEBUG: Gene-Bound Ion-Lancer deals Wooden Soulsplinter 2 Energy damage.
+DEBUG: Wooden Soulsplinter is now at -1 HP.
+DEBUG: Gene-Bound Ion-Lancer destroys Wooden Soulsplinter!
+DEBUG: GameController moved Wooden Soulsplinter to Soulbinder's trash.
+DEBUG: Gene-Bound Bionaut initiates 2 Toxic damage to Breach Mage.
+DEBUG: Gene-Bound Bionaut deals Breach Mage 2 Toxic damage.
+DEBUG: Breach Mage is now at 6 HP.
+DEBUG: Created decision [SelectCard/None D37]
+DEBUG: Created decision [SelectTargets/None D38]
+DEBUG: Created decision [SelectTarget/None D38-1]
+DEBUG: Gene-Bound Soldier initiates 2 Projectile damage to Inquirer.
+DEBUG: Gene-Bound Soldier deals Inquirer 2 Projectile damage.
+DEBUG: Inquirer is now at 20 HP.
+DEBUG: Created decision [SelectTarget/None D38-2]
+DEBUG: Created decision [SelectTargets/None D39]
+DEBUG: Created decision [SelectTarget/None D39-1]
+DEBUG: Gene-Bound Shock Infantry initiates 3 Lightning damage to Spellforge.
+DEBUG: Gene-Bound Shock Infantry deals Spellforge 3 Lightning damage.
+DEBUG: Spellforge is now at 19 HP.
+DEBUG: Created decision [SelectTarget/None D39-2]
+DEBUG: Went from Grand Warlord Voss's End phase to Inquirer's Start phase. 
+DEBUG: "You're Looking Pale!" tried to increase Grand Warlord Voss's HP, but they are already at their maximum HP.
+DEBUG: "You're Looking Pale!" destroys itself!
+DEBUG: GameController moved "You're Looking Pale!" to Inquirer's trash.
+DEBUG: "You're Looking Pale!" destroys itself!
+DEBUG: GameController moved "You're Looking Pale!" to Inquirer's trash.
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D40 Inquirer]
+DEBUG: GameController plays Backup Plan.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D41 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws "I'm a Ninja!".
+Message: There are no distortion cards in play for Inquirer to destroy. [  ]
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws Undeniable Facts.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Cassie's Start phase. 
+DEBUG: Went from Cassie's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D42 Cassie]
+DEBUG: GameController plays Water Surge.
+DEBUG: Created decision [SelectTargets/None D43 Cassie]
+DEBUG: Created decision [SelectTarget/None D43-1 Cassie]
+DEBUG: Cassie initiates 2 Cold damage to Cassie.
+DEBUG: Cassie deals Cassie 2 Cold damage.
+DEBUG: Cassie is now at 19 HP.
+DEBUG: Water Surge caused Cassie to regain 1 HP. HP is now 20.
+DEBUG: GameController moved Water Surge to Cassie's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Cassie's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D44 Cassie]
+DEBUG: Cassie uses the power on Cassie.
+DEBUG: Created decision [SelectCards/None D45 Cassie]
+DEBUG: Created decision [SelectCard/None D45-1 Cassie]
+DEBUG: Cassie discards Water Surge.
+DEBUG: Cassie moved Water Surge from Cassie's hand to Cassie's trash.
+DEBUG: Created decision [SelectCard/None D45-2 Cassie]
+DEBUG: Cassie discards Stream Shot.
+DEBUG: Cassie moved Stream Shot from Cassie's hand to Cassie's trash.
+DEBUG: Created decision [SelectCard/None D45-3 Cassie]
+DEBUG: Cassie discards Droplet.
+DEBUG: Cassie moved Droplet from Cassie's hand to Cassie's trash.
+DEBUG: Created decision [SelectCard/None D46 Cassie]
+DEBUG: Cassie moved Storm Swell from under Riverbank to Cassie's hand.
+DEBUG: GameController moved Meeting The Ocean from The River Deck under Riverbank.
+Message: Cassie moved Storm Swell from under Riverbank to Cassie's hand. [ Storm Swell ]
+DEBUG: Cassie draws Water Surge.
+DEBUG: Cassie draws Droplet.
+POWER SANITY: 10
+DEBUG: Went from Cassie's UsePower phase to DrawCard phase. 
+DEBUG: Cassie draws Droplet.
+DRAW CARD SANITY: 10
+DEBUG: Went from Cassie's DrawCard phase to End phase. 
+DEBUG: Went from Cassie's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D47 Soulbinder]
+DEBUG: GameController plays Ritual of Salvation.
+DEBUG: Ritual of Salvation adds 3 tokens to Ritual Pool.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D48 Soulbinder]
+DEBUG: Soulbinder uses the power on Soulbinder.
+DEBUG: Soulbinder draws Clay Soulsplinter.
+DEBUG: Created decision [SelectCard/None D49 Soulbinder]
+DEBUG: Soulbinder's Mortal Form removes 1 token from Ritual Pool.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Wooden Soulsplinter.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D50 Greyhat]
+DEBUG: GameController plays Shock Therapy.
+DEBUG: Created decision [SelectCards/None D51 Greyhat]
+DEBUG: Created decision [SelectCard/None D51-1 Greyhat]
+DEBUG: Shock Therapy plays Coerced Uplink.
+DEBUG: Created decision [SelectCard/None D52 Greyhat]
+DEBUG: GameController moved Coerced Uplink from Greyhat's hand next to Grand Warlord Voss.
+DEBUG: Greyhat initiates 2 Lightning damage to Grand Warlord Voss.
+DEBUG: Grand Warlord Voss reduces the damage dealt to Grand Warlord Voss by Greyhat by 12.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectCards/None D53 Greyhat]
+DEBUG: Created decision [SelectCard/None D53-1 Greyhat]
+DEBUG: Shock Therapy caused Greyhat to regain 2 HP. HP is now 15.
+DEBUG: Created decision [SelectCard/None D53-2 Greyhat]
+DEBUG: Created decision [SelectTargets/None D54 Greyhat]
+DEBUG: Created decision [SelectTarget/None D54-1 Greyhat]
+DEBUG: Greyhat initiates 2 Energy damage to Grand Warlord Voss.
+DEBUG: Grand Warlord Voss reduces the damage dealt to Grand Warlord Voss by Greyhat by 12.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D54-2 Greyhat]
+DEBUG: GameController moved Shock Therapy to Greyhat's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D55 Greyhat]
+DEBUG: Greyhat uses the power on Greyhat (contributed by Communication Relay).
+DEBUG: Created decision [SelectCards/None D56 Greyhat]
+DEBUG: Created decision [SelectCard/None D56-1 Greyhat]
+DEBUG: Communication Relay plays Coerced Uplink.
+DEBUG: Created decision [SelectCard/None D57 Greyhat]
+DEBUG: GameController moved Coerced Uplink from Greyhat's hand next to Gene-Bound Firesworn.
+DEBUG: Greyhat initiates 2 Lightning damage to Gene-Bound Firesworn.
+DEBUG: Greyhat deals Gene-Bound Firesworn 2 Lightning damage.
+DEBUG: Gene-Bound Firesworn is now at -1 HP.
+DEBUG: Greyhat's Dial Up destroys Gene-Bound Firesworn!
+DEBUG: GameController moved Gene-Bound Firesworn to the villain trash.
+DEBUG: Coerced Uplink was moved to Grand Warlord Voss's play area.
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Auto-Redirect.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to Spellforge's Start phase. 
+DEBUG: Went from Spellforge's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D58 Spellforge]
+DEBUG: GameController plays Articulate the Lethological.
+DEBUG: Created decision [SelectFunction/SelectFunction D59 Spellforge]
+DEBUG: Revealed card: Wave
+DEBUG: Revealed card: Meandering Dissertation
+DEBUG: Revealed matching card: Piercing...
+DEBUG: Revealed matching card: Controlled...
+DEBUG: Articulate the Lethological moved Piercing... from Spellforge's revealed cards to Spellforge's hand.
+DEBUG: Articulate the Lethological moved Controlled... from Spellforge's revealed cards to Spellforge's hand.
+DEBUG: Articulate the Lethological moves 2 cards cards to the top of Spellforge's Deck.
+DEBUG: Spellforge shuffles their Spellforge's deck.
+DEBUG: Created decision [SelectCard/None D60 Spellforge]
+DEBUG: Articulate the Lethological plays Articulate the Lethological.
+DEBUG: Created decision [SelectFunction/SelectFunction D61 Spellforge]
+DEBUG: Revealed card: ...of Healing
+DEBUG: Revealed matching card: Wave
+DEBUG: Revealed card: Meandering Dissertation
+DEBUG: Revealed card: ...of Aura
+DEBUG: Revealed card: Meandering Dissertation
+DEBUG: Revealed matching card: Ray
+DEBUG: Articulate the Lethological moved Wave from Spellforge's revealed cards to Spellforge's hand.
+DEBUG: Articulate the Lethological moved Ray from Spellforge's revealed cards to Spellforge's hand.
+DEBUG: Articulate the Lethological moves 4 cards cards to the top of Spellforge's Deck.
+DEBUG: Spellforge shuffles their Spellforge's deck.
+DEBUG: Created decision [SelectCard/None D62 Spellforge]
+DEBUG: Articulate the Lethological plays Ray.
+DEBUG: Created decision [SelectCards/None D63 Spellforge]
+DEBUG: Created decision [SelectCard/None D63-1 Spellforge]
+DEBUG: Spellforge discards Piercing....
+DEBUG: Ray moved Piercing... from Spellforge's hand to Spellforge's trash.
+DEBUG: Created decision [SelectCards/None D64 Spellforge]
+DEBUG: Created decision [SelectCard/None D64-1 Spellforge]
+DEBUG: Spellforge discards ...of Healing.
+DEBUG: Ray moved ...of Healing from Spellforge's hand to Spellforge's trash.
+Message: {Spellforge} uses Piercing Ray of Healing! [  ]
+DEBUG: Created decision [SelectTargets/None D65 Spellforge]
+DEBUG: Created decision [SelectTarget/None D65-1 Spellforge]
+DEBUG: Spellforge initiates 4 Energy damage to Breach Mage.
+DEBUG: Ray makes the damage irreducible.
+DEBUG: Spellforge deals Breach Mage 4 Energy damage.
+DEBUG: Breach Mage is now at 2 HP.
+DEBUG: ...of Healing caused Breach Mage to regain 3 HP. HP is now 5.
+DEBUG: GameController moved Ray to Spellforge's trash.
+DEBUG: GameController moved Articulate the Lethological to Spellforge's trash.
+DEBUG: GameController moved Articulate the Lethological to Spellforge's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Spellforge's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D66 Spellforge]
+DEBUG: Spellforge uses the power on Spellforge.
+DEBUG: Spellforge draws Inspired....
+DEBUG: Spellforge draws Impact.
+POWER SANITY: 10
+DEBUG: Went from Spellforge's UsePower phase to DrawCard phase. 
+DEBUG: Spellforge draws Wave.
+DRAW CARD SANITY: 10
+DEBUG: Went from Spellforge's DrawCard phase to End phase. 
+DEBUG: Went from Spellforge's End phase to The Celestial Tribunal's Start phase.
+
+- Likely Breach Mage crashing if no heroturntaker turn exists. 
+
+ TestMyStuff
+   Source: RandomTest.cs line 63
+   Duration: 370 ms
+
+  Message: 
+    System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace: 
+    CardController.get_HeroTurnTaker()
+    <>c__DisplayClass6_0.<CastResponse>b__1(Card c) line 61
+    <>c__DisplayClass281_1.<FindCardsWhere>b__0(Card c)
+    <>c__DisplayClass6_0`1.<CombinePredicates>b__0(TSource x)
+    WhereListIterator`1.MoveNext()
+    List`1.InsertRange(Int32 index, IEnumerable`1 collection)
+    GameController.FindCardsWhere(Func`2 where, Boolean realCardsOnly, CardSource visibleToCard, BattleZone battleZone)
+    <CastResponse>d__6.MoveNext() line 61
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <ActionPerformed>d__84.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <NotifyTrigger>d__51.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <ApplyTriggers>d__40.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <ResolveAction>d__38.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <AfterAction>d__31.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SetTurnPhase>d__404.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <EnterNextTurnPhase>d__272.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    RandomGameTest.RunGame(GameController gameController) line 191
+    RandomTest.TestMyStuff() line 69
+
+   Open additional output for this result

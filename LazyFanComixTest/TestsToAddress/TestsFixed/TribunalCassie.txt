@@ -1,0 +1,420 @@
+﻿Journal=1128 entries, 
+RandomSeed=372098475]
+Miss Information threatens the Multiverse!
+TheCelestialTribunal is the location of the conflict.
+ joins the team!
+Recall joins the team!
+ joins the team!
+Soulbinder joins the team!
+Inquirer joins the team!
+Created game with random seed: 1249554653
+[Game: TurnTakers=[ "MissInformation", "BreachMage", "Recall", "Recall", "Soulbinder", "Inquirer", "TheCelestialTribunal" ], Promos:= [ { "BreachMage", "BreachMageTwincasterCharacter" }, { "Recall", "RecallForecastedBlowCharacter" }, { "Recall", "RecallForecastedBlowCharacter" } ], IsAdvanced=False, IsChallenge=False, RandomSeed=1249554653]
+DEBUG: GameController puts "Threat" to the President into play.
+DEBUG: Miss Information shuffles their the villain deck.
+DEBUG: Went to Miss Information's Start phase.
+Message: There are not enough non-character hero cards in play to destroy "Threat" to the President. [ "Threat" to the President ]
+DEBUG: Went from Miss Information's Start phase to PlayCard phase. 
+DEBUG: GameController plays Diversionary Tactics.
+DEBUG: Revealed card: Diversionary Tactics
+DEBUG: Revealed card: Concealed Betrayal
+DEBUG: Revealed card: Isolated Hero
+DEBUG: Revealed card: Concealed Betrayal
+DEBUG: Revealed card: "Old Lady" in the Street
+Message: Diversionary Tactics revealed Diversionary Tactics, Concealed Betrayal, Isolated Hero, Concealed Betrayal and "Old Lady" in the Street. [ Diversionary Tactics ]
+DEBUG: Diversionary Tactics puts "Old Lady" in the Street into play.
+DEBUG: Diversionary Tactics moved Diversionary Tactics from Miss Information's revealed cards to the villain trash.
+DEBUG: Diversionary Tactics moved Concealed Betrayal from Miss Information's revealed cards to the villain trash.
+DEBUG: Diversionary Tactics moved Isolated Hero from Miss Information's revealed cards to the villain trash.
+DEBUG: Diversionary Tactics moved Concealed Betrayal from Miss Information's revealed cards to the villain trash.
+Message: Miss Information reshuffles their trash into their deck. [  ]
+DEBUG: Diversionary Tactics moves 4 cards cards to the top of Miss Information's Deck.
+DEBUG: Miss Information shuffles their the villain deck.
+DEBUG: Diversionary Tactics plays Concealed Betrayal.
+DEBUG: GameController moved Diversionary Tactics to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Miss Information's PlayCard phase to End phase. 
+Message: There are no hero ongoing or equipment cards in play for Miss Information to destroy. [ Miss Information ]
+Message: All non-character hero cards owned by Breach Mage in play are indestructible. [ "Threat" to the President ]
+DEBUG: Created decision [SelectTargets/None D1]
+DEBUG: Created decision [SelectTarget/None D1-1]
+DEBUG: "Old Lady" in the Street initiates 2 Cold damage to Recall - Forecasted Blow.
+DEBUG: "Old Lady" in the Street deals Recall - Forecasted Blow 2 Cold damage.
+DEBUG: Recall - Forecasted Blow is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D1-2]
+DEBUG: "Old Lady" in the Street initiates 2 Cold damage to Recall - Forecasted Blow.
+DEBUG: "Old Lady" in the Street deals Recall - Forecasted Blow 2 Cold damage.
+DEBUG: Recall - Forecasted Blow is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D1-3]
+DEBUG: "Old Lady" in the Street initiates 2 Cold damage to Inquirer.
+DEBUG: "Old Lady" in the Street deals Inquirer 2 Cold damage.
+DEBUG: Inquirer is now at 24 HP.
+Message: There are no hero ongoing or equipment cards in play for Concealed Betrayal to destroy. [  ]
+DEBUG: Went from Miss Information's End phase to Breach Mage's Start phase. 
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D2 Breach Mage]
+DEBUG: GameController plays Molten Wave.
+DEBUG: Created decision [SelectCard/None D3 Breach Mage]
+DEBUG: GameController moved Molten Wave from Breach Mage's hand next to Stable Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D4 Breach Mage]
+DEBUG: Breach Mage uses the power on Stable Breach.
+DEBUG: Created decision [SelectCards/None D5 Breach Mage]
+DEBUG: Created decision [SelectCard/None D5-1 Breach Mage]
+DEBUG: Stable Breach plays Zap.
+DEBUG: GameController moved Zap from Breach Mage's hand next to Stable Breach.
+DEBUG: Created decision [SelectCard/None D5-2 Breach Mage]
+DEBUG: Stable Breach plays Zap.
+Message: There are no breach cards in play to put Zap next to. Moving it to Breach Mage's trash. [ Zap ]
+DEBUG: GameController moved Zap from Breach Mage's hand to Breach Mage's trash.
+DEBUG: Created decision [SelectCard/None D5-3 Breach Mage]
+DEBUG: Stable Breach plays Vision Shock.
+Message: There are no breach cards in play to put Vision Shock next to. Moving it to Breach Mage's trash. [ Vision Shock ]
+DEBUG: GameController moved Vision Shock from Breach Mage's hand to Breach Mage's trash.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Vision Shock.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D6 Recall]
+DEBUG: GameController plays Going Through The Motions.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D7 Recall]
+DEBUG: Recall - Forecasted Blow uses the power on Recall - Forecasted Blow.
+DEBUG: Created decision [SelectTargets/None D8 Recall]
+DEBUG: Created decision [SelectTarget/None D8-1 Recall]
+DEBUG: Recall - Forecasted Blow initiates 1 Melee damage to "Old Lady" in the Street.
+DEBUG: Recall - Forecasted Blow deals "Old Lady" in the Street 1 Melee damage.
+DEBUG: "Old Lady" in the Street is now at 11 HP.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Seen It Before.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D9 Recall]
+DEBUG: GameController plays Note to Self.
+DEBUG: Recall draws Paradox Anchor.
+DEBUG: Recall draws Close The Loop.
+DEBUG: Recall draws Temporal Anomaly.
+Message: There are no cards in play for Note to Self to destroy. [ Note to Self ]
+DEBUG: GameController moved Note to Self to Recall's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D10 Recall]
+DEBUG: Recall - Forecasted Blow uses the power on Recall - Forecasted Blow.
+DEBUG: Created decision [SelectTargets/None D11 Recall]
+DEBUG: Created decision [SelectTarget/None D11-1 Recall]
+DEBUG: Recall - Forecasted Blow initiates 1 Melee damage to Inquirer.
+DEBUG: Recall - Forecasted Blow deals Inquirer 1 Melee damage.
+DEBUG: Inquirer is now at 23 HP.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Temporal Anomaly.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Soulbinder's Start phase. 
+DEBUG: Went from Soulbinder's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D12 Soulbinder]
+DEBUG: GameController plays Ritual of Transferrence.
+DEBUG: Ritual of Transferrence adds 3 tokens to Ritual Pool.
+PLAY CARD SANITY: 10
+DEBUG: Went from Soulbinder's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D13 Soulbinder]
+DEBUG: Soulbinder uses the power on Ritual of Transferrence.
+Message: Removing 1 Ritual Token from Ritual of Transferrence. [ Ritual of Transferrence, Ritual of Transferrence ]
+DEBUG: Ritual of Transferrence removes 1 token from Ritual Pool.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Final Eruption.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D14 Inquirer]
+DEBUG: GameController plays The Lie they Tell Themselves.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D15 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws "I'm a Mole-Person!".
+Message: There are no distortion cards in play for Inquirer to destroy. [  ]
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws Fisticuffs.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Paragon of Sentience.
+DEBUG: Created decision [SelectCard/None D16]
+DEBUG: GameController moved Paragon of Sentience from the environment deck next to Soulbinder.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Miss Information's Start phase. 
+DEBUG: Created decision [YesNoAmount/None D17]
+DEBUG: Created decision [SelectTurnTakers/None D18]
+DEBUG: Created decision [SelectTurnTaker/None D19]
+DEBUG: Created decision [SelectCards/None D20 Inquirer]
+DEBUG: Created decision [SelectCard/None D20-1 Inquirer]
+DEBUG: Inquirer discards "I'm a Mole-Person!".
+DEBUG: Concealed Betrayal moved "I'm a Mole-Person!" from Inquirer's hand to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D20-2 Inquirer]
+DEBUG: Inquirer discards Fisticuffs.
+DEBUG: Concealed Betrayal moved Fisticuffs from Inquirer's hand to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D20-3 Inquirer]
+DEBUG: Inquirer discards "You're Looking Pale!".
+DEBUG: Concealed Betrayal moved "You're Looking Pale!" from Inquirer's hand to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D20-4 Inquirer]
+DEBUG: Inquirer discards "You're Looking Pale!".
+DEBUG: Concealed Betrayal moved "You're Looking Pale!" from Inquirer's hand to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D20-5 Inquirer]
+DEBUG: Inquirer discards The Lie they Tell Themselves.
+DEBUG: Concealed Betrayal moved The Lie they Tell Themselves from Inquirer's hand to Inquirer's trash.
+DEBUG: Created decision [SelectTurnTaker/None D21]
+DEBUG: Created decision [SelectCards/None D22 Breach Mage]
+DEBUG: Created decision [SelectCard/None D22-1 Breach Mage]
+DEBUG: Breach Mage discards Vision Shock.
+DEBUG: Concealed Betrayal moved Vision Shock from Breach Mage's hand to Breach Mage's trash.
+DEBUG: Created decision [SelectTurnTaker/None D23]
+DEBUG: Created decision [SelectCards/None D24 Recall]
+DEBUG: Created decision [SelectCard/None D24-1 Recall]
+DEBUG: Recall discards Paradox Anchor.
+DEBUG: Concealed Betrayal moved Paradox Anchor from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D24-2 Recall]
+DEBUG: Recall discards Temporal Anomaly.
+DEBUG: Concealed Betrayal moved Temporal Anomaly from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D24-3 Recall]
+DEBUG: Recall discards Close The Loop.
+DEBUG: Concealed Betrayal moved Close The Loop from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D24-4 Recall]
+DEBUG: Recall discards Note to Self.
+DEBUG: Concealed Betrayal moved Note to Self from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D24-5 Recall]
+DEBUG: Recall discards Temporal Loop.
+DEBUG: Concealed Betrayal moved Temporal Loop from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D24-6 Recall]
+DEBUG: Recall discards Going Through The Motions.
+DEBUG: Concealed Betrayal moved Going Through The Motions from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D24-7 Recall]
+DEBUG: Recall discards Temporal Anomaly.
+DEBUG: Concealed Betrayal moved Temporal Anomaly from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectTurnTaker/None D25]
+DEBUG: Created decision [SelectCards/None D26 Soulbinder]
+DEBUG: Created decision [SelectCard/None D26-1 Soulbinder]
+DEBUG: Soulbinder discards Ritual Components.
+DEBUG: Concealed Betrayal moved Ritual Components from Soulbinder's hand to Soulbinder's trash.
+DEBUG: Created decision [SelectCard/None D26-2 Soulbinder]
+DEBUG: Soulbinder discards Final Eruption.
+DEBUG: Concealed Betrayal moved Final Eruption from Soulbinder's hand to Soulbinder's trash.
+DEBUG: Created decision [SelectCard/None D26-3 Soulbinder]
+DEBUG: Soulbinder discards Arcane Detonation.
+DEBUG: Concealed Betrayal moved Arcane Detonation from Soulbinder's hand to Soulbinder's trash.
+DEBUG: Created decision [SelectCard/None D26-4 Soulbinder]
+DEBUG: Soulbinder discards Clay Soulsplinter.
+DEBUG: Concealed Betrayal moved Clay Soulsplinter from Soulbinder's hand to Soulbinder's trash.
+DEBUG: Created decision [SelectTurnTaker/None D27]
+DEBUG: Created decision [SelectCards/None D28 Recall]
+DEBUG: Created decision [SelectCard/None D28-1 Recall]
+DEBUG: Recall discards Temporal Loop.
+DEBUG: Concealed Betrayal moved Temporal Loop from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D28-2 Recall]
+DEBUG: Recall discards Seen It Before.
+DEBUG: Concealed Betrayal moved Seen It Before from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D28-3 Recall]
+DEBUG: Recall discards Seen It Before.
+DEBUG: Concealed Betrayal moved Seen It Before from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectCard/None D28-4 Recall]
+DEBUG: Recall discards Note to Self.
+DEBUG: Concealed Betrayal moved Note to Self from Recall's hand to Recall's trash.
+DEBUG: Created decision [SelectTurnTaker/None D29]
+DEBUG: Concealed Betrayal destroys itself!
+DEBUG: GameController moved Concealed Betrayal to the villain trash.
+DEBUG: Went from Miss Information's Start phase to PlayCard phase. 
+DEBUG: GameController plays Misplaced Memo.
+PLAY CARD SANITY: 10
+DEBUG: Went from Miss Information's PlayCard phase to End phase. 
+DEBUG: Miss Information will destroy 5 hero ongoing or equipment cards.
+DEBUG: Created decision [SelectCards/None D30]
+DEBUG: Created decision [SelectCard/None D30-1]
+ChooseDestroyCard from <Molten Wave, Zap, Going Through The Motions, Ritual of Transferrence, The Lie they Tell Themselves> choosing Molten Wave
+DEBUG: Miss Information destroys Molten Wave!
+DEBUG: GameController moved Molten Wave to Breach Mage's trash.
+DEBUG: Created decision [SelectCard/None D30-2]
+ChooseDestroyCard from <Zap, Going Through The Motions, Ritual of Transferrence, The Lie they Tell Themselves> choosing Zap
+DEBUG: Miss Information destroys Zap!
+DEBUG: Zap was moved to Breach Mage's hand.
+Message: Zap was moved to Breach Mage's hand. [ Zap ]
+Message: All non-character hero cards owned by Breach Mage in play are indestructible. [ "Threat" to the President ]
+DEBUG: Created decision [SelectTargets/None D31]
+DEBUG: Created decision [SelectTarget/None D31-1]
+DEBUG: "Old Lady" in the Street initiates 2 Cold damage to Inquirer.
+DEBUG: "Old Lady" in the Street deals Inquirer 2 Cold damage.
+DEBUG: Inquirer is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D31-2]
+DEBUG: "Old Lady" in the Street initiates 2 Cold damage to Recall - Forecasted Blow.
+DEBUG: "Old Lady" in the Street deals Recall - Forecasted Blow 2 Cold damage.
+DEBUG: Recall - Forecasted Blow is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D31-3]
+DEBUG: "Old Lady" in the Street initiates 2 Cold damage to Recall - Forecasted Blow.
+DEBUG: "Old Lady" in the Street deals Recall - Forecasted Blow 2 Cold damage.
+DEBUG: Recall - Forecasted Blow is now at 22 HP.
+DEBUG: Went from Miss Information's End phase to Breach Mage's Start phase. 
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D32 Breach Mage]
+DEBUG: GameController plays Zap.
+DEBUG: Created decision [SelectCard/None D33 Breach Mage]
+DEBUG: GameController moved Zap from Breach Mage's hand next to Stable Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D34 Breach Mage]
+DEBUG: Breach Mage uses the power on Stable Breach.
+Message: Breach Mage has no cards in their hand to play. [  ]
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Vision Shock.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Recall's Start phase. 
+Message: Recall has no cards in hand. Skipping their Play phase. [  ]
+DEBUG: Went from Recall's Start phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D35 Recall]
+DEBUG: Recall - Forecasted Blow uses the power on Recall - Forecasted Blow.
+DEBUG: Created decision [SelectTargets/None D36 Recall]
+DEBUG: Created decision [SelectTarget/None D36-1 Recall]
+DEBUG: Recall - Forecasted Blow initiates 1 Melee damage to Recall - Forecasted Blow.
+DEBUG: Recall - Forecasted Blow is a nemesis of Recall - Forecasted Blow. Damage dealt increased by 1.
+DEBUG: Recall - Forecasted Blow deals Recall - Forecasted Blow 2 Melee damage.
+DEBUG: Recall - Forecasted Blow is now at 20 HP.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Temporal Anomaly.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Recall's Start phase. 
+Message: Recall has no cards in hand. Skipping their Play phase. [  ]
+DEBUG: Went from Recall's Start phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D37 Recall]
+DEBUG: Recall - Forecasted Blow uses the power on Recall - Forecasted Blow.
+DEBUG: Created decision [SelectTargets/None D38 Recall]
+DEBUG: Created decision [SelectTarget/None D38-1 Recall]
+DEBUG: Recall - Forecasted Blow initiates 1 Melee damage to Recall - Forecasted Blow.
+DEBUG: Recall - Forecasted Blow is a nemesis of Recall - Forecasted Blow. Damage dealt increased by 1.
+DEBUG: Recall - Forecasted Blow deals Recall - Forecasted Blow 2 Melee damage.
+DEBUG: Recall - Forecasted Blow is now at 20 HP.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Deja Vu.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Soulbinder's Start phase. 
+Message: Soulbinder has no cards in hand. Skipping their Play phase. [  ]
+DEBUG: Went from Soulbinder's Start phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D39 Soulbinder]
+DEBUG: Soulbinder uses the power on Soulbinder.
+DEBUG: Created decision [SelectCard/None D40 Soulbinder]
+DEBUG: Created decision [SelectTargets/None D41 Soulbinder]
+DEBUG: Created decision [SelectTarget/None D41-1 Soulbinder]
+DEBUG: Soulbinder initiates 3 Infernal damage to "Old Lady" in the Street.
+DEBUG: Misplaced Memo made "Old Lady" in the Street immune to damage.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Soulbinder initiates 1 Infernal damage to Soulbinder.
+DEBUG: Soulbinder deals Soulbinder 1 Infernal damage.
+DEBUG: Soulbinder is now at 32 HP.
+POWER SANITY: 10
+DEBUG: Went from Soulbinder's UsePower phase to DrawCard phase. 
+DEBUG: Soulbinder draws Sacrificial Rite.
+DRAW CARD SANITY: 10
+DEBUG: Went from Soulbinder's DrawCard phase to End phase. 
+DEBUG: Went from Soulbinder's End phase to Inquirer's Start phase. 
+Message: Inquirer has no cards in hand. Skipping their Play phase. [  ]
+DEBUG: Went from Inquirer's Start phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D42 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws "You're on Our Side!".
+Message: There are no distortion cards in play for Inquirer to destroy. [  ]
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "Look! A Distraction!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Called to Judgement.
+DEBUG: Called to Judgement puts Representative of Earth into play.
+In the box 0: LazyFanComix.BreachMageCharacter
+In the box 1: LazyFanComix.CassieCharacter
+In the box 2: LazyFanComix.CassieEssenceFlowCharacter
+In the box 3: LazyFanComix.GreyhatCharacter
+In the box 4: LazyFanComix.GreyhatBurstNoiseCharacter
+In the box 5: LazyFanComix.InquirerHardFactsCharacter
+In the box 6: LazyFanComix.InquirerLiesOnLiesCharacter
+In the box 7: LazyFanComix.RecallCharacter
+In the box 8: LazyFanComix.RecallUnstableJumpCharacter
+In the box 9: LazyFanComix.SpellforgeCharacter
+In the box 10: LazyFanComix.SpellforgeDecreeCharacter
+In the box 11: LazyFanComix.SoulbinderMortalFormCharacter
+In the box 12: LazyFanComix.TrailblazerCharacter
+In the box 13: LazyFanComix.TrailblazerSpatialAlignmentCharacter
+DEBUG: Created decision [SelectFromBox/None D43]
+DEBUG: Selected from box: SelectedIdentifier = LazyFanComix.CassieCharacter
+DEBUG: Selected from box: SelectedTurnTakerIdentifier = LazyFanComix.Cassie
+DEBUG: Card definition: [CardDefinition: Identifier=CassieCharacter, Title=Cassie, Count=1, Namespace=LazyFanComix, PromoIdentifier=]
+DEBUG: Representative of Earth puts Cassie into play.
+DEBUG: GameController moved Cassie from The Celestial Tribunal's off to the side next to Representative of Earth.
+DEBUG: Created decision [SelectCard/None D44]
+DEBUG: Created decision [UsePower/UsePower D45 Soulbinder]
+DEBUG: Soulbinder uses the power on Cassie.
+DEBUG: Created decision [SelectCards/None D46 Soulbinder]
+DEBUG: Created decision [SelectCard/None D46-1 Soulbinder]
+DEBUG: Soulbinder discards Sacrificial Rite.
+DEBUG: Cassie moved Sacrificial Rite from Soulbinder's hand to Soulbinder's trash.
+
+ TestSomewhatReasonableGameWithModsToCompletion
+   Source: RandomTest.cs line 51
+   Duration: 4.1 sec
+
+  Message: 
+    System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace: 
+    <>c__DisplayClass5_0.<UsePower>b__0(Card c) line 48
+    <>c__DisplayClass281_1.<FindCardsWhere>b__0(Card c)
+    <>c__DisplayClass6_0`1.<CombinePredicates>b__0(TSource x)
+    WhereListIterator`1.MoveNext()
+    List`1.InsertRange(Int32 index, IEnumerable`1 collection)
+    GameController.FindCardsWhere(Func`2 where, Boolean realCardsOnly, CardSource visibleToCard, BattleZone battleZone)
+    <UsePower>d__5.MoveNext() line 47
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoActionOnSuccess>d__15.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__83.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <UsePower>d__417.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectAndUsePower>d__209.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <UsePowerResponse>d__5.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <Play>d__4.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <RunAfterActionAndAfterTriggers>d__62.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <CleanupAction>d__166.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <PlayCard>d__229.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <PlayTopCard>d__234.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    RandomGameTest.PlayCard(TurnTakerController taker) line 263
+    RandomGameTest.RunGame(GameController gameController) line 203
+    RandomTest.TestSomewhatReasonableGameWithModsToCompletion() line 57
+
+   Open additional output for this result

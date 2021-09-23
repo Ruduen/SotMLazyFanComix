@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System;
 
-namespace LazyFanComixText
+namespace LazyFanComixTest
 {
     [TestFixture]
     public class BreachMageTest : BaseTest
@@ -144,6 +144,23 @@ namespace LazyFanComixText
             GoToStartOfTurn(BreachMage);
             QuickHPCheck(-4); // MDP took 4 damage.
             AssertInTrash(card);
+        }
+
+        [Test()]
+        public void TestBreachMageTribunalStartOfTurn()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.BreachMage" });
+            SelectFromBoxForNextDecision("LazyFanComix.BreachMageCharacter", "LazyFanComix.BreachMage");
+
+            PlayCard("RepresentativeOfEarth");
+
+            AssertIsInPlay("BreachMageCharacter");
+
+            GoToStartOfTurn(env);
         }
 
         [Test()]

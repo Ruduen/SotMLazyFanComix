@@ -5,7 +5,7 @@ using LazyFanComix.HeroPromos;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace LazyFanComixText
+namespace LazyFanComixTest
 {
     [TestFixture]
     public class HeroPromosTest : BaseTest
@@ -2026,6 +2026,18 @@ namespace LazyFanComixText
             UsePower(wraith);
             AssertInTrash(card);
             QuickHPCheck(-2); // Bolted twice.
+        }
+
+        [Test()]
+        public void TestWeirdCaseRepresentative()
+        {
+            SetupGameController("BaronBlade", "Legacy", "TheCelestialTribunal");
+
+            StartGame();
+
+            SelectFromBoxForNextDecision("LazyFanComix.BunkerModeShiftCharacter", "Bunker");
+            PlayCard("RepresentativeOfEarth");
+            AssertIsInPlay("BunkerModeShiftCharacter");
         }
     }
 }

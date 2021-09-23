@@ -1,0 +1,1188 @@
+﻿
+Journal=1051 entries, 
+RandomSeed=1518797332]
+Chokepoint threatens the Multiverse!
+Megalopolis is the location of the conflict.
+Breach Mage joins the team!
+Inquirer joins the team!
+ joins the team!
+Recall joins the team!
+Created game with random seed: 926178162
+[Game: TurnTakers=[ "Chokepoint", "BreachMage", "Inquirer", "Trailblazer", "Recall", "Megalopolis" ], Promos:= [ { "Trailblazer", "TrailblazerSpatialAlignmentCharacter" } ], IsAdvanced=False, IsChallenge=False, RandomSeed=926178162]
+DEBUG: Went to Chokepoint's Start phase.
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Augmented Energy Field.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D1]
+DEBUG: Created decision [SelectTargets/None D2]
+DEBUG: Created decision [SelectTarget/None D2-1]
+DEBUG: Chokepoint initiates 3 Energy damage to Breach Mage.
+DEBUG: Chokepoint deals Breach Mage 3 Energy damage.
+DEBUG: Breach Mage is now at 24 HP.
+DEBUG: Created decision [SelectTarget/None D2-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D3 Breach Mage]
+DEBUG: GameController plays Shine.
+DEBUG: GameController moved Shine from Breach Mage's hand next to Stable Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D4 Breach Mage]
+DEBUG: Breach Mage uses the power on Stable Breach.
+DEBUG: Created decision [SelectCards/None D5 Breach Mage]
+DEBUG: Created decision [SelectCard/None D5-1 Breach Mage]
+DEBUG: Stable Breach plays Vision Shock.
+Message: There are no breach cards in play to put Vision Shock next to. Moving it to Breach Mage's trash. [ Vision Shock ]
+DEBUG: GameController moved Vision Shock from Breach Mage's hand to Breach Mage's trash.
+DEBUG: Created decision [SelectCard/None D5-2 Breach Mage]
+DEBUG: Stable Breach plays Zap.
+Message: There are no breach cards in play to put Zap next to. Moving it to Breach Mage's trash. [ Zap ]
+DEBUG: GameController moved Zap from Breach Mage's hand to Breach Mage's trash.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Vigor Charm.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D6 Inquirer]
+DEBUG: GameController plays "Look! A Distraction!".
+DEBUG: GameController moved "Look! A Distraction!" from Inquirer's hand next to Chokepoint.
+DEBUG: Created decision [SelectTargets/None D7 Inquirer]
+DEBUG: Created decision [SelectTarget/None D7-1 Inquirer]
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D8 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws The Right Questions.
+DEBUG: Created decision [SelectCard/None D9 Inquirer]
+DEBUG: Chokepoint initiates 1 Melee damage to Inquirer.
+DEBUG: Chokepoint deals Inquirer 1 Melee damage.
+DEBUG: Inquirer is now at 25 HP.
+DEBUG: Inquirer's Fast-Talk destroys "Look! A Distraction!"!
+DEBUG: GameController moved "Look! A Distraction!" to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D10 Inquirer]
+DEBUG: Inquirer's Fast-Talk plays "I've Fixed the Wound!".
+DEBUG: Created decision [SelectCard/None D11 Inquirer]
+DEBUG: GameController moved "I've Fixed the Wound!" from Inquirer's hand next to Recall.
+DEBUG: "I've Fixed the Wound!" tried to increase Recall's HP, but they are already at their maximum HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws Undeniable Facts.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Trailblazer's Start phase. 
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D12 Trailblazer]
+DEBUG: GameController plays Parting Gift.
+PLAY CARD SANITY: 10
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D13 Trailblazer]
+DEBUG: Trailblazer uses the power on Trailblazer.
+Message: There are no Positions in play, so Trailblazer cannot make any indestructible. [ Trailblazer ]
+DEBUG: Created decision [SelectCard/None D14 Trailblazer]
+DEBUG: Trailblazer's Spatial Alignment plays Tactical Withdrawl.
+DEBUG: Created decision [SelectCard/None D15 Trailblazer]
+Message: There are no cards that can be chosen. [ Tactical Withdrawl ]
+DEBUG: GameController moved Tactical Withdrawl to Trailblazer's trash.
+POWER SANITY: 10
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. 
+DEBUG: Trailblazer draws Rapid Repositioning.
+DRAW CARD SANITY: 10
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D16 Recall]
+DEBUG: GameController plays Temporal Anomaly.
+DEBUG: Temporal Anomaly tried to increase Recall's HP, but they are already at their maximum HP.
+DEBUG: Created decision [SelectLocation/None D17 Recall]
+DEBUG: Created decision [SelectCard/None D18 Recall]
+DEBUG: Temporal Anomaly puts Seen It Before into play.
+DEBUG: Recall shuffles their Recall's deck.
+DEBUG: Created decision [SelectTargets/None D19 Recall]
+DEBUG: Created decision [SelectTarget/None D19-1 Recall]
+DEBUG: Recall initiates 1 Energy damage to Inquirer.
+DEBUG: Recall deals Inquirer 1 Energy damage.
+DEBUG: Inquirer is now at 24 HP.
+DEBUG: GameController moved Temporal Anomaly to Recall's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D20 Recall]
+DEBUG: Recall uses the power on Recall.
+DEBUG: Created decision [SelectFunction/SelectFunction D21 Recall]
+Message: Recall cannot play any Paradoxes, so they must draw a card. [ Recall ]
+DEBUG: Recall draws Going Through The Motions.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Temporal Anomaly.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Megalopolis's Start phase. 
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Cramped Quarters Combat.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: Went from Megalopolis's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Newfound Power.
+DEBUG: Revealed card: Augmented Energy Field
+Message: Newfound Power revealed Augmented Energy Field. [ Augmented Energy Field ]
+DEBUG: Created decision [SelectTurnTakers/None D22]
+DEBUG: Created decision [SelectTurnTaker/None D23]
+DEBUG: Created decision [SelectCard/None D24 Inquirer]
+DEBUG: Newfound Power moved "Look! A Distraction!" from Inquirer's hand to Chokepoint's play area.
+DEBUG: "Look! A Distraction!" was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D25]
+DEBUG: Created decision [SelectCard/None D26 Trailblazer]
+DEBUG: Newfound Power moved Rapid Repositioning from Trailblazer's hand to Chokepoint's play area.
+DEBUG: Rapid Repositioning was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D27]
+DEBUG: Created decision [SelectCard/None D28 Recall]
+DEBUG: Newfound Power moved Going Through The Motions from Recall's hand to Chokepoint's play area.
+DEBUG: Going Through The Motions was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D29]
+DEBUG: Newfound Power puts Augmented Energy Field into play.
+DEBUG: GameController moved Newfound Power to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D30]
+DEBUG: Created decision [SelectTarget/None D30-1]
+DEBUG: Chokepoint initiates 3 Energy damage to Recall.
+DEBUG: Cramped Quarters Combat changes the damage type to Melee.
+DEBUG: Cramped Quarters Combat increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Recall 4 Melee damage.
+DEBUG: Recall is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D30-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+DEBUG: Created decision [ActivateAbility/ActivateAbility D31 Breach Mage]
+DEBUG: Breach Mage activates the text on Shine.
+DEBUG: Created decision [SelectTargets/None D32 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D32-1 Breach Mage]
+DEBUG: Breach Mage initiates 3 Radiant damage to Breach Mage.
+DEBUG: Cramped Quarters Combat changes the damage type to Melee.
+DEBUG: Cramped Quarters Combat increases the damage dealt by Breach Mage by 1.
+DEBUG: Breach Mage deals Breach Mage 4 Melee damage.
+DEBUG: Breach Mage is now at 20 HP.
+DEBUG: Breach Mage draws Vigor Charm.
+DEBUG: Inquirer draws "I've Fixed the Wound!".
+DEBUG: Trailblazer draws Trail of Ashes.
+DEBUG: Recall draws Paradox Anchor.
+DEBUG: GameController destroys Shine!
+DEBUG: GameController moved Shine to Breach Mage's trash.
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D33 Breach Mage]
+DEBUG: GameController plays Focus Charm.
+DEBUG: Created decision [SelectCard/None D34 Breach Mage]
+DEBUG: Focus Charm removes 1 token from Potent Breach's Focus Pool.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D35 Breach Mage]
+DEBUG: Breach Mage uses the power on Potent Breach.
+DEBUG: GameController removes 1 token from Potent Breach's Focus Pool, down to its minimum number.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Hammer Charm.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+DEBUG: Recall initiates 2 Psychic damage to Recall.
+DEBUG: Cramped Quarters Combat changes the damage type to Melee.
+DEBUG: Cramped Quarters Combat increases the damage dealt by Recall by 1.
+DEBUG: Recall deals Recall 3 Melee damage.
+DEBUG: Recall is now at 20 HP.
+DEBUG: "I've Fixed the Wound!" destroys itself!
+DEBUG: GameController moved "I've Fixed the Wound!" to Inquirer's trash.
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D36 Inquirer]
+DEBUG: GameController plays "I've Fixed the Wound!".
+DEBUG: Created decision [SelectCard/None D37 Inquirer]
+DEBUG: GameController moved "I've Fixed the Wound!" from Inquirer's hand next to Recall.
+DEBUG: "I've Fixed the Wound!" caused Recall to regain 5 HP. HP is now 25.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D38 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws Until you Make It.
+DEBUG: Created decision [SelectCard/None D39 Inquirer]
+DEBUG: Recall initiates 2 Psychic damage to Recall.
+DEBUG: Cramped Quarters Combat changes the damage type to Melee.
+DEBUG: Cramped Quarters Combat increases the damage dealt by Recall by 1.
+DEBUG: Recall deals Recall 3 Melee damage.
+DEBUG: Recall is now at 22 HP.
+DEBUG: Inquirer's Fast-Talk destroys "I've Fixed the Wound!"!
+DEBUG: GameController moved "I've Fixed the Wound!" to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D40 Inquirer]
+DEBUG: Inquirer's Fast-Talk plays The Right Questions.
+DEBUG: Created decision [SelectCard/None D41 Inquirer]
+DEBUG: The Right Questions destroys Seen It Before!
+DEBUG: GameController moved Seen It Before to Recall's trash.
+Message: Inquirer has no playable distortion cards in their hand. [  ]
+DEBUG: Created decision [SelectCard/None D42 Inquirer]
+Message: There are no cards that can be chosen. [  ]
+DEBUG: GameController moved The Right Questions to Inquirer's trash.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "I've Fixed the Wound!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Trailblazer's Start phase. 
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D43 Trailblazer]
+DEBUG: GameController plays Lead the Way.
+DEBUG: Created decision [SelectCard/None D44 Trailblazer]
+DEBUG: Lead the Way moved Defensive Bulwark from Trailblazer's deck to Trailblazer's hand.
+DEBUG: Trailblazer shuffles their Trailblazer's deck.
+DEBUG: Trailblazer draws Wasteland Wanderer.
+DEBUG: Created decision [SelectCard/None D45 Trailblazer]
+DEBUG: Lead the Way plays Trail of Ashes.
+DEBUG: Created decision [SelectTargets/None D46 Trailblazer]
+DEBUG: Created decision [SelectTarget/None D46-1 Trailblazer]
+DEBUG: Trailblazer initiates 2 Fire damage to Chokepoint.
+DEBUG: Cramped Quarters Combat changes the damage type to Melee.
+DEBUG: Cramped Quarters Combat increases the damage dealt by Trailblazer by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Trailblazer by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Trailblazer by 1.
+DEBUG: Trailblazer deals Chokepoint 1 Melee damage.
+DEBUG: Chokepoint is now at 69 HP.
+DEBUG: Created decision [SelectTarget/None D46-2 Trailblazer]
+DEBUG: Trailblazer initiates 2 Fire damage to Trailblazer.
+DEBUG: Cramped Quarters Combat changes the damage type to Melee.
+DEBUG: Cramped Quarters Combat increases the damage dealt by Trailblazer by 1.
+DEBUG: Trailblazer deals Trailblazer 3 Melee damage.
+DEBUG: Trailblazer is now at 18 HP.
+DEBUG: Created decision [SelectCard/None D47 Trailblazer]
+DEBUG: Trail of Ashes destroys Cramped Quarters Combat!
+DEBUG: GameController moved Cramped Quarters Combat to the environment trash.
+DEBUG: Trailblazer draws Wasteland Wanderer.
+Message: There are no cards in play for Trail of Ashes to destroy. [  ]
+DEBUG: GameController moved Trail of Ashes to Trailblazer's trash.
+DEBUG: GameController moved Lead the Way to Trailblazer's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D48 Trailblazer]
+DEBUG: Trailblazer uses the power on Trailblazer.
+Message: There are no Positions in play, so Trailblazer cannot make any indestructible. [ Trailblazer ]
+DEBUG: Created decision [SelectCard/None D49 Trailblazer]
+DEBUG: Trailblazer's Spatial Alignment plays Wasteland Wanderer.
+POWER SANITY: 10
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. 
+DEBUG: Trailblazer draws Parting Gift.
+DRAW CARD SANITY: 10
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D50 Recall]
+DEBUG: GameController plays Paradox Anchor.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D51 Recall]
+DEBUG: Recall uses the power on Recall.
+DEBUG: Created decision [SelectFunction/SelectFunction D52 Recall]
+Message: Recall cannot play any Paradoxes, so they must draw a card. [ Recall ]
+DEBUG: Recall draws Paradox Anchor.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Going Through The Motions.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Megalopolis's Start phase. 
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Hostage Situation.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: Went from Megalopolis's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Material Upheaval.
+DEBUG: Created decision [SelectTargets/None D53]
+DEBUG: Created decision [SelectTarget/None D53-1]
+DEBUG: Chokepoint initiates 2 Projectile damage to Inquirer.
+DEBUG: Chokepoint deals Inquirer 2 Projectile damage.
+DEBUG: Inquirer is now at 22 HP.
+DEBUG: Created decision [SelectTarget/None D53-2]
+DEBUG: Chokepoint initiates 2 Projectile damage to Trailblazer.
+DEBUG: Chokepoint deals Trailblazer 2 Projectile damage.
+DEBUG: Trailblazer is now at 16 HP.
+DEBUG: Created decision [SelectTarget/None D53-3]
+DEBUG: Chokepoint initiates 2 Projectile damage to Breach Mage.
+DEBUG: Chokepoint deals Breach Mage 2 Projectile damage.
+DEBUG: Breach Mage is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D53-4]
+DEBUG: Chokepoint initiates 2 Projectile damage to Recall.
+DEBUG: Chokepoint deals Recall 2 Projectile damage.
+DEBUG: Recall is now at 20 HP.
+DEBUG: Created decision [SelectTarget/None D53-5]
+DEBUG: Created decision [SelectTurnTakers/None D54]
+DEBUG: Created decision [SelectTurnTaker/None D55]
+DEBUG: Created decision [SelectCard/None D56 Recall]
+DEBUG: Material Upheaval moved Paradox Anchor to Chokepoint's play area.
+DEBUG: Paradox Anchor was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D57]
+DEBUG: Created decision [SelectCard/None D58 Breach Mage]
+DEBUG: Material Upheaval moved Focus Charm to Chokepoint's play area.
+DEBUG: Focus Charm was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D59]
+DEBUG: GameController moved Material Upheaval to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D60]
+DEBUG: Created decision [SelectTarget/None D60-1]
+DEBUG: Chokepoint initiates 3 Energy damage to Inquirer.
+DEBUG: Chokepoint deals Inquirer 3 Energy damage.
+DEBUG: Inquirer is now at 19 HP.
+DEBUG: Created decision [SelectTarget/None D60-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+Message: Hostage Situation prevented Breach Mage from playing cards. Skipping their Play phase. [  ]
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D61 Breach Mage]
+DEBUG: Breach Mage uses the power on Potent Breach.
+Message: Hostage Situation prevented Breach Mage from playing cards. [  ]
+DEBUG: Breach Mage draws Haunting Echo.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Vision Shock.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+Message: Hostage Situation prevented Inquirer from playing cards. Skipping their Play phase. [  ]
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D62 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws "You're Looking Pale!".
+Message: There are no distortion cards in play for Inquirer to destroy. [  ]
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "You're on Our Side!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Trailblazer's Start phase. 
+Message: Hostage Situation prevented Trailblazer from playing cards. Skipping their Play phase. [  ]
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D63 Trailblazer]
+DEBUG: Trailblazer uses the power on Wasteland Wanderer.
+DEBUG: Created decision [SelectTargets/None D64 Trailblazer]
+DEBUG: Created decision [SelectTarget/None D64-1 Trailblazer]
+DEBUG: Trailblazer initiates 3 Fire damage to Breach Mage.
+DEBUG: Trailblazer deals Breach Mage 3 Fire damage.
+DEBUG: Breach Mage is now at 15 HP.
+DEBUG: Wasteland Wanderer destroys itself!
+DEBUG: GameController moved Wasteland Wanderer to Trailblazer's trash.
+POWER SANITY: 10
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. 
+DEBUG: Trailblazer draws Prepared Ambush.
+DRAW CARD SANITY: 10
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to Recall's Start phase. 
+Message: Hostage Situation prevented Recall from playing cards. Skipping their Play phase. [  ]
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D65 Recall]
+DEBUG: Recall uses the power on Recall.
+DEBUG: Created decision [SelectFunction/SelectFunction D66 Recall]
+Message: Hostage Situation prevented Recall from playing cards. [  ]
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Immediate Jump.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Megalopolis's Start phase. 
+DEBUG: Each player may discard 1 card each to destroy Hostage Situation
+DEBUG: Created decision [YesNoAmount/None D67]
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Impending Casualty.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: 1 player may discard 1 card to destroy Impending Casualty.
+DEBUG: Created decision [SelectTurnTaker/None D68]
+DEBUG: Created decision [SelectCard/None D69 Recall]
+DEBUG: Recall discards Paradox Anchor.
+DEBUG: Impending Casualty moved Paradox Anchor from Recall's hand to Recall's trash.
+DEBUG: Impending Casualty destroys itself!
+DEBUG: GameController moved Impending Casualty to the environment trash.
+DEBUG: Went from Megalopolis's End phase to Chokepoint's Start phase. 
+DEBUG: Chokepoint was flipped to its back side.
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Newfound Power.
+DEBUG: Revealed card: Stripped Resources
+Message: Newfound Power revealed Stripped Resources. [ Stripped Resources ]
+DEBUG: Created decision [SelectTurnTakers/None D70]
+DEBUG: Created decision [SelectTurnTaker/None D71]
+DEBUG: Created decision [SelectCard/None D72 Recall]
+DEBUG: Newfound Power moved Close The Loop from Recall's hand to Chokepoint's play area.
+DEBUG: Close The Loop was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D73]
+DEBUG: Created decision [SelectCard/None D74 Trailblazer]
+DEBUG: Newfound Power moved Prepared Ambush from Trailblazer's hand to Chokepoint's play area.
+DEBUG: Prepared Ambush was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D75]
+DEBUG: Created decision [SelectCard/None D76 Inquirer]
+DEBUG: Newfound Power moved Until you Make It from Inquirer's hand to Chokepoint's play area.
+DEBUG: Until you Make It was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D77]
+DEBUG: Newfound Power puts Stripped Resources into play.
+DEBUG: Created decision [SelectCards/None D78]
+DEBUG: Created decision [SelectCard/None D78-1]
+DEBUG: Stripped Resources destroys Hostage Situation!
+DEBUG: GameController moved Hostage Situation to the environment trash.
+DEBUG: GameController moved Stripped Resources to the villain trash.
+DEBUG: GameController moved Newfound Power to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D79]
+DEBUG: Chokepoint destroys Until you Make It!
+DEBUG: GameController moved one of Inquirer's cards to Inquirer's trash.
+DEBUG: Created decision [SelectTargets/None D80]
+DEBUG: Created decision [SelectTarget/None D80-1]
+DEBUG: Chokepoint initiates 5 Projectile damage to Recall.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Recall 6 Projectile damage.
+DEBUG: Recall is now at 14 HP.
+DEBUG: Created decision [SelectTarget/None D80-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D81 Breach Mage]
+DEBUG: GameController plays Vigor Charm.
+DEBUG: Breach Mage draws Shine.
+DEBUG: Breach Mage draws Hammer Charm.
+DEBUG: Breach Mage draws Zap.
+DEBUG: Breach Mage initiates 2 Psychic damage to Breach Mage.
+DEBUG: Breach Mage deals Breach Mage 2 Psychic damage.
+DEBUG: Breach Mage is now at 13 HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D82 Breach Mage]
+DEBUG: Breach Mage uses the power on Potent Breach.
+DEBUG: Created decision [SelectCard/None D83 Breach Mage]
+DEBUG: Potent Breach plays Vigor Charm.
+DEBUG: Breach Mage draws Haunting Echo.
+DEBUG: Breach Mage draws Zap.
+DEBUG: Breach Mage draws Spiral Charm.
+DEBUG: Breach Mage initiates 2 Psychic damage to Breach Mage.
+DEBUG: Breach Mage deals Breach Mage 2 Psychic damage.
+DEBUG: Breach Mage is now at 11 HP.
+DEBUG: Breach Mage draws Molten Wave.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Aura Charm.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D84 Inquirer]
+DEBUG: GameController plays "I've Fixed the Wound!".
+DEBUG: Created decision [SelectCard/None D85 Inquirer]
+DEBUG: GameController moved "I've Fixed the Wound!" from Inquirer's hand next to Inquirer.
+DEBUG: "I've Fixed the Wound!" caused Inquirer to regain 5 HP. HP is now 24.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D86 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws "I'm a Mole-Person!".
+DEBUG: Created decision [SelectCard/None D87 Inquirer]
+DEBUG: Inquirer initiates 2 Psychic damage to Inquirer.
+DEBUG: Inquirer deals Inquirer 2 Psychic damage.
+DEBUG: Inquirer is now at 22 HP.
+DEBUG: Inquirer's Fast-Talk destroys "I've Fixed the Wound!"!
+DEBUG: GameController moved "I've Fixed the Wound!" to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D88 Inquirer]
+DEBUG: Inquirer's Fast-Talk plays Until you Make It.
+DEBUG: Created decision [SelectLocation/None D89 Inquirer]
+Message: There are no persona cards in Inquirer's trash. [  ]
+DEBUG: Inquirer draws "You're on Our Side!".
+DEBUG: Created decision [SelectCard/None D90 Inquirer]
+DEBUG: Until you Make It plays "I'm a Mole-Person!".
+DEBUG: GameController moved Until you Make It to Inquirer's trash.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "You're Looking Pale!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D91 Inquirer]
+DEBUG: Created decision [SelectTarget/None D91-1 Inquirer]
+DEBUG: Inquirer initiates 1 Melee damage to Breach Mage.
+DEBUG: Inquirer deals Breach Mage 1 Melee damage.
+DEBUG: Breach Mage is now at 10 HP.
+DEBUG: Went from Inquirer's End phase to Trailblazer's Start phase. 
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D92 Trailblazer]
+DEBUG: GameController plays Wasteland Wanderer.
+PLAY CARD SANITY: 10
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D93 Trailblazer]
+DEBUG: Trailblazer uses the power on Wasteland Wanderer.
+DEBUG: Created decision [SelectTargets/None D94 Trailblazer]
+DEBUG: Created decision [SelectTarget/None D94-1 Trailblazer]
+DEBUG: Trailblazer initiates 3 Fire damage to Trailblazer.
+DEBUG: Trailblazer deals Trailblazer 3 Fire damage.
+DEBUG: Trailblazer is now at 13 HP.
+DEBUG: Wasteland Wanderer destroys itself!
+DEBUG: GameController moved Wasteland Wanderer to Trailblazer's trash.
+POWER SANITY: 10
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. 
+DEBUG: Trailblazer draws Uncharted Grounds.
+DRAW CARD SANITY: 10
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D95 Recall]
+DEBUG: GameController plays Deja Vu.
+DEBUG: Deja Vu plays Paradox Anchor.
+DEBUG: Deja Vu plays Seen It Before.
+DEBUG: Deja Vu destroys itself!
+DEBUG: GameController moved Deja Vu to Recall's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D96 Recall]
+DEBUG: Recall uses the power on Seen It Before.
+DEBUG: Created decision [SelectLocation/None D97 Recall]
+DEBUG: Revealed card: "I'm a Ninja!"
+DEBUG: Created decision [MoveCard/None D98 Recall]
+DEBUG: Seen It Before moved "I'm a Ninja!" from Inquirer's revealed cards to Inquirer's deck.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Temporal Anomaly.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Megalopolis's Start phase. 
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Police Backup.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D99]
+DEBUG: Created decision [SelectTarget/None D99-1]
+DEBUG: Police Backup initiates 1 Projectile damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Police Backup by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Police Backup by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D99-2]
+DEBUG: Went from Megalopolis's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Ireful Grasp.
+DEBUG: Created decision [SelectTargets/None D100]
+DEBUG: Created decision [SelectTarget/None D100-1]
+DEBUG: Chokepoint initiates 3 Psychic damage to Inquirer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Inquirer 4 Psychic damage.
+DEBUG: Inquirer is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D100-2]
+DEBUG: Chokepoint initiates 3 Psychic damage to Trailblazer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Trailblazer 4 Psychic damage.
+DEBUG: Trailblazer is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D100-3]
+DEBUG: Created decision [SelectCard/None D101]
+DEBUG: Ireful Grasp moved Vigor Charm to Chokepoint's play area.
+DEBUG: Vigor Charm was flipped to its back side.
+DEBUG: GameController moved Ireful Grasp to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D102]
+DEBUG: Chokepoint destroys Rapid Repositioning!
+DEBUG: GameController moved one of Trailblazer's cards to Trailblazer's trash.
+DEBUG: Created decision [SelectTargets/None D103]
+DEBUG: Created decision [SelectTarget/None D103-1]
+DEBUG: Chokepoint initiates 5 Projectile damage to Inquirer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Inquirer 6 Projectile damage.
+DEBUG: Inquirer is now at 12 HP.
+DEBUG: Created decision [SelectTarget/None D103-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D104 Breach Mage]
+DEBUG: GameController plays Haunting Echo.
+DEBUG: Created decision [SelectCard/None D105 Breach Mage]
+DEBUG: GameController moved Haunting Echo from Breach Mage's hand next to Stable Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D106 Breach Mage]
+DEBUG: Breach Mage uses the power on Stable Breach.
+DEBUG: Created decision [SelectCards/None D107 Breach Mage]
+DEBUG: Created decision [SelectCard/None D107-1 Breach Mage]
+DEBUG: Stable Breach plays Molten Wave.
+DEBUG: GameController moved Molten Wave from Breach Mage's hand next to Potent Breach.
+DEBUG: Created decision [SelectCard/None D107-2 Breach Mage]
+DEBUG: Stable Breach plays Haunting Echo.
+Message: There are no breach cards in play to put Haunting Echo next to. Moving it to Breach Mage's trash. [ Haunting Echo ]
+DEBUG: GameController moved Haunting Echo from Breach Mage's hand to Breach Mage's trash.
+DEBUG: Created decision [SelectCard/None D107-3 Breach Mage]
+DEBUG: Stable Breach plays Shine.
+Message: There are no breach cards in play to put Shine next to. Moving it to Breach Mage's trash. [ Shine ]
+DEBUG: GameController moved Shine from Breach Mage's hand to Breach Mage's trash.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Flare Cascade.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+DEBUG: Created decision [YesNoAmount/None D108 Inquirer]
+DEBUG: "I'm a Mole-Person!" destroys itself!
+DEBUG: GameController moved "I'm a Mole-Person!" to Inquirer's trash.
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D109 Inquirer]
+DEBUG: GameController plays "You're Looking Pale!".
+DEBUG: GameController moved "You're Looking Pale!" from Inquirer's hand next to Chokepoint.
+DEBUG: Chokepoint initiates 4 Psychic damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Chokepoint by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Chokepoint by 1.
+DEBUG: Chokepoint deals Chokepoint 2 Psychic damage.
+DEBUG: Chokepoint is now at 67 HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D110 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws "I'm a Ninja!".
+DEBUG: Created decision [SelectCard/None D111 Inquirer]
+DEBUG: "You're Looking Pale!" caused Chokepoint to regain 2 HP. HP is now 69.
+DEBUG: Inquirer's Fast-Talk destroys "You're Looking Pale!"!
+DEBUG: GameController moved "You're Looking Pale!" to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D112 Inquirer]
+DEBUG: Inquirer's Fast-Talk plays "You're Looking Pale!".
+DEBUG: GameController moved "You're Looking Pale!" from Inquirer's hand next to Chokepoint.
+DEBUG: Chokepoint initiates 4 Psychic damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Chokepoint by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Chokepoint by 1.
+DEBUG: Chokepoint deals Chokepoint 2 Psychic damage.
+DEBUG: Chokepoint is now at 67 HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "You're on Our Side!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Trailblazer's Start phase. 
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D113 Trailblazer]
+DEBUG: GameController plays Uncharted Grounds.
+Message: Trailblazer reshuffles their trash into their deck. [  ]
+DEBUG: Uncharted Grounds moves 6 cards cards to the top of Trailblazer's Deck.
+DEBUG: Trailblazer shuffles their Trailblazer's deck.
+DEBUG: Revealed card: Trail of Ashes
+DEBUG: Revealed matching card: Striking Zone
+DEBUG: Revealed matching card: Vantage Point
+DEBUG: Created decision [SelectCards/None D114 Trailblazer]
+DEBUG: Created decision [SelectCard/None D114-1 Trailblazer]
+DEBUG: GameController plays Vantage Point.
+Message: There are no position cards for Vantage Point to destroy. [ Vantage Point ]
+DEBUG: Uncharted Grounds moved Trail of Ashes from Trailblazer's revealed cards to Trailblazer's deck.
+DEBUG: Uncharted Grounds moved Striking Zone from Trailblazer's revealed cards to Trailblazer's deck.
+DEBUG: Trailblazer shuffles their Trailblazer's deck.
+DEBUG: Created decision [SelectTargets/None D115 Trailblazer]
+DEBUG: Created decision [SelectTarget/None D115-1 Trailblazer]
+DEBUG: Trailblazer initiates 1 Fire damage to Breach Mage.
+DEBUG: Trailblazer deals Breach Mage 1 Fire damage.
+DEBUG: Breach Mage is now at 9 HP.
+DEBUG: Created decision [SelectTarget/None D115-2 Trailblazer]
+DEBUG: Trailblazer initiates 1 Fire damage to Chokepoint.
+DEBUG: Chokepoint reduces the damage dealt to Chokepoint by Trailblazer by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Trailblazer by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Trailblazer by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: GameController moved Uncharted Grounds to Trailblazer's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D116 Trailblazer]
+DEBUG: Trailblazer uses the power on Vantage Point.
+DEBUG: Created decision [SelectTurnTakers/None D117 Trailblazer]
+DEBUG: Created decision [SelectTurnTaker/None D118 Trailblazer]
+DEBUG: Recall draws Temporal Loop.
+DEBUG: Recall draws Immediate Jump.
+POWER SANITY: 10
+DEBUG: Vantage Point increased the action count of DrawCard by 1.
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. (Count: 2)
+DEBUG: Trailblazer draws Prepared Ambush.
+DRAW CARD SANITY: 10
+DEBUG: Trailblazer draws Supply Pack.
+DRAW CARD SANITY: 9
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to Recall's Start phase. 
+DEBUG: Recall draws Temporal Loop.
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D119 Recall]
+DEBUG: GameController plays Immediate Jump.
+DEBUG: Recall initiates 0 Psychic damage to Recall.
+DEBUG: Paradox Anchor reduces the damage dealt to Recall by Recall by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Immediate Jump was moved under Recall.
+DEBUG: Went from Recall's PlayCard phase to Start phase. 
+DEBUG: Recall draws Deja Vu.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D120 Recall]
+DEBUG: GameController plays Deja Vu.
+Message: Recall tried to play Deja Vu, but it is a limited card that is already in play. Moving it to Recall's trash. [  ]
+DEBUG: Deja Vu moved Deja Vu from Recall's trash to Recall's trash.
+Message: Recall tried to play Deja Vu, but it is a limited card that is already in play. Moving it to Recall's trash. [  ]
+DEBUG: Deja Vu moved Deja Vu from Recall's trash to Recall's trash.
+DEBUG: Deja Vu destroys itself!
+DEBUG: GameController moved Deja Vu to Recall's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D121 Recall]
+DEBUG: Recall uses the power on Seen It Before.
+DEBUG: Created decision [SelectLocation/None D122 Recall]
+DEBUG: Revealed card: Zap
+DEBUG: Created decision [MoveCard/None D123 Recall]
+DEBUG: Seen It Before moved Zap from Breach Mage's revealed cards to the bottom of Breach Mage's deck.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Note to Self.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to PlayCard phase. 
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D124 Recall]
+DEBUG: Recall uses the power on Seen It Before.
+DEBUG: Created decision [SelectLocation/None D125 Recall]
+DEBUG: Revealed card: Seen It Before
+DEBUG: Created decision [MoveCard/None D126 Recall]
+DEBUG: Seen It Before moved Seen It Before from Recall's revealed cards to Recall's deck.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Seen It Before.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Megalopolis's Start phase. 
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Impending Casualty.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D127]
+DEBUG: Created decision [SelectTarget/None D127-1]
+DEBUG: Police Backup initiates 1 Projectile damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Police Backup by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Police Backup by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D127-2]
+DEBUG: 1 player may discard 1 card to destroy Impending Casualty.
+DEBUG: Created decision [SelectTurnTaker/None D128]
+DEBUG: Created decision [SelectCard/None D129 Recall]
+DEBUG: Recall discards Temporal Anomaly.
+DEBUG: Impending Casualty moved Temporal Anomaly from Recall's hand to Recall's trash.
+DEBUG: Impending Casualty destroys itself!
+DEBUG: GameController moved Impending Casualty to the environment trash.
+DEBUG: Went from Megalopolis's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Ireful Grasp.
+DEBUG: Created decision [SelectTargets/None D130]
+DEBUG: Created decision [SelectTarget/None D130-1]
+DEBUG: Chokepoint initiates 3 Psychic damage to Inquirer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Inquirer 4 Psychic damage.
+DEBUG: Inquirer is now at 8 HP.
+DEBUG: Created decision [SelectTarget/None D130-2]
+DEBUG: Chokepoint initiates 3 Psychic damage to Trailblazer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Trailblazer 4 Psychic damage.
+DEBUG: Trailblazer is now at 5 HP.
+DEBUG: Created decision [SelectTarget/None D130-3]
+DEBUG: Created decision [SelectCard/None D131]
+DEBUG: Ireful Grasp moved Paradox Anchor to Chokepoint's play area.
+DEBUG: Paradox Anchor was flipped to its back side.
+DEBUG: GameController moved Ireful Grasp to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D132]
+DEBUG: Chokepoint destroys Paradox Anchor!
+DEBUG: GameController moved one of Recall's cards to Recall's trash.
+DEBUG: Created decision [SelectTargets/None D133]
+DEBUG: Created decision [SelectTarget/None D133-1]
+DEBUG: Chokepoint initiates 5 Projectile damage to Recall.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Recall 6 Projectile damage.
+DEBUG: Recall is now at 8 HP.
+DEBUG: Created decision [SelectTarget/None D133-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+DEBUG: Created decision [ActivateAbility/ActivateAbility D134 Breach Mage]
+DEBUG: Breach Mage activates the text on Molten Wave.
+DEBUG: Created decision [SelectTargets/None D135 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D135-1 Breach Mage]
+DEBUG: Breach Mage initiates 2 Fire damage to Chokepoint.
+DEBUG: Potent Breach increases the damage dealt by Breach Mage by 1.
+DEBUG: Chokepoint reduces the damage dealt to Chokepoint by Breach Mage by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Breach Mage by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Breach Mage by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D135-2 Breach Mage]
+DEBUG: GameController destroys Molten Wave!
+DEBUG: GameController moved Molten Wave to Breach Mage's trash.
+DEBUG: Created decision [ActivateAbility/ActivateAbility D136 Breach Mage]
+DEBUG: Breach Mage activates the text on Haunting Echo.
+DEBUG: Created decision [SelectTargets/None D137 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D137-1 Breach Mage]
+DEBUG: Breach Mage initiates 2 Psychic damage to Inquirer.
+DEBUG: Breach Mage deals Inquirer 2 Psychic damage.
+DEBUG: Inquirer is now at 6 HP.
+DEBUG: Created decision [SelectCard/None D138 Breach Mage]
+DEBUG: Haunting Echo destroys Parting Gift!
+DEBUG: GameController moved Parting Gift to Trailblazer's trash.
+DEBUG: GameController destroys Haunting Echo!
+DEBUG: GameController moved Haunting Echo to Breach Mage's trash.
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D139 Breach Mage]
+DEBUG: GameController plays Flare Cascade.
+DEBUG: Created decision [SelectCard/None D140 Breach Mage]
+DEBUG: GameController moved Flare Cascade from Breach Mage's hand next to Potent Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D141 Breach Mage]
+DEBUG: Breach Mage uses the power on Breach Mage.
+DEBUG: Breach Mage will destroy 1 charge cards.
+DEBUG: Created decision [SelectCards/None D142 Breach Mage]
+DEBUG: Created decision [SelectCard/None D142-1 Breach Mage]
+DEBUG: Breach Mage's M. Blazewatcher destroys Vigor Charm!
+DEBUG: GameController moved Vigor Charm to Breach Mage's trash.
+DEBUG: Created decision [SelectTurnTaker/None D143 Breach Mage]
+DEBUG: Inquirer draws "You're on Our Side!".
+DEBUG: Inquirer draws "I'm a Victorian!".
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Focus Charm.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+DEBUG: "You're Looking Pale!" caused Chokepoint to regain 2 HP. HP is now 69.
+DEBUG: "You're Looking Pale!" destroys itself!
+DEBUG: GameController moved "You're Looking Pale!" to Inquirer's trash.
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D144 Inquirer]
+DEBUG: GameController plays "I'm a Victorian!".
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D145 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws "You're Looking Pale!".
+Message: There are no distortion cards in play for Inquirer to destroy. [  ]
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws The Right Questions.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: "I'm a Victorian!" caused Inquirer to regain 1 HP. HP is now 7.
+DEBUG: Went from Inquirer's End phase to Trailblazer's Start phase. 
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D146 Trailblazer]
+DEBUG: GameController plays Defensive Bulwark.
+DEBUG: Created decision [SelectCards/None D147 Trailblazer]
+DEBUG: Created decision [SelectCard/None D147-1 Trailblazer]
+DEBUG: Defensive Bulwark destroys Vantage Point!
+DEBUG: GameController moved Vantage Point to Trailblazer's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D148 Trailblazer]
+DEBUG: Trailblazer uses the power on Defensive Bulwark.
+DEBUG: Created decision [SelectCards/None D149 Trailblazer]
+DEBUG: Created decision [SelectCard/None D149-1 Trailblazer]
+DEBUG: Defensive Bulwark caused Chokepoint to regain 1 HP, up to their maximum HP. HP is now 70.
+DEBUG: Created decision [SelectCard/None D149-2 Trailblazer]
+DEBUG: Defensive Bulwark caused Recall to regain 2 HP. HP is now 10.
+POWER SANITY: 10
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. 
+DEBUG: Trailblazer draws Rapid Repositioning.
+DRAW CARD SANITY: 10
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to Recall's Start phase. 
+DEBUG: Recall draws Temporal Anomaly.
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D150 Recall]
+DEBUG: GameController plays Immediate Jump.
+DEBUG: Recall initiates 2 Psychic damage to Recall.
+DEBUG: Recall deals Recall 2 Psychic damage.
+DEBUG: Recall is now at 8 HP.
+DEBUG: Immediate Jump was moved under Recall.
+DEBUG: Went from Recall's PlayCard phase to Start phase. 
+DEBUG: Recall draws Paradox Anchor.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D151 Recall]
+DEBUG: GameController plays Paradox Anchor.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D152 Recall]
+DEBUG: Recall uses the power on Seen It Before.
+DEBUG: Created decision [SelectLocation/None D153 Recall]
+DEBUG: Revealed card: Paparazzi on the Scene
+DEBUG: Created decision [MoveCard/None D154 Recall]
+DEBUG: Seen It Before moved Paparazzi on the Scene from Megalopolis's revealed cards to the bottom of the environment deck.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Temporal Loop.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to PlayCard phase. 
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D155 Recall]
+DEBUG: Recall uses the power on Recall.
+DEBUG: Created decision [SelectFunction/SelectFunction D156 Recall]
+DEBUG: Created decision [SelectCards/None D157 Recall]
+DEBUG: Created decision [SelectCard/None D157-1 Recall]
+DEBUG: Recall's Paradox Proof plays Going Through The Motions.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Refined Shot.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Megalopolis's Start phase. 
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Plummeting Monorail.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D158]
+DEBUG: Created decision [SelectTarget/None D158-1]
+DEBUG: Police Backup initiates 1 Projectile damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Police Backup by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Police Backup by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D158-2]
+DEBUG: Went from Megalopolis's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Augmented Energy Field.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D159]
+DEBUG: Chokepoint destroys Focus Charm!
+DEBUG: GameController moved one of Breach Mage's cards to Breach Mage's trash.
+DEBUG: Created decision [SelectTargets/None D160]
+DEBUG: Created decision [SelectTarget/None D160-1]
+DEBUG: Chokepoint initiates 5 Projectile damage to Breach Mage.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Breach Mage 6 Projectile damage.
+DEBUG: Breach Mage is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D160-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+DEBUG: Created decision [ActivateAbility/ActivateAbility D161 Breach Mage]
+DEBUG: Breach Mage activates the text on Flare Cascade.
+DEBUG: Created decision [SelectTargets/None D162 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D162-1 Breach Mage]
+DEBUG: Breach Mage initiates 3 Fire damage to Trailblazer.
+DEBUG: Potent Breach increases the damage dealt by Breach Mage by 1.
+DEBUG: Defensive Bulwark reduces the damage dealt to Trailblazer by Breach Mage by 2.
+DEBUG: Breach Mage deals Trailblazer 2 Fire damage.
+DEBUG: Trailblazer is now at 3 HP.
+Message: There are no charge cards in play for Flare Cascade to destroy. [ Flare Cascade ]
+DEBUG: GameController destroys Flare Cascade!
+DEBUG: GameController moved Flare Cascade to Breach Mage's trash.
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D163 Breach Mage]
+DEBUG: GameController plays Hammer Charm.
+DEBUG: Created decision [SelectCard/None D164 Breach Mage]
+DEBUG: Hammer Charm destroys "I'm a Victorian!"!
+DEBUG: GameController moved "I'm a Victorian!" to Inquirer's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D165 Breach Mage]
+DEBUG: Breach Mage uses the power on Potent Breach.
+DEBUG: Created decision [SelectCard/None D166 Breach Mage]
+DEBUG: Potent Breach plays Zap.
+DEBUG: Created decision [SelectCard/None D167 Breach Mage]
+DEBUG: GameController moved Zap from Breach Mage's hand next to Potent Breach.
+DEBUG: Breach Mage draws Focus Charm.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Aura Charm.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D168 Inquirer]
+DEBUG: GameController plays "You're on Our Side!".
+DEBUG: Created decision [SelectCard/None D169 Inquirer]
+DEBUG: GameController moved "You're on Our Side!" from Inquirer's hand next to Plummeting Monorail.
+DEBUG: Created decision [SelectTargets/None D170 Inquirer]
+DEBUG: Created decision [SelectTarget/None D170-1 Inquirer]
+DEBUG: Plummeting Monorail initiates 2 Melee damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Plummeting Monorail by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Plummeting Monorail by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Plummeting Monorail by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D170-2 Inquirer]
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D171 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws The Lie they Tell Themselves.
+DEBUG: Created decision [SelectCard/None D172 Inquirer]
+DEBUG: Plummeting Monorail initiates 1 Melee damage to Inquirer.
+DEBUG: Plummeting Monorail deals Inquirer 1 Melee damage.
+DEBUG: Inquirer is now at 6 HP.
+DEBUG: Inquirer's Fast-Talk destroys "You're on Our Side!"!
+DEBUG: GameController moved "You're on Our Side!" to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D173 Inquirer]
+DEBUG: Inquirer's Fast-Talk plays "You're Looking Pale!".
+DEBUG: Created decision [SelectCard/None D174 Inquirer]
+DEBUG: GameController moved "You're Looking Pale!" from Inquirer's hand next to Chokepoint.
+DEBUG: Chokepoint initiates 4 Psychic damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Chokepoint by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Chokepoint by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Chokepoint by 1.
+DEBUG: Chokepoint deals Chokepoint 1 Psychic damage.
+DEBUG: Chokepoint is now at 69 HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws Until you Make It.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Trailblazer's Start phase. 
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D175 Trailblazer]
+DEBUG: GameController plays Prepared Ambush.
+DEBUG: Created decision [SelectTurnTakers/None D176 Trailblazer]
+DEBUG: Created decision [SelectTurnTaker/None D177 Trailblazer]
+DEBUG: Created decision [UsePower/UsePower D178 Breach Mage]
+DEBUG: Breach Mage uses the power on Potent Breach.
+DEBUG: GameController removes 1 token from Potent Breach's Focus Pool.
+DEBUG: Created decision [SelectTurnTaker/None D179 Trailblazer]
+DEBUG: Created decision [UsePower/UsePower D180 Trailblazer]
+DEBUG: Trailblazer uses the power on Defensive Bulwark.
+DEBUG: Created decision [SelectCards/None D181 Trailblazer]
+DEBUG: Created decision [SelectCard/None D181-1 Trailblazer]
+DEBUG: Defensive Bulwark caused Inquirer to regain 2 HP. HP is now 8.
+DEBUG: Created decision [SelectCard/None D181-2 Trailblazer]
+DEBUG: Defensive Bulwark caused Chokepoint to regain 1 HP, up to their maximum HP. HP is now 70.
+DEBUG: Created decision [SelectTurnTaker/None D182 Trailblazer]
+DEBUG: Created decision [UsePower/UsePower D183 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+DEBUG: Inquirer draws Fisticuffs.
+DEBUG: Created decision [SelectCard/None D184 Inquirer]
+DEBUG: "You're Looking Pale!" tried to increase Chokepoint's HP, but they are already at their maximum HP.
+DEBUG: Inquirer's Fast-Talk destroys "You're Looking Pale!"!
+DEBUG: GameController moved "You're Looking Pale!" to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D185 Inquirer]
+DEBUG: Inquirer's Fast-Talk plays The Right Questions.
+DEBUG: Created decision [SelectCard/None D186 Inquirer]
+DEBUG: The Right Questions destroys Augmented Energy Field!
+DEBUG: GameController moved Augmented Energy Field to the villain trash.
+DEBUG: Created decision [SelectCards/None D187 Inquirer]
+DEBUG: Created decision [SelectCard/None D187-1 Inquirer]
+DEBUG: The Right Questions plays "You're on Our Side!".
+DEBUG: Created decision [SelectCard/None D188 Inquirer]
+DEBUG: GameController moved "You're on Our Side!" from Inquirer's hand next to Plummeting Monorail.
+DEBUG: Created decision [SelectTargets/None D189 Inquirer]
+DEBUG: Created decision [SelectTarget/None D189-1 Inquirer]
+DEBUG: Plummeting Monorail initiates 2 Melee damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Plummeting Monorail by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Plummeting Monorail by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D189-2 Inquirer]
+DEBUG: Created decision [SelectCard/None D190 Inquirer]
+DEBUG: GameController moved "You're on Our Side!" to Inquirer's hand.
+DEBUG: GameController moved The Right Questions to Inquirer's trash.
+DEBUG: Created decision [SelectCard/None D191 Trailblazer]
+DEBUG: Prepared Ambush destroys Augmented Energy Field!
+DEBUG: GameController moved Augmented Energy Field to the villain trash.
+DEBUG: Created decision [SelectCard/None D192 Trailblazer]
+DEBUG: Prepared Ambush destroys Plummeting Monorail!
+DEBUG: GameController moved Plummeting Monorail to the environment trash.
+DEBUG: Created decision [SelectCard/None D193 Trailblazer]
+DEBUG: Prepared Ambush destroys Defensive Bulwark!
+DEBUG: GameController moved Defensive Bulwark to Trailblazer's trash.
+DEBUG: GameController moved Prepared Ambush to Trailblazer's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D194 Trailblazer]
+DEBUG: Trailblazer uses the power on Trailblazer.
+Message: There are no Positions in play, so Trailblazer cannot make any indestructible. [ Trailblazer ]
+DEBUG: Created decision [SelectCard/None D195 Trailblazer]
+DEBUG: Trailblazer's Spatial Alignment plays Parting Gift.
+POWER SANITY: 10
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. 
+DEBUG: Trailblazer draws Trail of Ashes.
+DRAW CARD SANITY: 10
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to Recall's Start phase. 
+DEBUG: Recall draws Seen It Before.
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectFunction/SelectFunction D196 Recall]
+DEBUG: Going Through The Motions prevented the action of phase PlayCard.
+DEBUG: Recall draws Deja Vu.
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D197 Recall]
+DEBUG: Recall uses the power on Seen It Before.
+DEBUG: Created decision [SelectLocation/None D198 Recall]
+DEBUG: Revealed card: Vigor Charm
+DEBUG: Created decision [MoveCard/None D199 Recall]
+DEBUG: Seen It Before moved Vigor Charm from Breach Mage's revealed cards to Breach Mage's deck.
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Seen It Before.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Megalopolis's Start phase. 
+DEBUG: Went from Megalopolis's Start phase to PlayCard phase. 
+DEBUG: GameController plays Traffic Pileup.
+PLAY CARD SANITY: 10
+DEBUG: Went from Megalopolis's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D200]
+DEBUG: Created decision [SelectTarget/None D200-1]
+DEBUG: Police Backup initiates 1 Projectile damage to Chokepoint.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Police Backup by 1.
+DEBUG: Damage amount was 0, so no damage was dealt.
+DEBUG: Created decision [SelectTarget/None D200-2]
+DEBUG: Went from Megalopolis's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Shocking Animation.
+DEBUG: Created decision [SelectCard/None D201]
+DEBUG: GameController moved Shocking Animation from the villain deck next to Paradox Anchor.
+DEBUG: Made Paradox Anchor a target with 5 max HP and 5 current HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D202]
+DEBUG: Chokepoint destroys Vigor Charm!
+DEBUG: GameController moved one of Breach Mage's cards to Breach Mage's trash.
+DEBUG: Created decision [SelectCard/None D203]
+DEBUG: Created decision [SelectTargets/None D204]
+DEBUG: Created decision [SelectTarget/None D204-1]
+DEBUG: Chokepoint initiates 5 Projectile damage to Inquirer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Inquirer 6 Projectile damage.
+DEBUG: Inquirer is now at 2 HP.
+DEBUG: Created decision [SelectTarget/None D204-2]
+DEBUG: Went from Chokepoint's End phase to Breach Mage's Start phase. 
+DEBUG: Created decision [ActivateAbility/ActivateAbility D205 Breach Mage]
+DEBUG: Breach Mage activates the text on Zap.
+DEBUG: Created decision [SelectTargets/None D206 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D206-1 Breach Mage]
+DEBUG: Breach Mage initiates 1 Lightning damage to Traffic Pileup.
+DEBUG: Potent Breach increases the damage dealt by Breach Mage by 1.
+DEBUG: Breach Mage deals Traffic Pileup 2 Lightning damage.
+DEBUG: Traffic Pileup is now at 8 HP.
+DEBUG: GameController destroys Zap!
+DEBUG: Zap was moved to Breach Mage's hand.
+Message: Zap was moved to Breach Mage's hand. [ Zap ]
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D207 Breach Mage]
+DEBUG: GameController plays Zap.
+DEBUG: Created decision [SelectCard/None D208 Breach Mage]
+DEBUG: GameController moved Zap from Breach Mage's hand next to Potent Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D209 Breach Mage]
+DEBUG: Breach Mage uses the power on Stable Breach.
+DEBUG: Created decision [SelectCards/None D210 Breach Mage]
+DEBUG: Created decision [SelectCard/None D210-1 Breach Mage]
+DEBUG: Stable Breach plays Zap.
+DEBUG: GameController moved Zap from Breach Mage's hand next to Stable Breach.
+DEBUG: Created decision [SelectCard/None D210-2 Breach Mage]
+DEBUG: Stable Breach plays Vision Shock.
+Message: There are no breach cards in play to put Vision Shock next to. Moving it to Breach Mage's trash. [ Vision Shock ]
+DEBUG: GameController moved Vision Shock from Breach Mage's hand to Breach Mage's trash.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Traffic Pileup prevented the phase action of Breach Mage's DrawCard phase.
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D211 Inquirer]
+DEBUG: GameController plays Fisticuffs.
+DEBUG: Created decision [SelectTargets/None D212 Inquirer]
+DEBUG: Created decision [SelectTarget/None D212-1 Inquirer]
+DEBUG: Inquirer initiates 3 Melee damage to Chokepoint.
+DEBUG: Chokepoint reduces the damage dealt to Chokepoint by Inquirer by 1.
+DEBUG: Augmented Energy Field reduces the damage dealt to Chokepoint by Inquirer by 1.
+DEBUG: Inquirer deals Chokepoint 1 Melee damage.
+DEBUG: Chokepoint is now at 69 HP.
+DEBUG: Fisticuffs caused Inquirer to regain 2 HP. HP is now 4.
+DEBUG: Created decision [SelectCard/None D213 Inquirer]
+
+Unknown crash, seemed to be a discard trigger on the stack.

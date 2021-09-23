@@ -1,22 +1,26 @@
-using Boomlagoon.JSON;
+﻿using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Collections.Generic;
+using System.Reflection;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
-using System.Xml.XPath;
 using Troschuetz.Random;
 using Troschuetz.Random.Generators;
+using Handelabra;
+using Boomlagoon.JSON;
+using System.Xml.XPath;
 
 namespace Handelabra.MyModConsole // this has to be this way to work around an EngineCommon issue, will be fixed soon.
 {
     // Loading a game in "friendly mode" throws an exception so we can get out of wherever we were.
-    internal class LoadGameException : Exception
+    class LoadGameException : Exception
     {
         public string GameName { get; private set; }
 
@@ -35,18 +39,19 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
         Fast
     };
 
-    internal class MainClass
+    class MainClass
     {
         public static string GameNameToLoad = null;
 
         private static Game ConfigureGameForTesting()
         {
+            Game game = null;
             bool advanced = false;
             bool challenge = false;
             Dictionary<string, string> promos = new Dictionary<string, string>();
 
             // Set up a game how you want, stack decks, etc.
-            Game game = new Game(new string[] { "BaronBlade", "Bunker", "Legacy", "TheWraith", "PikeIndustrialComplex" }, advanced, promos, isChallenge: challenge);
+            game = new Game(new string[] { "BaronBlade", "Bunker", "Legacy", "TheWraith", "PikeIndustrialComplex" }, advanced, promos, isChallenge: challenge);
 
             return game;
         }
@@ -57,10 +62,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             RunCoroutine(GameController.SetActiveTurnTaker("Legacy"));
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private static void SetHitPoints(Game game, string identifier, int amount)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             if (game.FindTurnTaker(identifier) != null)
             {
@@ -79,10 +81,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private static void PutIntoPlay(Game game, string identifier, string[] cards)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             if (game.FindTurnTaker(identifier) != null)
             {
@@ -94,10 +93,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private static void PutInHand(Game game, string identifier, string[] cards)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             game.FindTurnTaker(identifier).ToHero().PutInHand(cards);
         }
@@ -107,34 +103,22 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             card.Owner.ToHero().PutInHand(card);
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private static void PutInTrash(Game game, string identifier, string[] cardIdentifiers)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             game.FindTurnTaker(identifier).PutInTrash(cardIdentifiers);
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private static void StackDeck(Game game, string ttIdentifier, string[] cards, bool takeFromAnywhere = false)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             game.FindTurnTaker(ttIdentifier).StackDeck(cards, false, takeFromAnywhere);
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private static void MoveCard(Game game, string ttIdentifier, string cardIdentifier, Location location)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             game.FindTurnTaker(ttIdentifier).GetCardsByIdentifier(cardIdentifier).Where(c => c.IsInDeck).FirstOrDefault().Location = location;
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private static void MoveAllCardsToTrash(Game game, string identifier)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             var tt = game.FindTurnTaker(identifier);
             tt.PutInTrash(tt.GetAllCards().Select(c => c.Identifier).ToArray());
@@ -257,6 +241,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                             var definition = DeckDefinitionCache.GetDeckDefinition(identifier);
                             var name = definition.Name;
                             Console.WriteLine((i + 1) + ": " + name);
+
                         }
 
                         Console.WriteLine("TIMCOSING: OblivAeon");
@@ -626,6 +611,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                             break;
                         }
                     }
+
                 }
             }
 
@@ -1238,21 +1224,20 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-        private bool UserFriendly = false;
-        private bool Verbose = false;
-        private bool EnforceRules = false;
+        bool UserFriendly = false;
+        bool Verbose = false;
+        bool EnforceRules = false;
 
-        private GameController GameController { get; set; }
+        GameController GameController { get; set; }
 
-        private System.IO.StreamWriter FileOutput = null;
-        private string OutputFileDate;
-        private string OutputFileName;
-        private string DataFileName;
-
-        private static GameSpeed Speed = GameSpeed.Fast;
-        private static bool CheatStops = false;
-        private Card _lastCardPrinted = null;
-        private const string UserDataFileName = "userdata.json";
+        System.IO.StreamWriter FileOutput = null;
+        string OutputFileDate;
+        string OutputFileName;
+        string DataFileName;
+        static GameSpeed Speed = GameSpeed.Fast;
+        static bool CheatStops = false;
+        Card _lastCardPrinted = null;
+        const string UserDataFileName = "userdata.json";
 
         public void SetupGameController(Game game)
         {
@@ -1321,9 +1306,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
 
         private static JSONObject LoadUserData()
         {
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
             JSONObject data = null;
-#pragma warning restore IDE0059 // Unnecessary assignment of a value
             if (File.Exists(UserDataFileName))
             {
                 string json = File.ReadAllText(UserDataFileName);
@@ -1403,9 +1386,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             JSONObject data = LoadUserData();
 
             JSONValue jsonValue = null;
-#pragma warning disable IDE0038 // Use pattern matching
             if (value is bool)
-#pragma warning restore IDE0038 // Use pattern matching
             {
                 jsonValue = new JSONValue((bool)value);
             }
@@ -1432,7 +1413,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-        private IEnumerable<KeyValuePair<string, string>> HandleGetHeroCardsInBoxRequest(Func<string, bool> identifierCriteria, Func<string, bool> turnTakerCriteria)
+        IEnumerable<KeyValuePair<string, string>> HandleGetHeroCardsInBoxRequest(Func<string, bool> identifierCriteria, Func<string, bool> turnTakerCriteria)
         {
             var result = new List<KeyValuePair<string, string>>();
 
@@ -1899,9 +1880,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
         {
             bool success = false;
 
-#pragma warning disable IDE0017 // Simplify object initialization
             BinaryFormatter formatter = new BinaryFormatter();
-#pragma warning restore IDE0017 // Simplify object initialization
             formatter.AssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
             FileStream stream = null;
             try
@@ -1938,9 +1917,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
 
         public static Game LoadGameFile(string name)
         {
-#pragma warning disable IDE0017 // Simplify object initialization
             BinaryFormatter formatter = new BinaryFormatter();
-#pragma warning restore IDE0017 // Simplify object initialization
             formatter.AssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
             string path = name.Trim() + ".dat";
             if (File.Exists(path))
@@ -2026,14 +2003,14 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                         OutputToConsoleAndFile("\t> ");
                         topOrBottom = GetCleanInput().ToInt(0);
                     }
-#pragma warning disable IDE0075 // Simplify conditional expression
                     bool toBottom = topOrBottom == 1 ? false : true;
-#pragma warning restore IDE0075 // Simplify conditional expression
                     taker.PutOnDeck(card, toBottom);
                     OutputToConsoleAndFileLine(card.Definition.Title + " put back in deck.");
                 }
             }
         }
+
+
 
         public void PrintMenu()
         {
@@ -2090,6 +2067,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
+
         public void DestroyCards(TurnTakerController taker, int numberOfCards)
         {
             if (taker.IsHero)
@@ -2109,9 +2087,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
         {
             OutputToConsoleAndFileLine("JMG: THIS IMPLEMENTATION IS OUTDATED");
 
-#pragma warning disable IDE0038 // Use pattern matching
             if (taker.TurnTaker is HeroTurnTaker)
-#pragma warning restore IDE0038 // Use pattern matching
             {
                 for (int i = 0; i < numberOfCards; i++)
                 {
@@ -2141,10 +2117,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter
-
         public void UseIncapacitatedAbility(TurnTakerController taker, int numberOfTimes = 1, bool optional = true)
-#pragma warning restore IDE0060 // Remove unused parameter
         {
             if (taker.IsHero)
             {
@@ -2167,9 +2140,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
 
         public void PrintHand(TurnTakerController taker)
         {
-#pragma warning disable IDE0038 // Use pattern matching
             if (taker.TurnTaker is HeroTurnTaker)
-#pragma warning restore IDE0038 // Use pattern matching
             {
                 IEnumerable<Card> hand = taker.GetCardsAtLocation(((HeroTurnTaker)taker.TurnTaker).Hand);
                 PrintCardList(taker, hand, "Cards in your hand:", "You have no cards in your hand.");
@@ -2192,11 +2163,10 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             PrintCardList(taker, hand, "Cards in your trash:", "There are no cards in your trash.");
         }
 
+
         public Card SelectACard(TurnTakerController taker, Location location, string introText, string noCardsText)
         {
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
             string input = "";
-#pragma warning restore IDE0059 // Unnecessary assignment of a value
             IEnumerable<Card> hand = taker.GetCardsAtLocation(location);
 
             if (hand.Count() == 0)
@@ -2269,23 +2239,19 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             return input.Substring(startIndex, input.Length - startIndex).ToInt(onFail: 1);
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
 
         private IEnumerator WillEnterTurnPhase(TurnPhase turnPhase)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             OutputToConsoleAndFileLine("WillEnterTurnPhase: " + turnPhase);
             yield return 0;
         }
 
-#pragma warning disable IDE0051 // Remove unused private members
-
         private IEnumerator DidEnterTurnPhase(TurnPhase turnPhase)
-#pragma warning restore IDE0051 // Remove unused private members
         {
             OutputToConsoleAndFileLine("DidEnterTurnPhase: " + turnPhase);
             yield return 0;
         }
+
 
         private IEnumerator WillPerformAction(GameAction action)
         {
@@ -2495,6 +2461,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                         Console.WriteLine("Replay skipping decision: " + decision.ToStringForMultiplayerDebugging());
                         decision.Skip();
                     }
+
                     else if (answer.AutoDecided)
                     {
                         Console.WriteLine("Replay auto deciding decision: " + decision.ToStringForMultiplayerDebugging());
@@ -2697,9 +2664,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                     }
                                     else if (yesNo is YesNoAmountDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoAmountDecision yesNoAmount = (YesNoAmountDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         var cards = "cards";
                                         if (yesNoAmount.Amount.HasValue)
                                         {
@@ -2729,9 +2694,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoAmountDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoAmountDecision yesNoAmount = (YesNoAmountDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         var cards = "cards";
                                         if (yesNoAmount.Amount.HasValue)
                                         {
@@ -2777,9 +2740,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoAmountDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoAmountDecision amountDecision = (YesNoAmountDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         string upTo = amountDecision.UpTo ? "up to " : "";
                                         question = address + "Do you want to gain " + upTo + amountDecision.Amount + " HP?";
                                     }
@@ -2805,9 +2766,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoCardDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoCardDecision yesNoCard = (YesNoCardDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
 
                                         string damageInfo = "";
                                         if (yesNoCard.GameAction != null && yesNoCard.GameAction is DealDamageAction)
@@ -2840,17 +2799,13 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoAmountDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoAmountDecision amountDecision = (YesNoAmountDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         string upTo = amountDecision.UpTo ? "up to " : "";
                                         question = address + "Do you want to move " + upTo + amountDecision.Amount + " cards?";
                                     }
                                     else if (yesNo is YesNoCardDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoCardDecision cardDecision = (YesNoCardDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         question = address + "Do you want to move " + cardDecision.Card.Title + "?";
                                     }
                                     else
@@ -2863,9 +2818,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoCardDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoCardDecision yesNoCard = (YesNoCardDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         question = address + "Do you want to move " + yesNoCard.Card.Title + " to the environment trash?";
                                     }
                                     break;
@@ -2874,9 +2827,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoCardDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoCardDecision yesNoCard = (YesNoCardDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         question = address + "Do you want to move " + yesNoCard.Card.Title + " to the bottom of its deck?";
                                     }
                                     break;
@@ -2885,9 +2836,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoCardDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoCardDecision yesNoCard = (YesNoCardDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         question = address + "Do you want to move " + yesNoCard.Card.Title + " to your hand?";
                                     }
                                     break;
@@ -2896,9 +2845,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoAmountDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoAmountDecision yesNoAmount = (YesNoAmountDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         if (yesNoAmount.Amount.HasValue)
                                         {
                                             question = address + "Do you want to move " + yesNoAmount.Amount.Value + " cards from your trash to your hand?";
@@ -2910,9 +2857,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoCardDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoCardDecision yesNoCard = (YesNoCardDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         question = address + "Do you want to put " + yesNoCard.Card.Title + " beneath " + yesNoCard.CardSource.Card.Title + "?";
                                     }
                                     break;
@@ -3052,9 +2997,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                                 {
                                     if (yesNo is YesNoCardDecision)
                                     {
-#pragma warning disable IDE0020 // Use pattern matching
                                         YesNoCardDecision yesNoCard = (YesNoCardDecision)yesNo;
-#pragma warning restore IDE0020 // Use pattern matching
                                         question = address + "Do you want to remove " + yesNoCard.Card.Title + " from the game?";
                                     }
                                     break;
@@ -3249,9 +3192,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectCardDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectCardDecision selectCard = (SelectCardDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         if (selectCard.Choices.Count() > 0)
                         {
                             switch (selectCard.SelectionType)
@@ -3654,9 +3595,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectCardsDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectCardsDecision selectCardsDecision = (SelectCardsDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         YesNoDecision yesNo = null;
                         if (selectCardsDecision.IsOptional)
                         {
@@ -3718,9 +3657,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is MoveCardDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         MoveCardDecision moveCardDecision = (MoveCardDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         question = (String.Format(address + "Where would you like to move the card {0}?", moveCardDecision.CardToMove.Title));
                         var choice = PrintAndSelectOption(question, moveCardDecision.PossibleDestinations.Select(d => d.ToString()).ToArray(), false);
                         if (choice.HasValue)
@@ -3730,9 +3667,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectLocationDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectLocationDecision selectLocationDecision = (SelectLocationDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         question = (address + "Select a location:");
                         if (selectLocationDecision.SelectionType == SelectionType.SearchLocation)
                         {
@@ -3753,9 +3688,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is UsePowerDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         UsePowerDecision usePowerDecision = (UsePowerDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         if (usePowerDecision.Choices.Count() > 0)
                         {
                             string remainder = "";
@@ -3797,9 +3730,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is UseIncapacitatedAbilityDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         UseIncapacitatedAbilityDecision useAbilityDecision = (UseIncapacitatedAbilityDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         if (useAbilityDecision.Choices.Count() > 0)
                         {
                             question = (address + "Which ability would you like to use?");
@@ -3823,9 +3754,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectDamageTypeDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectDamageTypeDecision selectDamage = (SelectDamageTypeDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
 
                         if (decision.SelectionType == SelectionType.FinalDamageType)
                         {
@@ -3850,9 +3779,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectTurnTakerDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectTurnTakerDecision selectTurnTaker = (SelectTurnTakerDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         var cards = selectTurnTaker.NumberOfCards.HasValue && selectTurnTaker.NumberOfCards.Value > 1 ? "cards" : "a card";
 
                         switch (selectTurnTaker.SelectionType)
@@ -4088,9 +4015,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectFunctionDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectFunctionDecision selectFunctionDecision = (SelectFunctionDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
 
                         question = (address + "What would you like to do?");
 
@@ -4116,9 +4041,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectNumberDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectNumberDecision selectNumberDecision = (SelectNumberDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
 
                         if (selectNumberDecision.SelectionType == SelectionType.DealDamage)
                         {
@@ -4137,9 +4060,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                             question = (address + "Pick " + sequence + " number:");
                         }
 
-#pragma warning disable IDE0075 // Simplify conditional expression
                         bool treatAsOptional = selectNumberDecision.Minimum == 0 || selectNumberDecision.IsOptional ? true : false;
-#pragma warning restore IDE0075 // Simplify conditional expression
 
                         string[] options = null;
                         if (selectNumberDecision.Minimum == 0)
@@ -4177,9 +4098,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectWordDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectWordDecision selectWord = (SelectWordDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
 
                         if (selectWord.SelectionType == SelectionType.SelectKeyword)
                         {
@@ -4242,9 +4161,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     }
                     else if (decision is SelectTurnPhaseDecision)
                     {
-#pragma warning disable IDE0020 // Use pattern matching
                         SelectTurnPhaseDecision selectTurnPhase = (SelectTurnPhaseDecision)decision;
-#pragma warning restore IDE0020 // Use pattern matching
                         var phases = selectTurnPhase.Choices.Select(p => p.FriendlyPhaseName);
 
                         question = (address + "Which phase of this turn would like to occur now?");
@@ -4321,7 +4238,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     var select = decision as SelectCardDecision;
                     if (this.GameController.ActiveTurnPhase.IsPlayCard && (select.SelectionType == SelectionType.PlayCard || select.SelectionType == SelectionType.PutIntoPlay) && select.SelectedCard == null && actionCount.HasValue)
                     {
-                        // If we pass on playing a card, assume no more cards are to be played this phase.
+                        // If we pass on playing a card, assume no more cards are to be played this phase.                        
                         this.GameController.Game.ActiveTurnPhase.SkipPhase();
                     }
                 }
@@ -4330,7 +4247,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     var usePower = decision as UsePowerDecision;
                     if (this.GameController.Game.ActiveTurnPhase.IsUsePower && usePower.SelectedPower == null)
                     {
-                        // If we pass on using a power, assume no more powers are to be used this phase.
+                        // If we pass on using a power, assume no more powers are to be used this phase.                        
                         this.GameController.Game.ActiveTurnPhase.SkipPhase();
                     }
                 }
@@ -4348,7 +4265,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                     var useAbility = decision as UseIncapacitatedAbilityDecision;
                     if (this.GameController.Game.ActiveTurnPhase.IsUseIncapacitatedAbility && useAbility.SelectedAbility == null)
                     {
-                        // If we pass on using an ability, assume no more abilities are to be used this phase.
+                        // If we pass on using an ability, assume no more abilities are to be used this phase.                        
                         this.GameController.Game.ActiveTurnPhase.SkipPhase();
                     }
                 }
@@ -4477,14 +4394,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             return choice;
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter
-#pragma warning disable IDE0060 // Remove unused parameter
-#pragma warning disable IDE0060 // Remove unused parameter
-
         protected int? SelectOption(string question, IEnumerable<string> options, bool optional, bool allowAutoDecide = false, bool isYesNo = false, string reprint = null, IDecision decision = null, TurnTaker toTurnTaker = null)
-#pragma warning restore IDE0060 // Remove unused parameter
-#pragma warning restore IDE0060 // Remove unused parameter
-#pragma warning restore IDE0060 // Remove unused parameter
         {
             int? choice = null;
             OutputToConsoleAndFile("\t> ");
@@ -4492,9 +4402,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             string input = GetCleanInput();
 
             // See if it's a number we are interested in
-#pragma warning disable IDE0018 // Inline variable declaration
             int number;
-#pragma warning restore IDE0018 // Inline variable declaration
             bool isNumber = Int32.TryParse(input, out number);
 
             if (options != null)
@@ -5243,6 +5151,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
                 }
             }
 
+
             if (input == "vp")
             {
                 inputHandled = true;
@@ -5531,10 +5440,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter
-
         private static string GetAdvancedString(Game game, Card card, bool bothSides = false, bool overrideFlipped = false)
-#pragma warning restore IDE0060 // Remove unused parameter
         {
             string result = null;
             var isAdvanced = card.Owner.IsAdvanced;
@@ -5649,10 +5555,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter
-
         private void PrintCard(string identifierOrTitle, int index = 0, bool overrideFlipped = false)
-#pragma warning restore IDE0060 // Remove unused parameter
         {
             var lowerCase = identifierOrTitle.ToLower();
             var cards = this.GameController.FindCardsWhere(c => c.Identifier.ToLower().StartsWith(lowerCase) || c.Identifier.ToLower().StartsWith(lowerCase.Replace(" ", "")) || c.Title.ToLower().StartsWith(lowerCase), false).GroupBy(c => c.Identifier);
@@ -5726,10 +5629,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
             }
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter
-
         private void PrintSpecialStringsForCard(Card card, int? index = null, bool printTitle = false)
-#pragma warning restore IDE0060 // Remove unused parameter
         {
             var ss = this.GameController.FindCardController(card).GetSpecialStrings(false, true);
 
@@ -6047,9 +5947,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
 
             Game game = card.Owner.Game;
 
-#pragma warning disable IDE0039 // Use local function
             MatchEvaluator evaluator = delegate (Match match)
-#pragma warning restore IDE0039 // Use local function
             {
                 string middle = match.Value.Trim(new char[] { '{', '}' });
 
@@ -6117,6 +6015,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
         {
             while (e.MoveNext() && !QuitRequested)
             {
+
             }
         }
 
@@ -6124,6 +6023,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
         {
             while (e.MoveNext() && !QuitRequested)
             {
+
             }
 
             yield return null;
@@ -6133,9 +6033,7 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
         {
             if (this.FileOutput == null)
             {
-#pragma warning disable IDE0017 // Simplify object initialization
                 FileOutput = new System.IO.StreamWriter(this.OutputFileName, true);
-#pragma warning restore IDE0017 // Simplify object initialization
                 FileOutput.AutoFlush = true;
             }
 
@@ -6297,4 +6195,6 @@ namespace Handelabra.MyModConsole // this has to be this way to work around an E
         private IEnumerable<DecisionAnswerJournalEntry> _replayDecisionAnswers;
         private bool _replayingGame;
     }
+
+
 }

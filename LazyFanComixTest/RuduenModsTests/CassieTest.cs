@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace LazyFanComixText
+namespace LazyFanComixTest
 {
     [TestFixture]
     public class CassieTest : BaseTest
@@ -41,7 +41,7 @@ namespace LazyFanComixText
         public void TestSetupWorks()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Cassie", "Megalopolis");
-            
+
             StartGame();
 
             AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
@@ -154,6 +154,23 @@ namespace LazyFanComixText
         }
 
         [Test()]
+        public void TestInnatePowerRepresentative()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Cassie" });
+            SelectFromBoxForNextDecision("LazyFanComix.CassieCharacter", "LazyFanComix.Cassie");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("CassieCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        [Test()]
         public void TestEssenceFlowInnatePower()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Cassie/CassieEssenceFlowCharacter", "Megalopolis");
@@ -171,6 +188,23 @@ namespace LazyFanComixText
             QuickHandStorage(Cassie);
             UsePower(Cassie.CharacterCard, 0); // Default Innate. Cast. Any card we use should qualify, since they have a base cost of 1.
             Assert.IsTrue(cardToBuy.Location == Cassie.TurnTaker.Trash || cardToBuy.Location == Cassie.TurnTaker.Deck || cardToBuy.Location == Cassie.HeroTurnTaker.Hand); // Bought.
+        }
+
+        [Test()]
+        public void TestEssenceFlowInnatePowerRepresentative()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Cassie" });
+            SelectFromBoxForNextDecision("LazyFanComix.CassieEssenceFlowCharacter", "LazyFanComix.Cassie");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("CassieCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
         }
 
         [Test()]

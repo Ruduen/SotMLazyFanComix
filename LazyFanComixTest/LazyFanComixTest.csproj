@@ -37,8 +37,13 @@
     <Reference Include="SentinelsEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
     </Reference>
+    <Reference Include="Troschuetz.Random, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Troschuetz.Random.5.0.1\lib\net40\Troschuetz.Random.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RandomGameTest.cs" />
+    <Compile Include="RuduenModsTests\RandomTest.cs" />
     <Compile Include="RuduenModsTests\CassieTest.cs" />
     <Compile Include="RuduenModsTests\BreachMageTest.cs" />
     <Compile Include="RuduenModsTests\RecallTest.cs" />
@@ -61,6 +66,15 @@
       <Project>{16e9e49a-4ea1-4c5c-8a7f-1dec6bd64e0f}</Project>
       <Name>LazyFanComixMod</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestsToAddress\TestsFixed\TribunalCassie.txt" />
+    <Content Include="TestsToAddress\TribunalCassieCalled.txt" />
+    <Content Include="TestsToAddress\TribunalInquirer.txt" />
+    <Content Include="TestsToAddress\TribunalBreachMage.txt" />
+    <Content Include="TestsToAddress\UnknownCause3.txt" />
+    <Content Include="TestsToAddress\UnknownCause2.txt" />
+    <Content Include="TestsToAddress\UnknownCause.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

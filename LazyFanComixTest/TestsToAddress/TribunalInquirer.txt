@@ -1,0 +1,684 @@
+﻿Chokepoint threatens the Multiverse!
+TheCelestialTribunal is the location of the conflict.
+ joins the team!
+ joins the team!
+ joins the team!
+Created game with random seed: 893103162
+[Game: TurnTakers=[ "Chokepoint", "Inquirer", "Recall", "BreachMage", "TheCelestialTribunal" ], Promos:= [ { "Inquirer", "InquirerHardFactsCharacter" }, { "Recall", "RecallUnstableJumpCharacter" }, { "BreachMage", "BreachMageTwincasterCharacter" } ], IsAdvanced=True, IsChallenge=False, RandomSeed=893103162]
+DEBUG: Went to Chokepoint's Start phase.
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Newfound Power.
+DEBUG: Revealed card: Stripped Resources
+Message: Newfound Power revealed Stripped Resources. [ Stripped Resources ]
+DEBUG: Created decision [SelectTurnTakers/None D1]
+DEBUG: Created decision [SelectTurnTaker/None D2]
+DEBUG: Created decision [SelectCard/None D3 Inquirer]
+DEBUG: Newfound Power moved Fisticuffs from Inquirer's hand to Chokepoint's play area.
+DEBUG: Fisticuffs was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D4]
+DEBUG: Created decision [SelectCard/None D5 Breach Mage]
+DEBUG: Newfound Power moved Focus Breach from Breach Mage's hand to Chokepoint's play area.
+DEBUG: Focus Breach was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D6]
+DEBUG: Created decision [SelectCard/None D7 Recall]
+DEBUG: Newfound Power moved Immediate Jump from Recall's hand to Chokepoint's play area.
+DEBUG: Immediate Jump was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D8]
+DEBUG: Newfound Power puts Stripped Resources into play.
+Message: There are no environment cards for Stripped Resources to destroy. [ Stripped Resources ]
+DEBUG: GameController moved Stripped Resources to the villain trash.
+DEBUG: GameController moved Newfound Power to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D9]
+DEBUG: Created decision [SelectTarget/None D9-1]
+DEBUG: Chokepoint initiates 2 Energy damage to Recall - Unstable Jump.
+DEBUG: Chokepoint deals Recall - Unstable Jump 2 Energy damage.
+DEBUG: Recall - Unstable Jump is now at 27 HP.
+DEBUG: Created decision [SelectTarget/None D9-2]
+DEBUG: Created decision [SelectTurnTaker/None D10]
+DEBUG: Created decision [SelectCard/None D11 Inquirer]
+DEBUG: Chokepoint moved "I'm a Victorian!" from Inquirer's hand to Chokepoint's play area.
+DEBUG: "I'm a Victorian!" was flipped to its back side.
+DEBUG: Went from Chokepoint's End phase to Inquirer's Start phase. 
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D12 Inquirer]
+DEBUG: GameController plays Fisticuffs.
+DEBUG: Created decision [SelectTargets/None D13 Inquirer]
+DEBUG: Created decision [SelectTarget/None D13-1 Inquirer]
+DEBUG: Inquirer initiates 3 Melee damage to Chokepoint.
+DEBUG: Inquirer deals Chokepoint 3 Melee damage.
+DEBUG: Chokepoint is now at 67 HP.
+DEBUG: Fisticuffs tried to increase Inquirer's HP, but they are already at their maximum HP.
+DEBUG: Created decision [SelectCard/None D14 Inquirer]
+DEBUG: Inquirer discards "I've Fixed the Wound!".
+DEBUG: GameController moved "I've Fixed the Wound!" from Inquirer's hand to Inquirer's trash.
+DEBUG: GameController moved Fisticuffs to Inquirer's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D15 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+Message: Inquirer has no cards in their hand to play. [  ]
+DEBUG: Applying ongoing effect:  distortion cards are targets with a maximum HP of 3.
+Message:  distortion cards are targets with a maximum HP of 3. [  ]
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCards/None D16 Inquirer]
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "I've Fixed the Wound!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D17 Recall]
+DEBUG: GameController plays Note to Self.
+DEBUG: Recall draws Note to Self.
+DEBUG: Recall draws Temporal Loop.
+DEBUG: Recall draws Immediate Jump.
+Message: There are no cards in play for Note to Self to destroy. [ Note to Self ]
+DEBUG: GameController moved Note to Self to Recall's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D18 Recall]
+DEBUG: Recall - Unstable Jump uses the power on Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump initiates 1 Psychic damage to Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 1 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at 26 HP.
+DEBUG: Recall - Unstable Jump moved Refined Shot from Recall's deck under Recall - Unstable Jump.
+DEBUG: Went from Recall's UsePower phase to Start phase. 
+POWER SANITY: 10
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D19 Recall]
+DEBUG: GameController plays Temporal Loop.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D20 Recall]
+DEBUG: Recall - Unstable Jump uses the power on Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump initiates 1 Psychic damage to Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump's Unstable Jump increases the damage dealt by Recall - Unstable Jump by 2.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 3 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at 23 HP.
+DEBUG: Recall - Unstable Jump moved Note to Self from Recall's deck under Recall - Unstable Jump.
+DEBUG: Went from Recall's UsePower phase to Start phase. 
+POWER SANITY: 10
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D21 Recall]
+DEBUG: GameController plays Recalled.
+DEBUG: Recall - Unstable Jump initiates 3 Psychic damage to Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 3 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at 20 HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D22 Recall]
+DEBUG: Recall - Unstable Jump uses the power on Recalled.
+DEBUG: Created decision [SelectTargets/None D23 Recall]
+DEBUG: Created decision [SelectTarget/None D23-1 Recall]
+DEBUG: Recalled initiates 2 Energy damage to Breach Mage.
+DEBUG: Recalled deals Breach Mage 2 Energy damage.
+DEBUG: Breach Mage is now at 25 HP.
+DEBUG: Created decision [SelectTargets/None D24 Recall]
+DEBUG: Created decision [SelectTarget/None D24-1 Recall]
+DEBUG: Recall - Unstable Jump initiates 2 Energy damage to Breach Mage.
+DEBUG: Recall - Unstable Jump deals Breach Mage 2 Energy damage.
+DEBUG: Breach Mage is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D24-2 Recall]
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Seen It Before.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Recall - Unstable Jump initiates 4 Psychic damage to Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 4 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at 16 HP.
+DEBUG: Temporal Loop was moved under Recall - Unstable Jump.
+DEBUG: Went from Recall's End phase to Start phase. 
+DEBUG: Created decision [SelectTargets/None D25 Recall]
+DEBUG: Created decision [SelectTarget/None D25-1 Recall]
+DEBUG: Recalled initiates 2 Projectile damage to Inquirer.
+DEBUG: Recalled deals Inquirer 2 Projectile damage.
+DEBUG: Inquirer is now at 22 HP.
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D26 Recall]
+DEBUG: GameController plays Note to Self.
+DEBUG: Recall draws Paradox Anchor.
+DEBUG: Recall draws Immediate Jump.
+DEBUG: Recall draws Temporal Loop.
+DEBUG: Note to Self will destroy 1 cards.
+DEBUG: Created decision [SelectCards/None D27 Recall]
+DEBUG: Created decision [SelectCard/None D27-1 Recall]
+ChooseDestroyCard from <Temporal Loop, Refined Shot, Note to Self> choosing Temporal Loop
+DEBUG: Note to Self destroys Temporal Loop!
+DEBUG: Note to Self destroys Temporal Loop!
+DEBUG: GameController moved Temporal Loop from under Recall - Unstable Jump to Recall's trash.
+DEBUG: GameController moved Note to Self to Recall's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D28 Recall]
+DEBUG: Recall - Unstable Jump uses the power on Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump initiates 1 Psychic damage to Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump's Unstable Jump increases the damage dealt by Recall - Unstable Jump by 4.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 5 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at 11 HP.
+DEBUG: Recall - Unstable Jump moved Recalled from Recall's deck under Recall - Unstable Jump.
+DEBUG: Went from Recall's UsePower phase to Start phase. 
+DEBUG: Created decision [SelectTargets/None D29 Recall]
+DEBUG: Created decision [SelectTarget/None D29-1 Recall]
+DEBUG: Recalled initiates 2 Projectile damage to Recalled.
+DEBUG: Recalled deals Recalled 2 Projectile damage.
+DEBUG: Recalled is now at 5 HP.
+POWER SANITY: 10
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D30 Recall]
+DEBUG: GameController plays Paradox Anchor.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D31 Recall]
+DEBUG: Recall - Unstable Jump uses the power on Recalled.
+DEBUG: Created decision [SelectTargets/None D32 Recall]
+DEBUG: Created decision [SelectTarget/None D32-1 Recall]
+DEBUG: Recalled initiates 2 Energy damage to Recall - Unstable Jump.
+DEBUG: Recalled deals Recall - Unstable Jump 2 Energy damage.
+DEBUG: Recall - Unstable Jump is now at 9 HP.
+DEBUG: Created decision [SelectTargets/None D33 Recall]
+DEBUG: Created decision [SelectTarget/None D33-1 Recall]
+DEBUG: Recall - Unstable Jump initiates 2 Energy damage to Recall - Unstable Jump.
+DEBUG: Paradox Anchor reduces the damage dealt to Recall - Unstable Jump by Recall - Unstable Jump by 1.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 1 Energy damage.
+DEBUG: Recall - Unstable Jump is now at 8 HP.
+DEBUG: Created decision [SelectTarget/None D33-2 Recall]
+POWER SANITY: 10
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Seen It Before.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to UsePower phase. 
+DEBUG: Went from Recall's UsePower phase to DrawCard phase. 
+DEBUG: Recall draws Temporal Anomaly.
+DRAW CARD SANITY: 10
+DEBUG: Went from Recall's DrawCard phase to End phase. 
+DEBUG: Went from Recall's End phase to Breach Mage's Start phase. 
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D34 Breach Mage]
+DEBUG: GameController plays Shine.
+DEBUG: Created decision [SelectCard/None D35 Breach Mage]
+DEBUG: GameController moved Shine from Breach Mage's hand next to Stable Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D36 Breach Mage]
+DEBUG: Breach Mage uses the power on Potent Breach.
+DEBUG: GameController removes 1 token from Potent Breach's Focus Pool.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Haunting Echo.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Representative of Earth.
+In the box 0: LazyFanComix.BreachMageCharacter
+In the box 1: LazyFanComix.CassieCharacter
+In the box 2: LazyFanComix.CassieEssenceFlowCharacter
+In the box 3: LazyFanComix.GreyhatCharacter
+In the box 4: LazyFanComix.GreyhatBurstNoiseCharacter
+In the box 5: LazyFanComix.InquirerCharacter
+In the box 6: LazyFanComix.InquirerLiesOnLiesCharacter
+In the box 7: LazyFanComix.RecallCharacter
+In the box 8: LazyFanComix.RecallForecastedBlowCharacter
+In the box 9: LazyFanComix.SpellforgeCharacter
+In the box 10: LazyFanComix.SpellforgeDecreeCharacter
+In the box 11: LazyFanComix.SoulbinderCharacter
+In the box 12: LazyFanComix.SoulbinderMortalFormCharacter
+In the box 13: LazyFanComix.TrailblazerCharacter
+In the box 14: LazyFanComix.TrailblazerSpatialAlignmentCharacter
+DEBUG: Created decision [SelectFromBox/None D37]
+DEBUG: Selected from box: SelectedIdentifier = LazyFanComix.InquirerCharacter
+DEBUG: Selected from box: SelectedTurnTakerIdentifier = LazyFanComix.Inquirer
+DEBUG: Card definition: [CardDefinition: Identifier=InquirerCharacter, Title=Inquirer, Count=1, Namespace=LazyFanComix, PromoIdentifier=]
+DEBUG: Representative of Earth puts Inquirer into play.
+DEBUG: GameController moved Inquirer from The Celestial Tribunal's off to the side next to Representative of Earth.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Chokepoint's Start phase. 
+DEBUG: Chokepoint was flipped to its back side.
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Harvest the Mighty.
+DEBUG: Created decision [SelectTurnTaker/None D38]
+DEBUG: Created decision [SelectTargets/None D39]
+DEBUG: Created decision [SelectTarget/None D39-1]
+DEBUG: Chokepoint initiates 4 Energy damage to Recall - Unstable Jump.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Recall - Unstable Jump 5 Energy damage.
+DEBUG: Recall - Unstable Jump is now at 3 HP.
+DEBUG: Created decision [SelectTarget/None D39-2]
+DEBUG: Created decision [SelectCard/None D40 Recall]
+DEBUG: Harvest the Mighty moved Refined Shot from under Recall - Unstable Jump to Chokepoint's play area.
+DEBUG: Refined Shot was flipped to its back side.
+DEBUG: GameController moved Harvest the Mighty to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D41]
+ChooseDestroyCard from <"I'm a Victorian!", Fisticuffs, Immediate Jump, Refined Shot, Focus Breach> choosing "I'm a Victorian!"
+DEBUG: Chokepoint destroys "I'm a Victorian!"!
+DEBUG: GameController moved one of Inquirer's cards to Inquirer's trash.
+DEBUG: Created decision [SelectTargets/None D42]
+DEBUG: Created decision [SelectTarget/None D42-1]
+DEBUG: Chokepoint initiates 4 Projectile damage to Breach Mage.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Breach Mage 5 Projectile damage.
+DEBUG: Breach Mage is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D42-2]
+DEBUG: Went from Chokepoint's End phase to Inquirer's Start phase. 
+DEBUG: Notice: an ongoing effect just expired:  distortion cards are targets with a maximum HP of 3.
+Message: Expiring:  distortion cards are targets with a maximum HP of 3. [ Inquirer ]
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D43 Inquirer]
+DEBUG: GameController plays "I've Fixed the Wound!".
+DEBUG: Created decision [SelectCard/None D44 Inquirer]
+DEBUG: GameController moved "I've Fixed the Wound!" from Inquirer's hand next to Inquirer.
+DEBUG: "I've Fixed the Wound!" caused Inquirer to regain 2 HP, up to their maximum HP. HP is now 24.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D45 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+Message: Inquirer has no cards in their hand to play. [  ]
+DEBUG: Applying ongoing effect:  distortion cards are targets with a maximum HP of 3.
+Message:  distortion cards are targets with a maximum HP of 3. [  ]
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCards/None D46 Inquirer]
+DEBUG: Created decision [SelectCard/None D46-1 Inquirer]
+DEBUG: Created decision [SelectTargets/None D47 Inquirer]
+DEBUG: Created decision [SelectTarget/None D47-1 Inquirer]
+DEBUG: "I've Fixed the Wound!" initiates 1 Psychic damage to Recalled.
+DEBUG: "I've Fixed the Wound!" deals Recalled 1 Psychic damage.
+DEBUG: Recalled is now at 4 HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws Undeniable Facts.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Recall's Start phase. 
+DEBUG: Created decision [SelectTargets/None D48 Recall]
+DEBUG: Created decision [SelectTarget/None D48-1 Recall]
+DEBUG: Recalled initiates 2 Projectile damage to Recalled.
+DEBUG: Recalled deals Recalled 2 Projectile damage.
+DEBUG: Recalled is now at 2 HP.
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D49 Recall]
+DEBUG: GameController plays Immediate Jump.
+DEBUG: Recall - Unstable Jump initiates 4 Psychic damage to Recall - Unstable Jump.
+DEBUG: Paradox Anchor reduces the damage dealt to Recall - Unstable Jump by Recall - Unstable Jump by 1.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 3 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at 0 HP.
+DEBUG: Recalled prevented Recall - Unstable Jump from flipping.
+Message: Recalled prevented Recall - Unstable Jump from flipping. [  ]
+DEBUG: Recalled caused Recall - Unstable Jump's HP to be set to 7.
+DEBUG: Recalled destroys itself!
+DEBUG: GameController moved Recalled to Recall's trash.
+DEBUG: Immediate Jump was moved under Recall - Unstable Jump.
+DEBUG: Went from Recall's PlayCard phase to Start phase. 
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D50 Recall]
+DEBUG: GameController plays Temporal Loop.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D51 Recall]
+DEBUG: Recall - Unstable Jump uses the power on Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump initiates 1 Psychic damage to Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump's Unstable Jump increases the damage dealt by Recall - Unstable Jump by 6.
+DEBUG: Paradox Anchor reduces the damage dealt to Recall - Unstable Jump by Recall - Unstable Jump by 1.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 6 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at 1 HP.
+DEBUG: Recall - Unstable Jump moved Close The Loop from Recall's deck under Recall - Unstable Jump.
+DEBUG: Went from Recall's UsePower phase to Start phase. 
+POWER SANITY: 10
+DEBUG: Went from Recall's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D52 Recall]
+DEBUG: GameController plays Temporal Anomaly.
+DEBUG: Temporal Anomaly caused Recall - Unstable Jump to regain 2 HP. HP is now 3.
+DEBUG: Created decision [SelectLocation/None D53 Recall]
+Message: There are cards that cannot be played. [ Paradox Anchor, Paradox Anchor ]
+DEBUG: Created decision [SelectCard/None D54 Recall]
+DEBUG: Temporal Anomaly puts Going Through The Motions into play.
+DEBUG: Recall shuffles their Recall's deck.
+DEBUG: Created decision [SelectTargets/None D55 Recall]
+DEBUG: Created decision [SelectTarget/None D55-1 Recall]
+DEBUG: Recall - Unstable Jump initiates 1 Energy damage to Inquirer.
+DEBUG: Recall - Unstable Jump deals Inquirer 1 Energy damage.
+DEBUG: Inquirer is now at 9 HP.
+DEBUG: GameController moved Temporal Anomaly to Recall's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Recall's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D56 Recall]
+DEBUG: Recall - Unstable Jump uses the power on Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump initiates 1 Psychic damage to Recall - Unstable Jump.
+DEBUG: Recall - Unstable Jump's Unstable Jump increases the damage dealt by Recall - Unstable Jump by 8.
+DEBUG: Paradox Anchor reduces the damage dealt to Recall - Unstable Jump by Recall - Unstable Jump by 1.
+DEBUG: Recall - Unstable Jump deals Recall - Unstable Jump 8 Psychic damage.
+DEBUG: Recall - Unstable Jump is now at -5 HP.
+DEBUG: Recall - Unstable Jump is no longer a target.
+DEBUG: Recall's cards are removed from the game.
+DEBUG: GameController moves 40 cards cards to the top of Recall's OutOfGame.
+DEBUG: GameController sets the action count of UsePower to 0.
+DEBUG: Recall - Unstable Jump was flipped to its back side.
+WARNING: Wanted to reshuffle Recall's trash into their deck, but there are no cards in trash.
+DEBUG: Went from Recall's UsePower phase to Start phase. 
+POWER SANITY: 10
+DEBUG: Went from Recall's Start phase to End phase. 
+DEBUG: Went from Recall's End phase to UsePower phase. 
+DEBUG: Went from Recall's UsePower phase to Breach Mage's Start phase. 
+DEBUG: Created decision [ActivateAbility/ActivateAbility D57 Breach Mage]
+DEBUG: Breach Mage activates the text on Shine.
+DEBUG: Created decision [SelectTargets/None D58 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D58-1 Breach Mage]
+DEBUG: Breach Mage initiates 3 Radiant damage to Breach Mage.
+DEBUG: Breach Mage deals Breach Mage 3 Radiant damage.
+DEBUG: Breach Mage is now at 15 HP.
+DEBUG: Inquirer draws "You're on Our Side!".
+DEBUG: Breach Mage draws Shine.
+DEBUG: GameController destroys Shine!
+DEBUG: GameController moved Shine to Breach Mage's trash.
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D59 Breach Mage]
+DEBUG: GameController plays Zap.
+DEBUG: Created decision [SelectCard/None D60 Breach Mage]
+DEBUG: GameController moved Zap from Breach Mage's hand next to Stable Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D61 Breach Mage]
+DEBUG: Breach Mage uses the power on Stable Breach.
+DEBUG: Created decision [SelectCards/None D62 Breach Mage]
+DEBUG: Created decision [SelectCard/None D62-1 Breach Mage]
+DEBUG: Stable Breach plays Haunting Echo.
+DEBUG: GameController moved Haunting Echo from Breach Mage's hand next to Stable Breach.
+DEBUG: Created decision [SelectCard/None D62-2 Breach Mage]
+DEBUG: Stable Breach plays Haunting Echo.
+Message: There are no breach cards in play to put Haunting Echo next to. Moving it to Breach Mage's trash. [ Haunting Echo ]
+DEBUG: GameController moved Haunting Echo from Breach Mage's hand to Breach Mage's trash.
+DEBUG: Created decision [SelectCard/None D62-3 Breach Mage]
+DEBUG: Stable Breach plays Shine.
+Message: There are no breach cards in play to put Shine next to. Moving it to Breach Mage's trash. [ Shine ]
+DEBUG: GameController moved Shine from Breach Mage's hand to Breach Mage's trash.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Vigor Charm.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Paragon of Sentience.
+DEBUG: Created decision [SelectCard/None D63]
+DEBUG: GameController moved Paragon of Sentience from the environment deck next to Inquirer.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Newfound Power.
+DEBUG: Revealed card: Shocking Animation
+Message: Newfound Power revealed Shocking Animation. [ Shocking Animation ]
+DEBUG: Created decision [SelectTurnTakers/None D64]
+DEBUG: Created decision [SelectTurnTaker/None D65]
+DEBUG: Created decision [SelectCard/None D66 Inquirer]
+DEBUG: Newfound Power moved Undeniable Facts from Inquirer's hand to Chokepoint's play area.
+DEBUG: Undeniable Facts was flipped to its back side.
+DEBUG: Created decision [SelectTurnTaker/None D67]
+DEBUG: Newfound Power puts Shocking Animation into play.
+Message: There are no equipment cards in play, so Shocking Animation will be placed face-down in the villain play area. [ Shocking Animation ]
+DEBUG: Shocking Animation was flipped to its back side.
+DEBUG: GameController moved Newfound Power to the villain trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D68]
+ChooseDestroyCard from <Shocking Animation, Undeniable Facts, Fisticuffs, Focus Breach> choosing Shocking Animation
+DEBUG: Chokepoint destroys Shocking Animation!
+DEBUG: GameController moved one of Chokepoint's cards to the villain trash.
+DEBUG: Created decision [SelectTargets/None D69]
+DEBUG: Created decision [SelectTarget/None D69-1]
+DEBUG: Chokepoint initiates 4 Projectile damage to Inquirer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Inquirer 5 Projectile damage.
+DEBUG: Inquirer is now at 19 HP.
+DEBUG: Created decision [SelectTarget/None D69-2]
+DEBUG: Went from Chokepoint's End phase to Inquirer's Start phase. 
+DEBUG: Notice: an ongoing effect just expired:  distortion cards are targets with a maximum HP of 3.
+Message: Expiring:  distortion cards are targets with a maximum HP of 3. [ Inquirer ]
+DEBUG: Inquirer initiates 2 Psychic damage to Inquirer.
+DEBUG: Inquirer deals Inquirer 2 Psychic damage.
+DEBUG: Inquirer is now at 17 HP.
+DEBUG: "I've Fixed the Wound!" destroys itself!
+DEBUG: GameController moved "I've Fixed the Wound!" to Inquirer's trash.
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D70 Inquirer]
+DEBUG: GameController plays "You're on Our Side!".
+DEBUG: GameController moved "You're on Our Side!" from Inquirer's hand next to Chokepoint.
+DEBUG: Created decision [SelectTargets/None D71 Inquirer]
+DEBUG: Created decision [SelectTarget/None D71-1 Inquirer]
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D72 Inquirer]
+DEBUG: Inquirer uses the power on Inquirer.
+Message: Inquirer has no cards in their hand to play. [  ]
+DEBUG: Applying ongoing effect:  distortion cards are targets with a maximum HP of 3.
+Message:  distortion cards are targets with a maximum HP of 3. [  ]
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're Looking Pale!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "You're on Our Side!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "I've Fixed the Wound!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Made "Look! A Distraction!" a target with 3 max HP and 3 current HP.
+DEBUG: Created decision [SelectCards/None D73 Inquirer]
+DEBUG: Created decision [SelectCard/None D73-1 Inquirer]
+DEBUG: Created decision [SelectTargets/None D74 Inquirer]
+DEBUG: Created decision [SelectTarget/None D74-1 Inquirer]
+DEBUG: "You're on Our Side!" initiates 1 Psychic damage to Inquirer.
+DEBUG: "You're on Our Side!" deals Inquirer 1 Psychic damage.
+DEBUG: Inquirer is now at 8 HP.
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws Undeniable Facts.
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Went from Inquirer's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to UseIncapacitatedAbility phase. 
+DEBUG: Created decision [UseIncapacitatedAbility/UseIncapacitatedAbility D75 Recall]
+DEBUG: Recall uses the incapacitated ability "One player may draw a card."
+DEBUG: Created decision [SelectTurnTaker/None D76 Recall]
+DEBUG: Breach Mage draws Focus Charm.
+INCAPACITATED SANITY: 10
+DEBUG: Went from Recall's UseIncapacitatedAbility phase to End phase. 
+DEBUG: Went from Recall's End phase to Breach Mage's Start phase. 
+DEBUG: Created decision [ActivateAbility/ActivateAbility D77 Breach Mage]
+DEBUG: Breach Mage activates the text on Zap.
+DEBUG: Created decision [SelectTargets/None D78 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D78-1 Breach Mage]
+DEBUG: Breach Mage initiates 1 Lightning damage to Breach Mage.
+DEBUG: Breach Mage deals Breach Mage 1 Lightning damage.
+DEBUG: Breach Mage is now at 14 HP.
+DEBUG: GameController destroys Zap!
+DEBUG: Zap was moved to Breach Mage's hand.
+Message: Zap was moved to Breach Mage's hand. [ Zap ]
+DEBUG: Created decision [ActivateAbility/ActivateAbility D79 Breach Mage]
+DEBUG: Breach Mage activates the text on Haunting Echo.
+DEBUG: Created decision [SelectTargets/None D80 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D80-1 Breach Mage]
+DEBUG: Breach Mage initiates 2 Psychic damage to Chokepoint.
+DEBUG: Chokepoint reduces the damage dealt to Chokepoint by Breach Mage by 1.
+DEBUG: Breach Mage deals Chokepoint 1 Psychic damage.
+DEBUG: Chokepoint is now at 66 HP.
+DEBUG: Created decision [SelectCard/None D81 Breach Mage]
+ChooseDestroyCard from <"You're on Our Side!", Haunting Echo, Paragon of Sentience, Representative of Earth> choosing Paragon of Sentience
+Message: Paragon of Sentience plays the top card of the environment deck. [ Paragon of Sentience ]
+DEBUG: Paragon of Sentience plays Celestial Executioner.
+DEBUG: Haunting Echo destroys Paragon of Sentience!
+DEBUG: GameController moved Paragon of Sentience to the environment trash.
+DEBUG: GameController destroys Haunting Echo!
+DEBUG: GameController moved Haunting Echo to Breach Mage's trash.
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D82 Breach Mage]
+DEBUG: GameController plays Vigor Charm.
+DEBUG: Breach Mage draws Focus Breach.
+DEBUG: Breach Mage draws Vision Shock.
+DEBUG: Breach Mage draws Molten Wave.
+DEBUG: Breach Mage initiates 2 Psychic damage to Breach Mage.
+DEBUG: Breach Mage deals Breach Mage 2 Psychic damage.
+DEBUG: Breach Mage is now at 12 HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D83 Breach Mage]
+DEBUG: Breach Mage uses the power on Stable Breach.
+DEBUG: Created decision [SelectCards/None D84 Breach Mage]
+DEBUG: Created decision [SelectCard/None D84-1 Breach Mage]
+DEBUG: Stable Breach plays Zap.
+DEBUG: Created decision [SelectCard/None D85 Breach Mage]
+DEBUG: GameController moved Zap from Breach Mage's hand next to Stable Breach.
+DEBUG: Created decision [SelectCard/None D84-2 Breach Mage]
+DEBUG: Stable Breach plays Vision Shock.
+DEBUG: GameController moved Vision Shock from Breach Mage's hand next to Stable Breach.
+DEBUG: Created decision [SelectCard/None D84-3 Breach Mage]
+DEBUG: Stable Breach plays Molten Wave.
+Message: There are no breach cards in play to put Molten Wave next to. Moving it to Breach Mage's trash. [ Molten Wave ]
+DEBUG: GameController moved Molten Wave from Breach Mage's hand to Breach Mage's trash.
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Spiral Charm.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Created decision [SelectTargets/None D86]
+DEBUG: Created decision [SelectTarget/None D86-1]
+DEBUG: Celestial Executioner initiates 3 Energy damage to Inquirer.
+DEBUG: Celestial Executioner deals Inquirer 3 Energy damage.
+DEBUG: Inquirer is now at 5 HP.
+DEBUG: Created decision [SelectTarget/None D86-2]
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Found Wanting.
+DEBUG: GameController moved Found Wanting from the environment deck next to Chokepoint.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Chokepoint's Start phase. 
+DEBUG: Went from Chokepoint's Start phase to PlayCard phase. 
+DEBUG: GameController plays Shocking Animation.
+DEBUG: GameController moved Shocking Animation from the villain deck next to Vigor Charm.
+DEBUG: Made Vigor Charm a target with 5 max HP and 5 current HP.
+PLAY CARD SANITY: 10
+DEBUG: Went from Chokepoint's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectCard/None D87]
+ChooseDestroyCard from <Undeniable Facts, Fisticuffs, Focus Breach> choosing Undeniable Facts
+DEBUG: Chokepoint destroys Undeniable Facts!
+DEBUG: GameController moved one of Inquirer's cards to Inquirer's trash.
+DEBUG: Created decision [SelectTargets/None D88]
+DEBUG: Created decision [SelectTarget/None D88-1]
+DEBUG: Chokepoint initiates 4 Projectile damage to Inquirer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Inquirer 5 Projectile damage.
+DEBUG: Inquirer is now at 12 HP.
+DEBUG: Created decision [SelectTarget/None D88-2]
+DEBUG: Went from Chokepoint's End phase to Inquirer's Start phase. 
+DEBUG: Notice: an ongoing effect just expired:  distortion cards are targets with a maximum HP of 3.
+Message: Expiring:  distortion cards are targets with a maximum HP of 3. [ Inquirer ]
+DEBUG: Chokepoint initiates 1 Melee damage to Inquirer.
+DEBUG: Chokepoint increases the damage dealt by Chokepoint by 1.
+DEBUG: Chokepoint deals Inquirer 2 Melee damage.
+DEBUG: Inquirer is now at 10 HP.
+DEBUG: "You're on Our Side!" destroys itself!
+DEBUG: GameController moved "You're on Our Side!" to Inquirer's trash.
+DEBUG: Went from Inquirer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D89 Inquirer]
+DEBUG: GameController plays Undeniable Facts.
+PLAY CARD SANITY: 10
+DEBUG: Went from Inquirer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D90 Inquirer]
+DEBUG: Inquirer uses the power on Undeniable Facts.
+Message: Inquirer has no cards in their hand to play. [  ]
+POWER SANITY: 10
+DEBUG: Went from Inquirer's UsePower phase to DrawCard phase. 
+DEBUG: Inquirer draws "I'm a Mole-Person!".
+DRAW CARD SANITY: 10
+DEBUG: Went from Inquirer's DrawCard phase to End phase. 
+DEBUG: Inquirer draws Until you Make It.
+DEBUG: Went from Inquirer's End phase to Recall's Start phase. 
+DEBUG: Went from Recall's Start phase to UseIncapacitatedAbility phase. 
+DEBUG: Created decision [UseIncapacitatedAbility/UseIncapacitatedAbility D91 Recall]
+DEBUG: Recall uses the incapacitated ability "One hero may use a power."
+DEBUG: Created decision [SelectTurnTaker/None D92 Recall]
+DEBUG: Created decision [UsePower/UsePower D93]
+DEBUG: Inquirer uses the power on Inquirer.
+
+ TestMyStuff
+   Source: RandomTest.cs line 63
+   Duration: 5.9 sec
+
+  Message: 
+    System.NullReferenceException : Object reference not set to an instance of an object.
+  Stack Trace: 
+    CardController.get_HeroTurnTaker()
+    <UsePower>d__2.MoveNext() line 26
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoActionOnSuccess>d__15.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__83.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <UsePower>d__417.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectAndUsePower>d__209.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectHeroToUsePower>d__197.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <UseIncapacitatedAbility>d__2.MoveNext() line 33
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoActionOnSuccess>d__6.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__83.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <DoAction>d__255.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <UseIncapacitatedAbility>d__413.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    <SelectAndUseIncapacitatedAbility>d__208.MoveNext()
+    BaseTest.RunCoroutine(IEnumerator e) line 547
+    RandomGameTest.RunGame(GameController gameController) line 237
+    RandomTest.TestMyStuff() line 69
+
+   Open additional output for this result

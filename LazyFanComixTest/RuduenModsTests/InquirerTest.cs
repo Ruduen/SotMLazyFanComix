@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace LazyFanComixText
+namespace LazyFanComixTest
 {
     [TestFixture]
     public class InquirerTest : BaseTest
@@ -295,6 +295,20 @@ namespace LazyFanComixText
             AssertNumberOfCardsInTrash(Inquirer, 2); // One successful shuffle, two failed shuffles.
 
             QuickHPCheck(-2, 2); // Two total damage - 1 base, 1 buff. 2 Healing - 1 base, 1 buff.
+        }
+
+        [Test()]
+        public void TestPersonaVictorianFisticuffCrash()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Inquirer", "Megalopolis");
+            StartGame();
+
+            GoToPlayCardPhase(Inquirer);
+
+            DecisionSelectCards = new Card[]{ null };
+
+            PlayCard("ImAVictorian");
+            PlayCard("Fisticuffs");
         }
 
         [Test()]
