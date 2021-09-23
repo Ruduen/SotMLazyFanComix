@@ -79,7 +79,6 @@
       ],
       "icons": [ "DealDamageProjectile", "Manipulate" ],
       "magicNumbers": [ 1, 1, 1, 1 ],
-      "flavorText": "...",
       "tokenPools": [
         {
           "identifier": "CassieCostPool",
@@ -103,7 +102,6 @@
       ],
       "icons": [ "DealDamageCold", "GainHP" ],
       "magicNumbers": [ 1, 1, 1, 1 ],
-      "flavorText": "...",
       "tokenPools": [
         {
           "identifier": "CassieCostPool",

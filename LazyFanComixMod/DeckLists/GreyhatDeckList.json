@@ -127,7 +127,8 @@
           "identifier": "Greyhat",
           "text": "Stop... Oh, who am I kidding. Keep hitting yourself!"
         }
-      ]
+      ],
+      "flavorReference": "Greyhat"
     },
     {
       "identifier": "ShockTherapy",
@@ -145,7 +146,8 @@
           "identifier": "Greyhat",
           "text": "You may feel a slight tingle."
         }
-      ]
+      ],
+      "flavorReference": "Greyhat"
     },
     {
       "identifier": "DataTransfer",

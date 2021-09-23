@@ -68,7 +68,8 @@
           "identifier": "Trailblazer",
           "text": "We'll be safe in here for a moment."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "StrikingZone",
@@ -83,7 +84,8 @@
           "identifier": "Trailblazer",
           "text": "This is as good of a battlefield as we're going to get."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "ClimbingHarness",
@@ -100,7 +102,8 @@
           "identifier": "Trailblazer",
           "text": "Sometimes, the high ground is enough."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "WornBinoculars",
@@ -132,7 +135,8 @@
           "identifier": "Trailblazer",
           "text": "I set up quick. Time is a luxury I don't have."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "RapidRepositioning",
@@ -148,7 +152,8 @@
           "identifier": "Trailblazer",
           "text": "Sometimes, there's a better spot if you keep your eyes open."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "PartingGift",
@@ -210,7 +215,8 @@
           "identifier": "Trailblazer",
           "text": "Of course I don't know where everything is. Finding out is the fun part."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "PreparedAmbush",
@@ -245,7 +251,8 @@
           "identifier": "Trailblazer",
           "text": "We're repositioning to a superior location. It just happens to be behind us."
         }
-      ]
+      ],
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "TrailOfAshes",

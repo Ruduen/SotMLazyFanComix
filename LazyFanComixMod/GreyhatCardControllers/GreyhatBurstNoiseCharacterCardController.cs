@@ -32,7 +32,7 @@ namespace LazyFanComix.Greyhat
             IEnumerator coroutine;
 
             // Deal 1 Target 1 Damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Lightning, powerNumerals[0], false, powerNumerals[0], storedResultsDecisions: scdResults, selectTargetsEvenIfCannotDealDamage: true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Sonic, powerNumerals[0], false, powerNumerals[0], storedResultsDecisions: scdResults, selectTargetsEvenIfCannotDealDamage: true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Select other targets next to links to deal damage.
@@ -56,7 +56,7 @@ namespace LazyFanComix.Greyhat
 
         private IEnumerator SelectedTargetDealsDamage(SelectCardDecision source, List<SelectCardDecision> targets, int amount)
         {
-            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, source.SelectedCard, (Card c) => targets.Select((SelectCardDecision scd) => scd.SelectedCard).Contains(c), amount, DamageType.Energy, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, source.SelectedCard, (Card c) => targets.Select((SelectCardDecision scd) => scd.SelectedCard).Contains(c), amount, DamageType.Sonic, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

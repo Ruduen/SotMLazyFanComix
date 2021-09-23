@@ -168,7 +168,7 @@
       "keywords": [ "equipment", "charge" ],
       "body": "When you play this, one other player may use a power.",
       "icons": [ "UsePowerNow" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "FocusCharm",
@@ -177,7 +177,7 @@
       "keywords": [ "equipment", "charge" ],
       "body": "Select one of your Breach cards. Remove a token from that card's Focus Pool.",
       "icons": [ "UsePowerNow" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "HammerCharm",
@@ -186,7 +186,7 @@
       "keywords": [ "equipment", "charge" ],
       "body": "When you play this, you may destroy an Ongoing or Environment card.",
       "icons": [ "DestroyOngoing", "DestroyEnvironment" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "SpiralCharm",
@@ -195,7 +195,7 @@
       "keywords": [ "equipment", "charge" ],
       "body": "When you play this, activate a card's [u]Cast[/u] text. [i](Do not destroy the card.)[/i]",
       "icons": [],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "VigorCharm",
@@ -204,7 +204,7 @@
       "keywords": [ "equipment", "charge" ],
       "body": "When you play this, draw 3 cards and {BreachMage} deals themselves 2 Psychic Damage.",
       "icons": [ "DrawCardNow", "DealDamagePsychic" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "FlareCascade",
@@ -213,7 +213,7 @@
       "keywords": [ "ongoing", "spell" ],
       "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool." ],
       "icons": [ "DealDamageFire" ],
-      "flavorText": "....",
+      "flavorText": "...",
       "activatableAbilities": [
         {
           "name": "cast",
@@ -234,7 +234,7 @@
         }
       ],
       "icons": [ "DealDamagePsychic", "DestroyOngoing", "DestroyEnvironment" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "MoltenWave",
@@ -249,7 +249,7 @@
         }
       ],
       "icons": [ "DealDamageFire" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "Shine",
@@ -264,7 +264,7 @@
         }
       ],
       "icons": [ "DealDamageRadiant", "DrawCardNow" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "VisionShock",
@@ -279,7 +279,7 @@
         }
       ],
       "icons": [ "DealDamageLightning", "Manipulate" ],
-      "flavorText": "...."
+      "flavorText": "..."
     },
     {
       "identifier": "Zap",
@@ -294,7 +294,7 @@
         }
       ],
       "icons": [ "DealDamageLightning", "Manipulate" ],
-      "flavorText": "...."
+      "flavorText": "..."
     }
   ],
   "promoCards": [

@@ -55,7 +55,8 @@
           "identifier": "Inquirer",
           "text": "You don't need words to deceive."
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "UndeniableFacts",
@@ -70,7 +71,8 @@
           "identifier": "Inquirer",
           "text": "Proof has always been optional."
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "ImAMolePerson",
@@ -88,7 +90,8 @@
           "identifier": "Inquirer",
           "text": "Why else would I be digging myself deeper into this pit?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "ImANinja",
@@ -106,7 +109,8 @@
           "identifier": "Inquirer",
           "text": "How else could I have gotten up here?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "ImAVictorian",
@@ -124,7 +128,8 @@
           "identifier": "Inquirer",
           "text": "Where did you think the hat came from?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "BackupPlan",
@@ -138,7 +143,8 @@
           "identifier": "Inquirer",
           "text": "Why wouldn't I keep a pistol on me?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "YoureLookingPale",
@@ -156,7 +162,8 @@
           "identifier": "Inquirer",
           "text": "Just lay down for a little. Do you really think you can fight like that?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "YoureOnOurSide",
@@ -174,7 +181,8 @@
           "identifier": "Inquirer",
           "text": "Get over here before they start blasting you! Didn't you get the updated orders?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "IveFixedTheWound",
@@ -192,7 +200,8 @@
           "identifier": "Inquirer",
           "text": "Of course it's patched up! You're still walking, aren't you? "
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "LookADistraction",
@@ -210,7 +219,8 @@
           "identifier": "Inquirer",
           "text": "Did you really think those reinforcements were yours?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "UntilYouMakeIt",
@@ -228,7 +238,8 @@
           "identifier": "Inquirer",
           "text": "Is it still a lie if it becomes the truth?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "Fisticuffs",
@@ -246,7 +257,8 @@
           "identifier": "Inquirer",
           "text": "Do you think it's the first time I've been challenged this way?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     },
     {
       "identifier": "TheRightQuestions",
@@ -263,7 +275,8 @@
           "identifier": "Inquirer",
           "text": "So, why did you believe me in the first place?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     }
   ],
   "dummyCards": [
@@ -283,7 +296,8 @@
           "identifier": "Inquirer",
           "text": "It's all part of being a hero, isn't it?"
         }
-      ]
+      ],
+      "flavorReference": "Inquirer"
     }
   ],
   "promoCards": [

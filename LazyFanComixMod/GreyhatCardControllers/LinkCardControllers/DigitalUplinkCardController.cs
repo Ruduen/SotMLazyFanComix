@@ -25,13 +25,23 @@ namespace LazyFanComix.Greyhat
                 // Discard.
                 List<DiscardCardAction> dcaResults = new List<DiscardCardAction>();
                 HeroTurnTakerController httc = this.GameController.FindCardController(nextTo).HeroTurnTakerControllerWithoutReplacements;
-                coroutine = this.GameController.SelectAndDiscardCards(httc, 1, false, 0, dcaResults, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                if (dcaResults.Count > 0 && dcaResults.FirstOrDefault().WasCardDiscarded)
+                // httc is optional due to Celestial Tribunal, so only proceed if it was found. 
+                if (httc != null)
                 {
-                    // Power.
-                    coroutine = this.GameController.SelectAndUsePower(httc, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.SelectAndDiscardCards(httc, 1, false, 0, dcaResults, cardSource: this.GetCardSource());
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                    if (dcaResults.Count > 0 && dcaResults.FirstOrDefault().WasCardDiscarded)
+                    {
+                        // Power.
+                        coroutine = this.GameController.SelectAndUsePower(httc, cardSource: this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                    }
+                }
+                else
+                {
+                    coroutine = this.GameController.SendMessageAction(nextTo.Title + " does not have a hand, and therefore cannot discard any cards.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }

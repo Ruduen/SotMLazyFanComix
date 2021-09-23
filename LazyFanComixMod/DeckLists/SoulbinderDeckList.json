@@ -9,7 +9,7 @@
     "SoulshardOfLightningCharacter",
     "SoulshardOfMercuryCharacter",
     "SoulshardOfIronCharacter",
-    "SoulbinderMortalFormCharacter"
+  ],
   ],
   "cards": [
     {
@@ -195,7 +195,8 @@
           "identifier": "Soulbinder",
           "text": "They're also sharp."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "ArcaneDetonation",

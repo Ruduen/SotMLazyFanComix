@@ -169,7 +169,8 @@
           "text": "It is now.",
           "identifier": "Spellforge"
         }
-      ]
+      ],
+      "flavorReference": "Spellforge"
     },
     {
       "identifier": "MeanderingDissertation",

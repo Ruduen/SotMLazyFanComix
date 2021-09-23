@@ -79,7 +79,8 @@
           "identifier": "Recall",
           "text": "The original? I haven't been 'the original' in quite a while."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "ParadoxAnchor",
@@ -121,7 +122,8 @@
           "identifier": "Recall",
           "text": "You have no idea how many tries that shot took."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "SeenItBefore",
@@ -138,7 +140,8 @@
           "identifier": "Recall",
           "text": "... And I'll see it again."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "SeeItAgain",
@@ -155,7 +158,8 @@
           "identifier": "Recall",
           "text": "I've seen it before..."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "DejaVu",
@@ -171,7 +175,8 @@
           "identifier": "Recall",
           "text": "Yes, this does seem familiar. No, this isn't the first time you've asked."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "NoteToSelf",
@@ -188,7 +193,8 @@
           "identifier": "Recall",
           "text": "It's fine. I left a note to take care of it earlier."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "CloseTheLoop",
@@ -205,7 +211,8 @@
           "identifier": "Recall",
           "text": "Everything's right where it needs to be. Even that broken drone."
         }
-      ]
+      ],
+      "flavorReference": "Recall"
     },
     {
       "identifier": "TemporalAnomaly",
@@ -218,12 +225,7 @@
         "{Recall} deals 1 Target 1 Energy Damage."
       ],
       "icons": [ "GainHP", "PlayCardNow", "Manipulate", "DealDamageEnergy" ],
-      "flavorQuotes": [
-        {
-          "identifier": "Recall",
-          "text": "Everything's right where it needs to be. Even that broken drone."
-        }
-      ]
+      "flavorQuotes": []
     }
   ],
   "promoCards": [
