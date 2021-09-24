@@ -77,7 +77,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "The original? I haven't been 'the original' in quite a while."
+          "text": "The original? I haven't {BR}been 'the original' in quite a while."
         }
       ],
       "flavorReference": "Recall"
@@ -114,7 +114,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "You have no idea how many tries that shot took."
+          "text": "You have no idea {BR}how many {BR}tries that shot took."
         }
       ],
       "flavorReference": "Recall"
@@ -167,7 +167,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "Yes, this does seem familiar. No, this isn't the first time you've asked."
+          "text": "Yes, this does seem familiar. {BR}No, this isn't the first time you've asked."
         }
       ],
       "flavorReference": "Recall"
@@ -185,7 +185,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "It's fine. I left a note to take care of it earlier."
+          "text": "It's fine. I left {BR}a note to take care of it earlier."
         }
       ],
       "flavorReference": "Recall"
@@ -203,7 +203,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "Everything's right where it needs to be. Even that broken drone."
+          "text": "Everything's right where {BR}it needs to be. Even that broken drone."
         }
       ],
       "flavorReference": "Recall"

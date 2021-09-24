@@ -25,7 +25,7 @@ namespace LazyFanComix.Inquirer
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Discard card.
-            coroutine = this.GameController.SelectAndDiscardCard(this.DecisionMaker, false, null, null, SelectionType.DiscardCard);
+            coroutine = this.GameController.SelectAndDiscardCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

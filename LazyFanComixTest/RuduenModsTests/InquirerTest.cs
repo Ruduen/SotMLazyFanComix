@@ -547,6 +547,18 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestFisticuffsNoHand()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Inquirer", "Megalopolis");
+            StartGame();
+
+            DiscardAllCards(Inquirer);
+
+            PlayCard("Fisticuffs");
+        }
+
+
+        [Test()]
         public void TestTheRightQuestions()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Inquirer", "Megalopolis");
@@ -574,5 +586,27 @@ namespace LazyFanComixTest
             AssertInHand(distortion);  // Played and returned distortion.
             QuickHPCheck(-4); // All damage dealt, no destroy trigger hit.
         }
+
+        
+        #region Tribunal
+
+        [Test()]
+        public void TestTribunalCalledPower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Inquirer" });
+            SelectFromBoxForNextDecision("LazyFanComix.InquirerCharacter", "LazyFanComix.Inquirer");
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("InquirerCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        #endregion Tribunal
     }
 }

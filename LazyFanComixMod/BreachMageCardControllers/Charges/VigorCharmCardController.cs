@@ -22,7 +22,7 @@ namespace LazyFanComix.BreachMage
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Deal self 2 damage.
-            coroutine = this.DealDamage(this.CharacterCard, this.CharacterCard, 2, DamageType.Psychic, true, false, false, null, null, null, false, null);
+            coroutine = this.DealDamage(this.CharacterCard, this.CharacterCard, 2, DamageType.Psychic, false, false, false, null, null, null, false, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

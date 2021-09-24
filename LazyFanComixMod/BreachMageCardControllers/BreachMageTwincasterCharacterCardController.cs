@@ -26,8 +26,8 @@ namespace LazyFanComix.BreachMage
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
 
             // Destroy 1 of your charges.
-            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
-                new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
+            coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController,
+                new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.TurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
                 powerNumeral, false, null, null, storedResultsAction, null, false, null, null, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -38,7 +38,7 @@ namespace LazyFanComix.BreachMage
 
                 // Use a Cast.
                 //coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults);
-                coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", null, storedResults, false, this.GetCardSource());
+                coroutine = this.GameController.SelectAndActivateAbility(this.HeroTurnTakerController, "cast", null, storedResults, false, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 if (storedResults.Count > 0)
@@ -48,7 +48,7 @@ namespace LazyFanComix.BreachMage
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     // Destroy the cast card.
-                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, storedResults.FirstOrDefault().SelectedCard);
+                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, storedResults.FirstOrDefault().SelectedCard);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }

@@ -69,12 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestsToAddress\TestsFixed\TribunalCassie.txt" />
-    <Content Include="TestsToAddress\TribunalCassieCalled.txt" />
-    <Content Include="TestsToAddress\TribunalInquirer.txt" />
-    <Content Include="TestsToAddress\TribunalBreachMage.txt" />
-    <Content Include="TestsToAddress\UnknownCause3.txt" />
-    <Content Include="TestsToAddress\UnknownCause2.txt" />
-    <Content Include="TestsToAddress\UnknownCause.txt" />
+    <Content Include="TestsToAddress\TestsFixed\TribunalCassieCalled.txt" />
+    <Content Include="TestsToAddress\TestsFixed\TribunalCassieEssenceFlowCalled.txt" />
+    <Content Include="TestsToAddress\TestsFixed\TribunalInquirer.txt" />
+    <Content Include="TestsToAddress\TestsFixed\TribunalBreachMage.txt" />
+    <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause3-InquirerFisticuffs.txt" />
+    <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause2-InquirerFisticuffs.txt" />
+    <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause-SpellforgePostCelestial.txt" />
+    <Content Include="TestsToAddress\TestsFixed\TribunalRecall.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -542,7 +542,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestBreachMageRepresentative()
+        public void TestBreachMageTribunalRepresentativePower()
         {
             SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
 
@@ -557,6 +557,24 @@ namespace LazyFanComixTest
 
             UsePower(representative);
         }
+
+        [Test()]
+        public void TestBreachMageTribunalRepresentativeTwincasterPower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.BreachMage" });
+            SelectFromBoxForNextDecision("LazyFanComix.BreachMageTwincasterCharacter", "LazyFanComix.BreachMage");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("BreachMageCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
 
     }
 }

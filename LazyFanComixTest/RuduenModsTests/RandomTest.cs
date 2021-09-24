@@ -33,6 +33,7 @@ namespace LazyFanComixTestRandom
         };
         static string[] ModVillains = { };
         static string[] ModEnvironments = { };
+        static string[] ModPromos = { }; // TODO: Add mod promos!
 
         [Test]
         [Repeat(10)]

@@ -32,7 +32,7 @@ namespace LazyFanComix.Cassie
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             int? spellValue = 0;
 
-            if (this.DecisionMaker == null)
+            if (this.HeroTurnTakerController == null)
             {
                 coroutine = this.GameController.SendMessageAction(this.Card.Title + " does not have a hand, so they cannot discard or draw cards.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -40,7 +40,7 @@ namespace LazyFanComix.Cassie
             else
             {
                 // Discard up to three cards.
-                coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, powerNumerals[0], false, 0, storedResults, allowAutoDecide: false, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, powerNumerals[0], false, 0, storedResults, allowAutoDecide: false, cardSource: this.GetCardSource());
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 foreach (DiscardCardAction discard in storedResults)
@@ -55,14 +55,19 @@ namespace LazyFanComix.Cassie
                     // Yes, this is messy, but it's still the cleanest way of mimicing the official SelectCardAndDoAction without access to the evenIfIndestructable flag. Battle Zones shouldn't be an issue.
                     // Do null checks first for short circuiting purposes!
                     coroutine = this.GameController.SelectCardAndDoAction(
-                        new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == Riverbank().UnderLocation && c.FindTokenPool("CassieCostPool") != null && c.FindTokenPool("CassieCostPool").MaximumValue != null && c.FindTokenPool("CassieCostPool").MaximumValue <= spellValue)),
-                        (SelectCardDecision d) => this.GameController.MoveCard(this.DecisionMaker, d.SelectedCard, this.HeroTurnTaker.Hand, false, false, false, null, true, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
+                        new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == Riverbank().UnderLocation && c.FindTokenPool("CassieCostPool") != null && c.FindTokenPool("CassieCostPool").MaximumValue != null && c.FindTokenPool("CassieCostPool").MaximumValue <= spellValue)),
+                        (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Hand, false, false, false, null, true, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
                         false);
                     if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
+                else
+                {
+                    coroutine = this.GameController.SendMessageAction("The Riverbank is not available, so no cards can be moved from under it.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
 
                 // Draw until you have 3 cards.
-                coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, powerNumerals[1]);
+                coroutine = this.DrawCardsUntilHandSizeReached(this.HeroTurnTakerController, powerNumerals[1]);
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 

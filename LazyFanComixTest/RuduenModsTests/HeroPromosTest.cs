@@ -2039,5 +2039,38 @@ namespace LazyFanComixTest
             PlayCard("RepresentativeOfEarth");
             AssertIsInPlay("BunkerModeShiftCharacter");
         }
+
+        #region Official Tests
+        [Test()]
+        public void TestTribunalCompletionistTurn()
+        {
+            SetupGameController("BaronBlade", "Guise/CompletionistGuiseCharacter", "TheWraith", "TheCelestialTribunal");
+
+            StartGame();
+            SelectFromBoxForNextDecision("LegacyCharacter","Legacy");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("LegacyCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+
+            SelectCardsForNextDecision(representative);
+            SelectFromBoxForNextDecision("YoungLegacyCharacter", "Legacy");
+            UsePower(guise);
+
+            ResetDecisions();
+            SelectCardsForNextDecision(wraith.CharacterCard);
+            UsePower(guise);
+            ResetDecisions();
+
+            DestroyCard(guise);
+            DecisionSelectTurnTaker = representative.Owner;
+
+            UseIncapacitatedAbility(guise, 2);
+        }
+
+        #endregion Official Tests
     }
 }

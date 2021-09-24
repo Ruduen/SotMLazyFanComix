@@ -647,5 +647,66 @@ namespace LazyFanComixTest
         }
 
         // TODO: Add riverbank tests when the River deck has been emptied! Yes, it will stop drawing cards - but you have a full deck to play with already, so at that stage that's your own fault!
+
+
+        #region Tribunal
+
+        [Test()]
+        public void TestCassieTribunalRepresentativePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Cassie" });
+            SelectFromBoxForNextDecision("LazyFanComix.CassieCharacter", "LazyFanComix.Cassie");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("CassieCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        [Test()]
+        public void TestCassieTribunalCalledPower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Cassie" });
+            SelectFromBoxForNextDecision("LazyFanComix.CassieCharacter", "LazyFanComix.Cassie");
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("CassieCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        [Test()]
+        public void TestCassieTribunalCalledEssenceFlowPower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Cassie" });
+            SelectFromBoxForNextDecision("LazyFanComix.CassieEssenceFlowCharacter", "LazyFanComix.Cassie");
+            DiscardAllCards(guise);
+            QuickHandStorage(guise);
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("CassieCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+
+            QuickHandCheck(3);
+        }
+
+
+        #endregion Tribunal
     }
 }

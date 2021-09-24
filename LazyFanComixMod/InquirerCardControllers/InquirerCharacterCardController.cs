@@ -23,11 +23,11 @@ namespace LazyFanComix.Inquirer
             List<DestroyCardAction> storedResults = new List<DestroyCardAction>();
 
             // Draw a card.
-            coroutine = this.DrawCard(this.HeroTurnTaker, false, null, true);
+            coroutine = this.DrawCard();
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // You may destroy a distortion.
-            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker,
+            coroutine = this.GameController.SelectAndDestroyCard(this.HeroTurnTakerController,
                 new LinqCardCriteria((Card c) => c.IsDistortion, "distortion", true, false, null, null, false),
                 true, storedResults, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -35,7 +35,7 @@ namespace LazyFanComix.Inquirer
             // If you do, play a card.
             if (storedResults.Count<DestroyCardAction>() >= 1)
             {
-                coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, true, null, null, false, false, false, null);
+                coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 1, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             yield break;

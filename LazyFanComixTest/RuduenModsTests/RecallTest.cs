@@ -493,5 +493,24 @@ namespace LazyFanComixTest
         }
 
         #endregion Other Cards
+
+        [Test()]
+        public void TestTribunalRepresentativePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Recall" });
+            SelectFromBoxForNextDecision("LazyFanComix.RecallCharacter", "LazyFanComix.Recall");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("RecallCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+
     }
 }
