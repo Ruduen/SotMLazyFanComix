@@ -702,5 +702,44 @@ namespace LazyFanComixTest
             PlayCard("MeanderingDissertation");
             QuickHandCheck(0); // Equal discarded as drawn, 1 played and 1 drawn from that.
         }
+
+        [Test()]
+        public void TestTribunalBasePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Spellforge" });
+            SelectFromBoxForNextDecision("LazyFanComix.SpellforgeCharacter", "LazyFanComix.Spellforge");
+            DiscardAllCards(guise);
+
+            QuickHandStorage(guise);
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("SpellforgeCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+            QuickHandCheck(2); // Discarded.
+        }
+        [Test()]
+        public void TestTribunalDecreePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Spellforge" });
+            SelectFromBoxForNextDecision("LazyFanComix.SpellforgeDecreeCharacter", "LazyFanComix.Spellforge");
+            DiscardAllCards(guise);
+
+            QuickHandStorage(guise);
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("SpellforgeCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
     }
 }

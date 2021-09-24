@@ -114,7 +114,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "You have no idea {BR}how many {BR}tries that shot took."
+          "text": "You have no idea {BR}how many tries that shot took."
         }
       ],
       "flavorReference": "Recall"
@@ -203,7 +203,7 @@
       "flavorQuotes": [
         {
           "identifier": "Recall",
-          "text": "Everything's right where {BR}it needs to be. Even that broken drone."
+          "text": "Everything's right where {BR}it needs to be."
         }
       ],
       "flavorReference": "Recall"

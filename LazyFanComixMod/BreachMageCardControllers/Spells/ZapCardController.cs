@@ -11,9 +11,23 @@ namespace LazyFanComix.BreachMage
         {
         }
 
-        public override void AddTriggers()
+        public override bool CanBeDestroyed
         {
-            this.AddWhenDestroyedTrigger(this.MoveInsteadResponse, new TriggerType[] { TriggerType.MoveCard, TriggerType.ChangePostDestroyDestination });
+            get
+            {
+                if (this.Card.IsInPlayAndHasGameText)
+                {
+                    if (this.Card.BattleZone != null)
+                    {
+                        if (!this.TurnTaker.IsIncapacitatedOrOutOfGame)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return true;
+            }
         }
 
         protected override IEnumerator ActivateCast()
@@ -24,19 +38,11 @@ namespace LazyFanComix.BreachMage
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        public IEnumerator MoveInsteadResponse(DestroyCardAction d)
+        public override IEnumerator DestroyAttempted(DestroyCardAction d)
         {
-            CardSource actionCardSource = this.GetCardSource();
-
-            if (d.PostDestroyDestinationCanBeChanged)
-            {
-                this.AddInhibitorException((GameAction ga) => (ga is MoveCardAction && (ga as MoveCardAction).CardSource == actionCardSource) || (ga is MessageAction && (ga as MessageAction).CardSource == actionCardSource));
-                // Move into hand instead.
-                d.SetPostDestroyDestination(this.HeroTurnTaker.Hand, showMessage: true, cardSource: actionCardSource);
-                d.PostDestroyDestinationCanBeChanged = false;
-                // Cannot remove inhibitor exception - the actual movement occurs afterwards as opposed to during an explicit coroutine. This should still be okay, functionally speaking - other areas also avoid removing inhibitor exceptions.
-            }
-            yield break;
+            IEnumerator coroutine;
+            coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, this.Card, this.HeroTurnTaker.Hand, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

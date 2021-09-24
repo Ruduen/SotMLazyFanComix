@@ -323,17 +323,6 @@ namespace LazyFanComixTest
             };
             Card revealedCard = env.TurnTaker.Deck.TopCard;
 
-            // Moved to top without error.
-            PlayCard(position);
-            UsePower(position);
-            AssertOnTopOfDeck(revealedCard);
-
-            // Move env's top card to the bottom.
-            PutInHand(position);
-            PlayCard(position);
-            UsePower(position);
-            AssertOnBottomOfDeck(revealedCard);
-
             GoToUsePowerPhase(Trailblazer);
             AssertPhaseActionCount(2);
         }

@@ -286,7 +286,7 @@
       "count": 4,
       "title": "Zap",
       "keywords": [ "ongoing", "spell" ],
-      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool.", "When this card is destroyed, put it in your hand." ],
+      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool.", "When this card would be destroyed, put it in your hand instead." ],
       "activatableAbilities": [
         {
           "name": "cast",

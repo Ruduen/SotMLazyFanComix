@@ -26,10 +26,9 @@ namespace LazyFanComix.Spellforge
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             string spacedPrefixTitle = "";
             string spacedSuffixTitle = "";
-            CardSource cardSource = this.GetCardSource(); // Fetch once so comparisons work properly, rather than generating new instances.
 
             // Discard prefix.
-            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix"), "prefix"), cardSource: cardSource);
+            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix"), "prefix"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
@@ -40,14 +39,14 @@ namespace LazyFanComix.Spellforge
                 {
                     // Type matches, everything should be implemented now!
                     SpellforgeSharedModifierCardController wcc = (SpellforgeSharedModifierCardController)this.FindCardController(c);
-                    this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(cardSource));
+                    this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this.GetCardSource()));
                     spacedPrefixTitle = c.Definition.AlternateTitle + " ";
                 }
             }
 
             // Discard suffix.
             storedResults.Clear();
-            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("suffix"), "suffix"), cardSource: cardSource);
+            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("suffix"), "suffix"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
@@ -58,18 +57,18 @@ namespace LazyFanComix.Spellforge
                 {
                     // Type matches, everything should be implemented now!
                     SpellforgeSharedModifierCardController wcc = (SpellforgeSharedModifierCardController)this.FindCardController(c);
-                    this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(cardSource));
+                    this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this.GetCardSource()));
                     spacedSuffixTitle = " " + c.Definition.AlternateTitle;
                 }
             }
 
             if (spacedPrefixTitle.Length > 0 || spacedSuffixTitle.Length > 0)
             {
-                coroutine = this.GameController.SendMessageAction("{Spellforge} uses " + spacedPrefixTitle + this.Card.AlternateTitleOrTitle + spacedSuffixTitle + "!", Priority.Low, cardSource);
+                coroutine = this.GameController.SendMessageAction("{Spellforge} uses " + spacedPrefixTitle + this.Card.AlternateTitleOrTitle + spacedSuffixTitle + "!", Priority.Low, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            coroutine = this.PerformModifiedAction(cardSource);
+            coroutine = this.PerformModifiedAction(this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Clear all temporary triggers created by this card.

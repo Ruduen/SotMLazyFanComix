@@ -290,7 +290,7 @@ namespace LazyFanComixTest
             PlayCard("FocusCharm");
 
             PlayCard("Zap");
-            
+
             QuickHPStorage(mdp);
 
             DecisionDoNotActivatableAbility = true;
@@ -535,10 +535,30 @@ namespace LazyFanComixTest
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             DecisionSelectTarget = mdp;
 
+            DestroyCard(spell);
+            AssertInHand(spell);
+            PlayCard(spell);
+
             QuickHPStorage(mdp);
             GoToStartOfTurn(BreachMage);
             QuickHPCheck(-1); // Damage Dealt.
             AssertInHand(spell); // Spell returned to hand due to interruption.
+        }
+
+        [Test()]
+        public void TestSpellZapOnIncap()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Legacy", "Megalopolis");
+
+            StartGame();
+
+            Card spell = PutIntoPlay("Zap");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTarget = mdp;
+
+            DestroyCard(BreachMage);
+
+            AssertOutOfGame(spell);
         }
 
         [Test()]
@@ -574,6 +594,44 @@ namespace LazyFanComixTest
 
             UsePower(representative);
         }
+
+        #region Dang It Guise
+        [Test()]
+        public void TestUhYeahImThatSpell()
+        {
+            List<string> identifiers = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.BreachMage", "Guise", "Megalopolis"
+            };
+            Dictionary<string, string> promos = new Dictionary<string, string>
+            {
+                { "BreachMageCharacter", "BreachMageTwincasterCharacter" }
+            };
+
+            SetupGameController(identifiers, false, promos);
+
+            StartGame();
+
+            Card[] usedCards = new Card[]
+            {
+                PlayCard("HammerCharm", 0),
+                PlayCard("HammerCharm", 1),
+                PlayCard("Zap"),
+                PlayCard("Shine"),
+                PlayCard("UhYeahImThatGuy"),
+                FindCardInPlay("MobileDefensePlatform")
+            };
+
+            QuickHPStorage(usedCards[5]);
+
+            DecisionSelectCards = new Card[] { usedCards[0], usedCards[5], usedCards[5] };
+            DecisionActivateAbilities = new Card[] { usedCards[4], usedCards[4] };
+
+            UsePower(BreachMage.CharacterCard);
+            AssertInTrash(usedCards[4]);
+            QuickHPCheck(-6);
+        }
+        #endregion Dang It Guise
 
 
     }

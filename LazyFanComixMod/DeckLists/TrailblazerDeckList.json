@@ -112,18 +112,16 @@
       "title": "Worn Binoculars",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "You may use an additional Power during your Power Phase.",
-        "After you use a Power on a Position, you may look at the top Card of the Environment Deck, then either put it on the top or bottom of that deck."
+        "You may use an additional Power during your Power Phase."
       ],
-      "icons": [ "Manipulate", "UsePowerExtra" ],
+      "icons": [ "UsePowerExtra" ],
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
           "text": "They still work, {BR}so I'll still keep 'em."
         }
       ],
-      "flavorReference": "Trailblazer",
-      "notes": "May need nerfing to first time. "
+      "flavorReference": "Trailblazer"
     },
     {
       "identifier": "SupplyPack",

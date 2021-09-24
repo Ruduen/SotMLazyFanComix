@@ -33,7 +33,7 @@ namespace LazyFanComix.BreachMage
 
             if (this.GetNumberOfCardsDestroyed(storedResultsAction) == powerNumeral)
             {
-                // If two were destroyed, select use a spell twice.
+                // If the number of destroyed spells matches, double-cast spell.
                 List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
 
                 // Use a Cast.
@@ -43,12 +43,12 @@ namespace LazyFanComix.BreachMage
 
                 if (storedResults.Count > 0)
                 {
-                    // Select an ability on that card. Just in case a card has multiple Cast effects, or is no longer valid due to being destroyed.
+                    // Select an ability on that card. Just in case a card has multiple Cast effects (dang it, Guise!), or is no longer valid due to being destroyed.
                     coroutine = this.ActivateCast(storedResults.FirstOrDefault().SelectedCard);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     // Destroy the cast card.
-                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, storedResults.FirstOrDefault().SelectedCard);
+                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, storedResults.FirstOrDefault().SelectedCard,cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }
