@@ -68,6 +68,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestsToAddress\TestsFixed\GuiseCassieEssenceFlow.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalCassie.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalCassieCalled.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalCassieEssenceFlowCalled.txt" />
@@ -78,6 +79,8 @@
     <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause-SpellforgePostCelestial.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalRecall.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalSpellforge.txt" />
+    <Content Include="TestsToAddress\TribunalSoulbinder.txt" />
+    <Content Include="TestsToAddress\TribunalTrailblazer.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

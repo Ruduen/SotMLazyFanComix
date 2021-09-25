@@ -199,12 +199,27 @@ namespace LazyFanComixTest
             AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Cassie" });
             SelectFromBoxForNextDecision("LazyFanComix.CassieEssenceFlowCharacter", "LazyFanComix.Cassie");
 
-            PlayCard("RepresentativeOfEarth");
+            PlayCard("CalledToJudgement");
 
             Card representative = FindCardInPlay("CassieCharacter");
             AssertIsInPlay(representative);
 
             UsePower(representative);
+        }
+
+        [Test()]
+        public void TestEssenceFlowInnatePowerGuise()
+        {
+            SetupGameController("BaronBlade", "Guise", "LazyFanComix.Cassie/CassieEssenceFlowCharacter", "TheCelestialTribunal");
+
+            StartGame();
+
+            DecisionSelectPower = Cassie.CharacterCard;
+            Card card = PutOnDeck("ICanDoThatToo");
+
+            QuickHandStorage(guise);
+            PlayCard(card);
+            QuickHandCheck(-1);
         }
 
         [Test()]

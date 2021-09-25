@@ -47,7 +47,7 @@ namespace LazyFanComix.Cassie
 
                     // If there is an aqua cost on it, then select a card with a value of up to 2 more.
                     selectedCard = this.GetSelectedCard(scdResults);
-                    if (selectedCard != null && selectedCard.FindTokenPool("CassieCostPool").MaximumValue != null)
+                    if (selectedCard != null && selectedCard.FindTokenPool("CassieCostPool") != null && selectedCard.FindTokenPool("CassieCostPool").MaximumValue != null)
                     {
                         int spellValue = (int)selectedCard.FindTokenPool("CassieCostPool").MaximumValue + powerNumerals[0];
 
@@ -60,7 +60,11 @@ namespace LazyFanComix.Cassie
                             false);
                         if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
-
+                    else
+                    {
+                        coroutine = this.GameController.SendMessageAction("The selected card does not have a Aqua Cost, so no new card can be gained.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                    }
                 }
                 else
                 {
@@ -108,6 +112,14 @@ namespace LazyFanComix.Cassie
             if (CassieEssenceFlowCharacterCardController._riverDeck == null)
             {
                 CassieEssenceFlowCharacterCardController._riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
+                if (CassieEssenceFlowCharacterCardController._riverDeck == null)
+                {
+                    TurnTaker turnTaker = this.FindTurnTakersWhere((TurnTaker tt) => tt.Identifier == "Cassie", false).FirstOrDefault();
+                    if (turnTaker != null)
+                    {
+                        CassieEssenceFlowCharacterCardController._riverDeck = turnTaker.FindSubDeck("RiverDeck");
+                    }
+                }
             }
             return CassieEssenceFlowCharacterCardController._riverDeck;
         }
