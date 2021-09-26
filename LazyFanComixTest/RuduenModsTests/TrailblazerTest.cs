@@ -39,6 +39,8 @@ namespace LazyFanComixTest
             AssertNumberOfCardsInHand(Trailblazer, 4);
         }
 
+        #region Innate Powers
+
         [Test()]
         public void TestInnatePowerDriftersShot()
         {
@@ -100,6 +102,51 @@ namespace LazyFanComixTest
             UsePower(Trailblazer);
             AssertIsInPlay(play);
         }
+
+        [Test()]
+        public void TestTribunalBasePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Trailblazer" });
+            SelectFromBoxForNextDecision("LazyFanComix.TrailblazerCharacter", "LazyFanComix.Trailblazer");
+            DiscardAllCards(guise);
+            PutInHand("UhYeahImThatGuy");
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+            DecisionSelectCards = new Card[] { guise.CharacterCard, mdp };
+            QuickHPStorage(mdp);
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("TrailblazerCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+
+            QuickHPCheck(-2);
+        }
+
+        [Test()]
+        public void TestTribunalSpatialPower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Trailblazer" });
+            SelectFromBoxForNextDecision("LazyFanComix.TrailblazerSpatialAlignmentCharacter", "LazyFanComix.Trailblazer");
+            DiscardAllCards(guise);
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("TrailblazerCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+
+        }
+        #endregion Innate Powers
 
         #region Positions
 

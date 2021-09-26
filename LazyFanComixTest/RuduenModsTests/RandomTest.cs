@@ -15,6 +15,7 @@ using LazyFanComix.Recall;
 using LazyFanComix.Spellforge;
 using LazyFanComix.Soulbinder;
 using LazyFanComix.Trailblazer;
+using System.Reflection;
 
 namespace LazyFanComixTestRandom
 {
@@ -35,8 +36,18 @@ namespace LazyFanComixTestRandom
         static string[] ModEnvironments = { };
         static string[] ModPromos = { }; // TODO: Add mod promos!
 
+        [OneTimeSetUp]
+        public void DoSetup()
+        {
+            // Tell the engine about our mod assembly so it can load up our code.
+            // It doesn't matter which type as long as it comes from the mod's assembly.
+            //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
+            ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(TrailblazerCharacterCardController))); // replace with your own namespace
+        }
+
+
         [Test]
-        [Repeat(10)]
+        [Repeat(100)]
         public void TestRandomGameWithModsToCompletion()
         {
             GameController gameController = SetupRandomGameController(false,
@@ -48,7 +59,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(10)]
+        [Repeat(100)]
         public void TestSomewhatReasonableGameWithModsToCompletion()
         {
             GameController gameController = SetupRandomGameController(true,
@@ -60,7 +71,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(10)]
+        [Repeat(100)]
         public void TestMyStuff()
         {
             GameController gameController = SetupRandomGameController(true,
@@ -72,7 +83,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(10)]
+        [Repeat(100)]
         public void TestMyStuffAndCompletionistGuise()
         {
             GameController gameController = SetupRandomGameController(true,
@@ -85,7 +96,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(10)]
+        [Repeat(100)]
         public void TestMyStuffTribunal()
         {
             GameController gameController = SetupRandomGameController(true,
@@ -106,5 +117,17 @@ namespace LazyFanComixTestRandom
         //        useHeroes: new List<string> { "Workshopping.MigrantCoder" });
         //    RunGame(gameController);
         //}
+
+
+        #region Arbitrary Tests
+        // Doesn't work - arbitrary tests don't take the same actions, so we can only try to narrow down items via logs. 
+        //[Test]
+        //public void TestArbitrary()
+        //{
+        //    DeckDefinition.AvailableHeroes.Concat(ModHeroes);
+        //    GameController gameController = SetupGameController(new List<String>() { "IronLegacy", "Guise", "LazyFanComix.BreachMage", "LazyFanComix.Trailblazer", "TheTempleOfZhuLong" }, true, randomSeed: 263719487);
+        //    RunGame(gameController);
+        //}
+        #endregion Arbitrary Tests
     }
 }

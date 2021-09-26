@@ -35,7 +35,7 @@ namespace LazyFanComix.Soulbinder
             {
                 DamageSource targetSource = new DamageSource(this.GameController, target.FirstOrDefault());
                 // That target deals 1 Target 3 Toxic Damage
-                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, targetSource, numerals[1], DamageType.Infernal, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, targetSource, numerals[1], DamageType.Infernal, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // Deals themselves 1 damage.
@@ -47,8 +47,8 @@ namespace LazyFanComix.Soulbinder
         public IEnumerator SelectYourTargetToDealDamage(List<Card> storedResults, int damageAmount, DamageType damageType)
         {
             List<SelectCardDecision> storedDecision = new List<SelectCardDecision>();
-            IEnumerator coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.CardToDealDamage,
-                new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsTarget && c.IsInPlayAndHasGameText),
+            IEnumerator coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.CardToDealDamage,
+                new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && c.IsTarget && c.IsInPlayAndHasGameText),
                 storedDecision, false, false,
                 new DealDamageAction(this.GetCardSource(), null, null, damageAmount, damageType)
             );

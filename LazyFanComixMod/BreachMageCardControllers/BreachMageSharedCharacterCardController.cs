@@ -61,6 +61,7 @@ namespace LazyFanComix.BreachMage
             while (this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.Owner == this.TurnTaker && c.HasActivatableAbility("cast") && c.IsSpell && !usedAbilityCards.Contains(c)).Count() > 0 && !finishedCasting)
             {
                 storedResults.Clear();
+                // Could use sanity check for non-power activation, but while loop and checks on destroying cast cards handle gracefully.
 
                 // Use a Cast.
                 coroutine = this.GameController.SelectAndActivateAbility(this.HeroTurnTakerController, "cast", new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.TurnTaker && c.IsSpell && !usedAbilityCards.Contains(c)), storedResults, true, this.GetCardSource());
@@ -77,7 +78,7 @@ namespace LazyFanComix.BreachMage
                     }
 
                     // Destroy the cast card.
-                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, castCard);
+                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, castCard, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else

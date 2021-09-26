@@ -84,7 +84,7 @@
     <Compile Include="GreyhatCardControllers\LinkCardControllers\CoercedUplinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\MiscCardControllers\SystemRebootCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedOngoingCheckNextToLinkCardController.cs" />
-    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedPlayLinkFirstCardController.cs" />
+    <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedPlayLinkAfterCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
@@ -344,7 +344,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
+      <UserProperties assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

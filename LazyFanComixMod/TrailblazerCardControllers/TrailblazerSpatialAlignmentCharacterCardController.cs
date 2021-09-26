@@ -28,7 +28,7 @@ namespace LazyFanComix.Trailblazer
             if (this.FindCardsWhere((Card c) => c.IsPosition && c.IsInPlayAndHasGameText).Count() > 0)
             {
                 // Select a position.
-                coroutine = this.GameController.SelectCardsAndStoreResults(this.DecisionMaker, SelectionType.MakeIndestructible,
+                coroutine = this.GameController.SelectCardsAndStoreResults(this.HeroTurnTakerController, SelectionType.MakeIndestructible,
                     (Card c) => c.IsPosition && c.IsInPlayAndHasGameText, 1,
                     storedResults, false, 1, cardSource: this.GetCardSource());
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -61,7 +61,7 @@ namespace LazyFanComix.Trailblazer
             }
 
             // You may play a card.
-            coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardSource: this.GetCardSource());
+            coroutine = this.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

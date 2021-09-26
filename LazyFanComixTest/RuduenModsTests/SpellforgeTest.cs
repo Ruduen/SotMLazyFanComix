@@ -722,6 +722,7 @@ namespace LazyFanComixTest
             UsePower(representative);
             QuickHandCheck(2); // Discarded.
         }
+
         [Test()]
         public void TestTribunalDecreePower()
         {

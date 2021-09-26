@@ -176,6 +176,55 @@ namespace LazyFanComixTest
             QuickHPCheck(2, -2);
         }
 
+
+        [Test()]
+        public void TestTribunalBasePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Soulbinder" });
+            SelectFromBoxForNextDecision("LazyFanComix.SoulbinderCharacter", "LazyFanComix.Soulbinder");
+            DiscardAllCards(guise);
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCards = new Card[] { guise.CharacterCard, mdp };
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("SoulbinderCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+            AssertHitPoints(guise.CharacterCard, (int)(guise.CharacterCard.MaximumHitPoints - 1));
+            AssertHitPoints(representative, (int)(representative.MaximumHitPoints - 1));
+            AssertHitPoints(mdp, (int)(mdp.MaximumHitPoints - 6));
+
+        }
+
+        [Test()]
+        public void TestTribunalMortalFormPower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Soulbinder" });
+            SelectFromBoxForNextDecision("LazyFanComix.SoulbinderMortalFormCharacter", "LazyFanComix.Soulbinder");
+            DiscardAllCards(guise);
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectCards = new Card[] { guise.CharacterCard, mdp };
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("SoulbinderCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
         #endregion Powers Cards
 
         #region Rituals

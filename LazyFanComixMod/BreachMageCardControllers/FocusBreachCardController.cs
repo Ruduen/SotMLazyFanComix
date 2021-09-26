@@ -23,13 +23,13 @@ namespace LazyFanComix.BreachMage
 
             // Select an appropriate breach and focus it.
             coroutine = this.GameController.SelectCardAndDoAction(
-                new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.RemoveTokens, this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.FindTokenPool("FocusPool") != null && c.FindTokenPool("FocusPool").CurrentValue > 0)),
+                new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.RemoveTokens, this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.FindTokenPool("FocusPool") != null && c.FindTokenPool("FocusPool").CurrentValue > 0)),
                 (SelectCardDecision d) => this.GameController.RemoveTokensFromPool(d.SelectedCard.FindTokenPool("FocusPool"), 1, cardSource: this.GetCardSource()),
             false);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Play a card.
-            coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker, true);
+            coroutine = this.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

@@ -33,7 +33,7 @@ namespace LazyFanComix.Inquirer
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // If you do, play a card.
-            if (storedResults.Count<DestroyCardAction>() >= 1)
+            if (storedResults.Count > 0 && storedResults.FirstOrDefault().WasCardDestroyed)
             {
                 coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 1, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

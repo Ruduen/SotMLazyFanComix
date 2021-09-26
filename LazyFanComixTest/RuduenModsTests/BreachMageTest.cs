@@ -299,6 +299,32 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestBreachMageCastSpellStartOfTurnDefeated()
+        {
+            // NOTE: This is expected to fail right now due to a quirk in the Activatable Ability framework. Specifically, no current activatable abilities are optional.
+
+            SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Legacy", "Megalopolis");
+
+            StartGame();
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+            Card[] spells = new Card[]{
+                PlayCard("Zap",0),
+                PlayCard("Zap",1),
+                PlayCard("Zap",2)
+            };
+            QuickHPStorage(mdp);
+
+            DecisionActivateAbilities = new Card[] { spells[0], spells[1], spells[2] };
+            DecisionSelectTarget = BreachMage.CharacterCard;
+
+            SetHitPoints(BreachMage.CharacterCard, 1);
+            GoToStartOfTurn(BreachMage);
+
+        }
+
+        [Test()]
         public void TestCardCycleOfMagic()
         {
             SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Megalopolis");
@@ -316,6 +342,23 @@ namespace LazyFanComixTest
             QuickHPCheck(-4); // Damage Dealt.
             QuickHandCheck(1); // 2 Cards Drawn, -1 for card played.
             AssertInDeck(spell);
+        }
+
+        [Test()]
+        public void TestCardCycleOfMagicOnDefeat()
+        {
+            // NOTE: REMOVE IF ENGINE ISSUE IS EVER FIXED!
+            SetupGameController("Omnitron", "LazyFanComix.BreachMage", "Legacy", "Megalopolis");
+
+            StartGame();
+
+            Card spell = PlayCard("VisionShock");
+            Card cycle = PutInHand("CycleOfMagic");
+
+            PlayCard("InterpolationBeam");
+            SetHitPoints(BreachMage.CharacterCard, 1);
+            PlayCard(cycle);
+
         }
 
         [Test()]
@@ -632,7 +675,6 @@ namespace LazyFanComixTest
             QuickHPCheck(-6);
         }
         #endregion Dang It Guise
-
 
     }
 }

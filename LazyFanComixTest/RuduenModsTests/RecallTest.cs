@@ -110,6 +110,78 @@ namespace LazyFanComixTest
         }
         #endregion Innate Powers
 
+        #region Tribunal Cases
+
+        [Test()]
+        public void TestTribunalRepresentativePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Recall" });
+            SelectFromBoxForNextDecision("LazyFanComix.RecallCharacter", "LazyFanComix.Recall");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("RecallCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        [Test()]
+        public void TestTribunalForecastedPower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Recall" });
+            SelectFromBoxForNextDecision("LazyFanComix.RecallForecastedBlowCharacter", "LazyFanComix.Recall");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("RecallCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        [Test()]
+        public void TestTribunalUnstablePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Recall" });
+            SelectFromBoxForNextDecision("LazyFanComix.RecallUnstableJumpCharacter", "LazyFanComix.Recall");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("RecallCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        #endregion Tribunal Cases
+
+        #region Incapped Case Test
+        [Test()]
+        public void TestIncappedToForecastedPower()
+        {
+            SetupGameController("Infinitor", "LazyFanComix.BreachMage", "LazyFanComix.Recall/RecallForecastedBlowCharacter", "TheCelestialTribunal");
+
+            StartGame();
+
+            Card target = PlayCard("RecalescentHellion");
+
+            DestroyCard(FindHero("BreachMage").CharacterCard);
+
+            DecisionSelectCard = target;
+            UseIncapacitatedAbility(FindHero("BreachMage").CharacterCard, 1);
+        }
+        #endregion Incapped Case Test
+
         #region Loop Cards
 
         [Test()]
@@ -494,22 +566,6 @@ namespace LazyFanComixTest
 
         #endregion Other Cards
 
-        [Test()]
-        public void TestTribunalRepresentativePower()
-        {
-            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
-
-            StartGame();
-            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Recall" });
-            SelectFromBoxForNextDecision("LazyFanComix.RecallCharacter", "LazyFanComix.Recall");
-
-            PlayCard("RepresentativeOfEarth");
-
-            Card representative = FindCardInPlay("RecallCharacter");
-            AssertIsInPlay(representative);
-
-            UsePower(representative);
-        }
 
 
     }
