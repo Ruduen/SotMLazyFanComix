@@ -94,8 +94,8 @@
       "title": "Climbing Harness",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "Increase the first damage dealt by {Trailblazer} each of your turns by 1.",
-        "If a Position is in play, increased the first damage dealt by {Trailblazer} each other turn by 1."
+        "Increase the first damage dealt by {Trailblazer} during each of your turns by 1.",
+        "If a Position is in play, instead, increase the first damage dealt by {Trailblazer} during each turn by 1."
       ],
       "icons": [ "IncreaseDamageDealt" ],
       "flavorQuotes": [
