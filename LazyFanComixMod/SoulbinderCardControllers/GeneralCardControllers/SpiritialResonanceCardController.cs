@@ -18,33 +18,13 @@ namespace LazyFanComix.Soulbinder
             IEnumerator coroutine;
             List<Card> targetList = new List<Card>();
 
-            // Select type.
-            List<Function> list = new List<Function>
-                {
-                    new Function(this.DecisionMaker, "reveal a ritual", SelectionType.RevealTopCardOfDeck,
-                    () => this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.DecisionMaker, this.HeroTurnTaker.Deck, true, false, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain("ritual"), "ritual"), 1, revealedCardDisplay: RevealedCardDisplay.ShowMatchingCards, shuffleReturnedCards: true),
-                    this.HeroTurnTaker.Deck.Cards.Count() > 0),
-                     new Function(this.DecisionMaker, "reveal a soulsplinter", SelectionType.RevealTopCardOfDeck,
-                    () => this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.DecisionMaker, this.HeroTurnTaker.Deck, true, false, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain("soulsplinter"), "soulsplinter"), 1, revealedCardDisplay: RevealedCardDisplay.ShowMatchingCards, shuffleReturnedCards: true),
-                    this.HeroTurnTaker.Deck.Cards.Count() > 0),
-                };
-
-            SelectFunctionDecision selectFunction = new SelectFunctionDecision(this.GameController, this.DecisionMaker, list, false, null, this.TurnTaker.Name + " does not have any cards in their deck, so" + this.Card.AlternateTitleOrTitle + " has no effect.", null, this.GetCardSource());
-            coroutine = this.GameController.SelectAndPerformFunction(selectFunction, null, null);
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, 3, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Select target.
-            coroutine = this.SelectYourTargetToDealDamage(targetList, 1, DamageType.Infernal);
+            coroutine = this.GameController.GainHP(this.HeroTurnTakerController, (Card c) => c.Owner == this.TurnTaker, 2, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (targetList.Count > 0)
-            {
-                // That target deals itself 1 damage.
-                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, targetList.FirstOrDefault()), targetList.FirstOrDefault(), 1, DamageType.Infernal, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
-
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 2, true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace LazyFanComix.Soulbinder
 {
-    public class ClaySoulsplinterCardController : CardController
+    public class ClaySoulsplinterCardController : SoulbinderSharedSoulsplinterCardController
     {
         public ClaySoulsplinterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
 
-        public override IEnumerator UsePower(int index = 0)
+        protected override IEnumerator UseUniquePower()
         {
             // Select target to deal damage to.
             List<int> numerals = new List<int>(){

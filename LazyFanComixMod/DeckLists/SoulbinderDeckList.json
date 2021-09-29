@@ -45,8 +45,9 @@
       "title": "Clay Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
-      "powers": [ "Draw a Card." ],
-      "icons": [ "PlayCardNow", "HasPower", "DrawCardNow" ],
+      "body": [ "When this card enters play, you may play a Sacrifice card." ],
+      "powers": [ "Draw a Card.", "Remove 2 Ritual Tokens from 1 of your Ritual Cards." ],
+      "icons": [ "PlayCardNow", "HasPower", "DrawCardNow", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     },
@@ -56,8 +57,9 @@
       "title": "Wooden Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
-      "powers": [ "Each of your targets regains 1 HP." ],
-      "icons": [ "PlayCardNow", "HasPower", "GainHP" ],
+      "body": [ "When this card enters play, you may play a Sacrifice card." ],
+      "powers": [ "Each of your targets regains 1 HP.", "Remove 2 Ritual Tokens from 1 of your Ritual Cards." ],
+      "icons": [ "PlayCardNow", "HasPower", "GainHP", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     },
@@ -67,23 +69,22 @@
       "title": "Straw Soulsplinter",
       "hitpoints": 4,
       "keywords": [ "soulsplinter" ],
-      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP." ],
-      "icons": [ "PlayCardNow", "HasPower", "DealDamageToxic", "GainHP" ],
+      "body": [ "When this card enters play, you may play a Sacrifice card." ],
+      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP.", "Remove 2 Ritual Tokens from 1 of your Ritual Cards." ],
+      "icons": [ "PlayCardNow", "HasPower", "DealDamageToxic", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "RitualOfCatastrophe",
-      "count": 2,
+      "count": 3,
       "title": "Ritual of Catastrophe",
       "keywords": [ "ongoing", "ritual" ],
       "body": [
-        "When this card enters play, place 3 Ritual Tokens on it.",
-        "When the last token is removed from this, destroy up to 2 other Ongoing or Environment cards, each non-Hero target deals itself 3 Irreducible Infernal Damage, and destroy this card."
+        "When this card enters play, place 3 Ritual Tokens on it and you may play a Sacrifice card.",
+        "When the last Ritual Token is removed from this, destroy up to 2 other Ongoing or Environment cards, each non-Hero target deals itself 3 Irreducible Infernal Damage, and destroy this card."
       ],
-      "powers": [
-        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
-      ],
+      "powers": [ "Remove 1 Ritual Token from this. " ],
       "tokenPools": [
         {
           "identifier": "RitualTokenPool",
@@ -93,22 +94,20 @@
           "color": "DD7777"
         }
       ],
-      "icons": [ "HasPower", "DestroyOngoingEnvironment", "DealDamageInfernal" ],
+      "icons": [ "DestroyOngoingEnvironment", "DealDamageInfernal", "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "RitualOfSalvation",
-      "count": 2,
+      "count": 3,
       "title": "Ritual of Salvation",
       "keywords": [ "ongoing", "ritual" ],
       "body": [
-        "When this card enters play, place 3 Ritual Tokens on it.",
-        "When the last token is removed from this, each Hero target regains 3 HP and each player draws a card. Then, destroy this card."
+        "When this card enters play, place 3 Ritual Tokens on it and you may play a Sacrifice card.",
+        "When the last Ritual Token is removed from this, each Hero target regains 3 HP and each player draws a card. Then, destroy this card."
       ],
-      "powers": [
-        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
-      ],
+      "powers": [ "Remove 1 Ritual Token from this." ],
       "tokenPools": [
         {
           "identifier": "RitualTokenPool",
@@ -118,22 +117,20 @@
           "color": "DD7777"
         }
       ],
-      "icons": [ "HasPower", "DrawCardNow", "GainHP" ],
+      "icons": [ "DrawCardNow", "GainHP", "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "RitualOfTransferrence",
-      "count": 2,
+      "count": 3,
       "title": "Ritual of Transferrence",
       "keywords": [ "ongoing", "ritual" ],
       "body": [
-        "When this card enters play, place 3 Ritual Tokens on it.",
-        "When the last token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself Toxic damage equal to the total HP regained this way. Then, destroy this card."
+        "When this card enters play, place 3 Ritual Tokens on it and you may play a Sacrifice card.",
+        "When the last Ritual Token is removed from this, up to 3 Targets regain 2 HP and 1 Target deals itself Toxic damage equal to the total HP regained this way. Then, destroy this card."
       ],
-      "powers": [
-        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
-      ],
+      "powers": [ "Remove 1 Ritual Token from this." ],
       "tokenPools": [
         {
           "identifier": "RitualTokenPool",
@@ -143,32 +140,7 @@
           "color": "DD7777"
         }
       ],
-      "icons": [ "HasPower", "GainHP", "DealDamageToxic" ],
-      "flavorQuotes": [
-      ]
-    },
-    {
-      "identifier": "RitualOfKnowledge",
-      "count": 2,
-      "title": "Ritual of Knowledge",
-      "keywords": [ "ongoing", "ritual" ],
-      "body": [
-        "When this card enters play, place 3 Ritual Tokens on it.",
-        "When the last token is removed from this, you may draw 4 cards, play a card, and use a power. Then, destroy this card."
-      ],
-      "powers": [
-        "Remove 1 Ritual Token from this. If you have a Soulsplinter in play, remove 1 Ritual Token from this."
-      ],
-      "tokenPools": [
-        {
-          "identifier": "RitualTokenPool",
-          "name": "Ritual Pool",
-          "initialValue": 0,
-          "minimumValue": 0,
-          "color": "DD7777"
-        }
-      ],
-      "icons": [ "HasPower", "DrawCardNow", "PlayCardNow", "UsePowerNow" ],
+      "icons": [ "GainHP", "DealDamageToxic", "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     },
@@ -178,8 +150,8 @@
       "title": "Ritual Components",
       "keywords": [ "equipment", "limited" ],
       "body": [ "At the end of your turn, remove 1 Ritual Token from 1 of your Ritual Cards." ],
-      "powers": [ "One of your targets deals 1 Target 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
-      "icons": [ "HasPower", "RemoveTokens" ],
+      "powers": [ "{Soulbinder} deals 1 Target 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
+      "icons": [ "RemoveTokens", "HasPower", "DealDamageInfernal" ],
       "flavorQuotes": [
         {
           "identifier": "Greyhat",
@@ -187,70 +159,66 @@
         },
         {
           "identifier": "Soulbinder",
-          "text": "They are. They're also sharp."
+          "text": "They [i]are[/i] ceremonial. They're also sharp."
         }
       ],
-      "flavorReference": "Soulbinder"
+      "flavorReference": "Soulbinder, The Last Rite"
     },
     {
       "identifier": "ArcaneDetonation",
-      "count": 4,
+      "count": 3,
       "title": "Arcane Detonation",
-      "keywords": [ "one-shot" ],
+      "keywords": [ "one-shot", "sacrifice" ],
       "body": [
-        "You may play a Ritual or Soulsplinter.",
         "One of your targets deals each non-Hero target and themselves 2 Infernal Damage."
       ],
-      "icons": [ "AddTokens", "DestroyThis" ],
+      "icons": [ "DealDamageInfernal" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "SacrificialRite",
-      "count": 4,
+      "count": 3,
       "title": "Sacrificial Rite",
-      "keywords": [ "one-shot" ],
+      "keywords": [ "one-shot", "sacrifice" ],
       "body": [
-        "You may play a Ritual or Soulsplinter.",
         "One of your targets deals 1 target and themselves 2 Infernal Damage.",
         "Remove 1 Ritual Token from each of your Rituals."
       ],
-      "icons": [ "AddTokens", "DestroyThis" ],
+      "icons": [ "DealDamageInfernal", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "KeystoneOfSpirit",
-      "count": 4,
+      "count": 3,
       "title": "Keystone of Spirit",
-      "keywords": [ "one-shot" ],
+      "keywords": [ "one-shot", "sacrifice" ],
       "body": [
-        "You may play a Ritual or Soulsplinter.",
         "One of your targets deals 1 themselves 1 Infernal Damage.",
         "Each other Hero Target regains 1 HP.",
         "You may use a power now."
       ],
-      "icons": [ "AddTokens", "DestroyThis" ],
+      "icons": [ "DealDamageInfernal", "GainHP", "UsePowerNow" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "FinalEruption",
-      "count": 2,
+      "count": 3,
       "title": "Final Eruption",
-      "keywords": [ "one-shot" ],
+      "keywords": [ "one-shot", "sacrifice" ],
       "body": [
-        "You may play a Ritual or Soulsplinter.",
         "Select 1 of your non-Character Targets. It deals 1 Target Infernal Damage equal to its current HP plus 2.",
         "Then, destroy the selected target."
       ],
-      "icons": [ "AddTokens", "DestroyThis" ],
+      "icons": [ "DealDamageInfernal", "DestroyCard" ],
       "flavorQuotes": [
       ]
     },
     {
       "identifier": "DebtOfTheSoulless",
-      "count": 2,
+      "count": 3,
       "title": "Debt of the Soulless",
       "keywords": [ "ongoing", "limited" ],
       "body": [
@@ -267,10 +235,9 @@
       "title": "Spiritual Resonance",
       "keywords": [ "one-shot" ],
       "body": [
-        "Select Ritual or Soulsplinter.",
-        "Reveal cards from the top of your deck until you reveal a card of the selected type. Play that card. Shuffle the other revealed cards into your deck.",
-        "One of your Targets deals themselves 1 Infernal Damage.",
-        "You may draw 2 cards."
+        "Draw 3 cards.",
+        "Each of your targets regains 2 HP.",
+        "You may play a card."
       ],
       "icons": [ "Manipulate", "PlayCardNow", "DrawCardNow" ],
       "flavorQuotes": [
@@ -300,6 +267,29 @@
         "When one of your characters would be destroyed, you may instead restore it to 6 HP and destroy this card."
       ],
       "icons": [ "PlayCardNow", "GainHP", "DestroySelf" ],
+      "flavorQuotes": [
+      ]
+    },
+    {
+      "identifier": "RitualOfKnowledge",
+      "count": 2,
+      "title": "Ritual of Knowledge",
+      "keywords": [ "ongoing", "ritual" ],
+      "body": [
+        "When this card enters play, place 3 Ritual Tokens on it and you may play a Sacrifice card.",
+        "When the last Ritual Token is removed from this, you may draw 4 cards, play a card, and use a power. Then, destroy this card."
+      ],
+      "powers": [ "Remove 1 Ritual Token from this." ],
+      "tokenPools": [
+        {
+          "identifier": "RitualTokenPool",
+          "name": "Ritual Pool",
+          "initialValue": 0,
+          "minimumValue": 0,
+          "color": "DD7777"
+        }
+      ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
       ]
     }

@@ -87,6 +87,7 @@
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedPlayLinkAfterCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
+    <Compile Include="HeroPromoCardControllers\AbsoluteZeroOverloadCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\MrFixerFocusedStrikeCharacterCardController.cs" />
     <Compile Include="HeroPromoCardControllers\SetbackRunOfLuckCharacterCardController.cs" />
@@ -170,17 +171,18 @@
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\SacrificialRiteCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\RitualComponentsCardController.cs" />
     <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ArcaneDetonationCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\WoodenSoulsplinterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SoulsplinterCardControllers\WoodenSoulsplinterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfKnowledgeCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfTransferrenceCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfSalvationCardController.cs" />
     <Compile Include="SoulbinderCardControllers\RitualCardControllers\RitualOfCatastropheCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedSoulsplinterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedRitualCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedYourTargetDamageCardController.cs" />
     <Compile Include="SoulbinderCardControllers\SharedCardControllers\SoulbinderSharedInstructionsCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderTurnTakerController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\StrawSoulsplinterCardController.cs" />
-    <Compile Include="SoulbinderCardControllers\GeneralCardControllers\ClaySoulsplinterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SoulsplinterCardControllers\StrawSoulsplinterCardController.cs" />
+    <Compile Include="SoulbinderCardControllers\SoulsplinterCardControllers\ClaySoulsplinterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderMortalFormCharacterCardController.cs" />
     <Compile Include="SoulbinderCardControllers\CharacterCardControllers\SoulbinderCharacterCardController.cs" />
     <Compile Include="SpellforgeCardControllers\MeanderingDissertationCardController.cs" />
@@ -344,7 +346,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" />
+      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

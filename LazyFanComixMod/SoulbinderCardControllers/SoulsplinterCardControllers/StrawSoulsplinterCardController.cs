@@ -6,14 +6,14 @@ using System.Linq;
 
 namespace LazyFanComix.Soulbinder
 {
-    public class StrawSoulsplinterCardController : SoulbinderSharedYourTargetDamageCardController
+    public class StrawSoulsplinterCardController : SoulbinderSharedSoulsplinterCardController
     {
         public StrawSoulsplinterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
 
-        public override IEnumerator UsePower(int index = 0)
+        protected override IEnumerator UseUniquePower()
         {
             List<int> numerals = new List<int>(){
                             this.GetPowerNumeral(0, 1),   // Number of Targets
@@ -38,5 +38,7 @@ namespace LazyFanComix.Soulbinder
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
+
+
     }
 }

@@ -83,6 +83,7 @@
     <Content Include="TestsToAddress\TestsFixed\TribunalSoulbinder.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalTrailblazer.txt" />
     <Content Include="TestsToAddress\TestsFixed\BreachMageCycleEngineBug.txt" />
+    <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause-TrailblazerSpatialPowerTrial.txt" />
     <Content Include="TestsToAddress\Unknown3.txt" />
     <Content Include="TestsToAddress\Unknown2.txt" />
     <Content Include="TestsToAddress\Unknown1.txt" />

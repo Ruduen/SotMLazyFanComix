@@ -80,7 +80,7 @@
           "text": "The original? I haven't {BR}been 'the original' in quite a while."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Recall, Time After Time"
     },
     {
       "identifier": "ParadoxAnchor",
@@ -117,7 +117,7 @@
           "text": "You have no idea {BR}how many tries that shot took."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Recall, Time After Time"
     },
     {
       "identifier": "SeenItBefore",
@@ -135,7 +135,7 @@
           "text": "... And I'll see it again."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Recall, Time After Time"
     },
     {
       "identifier": "SeeItAgain",
@@ -153,7 +153,7 @@
           "text": "I've seen it before..."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Recall, Time After Time"
     },
     {
       "identifier": "DejaVu",
@@ -170,7 +170,7 @@
           "text": "Yes, this does seem familiar. {BR}No, this isn't the first time you've asked."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Recall, Time After Time"
     },
     {
       "identifier": "NoteToSelf",
@@ -188,7 +188,7 @@
           "text": "It's fine. I left {BR}a note to take care of it earlier."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Recall, Time After Time"
     },
     {
       "identifier": "CloseTheLoop",
@@ -206,7 +206,7 @@
           "text": "Everything's right where {BR}it needs to be."
         }
       ],
-      "flavorReference": "Recall"
+      "flavorReference": "Recall, Time After Time"
     },
     {
       "identifier": "TemporalAnomaly",

@@ -48,7 +48,7 @@ namespace LazyFanComix.Trailblazer
             {
                 string turnTakerName;
                 // Set up response.
-                if (base.TurnTaker.IsHero)
+                if (this.TurnTaker.IsHero)
                 {
                     turnTakerName = this.TurnTaker.Name;
                 }

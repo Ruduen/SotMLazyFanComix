@@ -100,13 +100,15 @@ namespace LazyFanComixTest
 
             StartGame(false);
 
+            DiscardAllCards(Soulbinder);
+
             Card card = PlayCard("RitualOfCatastrophe");
 
             QuickHandStorage(Soulbinder);
             UsePower(Soulbinder);
             QuickHandCheck(1);
 
-            AssertTokenPoolCount(card.TokenPools.FirstOrDefault(), InitialRitual - 1); // One removed from 4.
+            AssertTokenPoolCount(card.TokenPools.FirstOrDefault(), InitialRitual - 1); // One removed from 3.
         }
 
         [Test]
@@ -267,16 +269,13 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card[] rituals = new Card[] { PlayCard("RitualOfCatastrophe"), PlayCard("RitualOfKnowledge") };
+            DiscardAllCards(Soulbinder);
+
+            Card[] rituals = new Card[] { PlayCard("RitualOfCatastrophe") };
 
             AssertTokenPoolCount(rituals[0].TokenPools.FirstOrDefault(), InitialRitual);
             UsePower(rituals[0]);
             AssertTokenPoolCount(rituals[0].TokenPools.FirstOrDefault(), InitialRitual - 1);
-
-            PlayCard("ClaySoulsplinter");
-            AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), InitialRitual);
-            UsePower(rituals[1]);
-            AssertTokenPoolCount(rituals[1].TokenPools.FirstOrDefault(), InitialRitual - 2);
         }
 
         [Test]
@@ -295,42 +294,46 @@ namespace LazyFanComixTest
             AssertInTrash(ritual);
         }
 
-        [Test]
-        public void TestCardRitualOfKnowledge()
-        {
-            SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "TheFinalWasteland");
+        //[Test]
+        //public void TestCardRitualOfKnowledge()
+        //{
+        //    SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            StartGame();
+        //    StartGame();
 
-            Card ritual = PlayCard("RitualOfKnowledge");
-            Card[] cards = new Card[] { PutInHand("RitualOfCatastrophe") };
-            DecisionSelectCards = cards;
-            DecisionSelectPower = cards[0];
+        //    DiscardAllCards(Soulbinder);
 
-            QuickHandStorage(Soulbinder);
-            RemoveTokensFromPool(ritual.TokenPools[0], 5);
-            QuickHandCheck(3); // Draw 4, play 1, use a power.
-            AssertIsInPlay(cards[0]);
-            AssertNumberOfUsablePowers(Soulbinder, 1); // Only ritual power remaining.
-            AssertInTrash(ritual);
-        }
+        //    Card ritual = PlayCard("RitualOfKnowledge");
+        //    Card[] cards = new Card[] { PutInHand("RitualOfCatastrophe") };
+        //    DecisionSelectCards = cards;
+        //    DecisionSelectPower = cards[0];
 
-        [Test]
-        public void TestCardRitualOfKnowledgePossibleRepeatedTrigger()
-        {
-            SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "TheFinalWasteland");
+        //    QuickHandStorage(Soulbinder);
+        //    RemoveTokensFromPool(ritual.TokenPools[0], 5);
+        //    QuickHandCheck(3); // Draw 4, play 1, use a power.
+        //    AssertIsInPlay(cards[0]);
+        //    AssertNumberOfUsablePowers(Soulbinder, 1); // Only ritual power remaining.
+        //    AssertInTrash(ritual);
+        ////}
 
-            StartGame(false);
+        //[Test]
+        //public void TestCardRitualOfKnowledgePossibleRepeatedTrigger()
+        //{
+        //    SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "TheFinalWasteland");
 
-            Card ritual = PlayCard("RitualOfKnowledge");
-            DecisionSelectCards = new Card[] { null };
-            DecisionSelectPower = ritual;
+        //    StartGame(false);
 
-            QuickHandStorage(Soulbinder);
-            RemoveTokensFromPool(ritual.TokenPools[0], InitialRitual);
-            QuickHandCheck(4); // Draw 4
-            AssertInTrash(ritual);
-        }
+        //    DiscardAllCards(Soulbinder);
+
+        //    Card ritual = PlayCard("RitualOfKnowledge");
+        //    DecisionSelectCards = new Card[] { null };
+        //    DecisionSelectPower = ritual;
+
+        //    QuickHandStorage(Soulbinder);
+        //    RemoveTokensFromPool(ritual.TokenPools[0], InitialRitual);
+        //    QuickHandCheck(4); // Draw 4
+        //    AssertInTrash(ritual);
+        //}
 
         [Test]
         public void TestCardRitualOfTransferrence()
@@ -338,6 +341,8 @@ namespace LazyFanComixTest
             SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
 
             StartGame();
+
+            DiscardAllCards(Soulbinder);
 
             Card ritual = PlayCard("RitualOfTransferrence");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
@@ -357,6 +362,9 @@ namespace LazyFanComixTest
             SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
 
             StartGame();
+
+            DiscardAllCards(Soulbinder);
+
             Card ritual = PlayCard("RitualOfSalvation");
             Card[] targets = new Card[] { Soulbinder.CharacterCard, legacy.CharacterCard, ra.CharacterCard };
             DealDamage(baron.CharacterCard, targets, 4, DamageType.Melee);
@@ -376,6 +384,8 @@ namespace LazyFanComixTest
             SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "Ra", "TheFinalWasteland");
 
             StartGame();
+
+            DiscardAllCards(Soulbinder);
 
             Card card = PlayCard("RitualComponents");
             Card mdp = FindCardInPlay("MobileDefensePlatform");
@@ -401,6 +411,23 @@ namespace LazyFanComixTest
             QuickHPCheck(-2);
             AssertTokenPoolCount(ritualA.TokenPools[0], InitialRitual - 1); // Selected reduced.
             AssertTokenPoolCount(ritualB.TokenPools[0], InitialRitual); // Other not reduced.
+        }
+
+        [Test]
+        public void TestCardSoulsplinterRitualPower()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "TheFinalWasteland");
+
+            StartGame();
+
+            DiscardAllCards(Soulbinder);
+
+            Card ritual = PlayCard("RitualOfCatastrophe");
+            Card splinter = PlayCard("ClaySoulsplinter");
+
+            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual);
+            UsePower(splinter, 1);
+            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual - 2);
         }
 
         //[Test]
@@ -490,6 +517,8 @@ namespace LazyFanComixTest
 
             ResetDecisions();
 
+            DiscardAllCards(Soulbinder);
+
             Card[] rituals = new Card[] { PlayCard("RitualOfCatastrophe"), PlayCard("RitualOfTransferrence") };
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
@@ -534,7 +563,7 @@ namespace LazyFanComixTest
 
             StartGame(false);
 
-            ResetDecisions();
+            DiscardAllCards(Soulbinder);
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card soulsplinter = PlayCard("ClaySoulsplinter");
@@ -559,12 +588,18 @@ namespace LazyFanComixTest
             DecisionSelectCards = new Card[] { null };
             DiscardAllCards(Soulbinder);
 
+            Card[] onDeck = new Card[] { PutOnDeck("RitualOfSalvation"), PutOnDeck("RitualOfTransferrence"), PutOnDeck("RitualOfCatastrophe") };
+
+            DealDamage(Soulbinder, Soulbinder, 5, DamageType.Fire);
+
             QuickHPStorage(Soulbinder.CharacterCard);
             QuickHandStorage(Soulbinder);
+
+            DecisionSelectCards = onDeck;
             PlayCard("SpiritialResonance");
-            QuickHPCheck(-1);
-            QuickHandCheck(2);
-            AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("ritual") || c.DoKeywordsContain("soulsplinter"), 1);
+            QuickHPCheck(2);
+            QuickHandCheck(2); // Two cards remaining.
+            AssertIsInPlay(onDeck[0]);
         }
 
         [Test]
@@ -577,6 +612,8 @@ namespace LazyFanComixTest
             StartGame(false);
 
             ResetDecisions();
+            DiscardAllCards(Soulbinder);
+
             PlayCard("DebtOfTheSoulless");
 
             QuickHPStorage(Soulbinder.CharacterCard);

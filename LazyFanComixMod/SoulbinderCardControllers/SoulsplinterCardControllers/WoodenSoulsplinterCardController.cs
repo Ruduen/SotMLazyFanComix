@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace LazyFanComix.Soulbinder
 {
-    public class WoodenSoulsplinterCardController : CardController
+    public class WoodenSoulsplinterCardController : SoulbinderSharedSoulsplinterCardController
     {
         public WoodenSoulsplinterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
 
-        public override IEnumerator UsePower(int index = 0)
+        protected override IEnumerator UseUniquePower()
         {
             List<int> powerNumerals = new List<int>(){
                             this.GetPowerNumeral(0, 1) // HP to regain

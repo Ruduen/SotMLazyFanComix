@@ -18,10 +18,6 @@ namespace LazyFanComix.Soulbinder
             IEnumerator coroutine;
             List<Card> targetList = new List<Card>();
 
-            // You may play a ritual or soulsplinter.
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("ritual") || c.DoKeywordsContain("soulsplinter"), "ritual or soulsplinter"), cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             // Select target.
             coroutine = this.SelectYourTargetToDealDamage(targetList, null, DamageType.Infernal, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

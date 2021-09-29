@@ -20,7 +20,43 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestAbsoluteZeroPlay()
+        public void TestAbsoluteZeroOverloadPlay()
+        {
+            SetupGameController("BaronBlade", "AbsoluteZero/LazyFanComix.AbsoluteZeroOverloadCharacter", "TheBlock");
+
+            StartGame();
+
+
+            Assert.IsTrue(az.CharacterCard.IsPromoCard);
+            Card card = PutInTrash("IsothermicTransducer");
+
+            DecisionSelectCard = card;
+
+            QuickHPStorage(az);
+            UsePower(az);
+            QuickHPCheck(-3); // Damage dealt
+            AssertInPlayArea(az, card);
+        }
+
+        [Test()]
+        public void TestAbsoluteZeroOverloadTribunal()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            SelectFromBoxForNextDecision("LazyFanComix.AbsoluteZeroOverloadCharacter", "AbsoluteZero");
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("AbsoluteZeroCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+
+        [Test()]
+        public void TestAbsoluteZeroOverchillPlay()
         {
             SetupGameController("BaronBlade", "AbsoluteZero/LazyFanComix.AbsoluteZeroOverchillCharacter", "TheBlock");
 
@@ -42,7 +78,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestAbsoluteZeroDestroy()
+        public void TestAbsoluteZeroOverchillDestroy()
         {
             SetupGameController("BaronBlade", "AbsoluteZero/LazyFanComix.AbsoluteZeroOverchillCharacter", "TheBlock");
 
@@ -2047,7 +2083,7 @@ namespace LazyFanComixTest
             SetupGameController("BaronBlade", "Guise/CompletionistGuiseCharacter", "TheWraith", "TheCelestialTribunal");
 
             StartGame();
-            SelectFromBoxForNextDecision("LegacyCharacter","Legacy");
+            SelectFromBoxForNextDecision("LegacyCharacter", "Legacy");
 
             PlayCard("RepresentativeOfEarth");
 

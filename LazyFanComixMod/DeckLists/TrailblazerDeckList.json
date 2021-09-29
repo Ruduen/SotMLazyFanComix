@@ -54,7 +54,7 @@
           "text": "It's a good view. {BR}Shame there isn't time to enjoy it."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "DefensiveBulwark",
@@ -70,7 +70,7 @@
           "text": "We'll be safe {BR}in here for a moment."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "StrikingZone",
@@ -86,7 +86,7 @@
           "text": "This is as good of {BR}a battlefield as we're going to get."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "ClimbingHarness",
@@ -104,7 +104,7 @@
           "text": "Sometimes, the {BR}high ground is enough."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "WornBinoculars",
@@ -121,7 +121,7 @@
           "text": "They still work, {BR}so I'll still keep 'em."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "SupplyPack",
@@ -136,7 +136,7 @@
           "text": "I set up quick. {BR}Time is a luxury I don't have."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "RapidRepositioning",
@@ -153,7 +153,7 @@
           "text": "Sometimes, there's a {BR}better spot if you keep your eyes open."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "PartingGift",
@@ -210,7 +210,7 @@
           "text": "Of course I don't know where {BR}everything is. Finding out is the fun part."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "PreparedAmbush",
@@ -240,7 +240,7 @@
           "text": "We're not retreating. {BR}We're repositioning to a superior location. {BR}It just happens to be behind us."
         }
       ],
-      "flavorReference": "Trailblazer"
+      "flavorReference": "Trailblazer, Never Lost"
     },
     {
       "identifier": "TrailOfAshes",
@@ -267,7 +267,12 @@
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Trailblazer",
+          "text": "Even ashes are proof that something once stood here."
+        }
+      ],
+      "flavorReference": "Trailblazer, Road to Ruin"
     }
   ],
   "dummyCards": [

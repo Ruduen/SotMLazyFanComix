@@ -128,7 +128,7 @@
           "text": "Stop... Oh, who am {BR}I kidding. Keep hitting yourself!"
         }
       ],
-      "flavorReference": "Greyhat"
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "ShockTherapy",
@@ -147,7 +147,7 @@
           "text": "You may feel a slight tingle."
         }
       ],
-      "flavorReference": "Greyhat"
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "DataTransfer",

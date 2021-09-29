@@ -53,7 +53,7 @@
           "text": "Precision is important {BR} in both words and actions."
         }
       ],
-      "flavorReference": "Spellforge"
+      "flavorReference": "Spellforge, The Word Weaver"
     },
     {
       "identifier": "Wave",
@@ -80,7 +80,7 @@
       "alternateTitle": "Controlled",
       "keywords": [ "one-shot", "prefix" ],
       "body": [ "One Player may play 1 card now.", "[u]Prefix[/u]: This effect's damage is reduced to 1 when targetting Hero Targets." ],
-      "icons": [ "DrawCardNow", "DestroyOngoing", "ReduceDamageDealt" ],
+      "icons": [ "PlayCardNow", "ReduceDamageDealt" ],
       "flavorQuotes": []
     },
     {
@@ -90,7 +90,7 @@
       "alternateTitle": "Inspired",
       "keywords": [ "one-shot", "prefix" ],
       "body": [ "Draw 3 cards.", "[u]Prefix[/u]: This effect's damage is increased by 1." ],
-      "icons": [ "DrawCardNow", "DestroyEnvironment", "IncreaseDamageDealt" ],
+      "icons": [ "DrawCardNow", "IncreaseDamageDealt" ],
       "flavorQuotes": []
     },
     {
@@ -100,7 +100,7 @@
       "alternateTitle": "Piercing",
       "keywords": [ "one-shot", "prefix" ],
       "body": [ "One Hero may use a power. ", "[u]Prefix[/u]: This effect's damage is Irreducible." ],
-      "icons": [ "DrawCardNow", "UsePowerNow", "MakeDamageIrreducible" ],
+      "icons": [ "UsePowerNow", "MakeDamageIrreducible" ],
       "flavorQuotes": []
     },
     {
@@ -110,7 +110,7 @@
       "alternateTitle": "of Aura",
       "keywords": [ "one-shot", "suffix" ],
       "body": [ "You may destroy an Ongoing or Environment card. Draw a card.", "[u]Suffix[/u]: After a Hero is dealt damage this way, their player draws a card." ],
-      "icons": [ "DrawCardNow" ],
+      "icons": [ "DestroyOngoing", "DestroyEnvironment", "DrawCardNow" ],
       "flavorQuotes": []
     },
     {
@@ -120,7 +120,7 @@
       "alternateTitle": "of Disruption",
       "keywords": [ "one-shot", "suffix" ],
       "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw a card.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, it deals itself 1 Sonic Damage." ],
-      "icons": [ "DrawCardNow", "DealDamageSonic" ],
+      "icons": [ "DealDamageSonic", "DrawCardNow" ],
       "flavorQuotes": []
     },
     {
@@ -130,7 +130,7 @@
       "alternateTitle": "of Healing",
       "keywords": [ "one-shot", "suffix" ],
       "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 3 HP." ],
-      "icons": [ "DrawCardNow", "DestroyEnvironment", "GainHP" ],
+      "icons": [ "GainHP", "DrawCardNow" ],
       "flavorQuotes": []
     },
     {
@@ -150,7 +150,7 @@
           "identifier": "Spellforge"
         }
       ],
-      "flavorReference": "Spellforge"
+      "flavorReference": "Spellforge, The Word Weaver"
     },
     {
       "identifier": "MeanderingDissertation",
@@ -162,7 +162,7 @@
         "Any player may draw as many cards as you discarded this way.",
         "You may play a card."
       ],
-      "icons": [ "DrawCardNow", "PlayCardNow" ],
+      "icons": [ "DiscardCard", "DrawCardNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Unknown",

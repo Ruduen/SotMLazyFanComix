@@ -46,6 +46,10 @@ namespace LazyFanComix.Soulbinder
 
             coroutine = this.GameController.AddTokensToPool(RitualPool, 3, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // You may play a ritual or soulsplinter.
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("sacrifice"), "sacrifice"), cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         private IEnumerator ResetTokenValue()
@@ -58,8 +62,7 @@ namespace LazyFanComix.Soulbinder
         {
             IEnumerator coroutine;
             List<int> numerals = new List<int>() {
-                this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1)
+                this.GetPowerNumeral(0, 1)
             };
 
             if (RitualPool.CurrentValue == 0)
@@ -71,10 +74,6 @@ namespace LazyFanComix.Soulbinder
             {
                 string plural = "";
                 int tokensToRemove = numerals[0];
-                if (RitualPool.CurrentValue > 1 && this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("soulsplinter")).Count() > 0)
-                {
-                    tokensToRemove += numerals[1];
-                };
                 if (tokensToRemove > 1)
                 {
                     plural = "s";

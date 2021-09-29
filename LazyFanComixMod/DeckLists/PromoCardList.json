@@ -2,6 +2,35 @@
   "AbsoluteZero": [
     {
       "identifier": "AbsoluteZeroCharacter",
+      "promoIdentifier": "AbsoluteZeroOverloadCharacter",
+      "count": 1,
+      "title": "Absolute Zero",
+      "promoTitle": "Fanverse Absolute Zero",
+      "body": [ "Overload" ],
+      "backgroundColor": "77d2f7",
+      "foilBackgroundColor": "77d2f7",
+      "character": true,
+      "powers": "{AbsoluteZero} deals himself 3 Fire Damage. Discard the top 4 Cards of your Deck. Play a Module Card from your Trash.",
+      "hitpoints": 26,
+      "icons": [ "HasPower", "DealDamageCold", "PlayCardNow", "DrawCardNow" ],
+      "nemesisIdentifiers": [ "AbsoluteZero" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "It looks like I'm not the only one who needs to stay cool."
+      }
+    },
+    {
+      "identifier": "AbsoluteZeroCharacter",
       "promoIdentifier": "AbsoluteZeroOverchillCharacter",
       "count": 1,
       "title": "Absolute Zero",
@@ -26,7 +55,7 @@
       ],
       "complexity": 3,
       "openingLines": {
-        "default": "Sorry, I don't have a cold pun in storage right now."
+        "default": "I suppose I should've expected a frosty reception."
       }
     }
   ],
