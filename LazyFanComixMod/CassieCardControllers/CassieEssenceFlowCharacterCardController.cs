@@ -19,7 +19,22 @@ namespace LazyFanComix.Cassie
         {
             _riverbank = null;
             _riverDeck = null;
+            this.SpecialStringMaker.ShowSpecialString(GetRiverbankString, null, null);
         }
+
+        public string GetRiverbankString()
+        {
+            if (Riverbank() != null)
+            {
+                CardController riverCC = this.GameController.FindCardController(Riverbank());
+                if (riverCC is RiverbankCardController)
+                {
+                    return string.Format("The cards under the Riverbank are: {0}", new object[] { ((RiverbankCardController)riverCC).CardsAndCostsUnder() });
+                }
+            }
+            return "The Riverbank is not available.";
+        }
+
 
         public override IEnumerator UsePower(int index = 0)
         {

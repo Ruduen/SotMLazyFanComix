@@ -254,7 +254,8 @@
       "title": "Debt of the Soulless",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "The first time a Hero Target would deal one of your Targets damage each turn, you may reduce that damage by 1 and draw a card."
+        "The first time a Hero Target would deal one of your Targets damage each turn, you may reduce that damage by 1.",
+        "After one of your Soulsplinters is destroyed, draw a card."
       ],
       "icons": [ "ReduceDamageTaken", "Redirect" ],
       "flavorQuotes": [

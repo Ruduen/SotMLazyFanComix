@@ -17,7 +17,8 @@ namespace LazyFanComix.Soulbinder
 
         public override void AddTriggers()
         {
-            _reduceTrigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => !this.IsPropertyTrue(_propertyKey) && dd.Amount > 0 && (dd.DamageSource.Card != null && dd.DamageSource.Card.IsHero && dd.Target != null && dd.Target.Owner == this.TurnTaker), ReduceResponse, new TriggerType[] { TriggerType.ReduceDamage, TriggerType.DrawCard }, TriggerTiming.Before, orderMatters: true);
+            _reduceTrigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => !this.IsPropertyTrue(_propertyKey) && dd.Amount > 0 && (dd.DamageSource.Card != null && dd.DamageSource.Card.IsHero && dd.Target != null && dd.Target.Owner == this.TurnTaker), ReduceResponse, new TriggerType[] { TriggerType.ReduceDamage }, TriggerTiming.Before, orderMatters: true);
+            this.AddTrigger<DestroyCardAction>((DestroyCardAction dca) => dca.CardToDestroy.Card.DoKeywordsContain("soulsplinter") && dca.WasCardDestroyed, this.DrawCardResponse, TriggerType.DrawCard, TriggerTiming.After);
             this.AddAfterLeavesPlayAction((GameAction ga) => this.ResetFlagAfterLeavesPlay(_propertyKey), TriggerType.Hidden);
         }
 
@@ -29,9 +30,13 @@ namespace LazyFanComix.Soulbinder
 
             coroutine = this.GameController.ReduceDamage(dd, 1, this._reduceTrigger, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
 
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 1, cardSource: this.GetCardSource());
+        private IEnumerator DrawCardResponse(DestroyCardAction dca)
+        {
+            IEnumerator coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, 1, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
     }
 }

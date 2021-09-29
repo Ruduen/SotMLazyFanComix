@@ -584,7 +584,32 @@ namespace LazyFanComixTest
             DealDamage(Soulbinder.CharacterCard, Soulbinder.CharacterCard, 1, DamageType.Melee);
             DealDamage(Soulbinder.CharacterCard, Soulbinder.CharacterCard, 1, DamageType.Melee);
             QuickHPCheck(-1);
+            QuickHandCheck(0);
+
+            PlayCard("StrawSoulsplinter");
+            DestroyCard("StrawSoulsplinter");
+            QuickHandCheck(1);
         }
+
+        //[Test]
+        //public void TestCardDebtOfTheSoullessInterrupted()
+        //{
+        //    SetupGameController("Omnitron", "LazyFanComix.Soulbinder", "Legacy", "TheFinalWasteland");
+
+        //    ResetDecisions();
+
+        //    StartGame(false);
+
+        //    ResetDecisions();
+        //    PlayCard("DebtOfTheSoulless");
+        //    PlayCard("InterpolationBeam");
+
+        //    QuickHPStorage(Soulbinder.CharacterCard);
+        //    QuickHandStorage(Soulbinder);
+        //    DealDamage(Soulbinder.CharacterCard, Soulbinder.CharacterCard, 1, DamageType.Melee);
+        //    DealDamage(Soulbinder.CharacterCard, Soulbinder.CharacterCard, 1, DamageType.Melee);
+        //    QuickHPCheck(-2);
+        //}
 
         #endregion Other Cards
     }

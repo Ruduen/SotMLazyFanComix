@@ -8,6 +8,8 @@ namespace LazyFanComix.Cassie
         public Location RiverDeck();
 
         public Card Riverbank();
+
+        public string GetRiverbankString();
     }
 
     public abstract class CassieRiverSharedCardController : CardController
@@ -32,6 +34,18 @@ namespace LazyFanComix.Cassie
             return new MoveCardDestination(this.Card.Owner.Trash, false, false, false);  // All cards should go into the hero trash during trashing, not river deck.
         }
 
+        protected string GetRiverbankString()
+        {
+            if (Riverbank() != null)
+            {
+                CardController riverCC = this.GameController.FindCardController(Riverbank());
+                if (riverCC is RiverbankCardController)
+                {
+                    return string.Format("The cards under the Riverbank are: {0}", new object[] { ((RiverbankCardController)riverCC).CardsAndCostsUnder() });
+                }
+            }
+            return "The Riverbank is not available.";
+        }
         public Location RiverDeck()
         {
             if (CassieRiverSharedCardController._riverDeck == null)

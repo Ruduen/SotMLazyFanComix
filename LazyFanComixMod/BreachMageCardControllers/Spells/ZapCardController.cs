@@ -41,7 +41,7 @@ namespace LazyFanComix.BreachMage
         public override IEnumerator DestroyAttempted(DestroyCardAction d)
         {
             IEnumerator coroutine;
-            coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, this.Card, this.HeroTurnTaker.Hand, cardSource: this.GetCardSource());
+            coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, this.Card, this.HeroTurnTaker.Hand, showMessage: true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

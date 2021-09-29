@@ -11,6 +11,7 @@ namespace LazyFanComix.Cassie
         public StreamShotCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.SpecialStringMaker.ShowSpecialString(GetRiverbankString, null, null);
         }
 
         public override IEnumerator Play()
