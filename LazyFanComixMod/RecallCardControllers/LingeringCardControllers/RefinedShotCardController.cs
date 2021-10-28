@@ -42,7 +42,7 @@ namespace LazyFanComix.Recall
                 idse.TargetCriteria.IsSpecificCard = c;
                 idse.UntilTargetLeavesPlay(this.CharacterCard);
                 idse.UntilTargetLeavesPlay(c);
-                idse.UntilStartOfNextTurn(this.FindEnvironment().TurnTaker);
+                idse.UntilEndOfNextTurn(this.TurnTaker);
 
                 coroutine = this.AddStatusEffect(idse, true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

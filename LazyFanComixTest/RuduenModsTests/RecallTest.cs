@@ -89,25 +89,25 @@ namespace LazyFanComixTest
             QuickHPCheck(-2);
         }
 
-        [Test()]
-        public void TestInnatePowerUnstableJump()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Recall/RecallUnstableJumpCharacter", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
+        //[Test()]
+        //public void TestInnatePowerUnstableJump()
+        //{
+        //    IEnumerable<string> setupItems = new List<string>()
+        //    {
+        //        "BaronBlade", "LazyFanComix.Recall/RecallUnstableJumpCharacter", "Legacy", "Megalopolis"
+        //    };
+        //    SetupGameController(setupItems);
 
-            StartGame();
+        //    StartGame();
 
-            UsePower(Recall);
-            AssertCurrentTurnPhase(Recall, Phase.Start, true);
-            GoToStartOfTurn(baron);
-            // If possible, figure out how to confirm all other turns were skipped. 
-            AssertCurrentTurnPhase(baron, Phase.Start, false);
-            AssertNumberOfCardsUnderCard(Recall.CharacterCard, 1);
+        //    UsePower(Recall);
+        //    AssertCurrentTurnPhase(Recall, Phase.Start, true);
+        //    GoToStartOfTurn(baron);
+        //    // If possible, figure out how to confirm all other turns were skipped. 
+        //    AssertCurrentTurnPhase(baron, Phase.Start, false);
+        //    AssertNumberOfCardsUnderCard(Recall.CharacterCard, 1);
 
-        }
+        //}
         #endregion Innate Powers
 
         #region Tribunal Cases
@@ -146,22 +146,22 @@ namespace LazyFanComixTest
             UsePower(representative);
         }
 
-        [Test()]
-        public void TestTribunalUnstablePower()
-        {
-            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+        //[Test()]
+        //public void TestTribunalUnstablePower()
+        //{
+        //    SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
 
-            StartGame();
-            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Recall" });
-            SelectFromBoxForNextDecision("LazyFanComix.RecallUnstableJumpCharacter", "LazyFanComix.Recall");
+        //    StartGame();
+        //    AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Recall" });
+        //    SelectFromBoxForNextDecision("LazyFanComix.RecallUnstableJumpCharacter", "LazyFanComix.Recall");
 
-            PlayCard("RepresentativeOfEarth");
+        //    PlayCard("RepresentativeOfEarth");
 
-            Card representative = FindCardInPlay("RecallCharacter");
-            AssertIsInPlay(representative);
+        //    Card representative = FindCardInPlay("RecallCharacter");
+        //    AssertIsInPlay(representative);
 
-            UsePower(representative);
-        }
+        //    UsePower(representative);
+        //}
 
         #endregion Tribunal Cases
 
@@ -448,7 +448,8 @@ namespace LazyFanComixTest
             QuickHPStorage(fixer);
             UsePower(power);
             UsePower(power);
-            GoToEndOfTurn(env);
+            GoToEndOfTurn(Recall);
+            GoToEndOfTurn(Recall);
             DestroyCard(redirect);
             DealDamage(Recall, fixer, 0, DamageType.Cold);
             QuickHPCheck(-2 - 5 - 0); // 0+2 damage the first time, 2+3 the second, 0 the third due to environment turn. 
@@ -469,7 +470,6 @@ namespace LazyFanComixTest
             PlayCard("GoingThroughTheMotions");
 
 
-
             GoToStartOfTurn(Recall);
             DecisionSelectFunction = 1;
             UsePower(Recall);
@@ -487,13 +487,13 @@ namespace LazyFanComixTest
             QuickHandCheck(1);
             DestroyCard("PaparazziOnTheScene");
 
-            ResetDecisions();
-            DecisionSelectFunctions = new int?[] { 0, 1 };
-            GoToPlayCardPhase(Recall);
-            AssertNotUsablePower(Recall, Recall.CharacterCard); // Use power by default.
+            //ResetDecisions();
+            //DecisionSelectFunctions = new int?[] { 0, 1 };
+            //GoToPlayCardPhase(Recall);
+            //AssertNotUsablePower(Recall, Recall.CharacterCard); // Use power by default.
 
             ResetDecisions();
-            DecisionSelectFunction = 2;
+            DecisionSelectFunction = 1;
             QuickHPStorage(baron);
             GoToPlayCardPhase(Recall);
             QuickHPCheck(-2); // Damage.

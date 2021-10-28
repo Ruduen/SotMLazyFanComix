@@ -15,7 +15,7 @@
       "foilBackgroundColor": "999999",
       "character": true,
       "powers": [ "Draw a Card or Play a Paradox." ],
-      "icons": [ "HasPower", "DrawCardNow", "Manipulate" ],
+      "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
         "Recall"
@@ -59,7 +59,8 @@
       ],
       "icons": [ "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
-      ]
+      ],
+      "notes": "If Ephemeral turns end up being too problematic, use the 'play, power, draw' sequence instead."
     },
     {
       "identifier": "Recalled",
@@ -99,7 +100,7 @@
       "count": 3,
       "title": "Going Through The Motions",
       "keywords": [ "ongoing", "paradox", "limited" ],
-      "body": [ "You may skip your Play Phase. If you do, draw a card, use a power, or {Recall} deals 1 Target 2 Energy Damage." ],
+      "body": [ "You may skip your Play Phase. If you do, draw a card, or {Recall} deals 1 Target 2 Energy Damage." ],
       "icons": [ "DrawCardNow", "UsePowerNow" ],
       "flavorQuotes": []
     },
@@ -107,8 +108,8 @@
       "identifier": "RefinedShot",
       "count": 3,
       "title": "Refined Shot",
-      "keywords": [ "ongoing", "paradox" ],
-      "powers": [ "Deal 1 Target 1 Projectile Damage. Until the start of the next Environment turn, increase damage dealt by {Recall} to that target by 1." ],
+      "keywords": [ "ongoing", "paradox", "limited" ],
+      "powers": [ "Deal 1 Target 1 Projectile Damage. Until the end of your next turn, increase damage dealt by {Recall} to that target by 1." ],
       "body": [ "After {Recall} uses a power, {Recall} may deal 1 Target and themselves 1 Energy Damage." ],
       "icons": [ "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -225,36 +226,6 @@
   "promoCards": [
     {
       "identifier": "RecallCharacter",
-      "promoIdentifier": "RecallUnstableJumpCharacter",
-      "count": 1,
-      "title": "Recall - Unstable Jump",
-      "body": [ "Unstable Jump" ],
-      "backgroundColor": "999999",
-      "foilBackgroundColor": "999999",
-      "character": true,
-      "powers": [ "{Recall} deals themselves 1 Psychic damage, increased by the number of cards under this card times 2. If {Recall} is dealt damage this way, put the top card of your deck under this card and take a full turn now, out of turn order sequence." ],
-      "icons": [ "HasPower", "DealDamagePsychic", "Manipulate", "TakeExtraTurn" ],
-      "hitpoints": 29,
-      "nemesisIdentifiers": [
-        "Recall"
-      ],
-      "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
-      ],
-      "flippedIcons": [
-        "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
-      ],
-      "openingLines": {
-        "default": "Here we go again..."
-      },
-      "complexity": 3
-    },
-    {
-      "identifier": "RecallCharacter",
       "promoIdentifier": "RecallForecastedBlowCharacter",
       "count": 1,
       "title": "Recall - Forecasted Blow",
@@ -282,7 +253,39 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Don't worry. We've already won this."
+        "default": "Here we go again..."
+      },
+      "complexity": 3
+    }
+  ],
+  "dummy": [
+    {
+      "identifier": "RecallCharacter",
+      "promoIdentifier": "RecallUnstableJumpCharacter",
+      "count": 1,
+      "title": "Recall - Unstable Jump",
+      "body": [ "Unstable Jump" ],
+      "backgroundColor": "999999",
+      "foilBackgroundColor": "999999",
+      "character": true,
+      "powers": [ "{Recall} deals themselves 1 Psychic damage, increased by the number of cards under this card times 2. If {Recall} is dealt damage this way, put the top card of your deck under this card and take a full turn now, out of turn order sequence." ],
+      "icons": [ "HasPower", "DealDamagePsychic", "Manipulate", "TakeExtraTurn" ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "Recall"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Here we go again..."
       },
       "complexity": 3
     }

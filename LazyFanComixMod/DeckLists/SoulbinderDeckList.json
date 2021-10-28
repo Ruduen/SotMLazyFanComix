@@ -15,7 +15,7 @@
       "foilBackgroundColor": "CCCCFF",
       "character": true,
       "hitpoints": 33,
-      "powers": [ "One of your Targets deals 1 Target 3 Infernal Damage and themselves 1 Infernal Damage." ],
+      "powers": [ "One of your Targets deals 1 Target 4 Infernal Damage and themselves 2 Infernal Damage." ],
       "icons": [
         "PlayCard",
         "HasPower",
@@ -43,10 +43,10 @@
       "identifier": "ClaySoulsplinter",
       "count": 3,
       "title": "Clay Soulsplinter",
-      "hitpoints": 4,
+      "hitpoints": 5,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a Sacrifice card." ],
-      "powers": [ "Draw a Card.", "Remove 2 Ritual Tokens from 1 of your Ritual Cards." ],
+      "powers": [ "Draw 2 Cards. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "DrawCardNow", "RemoveTokens" ],
       "flavorQuotes": [
       ]
@@ -55,10 +55,10 @@
       "identifier": "WoodenSoulsplinter",
       "count": 3,
       "title": "Wooden Soulsplinter",
-      "hitpoints": 4,
+      "hitpoints": 5,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a Sacrifice card." ],
-      "powers": [ "Each of your targets regains 1 HP.", "Remove 2 Ritual Tokens from 1 of your Ritual Cards." ],
+      "powers": [ "Each of your targets regains 2 HP. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "GainHP", "RemoveTokens" ],
       "flavorQuotes": [
       ]
@@ -67,10 +67,10 @@
       "identifier": "StrawSoulsplinter",
       "count": 3,
       "title": "Straw Soulsplinter",
-      "hitpoints": 4,
+      "hitpoints": 5,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a Sacrifice card." ],
-      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 2 HP.", "Remove 2 Ritual Tokens from 1 of your Ritual Cards." ],
+      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 3 HP. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "DealDamageToxic", "RemoveTokens" ],
       "flavorQuotes": [
       ]
@@ -150,7 +150,7 @@
       "title": "Ritual Components",
       "keywords": [ "equipment", "limited" ],
       "body": [ "At the end of your turn, remove 1 Ritual Token from 1 of your Ritual Cards." ],
-      "powers": [ "{Soulbinder} deals 1 Target 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
+      "powers": [ "{Soulbinder} deals 1 Target 2 Infernal Damage." ],
       "icons": [ "RemoveTokens", "HasPower", "DealDamageInfernal" ],
       "flavorQuotes": [
         {

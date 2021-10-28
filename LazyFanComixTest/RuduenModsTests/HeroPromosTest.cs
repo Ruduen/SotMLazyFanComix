@@ -110,30 +110,28 @@ namespace LazyFanComixTest
             StartGame();
 
             Assert.IsTrue(thriya.CharacterCard.IsPromoCard);
-            Card envCard = PutOnDeck("DefensiveDisplacement");
 
-            MoveAllCards(thriya, thriya.HeroTurnTaker.Deck, thriya.HeroTurnTaker.Trash);
+            Card tree = PutInHand("AkashFlora");
 
+            DecisionSelectCard = tree;
+
+            QuickHandStorage(thriya);
             UsePower(thriya);
-            AssertInTrash(envCard);
-        }
+            QuickHandCheck(0);
 
-        [Test()]
-        public void TestAkashThriyaMove()
-        {
-            SetupGameController("BaronBlade", "AkashThriya/LazyFanComix.AkashThriyaPlantEssenceCharacter", "TheBlock");
+            PlayTopCard(env);
+            PlayTopCard(env);
 
-            StartGame();
+            // Confirm tree exists at this point - no Environment shenanigan should destroy it.
+            AssertIsInPlay(tree);
 
-            Assert.IsTrue(thriya.CharacterCard.IsPromoCard);
-            Card envCard = PutOnDeck("DefensiveDisplacement");
-            Card akCard = PutOnDeck("NoxiousPod");
-
-            DecisionSelectFunction = 1;
-
+            // Check nothing completely breaks when dealing with an empty hand.
+            DiscardAllCards(thriya);
             UsePower(thriya);
-            AssertIsInPlay(envCard);
-            AssertAtLocation(akCard, env.TurnTaker.Deck);
+
+            // Check nothing completely breaks if the environment deck is empty. 
+            MoveAllCards(env, env.TurnTaker.Deck, env.TurnTaker.Trash);
+            UsePower(thriya);
         }
 
         [Test()]

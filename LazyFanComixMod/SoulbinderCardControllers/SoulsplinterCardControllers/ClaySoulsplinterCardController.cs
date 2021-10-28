@@ -12,14 +12,19 @@ namespace LazyFanComix.Soulbinder
         {
         }
 
-        protected override IEnumerator UseUniquePower()
+        protected override List<int> GetUniquePowerNumerals()
         {
-            // Select target to deal damage to.
             List<int> numerals = new List<int>(){
-                            this.GetPowerNumeral(0, 1)
+                this.GetPowerNumeral(0, 2),
+                this.GetPowerNumeral(1, 1),
+                this.GetPowerNumeral(2, 1)
             };
+            return numerals;
+        }
 
-            IEnumerator coroutine = this.GameController.DrawCards(this.DecisionMaker, numerals[0], cardSource: this.GetCardSource());
+        protected override IEnumerator UseUniquePower(List<int> powerNumerals)
+        {
+            IEnumerator coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

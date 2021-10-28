@@ -70,7 +70,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(Soulbinder.CharacterCard, mdp);
             UsePower(Soulbinder);
-            QuickHPCheck(-1, -3);
+            QuickHPCheck(-2, -4);
         }
 
         [Test]
@@ -128,7 +128,7 @@ namespace LazyFanComixTest
             PlayCard(clay);
             QuickHandStorage(Soulbinder);
             UsePower(clay);
-            QuickHandCheck(1); // 1 Drawn,
+            QuickHandCheck(2); // 2 Drawn,
         }
 
         [Test]
@@ -151,7 +151,7 @@ namespace LazyFanComixTest
             ResetDecisions();
             QuickHPStorage(wood);
             UsePower(wood);
-            QuickHPCheck(1);
+            QuickHPCheck(2);
         }
 
         [Test]
@@ -175,7 +175,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(straw, mdp);
             UsePower(straw);
-            QuickHPCheck(2, -2);
+            QuickHPCheck(3, -2);
         }
 
 
@@ -199,9 +199,9 @@ namespace LazyFanComixTest
             AssertIsInPlay(representative);
 
             UsePower(representative);
-            AssertHitPoints(guise.CharacterCard, (int)(guise.CharacterCard.MaximumHitPoints - 1));
-            AssertHitPoints(representative, (int)(representative.MaximumHitPoints - 1));
-            AssertHitPoints(mdp, (int)(mdp.MaximumHitPoints - 6));
+            AssertHitPoints(guise.CharacterCard, (int)(guise.CharacterCard.MaximumHitPoints - 2));
+            AssertHitPoints(representative, (int)(representative.MaximumHitPoints - 2));
+            AssertHitPoints(mdp, (int)(mdp.MaximumHitPoints - 4 - 4));
 
         }
 
@@ -391,7 +391,7 @@ namespace LazyFanComixTest
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             Card ritualA = PlayCard("RitualOfSalvation");
-            UsePower(card);
+            GoToEndOfTurn(Soulbinder);
             AssertTokenPoolCount(ritualA.TokenPools[0], InitialRitual - 1);
 
             DecisionSelectCards = new Card[] { null };
@@ -404,11 +404,9 @@ namespace LazyFanComixTest
             Card ritualB = PlayCard("RitualOfCatastrophe");
             ResetDecisions();
 
-            DecisionSelectCards = new Card[] { mdp, ritualA };
+            DecisionSelectCards = new Card[] { ritualA };
 
-            QuickHPStorage(mdp);
-            UsePower(card);
-            QuickHPCheck(-2);
+            GoToEndOfTurn(Soulbinder);
             AssertTokenPoolCount(ritualA.TokenPools[0], InitialRitual - 1); // Selected reduced.
             AssertTokenPoolCount(ritualB.TokenPools[0], InitialRitual); // Other not reduced.
         }
@@ -426,8 +424,8 @@ namespace LazyFanComixTest
             Card splinter = PlayCard("ClaySoulsplinter");
 
             AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual);
-            UsePower(splinter, 1);
-            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual - 2);
+            UsePower(splinter);
+            AssertTokenPoolCount(ritual.TokenPools.FirstOrDefault(), InitialRitual - 1);
         }
 
         //[Test]
@@ -550,7 +548,7 @@ namespace LazyFanComixTest
 
             PlayCard("KeystoneOfSpirit");
 
-            QuickHPCheck(-2, 1); // -1 for play, -1 for power.
+            QuickHPCheck(-3, 1); // -1 for play, -2 for power.
             AssertNotUsablePower(Soulbinder, Soulbinder.CharacterCard);
         }
 

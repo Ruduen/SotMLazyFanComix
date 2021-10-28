@@ -21,8 +21,8 @@ namespace LazyFanComix.Soulbinder
         {
             List<int> numerals = new List<int>(){
                             this.GetPowerNumeral(0, 1),   // Number of Targets
-                            this.GetPowerNumeral(1, 3),   // Damage.
-                            this.GetPowerNumeral(2, 1)    // Damage to deal.
+                            this.GetPowerNumeral(1, 4),   // Damage.
+                            this.GetPowerNumeral(2, 2)    // Damage to deal.
             };
             List<Card> target = new List<Card>();
             IEnumerator coroutine;

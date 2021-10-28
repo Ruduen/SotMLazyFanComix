@@ -26,32 +26,38 @@ namespace LazyFanComix.Soulbinder
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            List<int> powerNumerals;
-            switch (index)
+            int targetIndex;
+            int tokenIndex;
+
+            // TODO: Verify this works! 
+            List<int> powerNumerals = GetUniquePowerNumerals();
+
+            // Do unique thing.
+            coroutine = this.UseUniquePower(powerNumerals);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Last item is always number of cards, second to last is number of tokens.
+            coroutine = this.RemoveTokenAction(powerNumerals[powerNumerals.Count-1], powerNumerals[powerNumerals.Count-2]);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+        }
+
+        private IEnumerator RemoveTokenAction(int numRituals, int numTokens)
+        {
+            IEnumerator coroutine;
+            // Do ritual based on power numerals
+            IEnumerable<Card> ritualTokenCards = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0);
+            if (ritualTokenCards.Any())
             {
-                case 1:
-                    powerNumerals = new List<int>(){
-                        this.GetPowerNumeral(0, 2),
-                        this.GetPowerNumeral(1, 1)
-                    };
-                    IEnumerable<Card> ritualTokenCards = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0);
-                    if (ritualTokenCards.Any())
-                    {
-                        // Remove 2 tokens from 1 ritual.
-                        SelectCardsDecision scdRituals = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0, SelectionType.RemoveTokens, powerNumerals[1], false, powerNumerals[1], true, cardSource: this.GetCardSource());
-                        coroutine = this.GameController.SelectCardsAndDoAction(scdRituals, (SelectCardDecision scd) => this.RemoveTokenResponse(scd, powerNumerals[0]), null, null, this.GetCardSource(), null, false, null);
-                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                    }
-                    else
-                    {
-                        coroutine = this.GameController.SendMessageAction("There are no rituals with Ritual Tokens in play.", Priority.Medium, cardSource: this.GetCardSource(), showCardSource: true);
-                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                    }
-                    break;
-                default:
-                    coroutine = this.UseUniquePower();
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                    break;
+                // Remove 1 tokens from 1 ritual.
+                SelectCardsDecision scdRituals = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0, SelectionType.RemoveTokens, numRituals, false, numRituals, true, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectCardsAndDoAction(scdRituals, (SelectCardDecision scd) => this.RemoveTokenResponse(scd, numTokens), null, null, this.GetCardSource(), null, false, null);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
+            {
+                coroutine = this.GameController.SendMessageAction("There are no rituals with Ritual Tokens in play.", Priority.Medium, cardSource: this.GetCardSource(), showCardSource: true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
         private IEnumerator RemoveTokenResponse(SelectCardDecision scd, int number)
@@ -69,6 +75,7 @@ namespace LazyFanComix.Soulbinder
             yield break;
         }
 
-        protected abstract IEnumerator UseUniquePower();
+        protected abstract IEnumerator UseUniquePower(List<int> powerNumerals);
+        protected abstract List<int> GetUniquePowerNumerals();
     }
 }

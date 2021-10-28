@@ -17,20 +17,37 @@ namespace LazyFanComix.AkashThriya
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-
+            List<SelectCardDecision> scdResult = new List<SelectCardDecision>();
             Location envDeck = this.GameController.FindEnvironmentTurnTakerController().TurnTaker.Deck;
 
-            coroutine = this.GameController.PlayTopCardOfLocation(this.DecisionMaker, envDeck, cardSource: this.GetCardSource());
+            // Shuffle the environment deck. 
+            coroutine = this.GameController.ShuffleLocation(envDeck, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            SelectFunctionDecision sfd = new SelectFunctionDecision(this.GameController, this.DecisionMaker,
-                new List<Function>(){
-                    new Function(this.DecisionMaker, "Destroy an Environment Card", SelectionType.DestroyCard, () => this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsEnvironment), 1, cardSource: this.GetCardSource()), this.FindCardsWhere((Card c) => c.IsInPlay && c.IsEnvironment).Count() > 0, this.TurnTaker.Name + " cannot shuffle the top Card of their Deck into the Environment Deck, so they must Destroy an Environment Card."),
-                    new Function(this.DecisionMaker, "Shuffle the top card of your deck into the Environment deck", SelectionType.ShuffleCardIntoDeck, () => this.GameController.ShuffleCardIntoLocation(this.DecisionMaker, this.HeroTurnTaker.Deck.TopCard, envDeck, false, cardSource: this.GetCardSource()), this.HeroTurnTaker.Deck.HasCards, this.TurnTaker.Name + " cannot Destroy an Environment Card, so they must Shuffle the top Card of their Deck into the Environment Deck.")
-                }, 
-                false, null, this.TurnTaker.Name + " cannot draw or play any cards, so " + this.Card.Title + " has no effect.", null, this.GetCardSource());
+            // Select a card from hand. 
+            coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.MoveCardUnderTopCardOfDeck, this.HeroTurnTaker.Hand.Cards, scdResult, false, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.SelectAndPerformFunction(sfd, null, null);
+            if (scdResult?.FirstOrDefault()?.SelectedCard != null)
+            {
+                Card card = scdResult.FirstOrDefault().SelectedCard;
+                Card topCard = envDeck.TopCard;
+
+                string message = string.Format("{0} moves {1} under the top card of the environment deck.", this.Card.Title, Card.Title);
+                coroutine = this.GameController.SendMessageAction(message, Priority.Medium, cardSource: this.GetCardSource(), new Card[] { card }, true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                // Move it on top of the environment deck, then move the stored top card of the environment deck.
+
+                coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, card, envDeck, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, topCard, envDeck, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+
+            // Draw.
+            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, 1, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         }
