@@ -49,7 +49,12 @@
       "powers": [ "Draw 2 Cards. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "DrawCardNow", "RemoveTokens" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "WoodenSoulsplinter",
@@ -61,7 +66,12 @@
       "powers": [ "Each of your targets regains 2 HP. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "GainHP", "RemoveTokens" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "StrawSoulsplinter",
@@ -73,7 +83,12 @@
       "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 3 HP. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "DealDamageToxic", "RemoveTokens" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "RitualOfCatastrophe",
@@ -96,7 +111,12 @@
       ],
       "icons": [ "DestroyOngoingEnvironment", "DealDamageInfernal", "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "RitualOfSalvation",
@@ -119,7 +139,12 @@
       ],
       "icons": [ "DrawCardNow", "GainHP", "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "RitualOfTransferrence",
@@ -142,7 +167,12 @@
       ],
       "icons": [ "GainHP", "DealDamageToxic", "HasPower", "RemoveTokens" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "RitualComponents",
@@ -162,7 +192,7 @@
           "text": "They [i]are[/i] ceremonial. They're also sharp."
         }
       ],
-      "flavorReference": "Soulbinder, The Last Rite"
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "ArcaneDetonation",
@@ -187,7 +217,12 @@
       ],
       "icons": [ "DealDamageInfernal", "RemoveTokens" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "KeystoneOfSpirit",
@@ -201,7 +236,12 @@
       ],
       "icons": [ "DealDamageInfernal", "GainHP", "UsePowerNow" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "FinalEruption",
@@ -214,7 +254,12 @@
       ],
       "icons": [ "DealDamageInfernal", "DestroyCard" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "DebtOfTheSoulless",
@@ -227,7 +272,12 @@
       ],
       "icons": [ "ReduceDamageTaken", "Redirect" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     },
     {
       "identifier": "SpiritialResonance",
@@ -241,7 +291,12 @@
       ],
       "icons": [ "Manipulate", "PlayCardNow", "DrawCardNow" ],
       "flavorQuotes": [
-      ]
+        {
+          "identifier": "Soulbinder",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Soulbinder, The Worth of a Life"
     }
   ],
   "dummyCards": [

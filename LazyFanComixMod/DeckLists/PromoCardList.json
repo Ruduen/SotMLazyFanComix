@@ -1189,7 +1189,8 @@
       ],
       "complexity": 1,
       "openingLines": {
-        "default": "Hm."
+        "InvaderVossCharacter": "Every land will reject you. You have no place here!",
+        "default": "The very winds of this place agree - you will be stopped!"
       }
     }
   ],
@@ -1408,7 +1409,8 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "default": "Hm..."
+        "TheIncorporealMindReaperCharacter": "My fate may not be kind, but your fate will end first.",
+        "default": "This isn't going to end well for you."
       }
     }
   ],
@@ -1439,7 +1441,9 @@
       ],
       "complexity": 1,
       "openingLines": {
-        "default": "..."
+        "StalkingTheStreetsSpiteCharacter": "You're already broken. All that's left is for you to accept it.",
+        "LootcaseCharacter": "And let you take those, too? Better to stop you here and now.",
+        "default": "What I have might not last, so let's make this quick."
       }
     }
   ]
