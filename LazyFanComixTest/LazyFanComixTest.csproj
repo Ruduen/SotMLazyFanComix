@@ -75,6 +75,7 @@
     <Content Include="TestsToAddress\TestsFixed\TribunalInquirer.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalBreachMage.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalRecallForecastedBlow.txt" />
+    <Content Include="TestsToAddress\TestsFixed\Inquirer Lies on Lies Tribunal.txt" />
     <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause3-InquirerFisticuffs.txt" />
     <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause2-InquirerFisticuffs.txt" />
     <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause-SpellforgePostCelestial.txt" />
@@ -84,6 +85,7 @@
     <Content Include="TestsToAddress\TestsFixed\TribunalTrailblazer.txt" />
     <Content Include="TestsToAddress\TestsFixed\BreachMageCycleEngineBug.txt" />
     <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause-TrailblazerSpatialPowerTrial.txt" />
+    <Content Include="TestsToAddress\TribunalGreyhat.txt" />
     <Content Include="TestsToAddress\Unknown3.txt" />
     <Content Include="TestsToAddress\Unknown2.txt" />
     <Content Include="TestsToAddress\Unknown1.txt" />

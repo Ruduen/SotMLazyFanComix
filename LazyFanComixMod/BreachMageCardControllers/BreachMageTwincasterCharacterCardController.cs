@@ -14,7 +14,6 @@ namespace LazyFanComix.BreachMage
         public BreachMageTwincasterCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            
         }
 
         public override IEnumerator UsePower(int index = 0)
@@ -33,7 +32,7 @@ namespace LazyFanComix.BreachMage
 
             if (this.GetNumberOfCardsDestroyed(storedResultsAction) == powerNumeral)
             {
-                // If the number of destroyed spells matches, double-cast spell.
+                // If the number of destroyed charges matches, double-cast spell.
                 List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
 
                 // Use a Cast.

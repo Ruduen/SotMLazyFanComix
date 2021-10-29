@@ -134,7 +134,7 @@
       "character": true,
       "powers": "You may play a Software card. {Benchmark} deals 1 Target Lightning Damage equal to the number of Software cards in play.",
       "hitpoints": 23,
-      "icons": [ "HasPower", "PlayCardNow", "Indestructible", "DealDamageLightning" ],
+      "icons": [ "HasPower", "PlayCardNow", "DealDamageLightning" ],
       "nemesisIdentifiers": [ "Benchmark" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
@@ -378,7 +378,7 @@
       "character": true,
       "backgroundColor": "FFDD00",
       "foilBackgroundColor": "FFDD00",
-      "powers": "Draw 1 card. Wait, that's it? Fine, alternatively, play 1 Ongoing and make it indestructible until the end of your next turn.",
+      "powers": "Draw 1 card. Wait, that's it? Fine, you may play 1 Ongoing and make it indestructible until the end of your next turn.",
       "hitpoints": 26,
       "icons": [ "HasPower", "DrawCardsNow", "Indestructible" ],
       "nemesisIdentifiers": [ "Guise" ],
@@ -631,7 +631,7 @@
       ],
       "complexity": 1,
       "openingLines": {
-        "default": "..."
+        "default": "I'm sure this will work! No, wait... Okay, now it will work!"
       }
     }
   ],
@@ -646,7 +646,7 @@
       "character": true,
       "backgroundColor": "DF7501",
       "foilBackgroundColor": "DF7501",
-      "powers": "{MrFixer} deals 1 Target and themselves 1 Melee Damage. Discard the top 3 cards of your deck. You may play a Style, Tool, or “{Harmony}” discarded this way.",
+      "powers": "{MrFixer} deals 1 Target and themselves 1 Melee Damage. Discard the top 3 cards of your deck. You may play a Style, Tool, or {Harmony} discarded this way.",
       "hitpoints": 26,
       "icons": [ "HasPower", "DealDamageMelee", "PlayCardNow" ],
       "nemesisIdentifiers": [ "MrFixer" ],
@@ -800,8 +800,8 @@
       "backgroundColor": "86BB71",
       "foilBackgroundColor": "86BB71",
       "hitpointsColor": "F6AD41",
-      "powers": "{Parse} may deal 1 Target Projectile Damage equal to the number of cards in the Environment Trash. If damage is dealt this way, shuffle the Environment Trash into the Environment Deck.",
-      "hitpoints": 27,
+      "powers": "{Parse} deals 1 target 1 Projectile Damage, increased by 1 for each card in the Environment Trash. Shuffle the Environment Trash into the Environment Deck.",
+      "hitpoints": 25,
       "icons": [ "HasPower", "Manipulate", "DealDamageProjectile" ],
       "nemesisIdentifiers": [ "Parse" ],
       "incapacitatedAbilities": [
@@ -820,7 +820,8 @@
       },
       "devNotes": [
         "This is coded as 'up to 1', but making it actually optional is messy. I'll fix it if there's every something that interacts with it, but since Chrono-Ranger uses similar logic for his optional damage, this is the default for playability.",
-        "This might still be a bit strong in certain combos. Allowing this to mess with Villain decks was a bit much, though, due to those that use the discard as a resource."
+        "This might still be a bit strong in certain combos. Allowing this to mess with Villain decks was a bit much, though, due to those that use the discard as a resource.",
+        "TODO: Switch to 1 base, 1 per in the environment trash? Or shuffle?"
       ]
     }
   ],

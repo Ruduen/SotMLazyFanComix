@@ -354,6 +354,26 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestBunkerF6Tribunal()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "Legacy/AmericasGreatestLegacyCharacter", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            SelectFromBoxForNextDecision("BunkerFreedomSixCharacter", "Bunker");
+            PlayCard("CalledToJudgement");
+
+            GoToStartOfTurn(legacy);
+            DecisionSelectCard = FindCardInPlay("BunkerCharacter");
+            UsePower(legacy);
+        }
+
+
+        [Test()]
         public void TestCaptainCosmicNoConstruct()
         {
             SetupGameController("BaronBlade", "CaptainCosmic/LazyFanComix.CaptainCosmicCosmicShieldingCharacter", "Legacy", "TheBlock");
@@ -518,7 +538,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(guise);
             UsePower(guise);
-            QuickHandCheck(-1); // 1 Card Played.
+            QuickHandCheck(0); // 1 Card Drawn, 1 Card Played.
             DestroyCard(ongoing);
             AssertIsInPlay(ongoing);
             GoToStartOfTurn(guise);
@@ -545,7 +565,7 @@ namespace LazyFanComixTest
             AssertNextMessage("Guise does not have any valid Ongoings in play, so he cannot make any indestructible. Whoops!");
             QuickHandStorage(guise);
             UsePower(guise);
-            QuickHandCheck(0); // 1 Card Played, 1 Card Drawn from Gritty Reboot
+            QuickHandCheck(1); // 1 Card Draw, 1 Card Played, 1 Card Drawn from Gritty Reboot
             DestroyCard(ongoing);
             AssertInTrash(ongoing); // Second new turn. Without a power, it's gone!
         }
@@ -560,9 +580,9 @@ namespace LazyFanComixTest
             GoToUsePowerPhase(guise);
 
             DiscardAllCards(guise);
+            PutOnDeck("GimmickyCharacter");
 
             QuickHandStorage(guise);
-            AssertNextMessage("Guise cannot play any ongoings, so they must draw and discard cards.");
             UsePower(guise);
             QuickHandCheck(1); // 1 Card Drawn.
         }
@@ -1349,29 +1369,29 @@ namespace LazyFanComixTest
 
             QuickHPStorage(mdp);
             UsePower(parse);
-            QuickHPCheck(0);
+            QuickHPCheck(-1);
         }
 
-        [Test()]
-        public void TestParsePowerTrashSkipAttack()
-        {
-            // Tool in hand.
-            SetupGameController("BaronBlade", "Parse/LazyFanComix.ParseLaplaceShotCharacter", "Megalopolis");
-            Assert.IsTrue(parse.CharacterCard.IsPromoCard);
+        //[Test()]
+        //public void TestParsePowerTrashSkipAttack()
+        //{
+        //    // Tool in hand.
+        //    SetupGameController("BaronBlade", "Parse/LazyFanComix.ParseLaplaceShotCharacter", "Megalopolis");
+        //    Assert.IsTrue(parse.CharacterCard.IsPromoCard);
 
-            StartGame();
+        //    StartGame();
 
-            DiscardTopCards(baron, 2);
+        //    DiscardTopCards(baron, 2);
 
-            Card mdp = GetCardInPlay("MobileDefensePlatform");
+        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-            DecisionSelectTarget = null;
+        //    DecisionSelectTarget = null;
 
-            QuickHPStorage(mdp);
-            UsePower(parse);
-            QuickHPCheck(0);
-            AssertNumberOfCardsInTrash(baron, 2);
-        }
+        //    QuickHPStorage(mdp);
+        //    UsePower(parse);
+        //    QuickHPCheck(0);
+        //    AssertNumberOfCardsInTrash(baron, 2);
+        //}
 
         [Test()]
         public void TestParsePowerTrashAttack()
@@ -1391,7 +1411,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(mdp);
             UsePower(parse);
-            QuickHPCheck(-2);
+            QuickHPCheck(-3); // Base 1, 2 more.) 
             AssertNumberOfCardsInTrash(baron, 0);
         }
 

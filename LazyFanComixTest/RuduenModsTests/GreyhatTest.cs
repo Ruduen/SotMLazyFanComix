@@ -57,6 +57,24 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestTribunalDialUp()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "Legacy", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+
+            SelectFromBoxForNextDecision("LazyFanComix.GreyhatCharacter", "LazyFanComix.Greyhat");
+            PlayCard("CalledToJudgement");
+
+            UsePower(FindCardInPlay("GreyhatCharacter"));
+        }
+
+        [Test()]
         public void TestInnatePowerBurstNoise()
         {
             IEnumerable<string> setupItems = new List<string>()
@@ -107,6 +125,24 @@ namespace LazyFanComixTest
             QuickHPStorage(baron);
             UsePower(Greyhat);
             QuickHPCheck(-2);
+        }
+
+        [Test()]
+        public void TestTribunalBurstNoise()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "Legacy", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+
+            SelectFromBoxForNextDecision("LazyFanComix.GreyhatBurstNoiseCharacter", "LazyFanComix.Greyhat");
+            PlayCard("CalledToJudgement");
+
+            UsePower(FindCardInPlay("GreyhatCharacter"));
         }
 
         #region UsesLinkCards

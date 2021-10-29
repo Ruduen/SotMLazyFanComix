@@ -30,7 +30,7 @@ namespace LazyFanComix.Inquirer
             Card nextTo = this.GetCardThisCardIsNextTo(true);
             if (nextTo != null && nextTo.IsInPlayAndHasGameText)
             {
-                IEnumerator coroutine = this.DealDamage(nextTo, this.CharacterCard, 1, DamageType.Melee);
+                IEnumerator coroutine = this.DealDamage(nextTo, this.CharacterCard, 1, DamageType.Melee, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

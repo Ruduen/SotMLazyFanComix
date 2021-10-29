@@ -17,21 +17,28 @@ namespace LazyFanComix.Parse
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            int powerNumeral = this.GetPowerNumeral(0, 1);
+            List<int> powerNumerals = new List<int>() {
+                this.GetPowerNumeral(0, 1),
+                this.GetPowerNumeral(1, 1),
+                this.GetPowerNumeral(2, 1)
+            };
 
             List<SelectLocationDecision> storedResultsDeck = new List<SelectLocationDecision>();
             List<DealDamageAction> storedResultsDamage = new List<DealDamageAction>();
 
-            TurnTakerController env = this.FindEnvironment();
+            // Trigger to increase damage dealt to self by 1 per environment trash card. 
+            ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => (this.FindEnvironment().TurnTaker.Trash.NumberOfCards * powerNumerals[2]));
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), env.TurnTaker.Trash.NumberOfCards, DamageType.Projectile, powerNumeral, false, 0, storedResultsDamage: storedResultsDamage, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (storedResultsDamage.Any((DealDamageAction dd) => dd.DidDealDamage))
-            {
-                coroutine = this.GameController.ShuffleTrashIntoDeck(env, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
+            this.RemoveTrigger(tempIncrease);
+
+            // Shuffle the environment trash into the environment deck.
+            coroutine = this.GameController.ShuffleTrashIntoDeck(this.FindEnvironment(), cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
         }
+
     }
 }

@@ -313,7 +313,7 @@
         "Destroy 1 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
       ],
       "icons": [ "HasPower", "Destroy" ],
-      "hitpoints": 27,
+      "hitpoints": 30,
       "nemesisIdentifiers": [
         "BreachMage"
       ],

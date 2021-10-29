@@ -24,7 +24,7 @@ namespace LazyFanComix.Inquirer
             List<DiscardCardAction> storedResultsDiscard = new List<DiscardCardAction>();
 
             // Select a distortion to move to the top of its deck.
-            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.MoveCardOnDeck, new LinqCardCriteria((Card c) => c.IsInPlay && !c.IsOneShot && c.IsDistortion && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource()), "distortion cards in play", false, false, null, null, false), storedResultsSelect, false, false, null, true, this.GetCardSource());
+            coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.MoveCardOnDeck, new LinqCardCriteria((Card c) => c.IsInPlay && !c.IsOneShot && c.IsDistortion && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource()), "distortion cards in play", false, false, null, null, false), storedResultsSelect, false, false, null, true, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Move based on decision.
@@ -37,14 +37,17 @@ namespace LazyFanComix.Inquirer
                     coroutine = this.GameController.SendMessageAction(card.AlternateTitleOrTitle + " is the only distortion card in play.", Priority.Low, this.GetCardSource(), selectCardDecision.Choices, true);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
-                coroutine = this.GameController.MoveCard(this.TurnTakerController, card, card.NativeDeck, false, false, true, null, false, null, null, null, false, false, null, false, false, false, false, this.GetCardSource());
+                coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, card, card.NativeDeck, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 card = null;
             }
 
             // You may discard a card.
-            coroutine = this.GameController.SelectAndDiscardCard(this.DecisionMaker, true, null, storedResultsDiscard, SelectionType.DiscardCard, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            if (this.TurnTaker.IsHero)
+            {
+                coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResultsDiscard, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
 
             // If you do,
             if (this.DidDiscardCards(storedResultsDiscard, null, false))
@@ -52,7 +55,7 @@ namespace LazyFanComix.Inquirer
                 // Play the top card of your deck.
                 if (this.TurnTaker.IsHero)
                 {
-                    coroutine = this.GameController.PlayTopCard(this.DecisionMaker, this.TurnTakerController, false, 1, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.PlayTopCard(this.HeroTurnTakerController, this.TurnTakerController, false, 1, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else

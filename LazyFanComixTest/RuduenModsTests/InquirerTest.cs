@@ -93,6 +93,27 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestInnateLiesOnLiesTribunal()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Inquirer", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+
+            Card distortionWithDeck = PlayCard("YoureOnOurSide");
+            Card distortionWithoutDeck = PlayCard("IveFixedTheWound");
+
+            SelectFromBoxForNextDecision("LazyFanComix.InquirerLiesOnLiesCharacter", "LazyFanComix.Inquirer");
+            PlayCard("CalledToJudgement");
+
+            UsePower(FindCardInPlay("InquirerCharacter", 1));
+        }
+
+        [Test()]
         public void TestInnateHardFactsPower()
         {
             IEnumerable<string> setupItems = new List<string>()
@@ -305,7 +326,7 @@ namespace LazyFanComixTest
 
             GoToPlayCardPhase(Inquirer);
 
-            DecisionSelectCards = new Card[]{ null };
+            DecisionSelectCards = new Card[] { null };
 
             PlayCard("ImAVictorian");
             PlayCard("Fisticuffs");
@@ -332,6 +353,8 @@ namespace LazyFanComixTest
             AssertNumberOfCardsInTrash(Inquirer, 1); // Discarded.
             QuickHandCheck(0); // Discard and draw for net 0 change.
         }
+
+        #region Distortions
 
         [Test()]
         public void TestYoureLookingPaleInitial()
@@ -473,6 +496,31 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestDistortionDestroyedTarget()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Inquirer/LazyFanComix.InquirerLiesOnLiesCharacter", "Megalopolis");
+            StartGame();
+
+            GoToPlayCardPhase(Inquirer);
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionNextToCard = mdp;
+
+            QuickHPStorage(Inquirer);
+
+            Card distortion = PlayCard("YoureOnOurSide");
+
+            DestroyCard(mdp);
+
+            DestroyCard(distortion);
+
+            QuickHPCheck(0);
+        }
+
+
+        #endregion Distortions
+
+        [Test()]
         public void TestUntilYouMakeIt()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Inquirer", "Megalopolis");
@@ -587,7 +635,7 @@ namespace LazyFanComixTest
             QuickHPCheck(-4); // All damage dealt, no destroy trigger hit.
         }
 
-        
+
         #region Tribunal
 
         [Test()]
