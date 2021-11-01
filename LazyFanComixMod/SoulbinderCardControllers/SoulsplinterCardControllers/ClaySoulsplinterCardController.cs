@@ -16,8 +16,9 @@ namespace LazyFanComix.Soulbinder
         {
             List<int> numerals = new List<int>(){
                 this.GetPowerNumeral(0, 2),
-                this.GetPowerNumeral(1, 1),
-                this.GetPowerNumeral(2, 1)
+                this.GetPowerNumeral(1, 2),
+                this.GetPowerNumeral(2, 1),
+                this.GetPowerNumeral(3, 1)
             };
             return numerals;
         }

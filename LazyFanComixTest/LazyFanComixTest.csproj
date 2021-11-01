@@ -86,9 +86,10 @@
     <Content Include="TestsToAddress\TestsFixed\BreachMageCycleEngineBug.txt" />
     <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause-TrailblazerSpatialPowerTrial.txt" />
     <Content Include="TestsToAddress\TribunalGreyhat.txt" />
-    <Content Include="TestsToAddress\Unknown3.txt" />
-    <Content Include="TestsToAddress\Unknown2.txt" />
-    <Content Include="TestsToAddress\Unknown1.txt" />
+    <Content Include="TestsToAddress\TestsWithUndeterminedCauses\Unknown.txt" />
+    <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause3-Inquirer.txt" />
+    <Content Include="TestsToAddress\TestsFixed\TribunalRecallForecastedBlowB.txt" />
+    <Content Include="TestsToAddress\TestsFixed\BreachMageCycleEngineBugB.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

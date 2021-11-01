@@ -84,13 +84,28 @@ namespace LazyFanComixTestRandom
 
         [Test]
         [Repeat(100)]
-        public void TestMyStuffAndCompletionistGuise()
+        public void TestMyStuffAndGuise()
         {
+            // For various Guise checks
             GameController gameController = SetupRandomGameController(true,
                 DeckDefinition.AvailableHeroes = ModHeroes.Concat(new string[] { "Guise" }).ToArray(),
                 DeckDefinition.AvailableVillains.Concat(ModVillains),
                 DeckDefinition.AvailableEnvironments.Concat(ModEnvironments),
                 useHeroes: new List<string>() { "Guise" });
+            RunGame(gameController);
+            Assert.IsTrue(gameController.ShouldIncapacitatedHeroesLoseTheGame);
+        }
+
+        [Test]
+        [Repeat(100)]
+        public void TestMyStuffAndTempest()
+        {
+            // For PW Tempest Checks
+            GameController gameController = SetupRandomGameController(true,
+                DeckDefinition.AvailableHeroes = ModHeroes.Concat(new string[] { "Tempest" }).ToArray(),
+                DeckDefinition.AvailableVillains.Concat(ModVillains),
+                DeckDefinition.AvailableEnvironments.Concat(ModEnvironments),
+                useHeroes: new List<string>() { "Tempest" });
             RunGame(gameController);
             Assert.IsTrue(gameController.ShouldIncapacitatedHeroesLoseTheGame);
         }

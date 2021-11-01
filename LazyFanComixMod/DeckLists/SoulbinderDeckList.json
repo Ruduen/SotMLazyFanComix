@@ -46,7 +46,7 @@
       "hitpoints": 5,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a Sacrifice card." ],
-      "powers": [ "Draw 2 Cards. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
+      "powers": [ "Draw 2 Cards. One of your Targets deals themselves 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "DrawCardNow", "RemoveTokens" ],
       "flavorQuotes": [
         {
@@ -63,7 +63,7 @@
       "hitpoints": 5,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a Sacrifice card." ],
-      "powers": [ "Each of your targets regains 2 HP. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
+      "powers": [ "Each Hero target regains 1 HP. One of your Targets deals themselves 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "GainHP", "RemoveTokens" ],
       "flavorQuotes": [
         {
@@ -80,7 +80,7 @@
       "hitpoints": 5,
       "keywords": [ "soulsplinter" ],
       "body": [ "When this card enters play, you may play a Sacrifice card." ],
-      "powers": [ "One of your Targets deals 1 Target 2 Toxic Damage and regains 3 HP. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
+      "powers": [ "Each non-Hero Target deals themselves 1 Infernal Damage. One of your targets deals themselves 2 Infernal Damage. Remove 1 Ritual Token from 1 of your Ritual Cards." ],
       "icons": [ "PlayCardNow", "HasPower", "DealDamageToxic", "RemoveTokens" ],
       "flavorQuotes": [
         {
@@ -267,7 +267,7 @@
       "title": "Debt of the Soulless",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "The first time a Hero Target would deal one of your Targets damage each turn, you may reduce that damage by 1.",
+        "The first time a Hero Target would deal one of your Targets damage each turn, reduce that damage by 1.",
         "After one of your Soulsplinters is destroyed, draw a card."
       ],
       "icons": [ "ReduceDamageTaken", "Redirect" ],
@@ -354,7 +354,7 @@
       "identifier": "SoulbinderCharacter",
       "promoIdentifier": "SoulbinderMortalFormCharacter",
       "count": 1,
-      "title": "Soulbinder",
+      "title": "Soulbinder - Mortal Form",
       "body": "Mortal Form",
       "backgroundColor": "D4E6B5",
       "foilBackgroundColor": "FEFEFE",

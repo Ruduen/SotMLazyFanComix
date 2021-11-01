@@ -74,6 +74,28 @@ namespace LazyFanComixTest
         }
 
         [Test]
+        public void TestPowerVitality()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Soulbinder", "Legacy", "RealmOfDiscord");
+
+            ResetDecisions();
+
+            StartGame(false);
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+
+
+            Card damager = PlayCard("RitualComponents");
+            PlayCard("ImbuedVitality");
+
+            DecisionSelectCard = damager;
+            DecisionSelectTarget = mdp;
+            QuickHPStorage(damager, mdp);
+            UsePower(Soulbinder);
+            QuickHPCheck(-2, -4);
+        }
+
+
+        [Test]
         public void TestPowerMortalNoRitual()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Soulbinder/SoulbinderMortalFormCharacter", "Legacy", "TheFinalWasteland");
@@ -118,17 +140,22 @@ namespace LazyFanComixTest
 
             StartGame(false);
             DiscardAllCards(Soulbinder);
-            Card[] rituals = new Card[] { PutInHand("RitualOfSalvation"), PutInHand("RitualOfTransferrence") };
-            Card clay = PutInHand("ClaySoulsplinter");
-            Card mdp = FindCardInPlay("MobileDefensePlatform");
 
-            DecisionSelectCards = new Card[] { null, rituals[0] };
-            DecisionSelectFunction = 1;
-            QuickHPStorage(mdp);
-            PlayCard(clay);
+            Card clay = PutInHand("ClaySoulsplinter");
+            DecisionSelectCards = new Card[] { null };
+
             QuickHandStorage(Soulbinder);
+            PlayCard(clay);
+            QuickHandCheck(-1); // 1 Played.
+
+            DealDamage(Soulbinder, Soulbinder, 10, DamageType.Melee);
+
+            ResetDecisions();
+            DecisionSelectCard = clay;
+            QuickHPStorage(clay);
             UsePower(clay);
-            QuickHandCheck(2); // 2 Drawn,
+            QuickHPCheck(-2);
+            QuickHandCheck(2);
         }
 
         [Test]
@@ -139,19 +166,20 @@ namespace LazyFanComixTest
             StartGame();
             Card wood = PutInHand("WoodenSoulsplinter");
 
-            DecisionSelectFunction = 1;
             DecisionSelectCards = new Card[] { null };
 
             QuickHandStorage(Soulbinder);
             PlayCard(wood);
             QuickHandCheck(-1); // 1 Played.
 
-            DealDamage(wood, wood, 3, DamageType.Melee);
+            DealDamage(Soulbinder, Soulbinder, 10, DamageType.Melee);
+            DealDamage(wood, wood, 2, DamageType.Melee);
 
             ResetDecisions();
-            QuickHPStorage(wood);
+            DecisionSelectCards = new[] { wood };
+            QuickHPStorage(Soulbinder.CharacterCard, wood);
             UsePower(wood);
-            QuickHPCheck(2);
+            QuickHPCheck(1, -1);
         }
 
         [Test]
@@ -165,17 +193,17 @@ namespace LazyFanComixTest
             Card mdp = FindCardInPlay("MobileDefensePlatform");
             Card straw = PutInHand("StrawSoulsplinter");
 
-            DecisionSelectCards = new Card[] { straw, mdp };
-            DecisionSelectFunction = 1;
+            DecisionSelectCards = new Card[] { null };
 
             QuickHandStorage(Soulbinder);
             PlayCard(straw);
             QuickHandCheck(-1); // 1 Played.
-            DealDamage(straw, straw, 3, DamageType.Melee);
 
+            ResetDecisions();
             QuickHPStorage(straw, mdp);
+            DecisionSelectCards = new[] { mdp, straw };
             UsePower(straw);
-            QuickHPCheck(3, -2);
+            QuickHPCheck(-2, -1);
         }
 
 

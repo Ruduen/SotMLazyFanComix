@@ -61,17 +61,26 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "Legacy", "TheCelestialTribunal"
+                "BaronBlade", "Legacy", "LazyFanComix.Cassie", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
-            StartGame();
+            HeroTurnTakerController Cassie = FindHero("Cassie");
 
+            StartGame();
 
             SelectFromBoxForNextDecision("LazyFanComix.GreyhatCharacter", "LazyFanComix.Greyhat");
             PlayCard("CalledToJudgement");
 
             UsePower(FindCardInPlay("GreyhatCharacter"));
+
+            DestroyCard(Cassie.CharacterCard);
+            GoToStartOfTurn(Cassie);
+
+            DecisionSelectTurnTaker = FindCardInPlay("GreyhatCharacter").Owner;
+            UseIncapacitatedAbility(Cassie, 1);
+
+            
         }
 
         [Test()]
