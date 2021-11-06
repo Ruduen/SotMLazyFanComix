@@ -14,7 +14,7 @@ namespace LazyFanComix.Greyhat
         {
         }
 
-        public override IEnumerator Play()
+        protected override IEnumerator UniquePlay()
         {
             Card nextTo = this.GetCardThisCardIsNextTo(true);
             IEnumerator coroutine;

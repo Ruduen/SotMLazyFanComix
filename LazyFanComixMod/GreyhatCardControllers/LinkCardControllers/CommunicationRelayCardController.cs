@@ -17,7 +17,7 @@ namespace LazyFanComix.Greyhat
             this.AddAsPowerContributor();
         }
 
-        public override IEnumerator Play()
+        protected override IEnumerator UniquePlay()
         {
             // Destroy.
             IEnumerator coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment"), 1, false, 0, cardSource: this.GetCardSource());

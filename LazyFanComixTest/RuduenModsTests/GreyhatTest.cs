@@ -44,28 +44,41 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
+                "Omnitron", "LazyFanComix.Greyhat", "MrFixer", "ChronoRanger", "Megalopolis"
             };
             SetupGameController(setupItems);
 
             StartGame();
 
-            PlayCard("DigitalUplink");
             QuickHandStorage(Greyhat);
             UsePower(Greyhat);
+            QuickHandCheck(2);
+            UsePower(Greyhat);
             QuickHandCheck(1);
+
+            GoToStartOfTurn(fixer);
+            UsePower(fixer);
+            UsePower(Greyhat);
+            QuickHandCheck(1);
+
+            // "Interrupting Power" check: 
+            // Greyhat uses power, draws, Omni does damage through Interp Beam, Ultimate Power gives CR a power. Confirm that 'first' is still confirmed.
+            GoToStartOfTurn(chrono);
+            PlayCard("InterpolationBeam");
+            DecisionNextToCard = omnitron.CharacterCard;
+            PlayCard("TheUltimateTarget");
+            UsePower(Greyhat);
+            QuickHandCheck(2);
         }
 
         [Test()]
-        public void TestTribunalDialUp()
+        public void TestInnatePowerDialUpTribunal()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "Legacy", "LazyFanComix.Cassie", "TheCelestialTribunal"
+                "BaronBlade", "Legacy", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
-
-            HeroTurnTakerController Cassie = FindHero("Cassie");
 
             StartGame();
 
@@ -73,15 +86,8 @@ namespace LazyFanComixTest
             PlayCard("CalledToJudgement");
 
             UsePower(FindCardInPlay("GreyhatCharacter"));
-
-            DestroyCard(Cassie.CharacterCard);
-            GoToStartOfTurn(Cassie);
-
-            DecisionSelectTurnTaker = FindCardInPlay("GreyhatCharacter").Owner;
-            UseIncapacitatedAbility(Cassie, 1);
-
-            
         }
+
 
         [Test()]
         public void TestInnatePowerBurstNoise()
@@ -137,7 +143,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestTribunalBurstNoise()
+        public void TestInnateBurstNoiseTribunal()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -154,10 +160,224 @@ namespace LazyFanComixTest
             UsePower(FindCardInPlay("GreyhatCharacter"));
         }
 
+        #region Link Cards
+        [Test()]
+        public void TestLinkAllMultiPlay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Infinitor", "LazyFanComix.Greyhat", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            // Confirm two plays. 
+            DiscardAllCards(Greyhat);
+            Card[] cards = new Card[] { PutInHand("CoercedUplink"), PutInHand("CommunicationRelay") };
+            PlayCard(cards[0]);
+            AssertIsInPlay(cards);
+
+            // Confirm post bounce, replay of same card is fine. 
+            cards = new Card[] { PutInHand("CoercedUplink"), PutInHand("CommunicationRelay") };
+            PlayCard(cards[0]);
+            AssertIsInPlay(cards[0]);
+            AssertInHand(cards[1]);
+
+            // Villain played first. 
+            cards = new Card[] { PutInHand("CoercedUplink"), PutInHand("CommunicationRelay") };
+            GoToStartOfTurn(Greyhat);
+            Card swarm = PlayCard("OcularSwarm");
+            PlayCard(cards[0]);
+            AssertIsInPlay(cards[0]);
+            AssertInHand(cards[1]);
+
+            // Interruption via destroyed Ocular Swarm.
+            cards = new Card[] { PutInHand("CoercedUplink"), PutInHand("CommunicationRelay") };
+            SetHitPoints(swarm, 1);
+            DecisionNextToCard = swarm;
+            PutOnDeck("LambentReaper");
+            GoToStartOfTurn(env);
+            PlayCard(cards[0]);
+            // Ocular swarm interrupts by playing, but 'first' should be set, so a play should be available.
+            AssertIsInPlay(cards);
+
+        }
+
+        [Test()]
+        public void TestLinkCoercedUplink()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Omnitron", "LazyFanComix.Greyhat", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            DiscardAllCards(Greyhat);
+
+            QuickHPStorage(omnitron);
+            PlayCard("CoercedUplink");
+            QuickHPCheck(-2);
+
+        }
+
+        [Test()]
+        public void TestLinkDigitalUplink()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Omnitron", "LazyFanComix.Greyhat", "Legacy", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            DiscardAllCards(Greyhat);
+
+            QuickHandStorage(legacy);
+            PlayCard("DigitalUplink");
+            QuickHandCheck(2);
+        }
+
+        [Test()]
+        public void TestLinkDigitalUplinkTribunal()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Omnitron", "LazyFanComix.Greyhat", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            DiscardAllCards(Greyhat);
+
+            SelectFromBoxForNextDecision("LegacyCharacter", "Legacy");
+            PlayCard("CalledToJudgement");
+
+            PlayCard("DigitalUplink");
+        }
+
+        [Test()]
+        public void TestLinkFlareRelay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Omnitron", "LazyFanComix.Greyhat", "Legacy", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            DiscardAllCards(Greyhat);
+
+            QuickHPStorage(Greyhat, omnitron);
+            PlayCard("FlareRelay");
+            QuickHPCheck(-1, -1);
+            UsePower(Greyhat, 1);
+            QuickHPCheck(0, -3);
+        }
+
+        [Test()]
+        public void TestLinkProxyRelay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Omnitron", "LazyFanComix.Greyhat", "Legacy", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            DiscardAllCards(Greyhat);
+
+            DealDamage(Greyhat, Greyhat, 5, DamageType.Fire);
+            QuickHPStorage(Greyhat);
+            QuickHandStorage(Greyhat);
+            PlayCard("ProxyRelay");
+            QuickHPCheck(2);
+
+            UsePower(Greyhat, 1);
+            QuickHandCheck(1);
+            DealDamage(Greyhat, Greyhat, 5, DamageType.Fire);
+            QuickHPCheck(-4);
+        }
+
+        [Test()]
+        public void TestLinkCommunicationRelay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Omnitron", "LazyFanComix.Greyhat", "Legacy", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            DiscardAllCards(Greyhat);
+            Card destroyCard = PlayCard("InterpolationBeam");
+
+            PlayCard("CommunicationRelay");
+            Card play = PutInHand("DigitalUplink");
+            AssertInTrash(destroyCard);
+            UsePower(Greyhat, 1);
+            AssertIsInPlay(play);
+
+        }
+
+        #endregion Link Cards
+
         #region UsesLinkCards
 
         [Test()]
-        public void TestPlayDirectControl()
+        public void TestNetworkAllMultiPlay()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Infinitor", "LazyFanComix.Greyhat", "RealmOfDiscord"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            int draws = 2;
+
+            // Confirm Draw 2.
+            Card play = PutInTrash("DirectControl");
+
+            QuickHandStorage(Greyhat);
+            PlayCard(play);
+            QuickHandCheck(draws);
+
+            // Confirm replay of same card is fine.
+            PlayCard(play);
+            QuickHandCheck(0);
+
+            // Villain played first. 
+            GoToStartOfTurn(Greyhat);
+            Card swarm = PlayCard("OcularSwarm");
+            PlayCard(play);
+            QuickHandCheck(0);
+
+            // Interruption via destroyed Ocular Swarm.
+            DecisionNextToCard = swarm;
+            DiscardAllCards(Greyhat);
+            PutOnDeck("LambentReaper");
+            PlayCard("CoercedUplink");
+            SetHitPoints(swarm, 1);
+            PutOnDeck("LambentReaper");
+            GoToStartOfTurn(env);
+            QuickHandStorage(Greyhat);
+            PlayCard(play);
+            // Ocular swarm interrupts by playing, but 'first' should be set, so a play should be available.
+            QuickHandCheck(draws);
+
+        }
+
+        [Test()]
+        public void TestNetworkDirectControl()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -167,21 +387,45 @@ namespace LazyFanComixTest
 
             StartGame();
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+            DiscardAllCards(Greyhat);
+
             PlayCard("DigitalUplink");
             PlayCard("CoercedUplink");
-            GoToPlayCardPhase(Greyhat);
-            DiscardAllCards(Greyhat);
 
             QuickHPStorage(baron);
             PlayCard("DirectControl");
             QuickHPCheck(-2);
             AssertNumberOfUsablePowers(Greyhat, 1);
             AssertNumberOfUsablePowers(legacy, 0);
-            // TODO: If necessary, add tests for bounce cases. This is using the same code as other similar areas.
         }
 
         [Test()]
-        public void TestPlayShockTherapy()
+        public void TestNetworkShockTherapy()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "Omnitron", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+            DiscardAllCards(Greyhat);
+
+            PlayCard("DigitalUplink");
+            PlayCard("CoercedUplink");
+            PlayCard("FlareRelay");
+
+            DealDamage(legacy, legacy, 10, DamageType.Fire);
+            DealDamage(legacy, Greyhat, 10, DamageType.Fire);
+            DealDamage(legacy, omnitron, 10, DamageType.Fire);
+
+            QuickHPStorage(Greyhat, legacy, omnitron);
+            PlayCard("ShockTherapy");
+            QuickHPCheck(2, 2, -2);
+        }
+
+        [Test()]
+        public void TestNetworkShockTherapyWeirdEventually()
         {
             // TO CHECK: SEED 210116367
             IEnumerable<string> setupItems = new List<string>()
@@ -192,12 +436,12 @@ namespace LazyFanComixTest
 
             StartGame();
 
+            // CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Scholar healing trigger construct play)
             PlayCard("MortalFormToEnergy");
             PlayCard("BeeBot");
             DecisionSelectCards = new Card[] { Greyhat.CharacterCard, null, scholar.CharacterCard, null };
             Card siphon = PlayCard("DynamicSiphon");
             Card playPower = PlayCard("CommunicationRelay");
-            // TODO: TEST CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Scholar healing trigger construct play)
             Card[] uplinks = new Card[] { PutInHand(Greyhat, "DigitalUplink", 0), PutInHand(Greyhat, "DigitalUplink", 1), PutInHand(Greyhat, "DigitalUplink", 2), PutInHand(Greyhat, "DigitalUplink", 3) };
             PlayCard(uplinks[0]);
 
@@ -214,25 +458,26 @@ namespace LazyFanComixTest
             // TODO: Test convoluted case of damage dealing (Link played midway, link removed midway).
         }
 
+
         [Test()]
         public void TestPlayDataTransfer()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
+                "Omnitron", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
             };
             SetupGameController(setupItems);
 
             StartGame();
-            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+            DiscardAllCards(Greyhat);
             PlayCard("DigitalUplink");
             PlayCard("CoercedUplink");
-            GoToPlayCardPhase(Greyhat);
-            DiscardAllCards(Greyhat);
 
             QuickHandStorage(Greyhat, legacy);
+            QuickHPStorage(omnitron);
             PlayCard("DataTransfer");
-            QuickHandCheck(1, 1);
+            QuickHandCheck(0, 1);
+            QuickHPCheck(-2);
         }
 
         [Test()]
@@ -246,19 +491,18 @@ namespace LazyFanComixTest
 
             StartGame();
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
+            DiscardAllCards(Greyhat);
             PlayCard("DigitalUplink", 0);
             PlayCard("DigitalUplink", 1);
             PlayCard("CoercedUplink");
-            GoToPlayCardPhase(Greyhat);
-            DiscardAllCards(Greyhat);
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
-            QuickHandCheck(1, 1);
+            QuickHandCheck(0, 1);
         }
 
         [Test()]
-        public void TestPlayDataTransferSentinelsVaried()
+        public void TestNetworkDataTransferSentinelsVaried()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -268,20 +512,20 @@ namespace LazyFanComixTest
 
             StartGame();
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
-            DecisionSelectCards = new Card[] { medico, null, idealist, null };
             DiscardAllCards(Greyhat);
+            DecisionNextToCard = medico;
             PlayCard("DigitalUplink", 0);
+            DecisionNextToCard = mainstay;
             PlayCard("DigitalUplink", 1);
             PlayCard("CoercedUplink");
-            DiscardAllCards(Greyhat);
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
-            QuickHandCheck(1, 2);
+            QuickHandCheck(0, 2);
         }
 
         [Test()]
-        public void TestPlayDDoS()
+        public void TestNetworkDDoS()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
@@ -290,10 +534,13 @@ namespace LazyFanComixTest
             SetupGameController(setupItems);
 
             StartGame();
+            DiscardAllCards(Greyhat);
             DestroyCard(FindCardInPlay("MobileDefensePlatform"));
             Card target = PlayCard("BladeBattalion");
-            DecisionSelectCards = new Card[] { medico, null, idealist, null };
+
+            DecisionNextToCard = medico;
             PlayCard("DigitalUplink", 0);
+            DecisionNextToCard = mainstay;
             PlayCard("DigitalUplink", 1);
 
             ResetDecisions();
@@ -310,6 +557,11 @@ namespace LazyFanComixTest
             QuickHPCheck(-2, -2);
         }
 
+        #endregion UsesLinkCards
+
+        #region UsesLinkCardsOngoing
+
+
         [Test()]
         public void TestPlayBandwidthRestriction()
         {
@@ -324,7 +576,8 @@ namespace LazyFanComixTest
 
             DiscardAllCards(Greyhat);
             PlayCard("ProxyRelay");
-            DecisionSelectCards = new Card[] { PutInHand("CoercedUplink"), baron.CharacterCard };
+            DecisionSelectCards = new Card[] { baron.CharacterCard };
+            PlayCard("CoercedUplink");
             PlayCard("BandwidthRestriction");
 
             ResetDecisions();
@@ -332,9 +585,10 @@ namespace LazyFanComixTest
             QuickHPStorage(Greyhat, ra);
             DealDamage(baron, Greyhat, 3, DamageType.Fire);
             DealDamage(baron, ra, 3, DamageType.Fire);
+            QuickHPCheck(-2, -3);
             DealDamage(mdp, Greyhat, 3, DamageType.Fire);
             DealDamage(mdp, ra, 3, DamageType.Fire);
-            QuickHPCheck(-5, -6);
+            QuickHPCheck(-3, -3);
         }
 
         [Test()]
@@ -352,17 +606,21 @@ namespace LazyFanComixTest
 
             DiscardAllCards(Greyhat);
             PlayCard("ProxyRelay");
-            DecisionSelectCards = new Card[] { PutInHand("CoercedUplink"), baron.CharacterCard };
+            DecisionSelectCards = new Card[] { baron.CharacterCard };
+            PlayCard("CoercedUplink");
             PlayCard("OverclockSystems");
 
             ResetDecisions();
 
             QuickHPStorage(baron.CharacterCard, prt);
             DealDamage(Greyhat, baron, 1, DamageType.Fire);
+            QuickHPCheck(-2, 0);
             DealDamage(Greyhat, prt, 1, DamageType.Fire);
+            QuickHPCheck(0, -1);
             DealDamage(ra, baron, 1, DamageType.Fire);
+            QuickHPCheck(-1, 0);
             DealDamage(ra, prt, 1, DamageType.Fire);
-            QuickHPCheck(-3, -2);
+            QuickHPCheck(0, -1);
         }
 
         [Test()]
@@ -379,7 +637,7 @@ namespace LazyFanComixTest
 
             DiscardAllCards(Greyhat);
             PlayCard("ProxyRelay");
-            DecisionSelectCard = PutInHand("CoercedUplink");
+            PlayCard("CoercedUplink");
             PlayCard("AutoRedirect");
 
             ResetDecisions();
@@ -391,147 +649,7 @@ namespace LazyFanComixTest
             QuickHPCheck(-1, -1);
         }
 
-        #endregion UsesLinkCards
-
-        #region Link Cards
-
-        [Test()]
-        public void TestPlayCoercedUplink()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-
-            Card mdp = FindCardInPlay("MobileDefensePlatform");
-            DecisionSelectCard = mdp;
-
-            QuickHPStorage(mdp);
-            Card link = PlayCard("CoercedUplink");
-            QuickHPCheck(-2);
-            AssertNextToCard(link, mdp);
-        }
-
-        [Test()]
-        public void TestPlayDigitalUplink()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-            Card link = PlayCard("DigitalUplink");
-            AssertNextToCard(link, legacy.CharacterCard);
-            AssertNumberOfUsablePowers(legacy, 0); // Power was used.
-        }
-
-        [Test()]
-        public void TestPlayDigitalUplinkTribunal()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "TheCelestialTribunal"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-            SelectFromBoxForNextDecision("HakaCharacter", "Haka");
-            PlayCard("RepresentativeOfEarth");
-            Card hakaCard = FindCardInPlay("HakaCharacter");
-
-            DecisionSelectCard = hakaCard;
-
-            Card link = PlayCard("DigitalUplink");
-            AssertNextToCard(link, hakaCard);
-            AssertNumberOfUsablePowers(hakaCard, 1); // Power was not used.
-        }
-
-
-
-
-        [Test()]
-        public void TestPlayFlareRelay()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
-
-            QuickHPStorage(Greyhat, legacy, baron);
-            Card link = PlayCard("FlareRelay");
-            AssertNextToCard(link, Greyhat.CharacterCard);
-            QuickHPCheck(-1, -1, -1);
-
-            QuickHPStorage(baron);
-            UsePower(Greyhat, 1);
-            QuickHPCheck(-3);
-        }
-
-
-
-
-
-        [Test()]
-        public void TestPlayProxyRelay()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
-
-            DealDamage(Greyhat, Greyhat, 5, DamageType.Melee);
-            QuickHPStorage(Greyhat);
-            Card link = PlayCard("ProxyRelay");
-            AssertNextToCard(link, Greyhat.CharacterCard);
-            QuickHPCheck(2);
-
-            QuickHPStorage(Greyhat);
-            QuickHandStorage(Greyhat);
-            UsePower(Greyhat, 1);
-            DealDamage(Greyhat, Greyhat, 2, DamageType.Melee);
-            QuickHPCheck(-1);
-            QuickHandCheck(1);
-        }
-
-
-
-        [Test()]
-        public void TestPlayCommunicationRelay()
-        {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "Megalopolis"
-            };
-            SetupGameController(setupItems);
-
-            StartGame();
-            DestroyCard(FindCardInPlay("MobileDefensePlatform"));
-
-            Card ongoing = PlayCard("LivingForceField");
-            Card link = PlayCard("CommunicationRelay");
-            AssertNextToCard(link, Greyhat.CharacterCard);
-            AssertInTrash(ongoing);
-
-            Card play = PutInHand("DDoS");
-            DecisionSelectCards = new Card[] { play, null };
-            UsePower(Greyhat, 1);
-            AssertInTrash(play);
-        }
-
-        #endregion Link Cards
+        #endregion UsesLinkCardsOngoing
 
         #region Ungrouped Cards
         [Test()]
@@ -556,7 +674,6 @@ namespace LazyFanComixTest
             ResetDecisions();
 
             // Avoid search, since that's not the important part.
-
             Card card = PutInHand("SystemReboot");
             GoToPlayCardPhase(Greyhat);
             DecisionSelectCards = new Card[] { search, plays[0], plays[1], plays[0], plays[1] };

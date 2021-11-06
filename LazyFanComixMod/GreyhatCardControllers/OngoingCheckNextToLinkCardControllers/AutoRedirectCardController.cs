@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LazyFanComix.Greyhat
 {
-    public class AutoRedirectCardController : GreyhatSharedOngoingCheckNextToLinkCardController
+    public class AutoRedirectCardController : GreyhatSharedNetworkCardController
     {
         public AutoRedirectCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {

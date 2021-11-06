@@ -8,13 +8,13 @@ using System.Linq;
 
 namespace LazyFanComix.Greyhat
 {
-    public class DirectControlCardController : GreyhatSharedPlayLinkFirstCardController
+    public class DirectControlCardController : GreyhatSharedNetworkCardController
     {
         public DirectControlCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
 
-        protected override IEnumerator PostLinkPlay()
+        protected override IEnumerator UniquePlay()
         {
             IEnumerator coroutine;
             List<Card> usedPowerCards = new List<Card>();

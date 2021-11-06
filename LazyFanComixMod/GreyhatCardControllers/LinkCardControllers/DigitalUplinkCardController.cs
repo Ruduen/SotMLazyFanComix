@@ -16,7 +16,7 @@ namespace LazyFanComix.Greyhat
         {
         }
 
-        public override IEnumerator Play()
+        protected override IEnumerator UniquePlay()
         {
             Card nextTo = this.GetCardThisCardIsNextTo(true);
             IEnumerator coroutine;
@@ -29,19 +29,12 @@ namespace LazyFanComix.Greyhat
                 // httc is optional due to Celestial Tribunal, so only proceed if it was found. 
                 if (httc != null)
                 {
-                    coroutine = this.GameController.SelectAndDiscardCards(httc, 1, false, 0, dcaResults, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.DrawCards(httc, 2, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    if (dcaResults.Count > 0 && dcaResults.FirstOrDefault().WasCardDiscarded)
-                    {
-                        // Power.
-                        coroutine = this.GameController.SelectAndUsePower(httc, cardSource: this.GetCardSource());
-                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                    }
                 }
                 else
                 {
-                    coroutine = this.GameController.SendMessageAction(nextTo.Title + " does not have a hand, and therefore cannot discard any cards.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
+                    coroutine = this.GameController.SendMessageAction(nextTo.Title + " does not have a hand, and therefore cannot draw any cards.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }

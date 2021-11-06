@@ -17,7 +17,7 @@ namespace LazyFanComix.Greyhat
             this.AddAsPowerContributor();
         }
 
-        public override IEnumerator Play()
+        protected override IEnumerator UniquePlay()
         {
             IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Fire, 3, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

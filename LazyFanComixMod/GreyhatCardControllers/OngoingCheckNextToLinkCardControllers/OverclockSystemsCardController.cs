@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LazyFanComix.Greyhat
 {
-    public class OverclockSystemsCardController : GreyhatSharedOngoingCheckNextToLinkCardController
+    public class OverclockSystemsCardController : GreyhatSharedNetworkCardController
     {
         public OverclockSystemsCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
@@ -15,11 +15,7 @@ namespace LazyFanComix.Greyhat
 
         public override void AddTriggers()
         {
-            this.AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.Card != null && this.CardsLinksAreNextToHeroes.Contains(dd.DamageSource.Card) && this.CardsLinksAreNextToNonHero.Contains(dd.Target), Amount);
-        }
-        private int Amount(DealDamageAction dda)
-        {
-            return 1;
+            this.AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.Card != null && this.CardsLinksAreNextToHeroes.Contains(dd.DamageSource.Card) && this.CardsLinksAreNextToNonHero.Contains(dd.Target), (DealDamageAction dda) => 1);
         }
     }
 }

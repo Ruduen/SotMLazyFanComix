@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace LazyFanComix.Greyhat
 {
-    public class DDoSCardController : GreyhatSharedPlayLinkFirstCardController
+    public class DDoSCardController : GreyhatSharedNetworkCardController
     {
         public DDoSCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
 
-        protected override IEnumerator PostLinkPlay()
+        protected override IEnumerator UniquePlay()
         {
             IEnumerator coroutine;
             List<Card> didDamageCards = new List<Card>();

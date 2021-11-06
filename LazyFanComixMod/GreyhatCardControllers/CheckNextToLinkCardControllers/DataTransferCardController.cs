@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace LazyFanComix.Greyhat
 {
-    public class DataTransferCardController : GreyhatSharedPlayLinkFirstCardController
+    public class DataTransferCardController : GreyhatSharedNetworkCardController
     {
         public DataTransferCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
 
-        protected override IEnumerator PostLinkPlay()
+        protected override IEnumerator UniquePlay()
         {
             IEnumerator coroutine;
 
@@ -20,8 +20,8 @@ namespace LazyFanComix.Greyhat
             coroutine = this.GameController.SelectTurnTakersAndDoAction(sttd, SelectedPlayerDrawsCards, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Draw based on number next to links.
-            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, this.CardsLinksAreNextToNonHero.Count(), cardSource: this.GetCardSource());
+            // Damage Portion.
+            coroutine = this.GameController.DealDamage(this.HeroTurnTakerController, this.CharacterCard, (Card c) => this.CardsLinksAreNextToNonHero.Contains(c), 2, DamageType.Psychic, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
