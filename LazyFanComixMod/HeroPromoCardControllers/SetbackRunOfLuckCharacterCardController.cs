@@ -26,12 +26,12 @@ namespace LazyFanComix.Setback
             coroutine = this.GameController.AddTokensToPool(this.Card.FindTokenPool(TokenPool.UnluckyPoolIdentifier), powerNumerals[0], cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[1], cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, powerNumerals[1], cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.Card.FindTokenPool(TokenPool.UnluckyPoolIdentifier).CurrentValue > this.HeroTurnTaker.NumberOfCardsInHand)
             {
-                coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, powerNumerals[2], false, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, powerNumerals[2], false, cardSource: this.GetCardSource());
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 

@@ -16,7 +16,7 @@ namespace LazyFanComix.Spellforge
         {
             IEnumerator coroutine;
             // Select a hero to play a card.
-            coroutine = this.SelectHeroToPlayCard(this.DecisionMaker);
+            coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

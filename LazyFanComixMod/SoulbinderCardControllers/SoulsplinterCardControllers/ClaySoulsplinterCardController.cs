@@ -25,7 +25,7 @@ namespace LazyFanComix.Soulbinder
 
         protected override IEnumerator UseUniquePower(List<int> powerNumerals)
         {
-            IEnumerator coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[0], cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

@@ -68,6 +68,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestsToAddress\GuiseWhat.txt" />
     <Content Include="TestsToAddress\TestsFixed\GuiseCassieEssenceFlow.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalCassie.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalCassieCalled.txt" />

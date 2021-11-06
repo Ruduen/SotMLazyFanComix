@@ -25,7 +25,7 @@ namespace LazyFanComix.Soulbinder
             if (targetList.Count > 0)
             {
                 // That target deals all others 2 Infernal damage.
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, targetList.FirstOrDefault(), (Card c) => !c.IsHero, 2, DamageType.Infernal, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DealDamage(this.HeroTurnTakerController, targetList.FirstOrDefault(), (Card c) => !c.IsHero, 2, DamageType.Infernal, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // That target deals itself 2 Infernal damage.

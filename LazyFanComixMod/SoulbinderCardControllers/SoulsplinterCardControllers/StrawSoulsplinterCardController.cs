@@ -30,7 +30,7 @@ namespace LazyFanComix.Soulbinder
             List<Card> targetList = new List<Card>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.DealDamageToSelf(this.DecisionMaker, (Card c) => !c.IsHero, powerNumerals[0], DamageType.Infernal, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DealDamageToSelf(this.HeroTurnTakerController, (Card c) => !c.IsHero, powerNumerals[0], DamageType.Infernal, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

@@ -32,14 +32,14 @@ namespace LazyFanComix.Setback
                 coroutine = this.GameController.SendMessageAction(revealedCard.AlternateTitleOrTitle + " was the only card in " + this.HeroTurnTaker.Deck.GetFriendlyName() + ". It must be discarded.", Priority.High, this.GetCardSource(), new Card[] { revealedCard });
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                coroutine = this.GameController.MoveCard(this.DecisionMaker, revealedCard, this.HeroTurnTaker.Trash, cardSource: this.GetCardSource());
+                coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, revealedCard, this.HeroTurnTaker.Trash, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
             {
                 // Reveal cards.
                 List<Card> revealedCards = new List<Card>();
-                coroutine = this.GameController.RevealCards(this.DecisionMaker, this.HeroTurnTaker.Deck, 2, revealedCards, true, RevealedCardDisplay.ShowRevealedCards, cardSource: this.GetCardSource());
+                coroutine = this.GameController.RevealCards(this.HeroTurnTakerController, this.HeroTurnTaker.Deck, 2, revealedCards, true, RevealedCardDisplay.ShowRevealedCards, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // If there are exactly 2 cards, compare keywords.
@@ -52,7 +52,7 @@ namespace LazyFanComix.Setback
                     };
                     if (keywordSets[0].Intersect(keywordSets[1]).Any())
                     {
-                        coroutine = this.GameController.MoveCards(this.DecisionMaker, revealedCards, this.HeroTurnTaker.Hand, cardSource: this.GetCardSource());
+                        coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, revealedCards, this.HeroTurnTaker.Hand, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                     else
@@ -67,7 +67,7 @@ namespace LazyFanComix.Setback
                         // Discard all remaining cards revealed, if movement failed for some reason.
                         // SelectCardsFromLocationAndMoveThem seems to be the cleanest way to be allowed to control the order.
                         // Note that just MoveCards will probably work fine, since Captain Cosmic and the like use it. But SS Tachyon does something more specific.
-                        coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, this.HeroTurnTaker.Revealed, this.HeroTurnTaker.Revealed.NumberOfCards, this.HeroTurnTaker.Revealed.NumberOfCards, new LinqCardCriteria(), new List<MoveCardDestination>() { new MoveCardDestination(this.HeroTurnTaker.Trash) }, isDiscardIfMovingToTrash: true, cardSource: this.GetCardSource());
+                        coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.HeroTurnTakerController, this.HeroTurnTaker.Revealed, this.HeroTurnTaker.Revealed.NumberOfCards, this.HeroTurnTaker.Revealed.NumberOfCards, new LinqCardCriteria(), new List<MoveCardDestination>() { new MoveCardDestination(this.HeroTurnTaker.Trash) }, isDiscardIfMovingToTrash: true, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                 }

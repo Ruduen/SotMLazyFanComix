@@ -20,13 +20,13 @@ namespace LazyFanComix.Tachyon
             if (this.HeroTurnTaker.Trash.Cards.Count() > 0)
             {
                 // Play the top card of your trash.
-                coroutine = this.GameController.PlayCard(this.DecisionMaker, this.HeroTurnTaker.Trash.TopCard, cardSource: this.GetCardSource());
+                coroutine = this.GameController.PlayCard(this.HeroTurnTakerController, this.HeroTurnTaker.Trash.TopCard, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 if (this.HeroTurnTaker.Trash.Cards.Count() > 0)
                 {
                     // Move the top card of your trash.
-                    coroutine = this.GameController.MoveCard(this.DecisionMaker, this.HeroTurnTaker.Trash.TopCard, this.HeroTurnTaker.Deck, true, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, this.HeroTurnTaker.Trash.TopCard, this.HeroTurnTaker.Deck, true, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else

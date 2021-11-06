@@ -16,12 +16,12 @@ namespace LazyFanComix.Greyhat
             IEnumerator coroutine;
 
             // Select players next to links to draw.
-            SelectTurnTakersDecision sttd = new SelectTurnTakersDecision(this.GameController, this.DecisionMaker, new LinqTurnTakerCriteria((TurnTaker tt) => this.CardsLinksAreNextToHeroes.Where((Card c) => c.Owner == tt).Count() > 0), SelectionType.DrawCard, allowAutoDecide: true, cardSource: this.GetCardSource());
+            SelectTurnTakersDecision sttd = new SelectTurnTakersDecision(this.GameController, this.HeroTurnTakerController, new LinqTurnTakerCriteria((TurnTaker tt) => this.CardsLinksAreNextToHeroes.Where((Card c) => c.Owner == tt).Count() > 0), SelectionType.DrawCard, allowAutoDecide: true, cardSource: this.GetCardSource());
             coroutine = this.GameController.SelectTurnTakersAndDoAction(sttd, SelectedPlayerDrawsCards, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw based on number next to links.
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, this.CardsLinksAreNextToNonHero.Count(), cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, this.CardsLinksAreNextToNonHero.Count(), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

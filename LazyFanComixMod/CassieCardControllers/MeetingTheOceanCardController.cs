@@ -24,7 +24,7 @@ namespace LazyFanComix.Cassie
 
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             IEnumerator coroutine;
-            coroutine = this.SelectAndDiscardCards(this.DecisionMaker, powerNumerals[0], false, 0, storedResults, false, null, null, null, SelectionType.DiscardCard, this.TurnTaker);
+            coroutine = this.SelectAndDiscardCards(this.HeroTurnTakerController, powerNumerals[0], false, 0, storedResults, false, null, null, null, SelectionType.DiscardCard, this.TurnTaker);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             foreach (DiscardCardAction discardCardAction in storedResults)
@@ -35,11 +35,11 @@ namespace LazyFanComix.Cassie
                 }
             }
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), totalDamage, DamageType.Cold, powerNumerals[1], false, powerNumerals[1], cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), totalDamage, DamageType.Cold, powerNumerals[1], false, powerNumerals[1], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw until you have 3 cards.
-            coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, powerNumerals[2]);
+            coroutine = this.DrawCardsUntilHandSizeReached(this.HeroTurnTakerController, powerNumerals[2]);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

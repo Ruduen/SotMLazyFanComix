@@ -23,7 +23,7 @@ namespace LazyFanComix.TheNaturalist
             List<PlayCardAction> storedResultsPlay = new List<PlayCardAction>();
 
             // Draw a card.
-            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Play a card.
@@ -41,7 +41,7 @@ namespace LazyFanComix.TheNaturalist
                     if (options.Count > 1)
                     {
                         List<SelectWordDecision> storedResultsWord = new List<SelectWordDecision>();
-                        coroutine = this.GameController.SelectWord(this.DecisionMaker, options, SelectionType.NaturalistForm, storedResultsWord, false, null, this.GetCardSource());
+                        coroutine = this.GameController.SelectWord(this.HeroTurnTakerController, options, SelectionType.NaturalistForm, storedResultsWord, false, null, this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                         selectedWord = this.GetSelectedWord(storedResultsWord);

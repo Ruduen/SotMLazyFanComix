@@ -26,7 +26,7 @@ namespace LazyFanComix.Soulbinder
             if (targetList.Count > 0)
             {
                 // That target deals another 2 damage.
-                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, targetList.FirstOrDefault()), 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // That target deals itself 2 Infernal damage.
@@ -39,7 +39,7 @@ namespace LazyFanComix.Soulbinder
             if (ritualTokenCards.Any())
             {
                 // Each valid ritual loses a token. This needs to be done to handle scenarios where things are destroyed or played mid-way!
-                SelectCardsDecision scdRituals = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0, SelectionType.RemoveTokens, null, false, null, true, true, false, () => NumRitualsToRemoveToken(actedRituals), null, null, null, this.GetCardSource());
+                SelectCardsDecision scdRituals = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0, SelectionType.RemoveTokens, null, false, null, true, true, false, () => NumRitualsToRemoveToken(actedRituals), null, null, null, this.GetCardSource());
                 coroutine = this.GameController.SelectCardsAndDoAction(scdRituals, (SelectCardDecision scd) => this.RemoveTokenEachResponse(scd, actedRituals, 1), null, null, this.GetCardSource(), null, false, null);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

@@ -20,8 +20,8 @@ namespace LazyFanComix.Cassie
             // Select and move one of the Riverbank cards.
             // Yes, this is messy, but it's still the cleanest way of mimicing the official SelectCardAndDoAction without access to the evenIfIndestructable flag. Battle Zones shouldn't be an issue.
 
-            coroutine = this.GameController.SelectCardAndDoAction(new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == this.Riverbank().UnderLocation)),
-                (SelectCardDecision d) => this.GameController.MoveCard(this.DecisionMaker, d.SelectedCard, this.HeroTurnTaker.Deck, false, false, false, evenIfIndestructible: true, cardSource: this.GetCardSource()),
+            coroutine = this.GameController.SelectCardAndDoAction(new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == this.Riverbank().UnderLocation)),
+                (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Deck, false, false, false, evenIfIndestructible: true, cardSource: this.GetCardSource()),
                 false);
 
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -44,9 +44,9 @@ namespace LazyFanComix.Cassie
 
         //    // Select and move one of the Riverbank cards.
         //    // Yes, this is messy, but it's still the cleanest way of mimicing the official SelectCardAndDoAction without access to the evenIfIndestructable flag. Battle Zones shouldn't be an issue.
-        //    SelectCardDecision selectCardDecision = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => FindCardsFunc(c), true, null, null), false, false, null, null, null, null, null, false, true, this.GetCardSource(), null);
+        //    SelectCardDecision selectCardDecision = new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => FindCardsFunc(c), true, null, null), false, false, null, null, null, null, null, false, true, this.GetCardSource(), null);
 
-        //    coroutine = this.GameController.SelectCardAndDoAction(selectCardDecision, (SelectCardDecision d) => this.GameController.MoveCard(this.DecisionMaker, d.SelectedCard, this.HeroTurnTaker.Trash, false, false, false, null, false, null, null, null, true, false, null, false, false, false, false, selectCardDecision.CardSource), true);
+        //    coroutine = this.GameController.SelectCardAndDoAction(selectCardDecision, (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Trash, false, false, false, null, false, null, null, null, true, false, null, false, false, false, false, selectCardDecision.CardSource), true);
 
         //    if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         //}

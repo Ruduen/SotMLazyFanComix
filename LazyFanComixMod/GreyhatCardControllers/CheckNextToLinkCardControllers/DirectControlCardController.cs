@@ -21,12 +21,12 @@ namespace LazyFanComix.Greyhat
             List<Card> didDamageCards = new List<Card>();
 
             // Each player uses a power for each of their Heroes next to a link.
-            SelectCardsDecision selectHeroDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextToHeroes.Contains(c), SelectionType.SelectTargetFriendly, null, false, null, true, true, false, () => NumHeroesToUsePower(usedPowerCards), cardSource: this.GetCardSource());
+            SelectCardsDecision selectHeroDecision = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => this.CardsLinksAreNextToHeroes.Contains(c), SelectionType.SelectTargetFriendly, null, false, null, true, true, false, () => NumHeroesToUsePower(usedPowerCards), cardSource: this.GetCardSource());
             coroutine = this.GameController.SelectCardsAndDoAction(selectHeroDecision, (SelectCardDecision scd) => SelectedHeroUsesPower(scd, usedPowerCards), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Damage Portion.
-            SelectCardsDecision selectNonHeroDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextToNonHero.Contains(c), SelectionType.SelectTarget, null, false, null, true, true, false, () => NumTargetsToDamage(didDamageCards), cardSource: this.GetCardSource());
+            SelectCardsDecision selectNonHeroDecision = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => this.CardsLinksAreNextToNonHero.Contains(c), SelectionType.SelectTarget, null, false, null, true, true, false, () => NumTargetsToDamage(didDamageCards), cardSource: this.GetCardSource());
             coroutine = this.GameController.SelectCardsAndDoAction(selectNonHeroDecision, (SelectCardDecision scd) => SelectedNonHeroDealsDamage(scd, didDamageCards), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

@@ -26,12 +26,12 @@ namespace LazyFanComix.Soulbinder
             {
                 if (targetList.FirstOrDefault().HitPoints != null)
                 {
-                    coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, targetList.FirstOrDefault()), (int)targetList.FirstOrDefault().HitPoints + 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, targetList.FirstOrDefault()), (int)targetList.FirstOrDefault().HitPoints + 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
 
                 // That target is destroyed.
-                coroutine = this.GameController.DestroyCard(this.DecisionMaker, targetList.FirstOrDefault(), cardSource: this.GetCardSource());
+                coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, targetList.FirstOrDefault(), cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

@@ -16,7 +16,7 @@ namespace LazyFanComix.Trailblazer
             IEnumerator coroutine;
 
             // Search for position.
-            coroutine = this.SearchForCards(this.DecisionMaker, true, false, 1, 1, new LinqCardCriteria((Card c) => c.IsPosition, "position"), false, true, false, shuffleAfterwards: true);
+            coroutine = this.SearchForCards(this.HeroTurnTakerController, true, false, 1, 1, new LinqCardCriteria((Card c) => c.IsPosition, "position"), false, true, false, shuffleAfterwards: true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw card.
@@ -24,7 +24,7 @@ namespace LazyFanComix.Trailblazer
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Play card.
-            coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

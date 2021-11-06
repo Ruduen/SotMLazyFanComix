@@ -19,11 +19,11 @@ namespace LazyFanComix.BreachMage
             IEnumerator coroutine;
             List<DestroyCardAction> storedResultsAction = new List<DestroyCardAction>();
             // Damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 3, DamageType.Fire, 1, false, 1, false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 3, DamageType.Fire, 1, false, 1, false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // You may destroy a charge
-            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker,
+            coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController,
                 new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
                 1, false, 0, null, storedResultsAction, null, false, null, false, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -31,7 +31,7 @@ namespace LazyFanComix.BreachMage
             if (storedResultsAction.Count > 0 && storedResultsAction.FirstOrDefault().IsSuccessful)
             {
                 // Activate this effect specifically.
-                coroutine = this.GameController.ActivateAbility(this.GetActivatableAbilities("cast", this.DecisionMaker).FirstOrDefault(), this.GetCardSource());
+                coroutine = this.GameController.ActivateAbility(this.GetActivatableAbilities("cast", this.HeroTurnTakerController).FirstOrDefault(), this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

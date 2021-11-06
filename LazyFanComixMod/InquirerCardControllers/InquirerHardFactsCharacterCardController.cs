@@ -26,7 +26,7 @@ namespace LazyFanComix.Inquirer
 
             // You may play an ongoing.
             IEnumerator coroutine;
-            coroutine = this.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing", true));
+            coroutine = this.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing", true));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Make distortions HP targets. (Note that this does not apply to pre-existing targets - this is a quirk of how the engine currently applies those effects.)
@@ -36,7 +36,7 @@ namespace LazyFanComix.Inquirer
             coroutine = this.AddStatusEffect(makeTargetStatusEffect, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            SelectCardsDecision selectCardsDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlay && c.IsDistortion, SelectionType.CardToDealDamage, null, false, null, true, true, false, new Func<int>(this.NumDistortionsToDamage), null, null, null, this.GetCardSource(null));
+            SelectCardsDecision selectCardsDecision = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => c.IsInPlay && c.IsDistortion, SelectionType.CardToDealDamage, null, false, null, true, true, false, new Func<int>(this.NumDistortionsToDamage), null, null, null, this.GetCardSource(null));
             coroutine = this.GameController.SelectCardsAndDoAction(selectCardsDecision, (SelectCardDecision sc) => this.DistortionDamageResponse(sc, numerals[1], numerals[2]), null, null, this.GetCardSource(null), null, false, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -57,7 +57,7 @@ namespace LazyFanComix.Inquirer
         {
             Card selectedCard = sc.SelectedCard;
             this.actedDistortions.Add(selectedCard);
-            IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, selectedCard), (Card c) => new int?(damageAmount), DamageType.Psychic, () => numberOfTargets, false, new int?(numberOfTargets), cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, selectedCard), (Card c) => new int?(damageAmount), DamageType.Psychic, () => numberOfTargets, false, new int?(numberOfTargets), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
@@ -69,19 +69,19 @@ namespace LazyFanComix.Inquirer
             {
                 case 0:
                     {
-                        coroutine = this.SelectHeroToPlayCard(this.DecisionMaker);
+                        coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 1:
                     {
-                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
+                        coroutine = base.GameController.SelectHeroToUsePower(this.HeroTurnTakerController, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 2:
                     {
-                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

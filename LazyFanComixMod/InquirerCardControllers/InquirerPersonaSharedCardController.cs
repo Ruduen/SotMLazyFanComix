@@ -26,7 +26,7 @@ namespace LazyFanComix.Inquirer
         }
 
         // TODO: Change to Select Cards and Move if appropriate.
-        // TODO: Validate if DecisionMaker should be this.DecisionMaker, or if this.DecisionMaker works well.
+        // TODO: Validate if DecisionMaker should be this.HeroTurnTakerController, or if this.HeroTurnTakerController works well.
         private IEnumerator MoveOrDestroyResponse(PhaseChangeAction phaseChange)
         {
             IEnumerator coroutine;
@@ -34,7 +34,7 @@ namespace LazyFanComix.Inquirer
             if (this.HeroTurnTaker.Trash.Cards.Count<Card>() >= 3)
             {
                 // Ask if we should move the top two cards of the trash to the bottom of the deck for things.
-                YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCard, 3, associatedCards: new List<Card> { this.Card }, cardSource: this.GetCardSource());
+                YesNoAmountDecision yesNoDecision = new YesNoAmountDecision(this.GameController, this.HeroTurnTakerController, SelectionType.MoveCard, 3, associatedCards: new List<Card> { this.Card }, cardSource: this.GetCardSource());
                 coroutine = this.GameController.MakeDecisionAction(yesNoDecision);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -42,20 +42,20 @@ namespace LazyFanComix.Inquirer
                 {
                     List<MoveCardAction> storedResults = new List<MoveCardAction>();
                     // Move the top three cards.
-                    coroutine = this.GameController.MoveCards(this.DecisionMaker, this.HeroTurnTaker.Trash.GetTopCards(3), this.HeroTurnTaker.Deck, true, storedResultsAction: storedResults, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, this.HeroTurnTaker.Trash.GetTopCards(3), this.HeroTurnTaker.Deck, true, storedResultsAction: storedResults, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     if (storedResults.Count != 3 || storedResults.Any((MoveCardAction mca) => !mca.WasCardMoved))
                     {
                         // Failed Movement - destroy.
-                        coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
+                        coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                 }
                 else
                 {
                     // No movement - destroy.
-                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
+                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }
@@ -63,7 +63,7 @@ namespace LazyFanComix.Inquirer
             {
                 // Not enough cards - automatically destroy.
                 // TODO: Add message if appropriate.
-                coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
+                coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, false, null, null, null, null, null, null, null, null, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

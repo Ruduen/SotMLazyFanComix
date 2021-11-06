@@ -26,7 +26,7 @@ namespace LazyFanComix.Ra
             IEnumerator coroutine;
 
             // Deal up to 1 targets damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Fire, powerNumerals[0], false, powerNumerals[0], true, storedResultsDamage: storedResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Fire, powerNumerals[0], false, powerNumerals[0], true, storedResultsDamage: storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // If damaged targets are destroyed. This is weird in case of redirectors, but blame Wrecking Uppercut for doing it this way, opposed to 'original target'.

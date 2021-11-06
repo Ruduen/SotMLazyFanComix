@@ -24,9 +24,9 @@ namespace LazyFanComix.Guise
             SelectFunctionDecision sfd;
             IEnumerator coroutine;
 
-            //list.Add(new Function(this.DecisionMaker, "Play " + numerals[2] + " ongoing and make it indestructible", SelectionType.PlayCard, () => PlayOngoingAndMakeIndestructable(numerals[1]), this.CanPlayCardsFromHand(this.DecisionMaker) && this.HeroTurnTaker.Hand.Cards.Any((Card c) => c.IsOngoing), this.TurnTaker.Name + " cannot draw or discard any cards, so they must play " + numerals[1] + " ongoing and make it indestructible."));
-            //list.Add(new Function(this.DecisionMaker, "Draw " + numerals[0] + " Cards and discard " + numerals[1] + " card.", SelectionType.DrawCard, () => DrawAndDiscardCards(numerals[0],numerals[1]), this.CanDrawCards(this.DecisionMaker) || this.HeroTurnTaker.Hand.HasCards, this.TurnTaker.Name + " cannot play any ongoings, so they must draw and discard cards."));
-            //sfd = new SelectFunctionDecision(this.GameController, this.DecisionMaker, list, false, null, this.TurnTaker.Name + " cannot draw or discard any cards or play any ongoings, so " + this.Card.Title + " has no effect.", null, this.GetCardSource());
+            //list.Add(new Function(this.HeroTurnTakerController, "Play " + numerals[2] + " ongoing and make it indestructible", SelectionType.PlayCard, () => PlayOngoingAndMakeIndestructable(numerals[1]), this.CanPlayCardsFromHand(this.HeroTurnTakerController) && this.HeroTurnTaker.Hand.Cards.Any((Card c) => c.IsOngoing), this.TurnTaker.Name + " cannot draw or discard any cards, so they must play " + numerals[1] + " ongoing and make it indestructible."));
+            //list.Add(new Function(this.HeroTurnTakerController, "Draw " + numerals[0] + " Cards and discard " + numerals[1] + " card.", SelectionType.DrawCard, () => DrawAndDiscardCards(numerals[0],numerals[1]), this.CanDrawCards(this.HeroTurnTakerController) || this.HeroTurnTaker.Hand.HasCards, this.TurnTaker.Name + " cannot play any ongoings, so they must draw and discard cards."));
+            //sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, list, false, null, this.TurnTaker.Name + " cannot draw or discard any cards or play any ongoings, so " + this.Card.Title + " has no effect.", null, this.GetCardSource());
 
             //coroutine = this.GameController.SelectAndPerformFunction(sfd, null, null);
             //if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -43,10 +43,10 @@ namespace LazyFanComix.Guise
         //private IEnumerator DrawAndDiscardCards(int drawNum, int discNum)
         //{
         //    IEnumerator coroutine;
-        //    coroutine = this.DrawCards(this.DecisionMaker, drawNum);
+        //    coroutine = this.DrawCards(this.HeroTurnTakerController, drawNum);
         //    if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-        //    coroutine = this.SelectAndDiscardCards(this.DecisionMaker, discNum);
+        //    coroutine = this.SelectAndDiscardCards(this.HeroTurnTakerController, discNum);
         //    if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         //}
 
@@ -55,7 +55,7 @@ namespace LazyFanComix.Guise
             List<PlayCardAction> pcaResults = new List<PlayCardAction>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, numeral, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.IsOngoing), storedResults: pcaResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, numeral, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.IsOngoing), storedResults: pcaResults, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             List<Card> playedAndValidCards = pcaResults.Where((PlayCardAction pca) => pca.WasCardPlayed && pca.CardToPlay.IsInPlay).Select((PlayCardAction pca) => pca.CardToPlay).ToList();

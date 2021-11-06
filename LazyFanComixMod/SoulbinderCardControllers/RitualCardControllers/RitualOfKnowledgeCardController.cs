@@ -16,13 +16,13 @@ namespace LazyFanComix.Soulbinder
         protected override IEnumerator RitualCompleteResponse()
         {
             IEnumerator coroutine;
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 4, true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, 4, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndUsePower(this.HeroTurnTakerController, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

@@ -103,35 +103,49 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestAkashThriyaEnvDestroy()
+        public void TestAkashThriya()
         {
-            SetupGameController("BaronBlade", "AkashThriya/LazyFanComix.AkashThriyaPlantEssenceCharacter", "TheBlock");
+            SetupGameController("BaronBlade", "AkashThriya/LazyFanComix.AkashThriyaPlantEssenceCharacter", "TheEnclaveOfTheEndlings");
 
             StartGame();
 
             Assert.IsTrue(thriya.CharacterCard.IsPromoCard);
 
-            Card tree = PutInHand("AkashFlora");
+            Card tree = PutOnDeck("AkashFlora");
 
             DecisionSelectCard = tree;
 
-            QuickHandStorage(thriya);
+            DiscardAllCards(thriya);
             UsePower(thriya);
-            QuickHandCheck(0);
+            AssertAtLocation(tree, thriya.HeroTurnTaker.Hand);
+
+            UsePower(thriya);
+
+            AssertOnTopOfDeck(env, tree, 2);
 
             PlayTopCard(env);
             PlayTopCard(env);
-
-            // Confirm tree exists at this point - no Environment shenanigan should destroy it.
-            AssertIsInPlay(tree);
+            AssertNotInPlay(tree);
+            PlayTopCard(env);
+            AssertIsInPlay(tree);            // Confirm tree exists at this point - no Environment shenanigan should destroy it.
 
             // Check nothing completely breaks when dealing with an empty hand.
             DiscardAllCards(thriya);
             UsePower(thriya);
+            AssertNumberOfCardsInHand(thriya, 1); // Forced Draw. 
 
             // Check nothing completely breaks if the environment deck is empty. 
+            DiscardAllCards(thriya);
+            PutInHand(tree);
             MoveAllCards(env, env.TurnTaker.Deck, env.TurnTaker.Trash);
             UsePower(thriya);
+            AssertOnTopOfDeck(env, tree);
+
+            // Check single card on top still works.
+            Card pollen = PutInHand("HealingPollen");
+            UsePower(thriya);
+            AssertOnTopOfDeck(env, tree); // Tree then pollen, given previous deck was just tree.
+            AssertOnTopOfDeck(env, pollen, 1);
         }
 
         [Test()]
@@ -586,6 +600,28 @@ namespace LazyFanComixTest
             UsePower(guise);
             QuickHandCheck(1); // 1 Card Drawn.
         }
+
+        [Test()]
+        public void TestGuiseTribunalFullWat()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "Guise", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            SelectFromBoxForNextDecision("CompletionistGuiseCharacter", "Guise");
+            PlayCard("RepresentativeOfEarth");
+
+            SelectFromBoxForNextDecision("SantaGuiseCharacter", "Guise");
+            DecisionSelectCard = FindCardInPlay("GuiseCharacter", 0);
+
+            UsePower(FindCardInPlay("GuiseCharacter", 1));
+        }
+
+
 
         [Test()]
         public void TestHaka()

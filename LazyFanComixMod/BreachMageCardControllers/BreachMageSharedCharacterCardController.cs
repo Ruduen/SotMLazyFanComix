@@ -102,7 +102,7 @@ namespace LazyFanComix.BreachMage
             }
             else
             {
-                coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", new LinqCardCriteria(card), null, false, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectAndActivateAbility(this.HeroTurnTakerController, "cast", new LinqCardCriteria(card), null, false, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
@@ -121,7 +121,7 @@ namespace LazyFanComix.BreachMage
         //        storedResults.Clear();
 
         //        // Use a Cast.
-        //        coroutine = this.GameController.SelectAndActivateAbility(this.DecisionMaker, "cast", new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsSpell && !usedAbilityCards.Contains(c)), storedResults, true, this.GetCardSource());
+        //        coroutine = this.GameController.SelectAndActivateAbility(this.HeroTurnTakerController, "cast", new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && c.IsSpell && !usedAbilityCards.Contains(c)), storedResults, true, this.GetCardSource());
         //        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         //        if (storedResults.Count > 0 && storedResults.FirstOrDefault().Completed)
@@ -129,7 +129,7 @@ namespace LazyFanComix.BreachMage
         //            Card castCard = storedResults.FirstOrDefault().SelectedCard;
 
         //            // Destroy the cast card.
-        //            coroutine = this.GameController.DestroyCard(this.DecisionMaker, castCard);
+        //            coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, castCard);
         //            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         //            // Track for future iterations if appropriate, to avoid indestructible edge cases.
@@ -155,19 +155,19 @@ namespace LazyFanComix.BreachMage
             {
                 case 0:
                     {
-                        coroutine = this.SelectHeroToPlayCard(this.DecisionMaker);
+                        coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 1:
                     {
-                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
+                        coroutine = base.GameController.SelectHeroToUsePower(this.HeroTurnTakerController, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 2:
                     {
-                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

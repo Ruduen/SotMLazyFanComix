@@ -39,7 +39,7 @@ namespace LazyFanComix.Recall
                     if (this.TurnTaker.Trash.HasCards)
                     {
                         Log.Debug(this.TurnTaker.Name + " ran out of cards to discard from their deck.");
-                        coroutine = this.GameController.ShuffleTrashIntoDeck(this.DecisionMaker, cardSource: this.GetCardSource());
+                        coroutine = this.GameController.ShuffleTrashIntoDeck(this.HeroTurnTakerController, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                     else
@@ -49,11 +49,11 @@ namespace LazyFanComix.Recall
                 }
                 if (this.TurnTaker.Deck.HasCards)
                 {
-                    coroutine = this.GameController.MoveCards(this.DecisionMaker, new Card[] { this.TurnTaker.Deck.TopCard }, this.CharacterCard.UnderLocation, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, new Card[] { this.TurnTaker.Deck.TopCard }, this.CharacterCard.UnderLocation, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
 
-                coroutine = this.TakeAFullTurnNow(this.DecisionMaker);
+                coroutine = this.TakeAFullTurnNow(this.HeroTurnTakerController);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

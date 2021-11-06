@@ -22,7 +22,7 @@ namespace LazyFanComix.Recall
                 if (this.HeroTurnTaker.Trash.Cards.Count() > 0)
                 {
                     // Play the top card of your trash.
-                    coroutine = this.GameController.PlayCard(this.DecisionMaker, this.HeroTurnTaker.Trash.TopCard, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.PlayCard(this.HeroTurnTakerController, this.HeroTurnTaker.Trash.TopCard, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else
@@ -32,7 +32,7 @@ namespace LazyFanComix.Recall
                 }
             }
 
-            coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

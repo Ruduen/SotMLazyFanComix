@@ -21,11 +21,11 @@ namespace LazyFanComix.CaptainCosmic
             IEnumerator coroutine;
 
             // Draw a card.
-            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Select a construct target.
-            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.SelectTargetFriendly,
+            coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.SelectTargetFriendly,
                 new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsConstruct && c.IsTarget, "construct target"),
                 storedResults, false, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

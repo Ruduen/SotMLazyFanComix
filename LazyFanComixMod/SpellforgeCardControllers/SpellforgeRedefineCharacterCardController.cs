@@ -29,7 +29,7 @@ namespace LazyFanComix.Spellforge
             TurnTaker turnTaker;
 
             // Discard prefix.
-            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix"), "prefix"), cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix"), "prefix"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
@@ -39,7 +39,7 @@ namespace LazyFanComix.Spellforge
 
             // Discard suffix.
             storedResults.Clear();
-            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("suffix"), "suffix"), cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("suffix"), "suffix"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
@@ -54,7 +54,7 @@ namespace LazyFanComix.Spellforge
             //}
 
             //// Deal up to 3 targets 1 infernal (as a base).
-            //coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, 0, false, false, false, null, null, null, null, null, false, null, null, false, null, cardSource);
+            //coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, 0, false, false, false, null, null, null, null, null, false, null, null, false, null, cardSource);
             //if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Add temporary trigger before the card is played to apply modifiers.
@@ -66,7 +66,7 @@ namespace LazyFanComix.Spellforge
             );
 
             // Select a hero.
-            coroutine = this.GameController.SelectHeroTurnTaker(this.DecisionMaker, SelectionType.PlayCard, false, false, sttdResults, new LinqTurnTakerCriteria((TurnTaker tt) => tt != this.HeroTurnTaker), cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectHeroTurnTaker(this.HeroTurnTakerController, SelectionType.PlayCard, false, false, sttdResults, new LinqTurnTakerCriteria((TurnTaker tt) => tt != this.HeroTurnTaker), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // That hero plays a oneshot.
@@ -123,19 +123,19 @@ namespace LazyFanComix.Spellforge
             {
                 case 0:
                     {
-                        coroutine = this.SelectHeroToPlayCard(this.DecisionMaker);
+                        coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 1:
                     {
-                        coroutine = base.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
+                        coroutine = base.GameController.SelectHeroToUsePower(this.HeroTurnTakerController, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
                 case 2:
                     {
-                        coroutine = base.GameController.SelectHeroToDrawCard(this.DecisionMaker, cardSource: this.GetCardSource());
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }

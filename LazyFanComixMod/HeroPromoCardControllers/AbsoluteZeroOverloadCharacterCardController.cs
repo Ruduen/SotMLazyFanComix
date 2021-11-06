@@ -44,10 +44,10 @@ namespace LazyFanComix.AbsoluteZero
         private IEnumerator DrawAndDestroyCoroutine(int numeral)
         {
             IEnumerator coroutine;
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, numeral, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, numeral, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker, cardCriteria: new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && this.IsEquipment(c), "equipment"), false, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDestroyCard(this.HeroTurnTakerController, cardCriteria: new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && this.IsEquipment(c), "equipment"), false, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

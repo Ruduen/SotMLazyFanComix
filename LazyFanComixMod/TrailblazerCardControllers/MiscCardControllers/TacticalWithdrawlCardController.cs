@@ -18,7 +18,7 @@ namespace LazyFanComix.Trailblazer
             List<PlayCardAction> storedResults = new List<PlayCardAction>();
 
             coroutine = this.GameController.SelectCardAndDoAction(
-                new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.UsePower, this.GameController.FindCardsWhere((Card c) => c.IsPosition && c.IsInPlay && c.HasPowers && c.Owner == this.HeroTurnTaker), cardSource: this.GetCardSource()),
+                new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.UsePower, this.GameController.FindCardsWhere((Card c) => c.IsPosition && c.IsInPlay && c.HasPowers && c.Owner == this.HeroTurnTaker), cardSource: this.GetCardSource()),
                 (SelectCardDecision scd) => this.UseSelectedCardPowerTwice(scd)
             );
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -38,7 +38,7 @@ namespace LazyFanComix.Trailblazer
                 coroutine = this.GameController.UsePower(scd.SelectedCard, 0, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                coroutine = this.GameController.DestroyCard(this.DecisionMaker, scd.SelectedCard, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, scd.SelectedCard, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

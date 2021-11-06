@@ -32,7 +32,7 @@ namespace LazyFanComix.Recall
             };
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), numerals[1], DamageType.Projectile, numerals[0], false, numerals[0], storedResultsDecisions: scdResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), numerals[1], DamageType.Projectile, numerals[0], false, numerals[0], storedResultsDecisions: scdResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             foreach (Card c in scdResults.Select((SelectCardDecision scd) => scd.SelectedCard))
@@ -55,7 +55,7 @@ namespace LazyFanComix.Recall
             List<SelectCardDecision> scdResults = new List<SelectCardDecision>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.TurnTaker.CharacterCard), 1, DamageType.Projectile, 1, false, 0, storedResultsDecisions: scdResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.TurnTaker.CharacterCard), 1, DamageType.Projectile, 1, false, 0, storedResultsDecisions: scdResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (scdResults.Count > 0 && scdResults.Any((SelectCardDecision scd) => scd.SelectedCard != null))

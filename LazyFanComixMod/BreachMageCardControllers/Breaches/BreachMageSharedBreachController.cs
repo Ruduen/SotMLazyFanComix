@@ -20,7 +20,7 @@ namespace LazyFanComix.BreachMage
         public virtual IEnumerator UseOpenPower()
         {
             // Play card.
-            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker);
+            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.HeroTurnTakerController);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

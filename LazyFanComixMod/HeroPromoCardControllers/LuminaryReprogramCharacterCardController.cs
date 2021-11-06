@@ -26,7 +26,7 @@ namespace LazyFanComix.Luminary
 
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Lightning, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddaResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Lightning, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddaResults, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
 
@@ -36,11 +36,11 @@ namespace LazyFanComix.Luminary
             if (devices.Count() > 0)
             {
                 // Targets in the Device list deal damage to themselves.
-                coroutine = this.GameController.SelectTargetsToDealDamageToSelf(this.DecisionMaker, powerNumerals[2], DamageType.Lightning, null, false, null, additionalCriteria: (Card c) => devices.Contains(c), cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectTargetsToDealDamageToSelf(this.HeroTurnTakerController, powerNumerals[2], DamageType.Lightning, null, false, null, additionalCriteria: (Card c) => devices.Contains(c), cardSource: this.GetCardSource());
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // Draw 2 cards.
-                coroutine = this.DrawCards(this.DecisionMaker, powerNumerals[3]);
+                coroutine = this.DrawCards(this.HeroTurnTakerController, powerNumerals[3]);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // You may play a device.

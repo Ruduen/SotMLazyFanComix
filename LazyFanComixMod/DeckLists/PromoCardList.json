@@ -70,10 +70,10 @@
       "backgroundColor": "C87B40",
       "foilBackgroundColor": "C87B40",
       "character": true,
-      "powers": "Shuffle the Environment deck. Put a card from your Hand under the top card of the Environment deck. Draw a card.",
+      "powers": "Shuffle the Environment deck. Either draw a card or put a card from your Hand under the top 2 cards of the Environment deck.",
       "hitpoints": 45,
       "icons": [ "HasPower", "Manipulate", "DrawCardNow" ],
-      "nemesisIdentifiers": [ "AkashThriya" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",
@@ -135,7 +135,7 @@
       "powers": "You may play a Software card. {Benchmark} deals 1 Target Lightning Damage equal to the number of Software cards in play.",
       "hitpoints": 23,
       "icons": [ "HasPower", "PlayCardNow", "DealDamageLightning" ],
-      "nemesisIdentifiers": [ "Benchmark" ],
+      "nemesisIdentifiers": [ "OblivAeon" ],
       "incapacitatedAbilities": [
         "One player may play a card.",
         "One hero may use a power.",

@@ -25,7 +25,7 @@ namespace LazyFanComix.TheHarpy
             int powerNumeral = GetPowerNumeral(0, 1);
 
             // Draw a card.
-            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.FlipAllControlTokenAndDamage(powerNumeral);
@@ -64,7 +64,7 @@ namespace LazyFanComix.TheHarpy
                             "Flip " + avianToFlip + " {avian}"
                         };
 
-                coroutine = this.GameController.SelectWord(this.DecisionMaker, words, SelectionType.HarpyTokenType, storedResultsWord, false, null, this.GetCardSource());
+                coroutine = this.GameController.SelectWord(this.HeroTurnTakerController, words, SelectionType.HarpyTokenType, storedResultsWord, false, null, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 string text = this.GetSelectedWord(storedResultsWord);

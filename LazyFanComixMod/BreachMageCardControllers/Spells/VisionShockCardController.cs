@@ -17,12 +17,12 @@ namespace LazyFanComix.BreachMage
         {
             IEnumerator coroutine;
             // Damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 4, DamageType.Lightning, new int?(1), false, new int?(1), false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 4, DamageType.Lightning, new int?(1), false, new int?(1), false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Reveal the top 2 cards of 1 deck and rearranged. Based on Hyperactive Senses.
             List<SelectLocationDecision> storedResults = new List<SelectLocationDecision>();
-            coroutine = this.SelectDecks(this.DecisionMaker, 1, SelectionType.RevealCardsFromDeck, (Location l) => true, storedResults, false);
+            coroutine = this.SelectDecks(this.HeroTurnTakerController, 1, SelectionType.RevealCardsFromDeck, (Location l) => true, storedResults, false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Fetch selected deck.
@@ -39,7 +39,7 @@ namespace LazyFanComix.BreachMage
                 {
                     // If there are cards remaining, select the top card to return.
                     List<SelectCardDecision> storedTop = new List<SelectCardDecision>();
-                    coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.MoveCardOnDeck, storedCards, storedTop, false, false, null, null, null, null, null, false, true, null);
+                    coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.MoveCardOnDeck, storedCards, storedTop, false, false, null, null, null, null, null, false, true, null);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     Card topCard = this.GetSelectedCard(storedTop);

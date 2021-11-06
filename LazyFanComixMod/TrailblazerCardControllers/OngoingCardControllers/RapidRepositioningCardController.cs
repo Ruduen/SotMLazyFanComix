@@ -28,12 +28,12 @@ namespace LazyFanComix.Trailblazer
             List<DestroyCardAction> dcaResults = new List<DestroyCardAction>();
 
             // You may destroy a Position. If you do, play a card.
-            coroutine = this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsPosition), true, dcaResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDestroyCard(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsPosition), true, dcaResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (dcaResults.Count > 0 && dcaResults.FirstOrDefault().WasCardDestroyed)
             {
-                coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectAndPlayCardFromHand(this.HeroTurnTakerController, true, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

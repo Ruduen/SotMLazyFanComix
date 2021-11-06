@@ -25,7 +25,7 @@ namespace LazyFanComix.Haka
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw until you have 3.
-            coroutine = this.DrawCardsUntilHandSizeReached(this.DecisionMaker, powerNumeral);
+            coroutine = this.DrawCardsUntilHandSizeReached(this.HeroTurnTakerController, powerNumeral);
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

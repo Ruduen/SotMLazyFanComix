@@ -26,7 +26,7 @@ namespace LazyFanComix.LaComodora
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Flip a card face-up.
-            coroutine = this.GameController.SelectAndFlipCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.HeroTurnTaker.PlayArea && c.IsFaceDownNonCharacter && !c.IsMissionCard, "face-down cards in " + turnTakerName + "'s play area"), 1, false, false, 1, null, true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndFlipCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.Location == this.HeroTurnTaker.PlayArea && c.IsFaceDownNonCharacter && !c.IsMissionCard, "face-down cards in " + turnTakerName + "'s play area"), 1, false, false, 1, null, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Set up an effect to respond when your equipment is destroyed
@@ -56,7 +56,7 @@ namespace LazyFanComix.LaComodora
                 else
                 {
                     List<YesNoCardDecision> storedResults = new List<YesNoCardDecision>();
-                    coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.Custom, destroy.CardToDestroy.Card, storedResults: storedResults, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.MakeYesNoCardDecision(this.HeroTurnTakerController, SelectionType.Custom, destroy.CardToDestroy.Card, storedResults: storedResults, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     if (this.DidPlayerAnswerYes(storedResults))

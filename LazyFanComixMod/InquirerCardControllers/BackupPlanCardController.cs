@@ -25,9 +25,9 @@ namespace LazyFanComix.Inquirer
 
             IEnumerator coroutine;
             // Deal Damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            //coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[1]);
+            //coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[1]);
 
             // Heal.
             coroutine = this.GameController.GainHP(this.CharacterCard, powerNumerals[2], cardSource: this.GetCardSource());
@@ -35,7 +35,7 @@ namespace LazyFanComix.Inquirer
 
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             // Discard card.
-            coroutine = this.GameController.SelectAndDiscardCard(this.DecisionMaker, true, null, storedResults, SelectionType.DiscardCard);
+            coroutine = this.GameController.SelectAndDiscardCard(this.HeroTurnTakerController, true, null, storedResults, SelectionType.DiscardCard);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.DidDiscardCards(storedResults))

@@ -15,7 +15,7 @@ namespace LazyFanComix.Recall
 
         public override void AddTriggers()
         {
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), 2, DamageType.Projectile, 1, false, 1, cardSource: this.GetCardSource()), TriggerType.DealDamage);
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), 2, DamageType.Projectile, 1, false, 1, cardSource: this.GetCardSource()), TriggerType.DealDamage);
             this.AddTrigger<DestroyCardAction>(
                 (DestroyCardAction dca) => dca.CardToDestroy.Card == this.CharacterCard,
                 PreventDestructionResponse,
@@ -40,12 +40,12 @@ namespace LazyFanComix.Recall
                 this.GetPowerNumeral(2, 2)
             };
             IEnumerator coroutine;
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), numerals[1], DamageType.Energy, numerals[0], false, numerals[0], storedResultsDecisions: scdResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), numerals[1], DamageType.Energy, numerals[0], false, numerals[0], storedResultsDecisions: scdResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (scdResults.Count > 0)
             {
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, this.CharacterCard, (Card c) => scdResults.Select((SelectCardDecision scd) => scd.SelectedCard).Contains(c), numerals[2], DamageType.Energy, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DealDamage(this.HeroTurnTakerController, this.CharacterCard, (Card c) => scdResults.Select((SelectCardDecision scd) => scd.SelectedCard).Contains(c), numerals[2], DamageType.Energy, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
@@ -61,7 +61,7 @@ namespace LazyFanComix.Recall
             coroutine = this.GameController.SetHP(dca.CardToDestroy.Card, 7, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

@@ -33,12 +33,12 @@ namespace LazyFanComix.Trailblazer
             ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => DamageBoost(numerals[2]));
 
             // Deal 1 target 3 fire damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), numerals[1], DamageType.Fire, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), numerals[1], DamageType.Fire, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             this.RemoveTrigger(tempIncrease);
 
-            coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
@@ -50,7 +50,7 @@ namespace LazyFanComix.Trailblazer
         private IEnumerator ResponseAction(DestroyCardAction dca)
         {
             List<YesNoCardDecision> yncdResults = new List<YesNoCardDecision>();
-            IEnumerator coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.MoveCardToUnderCard, dca.CardToDestroy.Card, storedResults: yncdResults, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.MakeYesNoCardDecision(this.HeroTurnTakerController, SelectionType.MoveCardToUnderCard, dca.CardToDestroy.Card, storedResults: yncdResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.DidPlayerAnswerYes(yncdResults))
@@ -66,7 +66,7 @@ namespace LazyFanComix.Trailblazer
             {
                 Card c = this.Card.UnderLocation.TopCard;
                 MoveCardDestination trashDestination = this.GameController.FindCardController(c).GetTrashDestination();
-                coroutine = this.GameController.MoveCard(this.DecisionMaker, c, trashDestination.Location, trashDestination.ToBottom, cardSource: this.GetCardSource());
+                coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, c, trashDestination.Location, trashDestination.ToBottom, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

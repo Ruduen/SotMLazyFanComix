@@ -26,11 +26,11 @@ namespace LazyFanComix.BreachMage
         {
             // Play a card
             IEnumerator coroutine;
-            coroutine = this.SelectAndPlayCardFromHand(this.DecisionMaker);
+            coroutine = this.SelectAndPlayCardFromHand(this.HeroTurnTakerController);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw a card.
-            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

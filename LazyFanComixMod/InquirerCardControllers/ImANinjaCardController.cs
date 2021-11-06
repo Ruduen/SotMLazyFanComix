@@ -33,13 +33,13 @@ namespace LazyFanComix.Inquirer
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectAndDiscardCard(this.DecisionMaker, true, null, storedResults, SelectionType.DiscardCard, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDiscardCard(this.HeroTurnTakerController, true, null, storedResults, SelectionType.DiscardCard, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.DidDiscardCards(storedResults, null, false))
             {
                 // Select and use a power.
-                coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, false);
+                coroutine = this.GameController.SelectAndUsePower(this.HeroTurnTakerController, false);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

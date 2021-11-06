@@ -38,7 +38,7 @@ namespace LazyFanComix.Knyfe
             coroutine = this.AddStatusEffect(onDealDamageStatusEffect);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.DrawACardOrPlayACard(this.DecisionMaker, false);
+            coroutine = this.DrawACardOrPlayACard(this.HeroTurnTakerController, false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

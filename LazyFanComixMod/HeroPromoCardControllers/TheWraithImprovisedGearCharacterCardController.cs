@@ -41,12 +41,12 @@ namespace LazyFanComix.TheWraith
                     else
                     {
                         // Use very specific check on card to future-proof for multiple options.
-                        coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, false, (Power p) => p.CardSource.Card == card, 2, cardSource: this.GetCardSource());
+                        coroutine = this.GameController.SelectAndUsePower(this.HeroTurnTakerController, false, (Power p) => p.CardSource.Card == card, 2, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
 
                     // Destory the card.
-                    coroutine = this.GameController.DestroyCard(this.DecisionMaker, card, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, card, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else

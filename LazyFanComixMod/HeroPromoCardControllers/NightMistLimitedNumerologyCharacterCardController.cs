@@ -30,7 +30,7 @@ namespace LazyFanComix.NightMist
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Play a card
-            coroutine = this.DrawACardOrPlayACard(this.DecisionMaker, true);
+            coroutine = this.DrawACardOrPlayACard(this.HeroTurnTakerController, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         }

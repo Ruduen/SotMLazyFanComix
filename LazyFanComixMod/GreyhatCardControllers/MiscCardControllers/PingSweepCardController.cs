@@ -18,11 +18,11 @@ namespace LazyFanComix.Greyhat
             IEnumerator coroutine;
 
             // Search for and reveal 2 links.
-            coroutine = this.GameController.RevealCards(this.DecisionMaker, this.TurnTaker.Deck, (Card c) => c.IsLink, 2, rcaResults, RevealedCardDisplay.None, this.GetCardSource());
+            coroutine = this.GameController.RevealCards(this.HeroTurnTakerController, this.TurnTaker.Deck, (Card c) => c.IsLink, 2, rcaResults, RevealedCardDisplay.None, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Move them into play.
-            coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, this.TurnTaker.Revealed, 2, 2, new LinqCardCriteria((Card c) => c.IsLink && rcaResults.SelectMany((RevealCardsAction rc) => rc.RevealedCards).Contains(c), "link"), new MoveCardDestination[] { new MoveCardDestination(this.TurnTaker.PlayArea) }, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.HeroTurnTakerController, this.TurnTaker.Revealed, 2, 2, new LinqCardCriteria((Card c) => c.IsLink && rcaResults.SelectMany((RevealCardsAction rc) => rc.RevealedCards).Contains(c), "link"), new MoveCardDestination[] { new MoveCardDestination(this.TurnTaker.PlayArea) }, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Clean up revealed cards.

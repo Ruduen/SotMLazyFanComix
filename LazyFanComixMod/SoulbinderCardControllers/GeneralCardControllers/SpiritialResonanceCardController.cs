@@ -18,7 +18,7 @@ namespace LazyFanComix.Soulbinder
             IEnumerator coroutine;
             List<Card> targetList = new List<Card>();
 
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 3, true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, 3, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.GainHP(this.HeroTurnTakerController, (Card c) => c.Owner == this.TurnTaker, 2, cardSource: this.GetCardSource());

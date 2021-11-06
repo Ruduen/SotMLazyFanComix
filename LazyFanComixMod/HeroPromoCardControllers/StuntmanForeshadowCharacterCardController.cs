@@ -17,13 +17,13 @@ namespace LazyFanComix.Stuntman
             IEnumerator coroutine;
 
             // Draw a card.
-            coroutine = this.DrawCards(this.DecisionMaker, 1);
+            coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Off-turn, draw a card.
             if (this.GameController.ActiveTurnTaker != this.TurnTaker)
             {
-                coroutine = this.DrawCards(this.DecisionMaker, 1);
+                coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

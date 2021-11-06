@@ -29,7 +29,7 @@ namespace LazyFanComix.Trailblazer
             };
 
             // Deal each non-Hero target 1 damage.
-            coroutine = this.GameController.DealDamage(this.DecisionMaker, this.HeroTurnTaker.CharacterCard, new Func<Card, bool>((Card c) => !c.IsHero), powerNumerals[0], DamageType.Projectile, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DealDamage(this.HeroTurnTakerController, this.HeroTurnTaker.CharacterCard, new Func<Card, bool>((Card c) => !c.IsHero), powerNumerals[0], DamageType.Projectile, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

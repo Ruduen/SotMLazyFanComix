@@ -42,7 +42,7 @@ namespace LazyFanComix.Trailblazer
             };
 
             // Up to 2 Other Targets Regain 2 HP.
-            coroutine = this.GameController.SelectAndGainHP(this.DecisionMaker, powerNumerals[1], false, (Card c)=>c != this.CharacterCard, powerNumerals[0], 0, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndGainHP(this.HeroTurnTakerController, powerNumerals[1], false, (Card c)=>c != this.CharacterCard, powerNumerals[0], 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

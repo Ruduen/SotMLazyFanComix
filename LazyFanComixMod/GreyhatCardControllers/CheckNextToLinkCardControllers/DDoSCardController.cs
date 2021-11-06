@@ -18,7 +18,7 @@ namespace LazyFanComix.Greyhat
             List<Card> didDamageCards = new List<Card>();
 
             // Select players next to links to deal damage.
-            SelectCardsDecision selectHeroDecision = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => this.CardsLinksAreNextToHeroes.Contains(c), SelectionType.SelectTargetFriendly, null, false, null, true, true, false, () => NumHeroesToDealDamage(didDamageCards), cardSource: this.GetCardSource());
+            SelectCardsDecision selectHeroDecision = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => this.CardsLinksAreNextToHeroes.Contains(c), SelectionType.SelectTargetFriendly, null, false, null, true, true, false, () => NumHeroesToDealDamage(didDamageCards), cardSource: this.GetCardSource());
             coroutine = this.GameController.SelectCardsAndDoAction(selectHeroDecision, (SelectCardDecision scd) => SelectedHeroDealsDamage(scd, didDamageCards), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
@@ -29,7 +29,7 @@ namespace LazyFanComix.Greyhat
             if (nextTo != null)
             {
                 didDamageCards.Add(nextTo);
-                IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, nextTo, (Card c) => this.CardsLinksAreNextToNonHero.Contains(c), 1, DamageType.Energy, cardSource: this.GetCardSource());
+                IEnumerator coroutine = this.GameController.DealDamage(this.HeroTurnTakerController, nextTo, (Card c) => this.CardsLinksAreNextToNonHero.Contains(c), 1, DamageType.Energy, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

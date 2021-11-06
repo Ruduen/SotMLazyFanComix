@@ -57,7 +57,7 @@ namespace LazyFanComix.Soulbinder
             IEnumerator coroutine;
 
             // Move a card from under this into play.
-            coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, this.Card.UnderLocation, 1, 1, new LinqCardCriteria(), new List<MoveCardDestination>() { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectCardsFromLocationAndMoveThem(this.HeroTurnTakerController, this.Card.UnderLocation, 1, 1, new LinqCardCriteria(), new List<MoveCardDestination>() { new MoveCardDestination(this.TurnTaker.PlayArea) }, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

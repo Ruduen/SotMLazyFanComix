@@ -20,7 +20,7 @@ namespace LazyFanComix.Recall
             coroutine = this.DamageSelfMoveCard();
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.TakeAFullTurnNow(this.DecisionMaker);
+            coroutine = this.TakeAFullTurnNow(this.HeroTurnTakerController);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
 
