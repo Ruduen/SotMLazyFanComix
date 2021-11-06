@@ -50,6 +50,23 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestInnatePowerTribunal()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Inquirer/LazyFanComix.InquirerLiesOnLiesCharacter", "TheCelestialTribunal");
+
+            StartGame();
+            DiscardAllCards(Inquirer);
+
+            PlayCard("YoureOnOurSide");
+            PlayCard("IveFixedTheWound");
+
+            SelectFromBoxForNextDecision("LazyFanComix.InquirerCharacter", "LazyFanComix.Inquirer");
+            PlayCard("CalledToJudgement");
+
+            UsePower(FindCardInPlay("InquirerCharacter", 1));
+        }
+
+        [Test()]
         public void TestInnateIncap()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Inquirer", "Legacy", "Megalopolis");

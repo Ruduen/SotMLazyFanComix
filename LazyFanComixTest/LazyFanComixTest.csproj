@@ -76,6 +76,7 @@
     <Content Include="TestsToAddress\TestsFixed\TribunalCassieEssenceFlowCalled.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalInquirer.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalBreachMage.txt" />
+    <Content Include="TestsToAddress\TestsFixed\TribunalInquirerWithDestroyedDistortion.txt" />
     <Content Include="TestsToAddress\TestsFixed\TribunalRecallForecastedBlow.txt" />
     <Content Include="TestsToAddress\TestsFixed\Inquirer Lies on Lies Tribunal.txt" />
     <Content Include="TestsToAddress\TestsWithUndeterminedCauses\UnknownCause3-InquirerFisticuffs.txt" />

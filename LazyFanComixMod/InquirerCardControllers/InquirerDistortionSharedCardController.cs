@@ -37,9 +37,6 @@ namespace LazyFanComix.Inquirer
         }
 
         // Override on individual instances.
-        protected virtual IEnumerator OnDestroyResponse(DestroyCardAction dc)
-        {
-            yield break;
-        }
+        protected abstract IEnumerator OnDestroyResponse(DestroyCardAction dc);
     }
 }

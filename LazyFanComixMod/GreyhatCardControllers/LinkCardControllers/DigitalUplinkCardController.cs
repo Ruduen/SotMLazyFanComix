@@ -29,7 +29,7 @@ namespace LazyFanComix.Greyhat
                 // httc is optional due to Celestial Tribunal, so only proceed if it was found. 
                 if (httc != null)
                 {
-                    coroutine = this.GameController.DrawCards(httc, 2, cardSource: this.GetCardSource());
+                    coroutine = this.GameController.DrawCards(httc, 1, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else

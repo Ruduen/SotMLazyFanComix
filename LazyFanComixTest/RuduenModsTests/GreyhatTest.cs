@@ -52,23 +52,8 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Greyhat);
             UsePower(Greyhat);
-            QuickHandCheck(2);
-            UsePower(Greyhat);
             QuickHandCheck(1);
-
-            GoToStartOfTurn(fixer);
-            UsePower(fixer);
-            UsePower(Greyhat);
-            QuickHandCheck(1);
-
-            // "Interrupting Power" check: 
-            // Greyhat uses power, draws, Omni does damage through Interp Beam, Ultimate Power gives CR a power. Confirm that 'first' is still confirmed.
-            GoToStartOfTurn(chrono);
-            PlayCard("InterpolationBeam");
-            DecisionNextToCard = omnitron.CharacterCard;
-            PlayCard("TheUltimateTarget");
-            UsePower(Greyhat);
-            QuickHandCheck(2);
+            AssertNumberOfCardsInTrash(Greyhat, 1);
         }
 
         [Test()]
@@ -238,7 +223,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(legacy);
             PlayCard("DigitalUplink");
-            QuickHandCheck(2);
+            QuickHandCheck(1);
         }
 
         [Test()]
@@ -424,39 +409,39 @@ namespace LazyFanComixTest
             QuickHPCheck(2, 2, -2);
         }
 
-        [Test()]
-        public void TestNetworkShockTherapyWeirdEventually()
-        {
-            // TO CHECK: SEED 210116367
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "TheScholar", "CaptainCosmic", "Unity", "Megalopolis"
-            };
-            SetupGameController(setupItems);
+        //[Test()]
+        //public void TestNetworkShockTherapyWeirdEventually()
+        //{
+        //    // TO CHECK: SEED 210116367
+        //    IEnumerable<string> setupItems = new List<string>()
+        //    {
+        //        "BaronBlade", "LazyFanComix.Greyhat", "Legacy", "TheScholar", "CaptainCosmic", "Unity", "Megalopolis"
+        //    };
+        //    SetupGameController(setupItems);
 
-            StartGame();
+        //    StartGame();
 
-            // CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Scholar healing trigger construct play)
-            PlayCard("MortalFormToEnergy");
-            PlayCard("BeeBot");
-            DecisionSelectCards = new Card[] { Greyhat.CharacterCard, null, scholar.CharacterCard, null };
-            Card siphon = PlayCard("DynamicSiphon");
-            Card playPower = PlayCard("CommunicationRelay");
-            Card[] uplinks = new Card[] { PutInHand(Greyhat, "DigitalUplink", 0), PutInHand(Greyhat, "DigitalUplink", 1), PutInHand(Greyhat, "DigitalUplink", 2), PutInHand(Greyhat, "DigitalUplink", 3) };
-            PlayCard(uplinks[0]);
+        //    // CONVOLUTED CASE OF LINK REMOVAL (Scholar healing destroying bee-bot destroying link, Scholar healing trigger construct play)
+        //    PlayCard("MortalFormToEnergy");
+        //    PlayCard("BeeBot");
+        //    DecisionSelectCards = new Card[] { Greyhat.CharacterCard, null, scholar.CharacterCard, null };
+        //    Card siphon = PlayCard("DynamicSiphon");
+        //    Card playPower = PlayCard("CommunicationRelay");
+        //    Card[] uplinks = new Card[] { PutInHand(Greyhat, "DigitalUplink", 0), PutInHand(Greyhat, "DigitalUplink", 1), PutInHand(Greyhat, "DigitalUplink", 2), PutInHand(Greyhat, "DigitalUplink", 3) };
+        //    PlayCard(uplinks[0]);
 
-            ResetDecisions();
-            DealDamage(baron, (Card c) => c.IsCharacter, 10, DamageType.Cold);
-            PutOnDeck("CosmicCrest"); // Put on so Captain's power doesn't break.
-            PutOnDeck("DDoS"); // Put on top so potential draw doesn't affect.
-            DiscardAllCards(Greyhat);
+        //    ResetDecisions();
+        //    DealDamage(baron, (Card c) => c.IsCharacter, 10, DamageType.Cold);
+        //    PutOnDeck("CosmicCrest"); // Put on so Captain's power doesn't break.
+        //    PutOnDeck("DDoS"); // Put on top so potential draw doesn't affect.
+        //    DiscardAllCards(Greyhat);
 
-            DecisionSelectCards = new Card[] { Greyhat.CharacterCard, siphon, uplinks[1], cosmic.CharacterCard };
-            DecisionSelectPower = playPower;
-            PlayCard("ShockTherapy");
+        //    DecisionSelectCards = new Card[] { Greyhat.CharacterCard, siphon, uplinks[1], cosmic.CharacterCard };
+        //    DecisionSelectPower = playPower;
+        //    PlayCard("ShockTherapy");
 
-            // TODO: Test convoluted case of damage dealing (Link played midway, link removed midway).
-        }
+        //    // TODO: Test convoluted case of damage dealing (Link played midway, link removed midway).
+        //}
 
 
         [Test()]
@@ -474,10 +459,8 @@ namespace LazyFanComixTest
             PlayCard("CoercedUplink");
 
             QuickHandStorage(Greyhat, legacy);
-            QuickHPStorage(omnitron);
             PlayCard("DataTransfer");
-            QuickHandCheck(0, 1);
-            QuickHPCheck(-2);
+            QuickHandCheck(1, 1);
         }
 
         [Test()]
@@ -498,7 +481,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
-            QuickHandCheck(0, 1);
+            QuickHandCheck(1, 1);
         }
 
         [Test()]
@@ -521,7 +504,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Greyhat, sentinels);
             PlayCard("DataTransfer");
-            QuickHandCheck(0, 2);
+            QuickHandCheck(1, 2);
         }
 
         [Test()]

@@ -35,8 +35,16 @@ namespace LazyFanComix.Inquirer
             // If you do, play a card.
             if (storedResults.Count > 0 && storedResults.FirstOrDefault().WasCardDestroyed)
             {
-                coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 1, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                if (this.TurnTaker.IsHero)
+                {
+                    coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 1, cardSource: this.GetCardSource());
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
+                else
+                {
+                    coroutine = this.GameController.SendMessageAction(this.Card.Title + " has no cards to play.", Priority.Medium, cardSource: this.GetCardSource(), showCardSource: true);
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
             }
             yield break;
         }

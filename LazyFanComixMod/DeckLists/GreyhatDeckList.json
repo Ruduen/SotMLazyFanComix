@@ -14,7 +14,7 @@
       "backgroundColor": "999999",
       "foilBackgroundColor": "999999",
       "character": true,
-      "powers": [ "Draw 1 Card. If this is the first power used this turn, draw 1 card." ],
+      "powers": [ "Draw 2 cards. Discard 1 card." ],
       "icons": [
         "HasPower",
         "DrawCardNow"
@@ -58,11 +58,11 @@
       "keywords": [ "equipment", "link" ],
       "body": [
         "Play this card next to a Hero other than {Greyhat}.",
-        "When this card enters play, that Hero may draw 2 cards. Then, if this is the first card played this turn, you may play a card."
+        "When this card enters play, that Hero may draw 1 card. Then, if this is the first card played this turn, you may play 1 card."
       ],
       "icons": [ "DrawCardNow", "PlayCardNow" ],
-      "flavorQuotes": [
-      ]
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "FlareRelay",
@@ -76,8 +76,8 @@
         "[b]Power:[/b] This hero deals 1 Target 3 Fire Damage."
       ],
       "icons": [ "DamageFire", "PlayCardNow", "HasPower" ],
-      "flavorQuotes": [
-      ]
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "ProxyRelay",
@@ -91,8 +91,8 @@
         "[b]Power:[/b] Draw 1 Card. Until the start of your next turn, reduce damage dealt to this hero by 1."
       ],
       "icons": [ "PlayCardNow", "HasPower", "DrawCard", "ReduceDamageTaken" ],
-      "flavorQuotes": [
-      ]
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "CommunicationRelay",
@@ -106,8 +106,8 @@
         "[b]Power:[/b] Play 1 Card."
       ],
       "icons": [ "DestroyOngoing", "DestroyEnvironment", "PlayCardNow", "HasPower" ],
-      "flavorQuotes": [
-      ]
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "DirectControl",
@@ -154,11 +154,12 @@
       "keywords": [ "one-shot", "network" ],
       "body": [
         "Each Player draws a card for each of their Heroes next to a link.",
-        "{Greyhat} deals each non-Hero Target next to a link 2 Psychic Damage.",
+        "Draw a card for each non-Hero Target next to a Link.",
         "If this is the first card played this turn, you may draw 2 cards."
       ],
       "icons": [ "DrawCardNow", "DealDamagePsychic", "DrawCardNow" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "DDoS",
@@ -170,7 +171,8 @@
         "If this is the first card played this turn, you may draw 2 cards."
       ],
       "icons": [ "DealDamageEnergy" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "BandwidthRestriction",
@@ -182,7 +184,8 @@
         "Reduce damage dealt to Heroes next to a Link by non-Hero Targets next to a Link by 1."
       ],
       "icons": [ "PlayCardNow", "ReduceDamageTaken" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "OverclockSystems",
@@ -194,7 +197,8 @@
         "Increase damage dealt by Heroes next to a Link to non-Hero Targets next to a Link by 1."
       ],
       "icons": [ "PlayCardNow", "IncreaseDamageDealt" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "AutoRedirect",
@@ -206,7 +210,8 @@
         "The first time each turn a Hero next to a Link would be dealt 2 or fewer damage, you may redirect that damage to a non-Hero target next to a link."
       ],
       "icons": [ "PlayCardNow", "Redirect" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "SystemReboot",
@@ -217,10 +222,11 @@
         "Shuffle your trash into your deck.",
         "Search your deck for a Link and put it in your hand.",
         "Put any number of Links in play back in your hand.",
-        "You may play a number of Link cards equal to the number of Links returned to your hand by this card."
+        "You may play a number of Link cards equal to the number of Link cards returned to your hand this way."
       ],
       "icons": [ "Search", "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "PingSweep",
@@ -231,7 +237,8 @@
         "Reveal cards from the top of your deck until 2 Links have been revealed. Play those Links. Shuffle the other revealed cards into your deck."
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "NodeCheck",
@@ -244,7 +251,8 @@
         "You may play a card."
       ],
       "icons": [ "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": []
+      "flavorQuotes": [],
+      "flavorReference": "Greyhat, Uplink Established"
     }
   ],
   "promoCards": [
