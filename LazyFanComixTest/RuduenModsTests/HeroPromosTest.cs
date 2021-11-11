@@ -112,15 +112,13 @@ namespace LazyFanComixTest
             Assert.IsTrue(thriya.CharacterCard.IsPromoCard);
 
             Card tree = PutOnDeck("AkashFlora");
-
             DecisionSelectCard = tree;
 
-            DiscardAllCards(thriya);
             UsePower(thriya);
             AssertAtLocation(tree, thriya.HeroTurnTaker.Hand);
 
+            DecisionSelectFunction = 1;
             UsePower(thriya);
-
             AssertOnTopOfDeck(env, tree, 2);
 
             PlayTopCard(env);
@@ -132,7 +130,6 @@ namespace LazyFanComixTest
             // Check nothing completely breaks when dealing with an empty hand.
             DiscardAllCards(thriya);
             UsePower(thriya);
-            AssertNumberOfCardsInHand(thriya, 1); // Forced Draw. 
 
             // Check nothing completely breaks if the environment deck is empty. 
             DiscardAllCards(thriya);
@@ -576,7 +573,7 @@ namespace LazyFanComixTest
             DecisionSelectFunction = 0;
             DecisionSelectCard = ongoing;
 
-            AssertNextMessage("Guise does not have any valid Ongoings in play, so he cannot make any indestructible. Whoops!");
+            AssertNextMessage("Guise does not have a played ongoing, so he cannot make it indestructible. Whoops!");
             QuickHandStorage(guise);
             UsePower(guise);
             QuickHandCheck(1); // 1 Card Draw, 1 Card Played, 1 Card Drawn from Gritty Reboot
@@ -1249,64 +1246,142 @@ namespace LazyFanComixTest
         [Test()]
         public void TestLaComodoraPower()
         {
-            SetupGameController("BaronBlade", "LaComodora/LazyFanComix.LaComodoraTemporalScavengeCharacter", "Megalopolis");
+            SetupGameController("Omnitron", "LaComodora/LazyFanComix.LaComodoraTemporalScavengeCharacter", "SkyScraper", "Megalopolis");
             Assert.IsTrue(comodora.CharacterCard.IsPromoCard);
 
             StartGame();
 
-            GoToPlayCardPhase(comodora);
+            DiscardAllCards(comodora);
+            // Stack Omnitron deck to avoid accidental plating block.
+            PutOnDeck("DisintegrationRay");
+            PutOnDeck("InterpolationBeam");
 
-            Card equip = PlayCard("ConcordantHelm");
-
-            GoToUsePowerPhase(comodora);
+            Card equip = PutInHand("CannonPortal");
+            GoToStartOfTurn(comodora);
+            QuickHandStorage(comodora);
             UsePower(comodora);
+            QuickHandCheck(1); // Card draw part. 
+            DiscardAllCards(comodora);
 
+            PlayCard(equip);
+
+
+            // Cannon portal self-destructs at start of turn. Confirm it's now under.
             DecisionYesNo = true;
-            DecisionSelectCard = equip;
+            GoToStartOfTurn(comodora);
+            AssertUnderCard(comodora.CharacterCard, equip);
 
-            GoToStartOfTurn(baron);
-            PutIntoPlay("DeviousDisruption");
-
-            AssertFlipped(equip);
-            AssertInPlayArea(comodora, equip);
-
-            GoToUsePowerPhase(comodora);
+            // Played through power function 1.
+            DecisionSelectFunction = 1;
             UsePower(comodora);
-            AssertNotFlipped(equip);
-            GoToStartOfTurn(baron);
-            PutIntoPlay("DeviousDisruption");
+            AssertIsInPlayAndNotUnderCard(equip);
 
             // Make sure effect has been re-applied and therefore still works here.
-            AssertFlipped(equip);
-            AssertInPlayArea(comodora, equip);
+            GoToStartOfTurn(comodora);
+            AssertUnderCard(comodora.CharacterCard, equip);
+            PlayCard(equip);
+
+            GoToStartOfTurn(comodora);
+            AssertInTrash(equip);
+
+            // Post effect check: Make sure links are re-played!
+            QuickHPStorage(omnitron);
+            Card link = PlayCard("CompulsionCanister");
+            QuickHPCheck(-2);
+
+            UsePower(comodora);
+            DestroyCard(link);
+            UsePower(comodora);
+            QuickHPCheck(-2);
         }
 
         [Test()]
-        public void TestLaComodoraPowerGuiseDangIt()
+        public void TestLaComodoraPowerGuise()
         {
-            SetupGameController("BaronBlade", "LaComodora/LazyFanComix.LaComodoraTemporalScavengeCharacter", "Guise/SantaGuiseCharacter", "Megalopolis");
+            SetupGameController("BaronBlade", "LaComodora/LazyFanComix.LaComodoraTemporalScavengeCharacter", "Guise", "Megalopolis");
             Assert.IsTrue(comodora.CharacterCard.IsPromoCard);
 
             StartGame();
 
-            GoToPlayCardPhase(comodora);
+            DiscardAllCards(comodora);
+            DiscardAllCards(guise);
 
-            Card equip = PlayCard("ConcordantHelm");
-
-            GoToUsePowerPhase(comodora);
-            UsePower(comodora);
+            Card equip = PlayCard("CannonPortal");
 
             DecisionYesNo = true;
-            DecisionSelectCard = equip;
 
-            GoToStartOfTurn(baron);
-            PutIntoPlay("DeviousDisruption");
+            // Guise can do that too - but make sure it still goes under La Capitan. 
+            PlayCard("ICanDoThatToo");
 
-            AssertFlipped(equip);
-            AssertInPlayArea(comodora, equip);
+            GoToStartOfTurn(comodora);
 
-            UsePower(guise, 1);
-            AssertNotFlipped(equip);
+            // Yep, it's actually under the card, just like with Idealist!
+            AssertUnderCard(comodora.CharacterCard, equip);
+
+            // Guise can play from under, too!
+            PlayCard("ICanDoThatToo");
+        }
+        [Test()]
+        public void TestLaComodoraPowerTribunal()
+        {
+            SetupGameController("BaronBlade", "TheWraith", "TheCelestialTribunal");
+
+            StartGame();
+
+            DiscardAllCards(wraith);
+
+            DecisionYesNo = true;
+
+            SelectFromBoxForNextDecision("LazyFanComix.LaComodoraTemporalScavengeCharacter", "LaComodora");
+
+            Card equip = PutInHand("UtilityBelt");
+
+            // Draw card, prepare.
+
+            QuickHandStorage(wraith);
+            PlayCard("CalledToJudgement");
+            Card representative = FindCardInPlay("LaComodoraCharacter");
+            AssertIsInPlay(representative);
+            QuickHandCheck(1);
+
+            // Destroy, under.
+            DecisionYesNo = true;
+            PlayCard(equip);
+            DestroyCard(equip);
+            AssertUnderCard(representative, equip);
+
+
+            // Wraith power to play from under.
+            DecisionSelectFunction = 1;
+            PlayCard("CalledToJudgement");
+            AssertIsInPlayAndNotUnderCard(equip);
+
+            // Wear off effect, confirm to trash.
+            GoToStartOfTurn(wraith);
+            GoToStartOfTurn(wraith);
+            DestroyCard(equip);
+            AssertInTrash(equip);
+
+            // Tribunal power without crashing.
+            DecisionSelectFunction = 0;
+            UsePower(representative);
+            PlayCard(equip);
+
+            // Destroy under.
+            DestroyCard(equip);
+            AssertUnderCard(representative, equip);
+
+            // Representative can play this. 
+            DecisionSelectFunction = 1;
+            UsePower(representative);
+            AssertIsInPlayAndNotUnderCard(equip); 
+
+            // Let time wear off.
+            GoToStartOfTurn(wraith);
+            GoToStartOfTurn(wraith);
+            PlayCard(equip);
+            DestroyCard(equip);
+            AssertInTrash(equip);
         }
 
         [Test()]

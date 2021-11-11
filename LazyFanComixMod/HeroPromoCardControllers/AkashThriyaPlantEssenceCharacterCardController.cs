@@ -20,16 +20,12 @@ namespace LazyFanComix.AkashThriya
             SelectFunctionDecision sfd;
             IEnumerator coroutine;
 
-            // Shuffle the environment deck. 
-            coroutine = this.GameController.ShuffleLocation(this.GameController.FindEnvironmentTurnTakerController().TurnTaker.Deck, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             List<Function> list = new List<Function>()
             {
-                new Function(this.HeroTurnTakerController, "Move a card from your hand to under the top " + powerNums[0] + "cards of the Environment deck", SelectionType.MoveCard, () => this.PutCardInEnvDeck(powerNums[0]), this.HeroTurnTaker.Hand.Cards.Count() > 0, this.TurnTaker.Name + " cannot draw any cards, so they must move a card from their hand to the Environment deck."),
-                new Function(this.HeroTurnTakerController, "Draw a Card", SelectionType.DrawCard, () => this.GameController.DrawCards(this.HeroTurnTakerController, 1, cardSource: this.GetCardSource()), this.CanDrawCards(this.HeroTurnTakerController) || this.HeroTurnTaker.HasCardsInHand, this.TurnTaker.Name + " cannot move a card from their hand to the Environment deck, so they must draw a card.")
+                new Function(this.HeroTurnTakerController, "Draw a Card", SelectionType.DrawCard, () => this.GameController.DrawCards(this.HeroTurnTakerController, 1, cardSource: this.GetCardSource()), this.CanDrawCards(this.HeroTurnTakerController), this.TurnTaker.Name + " cannot shuffle the environment deck (wait, huh), so they must draw a card."),
+                new Function(this.HeroTurnTakerController, "Shuffle the environment deck to move a card from your hand to under the top " + powerNums[0] + " cards of the Environment deck", SelectionType.MoveCard, () => this.PutCardInEnvDeck(powerNums[0]), true, this.TurnTaker.Name + " cannot draw any cards, so they must shuffle the environment deck and move a card from their hand to the Environment deck."),
             };
-            sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, list, false, null, this.TurnTaker.Name + " draw any cards or move any cards to the Environment deck, so " + this.Card.Title + " has no effect.", null, this.GetCardSource());
+            sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, list, false, null, this.TurnTaker.Name + " draw any cards or shuffle the environment deck (wait, huh), so " + this.Card.Title + " has no effect.", null, this.GetCardSource());
 
             coroutine = this.GameController.SelectAndPerformFunction(sfd, null, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -41,6 +37,10 @@ namespace LazyFanComix.AkashThriya
             IEnumerator coroutine;
             List<SelectCardDecision> scdResult = new List<SelectCardDecision>();
             Location envDeck = this.GameController.FindEnvironmentTurnTakerController().TurnTaker.Deck;
+
+            // Shuffle the environment deck. 
+            coroutine = this.GameController.ShuffleLocation(envDeck, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Select a card from hand. 
             coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.MoveCardUnderTopCardOfDeck, this.HeroTurnTaker.Hand.Cards, scdResult, false, cardSource: this.GetCardSource());

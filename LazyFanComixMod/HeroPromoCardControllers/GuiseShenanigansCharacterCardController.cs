@@ -82,7 +82,7 @@ namespace LazyFanComix.Guise
                 {
                     turnTakerName = this.Card.Title;
                 }
-                coroutine = this.GameController.SendMessageAction(turnTakerName + " does not have any valid Ongoings in play, so he cannot make any indestructible. Whoops!", Priority.Medium, this.GetCardSource(), null, true);
+                coroutine = this.GameController.SendMessageAction(turnTakerName + " does not have a played ongoing, so he cannot make it indestructible. Whoops!", Priority.Medium, this.GetCardSource(), null, true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

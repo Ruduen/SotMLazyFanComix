@@ -1,0 +1,10 @@
+Alias: Anya Smith
+Height: 6' 0" 
+Weight: 155 lbs. 
+Hair Color: Red
+Eye Color: Green
+Birthplace: Unknown
+Power Source: Tech
+Group Affiliation: None 
+Occupation: Security Consultant 
+First Appearance: Uplink Established

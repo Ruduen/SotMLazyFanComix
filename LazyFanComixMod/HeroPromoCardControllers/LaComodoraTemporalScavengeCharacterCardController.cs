@@ -1,8 +1,10 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LazyFanComix.LaComodora
 {
@@ -15,84 +17,86 @@ namespace LazyFanComix.LaComodora
 
         public override IEnumerator UsePower(int index = 0)
         {
-            string turnTakerName;
+            int[] numerals = new int[] {
+                this.GetPowerNumeral(0, 1),
+                this.GetPowerNumeral(1, 1)
+            };
+            List<Function> list = new List<Function>();
+            SelectFunctionDecision sfd;
             IEnumerator coroutine;
 
-            if (this.TurnTaker.IsHero) { turnTakerName = this.TurnTaker.Name; }
-            else { turnTakerName = this.Card.Title; }
+            list.Add(new Function(this.HeroTurnTakerController, "Draw " + numerals[0] + " Card", SelectionType.DrawCard,
+                () => this.GameController.DrawCards(this.HeroTurnTakerController, numerals[0], cardSource: this.GetCardSource()),
+                this.HeroTurnTakerController != null && this.CanDrawCards(this.HeroTurnTakerController), this.TurnTaker.Name + " cannot play any cards from under " + this.CardWithoutReplacements.Title + ", so they must draw " + numerals[0] + " card."));
+            list.Add(new Function(this.HeroTurnTakerController, "Play " + numerals[1] + " card from under " + this.CardWithoutReplacements.Title, SelectionType.PlayCard,
+                () => SelectAndPlayFromUnder(numerals[1]),
+                this.TurnTakerController != null && this.CardWithoutReplacements.UnderLocation.HasCards && this.CanPlayCards(this.TurnTakerController),
+                this.TurnTaker.Name + " cannot draw any cards, so they must play " + numerals[1] + " card from under " + this.CardWithoutReplacements.Title + "."));
+            sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, list, false, null, this.TurnTaker.Name + " play any equipment or cards from under " + this.CardWithoutReplacements.Title + ", so" + this.Card.Title + " has no effect.", null, this.GetCardSource());
 
-            // Draw.
-            coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, 1, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPerformFunction(sfd, null, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Flip a card face-up.
-            coroutine = this.GameController.SelectAndFlipCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.Location == this.HeroTurnTaker.PlayArea && c.IsFaceDownNonCharacter && !c.IsMissionCard, "face-down cards in " + turnTakerName + "'s play area"), 1, false, false, 1, null, true, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // Set up an effect to respond when your equipment is destroyed
-            WhenCardIsDestroyedStatusEffect whenCardIsDestroyedStatusEffect = new WhenCardIsDestroyedStatusEffect(this.CardWithoutReplacements, "WhenEquipIsDestroyed", "Whenever one of " + turnTakerName + "'s Equipment would be destroyed, they may put it in their play area face-down.", new TriggerType[]
-            { TriggerType.FlipCard }, this.HeroTurnTaker, this.Card, null);
+            // Set up an effect to respond when your equipment is destroyed. The ToHero here is an exception since it has to track the environment turn sometimes.
+            WhenCardIsDestroyedStatusEffect whenCardIsDestroyedStatusEffect = new WhenCardIsDestroyedStatusEffect(this.CardWithoutReplacements, "WhenEquipIsDestroyed", "Whenever an Equipment is destroyed, you may put it under " + this.CardWithoutReplacements.Title + ".", new TriggerType[]
+            { TriggerType.MoveCard }, this.TurnTaker.ToHero(), this.Card, null);
             whenCardIsDestroyedStatusEffect.CardDestroyedCriteria.HasAnyOfTheseKeywords = new List<string> { "equipment" };
-            whenCardIsDestroyedStatusEffect.CardDestroyedCriteria.OwnedBy = this.HeroTurnTaker;
-            whenCardIsDestroyedStatusEffect.UntilEndOfNextTurn(this.HeroTurnTaker);
+            whenCardIsDestroyedStatusEffect.UntilEndOfNextTurn(this.TurnTaker);
             whenCardIsDestroyedStatusEffect.Priority = new StatusEffectPriority?(StatusEffectPriority.High);
             whenCardIsDestroyedStatusEffect.CanEffectStack = false;
             coroutine = this.AddStatusEffect(whenCardIsDestroyedStatusEffect, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter
-
         public IEnumerator WhenEquipIsDestroyed(DestroyCardAction destroy, HeroTurnTaker hero, StatusEffect effect, int[] powerNumerals = null)
         {
-            IEnumerator coroutine;
-            if (hero != null && destroy.CanBeCancelled)
+            if (destroy.PostDestroyDestinationCanBeChanged)
             {
-                if (Card.IsMissionCard)
-                {
-                    coroutine = this.GameController.SendMessageAction("Mission cards cannot be flipped face-down, so "+ this.CharacterCard.Title +" cannot flip it instead of destroying it.", Priority.Low, this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                }
-                else
-                {
-                    List<YesNoCardDecision> storedResults = new List<YesNoCardDecision>();
-                    coroutine = this.GameController.MakeYesNoCardDecision(this.HeroTurnTakerController, SelectionType.Custom, destroy.CardToDestroy.Card, storedResults: storedResults, cardSource: this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                List<YesNoCardDecision> storedResults = new List<YesNoCardDecision>();
+                IEnumerator coroutine = this.GameController.MakeYesNoCardDecision(this.HeroTurnTakerController, SelectionType.MoveCardToUnderCard, destroy.CardToDestroy.Card, storedResults: storedResults, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                    if (this.DidPlayerAnswerYes(storedResults))
-                    {
-                        // Needs to be done after because most 'after destruction' effects are actually 'when destroyed' effects, and we can't move the card back before it's destroyed without causing more problems than it's worth.
-                        destroy.SetPostDestroyDestination(this.TurnTaker.PlayArea);
-                        destroy.PostDestroyDestinationCanBeChanged = false;
-                        destroy.AddAfterDestroyedAction(() => this.FlipResponse(hero, destroy.CardToDestroy.Card), this);
-                    }
+                if (this.DidPlayerAnswerYes(storedResults))
+                {
+                    destroy.SetPostDestroyDestination(this.Card.UnderLocation);
+                    destroy.PostDestroyDestinationCanBeChanged = false;
                 }
             }
         }
 
-#pragma warning restore IDE0060 // Remove unused parameter
-
-        public IEnumerator FlipResponse(HeroTurnTaker hero, Card card)
+        private IEnumerator SelectAndPlayFromUnder(int numeral)
         {
-            HeroTurnTakerController decisionMaker = this.FindHeroTurnTakerController(hero);
             IEnumerator coroutine;
+            Func<Card, bool> isUnderCard = (Card c) => c.Location == this.CardWithoutReplacements.UnderLocation;
 
-            if (card.IsMissionCard)
+            // Based on SelectAndPlayCardsFromHand, just... not from hand.
+            string tryToPlayCardMessage = null;
+            if (!this.CardWithoutReplacements.UnderLocation.HasCards)
             {
-                coroutine = this.GameController.SendMessageAction("Mission cards cannot be flipped face-down. This should've already been stopped. How did you even get here?", Priority.Low, this.GetCardSource());
+                tryToPlayCardMessage = "There are no cards underneath " + this.CardWithoutReplacements.Title + " to play.";
+            }
+            else if (HeroTurnTakerController != null)
+            {
+                tryToPlayCardMessage = this.GameController.GetTryToPlayCardMessage(this.HeroTurnTakerController, false, isUnderCard, null, true, false);
+            }
+            if (tryToPlayCardMessage == null)
+            {
+                SelectCardsDecision scd = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, isUnderCard, SelectionType.PlayCard, numeral, false, numeral, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectCardsAndDoAction(scd, PlayCardDelegate, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
             {
-                coroutine = this.GameController.FlipCard(this.GameController.FindCardController(card), cardSource: this.GetCardSource(), allowBackToFront: false);
+                coroutine = this.GameController.SendMessageAction(tryToPlayCardMessage, Priority.High, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
         }
 
-        public override CustomDecisionText GetCustomDecisionText(IDecision decision)
+        private IEnumerator PlayCardDelegate(SelectCardDecision d)
         {
-            return new CustomDecisionText("Move the destroyed card to your play area face-down?", "Move the destroyed card to the play area face-down?", "Move the destroyed card to the play area face-down?", "Move the destroyed card to the play area face-down?");
+            IEnumerator coroutine = this.GameController.PlayCard(this.HeroTurnTakerController, d.SelectedCard, reassignPlayIndex: true, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

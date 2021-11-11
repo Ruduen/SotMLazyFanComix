@@ -24,6 +24,7 @@ namespace LazyFanComix.Inquirer
             };
 
             IEnumerator coroutine;
+
             // Deal Damage.
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], false, false, false, null, null, null, null, null, false, null, null, false, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -35,7 +36,7 @@ namespace LazyFanComix.Inquirer
 
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
             // Discard card.
-            coroutine = this.GameController.SelectAndDiscardCard(this.HeroTurnTakerController, true, null, storedResults, SelectionType.DiscardCard);
+            coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.DidDiscardCards(storedResults))

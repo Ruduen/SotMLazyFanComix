@@ -1,0 +1,10 @@
+Alias: John Doe
+Height: 5' 10"
+Weight: 156 lbs.
+Hair Color: Grey
+Eye Color: Brown
+Birthplace: London, England / Underground, Australia / Mystical Temple, Somewhere-or-Another
+Power Source: Blatant Lies
+Group Affiliation: None
+Occupation: Direct Marketing Executive
+First Appearance: The City's Guardians
