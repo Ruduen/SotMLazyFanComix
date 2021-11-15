@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RandomGameTest.cs" />
+    <Compile Include="RuduenModsTests\ArbitraryTest.cs" />
     <Compile Include="RuduenModsTests\RandomTest.cs" />
     <Compile Include="RuduenModsTests\CassieTest.cs" />
     <Compile Include="RuduenModsTests\BreachMageTest.cs" />

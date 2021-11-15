@@ -243,37 +243,6 @@
       }
     }
   ],
-  "unusedCaptainCosmic": [
-    {
-      "identifier": "CaptainCosmicCharacter",
-      "promoIdentifier": "CaptainCosmicCosmicShieldingBCharacter",
-      "count": 1,
-      "title": "Captain Cosmic",
-      "promoTitle": "Captain Cosmic - Cosmic Shielding",
-      "body": [ "Cosmic Shielding" ],
-      "backgroundColor": "FFDD00",
-      "foilBackgroundColor": "FFDD00",
-      "character": true,
-      "powers": "Draw a card. You may play a Construct. Until the start of your next turn, all damage that would be dealt to Hero Targets is redirected to that construct.",
-      "hitpoints": 26,
-      "icons": [ "HasPower", "DrawCardNow", "Indestructible", "DealDamageEnergy" ],
-      "nemesisIdentifiers": [ "CaptainCosmic" ],
-      "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
-      ],
-      "flippedIcons": [
-        "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
-      ],
-      "complexity": 2,
-      "openingLines": {
-        "default": "Hm."
-      }
-    }
-  ],
   "ChronoRanger": [
     {
       "identifier": "ChronoRangerCharacter",
@@ -706,7 +675,7 @@
       "character": true,
       "backgroundColor": "BA7848",
       "foilBackgroundColor": "BA7848",
-      "powers": "Draw a card. Play a card. Select one of {gazelle}, {rhinoceros} or {crocodile} that the played card has in its text. Until the end of your next turn, you may activate that icon's effects.",
+      "powers": "Draw a card. Play a card. Select one of {gazelle}, {rhinoceros} or {crocodile} on that card. Until the end of your next turn, you may activate that icon's effects.",
       "hitpoints": 28,
       "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "TheNaturalist" ],
@@ -948,159 +917,6 @@
       }
     }
   ],
-  "UnusedSetback": [
-    {
-      "identifier": "SetbackCharacter",
-      "promoIdentifier": "SetbackRunOfLuckBCharacter",
-      "count": 1,
-      "title": "Setback",
-      "promoTitle": "Setback - Run of Luck",
-      "body": [ "Run of Luck" ],
-      "character": true,
-      "backgroundColor": "DFE6E5",
-      "foilBackgroundColor": "DFE6E5",
-      "powers": "Add 2 tokens to your Unlucky pool. Move the top 2 cards of your deck under this card. If any pair of cards under this card do not share a keyword, play all of the cards under this card.",
-      "hitpoints": 29,
-      "icons": [ "HasPower", "PlayCardNow", "AddTokens" ],
-      "nemesisIdentifiers": [ "Setback" ],
-      "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
-      ],
-      "flippedIcons": [
-        "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
-      ],
-      "complexity": 3,
-      "openingLines": {
-        "default": "..."
-      }
-    }
-  ],
-  "UnusedSkyScraper": [
-    {
-      "identifier": "SkyScraperNormalCharacter",
-      "promoIdentifier": "SkyScraperConsistentNormalCharacter",
-      "sharedIdentifier": "SkyScraperConsistentCharacter",
-      "count": 1,
-      "title": "Sky-Scraper",
-      "body": "Consistent Size",
-      "keywords": [
-        "Normal"
-      ],
-      "icons": [
-        "HasPower",
-        "PlayCardNow",
-        "DrawCardNow"
-      ],
-      "backgroundColor": "47AD80",
-      "foilBackgroundColor": "47AD80",
-      "character": true,
-      "powers": [
-        "Play a card. If {SkyScraper}'s character card is Normal, draw 2 cards."
-      ],
-      "hitpoints": 32,
-      "nemesisIdentifiers": [
-        "SkyScraper"
-      ],
-      "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
-      ],
-      "flippedIcons": [
-        "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
-      ],
-      "complexity": 3,
-      "openingLines": {
-        "default": "Hm."
-      }
-    },
-    {
-      "identifier": "SkyScraperHugeCharacter",
-      "promoIdentifier": "SkyScraperConsistentHugeCharacter",
-      "sharedIdentifier": "SkyScraperConsistentCharacter",
-      "count": 1,
-      "title": "Sky-Scraper",
-      "body": "Consistent Strength",
-      "keywords": [
-        "Normal"
-      ],
-      "icons": [
-        "HasPower",
-        "PlayCardNow",
-        "DrawCardNow"
-      ],
-      "backgroundColor": "47AD80",
-      "foilBackgroundColor": "47AD80",
-      "character": true,
-      "powers": [
-        "Play a card. If {SkyScraper}'s character card is Huge, deal each non-Hero Target 2 Melee Damage."
-      ],
-      "hitpoints": 32,
-      "nemesisIdentifiers": [
-        "SkyScraper"
-      ],
-      "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
-      ],
-      "flippedIcons": [
-        "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
-      ],
-      "complexity": 3,
-      "openingLines": {
-        "default": "Hm."
-      }
-    },
-    {
-      "identifier": "SkyScraperTinyCharacter",
-      "promoIdentifier": "SkyScraperConsistentTinyCharacter",
-      "sharedIdentifier": "SkyScraperConsistentCharacter",
-      "count": 1,
-      "title": "Sky-Scraper",
-      "body": "Consistent Stealth",
-      "keywords": [
-        "Normal"
-      ],
-      "icons": [
-        "HasPower",
-        "PlayCardNow",
-        "DrawCardNow"
-      ],
-      "backgroundColor": "47AD80",
-      "foilBackgroundColor": "47AD80",
-      "character": true,
-      "powers": [
-        "Play a card. If {SkyScraper}'s character card is Tiny, play a card."
-      ],
-      "hitpoints": 32,
-      "nemesisIdentifiers": [
-        "SkyScraper"
-      ],
-      "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
-      ],
-      "flippedIcons": [
-        "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
-      ],
-      "complexity": 3,
-      "openingLines": {
-        "default": "Hm."
-      }
-    }
-  ],
   "Stuntman": [
     {
       "identifier": "StuntmanCharacter",
@@ -1287,6 +1103,35 @@
     }
   ],
   "VoidGuardTheIdealist": [
+    {
+      "identifier": "VoidGuardTheIdealistCharacter",
+      "promoIdentifier": "VoidGuardTheIdealistTrainOfThoughtCharacter",
+      "count": 1,
+      "title": "The Idealist",
+      "promoTitle": "Lazyverse Idealist",
+      "body": [ "Train of Thought" ],
+      "character": true,
+      "backgroundColor": "6ACEF3",
+      "foilBackgroundColor": "6ACEF3",
+      "powers": "Discard the top card of your deck. If it is a Fragment, play it. Otherwise, if your deck is not empty, repeat this power.",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "Discard", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "TheSentinels" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
+      }
+    },
     {
       "identifier": "VoidGuardTheIdealistCharacter",
       "promoIdentifier": "VoidGuardTheIdealistStreamOfConsciousnessCharacter",
