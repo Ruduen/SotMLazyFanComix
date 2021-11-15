@@ -347,7 +347,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties decklists_4promocardlist_1json__JsonSchema="https://json.schemastore.org/config" assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
+      <UserProperties assetsrelease_4manifest_1json__JsonSchema="https://github.com/Ruduen/SotMRuduenMods/raw/main/manifestSchema" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
