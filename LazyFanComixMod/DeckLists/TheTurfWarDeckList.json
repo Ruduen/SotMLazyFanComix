@@ -1,0 +1,177 @@
+{
+  "name": "The Turf War",
+  "kind": "Villain",
+  "initialCardIdentifiers": [
+    "TheTurfWarInstructions"
+  ],
+  "initialOffToTheSideCardIdentifiers": [
+    "Calin",
+    "Kanya",
+    "Sez"
+  ],
+  "cards": [
+    {
+      "identifier": "TheTurfWarInstructions",
+      "count": 1,
+      "title": "The Turf War",
+      "keywords": [],
+      "icons": [
+        "StartAndEndOfTurnAction",
+        "WinTheGame"
+      ],
+      "advancedIcons": [
+      ],
+      "body": "Territory in Turmoil",
+      "backgroundColor": "FFFFFF",
+      "foilBackgroundColor": "FFFFFF",
+      "character": true,
+      "setup": [
+        "At the start of the game, put {Calin} into play Ordained Herald side up, {Kanya} into play Crazed Experimenter side up, and {Sez} into play Gang Figurehead side up."
+      ],
+      "gameplay": [
+        "At the start of the Villain turn, if there is only one Villain Leader in play, the heroes win, though a threat still lingers.",
+        "Whenever there are no Villain Leaders in play, the heroes win.",
+        "After an Environment card is destroyed, put it under the Leader with the most non-Leaders sharing a keyword with it.",
+        "At the end of the Villain turn, if any Villain Leader has at least 4 cards under them, flip this card."
+      ],
+      "advanced": "To Be Determined.",
+      "flippedBody": "A Leader's Plot",
+      "flippedGameplay": [
+        "At the start of the Villain turn, destroy 2 cards from under each Villain Leader.",
+        "Then, the Villain Leader with the most cards under it deals each other Leader and each non-Leader not sharing a keyword with it 2 Toxic Damage.",
+        "Then, reveal cards from the top of the Villain deck until you reveal a card sharing a keyword with that Villain Leader, play it, and shuffle the other cards back into the Villain Deck.",
+        "Then, flip this card.",
+        "Whenever there are no Villain leaders in play, the heroes win."
+      ],
+      "flippedAdvanced": "To Be Determined",
+      "flippedIcons": [
+        "StartOfTurnAction",
+        "Destroy",
+        "DealDamageToxic",
+        "Search"
+      ],
+      "flippedAdvancedIcons": [
+      ],
+      "difficulty": 2,
+      "openingLines": {
+        "default": "Ugh, heroes. Either pick a side or get out of the way. "
+      }
+    },
+    {
+      "identifier": "Calin",
+      "count": 1,
+      "title": "Calin",
+      "keywords": [
+        "villain",
+        "leader",
+        "cultist"
+      ],
+      "body": "Ordained Herald",
+      "backgroundColor": "FF0000",
+      "character": true,
+      "hitpoints": 70,
+      "nemesisIdentifiers": [
+        "LazyFanComix.Inquirer"
+      ],
+      "gameplay": [
+        "At the end of the Villain turn, this card deals each target 1 Infernal Damage."
+      ],
+      "icons": [
+        "Search"
+      ],
+      "flippedShowHitpoints": false,
+      "flippedBody": "incapacitated",
+      "flippedKeywords": [
+      ],
+      "flippedGameplay": [
+        "At the end of the Villain turn, if this card has at least 4 cards under it, destroy 4 cards under this card, flip this card and restore it to 20 HP."
+      ],
+      "flippedIcons": [
+        "EndOfTurnAction",
+        "GainHP"
+      ]
+    },
+    {
+      "identifier": "Kanya",
+      "count": 1,
+      "title": "Kanya",
+      "keywords": [
+        "villain",
+        "leader",
+        "minion"
+      ],
+      "body": "Crazed Experimenter",
+      "backgroundColor": "0000FF",
+      "character": true,
+      "hitpoints": 70,
+      "nemesisIdentifiers": [
+        "LazyFanComix.Inquirer"
+      ],
+      "gameplay": [
+        "At the end of the Villain turn, this card deals each non-Minion target 2 Fire Damage."
+      ],
+      "icons": [
+        "DealDamageFire"
+      ],
+      "flippedShowHitpoints": false,
+      "flippedBody": "incapacitated",
+      "flippedKeywords": [
+      ],
+      "flippedGameplay": [
+        "At the end of the Villain turn, if this card has at least 3 cards under it, destroy 3 cards under this card and each non-Minion target deals themselves 3 Cold Damage."
+      ],
+      "flippedIcons": [
+        "EndOfTurnAction",
+        "DealDamageCold"
+      ]
+    },
+    {
+      "identifier": "Sez",
+      "count": 1,
+      "title": "Sez",
+      "keywords": [
+        "villain",
+        "leader",
+        "thug"
+      ],
+      "body": "Gang Figurehead",
+      "backgroundColor": "0000FF",
+      "character": true,
+      "hitpoints": 70,
+      "nemesisIdentifiers": [
+        "LazyFanComix.Inquirer"
+      ],
+      "gameplay": [
+        "At the end of the Villain turn, this card deals  the 5 non-Thug targets with the highest HP 3 Projectile Damage."
+      ],
+      "icons": [
+        "DealDamageProjectile"
+      ],
+      "flippedShowHitpoints": false,
+      "flippedBody": "incapacitated",
+      "flippedKeywords": [
+      ],
+      "flippedGameplay": [
+        "At the end of the Villain turn, if this card has at least 2 cards under it, destroy 2 cards under this card, each Thug regains 4 HP, and play the top card of the Environment deck."
+      ],
+      "flippedIcons": [
+        "EndOfTurnAction",
+        "DealDamageCold"
+      ]
+    },
+    {
+      "identifier": "TheRealmsChoice",
+      "count": 20,
+      "title": "The Realm's Choice",
+      "keywords": [
+        "ongoing"
+      ],
+      "body": "At the end of the Environment turn, destroy an Environment card, then play the top 2 cards of the Environment deck.",
+      "icons": [
+        "DestroyEnvironment",
+        "PlayCardNow"
+      ],
+      "flavorText": "This city has been caught in the middle for long enough. The time has come for its people to choose."
+    }
+  ]
+}

@@ -240,20 +240,26 @@
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerPositionCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\PositionCardControllers\VantagePointCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerCharacterCardController.cs" />
+    <Compile Include="Villains\TheTurfWarCardControllers\CharacterCardControllers\KanyaCardController.cs" />
+    <Compile Include="Villains\TheTurfWarCardControllers\TheRealmsChoiceCardController.cs" />
+    <Compile Include="Villains\TheTurfWarCardControllers\CharacterCardControllers\SezCardController.cs" />
+    <Compile Include="Villains\TheTurfWarCardControllers\CharacterCardControllers\CalinCardController.cs" />
+    <Compile Include="Villains\TheTurfWarCardControllers\CharacterCardControllers\TheTurfWarSharedCharacterCardController.cs" />
+    <Compile Include="Villains\TheTurfWarCardControllers\CharacterCardControllers\TheTurfWarInstructionsCardController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Heroes\DeckLists\BreachMageDeckList.json" />
+    <EmbeddedResource Include="DeckLists\BreachMageDeckList.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Heroes\DeckLists\InquirerDeckList.json" />
+    <EmbeddedResource Include="DeckLists\InquirerDeckList.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Heroes\DeckLists\CassieDeckList.json" />
-    <EmbeddedResource Include="Heroes\DeckLists\PromoCardList.json" />
-    <EmbeddedResource Include="Heroes\DeckLists\SpellforgeDeckList.json" />
-    <EmbeddedResource Include="Heroes\DeckLists\TrailblazerDeckList.json" />
-    <EmbeddedResource Include="Heroes\DeckLists\SoulbinderDeckList.json" />
-    <EmbeddedResource Include="Heroes\DeckLists\GreyhatDeckList.json" />
+    <EmbeddedResource Include="DeckLists\CassieDeckList.json" />
+    <EmbeddedResource Include="DeckLists\PromoCardList.json" />
+    <EmbeddedResource Include="DeckLists\SpellforgeDeckList.json" />
+    <EmbeddedResource Include="DeckLists\TrailblazerDeckList.json" />
+    <EmbeddedResource Include="DeckLists\SoulbinderDeckList.json" />
+    <EmbeddedResource Include="DeckLists\GreyhatDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AssetsRelease\Atlas\BreachMageAtlas0.json" />
@@ -266,7 +272,8 @@
     <None Include="AssetsRelease\Atlas\SpellforgeAtlas0.json" />
     <None Include="AssetsRelease\Atlas\TrailblazerAtlas0.json" />
     <None Include="AssetsRelease\manifest.json" />
-    <EmbeddedResource Include="Heroes\DeckLists\RecallDeckList.json" />
+    <EmbeddedResource Include="DeckLists\RecallDeckList.json" />
+    <EmbeddedResource Include="DeckLists\TheTurfWarDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />
@@ -341,9 +348,7 @@
     <Content Include="AssetsRelease\LargeCardTextures\Trailblazer\TrailblazerCharacter.png" />
     <Content Include="AssetsRelease\preview.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Villains\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
