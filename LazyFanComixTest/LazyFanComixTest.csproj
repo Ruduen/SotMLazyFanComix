@@ -70,6 +70,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestsToAddress\GuiseHighFiveAndShockingAnimationAndWhoKnows.txt" />
     <Content Include="TestsToAddress\GuiseWhat.txt" />
     <Content Include="TestsToAddress\TestsFixed\GuiseCassieEssenceFlow.txt" />
     <Content Include="TestsToAddress\TestsFixed\InquirerBackupPlanCardSourceMaybe.txt" />

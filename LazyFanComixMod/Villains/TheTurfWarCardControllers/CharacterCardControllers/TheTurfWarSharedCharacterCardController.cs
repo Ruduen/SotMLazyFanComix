@@ -43,8 +43,16 @@ namespace LazyFanComix.TheTurfWar
                 cardSource = this.GetCardSource();
             }
 
-            IEnumerator coroutine = this.GameController.RemoveTarget(base.Card, true, cardSource);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            if (!this.Card.IsFlipped)
+            {
+                IEnumerator coroutine = this.GameController.RemoveTarget(this.Card, true, cardSource);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
+            {
+                IEnumerator coroutine = this.GameController.MakeTargettable(this.Card, 70, 15, cardSource);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
 
         protected abstract ITrigger AddUniqueIncapacitatedTrigger();

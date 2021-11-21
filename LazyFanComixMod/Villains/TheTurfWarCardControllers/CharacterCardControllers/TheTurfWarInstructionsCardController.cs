@@ -13,7 +13,7 @@ namespace LazyFanComix.TheTurfWar
         public TheTurfWarInstructionsCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
             // TODO: See string!
-            this.SpecialStringMaker.ShowSpecialString(() => "This should eventually track how many cards are under each leader.");
+            this.SpecialStringMaker.ShowSpecialString(() => "This should eventually track how many cards are under each figurehead.");
             this.AddThisCardControllerToList(CardControllerListType.MakesIndestructible);
         }
 
@@ -47,27 +47,16 @@ namespace LazyFanComix.TheTurfWar
             }
         }
 
-
-        // TODO: Verify this is necessary.
-        //public override void AddDependentSpecialStrings()
-        //{
-        //    Card card = this.TurnTaker.FindCard("TheShrineOfTheEnnead", true);
-        //    if (card != null)
-        //    {
-        //        this.SpecialStringMaker.ShowNumberOfCardsUnderCard(card, null);
-        //    }
-        //}
-
         public override void AddSideTriggers()
         {
-            // Instant win at 0 Villain Leaders True for both sides.
+            // Instant win at 0 Villain Figureheads True for both sides.
             this.AddSideTrigger(
                 this.AddTrigger(
                     delegate (GameAction g)
                     {
                         if (this.GameController.HasGameStarted && !(g is GameOverAction) && !(g is MessageAction) && !(g is IncrementAchievementAction))
                         {
-                            return this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("leader")).Count() == 0;
+                            return this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead")).Count() == 0;
                         }
                         return false;
                     },
@@ -77,20 +66,25 @@ namespace LazyFanComix.TheTurfWar
 
             if (!this.Card.IsFlipped)
             {
-                // On front: Start of Turn, win if only one villain leader remains.
+                // On front: Start of Turn, win if only one villain figurehead remains.
                 this.AddSideTrigger(
-                    this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => WinGamePartial(p), new TriggerType[] { TriggerType.GameOver, TriggerType.Hidden }, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsVillain && c.DoKeywordsContain("leader")).Count() == 1)
+                    this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => WinGamePartial(p), new TriggerType[] { TriggerType.GameOver, TriggerType.Hidden }, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead")).Count() == 1)
                 );
 
-                // On front: End of Turn, flip if there are any villain leader cards with at least 4 cards under it.
+                // On front: End of Turn, flip if there are any villain figurehead cards with at least 4 cards under it.
                 this.AddSideTrigger(
-                    this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => this.GameController.FlipCard(this, cardSource: this.GetCardSource()), TriggerType.FlipCard, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsVillain && c.DoKeywordsContain("leader") && c.UnderLocation.Cards.Count() >= 4).Count() > 0)
+                    this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => this.GameController.FlipCard(this, cardSource: this.GetCardSource()), TriggerType.FlipCard, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead") && c.UnderLocation.Cards.Count() >= 4).Count() > 0)
+                );
+
+                // On front: When environment cards are destroyed, put it under the appropriate figurehead.
+                this.AddSideTrigger(
+                    this.AddTrigger<DestroyCardAction>((DestroyCardAction dca) =>dca.CardToDestroy.Card.IsEnvironment && !dca.CardToDestroy.Card.Location.IsUnderCard &&dca.PostDestroyDestinationCanBeChanged && dca.CardToDestroy.CanBeDestroyed && dca.WasCardDestroyed, PutUnderAFigurehead, TriggerType.MoveCard, TriggerTiming.After)
                 );
 
             }
             else
             {
-                // On back: Start of Turn, large overhaul of actions.
+                // On back: Start of Turn, large number of actions.
                 this.AddSideTrigger(
                     this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => VillainPlot(pca),
                     new TriggerType[] { TriggerType.DestroyCard, TriggerType.DealDamage, TriggerType.RevealCard, TriggerType.PlayCard, TriggerType.FlipCard })
@@ -98,7 +92,6 @@ namespace LazyFanComix.TheTurfWar
             }
         }
 
-        // Token: 0x06002A5B RID: 10843 RVA: 0x0003A06F File Offset: 0x0003826F
         public override bool AskIfCardIsIndestructible(Card card)
         {
             return card == this.Card;
@@ -108,7 +101,7 @@ namespace LazyFanComix.TheTurfWar
         {
             IEnumerator coroutine;
 
-            Card c = this.GameController.FindCardsWhere((Card c) => c.IsVillain && c.DoKeywordsContain("leader")).FirstOrDefault();
+            Card c = this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead")).FirstOrDefault();
 
             coroutine = this.GameController.SendMessageAction("The war is over, but " + c.Title + " will now be watching over " + this.GameController.FindEnvironmentTurnTakerController().Name + "...", Priority.Critical, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -128,81 +121,89 @@ namespace LazyFanComix.TheTurfWar
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
+        private IEnumerator PutUnderAFigurehead(DestroyCardAction dca)
+        {
+            IEnumerator coroutine;
+
+            // Look over all figureheads for the one with the most shared keywords. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
+            IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
+
+            Dictionary<Card, int> matches = new Dictionary<Card, int>();
+            int maxMatches = -1;
+            foreach (Card c in figureheads)
+            {
+                int match = this.FindCardsWhere((Card c2) => c2.IsInPlayAndHasGameText && !c2.DoKeywordsContain("figurehead") && c2.DoKeywordsContain(c.GetKeywords())).Count();
+                matches.Add(c, match);
+                maxMatches = Math.Max(match, maxMatches);
+            }
+
+            figureheads = matches.Where((KeyValuePair<Card, int> pair) => pair.Value == maxMatches).Select((KeyValuePair<Card, int> pair) => pair.Key);
+            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCardToUnderCard, figureheads);
+
+            // Selected villain damages and, if legal, discovers a matching card.
+            coroutine = this.GameController.SelectCardAndDoAction(scd, (SelectCardDecision scd2) => PutDestroyedCardUnder(scd2, dca));
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
+
+        private IEnumerator PutDestroyedCardUnder(SelectCardDecision scd, DestroyCardAction dca)
+        {
+            IEnumerator coroutine;
+            if (scd?.SelectedCard != null)
+            {
+                dca.SetPostDestroyDestination(scd.SelectedCard.UnderLocation, cardSource: this.GetCardSource());
+            }
+            yield return null;
+        }
+
         private IEnumerator VillainPlot(GameAction ga)
         {
             IEnumerator coroutine;
             List<Card> underDestroyed = new List<Card>();
 
-            //// Convoluted TODO: SelectCardsAndDoAction with appropriate criteria to actively track what has already had two cards under it selected! Do later, since this is a massive headache!
-            //// First criteria to find cards that we'll check under: Is a leader and hasn't already had two cards destroyed from under it. 
-            //LinqCardCriteria leaderAndNotTwoDestroyed = new LinqCardCriteria((Card c) => c.DoKeywordsContain("leader") && underDestroyed.Where((Card c2) => c == c2).Count() < 2);
-            //// Second criteria to find cards: Look at the list of leaders, and see if the location of the card matches the 'under' location of each of those.
-            //Func<Card, bool> underCriteria = (Card c) => this.GameController.FindCardsWhere(leaderAndNotTwoDestroyed).Select((Card c2) => c2.UnderLocation).Contains(c.Location);
-
-            //SelectCardsDecision scsd = new SelectCardsDecision(this.GameController, this.DecisionMaker, underCriteria, SelectionType.DestroyCard, null, false, null, true, false, false, () => DoesUnderDestructionContinue(underDestroyed), cardSource: this.GetCardSource());
-            //coroutine = this.GameController.SelectCardsAndDoAction(scsd, (SelectCardDecision sc) => this.DestroyAndTrackBaseCard(sc, underDestroyed), null, null, this.GetCardSource());
-            //if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-
-            // Less convoluted TODO: Custom SelectCardAndDoAction for "Destroy 2 cards from under each Leader", since tracking through SelectCardsAndDoAction is nightmarish. 
-            coroutine = DestroyTwoFromUnderEachLeader();
+            // Destroy 2 cards from under each figurehead.
+            coroutine = DestroyTwoFromUnderEachFigurehead();
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Look over all leaders for the one with the most cards. There doesn't appear to be a valid method of using TargetInfo for this.
-            IEnumerable<Card> leaders = this.FindCardsWhere((Card c) => c.IsVillain && c.DoKeywordsContain("leader"));
-            int maxCards = leaders.Select((Card c) => c.UnderLocation.Cards.Count()).Max();
-            leaders = leaders.Where((Card c) => c.UnderLocation.Cards.Count() == maxCards);
-            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, leaders);
 
-            // Selected villain damages and, if legal after, discovers a matching card.
+            // Look over all figureheads for the ones with the most cards. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
+            IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
+
+            Dictionary<Card, int> cardCounts = new Dictionary<Card, int>();
+            int cardCountMax = -1;
+            foreach (Card c in figureheads)
+            {
+                int cardCount = c.UnderLocation.Cards.Count();
+                cardCounts.Add(c, cardCount);
+                cardCountMax = Math.Max(cardCount, cardCount);
+            }
+
+            figureheads = cardCounts.Where((KeyValuePair<Card, int> pair) => pair.Value == cardCountMax).Select((KeyValuePair<Card, int> pair) => pair.Key);
+            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, figureheads);
+
+            // Selected villain damages and, if legal, discovers a matching card.
             coroutine = this.GameController.SelectCardAndDoAction(scd, DealDamageAndDiscoverCard);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
 
             // Flip back.
             coroutine = this.GameController.FlipCard(this, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        //private int DoesUnderDestructionContinue(List<Card> underDestroyed)
-        //{
-        //    // First criteria to find cards that we'll check under: Is a leader and hasn't already had two cards destroyed from under it. 
-        //    LinqCardCriteria leaderAndNotTwoDestroyed = new LinqCardCriteria((Card c) => c.DoKeywordsContain("leader") && underDestroyed.Where((Card c2) => c == c2).Count() < 2);
-
-        //    // When considering how much is left to destroy from under remaining cards - for each remaining leader, start with 2 and subtract what's already been destroyed from under it. Or, if fewer cards remain, every cards that remains.
-        //    Func<Card, int> leftToDestroyFromUnder = (Card c) => Math.Min(2 - underDestroyed.Where((Card c2) => c == c2).Count(), c.UnderLocation.Cards.Count());
-
-        //    int moreToDestroy = this.GameController.FindCardsWhere(leaderAndNotTwoDestroyed).Sum(leftToDestroyFromUnder);
-
-        //    return underDestroyed.Count() + moreToDestroy;
-        //}
-
-        //private IEnumerator DestroyAndTrackBaseCard(SelectCardDecision scd, List<Card> underDestroyed)
-        //{
-        //    IEnumerator coroutine;
-        //    if (scd!.SelectedCard != null)
-        //    {
-        //        underDestroyed.Add(scd.SelectedCard);
-        //        coroutine = this.GameController.DestroyCard(this.DecisionMaker, scd.SelectedCard, cardSource: this.GetCardSource());
-        //        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        //    }
-        //}
-
-        private IEnumerator DestroyTwoFromUnderEachLeader()
+        private IEnumerator DestroyTwoFromUnderEachFigurehead()
         {
-            List<Card> leadersUnderDestroyAttempts = new List<Card>();
+            List<Card> figureheadsUnderDestroyAttempts = new List<Card>();
             List<Card> cardFailedDestroyAttempts = new List<Card>();
             bool continueChecking = true;
             IEnumerator coroutine;
 
-            // TODO: Requires clearing leaders array if that leader is destroyed, and card array if card is destroyed. Hope that never happens, but it might. Likely uses temporary triggers to manage. Yes, this is a pain. I think Play Indexes can technically get around this, if I can look up how to use those? 
+            // TODO: Requires clearing figureheads array if that figurehead is destroyed, and card array if card is destroyed. Hope that never happens, but it might. Likely uses temporary triggers to manage. Yes, this is a pain. I think Play Indexes can technically get around this, if I can look up how to use those, but that would require separate tracking. That won't work for figureheads flipping, so I probably don't bother with that - not the right timing points for that to happen midway.
 
-            // In-line function - each leader should have a remaining destroy count of 2 minus the number destroyed, or
+            // In-line function - each figurehead should have a remaining destroy count of 2 minus the number destroyed, or
             // The number of cards remaining under that have not yet had an attempted destroy, whichever is smaller. 
             Func<Card, int> destroyFromUnderRemaining = (Card c) =>
             {
                 return Math.Min(
-                    2 - leadersUnderDestroyAttempts.Where((Card c2) => c == c2).Count(),
+                    2 - figureheadsUnderDestroyAttempts.Where((Card c2) => c == c2).Count(),
                     c.UnderLocation.Cards.Where((Card c2) => !cardFailedDestroyAttempts.Contains(c2)).Count()
                 );
             };
@@ -210,37 +211,41 @@ namespace LazyFanComix.TheTurfWar
             // Must re-fetch, so track separately. 
             while (continueChecking)
             {
-                // TODO: Should likely be SelectCardAndDoAction scenario, especially since we need to check for validity prior to doing action to prevent unnecessary message.
+                // SelectCardAndDoAction may be slightly more efficient, but doesn't cleanly allow for CardSources if possibble, so try not to use that.
+
                 List<SelectCardDecision> scd = new List<SelectCardDecision>();
-                // TODO: Can the efficiency of this be improved through swapping to using card.location.isundercard for various checks? 
-                IEnumerable<Location> locationsUnderValidLeaders = this.GameController.FindCardsWhere(new LinqCardCriteria((Card c) => c.DoKeywordsContain("leader") && c.IsInPlayAndHasGameText && destroyFromUnderRemaining(c) > 0)).Select((Card c) => c.UnderLocation);
+                IEnumerable<Card> validFigureheads = this.GameController.FindCardsWhere(new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("figurehead") && destroyFromUnderRemaining(c) > 0));
 
+                // No more remaining valid figureheads to destroy from under, so abort.
+                // Should we have a message for if there are no cards to destroy? Technically possible with flip -> environment destruction... But also, wow.
+                if (validFigureheads.Count() == 0)
+                {
+                    continueChecking = false;
+                }
 
-                // TO DO: This should be a SelectCardAndDoAction. 
-                //IEnumerator coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => locationsUnderValidLeaders.Contains(c.Location)), 1, false, 1, storedResultsAction: dca, cardSource: this.GetCardSource());
-
-                SelectCardsDecision selectFromValidUnderCards = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => locationsUnderValidLeaders.Contains(c.Location), SelectionType.DestroyCard, 1, false, 1, cardSource: this.GetCardSource());
-                coroutine = this.GameController.SelectCardsAndDoAction(selectFromValidUnderCards, (SelectCardDecision scd) => IfCardSelectedTrackAndDestroy(scd, leadersUnderDestroyAttempts, cardFailedDestroyAttempts), scd, cardSource: this.GetCardSource());
+                SelectCardsDecision selectFromValidUnderCards = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.Location.IsUnderCard && validFigureheads.Contains(c.Location.OwnerCard), SelectionType.DestroyCard, 1, false, 1, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectCardsAndDoAction(selectFromValidUnderCards, (SelectCardDecision scd) => IfCardSelectedTrackAndDestroy(scd, figureheadsUnderDestroyAttempts, cardFailedDestroyAttempts), scd, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
+                // We somehow failed to select a card, so something weird happened. Abort.
                 if (scd?.FirstOrDefault()?.SelectedCard == null)
                 {
-                    // TODO: Add initial check if all cards are destroyed/when cards are destroyed? Is it even worth doing?
                     continueChecking = false;
                 }
             }
             yield break;
         }
 
-        private IEnumerator IfCardSelectedTrackAndDestroy(SelectCardDecision scd, List<Card> leadersUnderDestroyAttempts, List<Card> cardFailedDestroyAttempts)
+        private IEnumerator IfCardSelectedTrackAndDestroy(SelectCardDecision scd, List<Card> figureheadsUnderDestroyAttempts, List<Card> cardFailedDestroyAttempts)
         {
             IEnumerator coroutine;
             if (scd?.SelectedCard != null && scd.SelectedCard.Location.IsUnderCard)
             {
                 List<DestroyCardAction> dca = new List<DestroyCardAction>();
                 // Get card this card is under. 
-                leadersUnderDestroyAttempts.Add(scd.SelectedCard.Location.OwnerCard);
+                figureheadsUnderDestroyAttempts.Add(scd.SelectedCard.Location.OwnerCard);
 
+                // Actually destroy.
                 coroutine = this.GameController.DestroyCard(this.DecisionMaker, scd.SelectedCard, storedResults: dca, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -257,37 +262,23 @@ namespace LazyFanComix.TheTurfWar
 
         private IEnumerator DealDamageAndDiscoverCard(SelectCardDecision scd)
         {
-            Card leader = scd.SelectedCard;
+            Card figurehead = scd.SelectedCard;
             IEnumerator coroutine;
-            if (leader != null)
+            if (figurehead != null)
             {
                 // Damaging aspects. 
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, leader, (Card c) => c != leader && c.DoKeywordsContain("leader"), 2, DamageType.Toxic, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => c != figurehead && c.DoKeywordsContain("figurehead"), 2, DamageType.Toxic, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, leader, (Card c) => !c.DoKeywordsContain("leader") && !SharesKeyword(leader, c), 2, DamageType.Toxic, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => !c.DoKeywordsContain("figurehead") && !c.DoKeywordsContain(figurehead.GetKeywords()), 2, DamageType.Toxic, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 // Discover a shared keyword. 
-                // TODO: NEEDS TEST FOR IF THE LEADER IS INCAPPED AND HAS THEREFORE LOST KEYWORDS!
-                coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, true, false, false, new LinqCardCriteria((Card c) => SharesKeyword(leader, c)), 1);
+                coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, true, false, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain(figurehead.GetKeywords())), 1);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
 
-        private bool SharesKeyword(Card leader, Card c)
-        {
-            // It shares keywords, so this fails. 
-            foreach (string keyword in leader.GetKeywords())
-            {
-                if (c.DoKeywordsContain(keyword))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
     }
 }

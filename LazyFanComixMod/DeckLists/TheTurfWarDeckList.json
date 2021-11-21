@@ -22,26 +22,26 @@
       "advancedIcons": [
       ],
       "body": "Territory in Turmoil",
-      "backgroundColor": "FFFFFF",
-      "foilBackgroundColor": "FFFFFF",
+      "backgroundColor": "CCCCCC",
+      "foilBackgroundColor": "CCCCCC",
       "character": true,
       "setup": [
-        "At the start of the game, put {Calin} into play Ordained Herald side up, {Kanya} into play Crazed Experimenter side up, and {Sez} into play Gang Figurehead side up."
+        "At the start of the game, put {Calin} into play Ordained Herald side up, {Kanya} into play Crazed Experimenter side up, and {Sez} into play Gang Enforcer side up."
       ],
       "gameplay": [
-        "At the start of the Villain turn, if there is only one Villain Leader in play, the heroes win, though a threat still lingers.",
-        "Whenever there are no Villain Leaders in play, the heroes win.",
-        "After an Environment card is destroyed, put it under the Leader with the most non-Leaders sharing a keyword with it.",
-        "At the end of the Villain turn, if any Villain Leader has at least 4 cards under them, flip this card."
+        "At the start of the Villain turn, if there is only one Villain Figurehead in play, the heroes win, though a threat still lingers.",
+        "Whenever there are no Villain Figureheads in play, the heroes win.",
+        "After an Environment card not under a card is destroyed, put it under the Figurehead with the most non-Figureheads sharing a keyword with it.",
+        "At the end of the Villain turn, if any Villain Figurehead has at least 4 cards under them, flip this card."
       ],
       "advanced": "To Be Determined.",
       "flippedBody": "A Leader's Plot",
       "flippedGameplay": [
-        "At the start of the Villain turn, destroy 2 cards from under each Villain Leader.",
-        "Then, the Villain Leader with the most cards under it deals each other Leader and each non-Leader not sharing a keyword with it 2 Toxic Damage.",
-        "Then, reveal cards from the top of the Villain deck until you reveal a card sharing a keyword with that Villain Leader, play it, and shuffle the other cards back into the Villain Deck.",
+        "At the start of the Villain turn, destroy 2 cards from under each Villain Figurehead.",
+        "Then, the Villain Figurehead with the most cards under it deals each other Figurehead and each non-Figurehead not sharing a keyword with it 2 Toxic Damage.",
+        "Then, reveal cards from the top of the Villain deck until you reveal a card sharing a keyword with that Villain Figurehead, play it, and shuffle the other cards back into the Villain Deck.",
         "Then, flip this card.",
-        "Whenever there are no Villain leaders in play, the heroes win."
+        "Whenever there are no Villain Figureheads in play, the heroes win."
       ],
       "flippedAdvanced": "To Be Determined",
       "flippedIcons": [
@@ -63,11 +63,11 @@
       "title": "Calin",
       "keywords": [
         "villain",
-        "leader",
+        "figurehead",
         "cultist"
       ],
       "body": "Ordained Herald",
-      "backgroundColor": "FF0000",
+      "backgroundColor": "FF5555",
       "character": true,
       "hitpoints": 70,
       "nemesisIdentifiers": [
@@ -84,11 +84,9 @@
       "flippedKeywords": [
       ],
       "flippedGameplay": [
-        "At the end of the Villain turn, if this card has at least 4 cards under it, destroy 4 cards under this card, flip this card and restore it to 20 HP."
+        "At the end of the Villain turn, if this card has at least 3 cards under it, destroy 3 cards under this card, flip this card and restore it to 15 HP. Otherwise, move the top card of the Environment deck under this card."
       ],
       "flippedIcons": [
-        "EndOfTurnAction",
-        "GainHP"
       ]
     },
     {
@@ -97,11 +95,11 @@
       "title": "Kanya",
       "keywords": [
         "villain",
-        "leader",
+        "figurehead",
         "minion"
       ],
       "body": "Crazed Experimenter",
-      "backgroundColor": "0000FF",
+      "backgroundColor": "AAFFAA",
       "character": true,
       "hitpoints": 70,
       "nemesisIdentifiers": [
@@ -118,11 +116,9 @@
       "flippedKeywords": [
       ],
       "flippedGameplay": [
-        "At the end of the Villain turn, if this card has at least 3 cards under it, destroy 3 cards under this card and each non-Minion target deals themselves 3 Cold Damage."
+        "At the end of the Villain turn, if this card has at least 2 cards under it, destroy 2 cards under this card and each non-Minion target deals themselves 3 Cold Damage. Otherwise, move the top card of the Environment deck under this card."
       ],
       "flippedIcons": [
-        "EndOfTurnAction",
-        "DealDamageCold"
       ]
     },
     {
@@ -131,18 +127,18 @@
       "title": "Sez",
       "keywords": [
         "villain",
-        "leader",
+        "figurehead",
         "thug"
       ],
-      "body": "Gang Figurehead",
-      "backgroundColor": "0000FF",
+      "body": "Gang Enforcer",
+      "backgroundColor": "AAAAFF",
       "character": true,
       "hitpoints": 70,
       "nemesisIdentifiers": [
         "LazyFanComix.Inquirer"
       ],
       "gameplay": [
-        "At the end of the Villain turn, this card deals  the 5 non-Thug targets with the highest HP 3 Projectile Damage."
+        "At the end of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 3 Projectile Damage."
       ],
       "icons": [
         "DealDamageProjectile"
@@ -152,26 +148,215 @@
       "flippedKeywords": [
       ],
       "flippedGameplay": [
-        "At the end of the Villain turn, if this card has at least 2 cards under it, destroy 2 cards under this card, each Thug regains 4 HP, and play the top card of the Environment deck."
+        "At the end of the Villain turn, if this card has at least 1 card under it, destroy 1 card under this card, each Thug regains 3 HP, and play the top card of the Environment deck. Otherwise, move the top card of the Environment deck under this card."
       ],
       "flippedIcons": [
-        "EndOfTurnAction",
-        "DealDamageCold"
       ]
     },
     {
+      "identifier": "TheLeeches",
+      "count": 2,
+      "title": "The Leeches",
+      "hitpoints": 12,
+      "keywords": [
+        "cultist"
+      ],
+      "body": [
+        "At the end of the Villain turn, this card deals each target 2 Infernal Damage.",
+        "At the start of the Villain turn, destroy 2 non-Villain Ongoing cards. Put cards destroyed this way under the Figurehead sharing a keyword with this card."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "TheConduit",
+      "count": 1,
+      "title": "The Conduit",
+      "hitpoints": 15,
+      "keywords": [
+        "cultist"
+      ],
+      "body": [
+        "At the end of the Villain turn, this card deals each target 1 Infernal Damage.",
+        "At the start of the Villain turn, this card deals each target 1 Infernal Damage, increased by 1 for each player with an Ongoing in play."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "Chalice",
+      "count": 1,
+      "title": "Chalice",
+      "hitpoints": 18,
+      "keywords": [
+        "cultist"
+      ],
+      "body": [
+        "Reduce damage dealt to Cultists by Cultists by 2.",
+        "At the start of the Villain turn, destroy 1 non-Villain Ongoing card. Put cards destroyed this way under the Figurehead sharing a keyword with this card."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "TheShockTroopers",
+      "count": 2,
+      "title": "The Shock Troopers",
+      "hitpoints": 11,
+      "keywords": [
+        "minion"
+      ],
+      "body": [
+        "At the end of the Villain turn, this card deals each non-Minion target 3 Lightning Damage.",
+        "At the start of the Villain turn, destroy 2 non-Villain Equipment cards. Put cards destroyed this way under the Figurehead sharing a keyword with this card."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "TheFlashpoint",
+      "count": 1,
+      "title": "The Flashpoint",
+      "hitpoints": 14,
+      "keywords": [
+        "minion"
+      ],
+      "body": [
+        "At the end of the Villain turn, this card deals each non-Minion target 2 Fire Damage.",
+        "At the start of the Villain turn, this card deals each non-Minion target 2 Fire Damage, increased by 1 for each player with an Equipment in play."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "ShortCircuit",
+      "count": 1,
+      "title": "Short Circuit",
+      "hitpoints": 17,
+      "keywords": [
+        "minion"
+      ],
+      "body": [
+        "Increase damage dealt by Minions by 1.",
+        "At the start of the Villain turn, destroy 1 non-Villain Equipment card. Put cards destroyed this way under the Figurehead sharing a keyword with this card."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "TheBrutes",
+      "count": 2,
+      "title": "The Brutes",
+      "hitpoints": 10,
+      "keywords": [
+        "thug"
+      ],
+      "body": [
+        "At the end of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 4 Melee Damage.",
+        "At the start of the Environment turn, put the top 2 cards of the Environment deck under the Figurehead sharing a keyword with this card."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "TheSpike",
+      "count": 1,
+      "title": "The Spike",
+      "hitpoints": 13,
+      "keywords": [
+        "thug"
+      ],
+      "body": [
+        "At the end of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 3 Projectile Damage.",
+        "At the start of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 3 Projectile Damage, increased by 1 for each Environment card in play."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "Zenith",
+      "count": 1,
+      "title": "Zenith",
+      "hitpoints": 16,
+      "keywords": [
+        "thug"
+      ],
+      "body": [
+        "Reduce damage dealt to Thugs by Environment cards by 2.",
+        "At the end of the Villain turn, put the top card of the Environment deck under the Villain Character sharing a keyword with this card."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
+      "identifier": "Reinforcements",
+      "count": 2,
+      "title": "Reinforcements",
+      "keywords": [
+        "one-shot"
+      ],
+      "body": "Reveal cards from the top of the Villain deck until 3 Targets are revealed. Play those targets. Shuffle the other revealed cards into the Villain deck.",
+      "icons": [
+        "Search",
+        "PlayCardNow"
+      ],
+      "flavorText": "This city has been caught in the middle for long enough. The time has come for its people to choose."
+    },
+    {
+      "identifier": "PlotsRevealed",
+      "count": 2,
+      "title": "Plots Revealed",
+      "keywords": [
+        "one-shot"
+      ],
+      "body": [
+        "Reveal cards from the top of the Villain deck until a target is revealed. Play that target. Shuffle the other revealed cards into the Villain Deck.",
+        "That target deals every target not sharing a keyword with it 2 Toxic Damage.",
+        "Destroy 1 Environment card."
+      ],
+      "icons": [
+      ],
+      "flavorText": []
+    },
+    {
       "identifier": "TheRealmsChoice",
-      "count": 20,
+      "count": 2,
       "title": "The Realm's Choice",
       "keywords": [
         "ongoing"
       ],
-      "body": "At the end of the Environment turn, destroy an Environment card, then play the top 2 cards of the Environment deck.",
+      "body": "At the end of the Villain turn, destroy an Environment card, then play the top 2 cards of the Environment deck.",
       "icons": [
         "DestroyEnvironment",
         "PlayCardNow"
       ],
       "flavorText": "This city has been caught in the middle for long enough. The time has come for its people to choose."
+    },
+    {
+      "identifier": "HoldingTheHighGround",
+      "count": 2,
+      "title": "Holding the High Ground",
+      "keywords": [
+        "ongoing"
+      ],
+      "body": [
+        "At the end of the Villain turn, the Villain Figurehead with the most cards under them regains 5 HP.",
+        "At the start of the Villain turn, the Villain Figurehead with the most cards under them deals each other Figurehead and each non-Figurehead not sharing a keyword with it 2 Psychic Damage."
+      ],
+      "icons": [
+        "GainHP",
+        "DealDamagePsychic"
+      ],
+      "flavorText": "Appearances mean everything. If the city sees someone on top, they'll believe they're on top."
     }
   ]
 }

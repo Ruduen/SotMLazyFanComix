@@ -23,12 +23,26 @@ namespace LazyFanComix.TheTurfWar
         }
         private IEnumerator DealDamageResponse(PhaseChangeAction pca)
         {
-            yield break;
+            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => !c.IsMinion, 2, DamageType.Fire, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         private IEnumerator DestroyCardsResponse(PhaseChangeAction pca)
         {
-            yield break;
+            IEnumerator coroutine;
+            if (this.Card.UnderLocation.Cards.Count() >= 2)
+            {
+                coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation), 2, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.DealDamageToSelf(this.DecisionMaker, (Card c) => true, 3, DamageType.Cold, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
+            {
+                coroutine = this.GameController.MoveCards(this.TurnTakerController, this.FindEnvironment().TurnTaker.Deck.GetTopCards(1), this.Card.UnderLocation, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
     }
 }
