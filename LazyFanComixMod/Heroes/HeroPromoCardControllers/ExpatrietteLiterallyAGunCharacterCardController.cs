@@ -23,18 +23,24 @@ namespace LazyFanComix.Expatriette
                 this.GetPowerNumeral(2, 1),
                 this.GetPowerNumeral(3, 1)
             };
-            List<DealDamageAction> ddas = new List<DealDamageAction>();
+            List<MoveCardAction> mcas = new List<MoveCardAction>();
             IEnumerator coroutine;
 
             coroutine = this.SelectTargetsAndDealMultipleInstancesOfDamage(new List<DealDamageAction>
             {
                 new DealDamageAction(this.GetCardSource(), new DamageSource(this.GameController, this.Card), null, numerals[1], DamageType.Projectile),
                 new DealDamageAction(this.GetCardSource(), new DamageSource(this.GameController, this.Card), null, numerals[2], DamageType.Projectile)
-            }, null, null, numerals[0], numerals[0], false, ddas);
+            }, null, null, numerals[0], numerals[0], false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), numerals[3], DamageType.Projectile, 1, false, 0, additionalCriteria: (Card c) => !ddas.Select((DealDamageAction dda) => dda.OriginalTarget).Contains(c), cardSource: this.GetCardSource());
+            coroutine = this.GameController.DiscardTopCards(this.DecisionMaker, this.TurnTaker.Deck, 1, mcas, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (mcas.Count > 0 && mcas?.First().CardToMove != null && mcas.First().WasCardMoved && mcas.First().CardToMove.IsAmmo)
+            {
+                coroutine = this.GameController.PlayCard(this.DecisionMaker, mcas.First().CardToMove, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
     }
 }

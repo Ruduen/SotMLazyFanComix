@@ -480,11 +480,17 @@ namespace LazyFanComixTest
             StartGame();
 
             Card ammo=PlayCard("IncendiaryRounds");
+            Card gun = PutOnDeck("AssaultRifle");
+            Card top = PutOnDeck("ShockRounds");
             AssertNextToCard(ammo, expatriette.CharacterCard);
 
             QuickHPStorage(omnitron, expatriette);
             UsePower(expatriette);
-            QuickHPCheck(-4, -2); // Shoot Omni twice, self once.
+            QuickHPCheck(-4, 0); // Shoot Omni twice.
+            AssertIsInPlay(top);
+
+            UsePower(expatriette);
+            AssertInTrash(gun);
 
         }
 

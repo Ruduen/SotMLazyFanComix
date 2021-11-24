@@ -315,7 +315,7 @@
       "character": true,
       "backgroundColor": "996cae",
       "foilBackgroundColor": "996cae",
-      "powers": "{Expatriette] deals 1 target 1 projectile damage and 1 projectile damage. {Expatriette} may deal a different target 1 projectile damage.",
+      "powers": "{Expatriette} deals 1 target 1 projectile damage and 1 projectile damage. Discard the top card of your deck. If it is an Ammo card, play it.",
       "hitpoints": 25,
       "icons": [ "HasPower", "DealDamageNow" ],
       "nemesisIdentifiers": [ "Expatriette" ],
@@ -331,7 +331,7 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "default": "Bang. Bang bang bang."
+        "default": "In the words of my predecessor... Bang bang bang!"
       }
     }
   ],
@@ -1076,7 +1076,7 @@
       ],
       "complexity": 1,
       "openingLines": {
-        "InvaderVossCharacter": "Every land will reject you. You have no place here!",
+        "IntriguingComics.InvaderVossCharacter": "Every land will reject you. You have no place here!",
         "default": "The very winds of this place agree - you will be stopped!"
       }
     }
@@ -1325,7 +1325,7 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "TheIncorporealMindReaperCharacter": "My fate may not be kind, but your fate will end first.",
+        "IntriguingComics.TheIncorporealMindReaperCharacter": "My fate may not be kind, but your fate will end first!",
         "default": "This isn't going to end well for you."
       }
     }
@@ -1357,7 +1357,7 @@
       ],
       "complexity": 1,
       "openingLines": {
-        "StalkingTheStreetsSpiteCharacter": "You're already broken. All that's left is for you to accept it.",
+        "IntriguingComics.StalkingTheStreetsSpiteCharacter": "You're already broken. All that's left is for you to accept it.",
         "LootcaseCharacter": "And let you take those, too? Better to stop you here and now.",
         "default": "What I have might not last, so let's make this quick."
       }
