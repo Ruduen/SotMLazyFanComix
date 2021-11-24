@@ -196,7 +196,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(Calin, fixer.CharacterCard);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(-1, -1);
+            QuickHPCheck(-2, -2);
         }
 
         [Test()]
@@ -249,7 +249,7 @@ namespace LazyFanComixTest
             Card otherTarget = PlayCard("Bloogo");
             QuickHPStorage(Kanya, fixer.CharacterCard, otherTarget);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(0, -2, -2);
+            QuickHPCheck(0, -1, -1);
         }
 
 
@@ -342,12 +342,13 @@ namespace LazyFanComixTest
 
             DestroyCard(Kanya);
             DestroyCard(Calin);
+            DestroyCard(guise);
 
             Card otherLowTarget = PlayCard("Bloogo");
             Card otherHighTarget = PlayCard("Orbo");
-            QuickHPStorage(Sez, fixer.CharacterCard, legacy.CharacterCard, wraith.CharacterCard, guise.CharacterCard, otherLowTarget, otherHighTarget);
+            QuickHPStorage(Sez, fixer.CharacterCard, legacy.CharacterCard, wraith.CharacterCard, otherLowTarget, otherHighTarget);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(0, -3, -3, -3, -3, 0, -3);
+            QuickHPCheck(0, -3, -3, -3, 0, -3);
         }
 
         #region Target Tests
@@ -386,7 +387,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(fixer.CharacterCard, leeches);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(-2, -2);
+            QuickHPCheck(-3, -3);
             GoToEndOfTurn(env);
 
             Card[] ongoings = new Card[] { PlayCard("Harmony"), PlayCard("DrivingMantis"), PlayCard("BloodyKnuckles") };
@@ -411,7 +412,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(fixer.CharacterCard, conduit);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(-1, -1);
+            QuickHPCheck(-2, -2);
             GoToEndOfTurn(env);
 
             PlayCard("HypersonicAssault");
@@ -458,7 +459,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(fixer.CharacterCard, troopers, Calin);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(-3, 0, -3);
+            QuickHPCheck(-2, 0, -2);
             GoToEndOfTurn(env);
 
             Card[] equip = new Card[] { PlayCard("DualCrowbars"), PlayCard("ToolBox"), PlayCard("GreaseGun") };
@@ -482,7 +483,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(fixer.CharacterCard, flashpoint);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(-2, 0);
+            QuickHPCheck(-1, 0);
             GoToEndOfTurn(env);
 
             PlayCard("HypersonicAssault");
@@ -492,7 +493,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(fixer.CharacterCard, flashpoint);
             GoToStartOfTurn(TurfWar);
-            QuickHPCheck(-4, 0);
+            QuickHPCheck(-3, 0);
         }
 
         [Test()]
@@ -643,10 +644,10 @@ namespace LazyFanComixTest
             QuickHPStorage(Calin, Kanya, fixer.CharacterCard);
             GoToEndOfTurn(TurfWar);
             // Damage Totals: 
-            // Calin: Calin 1, Kanya 2+1, Sez 3+1, Heal 5.
-            // Kanya: Calin 1+1, Kanya 0, Sez 3+1
-            // Fixer: Calin 1, Kanya 2, Sez 0
-            QuickHPCheck(-8 + 5, -6, -3);
+            // Calin: Calin 2, Kanya 1+1, Sez 0, Heal 5.
+            // Kanya: Calin 2+1, Kanya 0, Sez 3+1
+            // Fixer: Calin 2, Kanya 1, Sez 0
+            QuickHPCheck(0, -7, -3);
 
             GoToStartOfTurn(TurfWar);
             QuickHPCheck(0, -3, -2); // Start of turn, Calin damages

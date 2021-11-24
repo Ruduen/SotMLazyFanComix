@@ -7,7 +7,7 @@
     "- 6 Completely Custom Heroes",
     "- 1 Aeon's End Inspired Hero",
     "- 1-2 Variants for most Official Heroes",
-	"- 1 Completely Custom Villain",
+    "- 1 Completely Custom Villain",
     "Ruduen is not an artist, so art will likely remain random-Unicode quality."
   ],
   "version": "0.5.0.0.1",
@@ -54,6 +54,7 @@
     "Parse": [ "ParseLaplaceShotCharacter" ],
     "Ra": [ "RaPiercingBlastCharacter" ],
     "TheScholar": [ "TheScholarEquilibriumCharacter" ],
+    "TheSentinels": [ "TheSentinelsTagInInstructions" ],
     "Setback": [ "SetbackRunOfLuckCharacter", "SetbackDoubleOrNothingCharacter" ],
     "Stuntman": [ "StuntmanForeshadowCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],

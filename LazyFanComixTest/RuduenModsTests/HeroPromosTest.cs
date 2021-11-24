@@ -1374,7 +1374,7 @@ namespace LazyFanComixTest
             // Representative can play this. 
             DecisionSelectFunction = 1;
             UsePower(representative);
-            AssertIsInPlayAndNotUnderCard(equip); 
+            AssertIsInPlayAndNotUnderCard(equip);
 
             // Let time wear off.
             GoToStartOfTurn(wraith);
@@ -1651,6 +1651,62 @@ namespace LazyFanComixTest
             AssertIsInPlay(plays); // Played ongoing card is in play.
             QuickHandCheck(-1); // 2 card played, 1 drawn.
         }
+
+        [Test()]
+        public void TestSentinels()
+        {
+            var promos = new Dictionary<string, string>();
+            promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
+            SetupGameController(new string[] { "Omnitron", "TheSentinels", "Legacy", "Megalopolis" }, false, promos);
+
+            StartGame();
+
+            Card instructions = FindCardController("TheSentinelsInstructions").Card;
+            Assert.IsTrue(instructions.IsPromoCard);
+            AssertIsInPlayAndNotUnderCard(mainstay);
+            AssertIsInPlayAndNotUnderCard(medico);
+            AssertUnderCard(instructions, idealist);
+            AssertUnderCard(instructions, writhe);
+
+            DiscardAllCards(sentinels);
+            PutInHand("CoordinatedAssault");
+            QuickHPStorage(omnitron);
+            UsePower(instructions);
+            QuickHPCheck(-4);
+
+            AssertIsInPlayAndNotUnderCard(idealist);
+            AssertUnderCard(instructions, medico);
+
+            DestroyCard(idealist);
+            DestroyCard(mainstay);
+
+            AssertIncapacitated(sentinels);
+        }
+
+        [Test()]
+        public void TestSentinelsDangItGuise()
+        {
+            var promos = new Dictionary<string, string>();
+            promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
+            SetupGameController(new string[] { "Omnitron", "TheSentinels", "Guise", "Megalopolis" }, false, promos);
+
+            StartGame();
+
+            Card instructions = FindCardController("TheSentinelsInstructions").Card;
+            Assert.IsTrue(instructions.IsPromoCard);
+            AssertIsInPlayAndNotUnderCard(mainstay);
+            AssertIsInPlayAndNotUnderCard(medico);
+            AssertUnderCard(instructions, idealist);
+            AssertUnderCard(instructions, writhe);
+
+            DecisionSelectPower = instructions;
+            DiscardAllCards(guise);
+            PlayCard("ICanDoThatToo");
+
+            AssertIsInPlayAndNotUnderCard(idealist);
+            AssertIsInPlayAndNotUnderCard(medico);
+        }
+
 
         [Test()]
         public void TestSetbackDoubleOrNothingNoMatch()

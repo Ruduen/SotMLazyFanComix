@@ -74,7 +74,7 @@
         "LazyFanComix.Inquirer"
       ],
       "gameplay": [
-        "At the end of the Villain turn, this card deals each target 1 Infernal Damage."
+        "At the end of the Villain turn, this card deals each target 2 Infernal Damage."
       ],
       "icons": [
         "Search"
@@ -106,7 +106,7 @@
         "LazyFanComix.Inquirer"
       ],
       "gameplay": [
-        "At the end of the Villain turn, this card deals each non-Minion target 2 Fire Damage."
+        "At the end of the Villain turn, this card deals each non-Minion target 1 Fire Damage."
       ],
       "icons": [
         "DealDamageFire"
@@ -157,12 +157,12 @@
       "identifier": "TheLeeches",
       "count": 2,
       "title": "The Leeches",
-      "hitpoints": 12,
+      "hitpoints": 11,
       "keywords": [
         "cultist"
       ],
       "body": [
-        "At the end of the Villain turn, this card deals each target 2 Infernal Damage.",
+        "At the end of the Villain turn, this card deals each target 3 Infernal Damage.",
         "At the start of the Villain turn, destroy 2 non-Villain Ongoing cards. Put cards destroyed this way under the Figurehead sharing a keyword with this card."
       ],
       "icons": [
@@ -173,12 +173,12 @@
       "identifier": "TheConduit",
       "count": 1,
       "title": "The Conduit",
-      "hitpoints": 15,
+      "hitpoints": 14,
       "keywords": [
         "cultist"
       ],
       "body": [
-        "At the end of the Villain turn, this card deals each target 1 Infernal Damage.",
+        "At the end of the Villain turn, this card deals each target 2 Infernal Damage.",
         "At the start of the Villain turn, this card deals each target 1 Infernal Damage, increased by 1 for each player with an Ongoing in play."
       ],
       "icons": [
@@ -189,7 +189,7 @@
       "identifier": "Chalice",
       "count": 1,
       "title": "Chalice",
-      "hitpoints": 18,
+      "hitpoints": 17,
       "keywords": [
         "cultist"
       ],
@@ -205,12 +205,12 @@
       "identifier": "TheShockTroopers",
       "count": 2,
       "title": "The Shock Troopers",
-      "hitpoints": 11,
+      "hitpoints": 10,
       "keywords": [
         "minion"
       ],
       "body": [
-        "At the end of the Villain turn, this card deals each non-Minion target 3 Lightning Damage.",
+        "At the end of the Villain turn, this card deals each non-Minion target 2 Lightning Damage.",
         "At the start of the Villain turn, destroy 2 non-Villain Equipment cards. Put cards destroyed this way under the Figurehead sharing a keyword with this card."
       ],
       "icons": [
@@ -221,13 +221,13 @@
       "identifier": "TheFlashpoint",
       "count": 1,
       "title": "The Flashpoint",
-      "hitpoints": 14,
+      "hitpoints": 13,
       "keywords": [
         "minion"
       ],
       "body": [
-        "At the end of the Villain turn, this card deals each non-Minion target 2 Fire Damage.",
-        "At the start of the Villain turn, this card deals each non-Minion target 2 Fire Damage, increased by 1 for each player with an Equipment in play."
+        "At the end of the Villain turn, this card deals each non-Minion target 1 Fire Damage.",
+        "At the start of the Villain turn, this card deals each non-Minion target 1 Fire Damage, increased by 1 for each player with an Equipment in play."
       ],
       "icons": [
       ],
@@ -237,7 +237,7 @@
       "identifier": "ShortCircuit",
       "count": 1,
       "title": "Short Circuit",
-      "hitpoints": 17,
+      "hitpoints": 16,
       "keywords": [
         "minion"
       ],
@@ -253,7 +253,7 @@
       "identifier": "TheBrutes",
       "count": 2,
       "title": "The Brutes",
-      "hitpoints": 10,
+      "hitpoints": 19,
       "keywords": [
         "thug"
       ],
@@ -269,7 +269,7 @@
       "identifier": "TheSpike",
       "count": 1,
       "title": "The Spike",
-      "hitpoints": 13,
+      "hitpoints": 12,
       "keywords": [
         "thug"
       ],
@@ -285,7 +285,7 @@
       "identifier": "Zenith",
       "count": 1,
       "title": "Zenith",
-      "hitpoints": 16,
+      "hitpoints": 15,
       "keywords": [
         "thug"
       ],

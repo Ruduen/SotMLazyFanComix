@@ -857,6 +857,46 @@
       }
     }
   ],
+  "TheSentinels": [
+    {
+      "identifier": "TheSentinelsInstructions",
+      "promoIdentifier": "TheSentinelsTagInInstructions",
+      "count": 1,
+      "title": "The Sentinels",
+      "promoTitle": "The Lazyverse Sentinels",
+      "backgroundColor": "7B3F6B",
+      "foilBackgroundColor": "7B3F6B",
+      "character": true,
+      "setup": [
+        "At the start of the game, put the character cards for {DrMedicoCharacter} and {MainstayCharacter} into play, active side up. Put the character cards for {TheIdealistCharacter} and {WritheCharacter} under this card.",
+        "Shuffle the hero deck and draw 4 cards."
+      ],
+      "gameplay": [
+        "If you have no active heroes in play, flip this card."
+      ],
+      "body": [ "Tag In" ],
+      "powers": [ "Play a character from under this card and set it to 8 HP. Play 1 card. If you have 3 or more active characters, move one of them under this card." ],
+      "icons": [ "PlayCardNow", "Maniuplate" ],
+      "flippedBody": "Incapacitated",
+      "incapacitatedAbilities": [
+        "One target regains 2 HP.",
+        "One Player may play a card.",
+        "One Player may draw a card.",
+        "Destroy an Ongoing card."
+      ],
+      "openingLines": {
+        "default": "Alright, team! In and out, like we practiced!"
+      },
+      "isReal": false,
+      "complexity": 3,
+      "associatedPromoIdentifiers": [
+        "DrMedicoCharacter",
+        "MainstayCharacter",
+        "TheIdealistCharacter",
+        "WritheCharacter"
+      ]
+    }
+  ],
   "Setback": [
     {
       "identifier": "SetbackCharacter",

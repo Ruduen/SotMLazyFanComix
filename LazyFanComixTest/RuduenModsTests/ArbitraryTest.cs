@@ -4,6 +4,7 @@ using NUnit.Framework;
 using LazyFanComix.HeroPromos;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Linq;
 
 namespace LazyFanComixTest
 {
@@ -49,6 +50,90 @@ namespace LazyFanComixTest
 
             UseIncapacitatedAbility(guise, 2);
         }
+
+        [Test()]
+        public void TestTribunalCompletionistIsUnderActive()
+        {
+            SetupGameController("BaronBlade", "Guise/CompletionistGuiseCharacter", "Legacy", "TheCelestialTribunal");
+
+            StartGame();
+            SelectFromBoxForNextDecision("YoungLegacyCharacter", "Legacy");
+            UsePower(guise);
+
+            ResetDecisions();
+            SelectCardsForNextDecision(legacy.CharacterCard);
+            UsePower(guise);
+
+            Assert.IsTrue(guise.CharacterCard.UnderLocation.Cards.First().IsActive);
+        }
+
+        [Test()]
+        public void TestTribunalCompletionistANemesisIsActiveMaybe()
+        {
+            SetupGameController("FrightTrainTeam", "Guise/CompletionistGuiseCharacter", "ErmineTeam", "TheWraith", "TheCelestialTribunal");
+
+            StartGame();
+
+            Card nemesis = PlayCard("ManGrove");
+            SetHitPoints(nemesis, 5);
+            QuickHPStorage(nemesis);
+            GoToEndOfTurn(frightTeam);
+            QuickHPCheck(0);
+
+            SelectFromBoxForNextDecision("NightMistCharacter", "NightMist");
+
+            PlayCard("RepresentativeOfEarth");
+
+            Card representative = FindCardInPlay("NightMistCharacter");
+            AssertIsInPlay(representative);
+
+            SelectCardsForNextDecision(representative, guise.CharacterCard);
+            SelectFromBoxForNextDecision("DarkWatchNightMistCharacter", "NightMist");
+
+            UsePower(guise);
+            Assert.IsTrue(guise.CharacterCard.UnderLocation.Cards.First().IsActive);
+
+            ResetDecisions();
+
+            GoToEndOfTurn(frightTeam);
+            QuickHPCheck(1);
+
+            DestroyCard("RepresentativeOfEarth");
+
+            GoToEndOfTurn(frightTeam);
+            QuickHPCheck(1);
+        }
+
+        [Test()]
+        public void TestTribunalCompletionistMedicoWhat()
+        {
+            SetupGameController("BaronBlade", "Guise/CompletionistGuiseCharacter", "TheSentinels", "TheFinalWasteland");
+
+            StartGame();
+            SelectFromBoxForNextDecision("AdamantDrMedico", "TheSentinels");
+            SelectCardsForNextDecision(medico, guise.CharacterCard);
+
+            UsePower(guise);
+            Assert.IsTrue(guise.CharacterCard.UnderLocation.Cards.First().IsActive);
+
+            ResetDecisions();
+
+            // PlayCard("UnforgivingWasteland");
+            DestroyCard(medico);
+            DestroyCard(mainstay);
+            DestroyCard(idealist);
+            DestroyCard(writhe);
+
+            PlayCard("HorrifyingDichotomy");
+
+            // I am invincible! Also, wait for Handelabra to adjust logic. 
+
+            //AssertIncapacitated(sentinels);
+
+            //DestroyCard(guise);
+            //AssertGameOver();
+        }
+
 
         [Test()]
         public void TestMissInformationDealingDamage()

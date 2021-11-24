@@ -28,7 +28,7 @@ namespace LazyFanComix.TheTurfWar
             // Increase trigger. 
             ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, PlayersWithEquipments);
 
-            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => !c.IsMinion, 2, DamageType.Fire, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => !c.IsMinion, 1, DamageType.Fire, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             this.RemoveTrigger(tempIncrease);
@@ -36,7 +36,7 @@ namespace LazyFanComix.TheTurfWar
 
         private IEnumerator EndDamageResponse(PhaseChangeAction pca)
         {
-            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => !c.IsMinion, 2, DamageType.Fire, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => !c.IsMinion, 1, DamageType.Fire, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

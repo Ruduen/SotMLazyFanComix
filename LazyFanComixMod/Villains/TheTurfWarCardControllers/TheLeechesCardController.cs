@@ -37,7 +37,7 @@ namespace LazyFanComix.TheTurfWar
 
         private IEnumerator DealDamageResponse(PhaseChangeAction pca)
         {
-            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => true, 2, DamageType.Infernal, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => true, 3, DamageType.Infernal, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
