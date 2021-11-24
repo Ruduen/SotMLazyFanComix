@@ -303,6 +303,36 @@
       "openingLines": {
         "default": "I've brought the whole arsenal this time."
       }
+    },
+    {
+      "identifier": "ExpatrietteCharacter",
+      "promoIdentifier": "ExpatrietteLiterallyAGunCharacter",
+      "count": 1,
+      "title": "Expatriette",
+      "promoTitle": "Lazyverse Expatriette",
+      "body": [ "Literally a Gun" ],
+      "keywords": [ "gun" ],
+      "character": true,
+      "backgroundColor": "996cae",
+      "foilBackgroundColor": "996cae",
+      "powers": "{Expatriette] deals 1 target 1 projectile damage and 1 projectile damage. {Expatriette} may deal a different target 1 projectile damage.",
+      "hitpoints": 25,
+      "icons": [ "HasPower", "DealDamageNow" ],
+      "nemesisIdentifiers": [ "Expatriette" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Bang. Bang bang bang."
+      }
     }
   ],
   "Fanatic": [

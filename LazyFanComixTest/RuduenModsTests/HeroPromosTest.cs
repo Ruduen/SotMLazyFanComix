@@ -470,6 +470,25 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestExpatrietteGunPlayAndPower()
+        {
+            // Equipment Test
+            SetupGameController("Omnitron", "Expatriette/LazyFanComix.ExpatrietteLiterallyAGunCharacter", "Megalopolis");
+
+            Assert.IsTrue(expatriette.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            Card ammo=PlayCard("IncendiaryRounds");
+            AssertNextToCard(ammo, expatriette.CharacterCard);
+
+            QuickHPStorage(omnitron, expatriette);
+            UsePower(expatriette);
+            QuickHPCheck(-4, -2); // Shoot Omni twice, self once.
+
+        }
+
+        [Test()]
         public void TestExpatriettePowerNoDeck()
         {
             // No cards in deck test.

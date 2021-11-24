@@ -87,6 +87,7 @@
     <Compile Include="Heroes\GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\AbsoluteZeroOverloadCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\ExpatrietteLiterallyAGunCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\MrFixerFocusedStrikeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\SetbackRunOfLuckCharacterCardController.cs" />
