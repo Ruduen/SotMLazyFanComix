@@ -309,21 +309,21 @@
       "promoIdentifier": "ExpatrietteLiterallyAGunCharacter",
       "count": 1,
       "title": "Expatriette",
-      "promoTitle": "Ammoverse Expatriette",
-      "gameplay": [ "Any number of ammo cards may be in play next to this card.                                                     [i]                     (Because it is a Gun.)[/i]" ],
+      "promoTitle": "Expatriette the Gun",
+      "gameplay": [ "Any number of ammo cards may be in play next to this card.                                                     [i]           (Because this is a Gun.)[/i]" ],
       "body": [ "Literally a Gun" ],
       "keywords": [ "gun" ],
       "character": true,
       "backgroundColor": "888888",
       "foilBackgroundColor": "888888",
-      "powers": "{Expatriette} deals 1 target 1 projectile damage and 1 projectile damage. Draw 1 Card.",
+      "powers": "{Expatriette} deals 1 target 1 Projectile Damage and 1 Sonic Damage. Draw 1 Card.",
       "hitpoints": 28,
       "icons": [ "HasPower", "DealDamageNow" ],
       "nemesisIdentifiers": [ "Expatriette" ],
       "incapacitatedAbilities": [
         "One Hero deals 1 Target 2 Projectile Damage.",
         "One player may draw a card now.",
-        "Until the start of your next turn, each Hero gains the power \"This hero deals 1 Target 1 Projectile Damage and 1 Projectile Damage.\""
+        "Until the start of your next turn, each Hero gains the following power:{BR}{BR}[b]Power:[/b] This hero deals 1 Target 1 Projectile Damage {BR}       and 1 Sonic Damage."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -332,8 +332,8 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "CitizenDawnCharacter": "The Citizens of the Sun aren't immune to bullets. Bang bang!",
-        "default": "In the words of my predecessor... Bang bang!"
+        "CitizenDawnCharacter": "The Citizens of the Sun aren't immune to bullets. {Bang bang}!",
+        "default": "In the words of my predecessor... {Bang bang}!"
       }
     }
   ],

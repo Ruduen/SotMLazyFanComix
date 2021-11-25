@@ -222,7 +222,6 @@
     <Compile Include="Heroes\InquirerCardControllers\UntilYouMakeItCardController.cs" />
     <Compile Include="Heroes\InquirerCardControllers\YoureLookingPaleCardController.cs" />
     <Compile Include="Heroes\InquirerCardControllers\YoureOnOurSideCardController.cs" />
-    <Compile Include="OtherClasses\SimpleStatusEffect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerSpatialAlignmentCharacterCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\MiscCardControllers\GuidedOdysseyCardController.cs" />

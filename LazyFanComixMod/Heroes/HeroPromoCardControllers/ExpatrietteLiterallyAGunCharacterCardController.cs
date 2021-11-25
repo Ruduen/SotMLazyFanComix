@@ -29,7 +29,7 @@ namespace LazyFanComix.Expatriette
             coroutine = this.SelectTargetsAndDealMultipleInstancesOfDamage(new List<DealDamageAction>
             {
                 new DealDamageAction(this.GetCardSource(), new DamageSource(this.GameController, this.Card), null, numerals[1], DamageType.Projectile),
-                new DealDamageAction(this.GetCardSource(), new DamageSource(this.GameController, this.Card), null, numerals[2], DamageType.Projectile)
+                new DealDamageAction(this.GetCardSource(), new DamageSource(this.GameController, this.Card), null, numerals[2], DamageType.Sonic)
             }, null, null, numerals[0], numerals[0], false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -98,7 +98,7 @@ namespace LazyFanComix.Expatriette
             coroutine = this.SelectTargetsAndDealMultipleInstancesOfDamage(new List<DealDamageAction>
             {
                 new DealDamageAction(cardWithPower.GetCardSource(), new DamageSource(this.GameController, cardWithPower.Card), null, numerals[1], DamageType.Projectile),
-                new DealDamageAction(cardWithPower.GetCardSource(), new DamageSource(this.GameController, cardWithPower.Card), null, numerals[2], DamageType.Projectile)
+                new DealDamageAction(cardWithPower.GetCardSource(), new DamageSource(this.GameController, cardWithPower.Card), null, numerals[2], DamageType.Sonic)
             }, null, null, numerals[0], numerals[0], false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
