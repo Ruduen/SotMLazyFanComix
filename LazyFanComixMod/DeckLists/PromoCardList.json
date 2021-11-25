@@ -309,14 +309,15 @@
       "promoIdentifier": "ExpatrietteLiterallyAGunCharacter",
       "count": 1,
       "title": "Expatriette",
-      "promoTitle": "Lazyverse Expatriette",
+      "promoTitle": "Gunverse Expatriette",
+      "gameplay": [ "[i]Any number of ammo cards may be in play next to this card.                                                     [/i][i]                     (Because it is a Gun.)[/i]" ],
       "body": [ "Literally a Gun" ],
       "keywords": [ "gun" ],
       "character": true,
-      "backgroundColor": "996cae",
-      "foilBackgroundColor": "996cae",
-      "powers": "{Expatriette} deals 1 target 1 projectile damage and 1 projectile damage. Discard the top card of your deck. If it is an Ammo card, play it.",
-      "hitpoints": 25,
+      "backgroundColor": "888888",
+      "foilBackgroundColor": "888888",
+      "powers": "{Expatriette} deals 1 target 1 projectile damage and 1 projectile damage. Draw 1 Card.",
+      "hitpoints": 28,
       "icons": [ "HasPower", "DealDamageNow" ],
       "nemesisIdentifiers": [ "Expatriette" ],
       "incapacitatedAbilities": [
@@ -331,7 +332,8 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "default": "In the words of my predecessor... Bang bang bang!"
+        "CitizenDawnCharacter": "Someone told me the Citizens of the Sun aren't immune to bullets. Bang bang!",
+        "default": "In the words of my predecessor... Bang bang!"
       }
     }
   ],
@@ -1360,6 +1362,49 @@
         "IntriguingComics.StalkingTheStreetsSpiteCharacter": "You're already broken. All that's left is for you to accept it.",
         "LootcaseCharacter": "And let you take those, too? Better to stop you here and now.",
         "default": "What I have might not last, so let's make this quick."
+      }
+    }
+  ],
+  "Incomplete.SpookyGhostwriter.GoldDragon": [
+    {
+      "identifier": "GoldDragonCharacter",
+      "promoIdentifier": "GoldDragonCharacter",
+      "count": 1,
+      "title": "Gold Dragon",
+      "promoTitle": "Fanverse Gold Dragon",
+      "body": "Dragonlocked Form",
+      "keywords": [
+        "human",
+        "dragon"
+      ],
+      "icons": [
+        "HasPower"
+      ],
+      "backgroundColor": "FFCCCC",
+      "foilBackgroundColor": "FFCCCC",
+      "hitpointsColor": "FFCCCC",
+      "character": true,
+      "gameplay": [ "Activate {dragon} text." ],
+      "powers": [
+        "{GoldDragon} deals up to 3 targets 1 Energy Damage."
+      ],
+      "hitpoints": 34,
+      "nemesisIdentifiers": [
+        "SpookyGhostwriter.GoldDragon"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "..."
       }
     }
   ]

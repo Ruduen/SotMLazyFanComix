@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":256},
 	"sourceSize": {"w":177,"h":256}
 },
-"GreyhatCharacter.png":
+"ExpatrietteLiterallyAGunCharacter.png":
 {
 	"frame": {"x":363,"y":0,"w":180,"h":256},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
 	"sourceSize": {"w":180,"h":256}
 },
-"InquirerCharacter.png":
+"GreyhatCharacter.png":
 {
 	"frame": {"x":546,"y":0,"w":180,"h":256},
 	"rotated": false,
@@ -32,7 +32,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
 	"sourceSize": {"w":180,"h":256}
 },
-"SoulbinderCharacter.png":
+"InquirerCharacter.png":
 {
 	"frame": {"x":729,"y":0,"w":180,"h":256},
 	"rotated": false,
@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
 	"sourceSize": {"w":180,"h":256}
 },
-"SpellforgeCharacter.png":
+"SoulbinderCharacter.png":
 {
 	"frame": {"x":0,"y":259,"w":180,"h":256},
 	"rotated": false,
@@ -48,9 +48,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
 	"sourceSize": {"w":180,"h":256}
 },
-"TrailblazerCharacter.png":
+"SpellforgeCharacter.png":
 {
 	"frame": {"x":183,"y":259,"w":180,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
+	"sourceSize": {"w":180,"h":256}
+},
+"TrailblazerCharacter.png":
+{
+	"frame": {"x":366,"y":259,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -63,6 +71,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:1d7aae7b43c23e03c2d4a26ea8697ec0:24cd241e563c6f6810e389c3c7700c26:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3176d7efb55091e7f1a11877555f437a:43ba4b2491ef8429375e50c6c6d9d64b:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

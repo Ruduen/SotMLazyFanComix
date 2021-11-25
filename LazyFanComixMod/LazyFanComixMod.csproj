@@ -149,6 +149,7 @@
     <Compile Include="Heroes\HeroPromoCardControllers\MrFixerFlowingStrikeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\WorkshopCharacterCardControllers\GoldDragonDragonlockedCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallUnstableJumpCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallForecastedBlowCharacterCardController.cs" />

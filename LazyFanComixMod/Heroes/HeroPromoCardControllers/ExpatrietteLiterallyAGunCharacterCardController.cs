@@ -33,14 +33,8 @@ namespace LazyFanComix.Expatriette
             }, null, null, numerals[0], numerals[0], false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.GameController.DiscardTopCards(this.DecisionMaker, this.TurnTaker.Deck, 1, mcas, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, numerals[3], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (mcas.Count > 0 && mcas?.First().CardToMove != null && mcas.First().WasCardMoved && mcas.First().CardToMove.IsAmmo)
-            {
-                coroutine = this.GameController.PlayCard(this.DecisionMaker, mcas.First().CardToMove, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
         }
     }
 }

@@ -1,0 +1,20 @@
+{"frames": {
+
+"ExpatrietteLiterallyAGunCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":180,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
+	"sourceSize": {"w":180,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ExpatrietteAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:bcf0ff19e08fa7af82ba239cd5065bca:e646a4781aedb2d58becb9b2605c90b7:bb81db2183b82b321ec17c92e339084e$"
+}
+}
