@@ -149,7 +149,6 @@
     <Compile Include="Heroes\HeroPromoCardControllers\MrFixerFlowingStrikeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
-    <Compile Include="Heroes\HeroPromoCardControllers\WorkshopCharacterCardControllers\GoldDragonDragonlockedCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallUnstableJumpCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallForecastedBlowCharacterCardController.cs" />
@@ -223,6 +222,7 @@
     <Compile Include="Heroes\InquirerCardControllers\UntilYouMakeItCardController.cs" />
     <Compile Include="Heroes\InquirerCardControllers\YoureLookingPaleCardController.cs" />
     <Compile Include="Heroes\InquirerCardControllers\YoureOnOurSideCardController.cs" />
+    <Compile Include="OtherClasses\SimpleStatusEffect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerSpatialAlignmentCharacterCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\MiscCardControllers\GuidedOdysseyCardController.cs" />
@@ -364,7 +364,9 @@
     <Content Include="AssetsRelease\LargeCardTextures\Trailblazer\TrailblazerCharacter.png" />
     <Content Include="AssetsRelease\preview.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Heroes\HeroPromoCardControllers\WorkshopCharacterCardControllers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

@@ -470,7 +470,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestExpatrietteGunPlayAndPower()
+        public void TestExpatrietteGunPower()
         {
             // Equipment Test
             SetupGameController("Omnitron", "Expatriette/LazyFanComix.ExpatrietteLiterallyAGunCharacter", "Megalopolis");
@@ -488,6 +488,36 @@ namespace LazyFanComixTest
             QuickHPCheck(-4, 0); // Shoot Omni twice.
             QuickHandCheck(1);
 
+        }
+
+        [Test()]
+        public void TestExpatrietteGunIncap()
+        {
+            // Equipment Test
+            SetupGameController("Omnitron", "Expatriette/LazyFanComix.ExpatrietteLiterallyAGunCharacter", "Legacy", "Megalopolis");
+
+            Assert.IsTrue(expatriette.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyCard(expatriette);
+
+            QuickHPStorage(omnitron);
+            UseIncapacitatedAbility(expatriette, 0);
+            QuickHPCheck(-2);
+
+            QuickHandStorage(legacy);
+            UseIncapacitatedAbility(expatriette, 1);
+            QuickHandCheck(1);
+
+            QuickHPStorage(omnitron);
+            UseIncapacitatedAbility(expatriette, 2);
+            AssertNumberOfUsablePowers(legacy, 2);
+            UsePower(legacy, 1);
+            QuickHPCheck(-2);
+
+            GoToStartOfTurn(expatriette);
+            AssertNumberOfUsablePowers(legacy, 1);
         }
 
         [Test()]
@@ -1673,60 +1703,60 @@ namespace LazyFanComixTest
             QuickHandCheck(-1); // 2 card played, 1 drawn.
         }
 
-        [Test()]
-        public void TestSentinels()
-        {
-            var promos = new Dictionary<string, string>();
-            promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
-            SetupGameController(new string[] { "Omnitron", "TheSentinels", "Legacy", "Megalopolis" }, false, promos);
+        //[Test()]
+        //public void TestSentinels()
+        //{
+        //    var promos = new Dictionary<string, string>();
+        //    promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
+        //    SetupGameController(new string[] { "Omnitron", "TheSentinels", "Legacy", "Megalopolis" }, false, promos);
 
-            StartGame();
+        //    StartGame();
 
-            Card instructions = FindCardController("TheSentinelsInstructions").Card;
-            Assert.IsTrue(instructions.IsPromoCard);
-            AssertIsInPlayAndNotUnderCard(mainstay);
-            AssertIsInPlayAndNotUnderCard(medico);
-            AssertUnderCard(instructions, idealist);
-            AssertUnderCard(instructions, writhe);
+        //    Card instructions = FindCardController("TheSentinelsInstructions").Card;
+        //    Assert.IsTrue(instructions.IsPromoCard);
+        //    AssertIsInPlayAndNotUnderCard(mainstay);
+        //    AssertIsInPlayAndNotUnderCard(medico);
+        //    AssertUnderCard(instructions, idealist);
+        //    AssertUnderCard(instructions, writhe);
 
-            DiscardAllCards(sentinels);
-            PutInHand("CoordinatedAssault");
-            QuickHPStorage(omnitron);
-            UsePower(instructions);
-            QuickHPCheck(-4);
+        //    DiscardAllCards(sentinels);
+        //    PutInHand("CoordinatedAssault");
+        //    QuickHPStorage(omnitron);
+        //    UsePower(instructions);
+        //    QuickHPCheck(-4);
 
-            AssertIsInPlayAndNotUnderCard(idealist);
-            AssertUnderCard(instructions, medico);
+        //    AssertIsInPlayAndNotUnderCard(idealist);
+        //    AssertUnderCard(instructions, medico);
 
-            DestroyCard(idealist);
-            DestroyCard(mainstay);
+        //    DestroyCard(idealist);
+        //    DestroyCard(mainstay);
 
-            AssertIncapacitated(sentinels);
-        }
+        //    AssertIncapacitated(sentinels);
+        //}
 
-        [Test()]
-        public void TestSentinelsDangItGuise()
-        {
-            var promos = new Dictionary<string, string>();
-            promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
-            SetupGameController(new string[] { "Omnitron", "TheSentinels", "Guise", "Megalopolis" }, false, promos);
+        //[Test()]
+        //public void TestSentinelsDangItGuise()
+        //{
+        //    var promos = new Dictionary<string, string>();
+        //    promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
+        //    SetupGameController(new string[] { "Omnitron", "TheSentinels", "Guise", "Megalopolis" }, false, promos);
 
-            StartGame();
+        //    StartGame();
 
-            Card instructions = FindCardController("TheSentinelsInstructions").Card;
-            Assert.IsTrue(instructions.IsPromoCard);
-            AssertIsInPlayAndNotUnderCard(mainstay);
-            AssertIsInPlayAndNotUnderCard(medico);
-            AssertUnderCard(instructions, idealist);
-            AssertUnderCard(instructions, writhe);
+        //    Card instructions = FindCardController("TheSentinelsInstructions").Card;
+        //    Assert.IsTrue(instructions.IsPromoCard);
+        //    AssertIsInPlayAndNotUnderCard(mainstay);
+        //    AssertIsInPlayAndNotUnderCard(medico);
+        //    AssertUnderCard(instructions, idealist);
+        //    AssertUnderCard(instructions, writhe);
 
-            DecisionSelectPower = instructions;
-            DiscardAllCards(guise);
-            PlayCard("ICanDoThatToo");
+        //    DecisionSelectPower = instructions;
+        //    DiscardAllCards(guise);
+        //    PlayCard("ICanDoThatToo");
 
-            AssertIsInPlayAndNotUnderCard(idealist);
-            AssertIsInPlayAndNotUnderCard(medico);
-        }
+        //    AssertIsInPlayAndNotUnderCard(idealist);
+        //    AssertIsInPlayAndNotUnderCard(medico);
+        //}
 
 
         [Test()]

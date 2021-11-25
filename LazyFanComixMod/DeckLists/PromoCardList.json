@@ -309,8 +309,8 @@
       "promoIdentifier": "ExpatrietteLiterallyAGunCharacter",
       "count": 1,
       "title": "Expatriette",
-      "promoTitle": "Gunverse Expatriette",
-      "gameplay": [ "[i]Any number of ammo cards may be in play next to this card.                                                     [/i][i]                     (Because it is a Gun.)[/i]" ],
+      "promoTitle": "Ammoverse Expatriette",
+      "gameplay": [ "Any number of ammo cards may be in play next to this card.                                                     [i]                     (Because it is a Gun.)[/i]" ],
       "body": [ "Literally a Gun" ],
       "keywords": [ "gun" ],
       "character": true,
@@ -321,9 +321,9 @@
       "icons": [ "HasPower", "DealDamageNow" ],
       "nemesisIdentifiers": [ "Expatriette" ],
       "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "One Hero deals 1 Target 2 Projectile Damage.",
+        "One player may draw a card now.",
+        "Until the start of your next turn, each Hero gains the power \"This hero deals 1 Target 1 Projectile Damage and 1 Projectile Damage.\""
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -332,7 +332,7 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "CitizenDawnCharacter": "Someone told me the Citizens of the Sun aren't immune to bullets. Bang bang!",
+        "CitizenDawnCharacter": "The Citizens of the Sun aren't immune to bullets. Bang bang!",
         "default": "In the words of my predecessor... Bang bang!"
       }
     }
