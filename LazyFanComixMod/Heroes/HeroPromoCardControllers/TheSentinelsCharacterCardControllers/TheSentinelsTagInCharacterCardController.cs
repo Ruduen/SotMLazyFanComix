@@ -76,10 +76,10 @@ namespace LazyFanComix.TheSentinels
 
         public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
         {
-            if (cardController.TurnTaker == this.TurnTaker && cardController.Card.IsHeroCharacterCard && cardController.Card.IsRealCard && 
+            if (cardController.TurnTaker == this.TurnTaker && cardController.Card.IsHeroCharacterCard && cardController.Card.IsRealCard &&
                 !cardController.Card.IsIncapacitatedOrOutOfGame)
             {
-                List<Power> list = new List<Power>() { new Power(cardController.DecisionMaker, cardController, "Play one of your set-aside Heroes. Play 1 card. If you have 3 or more active characters, set this Hero aside.", this.PowerResponse(cardController), 0, null, this.GetCardSource()) };
+                List<Power> list = new List<Power>() { new Power(cardController.DecisionMaker, cardController, "Play 1 Card. Switch this Hero with your set aside Hero.", this.PowerResponse(cardController), 0, null, this.GetCardSource()) };
                 return list;
             }
             return null;
@@ -97,36 +97,72 @@ namespace LazyFanComix.TheSentinels
         {
             int[] numerals = new int[]
             {
-                this.GetPowerNumeral(0, 8), // HP
-                this.GetPowerNumeral(1, 1), // Played cards
-                this.GetPowerNumeral(2, 3)  // Threshold for Tagging Out
+                this.GetPowerNumeral(0, 1), // Played cards
             };
-            List<PlayCardAction> pcas = new List<PlayCardAction>();
+            List<SelectCardDecision> scd = new List<SelectCardDecision>();
 
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectAndPlayCard(cardController.DecisionMaker, (Card c) => c.IsOffToTheSide && c.IsHeroCharacterCard, cardSource: this.GetCardSource(), storedResults: pcas);
+
+            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.SwitchToHero, new LinqCardCriteria((Card c) => c.Location == this.TurnTaker.OffToTheSide && c.IsHeroCharacterCard), scd, false, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            foreach (Card c in pcas.Where((PlayCardAction pca) => pca.WasCardPlayed && pca.CardToPlay != null).Select((PlayCardAction pca) => pca.CardToPlay))
+            if (scd?.FirstOrDefault()?.SelectedCard != null)
             {
-                coroutine = this.GameController.SetHP(c, numerals[0]);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
-
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(cardController.DecisionMaker, numerals[1], false, numerals[1], cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (this.TurnTaker.CharacterCards.Where((Card c) => c.IsActive).Count() < numerals[2])
-            {
-                coroutine = this.GameController.SendMessageAction(this.TurnTaker.Name + " does not have at least " + numerals[2] + " active characters.", Priority.Low, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SwitchCards(cardController.Card, scd.FirstOrDefault().SelectedCard, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
             {
-                coroutine = this.GameController.MoveCard(this.DecisionMaker, cardController.Card, this.TurnTaker.OffToTheSide, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SendMessageAction(this.TurnTaker.Name + " does not have any Heroes to switch to.", Priority.Low, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
+
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(cardController.DecisionMaker, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
+
+        public override IEnumerator UseIncapacitatedAbility(int index)
+        {
+            IEnumerator coroutine;
+            switch (index)
+            {
+                case 0:
+                    {
+                        List<SelectCardDecision> scd = new List<SelectCardDecision>();
+                        coroutine = this.GameController.SelectAndMoveCard(this.DecisionMaker, (Card c) => c.Owner == this.TurnTaker && c.IsHeroCharacterCard && c.IsRealCard && c.IsIncapacitated, this.TurnTaker.OutOfGame, storedResults: scd, cardSource: this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                        if (scd.Count > 0 && scd.FirstOrDefault().SelectedCard != null)
+                        {
+                            coroutine = this.GameController.SelectAndUnincapacitateHero(this.DecisionMaker, 6, 4, null, this.GetCardSource(),
+                                new LinqTurnTakerCriteria((TurnTaker tt) => tt == this.TurnTaker));
+                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                            coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.IsHeroCharacterCard && c.Location == this.TurnTaker.OffToTheSide, cardSource: this.GetCardSource());
+                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                            coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardSource: this.GetCardSource());
+                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        }
+
+
+                        break;
+                    }
+                case 1:
+                    {
+                        coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        break;
+                    }
+                case 2:
+                    {
+                        coroutine = this.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        break;
+                    }
+            }
+            yield break;
         }
     }
 }

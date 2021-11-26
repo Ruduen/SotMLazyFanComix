@@ -1721,17 +1721,56 @@ namespace LazyFanComixTest
 
             DiscardAllCards(sentinels);
             PutInHand("CoordinatedAssault");
+
+            SetHitPoints(medico, 5);
             QuickHPStorage(omnitron);
             UsePower(medico, 1);
-            QuickHPCheck(-4);
+            QuickHPCheck(-3);
 
             AssertIsInPlayAndNotUnderCard(idealist);
             AssertOffToTheSide(medico);
+            AssertHitPoints(idealist, 5); // Swapping out Medico for Idealist, make sure HP remains.
 
-            DestroyCard(idealist);
             DestroyCard(mainstay);
+            DestroyCard(idealist);
 
             AssertIncapacitated(sentinels);
+
+            GoToUseIncapacitatedAbilityPhase(sentinels);
+            UseIncapacitatedAbility(sentinels, 0);
+            EnterNextTurnPhase();
+            AssertCurrentTurnPhase(sentinels, Phase.End);
+            AssertNotIncapacitatedOrOutOfGame(sentinels);
+            AssertOutOfGame(mainstay);
+            AssertNotFlipped(idealist);
+            AssertNotFlipped(medico);
+
+            DestroyCard(idealist);
+            DestroyCard(medico);
+
+            AssertIncapacitated(sentinels);
+            UseIncapacitatedAbility(sentinels, 0);
+
+            AssertOutOfGame(medico);
+            AssertNotFlipped(idealist);
+            AssertNotFlipped(writhe);
+
+            DestroyCard(idealist);
+            DestroyCard(writhe);
+
+            AssertIncapacitated(sentinels);
+            UseIncapacitatedAbility(sentinels, 0);
+
+            AssertOutOfGame(idealist);
+            AssertNotFlipped(writhe);
+
+            DestroyCard(writhe);
+            UseIncapacitatedAbility(sentinels, 0);
+            AssertIncapacitated(sentinels);
+
+
+
+
         }
 
         [Test()]
