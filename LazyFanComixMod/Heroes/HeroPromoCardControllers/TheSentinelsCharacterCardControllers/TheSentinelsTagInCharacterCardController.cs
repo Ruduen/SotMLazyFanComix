@@ -14,9 +14,9 @@ namespace LazyFanComix.TheSentinels
         public TheSentinelsTagInInstructionsCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AddAsPowerContributor();
         }
 
-        // TODO: Under card breaks too many things (active characters under cards are still active), so will be necessary to use 'out of play' instead! 
 
         public override void AddStartOfGameTriggers()
         {
@@ -30,7 +30,7 @@ namespace LazyFanComix.TheSentinels
             // private variables are not yet set. 
             // Not perfect, since Guise can do weird things with numerology, but this is the best doable without more TurnTaker shenanigans.
 
-            if (this.TurnTaker.CharacterCards.Where((Card c)=>c.IsInPlayAndNotUnderCard && c.HitPoints == c.MaximumHitPoints).Count() == 4)
+            if (this.TurnTaker.CharacterCards.Where((Card c) => c.IsInPlayAndNotUnderCard && c.HitPoints == c.MaximumHitPoints && c.IsActive).Count() == 4)
             {
                 Card move;
                 move = FindCharacterCard("TheIdealistCharacter");
@@ -41,7 +41,7 @@ namespace LazyFanComix.TheSentinels
                 move = FindCharacterCard("WritheCharacter");
                 if (move != null)
                 {
-                    this.TurnTaker.MoveCard(move, this.Card.UnderLocation);
+                    this.TurnTaker.MoveCard(move, this.TurnTaker.OffToTheSide);
                 }
             }
         }
@@ -74,6 +74,18 @@ namespace LazyFanComix.TheSentinels
             this.AddSideTriggers(base.AddTargetEntersPlayTrigger((Card c) => this.Card.IsFlipped && this.CharacterCards.Contains(c), (Card c) => this.GameController.FlipCard(this.FindCardController(this.Card), false, false, null, null, this.GetCardSource(null), true), TriggerType.Hidden, TriggerTiming.After, false, true));
         }
 
+        public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
+        {
+            if (cardController.TurnTaker == this.TurnTaker && cardController.Card.IsHeroCharacterCard && cardController.Card.IsRealCard && 
+                !cardController.Card.IsIncapacitatedOrOutOfGame)
+            {
+                List<Power> list = new List<Power>() { new Power(cardController.DecisionMaker, cardController, "Play one of your set-aside Heroes. Play 1 card. If you have 3 or more active characters, set this Hero aside.", this.PowerResponse(cardController), 0, null, this.GetCardSource()) };
+                return list;
+            }
+            return null;
+        }
+
+
         public override IEnumerator AfterFlipCardImmediateResponse()
         {
             this.RemoveAllTriggers(true, true, true, false, false);
@@ -81,21 +93,19 @@ namespace LazyFanComix.TheSentinels
             yield break;
         }
 
-        public override IEnumerator UsePower(int index = 0)
+        private IEnumerator PowerResponse(CardController cardController)
         {
             int[] numerals = new int[]
             {
                 this.GetPowerNumeral(0, 8), // HP
                 this.GetPowerNumeral(1, 1), // Played cards
-                this.GetPowerNumeral(2, 3) // Threshold for Tagging Out
+                this.GetPowerNumeral(2, 3)  // Threshold for Tagging Out
             };
             List<PlayCardAction> pcas = new List<PlayCardAction>();
 
             IEnumerator coroutine;
 
-            // TODO: Revamp such that HP is set prior to playing, due to innate oddity with SetHP not making a target.
-
-            coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.CardWithoutReplacements.UnderLocation && c.IsCharacter,cardSource: this.GetCardSource(), storedResults: pcas);
+            coroutine = this.GameController.SelectAndPlayCard(cardController.DecisionMaker, (Card c) => c.IsOffToTheSide && c.IsHeroCharacterCard, cardSource: this.GetCardSource(), storedResults: pcas);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             foreach (Card c in pcas.Where((PlayCardAction pca) => pca.WasCardPlayed && pca.CardToPlay != null).Select((PlayCardAction pca) => pca.CardToPlay))
@@ -104,7 +114,7 @@ namespace LazyFanComix.TheSentinels
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, numerals[1], false, numerals[1], cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(cardController.DecisionMaker, numerals[1], false, numerals[1], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.TurnTaker.CharacterCards.Where((Card c) => c.IsActive).Count() < numerals[2])
@@ -114,11 +124,9 @@ namespace LazyFanComix.TheSentinels
             }
             else
             {
-                coroutine = this.GameController.SelectAndMoveCard(this.DecisionMaker, (Card c) => c.IsActive && this.TurnTaker.CharacterCards.Contains(c), this.CardWithoutReplacements.UnderLocation, cardSource: this.GetCardSource());
+                coroutine = this.GameController.MoveCard(this.DecisionMaker, cardController.Card, this.TurnTaker.OffToTheSide, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
-        // TODO: Weird Incap-undoing power which plays a card from under this? 
     }
 }

@@ -900,14 +900,14 @@
       "foilBackgroundColor": "7B3F6B",
       "character": true,
       "setup": [
-        "At the start of the game, put the character cards for {DrMedicoCharacter} and {MainstayCharacter} into play, active side up. Put the character cards for {TheIdealistCharacter} and {WritheCharacter} under this card.",
+        "At the start of the game, put the character cards for {DrMedicoCharacter} and {MainstayCharacter} into play, active side up. Set the character cards for {TheIdealistCharacter} and {WritheCharacter} aside.",
         "Shuffle the hero deck and draw 4 cards."
       ],
       "gameplay": [
-        "If you have no active heroes in play, flip this card."
+        "If you have no active heroes in play, flip this card.",
+        "Each of your Heroes gain the following power:{BR}[b]Power[/b]: Play one of your set-aside Heroes,{br}        setting it to 8 HP. Play 1 card.{br}        If you have 3 or more active characters,{br}        set this Hero aside."
       ],
       "body": [ "Tag In" ],
-      "powers": [ "Play a character from under this card and set it to 8 HP. Play 1 card. If you have 3 or more active characters, move one of them under this card." ],
       "icons": [ "PlayCardNow", "Maniuplate" ],
       "flippedBody": "Incapacitated",
       "incapacitatedAbilities": [

@@ -39,6 +39,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Environments\TheAmmoverseCardControllers\PulseCannonCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Breaches\BreachMageSharedPotentBreachCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Breaches\BreachMageSharedStableBreachCardController.cs" />
@@ -242,7 +243,7 @@
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerPositionCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\PositionCardControllers\VantagePointCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerCharacterCardController.cs" />
-    <Compile Include="Villains\TheTurfWarCardControllers\ReinforcementsCardController - Copy.cs" />
+    <Compile Include="Villains\TheTurfWarCardControllers\PlotsRevealed.cs" />
     <Compile Include="Villains\TheTurfWarCardControllers\ReinforcementsCardController.cs" />
     <Compile Include="Villains\TheTurfWarCardControllers\ShortCircuitCardController.cs" />
     <Compile Include="Villains\TheTurfWarCardControllers\TheBrutesCardController.cs" />
@@ -289,6 +290,7 @@
     <None Include="AssetsRelease\manifest.json" />
     <EmbeddedResource Include="DeckLists\RecallDeckList.json" />
     <EmbeddedResource Include="DeckLists\TheTurfWarDeckList.json" />
+    <EmbeddedResource Include="DeckLists\TheAmmoverseDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />

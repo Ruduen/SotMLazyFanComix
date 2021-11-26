@@ -479,7 +479,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card ammo=PlayCard("IncendiaryRounds");
+            Card ammo = PlayCard("IncendiaryRounds");
             AssertNextToCard(ammo, expatriette.CharacterCard);
 
             QuickHPStorage(omnitron, expatriette);
@@ -1703,60 +1703,60 @@ namespace LazyFanComixTest
             QuickHandCheck(-1); // 2 card played, 1 drawn.
         }
 
-        //[Test()]
-        //public void TestSentinels()
-        //{
-        //    var promos = new Dictionary<string, string>();
-        //    promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
-        //    SetupGameController(new string[] { "Omnitron", "TheSentinels", "Legacy", "Megalopolis" }, false, promos);
+        [Test()]
+        public void TestSentinels()
+        {
+            var promos = new Dictionary<string, string>();
+            promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
+            SetupGameController(new string[] { "Omnitron", "TheSentinels", "Legacy", "Megalopolis" }, false, promos);
 
-        //    StartGame();
+            StartGame();
 
-        //    Card instructions = FindCardController("TheSentinelsInstructions").Card;
-        //    Assert.IsTrue(instructions.IsPromoCard);
-        //    AssertIsInPlayAndNotUnderCard(mainstay);
-        //    AssertIsInPlayAndNotUnderCard(medico);
-        //    AssertUnderCard(instructions, idealist);
-        //    AssertUnderCard(instructions, writhe);
+            Card instructions = FindCardController("TheSentinelsInstructions").Card;
+            Assert.IsTrue(instructions.IsPromoCard);
+            AssertIsInPlayAndNotUnderCard(mainstay);
+            AssertIsInPlayAndNotUnderCard(medico);
+            AssertOffToTheSide(idealist);
+            AssertOffToTheSide(writhe);
 
-        //    DiscardAllCards(sentinels);
-        //    PutInHand("CoordinatedAssault");
-        //    QuickHPStorage(omnitron);
-        //    UsePower(instructions);
-        //    QuickHPCheck(-4);
+            DiscardAllCards(sentinels);
+            PutInHand("CoordinatedAssault");
+            QuickHPStorage(omnitron);
+            UsePower(medico, 1);
+            QuickHPCheck(-4);
 
-        //    AssertIsInPlayAndNotUnderCard(idealist);
-        //    AssertUnderCard(instructions, medico);
+            AssertIsInPlayAndNotUnderCard(idealist);
+            AssertOffToTheSide(medico);
 
-        //    DestroyCard(idealist);
-        //    DestroyCard(mainstay);
+            DestroyCard(idealist);
+            DestroyCard(mainstay);
 
-        //    AssertIncapacitated(sentinels);
-        //}
+            AssertIncapacitated(sentinels);
+        }
 
-        //[Test()]
-        //public void TestSentinelsDangItGuise()
-        //{
-        //    var promos = new Dictionary<string, string>();
-        //    promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
-        //    SetupGameController(new string[] { "Omnitron", "TheSentinels", "Guise", "Megalopolis" }, false, promos);
+        [Test()]
+        public void TestSentinelsDangItGuise()
+        {
+            var promos = new Dictionary<string, string>();
+            promos.Add("TheSentinelsInstructions", "LazyFanComix.TheSentinelsTagInInstructions");
+            SetupGameController(new string[] { "Omnitron", "TheSentinels", "Guise", "Megalopolis" }, false, promos);
 
-        //    StartGame();
+            StartGame();
 
-        //    Card instructions = FindCardController("TheSentinelsInstructions").Card;
-        //    Assert.IsTrue(instructions.IsPromoCard);
-        //    AssertIsInPlayAndNotUnderCard(mainstay);
-        //    AssertIsInPlayAndNotUnderCard(medico);
-        //    AssertUnderCard(instructions, idealist);
-        //    AssertUnderCard(instructions, writhe);
+            Card instructions = FindCardController("TheSentinelsInstructions").Card;
+            Assert.IsTrue(instructions.IsPromoCard);
+            AssertIsInPlayAndNotUnderCard(mainstay);
+            AssertIsInPlayAndNotUnderCard(medico);
+            AssertOffToTheSide(idealist);
+            AssertOffToTheSide(writhe);
 
-        //    DecisionSelectPower = instructions;
-        //    DiscardAllCards(guise);
-        //    PlayCard("ICanDoThatToo");
+            DecisionSelectPower = medico;
+            DecisionPowerIndex = 1;
+            DiscardAllCards(guise);
+            PlayCard("ICanDoThatToo");
 
-        //    AssertIsInPlayAndNotUnderCard(idealist);
-        //    AssertIsInPlayAndNotUnderCard(medico);
-        //}
+            // Provided powers can't be duplicated, so this should be fine.
+        }
 
 
         [Test()]
