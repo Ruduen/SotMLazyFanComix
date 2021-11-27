@@ -57,7 +57,7 @@ namespace LazyFanComix.Expatriette
                 case 2:
                     {
                         // No good way to add a new status effect, so add a dummy status effect that lasts until the next turn, nevre triggers, and is only used to check for this effect.
-                        OnGainHPStatusEffect giveHeroPowerEffect = new OnGainHPStatusEffect(this.Card, "DontDoThis", "Until the start of your next turn, each Hero gains the power \"This hero deals 1 Target 1 Projectile Damage and 1 Projectile Damage.\"", new TriggerType[] { }, this.TurnTaker, this.Card);
+                        OnGainHPStatusEffect giveHeroPowerEffect = new OnGainHPStatusEffect(this.Card, "DontDoThis", "Until the start of your next turn, each Hero gains the power, \"This hero deals 1 Target 2 Projectile Damage and 2 Projectile Damage.\"", new TriggerType[] { }, this.TurnTaker, this.Card);
                         giveHeroPowerEffect.UntilStartOfNextTurn(this.TurnTaker);
                         giveHeroPowerEffect.Priority = StatusEffectPriority.Low;
                         giveHeroPowerEffect.SourceCriteria.IsOneOfTheseCards = new List<Card> { this.Card };
@@ -74,10 +74,10 @@ namespace LazyFanComix.Expatriette
             // If there are any active status effects which has this card as the source (which should be the only way for this incap to be used), and the target is a hero character, 
             // They get a power! 
 
-            // TODO: If any wacky incap things in the future are done, specifically check for status effects/holders and confirm the status effect type is this simple status effect, and possible a more precise match. But that's not worth it now.
+            // TODO: If any wacky incap things in the future are done, specifically check for status effects/holders and confirm the status effect type is the corresponding status effect. But that's not worth it now.
             if (this.GameController.StatusEffectManager.StatusEffectControllers.Where((StatusEffectController sec) => sec.StatusEffect.CardSource == this.Card).Count() > 0 && cardController.Card.IsHeroCharacterCard)
             {
-                List<Power> list = new List<Power>() { new Power(cardController.DecisionMaker, cardController, "This hero deals 1 target 1 projectile damage and 1 projectile damage.", this.PowerResponse(cardController), 0, null, this.GetCardSource()) };
+                List<Power> list = new List<Power>() { new Power(cardController.DecisionMaker, cardController, "This hero deals 1 target 2 projectile damage and 2 projectile damage.", this.PowerResponse(cardController), 0, null, this.GetCardSource()) };
                 return list;
             }
             return null;
@@ -91,8 +91,8 @@ namespace LazyFanComix.Expatriette
             List<int> numerals = new List<int>()
             {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1),
-                this.GetPowerNumeral(2, 1),
+                this.GetPowerNumeral(1, 2),
+                this.GetPowerNumeral(2, 2),
             };
 
             coroutine = this.SelectTargetsAndDealMultipleInstancesOfDamage(new List<DealDamageAction>

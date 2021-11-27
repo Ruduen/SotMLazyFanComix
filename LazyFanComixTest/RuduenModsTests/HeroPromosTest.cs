@@ -1714,8 +1714,8 @@ namespace LazyFanComixTest
 
             Card instructions = FindCardController("TheSentinelsInstructions").Card;
             Assert.IsTrue(instructions.IsPromoCard);
-            AssertIsInPlayAndNotUnderCard(mainstay);
-            AssertIsInPlayAndNotUnderCard(medico);
+            AssertIsInPlay(mainstay);
+            AssertIsInPlay(medico);
             AssertOffToTheSide(idealist);
             AssertOffToTheSide(writhe);
 
@@ -1725,52 +1725,23 @@ namespace LazyFanComixTest
             SetHitPoints(medico, 5);
             QuickHPStorage(omnitron);
             UsePower(medico, 1);
-            QuickHPCheck(-3);
+            QuickHPCheck(-4); // 3 Damage, plus 1 for innate.
 
-            AssertIsInPlayAndNotUnderCard(idealist);
+            AssertIsInPlay(idealist);
             AssertOffToTheSide(medico);
             AssertHitPoints(idealist, 5); // Swapping out Medico for Idealist, make sure HP remains.
+
+            MoveCards(sentinels, new List<Card>() { medico, writhe }, sentinels.TurnTaker.OutOfGame);
+
+            QuickHandStorage(sentinels);
+            UsePower(mainstay, 1);
+            AssertIsInPlay(mainstay);
+            QuickHandCheck(1); // No play available, so draw.
 
             DestroyCard(mainstay);
             DestroyCard(idealist);
 
             AssertIncapacitated(sentinels);
-
-            GoToUseIncapacitatedAbilityPhase(sentinels);
-            UseIncapacitatedAbility(sentinels, 0);
-            EnterNextTurnPhase();
-            AssertCurrentTurnPhase(sentinels, Phase.End);
-            AssertNotIncapacitatedOrOutOfGame(sentinels);
-            AssertOutOfGame(mainstay);
-            AssertNotFlipped(idealist);
-            AssertNotFlipped(medico);
-
-            DestroyCard(idealist);
-            DestroyCard(medico);
-
-            AssertIncapacitated(sentinels);
-            UseIncapacitatedAbility(sentinels, 0);
-
-            AssertOutOfGame(medico);
-            AssertNotFlipped(idealist);
-            AssertNotFlipped(writhe);
-
-            DestroyCard(idealist);
-            DestroyCard(writhe);
-
-            AssertIncapacitated(sentinels);
-            UseIncapacitatedAbility(sentinels, 0);
-
-            AssertOutOfGame(idealist);
-            AssertNotFlipped(writhe);
-
-            DestroyCard(writhe);
-            UseIncapacitatedAbility(sentinels, 0);
-            AssertIncapacitated(sentinels);
-
-
-
-
         }
 
         [Test()]
@@ -1864,14 +1835,66 @@ namespace LazyFanComixTest
         //    AssertInTrash(top);
         //}
 
-        //[Test()]
-        //public void TestSkyScraper()
-        //{
-        //    SetupGameController("BaronBlade", "SkyScraper/LazyFanComix.SkyScraperConsistentNormalCharacter", "Megalopolis");
-        //    Assert.IsTrue(sky.CharacterCard.IsPromoCard);
+        [Test()]
+        public void TestSkyScraper()
+        {
+            SetupGameController("BaronBlade", "SkyScraper/LazyFanComix.SkyScraperQuickShiftNormalCharacter", "Megalopolis");
+            Assert.IsTrue(sky.CharacterCard.IsPromoCard);
 
-        //    StartGame();
-        //}
+            StartGame();
+            DiscardAllCards(sky);
+            PutInHand("ThorathianMonolith");
+            PutOnDeck("UndetectableRelinking");
+
+            QuickHandStorage(sky);
+            UsePower(sky);
+            QuickHandCheck(1);
+            AssertCardHasKeyword(sky.CharacterCard, "Tiny", false);
+
+            ResetDecisions();
+            DecisionSelectFunctions = new int?[] { 0, 1 };
+            UsePower(sky);
+            QuickHandCheck(-1); // Card played, re-linking should not allow for any change. 
+            AssertCardHasKeyword(sky.CharacterCard, "Huge", false);
+
+            ResetDecisions();
+            DecisionSelectFunctions = new int?[] { 0, 1 };
+            UsePower(sky);
+            QuickHandCheck(-1); // Card played, re-linking should not allow for any change. 
+            AssertCardHasKeyword(sky.CharacterCard, "Normal", false);
+        }
+
+        [Test()]
+        public void TestSkyScraperGuise()
+        {
+            SetupGameController("BaronBlade", "SkyScraper/LazyFanComix.SkyScraperQuickShiftNormalCharacter", "Guise", "Megalopolis");
+            Assert.IsTrue(sky.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            PlayCard("ICanDoThatToo");
+        }
+
+        [Test()]
+        public void TestSkyScraperTribunal()
+        {
+            SetupGameController("BaronBlade", "SkyScraper", "TheCelestialTribunal");
+
+            StartGame();
+            DiscardAllCards(sky);
+
+            SelectFromBoxForNextDecision("LazyFanComix.SkyScraperQuickShiftNormalCharacter", "SkyScraper");
+
+            QuickHandStorage(sky);
+            PlayCard("CalledToJudgement");
+            Card rep = FindCard((Card c) => c.PromoIdentifierOrIdentifier == "SkyScraperQuickShiftNormalCharacter");
+            AssertIsInPlay(rep);
+            QuickHandCheck(1);
+            AssertCardHasKeyword(sky.CharacterCard, "Tiny", false);
+
+            UsePower(rep);
+            AssertCardHasKeyword(rep, "Normal", false);
+        }
 
         [Test()]
         public void TestStuntmanOnTurn()

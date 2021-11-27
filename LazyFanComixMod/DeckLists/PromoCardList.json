@@ -323,7 +323,7 @@
       "incapacitatedAbilities": [
         "One Hero deals 1 Target 2 Projectile Damage.",
         "One player may draw a card now.",
-        "Until the start of your next turn, each Hero gains the following power:{BR}{BR}[b]Power:[/b] This hero deals 1 Target 1 Projectile Damage {BR}       and 1 Sonic Damage."
+        "Until the start of your next turn, each Hero gains the following power:{BR}[b]Power:[/b] This hero deals 1 Target 2 Projectile Damage and 2 Sonic Damage."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -900,20 +900,27 @@
       "foilBackgroundColor": "7B3F6B",
       "character": true,
       "setup": [
-        "At the start of the game, put the character cards for {DrMedicoCharacter}, {MainstayCharacter}, and {TheIdealistCharacter} into play, active side up. Set the character card for  {WritheCharacter} aside.",
+        "At the start of the game, put the character cards for {DrMedicoCharacter} and {MainstayCharacter} into play, active side up. Set the character cards for {TheIdealistCharacter} and {WritheCharacter} aside.",
         "Shuffle the hero deck and draw 4 cards."
       ],
       "gameplay": [
         "If you have no active heroes in play, flip this card.",
-        "Each of your Heroes gain the following power:{BR}[b]Power[/b]: Play 1 Card. Switch this Hero with{BR}        your set aside hero.{BR}        [i](Switching heroes retain their HP.)[/i]"
+        "Each of your Heroes gain the following power:{BR}[b]Power[/b]: This hero deals 1 Target 1 Melee Damage. {BR}        Switch this Hero with your set aside hero. {BR}        Draw 1 card or Play 1 Card. {BR}        [i](Switching a hero out will retain {BR}        their current HP on the new hero.)[/i]"
       ],
       "body": [ "Tag In" ],
       "icons": [ "PlayCardNow", "Maniuplate" ],
       "flippedBody": "Incapacitated",
       "incapacitatedAbilities": [
-        "Remove one of your Incapacitated Heroes from the game. If you do, flip one of your Incapacitated Heroes, restore it to 6 HP, shuffle your cards into your deck, put 4 cards from the top of your deck into your hand, and play one of your Set Aside Heroes.",
+        "One target regains 2 HP.",
         "One Player may play a card.",
-        "One Player may draw a card."
+        "One Player may draw a card.",
+        "Destroy an Ongoing card."
+      ],
+      "flippedIcons": [
+        "GainHP",
+        "PlayCardNow",
+        "DrawCardNow",
+        "DestroyOngoing"
       ],
       "openingLines": {
         "default": "Alright, team! In and out, like we practiced!"
@@ -986,6 +993,122 @@
       "openingLines": {
         "default": "..."
       }
+    }
+  ],
+  "SkyScraper": [
+    {
+      "identifier": "SkyScraperNormalCharacter",
+      "promoIdentifier": "SkyScraperQuickShiftNormalCharacter",
+      "sharedIdentifier": "SkyScraperQuickShiftCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "promoTitle": "Lazyverse Sky-Scraper",
+      "body": "Quick-Shift",
+      "keywords": [
+        "Normal"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "You may Draw a card or Play a Normal card. Switch to your Tiny or Huge character card."
+      ],
+      "hitpoints": 30,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "This new tech is supposed to be safer. Let's see if it can do its job!"
+      }
+    },
+    {
+      "identifier": "SkyScraperTinyCharacter",
+      "promoIdentifier": "SkyScraperQuickShiftTinyCharacter",
+      "sharedIdentifier": "SkyScraperQuickShiftCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "promoTitle": "Lazyverse Sky-Scraper",
+      "body": "Quick-Shift",
+      "keywords": [
+        "Tiny"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "You may Draw a card or Play a Tiny card. Switch to your Normal or Huge character card."
+      ],
+      "hitpoints": 30,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3
+    },
+    {
+      "identifier": "SkyScraperHugeCharacter",
+      "promoIdentifier": "SkyScraperQuickShiftHugeCharacter",
+      "sharedIdentifier": "SkyScraperQuickShiftCharacter",
+      "count": 1,
+      "title": "Sky-Scraper",
+      "promoTitle": "Lazyverse Sky-Scraper",
+      "body": "Quick-Shift",
+      "keywords": [
+        "Huge"
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow"
+      ],
+      "backgroundColor": "47AD80",
+      "foilBackgroundColor": "47AD80",
+      "character": true,
+      "powers": [
+        "You may Draw a card or Play a Huge card. Switch to your Tiny or Normal character card."
+      ],
+      "hitpoints": 30,
+      "nemesisIdentifiers": [
+        "SkyScraper"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3
     }
   ],
   "Stuntman": [

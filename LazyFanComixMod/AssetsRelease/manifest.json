@@ -6,8 +6,8 @@
     "This is a collection of Ruduen's custom content for Sentinels of the Multiverse. It currently includes:",
     "- 6 Completely Custom Heroes",
     "- 1 Aeon's End Inspired Hero",
-    "- 1-2 Variants for most Official Heroes",
-    "- 1 Completely Custom Villain",
+    "- 1-2 Variants for every Official Hero",
+    "- 1 Completely Custom Villain (Under Development)",
     "Ruduen is not an artist, so art will likely remain random-Unicode quality."
   ],
   "version": "0.5.0.0.3",
@@ -53,6 +53,7 @@
     "TheScholar": [ "TheScholarEquilibriumCharacter" ],
     "TheSentinels": [ "TheSentinelsTagInInstructions" ],
     "Setback": [ "SetbackRunOfLuckCharacter", "SetbackDoubleOrNothingCharacter" ],
+    "SkyScraper": [ "SkyScraperQuickShiftNormalCharacter" ],
     "Stuntman": [ "StuntmanForeshadowCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
     "Unity": [ "UnityToolkitCharacter", "UnitySparePartsCharacter" ],
@@ -65,8 +66,7 @@
     "TheWraith": [ "TheWraithImprovisedGearCharacter" ]
   },
   "devVariants": {
-    "SkyScraper": [ "SkyScraperConsistentCharacter" ],
-    "SkyScraperNotes": "Adding all characters only inserts one character and they swap back to normal. No clean way of implementing the unified character. So, this is dummied out."
+    "SkyScraper": [ "SkyScraperConsistentCharacter" ]
   },
   "publishedFileId": 2436856735
 }

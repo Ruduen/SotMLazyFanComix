@@ -62,107 +62,62 @@ namespace LazyFanComix.TheSentinels
             }
             return card;
         }
-
-        public override void AddSideTriggers()
-        {
-            if (!this.Card.IsFlipped)
-            {
-                Func<GameAction, bool> criteria = (GameAction ga) => (ga is FlipCardAction || ga is BulkRemoveTargetsAction || ga is MoveCardAction) && !this.Card.IsFlipped && this.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.IsHeroCharacterCard && c.IsActive && c.IsRealCard && c.IsInPlayAndNotUnderCard, false, null, false).Count() == 0;
-                this.AddSideTrigger(base.AddTrigger<GameAction>(criteria, (GameAction ga) => this.GameController.FlipCard(this.FindCardController(this.Card), false, false, null, null, this.GetCardSource(null), true), TriggerType.FlipCard, TriggerTiming.After, ActionDescription.Unspecified, false, true, null, false, null, null, false, false));
-                return;
-            }
-            this.AddSideTriggers(base.AddTargetEntersPlayTrigger((Card c) => this.Card.IsFlipped && this.CharacterCards.Contains(c), (Card c) => this.GameController.FlipCard(this.FindCardController(this.Card), false, false, null, null, this.GetCardSource(null), true), TriggerType.Hidden, TriggerTiming.After, false, true));
-        }
-
         public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
         {
             if (cardController.TurnTaker == this.TurnTaker && cardController.Card.IsHeroCharacterCard && cardController.Card.IsRealCard &&
                 !cardController.Card.IsIncapacitatedOrOutOfGame)
             {
-                List<Power> list = new List<Power>() { new Power(cardController.DecisionMaker, cardController, "Play 1 Card. Switch this Hero with your set aside Hero.", this.PowerResponse(cardController), 0, null, this.GetCardSource()) };
+                List<Power> list = new List<Power>() { new Power(cardController.DecisionMaker, cardController, "This Hero deals 1 Target 1 Melee Damage. Switch this Hero with your set aside Hero. Draw 1 Card or Play 1 Card.", this.PowerResponse(cardController), 0, null, this.GetCardSource()) };
                 return list;
             }
             return null;
         }
 
-
-        public override IEnumerator AfterFlipCardImmediateResponse()
-        {
-            this.RemoveAllTriggers(true, true, true, false, false);
-            this.AddSideTriggers();
-            yield break;
-        }
-
         private IEnumerator PowerResponse(CardController cardController)
         {
+            Func<Card, IEnumerator> switchToHero = (Card c) =>
+            {
+                return this.GameController.SwitchCards(cardController.Card, c, cardSource: this.GetCardSource());
+            };
+
             int[] numerals = new int[]
             {
                 this.GetPowerNumeral(0, 1), // Played cards
+                this.GetPowerNumeral(0, 1), // Played cards
+                this.GetPowerNumeral(0, 1), // Played cards
+                this.GetPowerNumeral(0, 1), // Played cards
             };
-            List<SelectCardDecision> scd = new List<SelectCardDecision>();
 
             IEnumerator coroutine;
 
-
-            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.SwitchToHero, new LinqCardCriteria((Card c) => c.Location == this.TurnTaker.OffToTheSide && c.IsHeroCharacterCard), scd, false, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, cardController.Card), numerals[1], DamageType.Melee, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (scd?.FirstOrDefault()?.SelectedCard != null)
+            List<Function> list = new List<Function>();
+            foreach (Card c in this.GameController.FindCardsWhere(new LinqCardCriteria((Card c) => c.Location == this.TurnTaker.OffToTheSide && c.IsHeroCharacterCard)))
             {
-                coroutine = this.GameController.SwitchCards(cardController.Card, scd.FirstOrDefault().SelectedCard, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
-            else
-            {
-                coroutine = this.GameController.SendMessageAction(this.TurnTaker.Name + " does not have any Heroes to switch to.", Priority.Low, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                list.Add(new Function(this.DecisionMaker, "Switch " + cardController.Card.Title + " with " + c.Title, SelectionType.SwitchToHero, () => switchToHero(c)));
             }
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(cardController.DecisionMaker, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPerformFunction(
+                new SelectFunctionDecision(this.GameController, this.DecisionMaker, list, false, null, this.TurnTaker.Name + " is unable to switch to another Hero.", cardSource: this.GetCardSource())
+                );
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.DrawACardOrPlayACard(this.DecisionMaker, false);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        public override IEnumerator UseIncapacitatedAbility(int index)
+        public override void AddSideTriggers()
         {
-            IEnumerator coroutine;
-            switch (index)
+            // TODO: The Sentinels treat Off to the Side differently. Note that this also means the default handling for Guise is probably a bit busted.
+            if (!this.Card.IsFlipped)
             {
-                case 0:
-                    {
-                        List<SelectCardDecision> scd = new List<SelectCardDecision>();
-                        coroutine = this.GameController.SelectAndMoveCard(this.DecisionMaker, (Card c) => c.Owner == this.TurnTaker && c.IsHeroCharacterCard && c.IsRealCard && c.IsIncapacitated, this.TurnTaker.OutOfGame, storedResults: scd, cardSource: this.GetCardSource());
-                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                        if (scd.Count > 0 && scd.FirstOrDefault().SelectedCard != null)
-                        {
-                            coroutine = this.GameController.SelectAndUnincapacitateHero(this.DecisionMaker, 6, 4, null, this.GetCardSource(),
-                                new LinqTurnTakerCriteria((TurnTaker tt) => tt == this.TurnTaker));
-                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                            coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.IsHeroCharacterCard && c.Location == this.TurnTaker.OffToTheSide, cardSource: this.GetCardSource());
-                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                            coroutine = this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardSource: this.GetCardSource());
-                            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                        }
-
-
-                        break;
-                    }
-                case 1:
-                    {
-                        coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
-                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                        break;
-                    }
-                case 2:
-                    {
-                        coroutine = this.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
-                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                        break;
-                    }
+                Func<GameAction, bool> criteria = (GameAction ga) => (ga is FlipCardAction || ga is BulkRemoveTargetsAction || ga is MoveCardAction) && !this.Card.IsFlipped && this.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.IsHeroCharacterCard && c.IsActive && c.IsRealCard && !c.IsOffToTheSide).Count() == 0;
+                this.AddSideTrigger(this.AddTrigger<GameAction>(criteria, (GameAction ga) => this.GameController.FlipCard(this.FindCardController(this.Card), false, false, null, null, this.GetCardSource(null), true), TriggerType.FlipCard, TriggerTiming.After, ActionDescription.Unspecified, false, true, null, false, null, null, false, false));
+                return;
             }
-            yield break;
+            this.AddSideTriggers(this.AddTargetEntersPlayTrigger((Card c) => this.Card.IsFlipped && this.CharacterCards.Contains(c), (Card c) => this.GameController.FlipCard(this.FindCardController(this.Card), false, false, null, null, this.GetCardSource(null), true), TriggerType.Hidden, TriggerTiming.After, false, true));
         }
     }
 }

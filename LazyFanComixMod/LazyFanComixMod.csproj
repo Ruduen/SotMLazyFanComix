@@ -92,6 +92,10 @@
     <Compile Include="Heroes\HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\MrFixerFocusedStrikeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\SetbackRunOfLuckCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\SkyScraperCharacterCardControllers\SkyScraperQuickShiftSharedCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\SkyScraperCharacterCardControllers\SkyScraperQuickShiftHugeCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\SkyScraperCharacterCardControllers\SkyScraperQuickShiftNormalCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\SkyScraperCharacterCardControllers\SkyScraperQuickShiftTinyCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\TheSentinelsCharacterCardControllers\TheSentinelsTagInCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\UnityToolkitCharacterCardController.cs" />
     <Compile Include="Heroes\CassieCardControllers\CassieCharacterCardController.cs" />
@@ -123,9 +127,6 @@
     <Compile Include="Heroes\HeroPromoCardControllers\UnitySparePartsCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\StuntmanForeshadowCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\TheVisionaryProphecyCharacterCardController.cs" />
-    <Compile Include="Heroes\HeroPromoCardControllers\SkyScraperConsistentTinyCharacterCardController.cs" />
-    <Compile Include="Heroes\HeroPromoCardControllers\SkyScraperConsistentHugeCharacterCardController.cs" />
-    <Compile Include="Heroes\HeroPromoCardControllers\SkyScraperConsistentNormalCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\TheNaturalistVolatileFormCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\LuminaryReprogramCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\LifelineEnergyTapCharacterCardController.cs" />
