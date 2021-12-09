@@ -15,31 +15,39 @@ namespace LazyFanComix.TheTurfWar
 
         public override void AddTriggers()
         {
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartTurnDamage, TriggerType.DealDamage);
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartOfTurnDamage, TriggerType.DealDamage);
             this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, EndTurnGainHP, TriggerType.GainHP);
         }
 
-        private IEnumerator StartTurnDamage(PhaseChangeAction pca)
+        private IEnumerator StartOfTurnDamage(PhaseChangeAction arg)
         {
             IEnumerator coroutine;
-            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, GetFigureheadWithMostCardsUnder());
+            // Look over all figureheads for the ones with the most cards. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
+            IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
 
-            // Selected villain damages and, if legal, discovers a matching card.
+            Dictionary<Card, int> cardCounts = new Dictionary<Card, int>();
+            int cardCountMax = -1;
+            foreach (Card c in figureheads)
+            {
+                int cardCount = c.UnderLocation.Cards.Count();
+                cardCounts.Add(c, cardCount);
+                cardCountMax = Math.Max(cardCountMax, cardCount);
+            }
+
+            figureheads = cardCounts.Where((KeyValuePair<Card, int> pair) => pair.Value == cardCountMax).Select((KeyValuePair<Card, int> pair) => pair.Key);
+            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, figureheads);
+
+            // Selected villain gains HP.
             coroutine = this.GameController.SelectCardAndDoAction(scd, DealDamageDelegate);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
         private IEnumerator DealDamageDelegate(SelectCardDecision scd)
         {
             Card figurehead = scd.SelectedCard;
             IEnumerator coroutine;
             if (figurehead != null)
             {
-                // Damaging aspects. 
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => c != figurehead && c.DoKeywordsContain("figurehead"), 2, DamageType.Psychic, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => !c.DoKeywordsContain("figurehead") && !c.DoKeywordsContain(figurehead.GetKeywords()), 2, DamageType.Psychic, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => !c.IsVillain, 2, DamageType.Psychic, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
@@ -47,9 +55,22 @@ namespace LazyFanComix.TheTurfWar
         private IEnumerator EndTurnGainHP(PhaseChangeAction pca)
         {
             IEnumerator coroutine;
-            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, GetFigureheadWithMostCardsUnder());
+            // Look over all figureheads for the ones with the most cards. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
+            IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
 
-            // Selected villain damages and, if legal, discovers a matching card.
+            Dictionary<Card, int> cardCounts = new Dictionary<Card, int>();
+            int cardCountMax = -1;
+            foreach (Card c in figureheads)
+            {
+                int cardCount = c.UnderLocation.Cards.Count();
+                cardCounts.Add(c, cardCount);
+                cardCountMax = Math.Max(cardCountMax, cardCount);
+            }
+
+            figureheads = cardCounts.Where((KeyValuePair<Card, int> pair) => pair.Value == cardCountMax).Select((KeyValuePair<Card, int> pair) => pair.Key);
+            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, figureheads);
+
+            // Selected villain gains HP.
             coroutine = this.GameController.SelectCardAndDoAction(scd, GainHPDelegate);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
@@ -63,14 +84,6 @@ namespace LazyFanComix.TheTurfWar
                 coroutine = this.GameController.GainHP(figurehead, 5, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-        }
-
-        private IEnumerable<Card> GetFigureheadWithMostCardsUnder()
-        {
-            // Look over all figureheads for the one with the most cards. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
-            IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
-            int maxCards = figureheads.Select((Card c) => c.UnderLocation.Cards.Count()).Max();
-            return figureheads.Where((Card c) => c.UnderLocation.Cards.Count() == maxCards);
         }
     }
 }

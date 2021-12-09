@@ -31,16 +31,13 @@
       "gameplay": [
         "At the start of the Villain turn, if there is only one Villain Figurehead in play, the heroes win, though a threat still lingers.",
         "Whenever there are no Villain Figureheads in play, the heroes win.",
-        "After an Environment card not under a card is destroyed, put it under the Figurehead with the most non-Figureheads sharing a keyword with it.",
+        "After an Environment card not under a card is destroyed, put it under the Figurehead with the most non-Figurehead cards sharing a keyword with it.",
         "At the end of the Villain turn, if any Villain Figurehead has at least 4 cards under them, flip this card."
       ],
       "advanced": "To Be Determined.",
       "flippedBody": "A Leader's Plot",
       "flippedGameplay": [
-        "At the start of the Villain turn, destroy 2 cards from under each Villain Figurehead.",
-        "Then, the Villain Figurehead with the most cards under it deals each other Figurehead and each non-Figurehead not sharing a keyword with it 2 Toxic Damage.",
-        "Then, reveal cards from the top of the Villain deck until you reveal a card sharing a keyword with that Villain Figurehead, play it, and shuffle the other cards back into the Villain Deck.",
-        "Then, flip this card.",
+        "At the start of the Villain turn, destroy 3 cards under the Villain Figurehead with the most cards under it. That Figurehead deals each other Figurehead and each non-Figurehead not sharing a keyword with it 2 Toxic Damage. Reveal cards from the top of the Villain deck until you reveal a card sharing a keyword with that Figurehead, play it, and shuffle the other cards back into the Villain Deck. Then, flip this card.",
         "Whenever there are no Villain Figureheads in play, the heroes win."
       ],
       "flippedAdvanced": "To Be Determined",
@@ -52,7 +49,7 @@
       ],
       "flippedAdvancedIcons": [
       ],
-      "difficulty": 2,
+      "difficulty": 3,
       "openingLines": {
         "default": "Ugh, heroes. Either pick a side or get out of the way. "
       }
@@ -253,7 +250,7 @@
       "identifier": "TheBrutes",
       "count": 2,
       "title": "The Brutes",
-      "hitpoints": 19,
+      "hitpoints": 9,
       "keywords": [
         "thug"
       ],
@@ -321,7 +318,7 @@
       "body": [
         "Reveal cards from the top of the Villain deck until a target is revealed. Play that target. Shuffle the other revealed cards into the Villain Deck.",
         "That target deals every target not sharing a keyword with it 2 Toxic Damage.",
-        "Destroy 1 Environment card."
+        "Destroy 1 Environment card not under a card."
       ],
       "icons": [
       ],
@@ -334,7 +331,7 @@
       "keywords": [
         "ongoing"
       ],
-      "body": "At the end of the Villain turn, destroy an Environment card, then play the top 2 cards of the Environment deck.",
+      "body": "At the end of the Villain turn, destroy an Environment card not under a card, then play the top 2 cards of the Environment deck.",
       "icons": [
         "DestroyEnvironment",
         "PlayCardNow"
@@ -349,14 +346,14 @@
         "ongoing"
       ],
       "body": [
-        "At the end of the Villain turn, the Villain Figurehead with the most cards under them regains 5 HP.",
-        "At the start of the Villain turn, the Villain Figurehead with the most cards under them deals each other Figurehead and each non-Figurehead not sharing a keyword with it 2 Psychic Damage."
+        "At the end of the Villain turn, the Villain Figurehead with the most non-Figurehead cards sharing a keyword with it regains 5 HP.",
+        "At the start of the Villain turn, the Villain Figurehead with the most non-Figurehead cards sharing a keyword with it deals each non-Villain Target 2 Psychic Damage."
       ],
       "icons": [
         "GainHP",
         "DealDamagePsychic"
       ],
-      "flavorText": "Appearances mean everything. If the city sees someone on top, they'll believe they're on top."
+      "flavorText": "Appearances mean everything. {BR}If the city sees someone on top, {BR}they'll believe they're on top."
     }
   ]
 }

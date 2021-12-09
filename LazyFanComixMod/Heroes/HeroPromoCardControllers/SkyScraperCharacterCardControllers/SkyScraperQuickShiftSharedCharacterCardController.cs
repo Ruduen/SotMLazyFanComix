@@ -43,7 +43,7 @@ namespace LazyFanComix.SkyScraper
                 Card c = this.TurnTaker.FindCard("SkyScraper" + keyword + "Character");
                 if (c != null)
                 {
-                    choices.Add(new Function(this.DecisionMaker, "Switch to your " + keyword + " character card", SelectionType.SwitchToHero, () => this.GameController.SwitchCards(this.Card, c, cardSource: this.GetCardSource())));
+                    choices.Add(new Function(this.DecisionMaker, "Switch to your " + keyword + " character car", SelectionType.SwitchToHero, () => this.GameController.SwitchCards(this.Card, c, cardSource: this.GetCardSource())));
                 }
             }
 

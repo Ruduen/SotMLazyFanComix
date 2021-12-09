@@ -1015,7 +1015,7 @@
       "foilBackgroundColor": "47AD80",
       "character": true,
       "powers": [
-        "You may Draw a card or Play a Normal card. Switch to your Tiny or Huge character card."
+        "You may search your deck for Proportionist, Play it, and shuffle your deck. Play a Tiny or Huge card."
       ],
       "hitpoints": 30,
       "nemesisIdentifiers": [
@@ -1055,7 +1055,7 @@
       "foilBackgroundColor": "47AD80",
       "character": true,
       "powers": [
-        "You may Draw a card or Play a Tiny card. Switch to your Normal or Huge character card."
+        "Play a Link, Normal, or Huge Card."
       ],
       "hitpoints": 30,
       "nemesisIdentifiers": [
@@ -1299,35 +1299,6 @@
   "VoidGuardTheIdealist": [
     {
       "identifier": "VoidGuardTheIdealistCharacter",
-      "promoIdentifier": "VoidGuardTheIdealistTrainOfThoughtCharacter",
-      "count": 1,
-      "title": "The Idealist",
-      "promoTitle": "Lazyverse Idealist",
-      "body": [ "Train of Thought" ],
-      "character": true,
-      "backgroundColor": "6ACEF3",
-      "foilBackgroundColor": "6ACEF3",
-      "powers": "Discard the top card of your deck. If it is a Fragment, play it. Otherwise, if your deck is not empty, repeat this power.",
-      "hitpoints": 23,
-      "icons": [ "HasPower", "Discard", "PlayCardNow" ],
-      "nemesisIdentifiers": [ "TheSentinels" ],
-      "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
-      ],
-      "flippedIcons": [
-        "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
-      ],
-      "complexity": 3,
-      "openingLines": {
-        "default": "..."
-      }
-    },
-    {
-      "identifier": "VoidGuardTheIdealistCharacter",
       "promoIdentifier": "VoidGuardTheIdealistStreamOfConsciousnessCharacter",
       "count": 1,
       "title": "The Idealist",
@@ -1484,6 +1455,37 @@
         "IntriguingComics.StalkingTheStreetsSpiteCharacter": "You're already broken. All that's left is for you to accept it.",
         "LootcaseCharacter": "And let you take those, too? Better to stop you here and now.",
         "default": "What I have might not last, so let's make this quick."
+      }
+    }
+  ],
+  "Incomplete.TheIdealist": [
+    {
+      "identifier": "VoidGuardTheIdealistCharacter",
+      "promoIdentifier": "VoidGuardTheIdealistTrainOfThoughtCharacter",
+      "count": 1,
+      "title": "The Idealist",
+      "promoTitle": "Lazyverse Idealist",
+      "body": [ "Train of Thought" ],
+      "character": true,
+      "backgroundColor": "6ACEF3",
+      "foilBackgroundColor": "6ACEF3",
+      "powers": "Discard the top card of your deck. If it is a Fragment, play it. Otherwise, if your deck is not empty, repeat this power.",
+      "hitpoints": 23,
+      "icons": [ "HasPower", "Discard", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "TheSentinels" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "..."
       }
     }
   ],

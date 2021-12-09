@@ -514,7 +514,7 @@ namespace LazyFanComixTest
             UseIncapacitatedAbility(expatriette, 2);
             AssertNumberOfUsablePowers(legacy, 2);
             UsePower(legacy, 1);
-            QuickHPCheck(-2);
+            QuickHPCheck(-2 - 2);
 
             GoToStartOfTurn(expatriette);
             AssertNumberOfUsablePowers(legacy, 1);

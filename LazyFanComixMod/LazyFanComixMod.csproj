@@ -39,7 +39,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Environments\TheAmmoverseCardControllers\PulseCannonCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\ConcussiveRoundsCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GlitterGunCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GlitterGunHeroCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GooLauncherHeroCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\OverengineeredSlingshotHeroCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\StandoffCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\LarryCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\TheBloodLeechCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\OverengineeredSlingshotCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedAmmoCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\LockedAndLoadedCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\HollowPointCacheCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\TShirtCannonCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedHeroGunCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GooLauncherCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SonicCannonCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Breaches\BreachMageSharedPotentBreachCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Breaches\BreachMageSharedStableBreachCardController.cs" />
@@ -291,7 +306,7 @@
     <None Include="AssetsRelease\manifest.json" />
     <EmbeddedResource Include="DeckLists\RecallDeckList.json" />
     <EmbeddedResource Include="DeckLists\TheTurfWarDeckList.json" />
-    <EmbeddedResource Include="DeckLists\TheAmmoverseDeckList.json" />
+    <EmbeddedResource Include="DeckLists\LarrysDiscountGunClubDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />

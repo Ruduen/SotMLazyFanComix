@@ -38,7 +38,7 @@ namespace LazyFanComix.Greyhat
 
         public GreyhatSharedCheckNextToLinkCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
-            this.SpecialStringMaker.ShowListOfCards(new LinqCardCriteria((Card c) => this.CardsLinksAreNextTo.Contains(c), "links are next to", false, true));
+            this.SpecialStringMaker.ShowListOfCards(new LinqCardCriteria((Card c) => this.CardsLinksAreNextTo.Contains(c), "that have links next to them", false, true));
         }
     }
 }

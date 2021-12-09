@@ -17,7 +17,7 @@ namespace LazyFanComix.TheTurfWar
         {
             this.AddEndOfTurnTrigger(
                 (TurnTaker tt) => tt == this.TurnTaker,
-                (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c)=>c.IsEnvironment),1,false,1,cardSource: this.GetCardSource()),
+                (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c)=>c.IsEnvironment && c.IsInPlayAndNotUnderCard),1,false,1,cardSource: this.GetCardSource()),
                 TriggerType.DestroyCard
             );
             this.AddEndOfTurnTrigger(

@@ -24,6 +24,12 @@
       "Spellforge",
       "Soulbinder",
       "Trailblazer"
+    ],
+    "villains": [
+      "TheTurfWar"
+    ],
+    "environments": [
+      "LarrysDiscountGunClub"
     ]
   },
   "variants": {
@@ -53,7 +59,6 @@
     "TheScholar": [ "TheScholarEquilibriumCharacter" ],
     "TheSentinels": [ "TheSentinelsTagInInstructions" ],
     "Setback": [ "SetbackRunOfLuckCharacter", "SetbackDoubleOrNothingCharacter" ],
-    "SkyScraper": [ "SkyScraperQuickShiftNormalCharacter" ],
     "Stuntman": [ "StuntmanForeshadowCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
     "Unity": [ "UnityToolkitCharacter", "UnitySparePartsCharacter" ],
@@ -66,7 +71,7 @@
     "TheWraith": [ "TheWraithImprovisedGearCharacter" ]
   },
   "devVariants": {
-    "SkyScraper": [ "SkyScraperConsistentCharacter" ]
+    "SkyScraper": [ "SkyScraperConsistentCharacter", "SkyScraperQuickShiftNormalCharacter" ]
   },
   "publishedFileId": 2436856735
 }

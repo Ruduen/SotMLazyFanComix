@@ -135,12 +135,10 @@ namespace LazyFanComixTest
             MoveCard(env, cards[2], Kanya.UnderLocation);
             MoveCard(env, cards[3], Kanya.UnderLocation);
 
-            DecisionDestroyCards = new Card[] { cards[0], cards[1], cards[2], null };
-
             GoToStartOfTurn(TurfWar);
 
-            AssertInTrash(cards[0], cards[1], cards[2]);
-            AssertIsInPlay(cards[3]);
+            AssertInTrash(cards[1], cards[2], cards[3]);
+            AssertIsInPlay(cards[0]);
         }
 
         [Test()]
@@ -641,16 +639,19 @@ namespace LazyFanComixTest
 
             PlayCard("HoldingTheHighGround");
 
+            SetHitPoints(Calin, 50);
+            SetHitPoints(Kanya, 50);
             QuickHPStorage(Calin, Kanya, fixer.CharacterCard);
+
             GoToEndOfTurn(TurfWar);
             // Damage Totals: 
-            // Calin: Calin 2, Kanya 1+1, Sez 0, Heal 5.
+            // Calin: Calin 2, Kanya 1+1, Sez 0, Heal 10.
             // Kanya: Calin 2+1, Kanya 0, Sez 3+1
             // Fixer: Calin 2, Kanya 1, Sez 0
-            QuickHPCheck(0, -7, -3);
+            QuickHPCheck(-2 - 2 + 5, -3 - 4, -2 - 1);
 
             GoToStartOfTurn(TurfWar);
-            QuickHPCheck(0, -3, -2); // Start of turn, Calin damages
+            QuickHPCheck(0, 0, -2); // Start of turn, Calin damages non-Villains.
 
         }
         #endregion Non-Specific Cards Test
