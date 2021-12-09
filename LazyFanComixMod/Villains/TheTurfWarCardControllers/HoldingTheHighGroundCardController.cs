@@ -35,7 +35,7 @@ namespace LazyFanComix.TheTurfWar
             }
 
             figureheads = cardCounts.Where((KeyValuePair<Card, int> pair) => pair.Value == cardCountMax).Select((KeyValuePair<Card, int> pair) => pair.Key);
-            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, figureheads);
+            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, figureheads, cardSource: this.GetCardSource());
 
             // Selected villain gains HP.
             coroutine = this.GameController.SelectCardAndDoAction(scd, DealDamageDelegate);
@@ -68,7 +68,7 @@ namespace LazyFanComix.TheTurfWar
             }
 
             figureheads = cardCounts.Where((KeyValuePair<Card, int> pair) => pair.Value == cardCountMax).Select((KeyValuePair<Card, int> pair) => pair.Key);
-            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.DealDamage, figureheads);
+            SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.GainHP, figureheads, cardSource: this.GetCardSource());
 
             // Selected villain gains HP.
             coroutine = this.GameController.SelectCardAndDoAction(scd, GainHPDelegate);

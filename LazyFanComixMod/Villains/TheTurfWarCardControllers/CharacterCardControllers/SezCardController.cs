@@ -23,7 +23,7 @@ namespace LazyFanComix.TheTurfWar
         }
         private IEnumerator DealDamageResponse(PhaseChangeAction pca)
         {
-            IEnumerator coroutine = this.DealDamageToHighestHP(this.Card, 1, (Card c) => !c.IsThug, (Card c) => 3, DamageType.Projectile, numberOfTargets: () => this.H);
+            IEnumerator coroutine = this.DealDamageToHighestHP(this.Card, 1, (Card c) => !c.IsThug, (Card c) => 3, DamageType.Projectile, numberOfTargets: () => this.H - 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

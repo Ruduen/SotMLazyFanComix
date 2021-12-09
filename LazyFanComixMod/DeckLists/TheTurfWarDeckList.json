@@ -13,7 +13,7 @@
     {
       "identifier": "TheTurfWarInstructions",
       "count": 1,
-      "title": "The Turf War",
+      "title": "The Turf War (v0.5)",
       "keywords": [],
       "icons": [
         "StartAndEndOfTurnAction",
@@ -135,7 +135,7 @@
         "LazyFanComix.Inquirer"
       ],
       "gameplay": [
-        "At the end of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 3 Projectile Damage."
+        "At the end of the Villain turn, this card deals the {H}-1 non-Thug targets with the highest HP 3 Projectile Damage."
       ],
       "icons": [
         "DealDamageProjectile"
@@ -154,7 +154,7 @@
       "identifier": "TheLeeches",
       "count": 2,
       "title": "The Leeches",
-      "hitpoints": 11,
+      "hitpoints": 10,
       "keywords": [
         "cultist"
       ],
@@ -170,7 +170,7 @@
       "identifier": "TheConduit",
       "count": 1,
       "title": "The Conduit",
-      "hitpoints": 14,
+      "hitpoints": 13,
       "keywords": [
         "cultist"
       ],
@@ -186,7 +186,7 @@
       "identifier": "Chalice",
       "count": 1,
       "title": "Chalice",
-      "hitpoints": 17,
+      "hitpoints": 16,
       "keywords": [
         "cultist"
       ],
@@ -202,7 +202,7 @@
       "identifier": "TheShockTroopers",
       "count": 2,
       "title": "The Shock Troopers",
-      "hitpoints": 10,
+      "hitpoints": 9,
       "keywords": [
         "minion"
       ],
@@ -218,7 +218,7 @@
       "identifier": "TheFlashpoint",
       "count": 1,
       "title": "The Flashpoint",
-      "hitpoints": 13,
+      "hitpoints": 12,
       "keywords": [
         "minion"
       ],
@@ -234,7 +234,7 @@
       "identifier": "ShortCircuit",
       "count": 1,
       "title": "Short Circuit",
-      "hitpoints": 16,
+      "hitpoints": 15,
       "keywords": [
         "minion"
       ],
@@ -250,12 +250,12 @@
       "identifier": "TheBrutes",
       "count": 2,
       "title": "The Brutes",
-      "hitpoints": 9,
+      "hitpoints": 8,
       "keywords": [
         "thug"
       ],
       "body": [
-        "At the end of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 4 Melee Damage.",
+        "At the end of the Villain turn, this card deals the {H}-1 non-Thug targets with the highest HP 4 Melee Damage.",
         "At the start of the Environment turn, put the top 2 cards of the Environment deck under the Figurehead sharing a keyword with this card."
       ],
       "icons": [
@@ -266,13 +266,13 @@
       "identifier": "TheSpike",
       "count": 1,
       "title": "The Spike",
-      "hitpoints": 12,
+      "hitpoints": 11,
       "keywords": [
         "thug"
       ],
       "body": [
-        "At the end of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 3 Projectile Damage.",
-        "At the start of the Villain turn, this card deals the {H} non-Thug targets with the highest HP 3 Projectile Damage, increased by 1 for each Environment card in play."
+        "At the end of the Villain turn, this card deals the {H}-1 non-Thug targets with the highest HP 3 Projectile Damage.",
+        "At the start of the Villain turn, this card deals the {H}-1 non-Thug targets with the highest HP 3 Projectile Damage, increased by 1 for each Environment card in play and not under a card."
       ],
       "icons": [
       ],
@@ -282,7 +282,7 @@
       "identifier": "Zenith",
       "count": 1,
       "title": "Zenith",
-      "hitpoints": 15,
+      "hitpoints": 14,
       "keywords": [
         "thug"
       ],

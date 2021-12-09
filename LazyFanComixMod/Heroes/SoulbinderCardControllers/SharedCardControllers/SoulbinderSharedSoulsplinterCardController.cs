@@ -27,8 +27,6 @@ namespace LazyFanComix.Soulbinder
         {
             IEnumerator coroutine;
             List<Card> target = new List<Card>();
-            int targetIndex;
-            int tokenIndex;
 
             // TODO: Verify this works! 
             List<int> powerNumerals = GetUniquePowerNumerals();

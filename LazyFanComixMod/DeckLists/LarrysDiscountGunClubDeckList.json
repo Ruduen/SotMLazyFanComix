@@ -28,7 +28,7 @@
         "gun",
         "device"
       ],
-      "flavorText": "Greyhat shouted over the {br}booms, “It's supposed to be {br}a sonic weapon! Why is {br}it firing bullets, too?”"
+      "flavorText": "Greyhat shouted over the booms, {br}“It's supposed to be a sonic weapon!  {br}Why is it firing bullets, too?”"
     },
     {
       "identifier": "TShirtCannon",
@@ -49,7 +49,7 @@
         "gun",
         "device"
       ],
-      "flavorText": "There was a moment's pause as the two {BR}looked at each other. “Okay. I know how those {br}things work, but how the heck did {br}they get the shirts [i]on[/i]?”"
+      "flavorText": "There was a moment's pause as the two {BR}looked at each other. “Okay. I know how {br}those things work, but how the heck did {br}it get the shirts [i]on us[/i]?”"
     },
     {
       "identifier": "TheBloodLeech",
@@ -124,14 +124,14 @@
       "keywords": [
         "gun"
       ],
-      "flavorText": "“This is a slingshot. That's {br}on fire.” “It fires bullets! So, it must {br}be a gun!”, The proprieter {br}responded, smile still wide on his face."
+      "flavorText": "“This is a slingshot that's somehow on fire.” {br}“It fires bullets, so it must be a gun!”, {br}The proprieter responded, {br}smile still wide on his face."
     },
     {
       "identifier": "OverengineeredSlingshotHero",
       "count": 1,
       "kind": "Hero",
       "title": "Overengineered Slingshot",
-      "powers": [ "This hero deals up to 4 Targets 1 Projectile Damage and 1 Fire Damage" ],
+      "powers": [ "This hero deals up to 4 Targets 1 Projectile Damage and 1 Fire Damage." ],
       "body": [
         "Any number of ammo cards may be in play next to this card."
       ],
@@ -199,7 +199,7 @@
       "keywords": [
         "ammo"
       ],
-      "flavorText": "The room's eyes all turned {br}towards Expatriette for a {br}moment, watching as a mixture of {br}expressions rose to her face."
+      "flavorText": "The room's eyes all turned towards {br}Expatriette for a moment, watching as {br}a mixture of expressions rose to her face."
     },
     {
       "identifier": "ConcussiveRounds",
@@ -261,7 +261,7 @@
       ],
       "keywords": [
       ],
-      "flavorText": "The man gazed over them {br}with a lazy eye. “Welcome to {br}Larry's Gun Club! Sign up now for {br}our gun-of-the-month program!”"
+      "flavorText": "The man gazed over them with a lazy eye. {br}“Welcome to Larry's Gun Club! Sign up now {br}for our gun-of-the-month program!”"
     },
     {
       "identifier": "Standoff",
@@ -278,7 +278,7 @@
         "StartOfTurnAction",
         "DestroySelf"
       ],
-      "flavorText": "The two figures stared at each {br}other from opposite ends of the {br}hallway, weapons drawn  and at the {br}ready. Neither of them made a move."
+      "flavorText": "The two figures stared at each {br}other from opposite ends of the {br}hallway, weapons drawn and at the {br}ready. Neither of them made a move."
     }
   ]
 }

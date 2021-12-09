@@ -145,7 +145,6 @@ namespace LazyFanComix.TheTurfWar
 
         private IEnumerator PutDestroyedCardUnder(SelectCardDecision scd, DestroyCardAction dca)
         {
-            IEnumerator coroutine;
             if (scd?.SelectedCard != null)
             {
                 dca.SetPostDestroyDestination(scd.SelectedCard.UnderLocation, cardSource: this.GetCardSource());

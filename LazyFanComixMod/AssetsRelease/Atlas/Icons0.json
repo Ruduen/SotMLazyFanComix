@@ -1,0 +1,20 @@
+{"frames": {
+
+"InquirerIcon.png":
+{
+	"frame": {"x":0,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Icons0.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d1d1f8638ff1688925e3ad588c48ff8c:956f86cda4cb24c97e75610d0a98b8fc:c680398f21d101d0a1ae6d7fc2a23608$"
+}
+}

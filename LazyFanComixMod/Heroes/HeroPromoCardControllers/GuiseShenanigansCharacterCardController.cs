@@ -21,7 +21,6 @@ namespace LazyFanComix.Guise
                 this.GetPowerNumeral(1, 1)
             };
             List<Function> list = new List<Function>();
-            SelectFunctionDecision sfd;
             IEnumerator coroutine;
 
             //list.Add(new Function(this.HeroTurnTakerController, "Play " + numerals[2] + " ongoing and make it indestructible", SelectionType.PlayCard, () => PlayOngoingAndMakeIndestructable(numerals[1]), this.CanPlayCardsFromHand(this.HeroTurnTakerController) && this.HeroTurnTaker.Hand.Cards.Any((Card c) => c.IsOngoing), this.TurnTaker.Name + " cannot draw or discard any cards, so they must play " + numerals[1] + " ongoing and make it indestructible."));
