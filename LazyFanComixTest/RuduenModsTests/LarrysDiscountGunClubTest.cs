@@ -5,6 +5,7 @@ using System.Reflection;
 using Handelabra.Sentinels.Engine.Controller;
 using System.Linq;
 using LazyFanComix.LarrysDiscountGunClub;
+using System.Collections.Generic;
 
 namespace LazyFanComixTest
 {
@@ -44,7 +45,9 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card ammo = PlayCard("HollowPointCache");
+            PutInTrash("LockedAndLoaded", 0);
+            PutInTrash("LockedAndLoaded", 1);
+            Card ammo = PlayCard("QuantumRounds");
             AssertInTrash(ammo);
         }
 
@@ -57,7 +60,7 @@ namespace LazyFanComixTest
 
             MoveCards(env, (Card c) => c.IsEnvironment && !c.IsAmmo, env.TurnTaker.OutOfGame);
 
-            Card ammo = PlayCard("HollowPointCache");
+            Card ammo = PlayCard("QuantumRounds");
             AssertInTrash(ammo);
 
         }
@@ -137,6 +140,31 @@ namespace LazyFanComixTest
         }
 
 
+        [Test()]
+        public void TestGunFullAmmo()
+        {
+            SetupGameController("LaCapitan", "Expatriette", "Legacy", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+
+            QuickHandStorage(expatriette);
+            GoToEndOfTurn(capitan);
+
+            Card pistol = PlayCard("GooLauncher");
+            PlayCard("HollowPoints");
+            Card failToPlay = PlayCard("IncendiaryRounds");
+            AssertInTrash(failToPlay);
+
+            Card pistolHero = GetCard("GooLauncherHero");
+            GoToStartOfTurn(expatriette);
+            AssertInPlayArea(expatriette, pistolHero);
+            AssertOffToTheSide(pistol);
+
+            PlayCard(failToPlay);
+            AssertInTrash(failToPlay);
+        }
+
+
         #endregion Generic Tests
 
         #region Card Tests
@@ -151,7 +179,7 @@ namespace LazyFanComixTest
             GoToEndOfTurn(expatriette);
 
             PlayCard("SonicCannon");
-            Card ammo = PlayCard("HollowPointCache");
+            Card ammo = PlayCard("QuantumRounds");
 
             QuickHPStorage(expatriette);
             GoToStartOfTurn(env);
@@ -169,7 +197,7 @@ namespace LazyFanComixTest
             GoToEndOfTurn(expatriette);
 
             PlayCard("TShirtCannon");
-            Card ammo = PlayCard("HollowPointCache");
+            Card ammo = PlayCard("QuantumRounds");
 
             QuickHPStorage(expatriette, legacy, voidWrithe);
             QuickHandStorage(expatriette, legacy, voidWrithe);
@@ -254,10 +282,35 @@ namespace LazyFanComixTest
 
             QuickHPStorage(omnitron);
             UsePower(pistolHero);
-            QuickHPCheck(-1 - 2); 
+            QuickHPCheck(-1 - 2);
             QuickHPStorage(expatriette);
             DealDamage(omnitron, expatriette, 2, DamageType.Sonic);
             QuickHPCheck(-2 + 1);
+        }
+
+
+        [Test()]
+        public void TestGlitterGunNumerology()
+        {
+            SetupGameController("Omnitron", "TheHarpy", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+
+            GoToEndOfTurn(omnitron);
+
+            Card pistol = PlayCard("GlitterGun");
+            Card pistolHero = GetCard("GlitterGunHero");
+            Card numeral = PlayCard("AppliedNumerology");
+            GoToStartOfTurn(harpy);
+            AssertInPlayArea(harpy, pistolHero);
+            AssertOffToTheSide(pistol);
+            AssertInTrash(numeral);
+
+            string description = pistolHero.GetPowerDescription(0);
+            List<string> numeralString = pistolHero.Definition.ExtractPowerNumeralsFromPowerDescription("This hero deals up to 5 targets 1 Radiant Damage.[b][/b] Reduce Damage dealt by those targets by 1 until the start of your next turn.").ToList();
+
+            PlayCard(numeral);
+            UsePower(pistolHero);
         }
 
         [Test()]
@@ -272,8 +325,9 @@ namespace LazyFanComixTest
 
             Card gun = PlayCard("OverengineeredSlingshot");
             Card gunHero = GetCard("OverengineeredSlingshotHero");
-            Card ammo = PlayCard("HollowPointCache");
+            Card ammo = PlayCard("HollowPoints");
             QuickHPStorage(expatriette);
+            DecisionYesNo = true;
             GoToStartOfTurn(expatriette);
             AssertInPlayArea(expatriette, gunHero);
             AssertOffToTheSide(gun);
@@ -286,20 +340,77 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestAmmoHollowPoint()
+        public void TestOverengineeredSlingshotRedirected()
         {
-            SetupGameController("Omnitron", "Expatriette", "LazyFanComix.LarrysDiscountGunClub");
+            SetupGameController("Omnitron", "Tachyon", "LazyFanComix.LarrysDiscountGunClub");
 
             StartGame();
 
+            // Even if damage is redirected, the card is still earned.
+
+            QuickHandStorage(tachyon);
+            GoToEndOfTurn(omnitron);
+
+            DestroyNonCharacterVillainCards();
+
+            Card gun = PlayCard("OverengineeredSlingshot");
+            Card gunHero = GetCard("OverengineeredSlingshotHero");
+            PlayCard("SynapticInterruption");
+            QuickHPStorage(tachyon, omnitron);
+            DecisionYesNo = true;
+            DecisionSelectCards = new Card[] { omnitron.CharacterCard };
+            GoToStartOfTurn(tachyon);
+            AssertInPlayArea(env, gun);
+            AssertOffToTheSide(gunHero);
+            QuickHPCheck(0, -4);
+        }
+
+        [Test()]
+        public void TestOverengineeredSlingshotPass()
+        {
+            SetupGameController("Omnitron", "Tachyon", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+
+            QuickHandStorage(tachyon);
+            GoToEndOfTurn(omnitron);
+
+            DestroyNonCharacterVillainCards();
+
+            Card gun = PlayCard("OverengineeredSlingshot");
+            Card gunHero = GetCard("OverengineeredSlingshotHero");
+            QuickHPStorage(tachyon);
+            DecisionYesNo = false;
+            GoToStartOfTurn(tachyon);
+            AssertInPlayArea(env, gun);
+            AssertOffToTheSide(gunHero);
+            QuickHPCheck(0);
+        }
+
+
+        [Test()]
+        public void TestAmmoQuantumRounds()
+        {
+            SetupGameController("AmbuscadeTeam", "Expatriette", "Haka", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+            RemoveVillainCards();
+
+            Card glamour = PlayCard("Glamour");
+            PlayCard("TaMoko");
+            SetHitPoints(haka, 6);
+            SetHitPoints(expatriette, 5);
+
             Card gun = PlayCard("AssaultRifle");
-            Card ammo = PlayCard("HollowPointCache");
+            Card ammo = PlayCard("QuantumRounds");
             AssertNextToCard(ammo, gun);
 
-            QuickHPStorage(omnitron);
+            DecisionSelectCards = new Card[] { ambuscadeTeam.CharacterCard, glamour, null };
+            QuickHPStorage(ambuscadeTeam.CharacterCard, glamour);
             UsePower(gun);
-            QuickHPCheck(-2 - 2);
+            QuickHPCheck(-2, 0);
 
+            AssertIncapacitated(haka);
             AssertInTrash(ammo);
         }
 
@@ -356,20 +467,18 @@ namespace LazyFanComixTest
             Card dealer = PlayCard("Larry");
             SetHitPoints(dealer, 10);
 
-            QuickHPStorage(dealer);
+            QuickHPStorage(dealer, expatriette.CharacterCard);
             GoToStartOfTurn(env);
-            QuickHPCheck(1);
+            QuickHPCheck(1, -1 - 1); // 1 base, 1 nemesis
             GoToEndOfTurn(env);
             AssertIsInPlay(envir);
 
             DestroyCard(dealer);
             AssertIsInPlay(villain);
 
-            QuickHandStorage(expatriette);
             PlayCard(dealer);
             DealDamage(dealer, dealer, 30, DamageType.Fire);
             AssertNotInPlay(villain2);
-            QuickHandCheck(1);
         }
 
         [Test()]
@@ -380,7 +489,7 @@ namespace LazyFanComixTest
             StartGame();
 
 
-            Card play=PlayCard("Standoff");
+            Card play = PlayCard("Standoff");
             AssertNumberOfCardsInPlay((Card c) => c.IsGun, 1);
 
             QuickHPStorage(omnitron, expatriette, haka);
@@ -418,7 +527,7 @@ namespace LazyFanComixTest
 
             GoToStartOfTurn(env);
             AssertInTrash(play);
-
+            AssertIsInPlay("Larry");
         }
 
 

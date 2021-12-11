@@ -18,7 +18,7 @@
         "Any number of Ammo cards may be in play next to this card.",
         "At the start of the Environment turn, the Villain with the highest HP deals the Hero Target with the Highest HP 4 Sonic Damage, increased by 3 for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
       ],
-      "hitpoints": 7,
+      "hitpoints": 9,
       "icons": [
         "EndOfTurnAction",
         "DealDamageSonic",
@@ -38,7 +38,7 @@
         "Any number of Ammo cards may be in play next to this card.",
         "At the start of the Environment turn, the Villain with the highest HP deals the 2 Hero Targets with the Highest HP 3 Projectile Damage. Each player whose Target took damage this way discards 1 card for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
       ],
-      "hitpoints": 7,
+      "hitpoints": 9,
       "icons": [
         "EndOfTurnAction",
         "DealDamageProjectile",
@@ -59,7 +59,7 @@
         "Any number of Ammo cards may be in play next to this card.",
         "At the start of the Environment turn, the Villain with the highest HP deals each Hero Target 1 Infernal Damage. That Villain regains 2 HP, increased by 5 HP for each Ammo Card next to this card. Then, destroy each Ammo card next to this card."
       ],
-      "hitpoints": 7,
+      "hitpoints": 9,
       "icons": [
         "EndOfTurnAction",
         "DealDamageInfernal",
@@ -77,7 +77,7 @@
       "count": 1,
       "title": "Goo Launcher",
       "body": [
-        "Any number of ammo cards may be in play next to this card.",
+        "Only 1 Ammo card may be in play next to this card at a time.",
         "During the start of a player's turn, they may discard up to 3 cards. If 3 cards are discarded this way, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals 1 Target 3 Toxic Damage. Increase Damage dealt to that target by 1 until the start of your next turn.)[/i]"
       ],
       "icons": [
@@ -96,7 +96,7 @@
       "title": "Goo Launcher",
       "powers": [ "This hero deals 1 Target 2 Toxic Damage. Increase Damage dealt to that target by 1 until the start of your next turn." ],
       "body": [
-        "Any number of ammo cards may be in play next to this card."
+        "Only 1 Ammo card may be in play next to this card at a time."
       ],
       "icons": [
         "HasPower",
@@ -114,8 +114,8 @@
       "count": 1,
       "title": "Overengineered Slingshot",
       "body": [
-        "Any number of ammo cards may be in play next to this card.",
-        "During the start of a player's turn, their Hero may deal themselves 4 Fire Damage. If damage was dealt this way, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals up to 4 Targets 1 Projectile Damage and 1 Fire Damage.)[/i]"
+        "Only 1 Ammo card may be in play next to this card at a time.",
+        "During the start of a player's turn, their Hero may deal themselves 4 Fire Damage. If that hero was dealt damage this way, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals up to 4 Targets 1 Projectile Damage and 1 Fire Damage.)[/i]"
       ],
       "icons": [
         "StartOfTurnAction",
@@ -133,7 +133,7 @@
       "title": "Overengineered Slingshot",
       "powers": [ "This hero deals up to 4 Targets 1 Projectile Damage and 1 Fire Damage." ],
       "body": [
-        "Any number of ammo cards may be in play next to this card."
+        "Only 1 Ammo card may be in play next to this card at a time."
       ],
       "icons": [
         "HasPower",
@@ -151,8 +151,8 @@
       "count": 1,
       "title": "Glitter Gun",
       "body": [
-        "Any number of ammo cards may be in play next to this card.",
-        "During the start of a player's turn, their Hero may destroy one of their non-character cards. If they do, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals each non-Hero target 1 Radiant Damage. Reduce Damage dealt by those targets by 1 until the start of your next turn.)[/i]"
+        "Only 1 Ammo card may be in play next to this card at a time.",
+        "During the start of a player's turn, their Hero may destroy one of their non-character cards. If they do, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals up to 5 targets 1 Radiant Damage. Reduce Damage dealt by those targets by 1 until the start of your next turn.)[/i]"
       ],
       "icons": [
         "StartOfTurn",
@@ -170,7 +170,7 @@
       "title": "Glitter Gun",
       "powers": [ "This hero deals up to 5 targets 1 Radiant Damage. Reduce Damage dealt by those targets by 1 until the start of your next turn." ],
       "body": [
-        "Any number of ammo cards may be in play next to this card."
+        "Only 1 Ammo card may be in play next to this card at a time."
       ],
       "icons": [
         "HasPower",
@@ -184,12 +184,12 @@
       "flavorText": null
     },
     {
-      "identifier": "HollowPointCache",
+      "identifier": "QuantumRounds",
       "count": 2,
-      "title": "Hollow Point Cache",
+      "title": "Quantum Rounds",
       "body": [
-        "Play this card next to a Gun card. If there are no Gun cards in play and the Environment Deck is not empty, play the top card of the Environment deck.",
-        "Increase the Damage of that card's Power by 2.",
+        "Play this card next to a Gun card. If there are no Gun cards with room for ammo in play and the Environment Deck is not empty, play the top card of the Environment deck.",
+        "Damage dealt by that card's Power is irreducible. After a target is dealt damage by that card's Power, if it has 4 or fewer HP, destroy that Target.",
         "After that Power is used, destroy this card."
       ],
       "icons": [
@@ -199,14 +199,14 @@
       "keywords": [
         "ammo"
       ],
-      "flavorText": "The room's eyes all turned towards {br}Expatriette for a moment, watching as {br}a mixture of expressions rose to her face."
+      "flavorText": "“This is an empty ammo clip,” She growled, {br}only to receive the man's smile in response. {br}“Or is it?” He responded, voice as cheerful {br}as it always was when he peddled his wares."
     },
     {
       "identifier": "ConcussiveRounds",
       "count": 2,
       "title": "Concussive Rounds",
       "body": [
-        "Play this card next to a Gun card. If there are no Gun cards in play and the Environment Deck is not empty, play the top card of the Environment deck.",
+        "Play this card next to a Gun card. If there are no Gun cards with room for ammo in play and the Environment Deck is not empty, play the top card of the Environment deck.",
         "After a target is dealt damage by that card's power, that target deals itself 2 Irreducible Sonic Damage.",
         "After that Power is used, destroy this card."
       ],
@@ -249,8 +249,8 @@
       ],
       "body": [
         "At the end of the Environment turn, play the top card of the Environment deck.",
-        "At the start of the Environment turn, this card regains HP equal to the number of Gun cards in play.",
-        "When this card is destroyed, first, if it has 0 or fewer HP, each player draws a card. Otherwise, play the top card of the villain deck."
+        "At the start of the Environment turn, this card regains HP equal to the number of Gun cards in play and deals each other non-Device target 1 Psychic Damage.",
+        "When this card is destroyed, if it has 0 or fewer HP, first play the top card of the villain deck."
       ],
       "hitpoints": 17,
       "icons": [
@@ -260,8 +260,9 @@
         "DrawCardNow"
       ],
       "keywords": [
+        "proprietor"
       ],
-      "flavorText": "The man gazed over them with a lazy eye. {br}“Welcome to Larry's Gun Club! Sign up now {br}for our gun-of-the-month program!”"
+      "flavorText": "The man gazed over them with a lazy eye. {br}“Welcome to Larry's Gun Club! Sign up now {br}for our gun-of-the-month program!”, {br}He shouted, as the crew glared back in irritation."
     },
     {
       "identifier": "Standoff",
@@ -269,8 +270,26 @@
       "title": "Standoff",
       "body": [
         "When this card enters play, reveal cards from the Environment deck until a Gun card is revealed, play it, and shuffle the other revealed cards into the Environment Deck.",
-        "The Villain with the highest HP and the Hero with the highest HP cannot deal damage to each other.",
-        "At the start of the Environment turn, destroy this card."
+        "The Villain with the highest HP and Hero with the highest HP cannot deal damage to each other.",
+        "At the start of the Environment turn, search the Environment deck and trash for Larry, put it into play, shuffle the Environment deck, and destroy this card."
+      ],
+      "icons": [
+        "PlayCardNow",
+        "CannotDealDamage",
+        "StartOfTurnAction",
+        "DestroySelf"
+      ],
+      "flavorText": "The two figures stared at each other from {br}opposite ends of the hallway, weapons drawn {br}and at the ready. Neither made a move, until {br}interrupted by a familiar, “Welcome!”"
+    }
+  ],
+  "protoCards": [
+    {
+      "identifier": "TwitchyTriggers",
+      "count": 2,
+      "title": "Twitchy Triggers",
+      "body": [
+        "When this card enters in play, if there are no Gun cards in play, reveal cards from the Environment deck until a Gun card is revealed, play it, and shuffle the other revealed cards into the Environment Deck.",
+        "Otherwise, use the power on each Gun card with a power, and trigger the End of Turn effect on each Gun card with an end of turn effect."
       ],
       "icons": [
         "PlayCardNow",
@@ -279,6 +298,5 @@
         "DestroySelf"
       ],
       "flavorText": "The two figures stared at each {br}other from opposite ends of the {br}hallway, weapons drawn and at the {br}ready. Neither of them made a move."
-    }
-  ]
+    }]
 }

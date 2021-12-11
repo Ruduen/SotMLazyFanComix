@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\ConcussiveRoundsCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GlitterGunCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedHeroGunEarnedCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GlitterGunHeroCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GooLauncherHeroCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\OverengineeredSlingshotHeroCardController.cs" />
@@ -50,9 +51,9 @@
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\OverengineeredSlingshotCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedAmmoCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\LockedAndLoadedCardController.cs" />
-    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\HollowPointCacheCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\QuantumRoundsCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\TShirtCannonCardController.cs" />
-    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedHeroGunCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedHeroGunUnearnedCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GooLauncherCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SonicCannonCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />

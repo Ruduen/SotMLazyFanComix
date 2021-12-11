@@ -17,15 +17,21 @@ namespace LazyFanComix.LarrysDiscountGunClub
 
         public override void AddTriggers()
         {
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartOfTurnHealTrigger, new TriggerType[] { TriggerType.GainHP });
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartOfTurnHealDamageTrigger, new TriggerType[] { TriggerType.GainHP, TriggerType.DealDamage });
             this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, EndOfTurnPlayTrigger, new TriggerType[] { TriggerType.PlayCard });
             this.AddBeforeDestroyAction(DestroyedPlayVillainTrigger);
         }
 
 
-        private IEnumerator StartOfTurnHealTrigger(PhaseChangeAction pca)
+        private IEnumerator StartOfTurnHealDamageTrigger(PhaseChangeAction pca)
         {
-            IEnumerator coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c == this.Card, this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsGun).Count(), cardSource: this.GetCardSource());
+            IEnumerator coroutine;
+
+
+            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c == this.Card, this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsGun).Count(), cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => c != this.Card && !c.IsDevice, 1, DamageType.Psychic, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
@@ -41,11 +47,6 @@ namespace LazyFanComix.LarrysDiscountGunClub
             if (this.Card.HitPoints > 0)
             {
                 coroutine = this.PlayTheTopCardOfTheVillainDeckResponse(ga);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
-            else
-            {
-                coroutine = this.EachPlayerDrawsACard();
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

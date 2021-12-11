@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
 {
-    public class OverengineeredSlingshotCardController : SharedHeroGunCardController
+    public class OverengineeredSlingshotCardController : SharedHeroGunUnearnedCardController
     {
         public OverengineeredSlingshotCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -20,31 +20,18 @@ namespace LazyFanComix.LarrysDiscountGunClub
             IEnumerator coroutine;
             if (pca.ToPhase.TurnTaker.IsHero)
             {
+                List<DealDamageAction> ddas = new List<DealDamageAction>();
                 HeroTurnTakerController httc = this.GameController.FindHeroTurnTakerController(pca.ToPhase.TurnTaker.ToHero());
-                List<Function> list = new List<Function>()
+
+                coroutine = this.DealDamage(httc.CharacterCard, httc.CharacterCard, 4, DamageType.Fire, optional: true, storedResults: ddas, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                if (ddas.Any((DealDamageAction dda) => dda.DidDealDamage && dda.Target == httc.CharacterCard))
                 {
-                    new Function(httc, httc.CharacterCard.Title + " deals themselves 4 Fire Damage to Claim " + this.Card.Title, SelectionType.DealDamage, () => DamageAndClaim(httc), httc.NumberOfCardsInHand >= 3)
-                };
-
-                SelectFunctionDecision sfd = new SelectFunctionDecision(this.GameController, httc, list, true, null, httc.Name + " cannot discard 3 cards, so " + this.Card.Title + " has no effect.", null, this.GetCardSource());
-
-                coroutine = this.GameController.SelectAndPerformFunction(sfd, null, null);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                    coroutine = this.ClaimCard(httc);
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                }
             };
-        }
-        private IEnumerator DamageAndClaim(HeroTurnTakerController httc)
-        {
-            List<DealDamageAction> ddas = new List<DealDamageAction>();
-            IEnumerator coroutine;
-
-            coroutine = this.GameController.DealDamageToSelf(httc, (Card c) => c.Owner == httc.TurnTaker && c.IsHeroCharacterCard, 4, DamageType.Fire, storedResults: ddas, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (ddas.Any((DealDamageAction dda)=>dda.DidDealDamage))
-            {
-                coroutine = this.ClaimCard(httc);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
         }
 
         protected override TriggerType[] ClaimTriggerTypes()

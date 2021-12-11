@@ -17,10 +17,23 @@ namespace LazyFanComix.LarrysDiscountGunClub
 
         public override void AddTriggers()
         {
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource()), new TriggerType[] { TriggerType.GainHP });
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PlayLarryAndSelfDestruct, new TriggerType[] { TriggerType.GainHP });
             this.AddTrigger<DealDamageAction>(SourceTargetMayBeHighestEnemies, CancelDamageIfSourceTargetAreHighestEnemies, TriggerType.CancelAction, TriggerTiming.Before);
         }
 
+        private IEnumerator PlayLarryAndSelfDestruct(PhaseChangeAction pca)
+        {
+            IEnumerator coroutine;
+
+            coroutine = this.PlayCardFromLocations(new Location[] { this.TurnTaker.Deck, this.TurnTaker.Trash }, "Larry", false);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.ShuffleLocation(this.TurnTaker.Deck, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
         private bool SourceTargetMayBeHighestEnemies(DealDamageAction dda)
         {
             // Quit if any failures on targetting retrieval or self-damage.
@@ -44,8 +57,8 @@ namespace LazyFanComix.LarrysDiscountGunClub
             {
                 coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.Custom, this.Card, dda, yncd, new Card[] { dda.DamageSource.Card, dda.Target }, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                
-                if(yncd?.FirstOrDefault()?.Answer == true)
+
+                if (yncd?.FirstOrDefault()?.Answer == true)
                 {
                     coroutine = this.CancelAction(dda, true, isPreventEffect: true);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

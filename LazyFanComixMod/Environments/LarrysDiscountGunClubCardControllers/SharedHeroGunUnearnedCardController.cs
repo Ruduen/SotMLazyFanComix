@@ -8,11 +8,12 @@ using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
 {
-    public abstract class SharedHeroGunCardController : CardController
+    public abstract class SharedHeroGunUnearnedCardController : CardController
     {
-        public SharedHeroGunCardController(Card card, TurnTakerController turnTakerController)
+        public SharedHeroGunUnearnedCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.SpecialStringMaker.ShowListOfCardsNextToCard(this.Card, new LinqCardCriteria((Card c) => c.IsAmmo, "ammo"));
         }
 
         protected abstract IEnumerator ClaimTrigger(PhaseChangeAction pca);
@@ -27,7 +28,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
             //this.AddBeforeLeavesPlayAction(ResetOwner, TriggerType.Hidden);
 
             // And every one should have a start-of-hero-turn method for claiming! 
-            this.AddStartOfTurnTrigger((TurnTaker tt) => !this.Card.Owner.IsHero && tt.IsHero, ClaimTrigger, ClaimTriggerTypes());
+            this.AddStartOfTurnTrigger((TurnTaker tt) => !this.Card.Owner.IsHero && tt.IsHero && !tt.IsIncapacitatedOrOutOfGame, ClaimTrigger, ClaimTriggerTypes());
         }
         //private IEnumerator ResetOwner(GameAction ga)
         //{
@@ -82,5 +83,9 @@ namespace LazyFanComix.LarrysDiscountGunClub
             this.GameController.ChangeCardOwnership(heroWeapon, httc.TurnTaker);
         }
 
+        public override bool CanOtherCardGoNextToThisCard(Card card)
+        {
+            return !card.IsAmmo || this.Card.NextToLocation.Cards.Where((Card c)=>c.IsAmmo).Count() < 1;
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
 {
-    public class OverengineeredSlingshotHeroCardController : CardController
+    public class OverengineeredSlingshotHeroCardController : SharedHeroGunEarnedCardController
     {
         public OverengineeredSlingshotHeroCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

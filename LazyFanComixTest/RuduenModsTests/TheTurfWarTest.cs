@@ -346,7 +346,7 @@ namespace LazyFanComixTest
             Card otherHighTarget = PlayCard("Orbo");
             QuickHPStorage(Sez, fixer.CharacterCard, legacy.CharacterCard, wraith.CharacterCard, otherLowTarget, otherHighTarget);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(0, -3, -3, -3, 0, -3);
+            QuickHPCheck(0, -3, -3, -3, 0, 0);
         }
 
         #region Target Tests
@@ -527,7 +527,7 @@ namespace LazyFanComixTest
             QuickHPStorage(fixer.CharacterCard, tachyon.CharacterCard, wraith.CharacterCard, brutes, Calin);
             GoToEndOfTurn(TurfWar);
             // The two enemies and the highest hero.
-            QuickHPCheck(-4, 0, 0, 0, -4);
+            QuickHPCheck(0, 0, 0, 0, -4);
             GoToEndOfTurn(env);
 
             GoToStartOfTurn(TurfWar);
@@ -546,7 +546,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(fixer.CharacterCard, tachyon.CharacterCard, wraith.CharacterCard, Calin, spike);
             GoToEndOfTurn(TurfWar);
-            QuickHPCheck(-3, 0, 0, -3, 0);
+            QuickHPCheck(0, 0, 0, -3, 0);
             GoToEndOfTurn(env);
 
             PlayCard("HypersonicAssault");
@@ -558,7 +558,7 @@ namespace LazyFanComixTest
             RestoreToMaxHP(fixer);
             QuickHPStorage(fixer.CharacterCard, tachyon.CharacterCard, wraith.CharacterCard, Calin, spike);
             GoToStartOfTurn(TurfWar);
-            QuickHPCheck(-5, 0, 0, -5, 0);
+            QuickHPCheck(0, 0, 0, -5, 0);
         }
 
         [Test()]
@@ -646,9 +646,9 @@ namespace LazyFanComixTest
             GoToEndOfTurn(TurfWar);
             // Damage Totals: 
             // Calin: Calin 2, Kanya 1+1, Sez 0, Heal 10.
-            // Kanya: Calin 2+1, Kanya 0, Sez 3+1
+            // Kanya: Calin 2+1, Kanya 0, Sez 0
             // Fixer: Calin 2, Kanya 1, Sez 0
-            QuickHPCheck(-2 - 2 + 5, -3 - 4, -2 - 1);
+            QuickHPCheck(-2 - 2 + 5, -3, -2 - 1);
 
             GoToStartOfTurn(TurfWar);
             QuickHPCheck(0, 0, -2); // Start of turn, Calin damages non-Villains.
