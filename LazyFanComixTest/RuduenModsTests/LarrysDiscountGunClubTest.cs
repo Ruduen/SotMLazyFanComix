@@ -207,6 +207,26 @@ namespace LazyFanComixTest
             AssertInTrash(ammo);
         }
 
+        [Test()]
+        public void TestVillainGunBloodLeechAmmo()
+        {
+            SetupGameController("Omnitron", "Expatriette", "Legacy", "VoidGuardWrithe", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+
+            GoToEndOfTurn(expatriette);
+
+            PlayCard("TheBloodLeech");
+            Card ammo = PlayCard("QuantumRounds");
+
+            SetHitPoints(omnitron, 50);
+
+            QuickHPStorage(omnitron, expatriette, legacy, voidWrithe);
+            GoToStartOfTurn(env);
+            QuickHPCheck(7, -1, -1, -1);
+            AssertInTrash(ammo);
+        }
+
 
         [Test()]
         public void TestGooLauncherGainPowerAmmo()
@@ -307,7 +327,9 @@ namespace LazyFanComixTest
             AssertInTrash(numeral);
 
             string description = pistolHero.GetPowerDescription(0);
-            List<string> numeralString = pistolHero.Definition.ExtractPowerNumeralsFromPowerDescription("This hero deals up to 5 targets 1 Radiant Damage.[b][/b] Reduce Damage dealt by those targets by 1 until the start of your next turn.").ToList();
+            List<string> numeralString = pistolHero.Definition.ExtractPowerNumeralsFromPowerDescription(description).ToList();
+
+            Assert.IsTrue(numeralString.Count() == 3);
 
             PlayCard(numeral);
             UsePower(pistolHero);
@@ -325,18 +347,24 @@ namespace LazyFanComixTest
 
             Card gun = PlayCard("OverengineeredSlingshot");
             Card gunHero = GetCard("OverengineeredSlingshotHero");
-            Card ammo = PlayCard("HollowPoints");
+            Card ammo = PutInHand("HollowPoints");
             QuickHPStorage(expatriette);
             DecisionYesNo = true;
             GoToStartOfTurn(expatriette);
             AssertInPlayArea(expatriette, gunHero);
             AssertOffToTheSide(gun);
-            AssertNextToCard(ammo, gunHero);
             QuickHPCheck(-4);
+
+            DecisionSelectFunctions = new int?[] { 0, 1, 2 };
+            DecisionSelectCard = ammo;
 
             QuickHPStorage(omnitron);
             UsePower(gunHero);
-            QuickHPCheck(-1 - 1 - 2 - 2);
+            AssertUnderCard(expatriette.CharacterCard, ammo);
+            QuickHPCheck(-1);
+
+            UsePower(gunHero);
+            QuickHPCheck(-1 - 2);
         }
 
         [Test()]

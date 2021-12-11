@@ -28,7 +28,7 @@
         "gun",
         "device"
       ],
-      "flavorText": "Greyhat shouted over the booms, {br}“It's supposed to be a sonic weapon!  {br}Why is it firing bullets, too?”"
+      "flavorText": "Greyhat tried to shout, voice drowned {br}out by the booms of the cannon. {br}“It's a sonic weapon! How is it firing bullets? {BR}Heck, [i]why[/i] is it firing bullets?”"
     },
     {
       "identifier": "TShirtCannon",
@@ -78,7 +78,7 @@
       "title": "Goo Launcher",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, they may discard up to 3 cards. If 3 cards are discarded this way, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals 1 Target 3 Toxic Damage. Increase Damage dealt to that target by 1 until the start of your next turn.)[/i]"
+        "During the start of a player's turn, they may discard up to 3 cards. If 3 cards are discarded this way, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: This hero deals 1 Target 3 Toxic Damage. Increase Damage dealt to that target by 1 until the start of your next turn.)[/i]"
       ],
       "icons": [
         "StartOfTurnAction",
@@ -115,7 +115,7 @@
       "title": "Overengineered Slingshot",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, their Hero may deal themselves 4 Fire Damage. If that hero was dealt damage this way, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals up to 4 Targets 1 Projectile Damage and 1 Fire Damage.)[/i]"
+        "During the start of a player's turn, their Hero may deal themselves 4 Fire Damage. If that hero was dealt damage this way, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Play the top card of your deck. Move a card from your hand to under the top card of your deck. This hero deals up to 2 targets 1 fire damage.)[/i]"
       ],
       "icons": [
         "StartOfTurnAction",
@@ -131,7 +131,7 @@
       "count": 1,
       "kind": "Hero",
       "title": "Overengineered Slingshot",
-      "powers": [ "This hero deals up to 4 Targets 1 Projectile Damage and 1 Fire Damage." ],
+      "powers": [ "You may put 1 card from your hand under this Hero or play 1 non-character card from under this Hero. This Hero deals up to 2 targets 1 Fire Damage." ],
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time."
       ],
@@ -152,7 +152,7 @@
       "title": "Glitter Gun",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, their Hero may destroy one of their non-character cards. If they do, switch this with the Hero Equipment version of this card and that player gains control of it. [i](It has [b]Power[/b]: This hero deals up to 5 targets 1 Radiant Damage. Reduce Damage dealt by those targets by 1 until the start of your next turn.)[/i]"
+        "During the start of a player's turn, their Hero may destroy one of their non-character cards. If they do, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: This hero deals up to 5 targets 1 radiant damage. Reduce damage dealt by those targets by 1 until the start of your next turn.)[/i]"
       ],
       "icons": [
         "StartOfTurn",
@@ -168,7 +168,7 @@
       "count": 1,
       "kind": "Hero",
       "title": "Glitter Gun",
-      "powers": [ "This hero deals up to 5 targets 1 Radiant Damage. Reduce Damage dealt by those targets by 1 until the start of your next turn." ],
+      "powers": [ "This hero deals up to 5 targets 1 radiant damage. Reduce Damage dealt by those targets by 1 until the start of your next turn." ],
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time."
       ],
