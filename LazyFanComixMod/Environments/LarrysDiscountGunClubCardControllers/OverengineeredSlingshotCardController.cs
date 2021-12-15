@@ -26,7 +26,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
                 coroutine = this.DealDamage(httc.CharacterCard, httc.CharacterCard, 4, DamageType.Fire, optional: true, storedResults: ddas, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                if (ddas.Any((DealDamageAction dda) => dda.DidDealDamage && dda.Target == httc.CharacterCard))
+                if (ddas.Any((DealDamageAction dda) => dda.DidDealDamage && dda.Target == dda.OriginalTarget))
                 {
                     coroutine = this.ClaimCard(httc);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

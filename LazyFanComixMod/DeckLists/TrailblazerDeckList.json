@@ -61,7 +61,7 @@
       "count": 2,
       "title": "Defensive Bulwark",
       "keywords": [ "position" ],
-      "powers": "Up to 2 Targets other than {Trailblazer} regain 2 HP.",
+      "powers": "Up to 2 Targets other than {Trailblazer} regain 2 HP each.",
       "body": [ "When this card enters play, destroy all other Positions.", "Reduce the first damage dealt to {Trailblazer} each turn by 2." ],
       "icons": [ "Destroy", "ReduceDamageTaken", "HasPower", "GainHP" ],
       "flavorQuotes": [
@@ -77,7 +77,7 @@
       "count": 2,
       "title": "Striking Zone",
       "keywords": [ "position" ],
-      "powers": "{Trailblazer} deals all non-Hero Targets 1 Projectile Damage. ",
+      "powers": "{Trailblazer} deals each non-Hero Targets 1 projectile damage. ",
       "body": [ "When this card enters play, destroy all other Positions.", "Increase damage dealt by {Trailblazer} by 1." ],
       "icons": [ "Destroy", "IncreaseDamageDealt", "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -161,7 +161,7 @@
       "title": "Parting Gift",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "When a Position is destroyed, {Trailblazer} deals up to 2 Targets 1 Fire Damage."
+        "When a Position is destroyed, {Trailblazer} deals up to 2 targets 1 fire damage each."
       ],
       "icons": [ "DealDamageFire" ],
       "flavorQuotes": [
@@ -186,7 +186,7 @@
       "title": "Lead the Way",
       "keywords": [ "one-shot" ],
       "body": [
-        "Search your Deck for a Position and put it in hand. Shuffle your deck.",
+        "Search your Deck for a Position and put it in your hand. Shuffle your deck.",
         "You may draw a card.",
         "You may play a card."
       ],
@@ -201,7 +201,7 @@
       "body": [
         "Shuffle your Trash into your Deck.",
         "Reveal cards from the top of your Deck until you reveal 2 Positions. Play one of them. Shuffle the rest of the Revealed cards into your Deck.",
-        "{Trailblazer} deals up to 2 Targets 1 Fire Damage."
+        "{Trailblazer} deals up to 2 targets 1 fire damage each."
       ],
       "icons": [ "Search", "DealDamageFire" ],
       "flavorQuotes": [
@@ -269,7 +269,7 @@
       "flavorQuotes": [
         {
           "identifier": "Trailblazer",
-          "text": "Even ashes are proof that something once stood here."
+          "text": "Even ashes are proof that {br}something once stood here."
         }
       ],
       "flavorReference": "Trailblazer, Road to Ruin"

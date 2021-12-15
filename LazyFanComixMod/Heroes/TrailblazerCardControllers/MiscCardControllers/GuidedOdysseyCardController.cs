@@ -25,11 +25,16 @@ namespace LazyFanComix.Trailblazer
 
             // Up to two players may play the top card of their deck.
             coroutine = this.GameController.SelectTurnTakersAndDoAction(this.HeroTurnTakerController,
-                new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && tt.IsHero), SelectionType.PlayTopCard,
+                new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && tt.IsHero), SelectionType.Custom,
                 (TurnTaker tt) => this.GameController.PlayTopCard(this.GameController.FindHeroTurnTakerController(tt.ToHero()), this.GameController.FindHeroTurnTakerController(tt.ToHero()), cardSource: this.GetCardSource()),
                 2, false, 0, cardSource: this.GetCardSource()
              );
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
+
+        public override CustomDecisionText GetCustomDecisionText(IDecision decision)
+        {
+            return new CustomDecisionText("Select the player to play the top card of their deck", decision.HeroTurnTakerController.TurnTaker + "is selecting the player to play the top card of their deck", "Vote for the player to play the top card of their deck", "Player to play the top card of their deck");
         }
     }
 }

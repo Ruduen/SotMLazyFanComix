@@ -36,7 +36,7 @@
       "title": "T-Shirt Cannon",
       "body": [
         "Any number of Ammo cards may be in play next to this card.",
-        "At the start of the Environment turn, the Villain with the highest HP deals the 2 Hero Targets with the Highest HP 3 Projectile Damage. Each player whose Target took damage this way discards 1 card for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
+        "At the start of the Environment turn, the Villain with the highest HP deals the 2 Hero Targets with the Highest HP 3 Projectile Damage each. Each player whose Target took damage this way discards 1 card for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
       ],
       "hitpoints": 9,
       "icons": [
@@ -70,7 +70,7 @@
         "gun",
         "device"
       ],
-      "flavorText": "“Look, I know we're under attack by a {br}crazed cultist firing off something called {br}'The Blood Leech', but I'm just glad it's not {br}literally a giant leech,” Greyhat muttered."
+      "flavorText": "“Look, I know we're under attack by a {br}crazed cultist firing off something called {br}'The Blood Leech',” Greyhat muttered, “but I'm {br}just glad it's not literally a giant leech.”"
     },
     {
       "identifier": "GooLauncher",
@@ -115,7 +115,7 @@
       "title": "Overengineered Slingshot",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, their Hero may deal themselves 4 Fire Damage. If that hero was dealt damage this way, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Play the top card of your deck. Move a card from your hand to under the top card of your deck. This hero deals up to 2 targets 1 fire damage.)[/i]"
+        "During the start of a player's turn, their Hero may deal themselves 4 Fire Damage. If that hero was dealt damage this way, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Play the top card of your deck. This hero deals 1 target 1 fire damage. Put a card from your hand under the top card of your deck.)[/i]"
       ],
       "icons": [
         "StartOfTurnAction",
@@ -131,20 +131,30 @@
       "count": 1,
       "kind": "Hero",
       "title": "Overengineered Slingshot",
-      "powers": [ "You may put 1 card from your hand under this Hero or play 1 non-character card from under this Hero. This Hero deals up to 2 targets 1 Fire Damage." ],
+      "powers": [ "Play the top card of your deck. This hero deals 1 target 1 fire damage. Put a card from your hand under the top card of your deck." ],
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time."
       ],
       "icons": [
         "HasPower",
-        "DealDamageProjectile",
-        "DealDamageFire"
+        "PlayCardNow",
+        "DealDamageFire",
+        "Manipulate"
       ],
       "keywords": [
         "equipment",
         "gun"
       ],
-      "flavorText": null
+      "flavorQuotes": [
+        {
+          "identifier": "Greyhat",
+          "text": "It's still on fire. {BR}Doesn't holding it hurt?"
+        },
+        {
+          "identifier": "Inquirer",
+          "text": "Only if I think about it."
+        }
+      ]
     },
     {
       "identifier": "GlitterGun",
@@ -152,7 +162,7 @@
       "title": "Glitter Gun",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, their Hero may destroy one of their non-character cards. If they do, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: This hero deals up to 5 targets 1 radiant damage. Reduce damage dealt by those targets by 1 until the start of your next turn.)[/i]"
+        "During the start of a player's turn, their Hero may destroy one of their non-character cards. If they do, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: This hero deals up to 5 targets 1 radiant damage each. Reduce damage dealt by those targets by 1 until the start of your next turn.)[/i]"
       ],
       "icons": [
         "StartOfTurn",
@@ -168,7 +178,7 @@
       "count": 1,
       "kind": "Hero",
       "title": "Glitter Gun",
-      "powers": [ "This hero deals up to 5 targets 1 radiant damage. Reduce Damage dealt by those targets by 1 until the start of your next turn." ],
+      "powers": [ "This hero deals up to 5 targets 1 radiant damage each. Reduce Damage dealt by those targets by 1 until the start of your next turn." ],
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time."
       ],
@@ -199,7 +209,7 @@
       "keywords": [
         "ammo"
       ],
-      "flavorText": "“This is an empty ammo clip,” She growled, {br}only to receive the man's smile in response. {br}“Or is it?” He responded, voice as cheerful {br}as it always was when he peddled his wares."
+      "flavorText": "“This is an empty ammo clip,” She growled, {br}only to receive the man's smile in response. {br}“Or is it?” He quipped, voice as cheerful {br}as it always was when he peddled his wares."
     },
     {
       "identifier": "ConcussiveRounds",
@@ -250,7 +260,7 @@
       "body": [
         "At the end of the Environment turn, play the top card of the Environment deck.",
         "At the start of the Environment turn, this card regains HP equal to the number of Gun cards in play and deals each other non-Device target 1 Psychic Damage.",
-        "When this card is destroyed, if it has 0 or fewer HP, first play the top card of the villain deck."
+        "When this card is destroyed, if it has 1 or more HP, first play the top card of the villain deck."
       ],
       "hitpoints": 17,
       "icons": [

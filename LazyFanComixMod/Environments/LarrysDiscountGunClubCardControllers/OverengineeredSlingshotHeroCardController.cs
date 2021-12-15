@@ -23,38 +23,54 @@ namespace LazyFanComix.LarrysDiscountGunClub
             List<int> numerals = new List<int>()
             {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1),
-                this.GetPowerNumeral(2, 1),
-                this.GetPowerNumeral(3, 1),
+                this.GetPowerNumeral(1, 1)
             };
 
-            List<PlayCardAction> pcas = new List<PlayCardAction>();
+            List<Card> pcs = new List<Card>();
 
-            SelectFunctionDecision sfd = new SelectFunctionDecision(this.GameController, this.DecisionMaker,
-                new Function[] {
-                    new Function(this.DecisionMaker,"Put a card from your hand under " + this.CharacterCard.Title,SelectionType.MoveCardToUnderCard,
-                        () => this.GameController.SelectCardsFromLocationAndMoveThem(this.DecisionMaker, this.HeroTurnTaker.Hand, numerals[0], numerals[0], new LinqCardCriteria(), new MoveCardDestination[] { new MoveCardDestination(this.CharacterCard.UnderLocation) }, playIfMovingToPlayArea: false, cardSource: this.GetCardSource()),
-                        this.HeroTurnTaker != null && this.HeroTurnTaker.HasCardsInHand
-                    ),
-                    new Function(this.DecisionMaker,"Play a card from under " + this.CharacterCard.Title, SelectionType.PlayCard,
-                        () => this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.CharacterCard.UnderLocation, storedResults: pcas, cardSource: this.GetCardSource()),
-                        this.CharacterCard.UnderLocation.HasCards && this.GameController.CanPlayCards(this.DecisionMaker, this.GetCardSource())
-                    )
-                },
-                true, noSelectableFunctionMessage: "You cannot put a card from your hand under " + this.CharacterCard.Title + " or play a card from under " + this.CharacterCard.Title + ".", cardSource: this.GetCardSource());
-
-            coroutine = this.GameController.SelectAndPerformFunction(sfd);
+            coroutine = this.GameController.PlayTopCardOfLocation(this.DecisionMaker, this.TurnTaker.Deck, playedCards: pcs);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            PlayCardAction pca = pcas.FirstOrDefault((PlayCardAction pca) => pca.WasCardPlayed && pca.CardToPlay.IsAmmo && pca.CardToPlay.Location.OwnerCard == this.Card);
-            if (pca != null)
+            Card pc = pcs.FirstOrDefault((Card pc) => pc.IsAmmo && pc.Location.OwnerCard == this.Card);
+            if (pc != null && this.FindCardController(pc) is AmmoCardController)
             {
-                coroutine = ((AmmoCardController)this.FindCardController(pca.CardToPlay)).BeforeDamageResponse();
+                coroutine = ((AmmoCardController)this.FindCardController(pc)).BeforeDamageResponse();
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), numerals[3], DamageType.Fire, numerals[2], false, 0, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), numerals[1], DamageType.Fire, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = PutCardUnderTopOfDeck();
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
+
+        private IEnumerator PutCardUnderTopOfDeck()
+        {
+            IEnumerator coroutine;
+            List<SelectCardDecision> scdResult = new List<SelectCardDecision>();
+            Location deck = this.TurnTaker.Deck;
+
+            // Select a card from hand. 
+            coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.MoveCardUnderTopCardOfDeck, this.HeroTurnTaker.Hand.Cards, scdResult, false, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (scdResult?.FirstOrDefault()?.SelectedCard != null)
+            {
+                Card card = scdResult.FirstOrDefault().SelectedCard;
+                Card[] topCards = deck.GetTopCards(1).Reverse().ToArray();
+
+                string message = string.Format("{0} moves {1} under the top card of their deck.", this.CharacterCard.Title, card.Title);
+                coroutine = this.GameController.SendMessageAction(message, Priority.Medium, cardSource: this.GetCardSource(), new Card[] { card }, true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                // Move it on top of the environment deck, then move the stored top card of the environment deck. If none exists, top card will not exist.
+                coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, card, deck, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, topCards, deck, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
 
     }

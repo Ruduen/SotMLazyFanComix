@@ -347,7 +347,7 @@ namespace LazyFanComixTest
 
             Card gun = PlayCard("OverengineeredSlingshot");
             Card gunHero = GetCard("OverengineeredSlingshotHero");
-            Card ammo = PutInHand("HollowPoints");
+            Card ammo = PutOnDeck("HollowPoints");
             QuickHPStorage(expatriette);
             DecisionYesNo = true;
             GoToStartOfTurn(expatriette);
@@ -355,16 +355,14 @@ namespace LazyFanComixTest
             AssertOffToTheSide(gun);
             QuickHPCheck(-4);
 
-            DecisionSelectFunctions = new int?[] { 0, 1, 2 };
-            DecisionSelectCard = ammo;
+            Card stack = expatriette.HeroTurnTaker.Hand.Cards.FirstOrDefault();
+            DecisionSelectCard = stack;
 
             QuickHPStorage(omnitron);
             UsePower(gunHero);
-            AssertUnderCard(expatriette.CharacterCard, ammo);
-            QuickHPCheck(-1);
-
-            UsePower(gunHero);
+            AssertInTrash(ammo); // Ammo used.
             QuickHPCheck(-1 - 2);
+            AssertOnTopOfLocation(stack, expatriette.HeroTurnTaker.Deck, 1);
         }
 
         [Test()]

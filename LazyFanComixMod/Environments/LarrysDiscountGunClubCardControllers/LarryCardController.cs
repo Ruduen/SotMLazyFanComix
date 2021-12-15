@@ -44,7 +44,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
         private IEnumerator DestroyedPlayVillainTrigger(GameAction ga)
         {
             IEnumerator coroutine;
-            if (this.Card.HitPoints > 0)
+            if (this.Card.HitPoints >= 1)
             {
                 coroutine = this.PlayTheTopCardOfTheVillainDeckResponse(ga);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
