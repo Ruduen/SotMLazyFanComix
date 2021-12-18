@@ -7,7 +7,7 @@
   "initialOffToTheSideCardIdentifiers": [
     "GlitterGunHero",
     "OverengineeredSlingshotHero",
-    "GooLauncherHero"
+    "TShirtCannonHero"
   ],
   "cards": [
     {
@@ -31,17 +31,17 @@
       "flavorText": "Greyhat tried to shout, voice drowned {br}out by the booms of the cannon. {br}“It's a sonic weapon! How is it firing bullets? {BR}Heck, [i]why[/i] is it firing bullets?”"
     },
     {
-      "identifier": "TShirtCannon",
+      "identifier": "GooBlaster",
       "count": 1,
-      "title": "T-Shirt Cannon",
+      "title": "Goo Blaster",
       "body": [
         "Any number of Ammo cards may be in play next to this card.",
-        "At the start of the Environment turn, the Villain with the highest HP deals the 2 Hero Targets with the Highest HP 3 Projectile Damage each. Each player whose Target took damage this way discards 1 card for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
+        "At the start of the Environment turn, the Villain with the highest HP deals the 2 Hero Targets with the Highest HP 3 Toxic Damage each. Each player whose Target took damage this way discards 1 card for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
       ],
       "hitpoints": 9,
       "icons": [
         "EndOfTurnAction",
-        "DealDamageProjectile",
+        "DealDamageToxic",
         "Discard",
         "Destroy"
       ],
@@ -49,7 +49,7 @@
         "gun",
         "device"
       ],
-      "flavorText": "There was a moment's pause as the two {BR}looked at each other. “Okay. I know how {br}those things work, but how the heck did {br}it get the shirts [i]on us[/i]?”"
+      "flavorText": "“Does anybody know what's loaded {BR}in that thing?” The group eyed {BR}each other for a moment, before {BR}they backed away from Inquirer."
     },
     {
       "identifier": "TheBloodLeech",
@@ -73,12 +73,12 @@
       "flavorText": "“Look, I know we're under attack by a {br}crazed cultist firing off something called {br}'The Blood Leech',” Greyhat muttered, “but I'm {br}just glad it's not literally a giant leech.”"
     },
     {
-      "identifier": "GooLauncher",
+      "identifier": "TShirtCannon",
       "count": 1,
-      "title": "Goo Launcher",
+      "title": "T-Shirt Cannon",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, they may discard up to 3 cards. If 3 cards are discarded this way, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: This hero deals 1 Target 3 Toxic Damage. Increase Damage dealt to that target by 1 until the start of your next turn.)[/i]"
+        "During the start of a player's turn, they may discard a card to switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Discard a card. This hero deals 1 target 3 projectile damage, increased by 2 if you discarded an equipment this way, increased by an additional 2 if you discarded a religalia this way.)[/i]"
       ],
       "icons": [
         "StartOfTurnAction",
@@ -87,27 +87,34 @@
       "keywords": [
         "gun"
       ],
-      "flavorText": "“Does anybody know what's loaded {BR}in this thing?” The group eyed {BR}each other for a moment, before {BR}they backed away from Inquirer."
+      "flavorText": "There was a moment's pause as the two {BR}looked at each other. “Okay. I know how {br}those things work, but how the heck did {br}it get the shirts [i]on us[/i]?”"
     },
     {
-      "identifier": "GooLauncherHero",
+      "identifier": "TShirtCannonHero",
       "count": 1,
       "kind": "Hero",
-      "title": "Goo Launcher",
-      "powers": [ "This hero deals 1 Target 2 Toxic Damage. Increase Damage dealt to that target by 1 until the start of your next turn." ],
+      "title": "T-Shirt Cannon",
+      "powers": [ "Discard a card. This hero deals 1 target 3 projectile damage, increased by 2 if you discarded an equipment card this way and increased by an additional 2 if you discarded a religalia card this way." ],
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time."
       ],
       "icons": [
         "HasPower",
-        "DealDamageToxic",
-        "IncreaseDamageTaken"
+        "Discard",
+        "DealDamageProjectile",
+        "IncreaseDamageDealt"
       ],
       "keywords": [
         "equipment",
         "gun"
       ],
-      "flavorText": null
+      "flavorQuotes": [
+        {
+          "identifier": "Tsukiko",
+          "text": "Oh, cool, {br}it even works with shoes!"
+        }
+      ],
+      "flavorReference": "Tsukiko Tanner, A Day in the Life: Larry"
     },
     {
       "identifier": "OverengineeredSlingshot",
@@ -124,7 +131,7 @@
       "keywords": [
         "gun"
       ],
-      "flavorText": "“This is a slingshot that's somehow on fire.” {br}“It fires bullets, so it must be a gun!”, {br}The proprieter responded, {br}smile still wide on his face."
+      "flavorText": "“This is a slingshot that's somehow on fire.” {br}“It fires bullets, so it must be a gun!”, {br}The proprieter's booming voice responded, {br}smile still wide on his face."
     },
     {
       "identifier": "OverengineeredSlingshotHero",
@@ -154,7 +161,8 @@
           "identifier": "Inquirer",
           "text": "Only if I think about it."
         }
-      ]
+      ],
+      "flavorReference": "A Day in the Life: Larry"
     },
     {
       "identifier": "GlitterGun",
@@ -171,7 +179,7 @@
       "keywords": [
         "gun"
       ],
-      "flavorText": null
+      "flavorText": "“Don't move, or I'll shoot!” The tension was {br}palpible as all eyes moved to the weapon. {br}“Is that glitter?” “That's right... Move, and {br}you're going to be sparkling for days!”"
     },
     {
       "identifier": "GlitterGunHero",
@@ -191,7 +199,13 @@
         "equipment",
         "gun"
       ],
-      "flavorText": null
+      "flavorQuotes": [
+        {
+          "identifier": "Larry",
+          "text": "Cleaning up after the fights  {br}takes a while when the  {br}cleaning gun is out of order."
+        }
+      ],
+      "flavorReference": "Larry, A Day in the Life: Larry"
     },
     {
       "identifier": "QuantumRounds",
@@ -308,5 +322,6 @@
         "DestroySelf"
       ],
       "flavorText": "The two figures stared at each {br}other from opposite ends of the {br}hallway, weapons drawn and at the {br}ready. Neither of them made a move."
-    }]
+    }
+  ]
 }

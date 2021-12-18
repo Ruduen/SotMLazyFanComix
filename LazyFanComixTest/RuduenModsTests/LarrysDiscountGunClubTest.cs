@@ -6,6 +6,7 @@ using Handelabra.Sentinels.Engine.Controller;
 using System.Linq;
 using LazyFanComix.LarrysDiscountGunClub;
 using System.Collections.Generic;
+using SpookyGhostwriter.Tsukiko;
 
 namespace LazyFanComixTest
 {
@@ -19,6 +20,7 @@ namespace LazyFanComixTest
             // It doesn't matter which type as long as it comes from the mod's assembly.
             //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(SonicCannonCardController))); // replace with your own namespace
+            ModHelper.AddAssembly("SpookyGhostwriter", Assembly.GetAssembly(typeof(SGC_TsukikoCharacterCardController)));
         }
 
         #region Load Tests
@@ -76,8 +78,8 @@ namespace LazyFanComixTest
             QuickHandStorage(expatriette);
             GoToEndOfTurn(omnitron);
 
-            Card pistol = PlayCard("GooLauncher");
-            Card pistolHero = GetCard("GooLauncherHero");
+            Card pistol = PlayCard("TShirtCannon");
+            Card pistolHero = GetCard("TShirtCannonHero");
             GoToStartOfTurn(expatriette);
             AssertInPlayArea(expatriette, pistolHero);
             AssertOffToTheSide(pistol);
@@ -90,8 +92,9 @@ namespace LazyFanComixTest
 
             QuickHPStorage(omnitron);
             UsePower(expatriette);
+            DiscardAllCards(expatriette);
             UsePower(pistolHero);
-            QuickHPCheck(-3); // Confirm damage is coming from correct source, and is increased appropriately. 
+            QuickHPCheck(-4); // Confirm damage is coming from correct source, and is increased appropriately. 
 
         }
 
@@ -105,8 +108,8 @@ namespace LazyFanComixTest
             QuickHandStorage(expatriette);
             GoToEndOfTurn(capitan);
 
-            Card pistol = PlayCard("GooLauncher");
-            Card pistolHero = GetCard("GooLauncherHero");
+            Card pistol = PlayCard("TShirtCannon");
+            Card pistolHero = GetCard("TShirtCannonHero");
             GoToStartOfTurn(expatriette);
             AssertInPlayArea(expatriette, pistolHero);
             AssertOffToTheSide(pistol);
@@ -129,8 +132,8 @@ namespace LazyFanComixTest
             QuickHandStorage(expatriette);
             GoToEndOfTurn(capitan);
 
-            Card pistol = PlayCard("GooLauncher");
-            Card pistolHero = GetCard("GooLauncherHero");
+            Card pistol = PlayCard("TShirtCannon");
+            Card pistolHero = GetCard("TShirtCannonHero");
             GoToStartOfTurn(expatriette);
             AssertInPlayArea(expatriette, pistolHero);
             AssertOffToTheSide(pistol);
@@ -150,15 +153,15 @@ namespace LazyFanComixTest
             QuickHandStorage(expatriette);
             GoToEndOfTurn(capitan);
 
-            Card pistol = PlayCard("GooLauncher");
+            Card gun = PlayCard("TShirtCannon");
             PlayCard("HollowPoints");
             Card failToPlay = PlayCard("IncendiaryRounds");
             AssertInTrash(failToPlay);
 
-            Card pistolHero = GetCard("GooLauncherHero");
+            Card gunHero = GetCard("TShirtCannonHero");
             GoToStartOfTurn(expatriette);
-            AssertInPlayArea(expatriette, pistolHero);
-            AssertOffToTheSide(pistol);
+            AssertInPlayArea(expatriette, gunHero);
+            AssertOffToTheSide(gun);
 
             PlayCard(failToPlay);
             AssertInTrash(failToPlay);
@@ -188,7 +191,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestVillainGunTShirtCannonAmmo()
+        public void TestVillainGunGooBlasterAmmo()
         {
             SetupGameController("Omnitron", "Expatriette", "Legacy", "VoidGuardWrithe", "LazyFanComix.LarrysDiscountGunClub");
 
@@ -196,7 +199,7 @@ namespace LazyFanComixTest
 
             GoToEndOfTurn(expatriette);
 
-            PlayCard("TShirtCannon");
+            PlayCard("GooBlaster");
             Card ammo = PlayCard("QuantumRounds");
 
             QuickHPStorage(expatriette, legacy, voidWrithe);
@@ -229,7 +232,7 @@ namespace LazyFanComixTest
 
 
         [Test()]
-        public void TestGooLauncherGainPowerAmmo()
+        public void TestTShirtCannonGainPowerAmmo()
         {
             SetupGameController("Omnitron", "Expatriette", "LazyFanComix.LarrysDiscountGunClub");
 
@@ -240,24 +243,54 @@ namespace LazyFanComixTest
 
             DestroyNonCharacterVillainCards();
 
-            Card gun = PlayCard("GooLauncher");
-            Card gunHero = GetCard("GooLauncherHero");
+            Card gun = PlayCard("TShirtCannon");
+            Card gunHero = GetCard("TShirtCannonHero");
             Card ammo = PlayCard("ConcussiveRounds");
             GoToStartOfTurn(expatriette);
             AssertInPlayArea(expatriette, gunHero);
             AssertOffToTheSide(gun);
             AssertNextToCard(ammo, gunHero);
-            QuickHandCheck(-3);
+            QuickHandCheck(-1);
 
             QuickHPStorage(omnitron);
+            DecisionSelectCard = PutInHand("Unload");
             UsePower(gunHero);
-            QuickHPCheck(-2 - 2 - 1); // Omnitron's damage is increased. 
-            DealDamage(expatriette, omnitron, 2, DamageType.Sonic);
-            QuickHPCheck(-2 - 1);
+            QuickHPCheck(-3 - 0 - 2);
+            DecisionSelectCard = PutInHand("AssaultRifle");
+            UsePower(gunHero);
+            QuickHPCheck(-3 - 2);
         }
 
+
         [Test()]
-        public void TestGooLauncherFailGain()
+        public void TestTShirtCannonGainPowerTsukiko()
+        {
+            SetupGameController("Omnitron", "SpookyGhostwriter.Tsukiko", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+
+            HeroTurnTakerController Tsukiko = FindHero("Tsukiko");
+
+            QuickHandStorage(Tsukiko);
+            GoToEndOfTurn(omnitron);
+
+            DestroyNonCharacterVillainCards();
+
+            Card gun = PlayCard("TShirtCannon");
+            Card gunHero = GetCard("TShirtCannonHero");
+            GoToStartOfTurn(Tsukiko);
+            AssertInPlayArea(Tsukiko, gunHero);
+            AssertOffToTheSide(gun);
+
+            QuickHPStorage(omnitron);
+            DecisionSelectCard = PutInHand("SGC_HighHeals");
+            UsePower(gunHero);
+            QuickHPCheck(-3 - 2 - 2);
+        }
+
+
+        [Test()]
+        public void TestTShirtCannonFailGain()
         {
             SetupGameController("Omnitron", "Expatriette", "LazyFanComix.LarrysDiscountGunClub");
 
@@ -268,16 +301,15 @@ namespace LazyFanComixTest
 
             DestroyNonCharacterVillainCards();
 
-            Card gun = PlayCard("GooLauncher");
-            Card gunHero = GetCard("GooLauncherHero");
+            Card gun = PlayCard("TShirtCannon");
+            Card gunHero = GetCard("TShirtCannonHero");
             DiscardAllCards(expatriette);
-            DrawCard(expatriette, 2);
 
             QuickHandStorage(expatriette);
             GoToStartOfTurn(expatriette);
             AssertIsInPlay(gun);
             AssertOffToTheSide(gunHero);
-            QuickHandCheck(-2);
+            QuickHandCheck(0);
         }
 
         [Test()]
@@ -466,7 +498,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card notPlayed = PutOnDeck("GooLauncher");
+            Card notPlayed = PutOnDeck("TShirtCannon");
             Card play = PlayCard("LockedAndLoaded");
 
 

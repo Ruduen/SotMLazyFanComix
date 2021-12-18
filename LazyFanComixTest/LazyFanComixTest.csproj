@@ -30,6 +30,9 @@
     <Reference Include="nunit.framework, Version=3.13.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.13.2\lib\net40\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SpookyGhostwriterComicsMod">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2436888590\SpookyGhostwriterComicsMod.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="EngineCommon">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
