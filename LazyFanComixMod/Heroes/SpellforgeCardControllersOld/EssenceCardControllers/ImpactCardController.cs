@@ -4,14 +4,14 @@ using System.Collections;
 
 namespace LazyFanComix.Spellforge
 {
-    public class ImpactCardController : SpellforgeEssenceSharedCardController
+    public class ImpactOldCardController : SpellforgeSharedEssenceCardController
     {
-        public ImpactCardController(Card card, TurnTakerController turnTakerController)
+        public ImpactOldCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
 
-        protected override IEnumerator CoreAction(CardSource cardSource)
+        protected override IEnumerator PerformModifiedAction(CardSource cardSource)
         {
             // Deal all 1 melee.
             IEnumerator coroutine = this.DealDamage(this.CharacterCard, (Card c) => c.IsTarget, 1, DamageType.Melee);

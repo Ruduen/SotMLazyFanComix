@@ -1,11 +1,11 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace LazyFanComix.Spellforge
 {
-    // TODO: TEST!
-    public class OfHealingCardController : SpellforgeSharedModifierCardController
+    public class OfHealingCardController : SpellforgeModifierSharedCardController
     {
         public OfHealingCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -17,36 +17,31 @@ namespace LazyFanComix.Spellforge
             IEnumerator coroutine;
 
             // Heal.
-            coroutine = this.GameController.GainHP(this.CharacterCard, 2, null, null, this.GetCardSource());
+            coroutine = this.GameController.GainHP(this.CharacterCard, 3, null, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Draw.
-            coroutine = this.DrawCard(this.HeroTurnTaker, false, null, true);
+            // Draw 3.
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, 3, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        protected override ITrigger AddModifierTriggerOverride(CardSource cardSource)
+        protected override ITrigger AddModifierTriggerOverride()
         {
-            // Mostly copied from AddReduceDamageToSetAmountTrigger since that doesn't return an ITrigger.
-            ITrigger trigger = null;
-            // Only if the action sources of this play and the damage are an exact match, AKA the triggering step is the same.
-            // Also confirm hero target that was damaged.
-            bool damageCriteria(DealDamageAction dd) => dd.CardSource.CardController == cardSource.CardController && dd.Target.IsHero && dd.DidDealDamage;
-
-            trigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => damageCriteria(dd),
-                (DealDamageAction dd) => this.TrackOriginalTargetsAndRunResponse(dd, cardSource),
-                new TriggerType[]
-                {
-                    TriggerType.GainHP
-                },
+            return this.AddTrigger<DealDamageAction>(
+                // Criteria: Core checks, target is non hero, damage source is not the specific effect causing recursion (which is via activating modifiers).
+                // Note: This is not perfect, but due to card source matching needing to be 'sustained' rather than tracked via the source card each time, it's as close as I can get.
+                (DealDamageAction dda) => CoreDealDamageActionCriteria(dda) && dda.DidDealDamage && dda.Target.IsHero,
+                RunResponse,
+                new TriggerType[] { TriggerType.DealDamage },
                 TriggerTiming.After);
-            return trigger;
         }
 
-        protected override IEnumerator RunResponse(DealDamageAction dd, CardSource cardSource, params object[] otherObjects)
+        protected IEnumerator RunResponse(DealDamageAction dda)
         {
-            IEnumerator coroutine = this.GameController.GainHP(dd.Target, 3, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.GainHP(dda.Target, 3, cardSource: this._cardControllerActivatingModifiers.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
+
     }
 }

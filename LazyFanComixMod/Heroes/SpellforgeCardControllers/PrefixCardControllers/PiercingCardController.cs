@@ -4,8 +4,7 @@ using System.Collections;
 
 namespace LazyFanComix.Spellforge
 {
-    // TODO: TEST!
-    public class PiercingCardController : SpellforgeSharedModifierCardController
+    public class PiercingCardController : SpellforgeModifierSharedCardController
     {
         public PiercingCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -21,31 +20,27 @@ namespace LazyFanComix.Spellforge
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        protected override ITrigger AddModifierTriggerOverride(CardSource cardSource)
+        protected override ITrigger AddModifierTriggerOverride()
         {
-            // Mostly copied from AddReduceDamageToSetAmountTrigger since that doesn't return an ITrigger.
-            ITrigger trigger = null;
-
-            bool damageCriteria(DealDamageAction dd) => dd.CardSource.CardController == cardSource.CardController; // Only if the action sources of this play and the damage are an exact match, AKA the triggering step is the same.
-
-            trigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => damageCriteria(dd),
-                (DealDamageAction dd) => this.TrackOriginalTargetsAndRunResponse(dd, cardSource),
-                new TriggerType[]
-                {
-                    TriggerType.MakeDamageIrreducible
-                },
+            return this.AddTrigger<DealDamageAction>(
+                // Criteria: Core.
+                (DealDamageAction dda) => CoreDealDamageActionCriteria(dda),
+               RunResponse,
+                new TriggerType[] { TriggerType.MakeDamageIrreducible, TriggerType.MakeDamageNotRedirectable },
                 TriggerTiming.Before);
-
-            return trigger;
         }
 
-        protected override IEnumerator RunResponse(DealDamageAction dd, CardSource cardSource, params object[] otherObjects)
+        protected IEnumerator RunResponse(DealDamageAction dda)
         {
             IEnumerator coroutine;
 
             // Deal damage response.
-            coroutine = this.GameController.MakeDamageIrreducible(dd, cardSource: cardSource);
+            coroutine = this.GameController.MakeDamageIrreducible(dda, this._cardControllerActivatingModifiers.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.MakeDamageNotRedirectable(dda, this._cardControllerActivatingModifiers.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
     }
 }

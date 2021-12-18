@@ -60,7 +60,7 @@
       "count": 4,
       "title": "Wave",
       "keywords": [ "one-shot", "essence" ],
-      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals 5 Targets 2 Lightning Damage." ],
+      "body": [ "You may discard a Prefix and a Suffix, applying their [u]Prefix[/u] and [u]Suffix[/u] text to this card.", "{Spellforge} deals up to 5 Targets 2 Lightning Damage." ],
       "icons": [ "DealDamageLightning", "Discard" ],
       "flavorQuotes": []
     },
@@ -79,8 +79,12 @@
       "title": "Controlled...",
       "alternateTitle": "Controlled",
       "keywords": [ "one-shot", "prefix" ],
-      "body": [ "One Player may play 1 card now.", "[u]Prefix[/u]: This effect's damage is reduced to 1 when targetting Hero Targets." ],
-      "icons": [ "PlayCardNow", "ReduceDamageDealt" ],
+      "body": [ "One Player may play 1 card now.", "[u]Prefix[/u]: This effect's damage is reduced to 1 when targetting Hero Targets and increased by 1 when targetting non-Hero targets." ],
+      "icons": [
+        "PlayCardNow",
+        "ReduceDamageDealt",
+        "IncreaseDamageDealt"
+      ],
       "flavorQuotes": []
     },
     {
@@ -89,8 +93,11 @@
       "title": "Inspired...",
       "alternateTitle": "Inspired",
       "keywords": [ "one-shot", "prefix" ],
-      "body": [ "Draw 3 cards.", "[u]Prefix[/u]: This effect's damage is increased by 1." ],
-      "icons": [ "DrawCardNow", "IncreaseDamageDealt" ],
+      "body": [ "Each player draws a card.", "[u]Prefix[/u]: This effect's damage is increased by 2." ],
+      "icons": [
+        "DrawCardNow",
+        "IncreaseDamageDealt"
+      ],
       "flavorQuotes": []
     },
     {
@@ -99,8 +106,12 @@
       "title": "Piercing...",
       "alternateTitle": "Piercing",
       "keywords": [ "one-shot", "prefix" ],
-      "body": [ "One Hero may use a power. ", "[u]Prefix[/u]: This effect's damage is Irreducible." ],
-      "icons": [ "UsePowerNow", "MakeDamageIrreducible" ],
+      "body": [ "One Hero may use a power.", "[u]Prefix[/u]: This effect's damage is Irreducible and cannot be redirected." ],
+      "icons": [
+        "UsePowerNow",
+        "MakeDamageIrreducible",
+        "MakeDamageUnredirectable"
+      ],
       "flavorQuotes": []
     },
     {
@@ -109,7 +120,7 @@
       "title": "...of Aura",
       "alternateTitle": "of Aura",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "You may destroy an Ongoing or Environment card. Draw a card.", "[u]Suffix[/u]: After a Hero is dealt damage this way, their player draws a card." ],
+      "body": [ "You may destroy an Ongoing or Environment card. Draw 3 cards.", "[u]Suffix[/u]: After a Hero is dealt damage this way, their player draws a card." ],
       "icons": [ "DestroyOngoing", "DestroyEnvironment", "DrawCardNow" ],
       "flavorQuotes": []
     },
@@ -119,7 +130,7 @@
       "title": "...of Disruption",
       "alternateTitle": "of Disruption",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw a card.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, it deals itself 1 Sonic Damage." ],
+      "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw 3 cards.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, it deals itself 1 Sonic Damage." ],
       "icons": [ "DealDamageSonic", "DrawCardNow" ],
       "flavorQuotes": []
     },
@@ -129,7 +140,7 @@
       "title": "...of Healing",
       "alternateTitle": "of Healing",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "{Spellforge} Regains 2 HP. Draw a card.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 3 HP." ],
+      "body": [ "{Spellforge} Regains 3 HP. Draw 3 cards.", "[u]Suffix[/u]: After a Hero Target is dealt damage this way, it regains 3 HP." ],
       "icons": [ "GainHP", "DrawCardNow" ],
       "flavorQuotes": []
     },
@@ -172,7 +183,8 @@
           "identifier": "Unknown",
           "text": "Why are we still listening?"
         }
-      ]
+      ],
+      "flavorReference": "Spellforge, The Word Weaver"
     }
   ],
   "promoCards": [
@@ -208,12 +220,10 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "..."
+        "default": "Sorry, but I'm going to be getting the last word here."
       },
       "complexity": 2
-    }
-  ],
-  "dummy": [
+    },
     {
       "identifier": "SpellforgeCharacter",
       "promoIdentifier": "SpellforgeRedefineCharacter",
@@ -224,12 +234,12 @@
       "foilBackgroundColor": "CC6666",
       "character": true,
       "powers": [
-        "You may discard a Prefix and a Suffix. One other player may play a One-Shot, applying the discarded cards' [u]Prefix[/u] and [u]Suffix[/u] text to that card."
+        "You may discard a card. One other player may play a One-Shot, applying the discarded card's [u]Prefix[/u] or [u]Suffix[/u] text to that One-Shot."
       ],
       "icons": [
         "HasPower",
         "DiscardCard",
-        "DealDamageInfernal"
+        "PlayCardNow"
       ],
       "hitpoints": 22,
       "nemesisIdentifiers": [
@@ -246,9 +256,9 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "..."
+        "default": "Language is going to end up a bit mangled before I'm done here."
       },
       "complexity": 2
     }
-  ]
+  ],
 }

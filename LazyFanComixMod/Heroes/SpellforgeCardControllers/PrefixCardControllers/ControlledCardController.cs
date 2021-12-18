@@ -4,13 +4,14 @@ using System.Collections;
 
 namespace LazyFanComix.Spellforge
 {
-    // TODO: TEST!
-    public class ControlledCardController : SpellforgeSharedModifierCardController
+    public class ControlledCardController : SpellforgeModifierSharedCardController
     {
         public ControlledCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
+
+        private ITrigger __reduceDamageTrigger = null;
 
         public override IEnumerator Play()
         {
@@ -20,31 +21,40 @@ namespace LazyFanComix.Spellforge
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        protected override ITrigger AddModifierTriggerOverride(CardSource cardSource)
+        protected override ITrigger AddModifierTriggerOverride()
         {
-            // Mostly copied from AddReduceDamageToSetAmountTrigger since that doesn't return an ITrigger.
-            ITrigger trigger = null; // Use null base to initialize.
-            int amountToSet = 1;
-            bool damageCriteria(DealDamageAction dd) => dd.CardSource.CardController == cardSource.CardController && dd.CanDealDamage && dd.Amount > amountToSet && dd.Target.IsHero;
-
-            trigger = this.AddTrigger<DealDamageAction>((DealDamageAction dd) => damageCriteria(dd),
-                (DealDamageAction dd) => this.TrackOriginalTargetsAndRunResponse(dd, cardSource, amountToSet, trigger),
-                new TriggerType[]
-                {
-                    TriggerType.ReduceDamage
-                },
+            __reduceDamageTrigger = this.AddTrigger<DealDamageAction>(
+                // Criteria: Core and either more than 1 to hero, or non-hero. 
+                (DealDamageAction dda) => CoreDealDamageActionCriteria(dda) && (!dda.Target.IsHero || (dda.Amount > 1 && dda.Target.IsHero)),
+               RunResponse,
+                new TriggerType[] { TriggerType.ReduceDamage, TriggerType.IncreaseDamage },
                 TriggerTiming.Before);
 
-            return trigger;
+            return __reduceDamageTrigger;
         }
 
-        protected override IEnumerator RunResponse(DealDamageAction dd, CardSource cardSource, params object[] otherObjects)
+        protected IEnumerator RunResponse(DealDamageAction dda)
         {
             IEnumerator coroutine;
-            int amountToSet = (int)otherObjects[0];
-            ITrigger trigger = (ITrigger)otherObjects[1];
-            coroutine = this.GameController.ReduceDamage(dd, dd.Amount - amountToSet, trigger, cardSource);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (dda.Target.IsHero)
+            {
+                // If this is the hero damage, reduce the damage to 1. 
+                coroutine = this.GameController.ReduceDamage(dda, dda.Amount - 1, __reduceDamageTrigger, cardSource: this._cardControllerActivatingModifiers.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
+            {
+                // If this is non-hero damage, increase the damage by 1. 
+                coroutine = this.GameController.IncreaseDamage(dda, (dda) => 1, this._cardControllerActivatingModifiers.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+        }
+
+        protected override void ClearOtherValues()
+        {
+            __reduceDamageTrigger = null;
+            return;
         }
     }
 }

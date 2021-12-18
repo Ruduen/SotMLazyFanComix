@@ -18,7 +18,7 @@ namespace LazyFanComixTest
             { "Wave", -2 },
             { "Shock", -3 },
             { "Ray", -4 },
-            { "Inspired", -1 },
+            { "Inspired", -2 },
             { "Controlled", -1 },
             { "OfResonance", -1 },
             { "OfDisruption", -1 },
@@ -44,7 +44,6 @@ namespace LazyFanComixTest
             Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
 
             Assert.IsNotNull(Spellforge);
-            Assert.IsInstanceOf(typeof(SpellforgeTurnTakerController), Spellforge);
             Assert.IsInstanceOf(typeof(SpellforgeCharacterCardController), Spellforge.CharacterCardController);
 
             Assert.AreEqual(26, Spellforge.CharacterCard.HitPoints);
@@ -159,51 +158,70 @@ namespace LazyFanComixTest
             QuickHPCheck(-1 + CardDamage["OfHealing"]); // Hit for 1, healed 4.
         }
 
-        //[Test()]
-        //public void TestRedefineInnatePower()
-        //{
-        //    IEnumerable<string> setupItems = new List<string>()
-        //    {
-        //        "BaronBlade", "LazyFanComix.Spellforge/SpellforgeRedefineCharacter", "Fanatic", "Megalopolis"
-        //    };
+        [Test()]
+        public void TestTribunalDecreePower()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
 
-        //    SetupGameController(setupItems);
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Spellforge" });
+            SelectFromBoxForNextDecision("LazyFanComix.SpellforgeDecreeCharacter", "LazyFanComix.Spellforge");
+            DiscardAllCards(guise);
 
-        //    StartGame();
+            QuickHandStorage(guise);
+            PlayCard("CalledToJudgement");
 
-        //    DiscardAllCards(Spellforge);
-        //    DiscardAllCards(fanatic);
+            Card representative = FindCardInPlay("SpellforgeCharacter");
+            AssertIsInPlay(representative);
 
-        //    PutInHand("HolyNova");
-        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
+            UsePower(representative);
+        }
 
-        //    QuickHPStorage(mdp);
-        //    UsePower(Spellforge);
-        //    QuickHPCheck(-1);
-        //}
 
-        //[Test()]
-        //public void TestRedefineInnatePowerDiscardPrefix()
-        //{
-        //    IEnumerable<string> setupItems = new List<string>()
-        //    {
-        //        "BaronBlade", "LazyFanComix.Spellforge/SpellforgeRedefineCharacter", "Fanatic", "Megalopolis"
-        //    };
+        [Test()]
+        public void TestInnateRedefinePower()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Spellforge/SpellforgeRedefineCharacter", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
 
-        //    SetupGameController(setupItems);
+            StartGame();
 
-        //    StartGame();
+            // Clear legacy's hand so multiple choices doesn't mess things up.
+            DiscardAllCards(legacy);
+            PutInHand("FlyingSmash"); 
 
-        //    DiscardAllCards(Spellforge);
-        //    DiscardAllCards(fanatic);
-        //    PutInHand("Inspired");
-        //    PutInHand("HolyNova");
-        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectCards = new Card[] { PutInHand("Ray"), Spellforge.CharacterCard, null };
 
-        //    QuickHPStorage(mdp);
-        //    UsePower(Spellforge);
-        //    QuickHPCheck(-1 + CardDamage["Inspired"]);
-        //}
+            QuickHPStorage(Spellforge.CharacterCard);
+            UsePower(Spellforge);
+            QuickHPCheck(-3);
+        }
+
+        [Test()]
+        public void TestInnateRedefineModifierPower()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Spellforge/SpellforgeRedefineCharacter", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            // Clear legacy's hand so multiple choices doesn't mess things up.
+            DiscardAllCards(legacy);
+            PutInHand("FlyingSmash");
+
+            DecisionSelectCards = new Card[] { PutInHand("Controlled"), Spellforge.CharacterCard, null };
+
+            QuickHPStorage(Spellforge.CharacterCard);
+            UsePower(Spellforge);
+            QuickHPCheck(CardDamage["Controlled"]);
+        }
+
 
         [Test()]
         public void TestEssenceNoDiscard()
@@ -292,16 +310,16 @@ namespace LazyFanComixTest
             UsePower(legacy);
 
             DiscardAllCards(Spellforge);
-            PutInHand("Controlled");
-            PutInHand("OfDisruption");
 
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-            Card play = PutInHand("Impact");
+            Card play = PutInHand("Wave");
+            PutInHand("Controlled");
+            PutInHand("OfDisruption");
 
             QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
             PlayCard(play);
-            QuickHPCheck(CardDamage["Controlled"], CardDamage["Controlled"], CardDamage["Impact"] - 1 + CardDamage["OfDisruption"]); // 1 controlled. 4 boosted to MDP, doubled by Resonance on the first hit only.
+            QuickHPCheck(CardDamage["Controlled"], CardDamage["Controlled"], CardDamage["Wave"] + CardDamage["Controlled"] - 1 + CardDamage["OfDisruption"] + CardDamage["Controlled"]); // 1 controlled. Wave + 1 Controlled + 1 Legacy + 1 Disruption + 1 Controlled.
         }
 
         [Test()]
@@ -327,9 +345,10 @@ namespace LazyFanComixTest
                 CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfDisruption"]); // 1 controlled. 2 boosted to MDP, doubled by Resonance.
         }
 
+
         [Test()]
         [Category("DiscardModifier")]
-        public void TestDiscardPiercing()
+        public void TestDiscardPiercingReduction()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Spellforge", "Legacy", "TheBlock");
 
@@ -348,6 +367,29 @@ namespace LazyFanComixTest
             QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
             PlayCard(play);
             QuickHPCheck(CardDamage["Impact"], CardDamage["Impact"], CardDamage["Impact"] + CardDamage["OfDisruption"]); // 1 base and irreducible. Self-damage is also irreducible.
+        }
+
+
+        [Test()]
+        [Category("DiscardModifier")]
+        public void TestDiscardPiercingRedirection()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Spellforge", "Legacy", "MMFFCC");
+
+            StartGame();
+
+            DiscardAllCards(Spellforge);
+            PutInHand("Piercing");
+            PutInHand("OfDisruption");
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+            Card play = PutInHand("Impact");
+            PlayCard("MazeOfMirrors");
+
+            QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
+            PlayCard(play);
+            QuickHPCheck(CardDamage["Impact"], CardDamage["Impact"], CardDamage["Impact"] + CardDamage["OfDisruption"]); // 1 base and irreducible and un-redirectable. Self-damage is also irreducible and un-redirectable.
         }
 
         [Test()]
@@ -377,28 +419,28 @@ namespace LazyFanComixTest
         [Category("DiscardModifier")]
         public void TestDiscardOfDisruptionRedirect()
         {
-            SetupGameController("BaronBlade", "LazyFanComix.Spellforge", "MrFixer", "Megalopolis");
+            SetupGameController("BaronBlade", "LazyFanComix.Spellforge", "Tachyon", "Megalopolis");
 
             StartGame();
 
             DiscardAllCards(Spellforge);
             PutInHand("Inspired");
             PutInHand("OfDisruption");
-            PutIntoPlay("DrivingMantis");
+            PutIntoPlay("SynapticInterruption");
 
             DestroyCard(GetCardInPlay("MobileDefensePlatform"));
 
             Card bb = GetCardInPlay("BaronBladeCharacter");
 
-            DecisionSelectTargets = new List<Card>() { fixer.CharacterCard, bb, Spellforge.CharacterCard, baron.CharacterCard }.ToArray();
+            DecisionSelectTargets = new List<Card>() { tachyon.CharacterCard, bb, Spellforge.CharacterCard, baron.CharacterCard }.ToArray();
 
             DecisionRedirectTarget = bb;
 
             Card play = PutInHand("Impact");
 
-            QuickHPStorage(Spellforge.CharacterCard, fixer.CharacterCard, bb);
+            QuickHPStorage(Spellforge.CharacterCard, tachyon.CharacterCard, bb);
             PlayCard(play);
-            QuickHPCheck(CardDamage["Inspired"] + CardDamage["Impact"],
+            QuickHPCheck(CardDamage["Inspired"] + CardDamage["Impact"], // Base plus 2 more.
                 0,
                 (CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfDisruption"]) * 2); // 2 base damage, 2 + 2 redirected to MDP + trigger, 2+2 direct to MDP without trigger.
         }
@@ -447,28 +489,6 @@ namespace LazyFanComixTest
             QuickHandCheck(-2, 1); // 3 used, 1 drawn for Spellforge, 1 drawn for others.
         }
 
-        //[Test()]
-        //[Category("DiscardModifier")]
-        //public void TestDiscardOfResonance()
-        //{
-        //    SetupGameController("BaronBlade", "LazyFanComix.Spellforge", "Legacy", "Megalopolis");
-
-        //    StartGame();
-
-        //    DiscardAllCards(Spellforge);
-        //    PutInHand("Inspired");
-        //    PutInHand("OfResonance");
-
-        //    Card play = PutInHand("Impact");
-
-        //    Card mdp = GetCardInPlay("MobileDefensePlatform");
-
-        //    QuickHPStorage(Spellforge.CharacterCard, legacy.CharacterCard, mdp);
-        //    PlayCard(play);
-        //    QuickHPCheck(CardDamage["Inspired"] + CardDamage["Impact"],
-        //        CardDamage["Inspired"] + CardDamage["Impact"],
-        //        CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfResonance"]); //  2 boosted to MDP, doubled by Resonance.
-        //}
 
         [Test]
         [Category("DiscardModifier")]
@@ -485,7 +505,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard("Controlled");
-            QuickHandCheck(-1); // 2 cards played, 1 card drawn.
+            QuickHandCheck(-2 + 3); // 2 cards played, 3 card drawn.
         }
 
         [Test]
@@ -502,9 +522,9 @@ namespace LazyFanComixTest
 
             DecisionSelectCards = cards;
 
-            QuickHandStorage(Spellforge);
+            QuickHandStorage(Spellforge, legacy);
             PlayCard("Inspired");
-            QuickHandCheck(2); // 1 cards played, 3 cards drawn.
+            QuickHandCheck(-1 + 1, 1); // 1 cards played, 1 cards drawn.
         }
 
         [Test]
@@ -540,26 +560,10 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard(card);
-            QuickHandCheckZero(); // One played, one drawn.
+            QuickHandCheck(- 1 + 3); // 1 played, 3 drawn.
             AssertInTrash(environment); // Destroyed.
         }
 
-        //[Test]
-        //[Category("DiscardModifier")]
-        //public void TestPlayOfDisruption()
-        //{
-        //    SetupGameController("BaronBlade", "LazyFanComix.Spellforge", "TheBlock");
-
-        //    StartGame();
-
-        //    Card card = PutInHand("OfDisruption");
-        //    Card ongoing = PutIntoPlay("LivingForceField");
-
-        //    QuickHandStorage(Spellforge);
-        //    PlayCard(card);
-        //    QuickHandCheckZero(); // One played, one drawn.
-        //    AssertInTrash(ongoing); // Destroyed.
-        //}
 
         [Test]
         [Category("DiscardModifier")]
@@ -576,8 +580,8 @@ namespace LazyFanComixTest
             QuickHPStorage(Spellforge);
             QuickHandStorage(Spellforge);
             PlayCard(card);
-            QuickHPCheck(2); // Heal 2.
-            QuickHandCheckZero(); // One played, one drawn.
+            QuickHPCheck(3); // Heal 2.
+            QuickHandCheck(- 1 + 3); // One played, 3 drawn.
         }
 
         [Test]
@@ -602,7 +606,7 @@ namespace LazyFanComixTest
             QuickHandStorage(Spellforge);
             PlayCard(card);
             QuickHPCheck(-2); // Deal 2.
-            QuickHandCheckZero(); // One played, one drawn.
+            QuickHandCheck(-1 + 3); // 1 played, 3 drawn.
         }
 
         [Test]
@@ -622,7 +626,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard(card);
-            QuickHandCheck(1); // 2 played, 2 added, 1 drawn.
+            QuickHandCheck(-2 + 2 + 3); // 2 played, 2 added, 3 drawn.
         }
 
         [Test]
@@ -642,7 +646,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard(card);
-            QuickHandCheck(1); // 2 played, 2 added, 1 drawn.
+            QuickHandCheck(3); // 2 played, 2 added, 3 drawn.
         }
 
         [Test]
@@ -662,7 +666,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard(card);
-            QuickHandCheck(1); // 2 played, 2 added, 1 drawn.
+            QuickHandCheck(- 2 + 2 + 3); // 2 played, 2 added, 3 drawn.
         }
 
         [Test]
@@ -681,7 +685,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard("ArticulateTheLethological");
-            QuickHandCheck(0); // 1 Played, 1 drawn. This should trigger a reshuffle.
+            QuickHandCheck(-1 + 3); // 1 Played, 3 drawn. This should trigger a reshuffle.
             AssertNumberOfCardsInTrash(Spellforge, 2); // Cards that were used move to the trash after a reshuffle.
         }
 
@@ -700,7 +704,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard("MeanderingDissertation");
-            QuickHandCheck(0); // Equal discarded as drawn, 1 played and 1 drawn from that.
+            QuickHandCheck(0 - 1 + 3); // Equal discarded as drawn, 1 played and 3 drawn from that.
         }
 
         [Test()]
@@ -723,24 +727,6 @@ namespace LazyFanComixTest
             QuickHandCheck(2); // Discarded.
         }
 
-        [Test()]
-        public void TestTribunalDecreePower()
-        {
-            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
-
-            StartGame();
-            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Spellforge" });
-            SelectFromBoxForNextDecision("LazyFanComix.SpellforgeDecreeCharacter", "LazyFanComix.Spellforge");
-            DiscardAllCards(guise);
-
-            QuickHandStorage(guise);
-            PlayCard("CalledToJudgement");
-
-            Card representative = FindCardInPlay("SpellforgeCharacter");
-            AssertIsInPlay(representative);
-
-            UsePower(representative);
-        }
 
     }
 }

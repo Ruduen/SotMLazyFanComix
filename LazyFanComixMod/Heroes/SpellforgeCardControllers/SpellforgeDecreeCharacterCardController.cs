@@ -23,12 +23,12 @@ namespace LazyFanComix.Spellforge
                 GetPowerNumeral(1, 1)
             };
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
+            List<SpellforgeModifierSharedCardController> modifierCardControllers = new List<SpellforgeModifierSharedCardController>();
             string spacedPrefixTitle = "";
             string spacedSuffixTitle = "";
 
             if (this.HeroTurnTakerController != null)
             {
-
                 // Discard prefix.
                 coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix"), "prefix"), cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -37,11 +37,12 @@ namespace LazyFanComix.Spellforge
                 {
                     Card c = storedResults.FirstOrDefault().CardToDiscard;
                     CardController cc = this.FindCardController(c);
-                    if (cc is SpellforgeSharedModifierCardController)
+                    if (cc is SpellforgeModifierSharedCardController)
                     {
                         // Type matches, everything should be implemented now!
-                        SpellforgeSharedModifierCardController wcc = (SpellforgeSharedModifierCardController)this.FindCardController(c);
-                        this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this.GetCardSource()));
+                        SpellforgeModifierSharedCardController wcc = (SpellforgeModifierSharedCardController)this.FindCardController(c);
+                        this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this, this.Card));
+                        modifierCardControllers.Add(wcc);
                         spacedPrefixTitle = c.Definition.AlternateTitle + " ";
                     }
                 }
@@ -55,11 +56,12 @@ namespace LazyFanComix.Spellforge
                 {
                     Card c = storedResults.FirstOrDefault().CardToDiscard;
                     CardController cc = this.FindCardController(c);
-                    if (cc is SpellforgeSharedModifierCardController)
+                    if (cc is SpellforgeModifierSharedCardController)
                     {
                         // Type matches, everything should be implemented now!
-                        SpellforgeSharedModifierCardController wcc = (SpellforgeSharedModifierCardController)this.FindCardController(c);
-                        this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this.GetCardSource()));
+                        SpellforgeModifierSharedCardController wcc = (SpellforgeModifierSharedCardController)this.FindCardController(c);
+                        this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this, this.Card));
+                        modifierCardControllers.Add(wcc);
                         spacedSuffixTitle = " " + c.Definition.AlternateTitle;
                     }
                 }
@@ -77,6 +79,10 @@ namespace LazyFanComix.Spellforge
 
             // Clear all temporary triggers created by this card.
             this.RemoveTemporaryTriggers();
+            foreach (SpellforgeModifierSharedCardController wcc in modifierCardControllers)
+            {
+                wcc.RemoveModifierTrigger();
+            }
         }
 
         // TODO: Replace with something more unique!

@@ -4,14 +4,14 @@ using System.Collections;
 
 namespace LazyFanComix.Spellforge
 {
-    public class RayCardController : SpellforgeEssenceSharedCardController
+    public class RayOldCardController : SpellforgeSharedEssenceCardController
     {
-        public RayCardController(Card card, TurnTakerController turnTakerController)
+        public RayOldCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
 
-        protected override IEnumerator CoreAction(CardSource cardSource)
+        protected override IEnumerator PerformModifiedAction(CardSource cardSource)
         {
             // Deal 1 target 4 energy.
             IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 4, DamageType.Energy, 1, false, 1, cardSource: cardSource);

@@ -1,4 +1,5 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,101 +19,71 @@ namespace LazyFanComix.Spellforge
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
-            List<int> powerNumerals = new List<int>(){
-                GetPowerNumeral(0, 3),
-                GetPowerNumeral(1, 1)
-            };
-            Card prefixCard = null;
-            Card suffixCard = null;
             List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
-            List<SelectTurnTakerDecision> sttdResults = new List<SelectTurnTakerDecision>();
-            TurnTaker turnTaker;
+            List<SpellforgeModifierSharedCardController> modifierCardControllers = new List<SpellforgeModifierSharedCardController>();
+            string spacedPrefixTitle = "";
+            string spacedSuffixTitle = "";
 
-            // Discard prefix.
-            coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix"), "prefix"), cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
+            if (this.HeroTurnTakerController != null)
             {
-                prefixCard = storedResults.FirstOrDefault().CardToDiscard;
+                // Discard prefix or suffix.
+                coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 1, storedResults, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
+                {
+                    Card c = storedResults.FirstOrDefault().CardToDiscard;
+                    CardController cc = this.FindCardController(c);
+                    if (cc is SpellforgeModifierSharedCardController)
+                    {
+                        SpellforgeModifierSharedCardController wcc = (SpellforgeModifierSharedCardController)this.FindCardController(c);
+                        this.AddToTemporaryTriggerList(wcc.AddQueueModifierTrigger(this));
+                        this.AddToTemporaryTriggerList(wcc.AddDesignatePlayTrigger(this));
+                        modifierCardControllers.Add(wcc);
+                        if (c.DoKeywordsContain("prefix"))
+                        {
+                            spacedPrefixTitle = c.Definition.AlternateTitle + " ";
+                        }
+                        else if (c.DoKeywordsContain("suffix"))
+                        {
+                            spacedSuffixTitle = " " + c.Definition.AlternateTitle;
+                        }
+                    }
+                }
             }
 
-            // Discard suffix.
-            storedResults.Clear();
-            coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("suffix"), "suffix"), cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
+            // Yes, this extra logic is necessary for actually selecting a hero, since no method exists to restrict card plays after. 
+            IEnumerable<TurnTaker> source = this.GameController.FindTurnTakersWhere((TurnTaker tt) => tt.IsHero);
+            if (source.All((TurnTaker tt) => tt != this.TurnTaker && this.GameController.DoAnyCardsPreventAction<PlayCardAction>(this.FindTurnTakerController(tt)).Any()))
             {
-                suffixCard = storedResults.FirstOrDefault().CardToDiscard;
-            }
-
-            //if (spacedPrefixTitle.Length > 0 || spacedSuffixTitle.Length > 0)
-            //{
-            //    coroutine = this.GameController.SendMessageAction("{Spellforge} uses " + spacedPrefixTitle + this.CharacterCard.Definition.Body.FirstOrDefault() + spacedSuffixTitle + "!", Priority.Low, cardSource);
-            //    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            //}
-
-            //// Deal up to 3 targets 1 infernal (as a base).
-            //coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Infernal, powerNumerals[0], false, 0, false, false, false, null, null, null, null, null, false, null, null, false, null, cardSource);
-            //if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // Add temporary trigger before the card is played to apply modifiers.
-
-            this.AddToTemporaryTriggerList(this.AddTrigger<PlayCardAction>(
-                (PlayCardAction pca) => true,
-                (PlayCardAction pca) => this.AddPrefixSuffixResponse(pca, prefixCard, suffixCard),
-                new TriggerType[] { TriggerType.Hidden }, TriggerTiming.Before, null, false, true, null, false, null, null, false, false)
-            );
-
-            // Select a hero.
-            coroutine = this.GameController.SelectHeroTurnTaker(this.HeroTurnTakerController, SelectionType.PlayCard, false, false, sttdResults, new LinqTurnTakerCriteria((TurnTaker tt) => tt != this.HeroTurnTaker), cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // That hero plays a oneshot.
-            turnTaker = (from d in sttdResults
-                         where d.Completed
-                         select d.SelectedTurnTaker).FirstOrDefault<TurnTaker>();
-            if (turnTaker != null)
-            {
-                HeroTurnTakerController heroTurnTaker = this.FindTurnTakerController(turnTaker).ToHero();
-                coroutine = this.GameController.SelectAndPlayCardFromHand(heroTurnTaker, false, null, new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot"), cardSource: this.GetCardSource());
+                IEnumerable<Card> cardsPreventingPlay = source.SelectMany((TurnTaker tt) => this.GameController.DoAnyCardsPreventAction<PlayCardAction>(this.FindTurnTakerController(tt))).Distinct<Card>();
+                string cardTitles = (from p in cardsPreventingPlay select p.Title).ToCommaList(true);
+                string connector = (cardsPreventingPlay.Count() == 1) ? "is" : "are";
+                coroutine = this.GameController.SendMessageAction(cardTitles + " " + connector + " preventing heroes from playing cards.", Priority.Medium, this.GetCardSource(), cardsPreventingPlay, false);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
-            // Clear all temporary triggers created by this card and the corresponding trigger.
-            this.RemoveTemporaryTriggers();
-        }
-
-        private IEnumerator AddPrefixSuffixResponse(PlayCardAction action, Card prefixCard, Card suffixCard)
-        {
-            if (!(action.CardSource.CardController == this)) yield break;
-            Card modifiedCard = action.CardToPlay;
-            CardSource modifiedCardSource = this.FindCardController(modifiedCard).GetCardSource();
-
-            // Clear the trigger checking for the played card.
-            this.RemoveTemporaryTriggers();
-            if (prefixCard != null)
+            else
             {
-                CardController cc = this.FindCardController(prefixCard);
-                if (cc is SpellforgeSharedModifierCardController)
+                List<SelectTurnTakerDecision> sttd = new List<SelectTurnTakerDecision>();
+                LinqTurnTakerCriteria heroCriteria = new LinqTurnTakerCriteria((TurnTaker tt) => tt != this.TurnTaker && tt.IsHero && (this.GameController.CanPerformAction<PlayCardAction>(this.FindTurnTakerController(tt), this.GetCardSource())) && tt.ToHero().HasCardsInHand);
+
+                coroutine = this.GameController.SelectHeroTurnTaker(this.DecisionMaker, SelectionType.PlayCard, false, false, sttd, heroCriteria, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                TurnTaker tt = (from d in sttd where d.Completed select d.SelectedTurnTaker).FirstOrDefault();
+                if (tt != null)
                 {
-                    // Type matches, everything should be implemented now!
-                    SpellforgeSharedModifierCardController wcc = (SpellforgeSharedModifierCardController)this.FindCardController(prefixCard);
-                    this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(modifiedCardSource));
+                    coroutine = this.GameController.SelectAndPlayCardFromHand(this.FindTurnTakerController(tt).ToHero(), false, cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot), cardSource: this.GetCardSource());
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }
-            if (suffixCard != null)
+
+            // Clear all temporary triggers created by this card.
+            this.RemoveTemporaryTriggers();
+            foreach (SpellforgeModifierSharedCardController wcc in modifierCardControllers)
             {
-                CardController cc = this.FindCardController(suffixCard);
-                if (cc is SpellforgeSharedModifierCardController)
-                {
-                    // Type matches, everything should be implemented now!
-                    SpellforgeSharedModifierCardController wcc = (SpellforgeSharedModifierCardController)this.FindCardController(prefixCard);
-                    this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(modifiedCardSource));
-                }
+                wcc.RemoveModifierTrigger();
             }
-            yield break;
         }
 
         // TODO: Replace with something more unique!
