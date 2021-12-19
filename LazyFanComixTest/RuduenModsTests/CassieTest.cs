@@ -53,20 +53,22 @@ namespace LazyFanComixTest
         [Test()]
         public void TestSetupOblivaeon()
         {
-            SetupGameController("OblivAeon", "Legacy", "Megalopolis", "TimeCataclysm");
+            SetupGameController("OblivAeon", "Legacy", "TheWraith", "Megalopolis", "TimeCataclysm");
 
             StartGame();
 
-            DecisionSelectFromBoxIdentifiers = new string[] { "LazyFanComix.Cassie" };
+            SelectFromBoxForNextDecision("LazyFanComix.CassieCharacter", "LazyFanComix.Cassie");
+            SelectYesNoForNextDecision(false);
 
             DestroyCard(legacy);
-            GoToNextTurn();
+            GoToAfterEndOfTurn(legacy);
+            RunActiveTurnPhase();
             GoToNextTurn();
 
-            //AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
-            //AssertNumberOfCardsInHand(Cassie, 4); // And 4 cards in hand.
-            //AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And 4 cards in the Riverbank.
-            //AssertNumberOfCardsAtLocation(Cassie.TurnTaker.FindSubDeck("RiverDeck"), 30); // And 30 cards in the River Deck.
+            AssertNumberOfCardsInDeck(Cassie, 2); // Should start with 2 card in deck.
+            AssertNumberOfCardsInHand(Cassie, 4); // And 4 cards in hand.
+            AssertNumberOfCardsAtLocation(GetCard("Riverbank").UnderLocation, 4); // And 4 cards in the Riverbank.
+            AssertNumberOfCardsAtLocation(Cassie.TurnTaker.FindSubDeck("RiverDeck"), 30); // And 30 cards in the River Deck.
         }
 
         [Test()]

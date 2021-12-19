@@ -103,6 +103,65 @@ namespace LazyFanComixTest
         }
 
         [Test()]
+        public void TestAbsoluteZeroCombatReady()
+        {
+            SetupGameController("BaronBlade", "AbsoluteZero/LazyFanComix.AbsoluteZeroCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(az.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("IsothermicTransducer");
+            AssertIsInPlay("GlacialStructure");
+
+            AssertNumberOfCardsInHand(az, 4);
+        }
+
+        [Test()]
+        public void TestAbsoluteZeroCombatReadyTribunal()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "Legacy/AmericasGreatestLegacyCharacter", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            SelectFromBoxForNextDecision("LazyFanComix.AbsoluteZeroCombatReadyCharacter", "AbsoluteZero");
+            PlayCard("CalledToJudgement");
+
+            GoToStartOfTurn(legacy);
+            DecisionSelectCard = FindCardInPlay("AbsoluteZeroCharacter");
+            UsePower(legacy);
+
+            AssertNotInPlay("IsothermicTransducer");
+            AssertNotInPlay("GlacialStructure");
+        }
+
+        [Test()]
+        public void TestAbsoluteZeroCombatReadyOblivAeon()
+        {
+            SetupGameController("OblivAeon", "Legacy", "TheWraith", "Megalopolis", "TimeCataclysm");
+
+            StartGame();
+
+            SelectFromBoxForNextDecision("LazyFanComix.AbsoluteZeroCombatReadyCharacter", "AbsoluteZero");
+            SelectYesNoForNextDecision(false);
+            
+
+            DestroyCard(legacy);
+            GoToAfterEndOfTurn(legacy);
+            RunActiveTurnPhase();
+            GoToNextTurn();
+
+            Assert.IsTrue(az.CharacterCard.IsPromoCard);
+
+            AssertIsInPlay("IsothermicTransducer");
+            AssertIsInPlay("GlacialStructure");
+        }
+
+
+        [Test()]
         public void TestAkashThriya()
         {
             SetupGameController("BaronBlade", "AkashThriya/LazyFanComix.AkashThriyaPlantEssenceCharacter", "TheEnclaveOfTheEndlings");
@@ -364,23 +423,20 @@ namespace LazyFanComixTest
             AssertIsInPlay(equip);
         }
 
+
+
         [Test()]
-        public void TestBunkerF6Tribunal()
+        public void TestBunkerCombatReady()
         {
-            IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "Legacy/AmericasGreatestLegacyCharacter", "TheCelestialTribunal"
-            };
-            SetupGameController(setupItems);
+            SetupGameController("BaronBlade", "Bunker/LazyFanComix.BunkerCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(bunker.CharacterCard.IsPromoCard);
 
             StartGame();
 
-            SelectFromBoxForNextDecision("BunkerFreedomSixCharacter", "Bunker");
-            PlayCard("CalledToJudgement");
+            AssertIsInPlay("FlakCannon");
+            AssertIsInPlay("AuxiliaryPowerSource");
 
-            GoToStartOfTurn(legacy);
-            DecisionSelectCard = FindCardInPlay("BunkerCharacter");
-            UsePower(legacy);
+            AssertNumberOfCardsInHand(bunker, 4);
         }
 
 
@@ -417,6 +473,25 @@ namespace LazyFanComixTest
             AssertNextToCard(construct, cosmic.CharacterCard);
             GoToStartOfTurn(cosmic);
             AssertInTrash(construct);
+        }
+
+
+        [Test()]
+        public void TestCaptainCosmicCombatReady()
+        {
+            SetupGameController("IronLegacy", "CaptainCosmic/LazyFanComix.CaptainCosmicCombatReadyCharacter", "Legacy", "AbsoluteZero", "Bunker", "Luminary", "Megalopolis");
+            Assert.IsTrue(cosmic.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("DestructiveResponse");
+            AssertIsInPlay("SustainedInfluence");
+            AssertNextToCard(GetCardInPlay("CosmicWeapon"), cosmic.CharacterCard);
+
+            AssertNumberOfUsablePowers(cosmic, 2);
+            AssertNumberOfCardsInHand(cosmic, 4);
+
+            UsePower(cosmic, 1);
         }
 
         [Test()]
@@ -540,6 +615,21 @@ namespace LazyFanComixTest
             QuickHandStorage(expatriette);
             UsePower(expatriette);
             AssertNumberOfCardsInDeck(expatriette, 0); // Deck remains empty.
+        }
+
+
+        [Test()]
+        public void TestExpatrietteCombatReady()
+        {
+            SetupGameController("BaronBlade", "Expatriette/LazyFanComix.ExpatrietteCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(expatriette.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("Prejudice");
+            AssertIsInPlay("SpeedLoading");
+
+            AssertNumberOfCardsInHand(expatriette, 4);
         }
 
         [Test()]
@@ -1294,6 +1384,21 @@ namespace LazyFanComixTest
             AssertNotInPlay((Card c) => c.IsTool);
         }
 
+
+        [Test()]
+        public void TestMrFixerCombatReady()
+        {
+            SetupGameController("BaronBlade", "MrFixer/LazyFanComix.MrFixerCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(fixer.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("PipeWrench");
+            AssertIsInPlay("Harmony");
+
+            AssertNumberOfCardsInHand(fixer, 4);
+        }
+
         [Test()]
         public void TestLaComodoraPower()
         {
@@ -1472,6 +1577,20 @@ namespace LazyFanComixTest
             DealDamage(mist, legacy, 2, DamageType.Energy);
             QuickHPCheck(-1, -1); // 1 Net Damage.
             AssertInPlayArea(mist, play);
+        }
+
+        [Test()]
+        public void TestNightMistCombatReady()
+        {
+            SetupGameController("BaronBlade", "NightMist/LazyFanComix.NightMistCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(mist.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("MasterOfMagic");
+            AssertIsInPlay("TomeOfElderMagic");
+
+            AssertNumberOfCardsInHand(mist, 4);
         }
 
         [Test()]
@@ -2143,6 +2262,20 @@ namespace LazyFanComixTest
 
             UsePower(unity);
             AssertIsInPlay(card);
+        }
+
+        [Test()]
+        public void TestUnityCombatReady()
+        {
+            SetupGameController("BaronBlade", "Unity/LazyFanComix.UnityCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(unity.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("VolatileParts");
+            AssertIsInPlay("PlatformBot");
+
+            AssertNumberOfCardsInHand(unity, 4);
         }
 
         public void TestVoidGuardIdealistNoConceptCards()

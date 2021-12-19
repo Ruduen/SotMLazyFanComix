@@ -8,7 +8,7 @@
     "- 1 Aeon's End Inspired Hero",
     "- 1-2 Variants for every Official Hero",
     "- 1 Completely Custom Villain (Under Development)",
-	"- 1 Completely Custom Environment",
+    "- 1 Completely Custom Environment",
     "Ruduen is not an artist, so art will likely remain random-Unicode quality."
   ],
   "version": "0.5.5.1.1",
@@ -26,22 +26,27 @@
       "Soulbinder",
       "Trailblazer"
     ],
-    "villains": [
-      "TheTurfWar"
-    ],
     "environments": [
       "LarrysDiscountGunClub"
-    ]
+    ],
+    "underDev": {
+      "heroes": [
+        "Recall"
+      ],
+      "villains": [
+        "TheTurfWar"
+      ]
+    }
   },
   "variants": {
-    "AbsoluteZero": [ "AbsoluteZeroOverloadCharacter", "AbsoluteZeroOverchillCharacter" ],
+    "AbsoluteZero": [ "AbsoluteZeroOverloadCharacter", "AbsoluteZeroOverchillCharacter", "AbsoluteZeroCombatReadyCharacter" ],
     "AkashThriya": [ "AkashThriyaPlantEssenceCharacter" ],
     "TheArgentAdept": [ "TheArgentAdeptAriaCharacter" ],
     "Benchmark": [ "BenchmarkDownloadManagerCharacter" ],
-    "Bunker": [ "BunkerFullSalvoCharacter", "BunkerModeShiftCharacter" ],
+    "Bunker": [ "BunkerFullSalvoCharacter", "BunkerModeShiftCharacter", "BunkerCombatReadyCharacter" ],
     "CaptainCosmic": [ "CaptainCosmicCosmicShieldingCharacter" ],
     "ChronoRanger": [ "ChronoRangerHighNoonCharacter" ],
-    "Expatriette": [ "ExpatrietteQuickShotCharacter", "ExpatrietteLiterallyAGunCharacter" ],
+    "Expatriette": [ "ExpatrietteQuickShotCharacter", "ExpatrietteLiterallyAGunCharacter", "ExpatrietteCombatReadyCharacter" ],
     "Fanatic": [ "FanaticZealCharacter" ],
     "Guise": [ "GuiseShenanigansCharacter" ],
     "Haka": [ "HakaVigorCharacter" ],
@@ -51,9 +56,9 @@
     "Legacy": [ "LegacyInTheFrayCharacter" ],
     "Lifeline": [ "LifelineEnergyTapCharacter" ],
     "Luminary": [ "LuminaryReprogramCharacter" ],
-    "MrFixer": [ "MrFixerFlowingStrikeCharacter", "MrFixerFocusedStrikeCharacter" ],
+    "MrFixer": [ "MrFixerFlowingStrikeCharacter", "MrFixerFocusedStrikeCharacter", "MrFixerCombatReadyCharacter" ],
     "TheNaturalist": [ "TheNaturalistVolatileFormCharacter" ],
-    "NightMist": [ "NightMistLimitedNumerologyCharacter" ],
+    "NightMist": [ "NightMistLimitedNumerologyCharacter", "NightMistCombatReadyCharacter" ],
     "OmnitronX": [ "OmnitronXElectroShieldedSystemsCharacter" ],
     "Parse": [ "ParseLaplaceShotCharacter" ],
     "Ra": [ "RaPiercingBlastCharacter" ],
@@ -62,7 +67,7 @@
     "Setback": [ "SetbackRunOfLuckCharacter", "SetbackDoubleOrNothingCharacter" ],
     "Stuntman": [ "StuntmanForeshadowCharacter" ],
     "Tachyon": [ "TachyonControlledPaceCharacter" ],
-    "Unity": [ "UnityToolkitCharacter", "UnitySparePartsCharacter" ],
+    "Unity": [ "UnityToolkitCharacter", "UnitySparePartsCharacter", "UnityCombatReadyCharacter" ],
     "TheVisionary": [ "TheVisionaryProphecyCharacter" ],
     "Tempest": [ "TempestRisingWindsCharacter" ],
     "VoidGuardDrMedico": [ "VoidGuardDrMedicoOverdoseCharacter" ],

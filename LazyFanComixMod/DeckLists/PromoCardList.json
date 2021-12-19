@@ -57,6 +57,44 @@
       "openingLines": {
         "default": "I suppose I should've expected a frosty reception."
       }
+    },
+    {
+      "identifier": "AbsoluteZeroCharacter",
+      "promoIdentifier": "AbsoluteZeroCombatReadyCharacter",
+      "count": 1,
+      "title": "Absolute Zero",
+      "promoTitle": "Combat Ready Absolute Zero",
+      "setup": [ "At the start of the game, search your deck and cards for {IsothermicTransducer} and {GlacialStructure}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Thermodynamics",
+      "icons": [
+        "HasPower",
+        "DealDamageCold",
+        "DealDamageFire"
+      ],
+      "backgroundColor": "77d2f7",
+      "foilBackgroundColor": "3FB0DD",
+      "character": true,
+      "powers": [
+        "{AbsoluteZero} deals himself either 1 cold damage or 1 fire damage."
+      ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "AbsoluteZero"
+      ],
+      "incapacitatedAbilities": [
+        "One Hero may use a Power.",
+        "Select a Hero. Increase the next Damage dealt by that hero by 2.",
+        "Destroy a target with 1 HP."
+      ],
+      "flippedIcons": [
+        "UsePowerNow",
+        "IncreaseDamageDealt",
+        "DestroyTarget"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "Tempers are running hot. Time to cool things down!"
+      }
     }
   ],
   "AkashThriya": [
@@ -210,6 +248,44 @@
       "openingLines": {
         "default": "Hm."
       }
+    },
+    {
+      "identifier": "BunkerCharacter",
+      "promoIdentifier": "BunkerCombatReadyCharacter",
+      "overrideTurnTakerController": "BunkerCombatReady",
+      "count": 1,
+      "title": "Bunker",
+      "promoTitle": "Combat Ready Bunker",
+      "setup": [ "At the start of the game, search your deck and cards for {FlakCannon} and {AuxiliaryPowerSource}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Initialize",
+      "icons": [
+        "HasPower",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "fcf170",
+      "foilBackgroundColor": "86BB71",
+      "character": true,
+      "powers": [
+        "Draw a card."
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "Bunker"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "Select a hero. Reduce the next damage dealt to that hero by 2.",
+        "Put a card from a player's trash into their hand."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "ReduceDamageTaken",
+        "Search"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Work together, team! Think tactically and protect your teammates."
+      }
     }
   ],
   "CaptainCosmic": [
@@ -240,6 +316,47 @@
       "complexity": 2,
       "openingLines": {
         "default": "Hm."
+      }
+    },
+    {
+      "identifier": "CaptainCosmicCharacter",
+      "promoIdentifier": "CaptainCosmicCombatReadyCharacter",
+      "overrideTurnTakerController": "CaptainCosmicCombatReady",
+      "count": 1,
+      "title": "Captain Cosmic",
+      "promoTitle": "Combat Ready Captain Cosmic",
+      "setup": [ "At the start of the game, search your deck and cards for {CosmicWeapon}, {DestructiveResponse} and {UnflaggingAnimation}, move {CosmicWeapon} next to {CaptainCosmic}, put the other cards in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Fabrication",
+      "icons": [
+        "HasPower",
+        "Manipulate"
+      ],
+      "backgroundColor": "FFDD00",
+      "foilBackgroundColor": "FDED41",
+      "character": true,
+      "powers": [
+        "Reveal the top card of your deck. Put it into play or into your hand."
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "CaptainCosmic"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "Until the start of your next turn, reduce all damage dealt by 1."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "ReduceDamageDealt"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Your evil-doing days are numbered, no matter how dangerous you are! Have at them, allies!",
+        "InfinitorCharacter": "Brother! You know me! We must help you return to your right mind.",
+        "HeroicInfinitorCharacter": "You have my hand, Nigel. And the aid of my allies, as well.",
+        "OblivAeonFrontPageCharacter": "Steady on, chaps. We'll find a way!"
       }
     }
   ],
@@ -332,8 +449,48 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "CitizenDawnCharacter": "The Citizens of the Sun aren't immune to bullets. {Bang bang}!",
-        "default": "In the words of my predecessor... {Bang bang}!"
+        "CitizenDawnCharacter": "These bullets belong in the Citizens of the Sun! {Bang Bang!}",
+        "default": "In the words of my predecessor... {Bang Bang!}"
+      }
+    },
+    {
+      "identifier": "ExpatrietteCharacter",
+      "promoIdentifier": "ExpatrietteCombatReadyCharacter",
+      "overrideTurnTakerController": "ExpatrietteCombatReady",
+      "count": 1,
+      "title": "Expatriette",
+      "promoTitle": "Combat Ready Expatriette",
+      "setup": [ "At the start of the game, search your deck and cards for {SpeedLoading} and {Prejudice}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Load",
+      "icons": [
+        "HasPower",
+        "PlayCardNow"
+      ],
+      "backgroundColor": "996cae",
+      "foilBackgroundColor": "B285B9",
+      "character": true,
+      "powers": [
+        "Play a card."
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "Expatriette"
+      ],
+      "incapacitatedAbilities": [
+        "One Hero may use a Power.",
+        "Destroy a target with 1 HP.",
+        "Select a hero. The next time that hero uses a power, they also deal 1 target 1 projectile damage."
+      ],
+      "flippedIcons": [
+        "UsePowerNow",
+        "DestroyTarget",
+        "DealDamageProjectile"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "You're in my crosshairs. Can't imagine this will go well for you.",
+        "CitizenDawnCharacter": "Just because you have power, doesn't mean you're invulnerable. Come on!",
+        "OblivAeonFrontPageCharacter": "More power just means more reliance on that power. I'll always find a target."
       }
     }
   ],
@@ -694,6 +851,44 @@
       "openingLines": {
         "default": "This seems like the right time to strike."
       }
+    },
+    {
+      "identifier": "MrFixerCharacter",
+      "promoIdentifier": "MrFixerCombatReadyCharacter",
+      "overrideTurnTakerController": "MrFixerCombatReady",
+      "count": 1,
+      "title": "Mr. Fixer",
+      "promoTitle": "Combat Ready Mr. Fixer",
+      "setup": [ "At the start of the game, search your deck and cards for {PipeWrench} and {Harmony}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Strike",
+      "backgroundColor": "DF7501",
+      "foilBackgroundColor": "F19940",
+      "character": true,
+      "powers": [
+        "{MrFixer} deals 1 target 1 melee damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageMelee"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "MrFixer"
+      ],
+      "incapacitatedAbilities": [
+        "Put an equipment card in a hero trash into play.",
+        "One player may draw a card.",
+        "Destroy an ongoing card."
+      ],
+      "flippedIcons": [
+        "Search",
+        "DrawCardNow",
+        "DestroyOngoing"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "My tools are weapons in my hands. This fight will end swiftly."
+      }
     }
   ],
   "TheNaturalist": [
@@ -755,6 +950,45 @@
       "complexity": 3,
       "openingLines": {
         "default": "Let's see if I can practice what I teach."
+      }
+    },
+    {
+      "identifier": "NightMistCharacter",
+      "promoIdentifier": "NightMistCombatReadyCharacter",
+      "overrideTurnTakerController": "NightMistCombatReady",
+      "count": 1,
+      "title": "NightMist",
+      "promoTitle": "Combat Ready NightMist",
+      "setup": [ "At the start of the game, search your deck and cards for {MasterOfMagic} and {TomeOfElderMagic}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Investigation",
+      "icons": [
+        "HasPower",
+        "DealDamageInfernal",
+        "DrawCardNow"
+      ],
+      "backgroundColor": "bd9dca",
+      "foilBackgroundColor": "EC4E55",
+      "character": true,
+      "powers": [
+        "{NightMist} deals herself 2 infernal damage. Draw 2 cards."
+      ],
+      "hitpoints": 25,
+      "nemesisIdentifiers": [
+        "NightMist"
+      ],
+      "incapacitatedAbilities": [
+        "One Hero regains 1 HP.",
+        "One player may play a card.",
+        "Destroy an ongoing card."
+      ],
+      "flippedIcons": [
+        "GainHP",
+        "PlayCardNow",
+        "DestroyOngoing"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "I feel the evil twisting of your presence. Now, feel my power."
       }
     }
   ],
@@ -1262,6 +1496,45 @@
       "complexity": 2,
       "openingLines": {
         "default": "I only need a few spare screws for this one!"
+      }
+    },
+    {
+      "identifier": "UnityCharacter",
+      "promoIdentifier": "UnityCombatReadyCharacter",
+      "overrideTurnTakerController": "UnityCombatReady",
+      "count": 1,
+      "title": "Unity",
+      "promoTitle": "Combat Ready Unity",
+      "setup": [ "At the start of the game, search your deck and cards for {VolatileParts} and {PlatformBot}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Bot-Hack",
+      "backgroundColor": "ED7BAF",
+      "foilBackgroundColor": "DE6AA5",
+      "character": true,
+      "powers": [
+        "Destroy an equipment card. If you do, put a mechanical golem from your hand into play."
+      ],
+      "icons": [
+        "HasPower",
+        "DestroyEquipment",
+        "PlayCardNow"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "Unity"
+      ],
+      "incapacitatedAbilities": [
+        "One player may draw a card.",
+        "One player may play a card.",
+        "The hero target with the lowest HP regains 2 HP."
+      ],
+      "flippedIcons": [
+        "DrawCardNow",
+        "PlayCardNow",
+        "GainHP"
+      ],
+      "complexity": 2,
+      "openingLines": {
+        "default": "Bad guys? Oh no! Looks like it's time to make some friends!"
       }
     }
   ],

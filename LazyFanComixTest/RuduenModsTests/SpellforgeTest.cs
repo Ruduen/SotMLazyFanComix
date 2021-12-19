@@ -220,6 +220,26 @@ namespace LazyFanComixTest
             QuickHPCheck(CardDamage["Controlled"]);
         }
 
+        [Test()]
+        public void TestInnateRedefineModifierOddLifelineCasePower()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Spellforge/SpellforgeRedefineCharacter", "Lifeline", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            // Clear hand so multiple choices doesn't mess things up.
+            DestroyNonCharacterVillainCards();
+            DiscardAllCards(lifeline);
+
+            DecisionSelectCards = new Card[] { PutInHand("Controlled"), PutInHand("CalculatedAction"), PutInHand("UnnaturalUpheaval"), PlayCard("LivingForceField"), baron.CharacterCard, null };
+
+            GoToUsePowerPhase(Spellforge);
+            UsePower(Spellforge);
+        }
 
         [Test()]
         public void TestEssenceNoDiscard()

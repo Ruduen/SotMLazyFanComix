@@ -146,6 +146,25 @@ namespace LazyFanComixTest
             GoToStartOfTurn(env);
         }
 
+        [Test()]
+        public void TestBunkerF6Tribunal()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "Legacy/AmericasGreatestLegacyCharacter", "TheCelestialTribunal"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            SelectFromBoxForNextDecision("BunkerFreedomSixCharacter", "Bunker");
+            PlayCard("CalledToJudgement");
+
+            GoToStartOfTurn(legacy);
+            DecisionSelectCard = FindCardInPlay("BunkerCharacter");
+            UsePower(legacy);
+        }
+
 
         [Test()]
         public void TestLifelineOffturnUpheaval()
