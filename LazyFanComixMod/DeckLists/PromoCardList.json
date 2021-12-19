@@ -176,7 +176,7 @@
         "HasPower",
         "Perform"
       ],
-      "hitpoints": 24,
+      "hitpoints": 22,
       "nemesisIdentifiers": [
         "TheArgentAdept"
       ],
@@ -388,10 +388,7 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "default": "Your evil-doing days are numbered, no matter how dangerous you are! Have at them, allies!",
-        "InfinitorCharacter": "Brother! You know me! We must help you return to your right mind.",
-        "HeroicInfinitorCharacter": "You have my hand, Nigel. And the aid of my allies, as well.",
-        "OblivAeonFrontPageCharacter": "Steady on, chaps. We'll find a way!"
+        "default": "Your evil-doing days are numbered, no matter how dangerous you are! Have at them, allies!"
       }
     }
   ],
@@ -522,9 +519,7 @@
       ],
       "complexity": 2,
       "openingLines": {
-        "default": "You're in my crosshairs. Can't imagine this will go well for you.",
-        "CitizenDawnCharacter": "Just because you have power, doesn't mean you're invulnerable. Come on!",
-        "OblivAeonFrontPageCharacter": "More power just means more reliance on that power. I'll always find a target."
+        "default": "You're in my crosshairs. Can't imagine this will go well for you."
       }
     }
   ],
@@ -683,7 +678,7 @@
       "backgroundColor": "FDEC45",
       "foilBackgroundColor": "FDEC45",
       "powers": "Until the end of your next turn, when {Knyfe} deals themselves damage, they regain 1 HP. Draw a card or play a card.",
-      "hitpoints": 29,
+      "hitpoints": 27,
       "icons": [ "HasPower", "DrawCardNow", "GainHP" ],
       "nemesisIdentifiers": [ "Knyfe" ],
       "incapacitatedAbilities": [

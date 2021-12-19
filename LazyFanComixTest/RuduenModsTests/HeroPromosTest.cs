@@ -110,6 +110,8 @@ namespace LazyFanComixTest
 
             StartGame();
 
+            DestroyNonCharacterVillainCards();
+
             Card[] initialCards = new Card[] { GetCardInPlay("IsothermicTransducer"), GetCardInPlay("GlacialStructure") };
 
             Assert.IsTrue(initialCards.Length == 2);
@@ -117,6 +119,10 @@ namespace LazyFanComixTest
 
             AssertNumberOfCardsInHand(az, 4);
             Assert.IsTrue(az.CharacterCardController.IsPropertyTrue("HeroSetupDone"));
+
+            QuickHPStorage(baron);
+            UsePower(az);
+            QuickHPCheck(-1);
 
             DestroyCards(initialCards);
 

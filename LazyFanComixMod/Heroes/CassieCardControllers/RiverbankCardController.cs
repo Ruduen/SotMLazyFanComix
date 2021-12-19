@@ -38,11 +38,10 @@ namespace LazyFanComix.Cassie
             return cardStr;
         }
 
-
-        public override void AddTriggers()
+        public override void AddStartOfGameTriggers()
         {
-            // Trigger is the best trigger for handling potential oddities with OblivAeon, so do Riverbank setup here.
-            
+            // Start of Game is best for handling potential oddities with OblivAeon, so do Riverbank setup here.
+
             this.AddStartOfTurnTrigger(
                 (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
                 (pca) => SharedCombatReadyCharacter.SetFlag(this),
@@ -52,7 +51,9 @@ namespace LazyFanComix.Cassie
             {
                 SetupRiverbank();
             }
-
+        }
+        public override void AddTriggers()
+        {
             this.AddTrigger<MoveCardAction>((MoveCardAction m) => m.Origin == this.Riverbank().UnderLocation && m.Destination != this.RiverDeck(), new Func<MoveCardAction, IEnumerator>(this.RefillRiverbankResponse), TriggerType.MoveCard, TriggerTiming.After);
             this.AddTrigger<PlayCardAction>((PlayCardAction p) => p.Origin == this.Riverbank().UnderLocation, new Func<PlayCardAction, IEnumerator>(this.RefillRiverbankResponse), TriggerType.PlayCard, TriggerTiming.After);
         }

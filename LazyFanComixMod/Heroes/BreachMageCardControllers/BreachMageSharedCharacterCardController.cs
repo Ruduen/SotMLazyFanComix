@@ -17,7 +17,7 @@ namespace LazyFanComix.BreachMage
         {
         }
 
-        public override void AddTriggers()
+        public override void AddStartOfGameTriggers()
         {
             // Start of Game Setup is done here so start of turn triggers can be done.
             this.AddStartOfTurnTrigger(
@@ -29,7 +29,9 @@ namespace LazyFanComix.BreachMage
             {
                 SetupBreaches();
             }
-
+        }
+        public override void AddTriggers()
+        {
             // add start-of-turn trigger to optionally cast spells
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, CastResponse, TriggerType.DestroyCard);
         }

@@ -15,7 +15,7 @@ namespace LazyFanComix.CaptainCosmic
         }
 
 
-        public override void AddTriggers()
+        public override void AddStartOfGameTriggers()
         {
             this.AddStartOfTurnTrigger(
                 (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
