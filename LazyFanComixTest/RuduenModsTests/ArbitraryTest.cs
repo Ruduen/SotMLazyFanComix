@@ -146,6 +146,26 @@ namespace LazyFanComixTest
             GoToStartOfTurn(env);
         }
 
+
+        [Test()]
+        public void TestLifelineOffturnUpheaval()
+        {
+            SetupGameController("BaronBlade", "Lifeline", "TheWraith", "TheCelestialTribunal");
+
+            StartGame();
+
+            GoToUsePowerPhase(wraith);
+
+            DestroyNonCharacterVillainCards();
+            PlayCard("LivingForceField");
+            QuickHPStorage(baron);
+            DiscardAllCards(lifeline);
+            PutInHand("UnnaturalUpheaval");
+            PlayCard("CalculatedAction");
+            QuickHPCheck(-3);
+
+        }
+
         #endregion Official Tests
     }
 }

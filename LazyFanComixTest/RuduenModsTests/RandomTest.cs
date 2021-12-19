@@ -47,7 +47,7 @@ namespace LazyFanComixTestRandom
 
 
         [Test]
-        [Repeat(100)]
+        [Repeat(10)]
         public void TestRandomGameWithModsToCompletion()
         {
             GameController gameController = SetupRandomGameController(false,
@@ -59,7 +59,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(100)]
+        [Repeat(10)]
         public void TestSomewhatReasonableGameWithModsToCompletion()
         {
             GameController gameController = SetupRandomGameController(true,
@@ -71,7 +71,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(100)]
+        [Repeat(10)]
         public void TestMyStuff()
         {
             GameController gameController = SetupRandomGameController(true,
@@ -83,7 +83,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(100)]
+        [Repeat(10)]
         public void TestMyStuffAndGuise()
         {
             // For various Guise checks
@@ -97,7 +97,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(100)]
+        [Repeat(10)]
         public void TestMyStuffAndTempest()
         {
             // For PW Tempest Checks
@@ -111,7 +111,7 @@ namespace LazyFanComixTestRandom
         }
 
         [Test]
-        [Repeat(100)]
+        [Repeat(10)]
         public void TestMyStuffTribunal()
         {
             GameController gameController = SetupRandomGameController(true,

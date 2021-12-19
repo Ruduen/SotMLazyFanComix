@@ -37,7 +37,7 @@ namespace LazyFanComix.Spellforge
                     if (cc is SpellforgeModifierSharedCardController)
                     {
                         SpellforgeModifierSharedCardController wcc = (SpellforgeModifierSharedCardController)this.FindCardController(c);
-                        this.AddToTemporaryTriggerList(wcc.AddQueueModifierTrigger(this));
+                        this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this, null));
                         this.AddToTemporaryTriggerList(wcc.AddDesignatePlayTrigger(this));
                         modifierCardControllers.Add(wcc);
                         if (c.DoKeywordsContain("prefix"))
@@ -73,7 +73,7 @@ namespace LazyFanComix.Spellforge
                 TurnTaker tt = (from d in sttd where d.Completed select d.SelectedTurnTaker).FirstOrDefault();
                 if (tt != null)
                 {
-                    coroutine = this.GameController.SelectAndPlayCardFromHand(this.FindTurnTakerController(tt).ToHero(), false, cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot), cardSource: this.GetCardSource());
+                    coroutine = this.GameController.SelectAndPlayCardFromHand(this.FindTurnTakerController(tt).ToHero(), true, cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot), cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }

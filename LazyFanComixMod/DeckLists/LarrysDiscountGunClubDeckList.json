@@ -78,7 +78,7 @@
       "title": "T-Shirt Cannon",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, they may discard a card to switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Discard a card. This hero deals 1 target 3 projectile damage, increased by 2 if you discarded an equipment this way, increased by an additional 2 if you discarded a religalia this way.)[/i]"
+        "During the start of a player's turn, they may discard a card to switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Discard a card. This hero deals 1 target 3 projectile damage, increased by 1 if you discarded an equipment this way, increased by an additional 1 if you discarded a religalia this way.)[/i]"
       ],
       "icons": [
         "StartOfTurnAction",
@@ -94,7 +94,7 @@
       "count": 1,
       "kind": "Hero",
       "title": "T-Shirt Cannon",
-      "powers": [ "Discard a card. This hero deals 1 target 3 projectile damage, increased by 2 if you discarded an equipment card this way and increased by an additional 2 if you discarded a religalia card this way." ],
+      "powers": [ "Discard a card. This hero deals 1 target 3 projectile damage, increased by 1 if you discarded an equipment card this way and increased by an additional 1 if you discarded a religalia card this way." ],
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time."
       ],
@@ -110,7 +110,7 @@
       ],
       "flavorQuotes": [
         {
-          "identifier": "Tsukiko",
+          "identifier": "Tsukiko Tanner",
           "text": "Oh, cool, {br}it even works with shoes!"
         }
       ],
@@ -122,7 +122,7 @@
       "title": "Overengineered Slingshot",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, their Hero may deal themselves 4 Fire Damage. If that hero was dealt damage this way, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Play the top card of your deck. This hero deals 1 target 1 fire damage. Put a card from your hand under the top card of your deck.)[/i]"
+        "During the start of a player's turn, their Hero may deal themselves 3 Fire Damage to switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: Play the top card of your deck. This hero deals 1 target 2 fire damage. Put a card from your hand under the top card of your deck.)[/i]"
       ],
       "icons": [
         "StartOfTurnAction",
@@ -138,7 +138,7 @@
       "count": 1,
       "kind": "Hero",
       "title": "Overengineered Slingshot",
-      "powers": [ "Play the top card of your deck. This hero deals 1 target 1 fire damage. Put a card from your hand under the top card of your deck." ],
+      "powers": [ "Play the top card of your deck. This hero deals 1 target 2 fire damage. Put a card from your hand under the top card of your deck." ],
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time."
       ],
@@ -170,7 +170,7 @@
       "title": "Glitter Gun",
       "body": [
         "Only 1 Ammo card may be in play next to this card at a time.",
-        "During the start of a player's turn, their Hero may destroy one of their non-character cards. If they do, switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: This hero deals up to 5 targets 1 radiant damage each. Reduce damage dealt by those targets by 1 until the start of your next turn.)[/i]"
+        "During the start of a player's turn, their Hero may destroy one of their non-character cards to switch this card with the Hero Equipment version of it and give that player control of it. [i](It has [b]Power[/b]: This hero deals up to 5 targets 1 radiant damage each. Reduce damage dealt by those targets by 1 until the start of your next turn.)[/i]"
       ],
       "icons": [
         "StartOfTurn",

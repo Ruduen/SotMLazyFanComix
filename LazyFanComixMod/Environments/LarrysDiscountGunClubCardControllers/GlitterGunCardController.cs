@@ -26,7 +26,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
                 coroutine = this.GameController.SelectAndDestroyCards(httc, new LinqCardCriteria((Card c) => !c.IsCharacter && c.Owner == httc.TurnTaker), 1, false, 0, storedResultsAction: dcas, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                if (dcas.Any((DestroyCardAction dca) => dca.WasCardDestroyed))
+                if (dcas.Any((DestroyCardAction dca) => dca.CardToDestroy != null))
                 {
                     coroutine = this.ClaimCard(httc);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

@@ -130,7 +130,7 @@
       "title": "...of Disruption",
       "alternateTitle": "of Disruption",
       "keywords": [ "one-shot", "suffix" ],
-      "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw 3 cards.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, it deals itself 1 Sonic Damage." ],
+      "body": [ "{Spellforge} deals 1 Target 2 Sonic Damage. Draw 3 cards.", "[u]Suffix[/u]: After a non-Hero Target is dealt damage this way, other than by this Suffix, it deals itself 1 Sonic Damage." ],
       "icons": [ "DealDamageSonic", "DrawCardNow" ],
       "flavorQuotes": []
     },
@@ -220,7 +220,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Sorry, but I'm going to be getting the last word here."
+        "default": "I'm going to be getting the last word here."
       },
       "complexity": 2
     },
@@ -228,13 +228,13 @@
       "identifier": "SpellforgeCharacter",
       "promoIdentifier": "SpellforgeRedefineCharacter",
       "count": 1,
-      "title": "Spellforge",
+      "title": "Spellforge - Redefine",
       "body": "Redefine",
       "backgroundColor": "CC6666",
       "foilBackgroundColor": "CC6666",
       "character": true,
       "powers": [
-        "You may discard a card. One other player may play a One-Shot, applying the discarded card's [u]Prefix[/u] or [u]Suffix[/u] text to that One-Shot."
+        "Discard a card. One other player may play a One-Shot, applying the discarded card's [u]Prefix[/u] or [u]Suffix[/u] text to that One-Shot."
       ],
       "icons": [
         "HasPower",
@@ -260,5 +260,5 @@
       },
       "complexity": 2
     }
-  ],
+  ]
 }

@@ -258,7 +258,7 @@ namespace LazyFanComixTest
             QuickHPCheck(-3 - 0 - 2);
             DecisionSelectCard = PutInHand("AssaultRifle");
             UsePower(gunHero);
-            QuickHPCheck(-3 - 2);
+            QuickHPCheck(-3 - 1);
         }
 
 
@@ -285,7 +285,7 @@ namespace LazyFanComixTest
             QuickHPStorage(omnitron);
             DecisionSelectCard = PutInHand("SGC_HighHeals");
             UsePower(gunHero);
-            QuickHPCheck(-3 - 2 - 2);
+            QuickHPCheck(-3 - 1 - 1);
         }
 
 
@@ -385,15 +385,14 @@ namespace LazyFanComixTest
             GoToStartOfTurn(expatriette);
             AssertInPlayArea(expatriette, gunHero);
             AssertOffToTheSide(gun);
-            QuickHPCheck(-4);
+            QuickHPCheck(-3); // Damage to take.
 
             Card stack = expatriette.HeroTurnTaker.Hand.Cards.FirstOrDefault();
             DecisionSelectCard = stack;
 
             QuickHPStorage(omnitron);
             UsePower(gunHero);
-            AssertInTrash(ammo); // Ammo used.
-            QuickHPCheck(-1 - 2);
+            QuickHPCheck(-2 - 2);
             AssertOnTopOfLocation(stack, expatriette.HeroTurnTaker.Deck, 1);
         }
 
@@ -418,9 +417,9 @@ namespace LazyFanComixTest
             DecisionYesNo = true;
             DecisionSelectCards = new Card[] { omnitron.CharacterCard };
             GoToStartOfTurn(tachyon);
-            AssertInPlayArea(env, gun);
-            AssertOffToTheSide(gunHero);
-            QuickHPCheck(0, -4);
+            AssertInPlayArea(tachyon, gunHero);
+            AssertOffToTheSide(gun);
+            QuickHPCheck(0, -3);
         }
 
         [Test()]
@@ -542,22 +541,22 @@ namespace LazyFanComixTest
         [Test()]
         public void TestStandoff()
         {
-            SetupGameController("Omnitron", "Expatriette", "Haka", "LazyFanComix.LarrysDiscountGunClub");
+            SetupGameController("BaronBlade", "Expatriette", "Haka", "LazyFanComix.LarrysDiscountGunClub");
 
             StartGame();
-
+            DestroyNonCharacterVillainCards();
 
             Card play = PlayCard("Standoff");
             AssertNumberOfCardsInPlay((Card c) => c.IsGun, 1);
 
-            QuickHPStorage(omnitron, expatriette, haka);
-            DealDamage(omnitron, haka, 5, DamageType.Fire);
-            DealDamage(haka, omnitron, 5, DamageType.Fire);
+            QuickHPStorage(baron, expatriette, haka);
+            DealDamage(baron, haka, 5, DamageType.Fire);
+            DealDamage(haka, baron, 5, DamageType.Fire);
             // Highest are immune. 
             QuickHPCheck(0, 0, 0);
 
-            DealDamage(omnitron, expatriette, 5, DamageType.Fire);
-            DealDamage(expatriette, omnitron, 5, DamageType.Fire);
+            DealDamage(baron, expatriette, 5, DamageType.Fire);
+            DealDamage(expatriette, baron, 5, DamageType.Fire);
 
             // Damage is dealt. 
             QuickHPCheck(-5, -5, 0);
@@ -566,19 +565,19 @@ namespace LazyFanComixTest
             SetHitPoints(haka, 15);
 
             DecisionYesNo = true;
-            QuickHPStorage(omnitron, expatriette, haka);
-            DealDamage(omnitron, haka, 5, DamageType.Fire);
-            DealDamage(haka, omnitron, 5, DamageType.Fire);
-            DealDamage(expatriette, omnitron, 5, DamageType.Fire);
-            DealDamage(omnitron, expatriette, 5, DamageType.Fire);
+            QuickHPStorage(baron, expatriette, haka);
+            DealDamage(baron, haka, 5, DamageType.Fire);
+            DealDamage(haka, baron, 5, DamageType.Fire);
+            DealDamage(expatriette, baron, 5, DamageType.Fire);
+            DealDamage(baron, expatriette, 5, DamageType.Fire);
             // Tied highest are immune if yes. 
             QuickHPCheck(0, 0, 0);
 
             DecisionYesNo = false;
-            DealDamage(omnitron, haka, 5, DamageType.Fire);
-            DealDamage(haka, omnitron, 5, DamageType.Fire);
-            DealDamage(expatriette, omnitron, 5, DamageType.Fire);
-            DealDamage(omnitron, expatriette, 5, DamageType.Fire);
+            DealDamage(baron, haka, 5, DamageType.Fire);
+            DealDamage(haka, baron, 5, DamageType.Fire);
+            DealDamage(expatriette, baron, 5, DamageType.Fire);
+            DealDamage(baron, expatriette, 5, DamageType.Fire);
 
             // First damage was not prevented, so damage is otherwise automatic for the rest.
             QuickHPCheck(-5, 0, -5);

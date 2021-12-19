@@ -191,9 +191,8 @@ namespace LazyFanComixTest
 
             // Clear legacy's hand so multiple choices doesn't mess things up.
             DiscardAllCards(legacy);
-            PutInHand("FlyingSmash"); 
 
-            DecisionSelectCards = new Card[] { PutInHand("Ray"), Spellforge.CharacterCard, null };
+            DecisionSelectCards = new Card[] { PutInHand("Ray"), PutInHand("FlyingSmash"), Spellforge.CharacterCard, null };
 
             QuickHPStorage(Spellforge.CharacterCard);
             UsePower(Spellforge);
@@ -213,9 +212,8 @@ namespace LazyFanComixTest
 
             // Clear legacy's hand so multiple choices doesn't mess things up.
             DiscardAllCards(legacy);
-            PutInHand("FlyingSmash");
 
-            DecisionSelectCards = new Card[] { PutInHand("Controlled"), Spellforge.CharacterCard, null };
+            DecisionSelectCards = new Card[] { PutInHand("Controlled"), PutInHand("FlyingSmash"), Spellforge.CharacterCard, null };
 
             QuickHPStorage(Spellforge.CharacterCard);
             UsePower(Spellforge);
@@ -560,7 +558,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard(card);
-            QuickHandCheck(- 1 + 3); // 1 played, 3 drawn.
+            QuickHandCheck(-1 + 3); // 1 played, 3 drawn.
             AssertInTrash(environment); // Destroyed.
         }
 
@@ -581,7 +579,7 @@ namespace LazyFanComixTest
             QuickHandStorage(Spellforge);
             PlayCard(card);
             QuickHPCheck(3); // Heal 2.
-            QuickHandCheck(- 1 + 3); // One played, 3 drawn.
+            QuickHandCheck(-1 + 3); // One played, 3 drawn.
         }
 
         [Test]
@@ -666,7 +664,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Spellforge);
             PlayCard(card);
-            QuickHandCheck(- 2 + 2 + 3); // 2 played, 2 added, 3 drawn.
+            QuickHandCheck(-2 + 2 + 3); // 2 played, 2 added, 3 drawn.
         }
 
         [Test]

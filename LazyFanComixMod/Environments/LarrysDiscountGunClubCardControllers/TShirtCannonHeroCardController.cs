@@ -21,8 +21,8 @@ namespace LazyFanComix.LarrysDiscountGunClub
             {
                 this.GetPowerNumeral(0, 1),
                 this.GetPowerNumeral(1, 3),
-                this.GetPowerNumeral(2, 2),
-                this.GetPowerNumeral(3, 2),
+                this.GetPowerNumeral(2, 1),
+                this.GetPowerNumeral(3, 1),
             };
             List<DiscardCardAction> dcas = new List<DiscardCardAction>();
             IEnumerator coroutine;

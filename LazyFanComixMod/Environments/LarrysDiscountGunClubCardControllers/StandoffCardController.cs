@@ -39,8 +39,8 @@ namespace LazyFanComix.LarrysDiscountGunClub
             // Quit if any failures on targetting retrieval or self-damage.
             if (dda?.DamageSource?.Card == null || dda?.Target == null || !dda.CanDealDamage || !dda.CanBeCancelled) { return false; }
 
-            IEnumerable<Card> highestVillains = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsVillainCharacterCard, this.GetCardSource(), 1);
-            IEnumerable<Card> highestHeroes = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsHeroCharacterCard, this.GetCardSource(), 1);
+            IEnumerable<Card> highestVillains = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsVillainCharacterCard, this.GetCardSource());
+            IEnumerable<Card> highestHeroes = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsHeroCharacterCard, this.GetCardSource());
 
             // If Highest Hero is source and highest villain is target, or highest villain is source and highest hero is target, consider.
             return (highestHeroes.Contains(dda.DamageSource.Card) && highestVillains.Contains(dda.Target)) || (highestVillains.Contains(dda.DamageSource.Card) && highestHeroes.Contains(dda.Target));
@@ -48,8 +48,8 @@ namespace LazyFanComix.LarrysDiscountGunClub
 
         private IEnumerator CancelDamageIfSourceTargetAreHighestEnemies(DealDamageAction dda)
         {
-            IEnumerable<Card> highestVillains = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsVillainCharacterCard, this.GetCardSource(), 1);
-            IEnumerable<Card> highestHeroes = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsHeroCharacterCard, this.GetCardSource(), 1);
+            IEnumerable<Card> highestVillains = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsVillainCharacterCard, this.GetCardSource());
+            IEnumerable<Card> highestHeroes = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsHeroCharacterCard, this.GetCardSource());
             List<YesNoCardDecision> yncd = new List<YesNoCardDecision>();
             IEnumerator coroutine;
 

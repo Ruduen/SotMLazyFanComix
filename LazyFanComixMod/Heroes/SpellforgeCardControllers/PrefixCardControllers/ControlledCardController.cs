@@ -27,8 +27,7 @@ namespace LazyFanComix.Spellforge
                 // Criteria: Core and either more than 1 to hero, or non-hero. 
                 (DealDamageAction dda) => CoreDealDamageActionCriteria(dda) && (!dda.Target.IsHero || (dda.Amount > 1 && dda.Target.IsHero)),
                RunResponse,
-                new TriggerType[] { TriggerType.ReduceDamage, TriggerType.IncreaseDamage },
-                TriggerTiming.Before);
+                new TriggerType[] { TriggerType.ReduceDamage, TriggerType.IncreaseDamage }, TriggerTiming.Before, orderMatters: true);
 
             return __reduceDamageTrigger;
         }

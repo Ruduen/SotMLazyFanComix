@@ -38,17 +38,19 @@ namespace LazyFanComix.Spellforge
             return;
         }
 
-        public ITrigger AddQueueModifierTrigger(CardController cardControllerActivatingModifiers)
-        {
-            _cardControllerActivatingModifiers = cardControllerActivatingModifiers;
-            return AddModifierTriggerOverride();
-        }
-
         public ITrigger AddDesignatePlayTrigger(CardController cardControllerActivatingModifiers)
         {
             Func<PlayCardAction, IEnumerator> updateCardToModify = (pca) =>
             {
                 _cardToModify = pca.CardToPlay;
+                if (this.Card.DoKeywordsContain("prefix"))
+                {
+                    return this.GameController.SendMessageAction(pca.ResponsibleTurnTaker.Name + " plays " + this.Card.Definition.AlternateTitle + " " + pca.CardToPlay.Title + "!", Priority.Low, cardControllerActivatingModifiers.GetCardSource());
+                }
+                else if (this.Card.DoKeywordsContain("suffix"))
+                {
+                    return this.GameController.SendMessageAction(pca.ResponsibleTurnTaker.Name + " plays " + pca.CardToPlay.Title + " " + this.Card.Definition.AlternateTitle + "!", Priority.Low, cardControllerActivatingModifiers.GetCardSource());
+                }
                 return null;
             };
 

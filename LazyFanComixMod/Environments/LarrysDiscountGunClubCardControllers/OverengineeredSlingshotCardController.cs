@@ -20,14 +20,17 @@ namespace LazyFanComix.LarrysDiscountGunClub
             IEnumerator coroutine;
             if (pca.ToPhase.TurnTaker.IsHero)
             {
-                List<DealDamageAction> ddas = new List<DealDamageAction>();
+                List<YesNoCardDecision> yncds = new List<YesNoCardDecision>();
                 HeroTurnTakerController httc = this.GameController.FindHeroTurnTakerController(pca.ToPhase.TurnTaker.ToHero());
 
-                coroutine = this.DealDamage(httc.CharacterCard, httc.CharacterCard, 4, DamageType.Fire, optional: true, storedResults: ddas, cardSource: this.GetCardSource());
+                coroutine = this.GameController.MakeYesNoCardDecision(httc, SelectionType.DealDamageSelf, this.Card, storedResults: yncds, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                if (ddas.Any((DealDamageAction dda) => dda.DidDealDamage && dda.Target == dda.OriginalTarget))
+                if (yncds.Any((yncd) => yncd.Answer == true))
                 {
+                    coroutine = this.GameController.DealDamage(httc, httc.CharacterCard, (Card c) => c == httc.CharacterCard, 3, DamageType.Fire, cardSource: this.GetCardSource());
+                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
                     coroutine = this.ClaimCard(httc);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
