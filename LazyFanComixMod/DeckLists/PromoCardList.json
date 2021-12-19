@@ -157,6 +157,43 @@
       "openingLines": {
         "default": "I wonder if I can carry a tune all the way through this."
       }
+    },
+    {
+      "identifier": "TheArgentAdeptCharacter",
+      "promoIdentifier": "TheArgentAdeptCombatReadyCharacter",
+      "count": 1,
+      "title": "The Argent Adept",
+      "promoTitle": "Combat Ready Argent Adept",
+      "setup": [ "At the start of the game, search your deck and cards for {AlacritousSubdominant} and {ScherzoOfFrostAndFlame}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Vocalize",
+      "backgroundColor": "a97436",
+      "foilBackgroundColor": "F38A40",
+      "character": true,
+      "powers": [
+        "Activate a [u]perform[/u] text."
+      ],
+      "icons": [
+        "HasPower",
+        "Perform"
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "TheArgentAdept"
+      ],
+      "incapacitatedAbilities": [
+        "One Hero regains 1 HP.",
+        "One Hero may use a Power.",
+        "Select a damage type. Until the start of your next turn, increase all damage of that type dealt by hero targets by 1."
+      ],
+      "flippedIcons": [
+        "GainHP",
+        "UsePowerNow",
+        "IncreaseDamageDealt"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "If we work in concert, we will generate the harmonies of victory!"
+      }
     }
   ],
   "Benchmark": [
@@ -252,7 +289,6 @@
     {
       "identifier": "BunkerCharacter",
       "promoIdentifier": "BunkerCombatReadyCharacter",
-      "overrideTurnTakerController": "BunkerCombatReady",
       "count": 1,
       "title": "Bunker",
       "promoTitle": "Combat Ready Bunker",
@@ -321,11 +357,10 @@
     {
       "identifier": "CaptainCosmicCharacter",
       "promoIdentifier": "CaptainCosmicCombatReadyCharacter",
-      "overrideTurnTakerController": "CaptainCosmicCombatReady",
       "count": 1,
       "title": "Captain Cosmic",
       "promoTitle": "Combat Ready Captain Cosmic",
-      "setup": [ "At the start of the game, search your deck and cards for {CosmicWeapon}, {DestructiveResponse} and {UnflaggingAnimation}, move {CosmicWeapon} next to {CaptainCosmic}, put the other cards in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "setup": [ "At the start of the game, search your deck and cards for {CosmicWeapon}, {DestructiveResponse} and {SustainedInfluence}, move {CosmicWeapon} next to {CaptainCosmic}, put the other cards in play, shuffle your deck, and draw until you have 4 cards in hand." ],
       "body": "Fabrication",
       "icons": [
         "HasPower",
@@ -456,7 +491,6 @@
     {
       "identifier": "ExpatrietteCharacter",
       "promoIdentifier": "ExpatrietteCombatReadyCharacter",
-      "overrideTurnTakerController": "ExpatrietteCombatReady",
       "count": 1,
       "title": "Expatriette",
       "promoTitle": "Combat Ready Expatriette",
@@ -666,6 +700,43 @@
       "openingLines": {
         "default": "A chance to take a few more risks, eh?"
       }
+    },
+    {
+      "identifier": "KnyfeCharacter",
+      "promoIdentifier": "KnyfeCombatReadyCharacter",
+      "count": 1,
+      "title": "K.N.Y.F.E.",
+      "promoTitle": "Combat Ready K.N.Y.F.E",
+      "setup": [ "At the start of the game, search your deck and cards for {BattlefieldExperience} and {OverdoIt}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "body": "Energy Lance",
+      "icons": [
+        "HasPower",
+        "DealDamageEnergy"
+      ],
+      "backgroundColor": "FDEC45",
+      "foilBackgroundColor": "85C9A3",
+      "character": true,
+      "powers": [
+        "{Knyfe} deals 1 target 2 energy damage."
+      ],
+      "hitpoints": 30,
+      "nemesisIdentifiers": [
+        "Knyfe"
+      ],
+      "incapacitatedAbilities": [
+        "One hero may use a power.",
+        "One player may play a card.",
+        "Destroy an ongoing card."
+      ],
+      "flippedIcons": [
+        "UsePowerNow",
+        "PlayCardNow",
+        "DestroyOngoing"
+      ],
+      "complexity": 1,
+      "openingLines": {
+        "default": "Walcome! It's fair time for ye tae stand down, thank ye kindly!"
+      }
     }
   ],
   "LaComodora": [
@@ -855,7 +926,6 @@
     {
       "identifier": "MrFixerCharacter",
       "promoIdentifier": "MrFixerCombatReadyCharacter",
-      "overrideTurnTakerController": "MrFixerCombatReady",
       "count": 1,
       "title": "Mr. Fixer",
       "promoTitle": "Combat Ready Mr. Fixer",
@@ -955,7 +1025,6 @@
     {
       "identifier": "NightMistCharacter",
       "promoIdentifier": "NightMistCombatReadyCharacter",
-      "overrideTurnTakerController": "NightMistCombatReady",
       "count": 1,
       "title": "NightMist",
       "promoTitle": "Combat Ready NightMist",
@@ -1501,7 +1570,6 @@
     {
       "identifier": "UnityCharacter",
       "promoIdentifier": "UnityCombatReadyCharacter",
-      "overrideTurnTakerController": "UnityCombatReady",
       "count": 1,
       "title": "Unity",
       "promoTitle": "Combat Ready Unity",

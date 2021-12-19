@@ -1,18 +1,19 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Controller.NightMist;
+using Handelabra.Sentinels.Engine.Controller.TheArgentAdept;
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using LazyFanComix.Shared;
 using System.Collections;
 
-namespace LazyFanComix.NightMist
+namespace LazyFanComix.TheArgentAdept
 {
-    public class NightMistCombatReadyCharacterCardController : NightMistCharacterCardController
+    public class TheArgentAdeptCombatReadyCharacterCardController : TheArgentAdeptCharacterCardController
     {
-        public NightMistCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
+        public TheArgentAdeptCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
+
         public override void AddTriggers()
         {
             this.AddStartOfTurnTrigger(
@@ -22,7 +23,7 @@ namespace LazyFanComix.NightMist
             );
             if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
             {
-                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "MasterOfMagic", "TomeOfElderMagic" });
+                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "AlacritousSubdominant", "ScherzoOfFrostAndFlame" });
             }
         }
 

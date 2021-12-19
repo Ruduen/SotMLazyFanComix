@@ -2,6 +2,7 @@
 using Handelabra.Sentinels.Engine.Controller.AbsoluteZero;
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
+using LazyFanComix.Shared;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,54 +16,19 @@ namespace LazyFanComix.AbsoluteZero
         {
         }
 
-        protected Card GetPreferringDeck(string identifier)
+
+        public override void AddTriggers()
         {
-            Card[] cards = this.TurnTaker.GetCardsWhere((Card c) => c.Identifier == identifier).ToArray();
-            foreach (Card c in cards)
+            this.AddStartOfTurnTrigger(
+                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
+                (pca) => SharedCombatReadyCharacter.SetFlag(this),
+                TriggerType.Hidden
+            );
+            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
             {
-                if (c.Location.IsDeck)
-                {
-                    return c;
-                }
+                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "IsothermicTransducer", "GlacialStructure" });
             }
-            return cards.FirstOrDefault();
         }
-
-        public override void AddStartOfGameTriggers()
-        {
-            InitialSetup();
-        }
-
-        public void InitialSetup()
-        {
-            if (this.IsPropertyTrue(SetupDone))
-            {
-                return;
-            }
-
-            this.AddCardPropertyJournalEntry(SetupDone, true);
-            string[] setupCards = { "IsothermicTransducer", "GlacialStructure" };
-            IEnumerator coroutine;
-            List<Card> cardsToPlay = new List<Card>();
-            foreach (string s in setupCards)
-            {
-                cardsToPlay.Add(GetPreferringDeck(s));
-            }
-
-            foreach (Card c in cardsToPlay)
-            {
-                this.TurnTaker.MoveCard(c, this.TurnTaker.PlayArea);
-            }
-
-            while (this.HeroTurnTaker.NumberOfCardsInHand < 4 && this.TurnTaker.Deck.NumberOfCards > 0)
-            {
-                this.TurnTaker.MoveCard(this.TurnTaker.Deck.TopCard, this.HeroTurnTaker.Hand);
-            }
-
-        }
-
-        private const string SetupDone = "SetupDone";
-
 
     }
 }

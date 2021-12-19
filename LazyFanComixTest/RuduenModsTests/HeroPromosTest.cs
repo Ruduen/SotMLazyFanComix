@@ -110,10 +110,18 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            AssertIsInPlay("IsothermicTransducer");
-            AssertIsInPlay("GlacialStructure");
+            Card[] initialCards = new Card[] { GetCardInPlay("IsothermicTransducer"), GetCardInPlay("GlacialStructure") };
+
+            Assert.IsTrue(initialCards.Length == 2);
+            AssertIsInPlay(initialCards);
 
             AssertNumberOfCardsInHand(az, 4);
+            Assert.IsTrue(az.CharacterCardController.IsPropertyTrue("HeroSetupDone"));
+
+            DestroyCards(initialCards);
+
+            SaveAndLoad();
+            AssertNumberOfCardsInTrash(az, 2);
         }
 
         [Test()]
@@ -147,7 +155,7 @@ namespace LazyFanComixTest
 
             SelectFromBoxForNextDecision("LazyFanComix.AbsoluteZeroCombatReadyCharacter", "AbsoluteZero");
             SelectYesNoForNextDecision(false);
-            
+
 
             DestroyCard(legacy);
             GoToAfterEndOfTurn(legacy);
@@ -260,6 +268,19 @@ namespace LazyFanComixTest
             UsePower(adept);
             AssertInPlayArea(adept, card);
             QuickHPCheck(-2);
+        }
+
+        [Test()]
+        public void TestArgentAdeptCombatReady()
+        {
+            SetupGameController("BaronBlade", "TheArgentAdept/LazyFanComix.TheArgentAdeptCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(adept.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("AlacritousSubdominant", "ScherzoOfFrostAndFlame");
+
+            AssertNumberOfCardsInHand(adept, 4);
         }
 
         [Test()]
@@ -479,7 +500,7 @@ namespace LazyFanComixTest
         [Test()]
         public void TestCaptainCosmicCombatReady()
         {
-            SetupGameController("IronLegacy", "CaptainCosmic/LazyFanComix.CaptainCosmicCombatReadyCharacter", "Legacy", "AbsoluteZero", "Bunker", "Luminary", "Megalopolis");
+            SetupGameController("BaronBlade", "CaptainCosmic/LazyFanComix.CaptainCosmicCombatReadyCharacter", "Legacy", "AbsoluteZero", "Bunker", "Luminary", "Megalopolis");
             Assert.IsTrue(cosmic.CharacterCard.IsPromoCard);
 
             StartGame();
@@ -902,6 +923,20 @@ namespace LazyFanComixTest
 
             QuickHPCheck(0); // 1 damage, healed 1.
             QuickHandCheck(-1); // Card played.
+        }
+
+        [Test()]
+        public void TestKnyfeCombatReady()
+        {
+            SetupGameController("BaronBlade", "Knyfe/LazyFanComix.KnyfeCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(knyfe.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("BattlefieldExperience");
+            AssertIsInPlay("OverdoIt");
+
+            AssertNumberOfCardsInHand(knyfe, 4);
         }
 
         [Test()]

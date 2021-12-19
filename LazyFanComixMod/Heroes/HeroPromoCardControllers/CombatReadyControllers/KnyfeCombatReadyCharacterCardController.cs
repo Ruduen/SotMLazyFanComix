@@ -1,18 +1,19 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Controller.NightMist;
+using Handelabra.Sentinels.Engine.Controller.Knyfe;
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using LazyFanComix.Shared;
 using System.Collections;
 
-namespace LazyFanComix.NightMist
+namespace LazyFanComix.Knyfe
 {
-    public class NightMistCombatReadyCharacterCardController : NightMistCharacterCardController
+    public class KnyfeCombatReadyCharacterCardController : KnyfeCharacterCardController
     {
-        public NightMistCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
+        public KnyfeCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
+
         public override void AddTriggers()
         {
             this.AddStartOfTurnTrigger(
@@ -22,7 +23,7 @@ namespace LazyFanComix.NightMist
             );
             if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
             {
-                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "MasterOfMagic", "TomeOfElderMagic" });
+                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "BattlefieldExperience", "OverdoIt" });
             }
         }
 

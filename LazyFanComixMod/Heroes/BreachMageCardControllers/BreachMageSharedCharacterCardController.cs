@@ -1,5 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using LazyFanComix.Shared;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,21 +17,26 @@ namespace LazyFanComix.BreachMage
         {
         }
 
-        public override void AddStartOfGameTriggers()
-        {
-            SetupBreaches();
-        }
-
-        // Start of turn trigger to optionally cast spells.
         public override void AddTriggers()
         {
-            // add start-of-turn trigger to cast a spell
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.CastResponse), TriggerType.DestroyCard);
+            // Start of Game Setup is done here so start of turn triggers can be done.
+            this.AddStartOfTurnTrigger(
+                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
+                (pca) => SharedCombatReadyCharacter.SetFlag(this),
+                TriggerType.Hidden
+            );
+            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
+            {
+                SetupBreaches();
+            }
+
+            // add start-of-turn trigger to optionally cast spells
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, CastResponse, TriggerType.DestroyCard);
         }
 
         private void SetupBreaches()
         {
-            Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("breach")).ToArray();
+            Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.DoKeywordsContain("breach")).ToArray();
 
             for (int i = 0; i < BreachInitialFocus.Count() && i < breaches.Count(); i++)
             {

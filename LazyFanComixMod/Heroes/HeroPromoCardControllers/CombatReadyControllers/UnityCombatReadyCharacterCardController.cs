@@ -2,6 +2,7 @@
 using Handelabra.Sentinels.Engine.Controller.Unity;
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
+using LazyFanComix.Shared;
 using System.Collections;
 
 namespace LazyFanComix.Unity
@@ -12,10 +13,17 @@ namespace LazyFanComix.Unity
             : base(card, turnTakerController)
         {
         }
-
-        public IEnumerator DrawUntilFour()
+        public override void AddTriggers()
         {
-            return this.DrawCardsUntilHandSizeReached(this.DecisionMaker, 4);
+            this.AddStartOfTurnTrigger(
+                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
+                (pca) => SharedCombatReadyCharacter.SetFlag(this),
+                TriggerType.Hidden
+            );
+            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
+            {
+                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "VolatileParts", "PlatformBot" });
+            }
         }
 
     }
