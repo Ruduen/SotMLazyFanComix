@@ -3,42 +3,14 @@ using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
 
-// TODO: TEST!
-
 namespace LazyFanComix.Cassie
 {
-    public class CassieCharacterCardController : HeroCharacterCardController, ICassieRiverSharedCardController
+    public class CassieCharacterCardController : CassieSharedCharacterCardController
     {
-        public string str;
-        protected static Location _riverDeck;
-        protected static Card _riverbank;
-
         public CassieCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            _riverbank = null;
-            _riverDeck = null;
-            this.SpecialStringMaker.ShowSpecialString(GetRiverbankString, null, null);
         }
-
-        public string GetRiverbankString()
-        {
-            if (Riverbank() != null)
-            {
-                CardController riverCC = this.GameController.FindCardController(Riverbank());
-                if (riverCC is RiverbankCardController)
-                {
-                    return string.Format("The cards under the Riverbank are: {0}", new object[] { ((RiverbankCardController)riverCC).CardsAndCostsUnder() });
-                }
-            }
-            return "The Riverbank is not available.";
-        }
-
-        public override void AddStartOfGameTriggers()
-        {
-            base.AddStartOfGameTriggers();
-        }
-
         public override IEnumerator UsePower(int index = 0)
         {
             int[] powerNumerals = new int[] { this.GetPowerNumeral(0, 3), this.GetPowerNumeral(1, 3) };
@@ -86,27 +58,6 @@ namespace LazyFanComix.Cassie
             }
 
         }
-
-        //public IEnumerator MoveCardTest(SelectCardDecision d)
-        //{
-        //    IEnumerator coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Trash, false, false, false, null, false, null, null, null, true, false, null, false, false, false, false, this.GetCardSource());
-        //    if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        //}
-
-        //public bool ConfirmCost(Card c, int? spellValue)
-        //{
-        //    if (c.Location == this.Riverbank().UnderLocation)
-        //    {
-        //        int? tokenPoolValue = c.FindTokenPool("CassieCostPool").MaximumValue;
-        //        if (tokenPoolValue <= spellValue)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-
-        // TODO: Replace with something more unique!
         public override IEnumerator UseIncapacitatedAbility(int index)
         {
             IEnumerator coroutine;
@@ -134,22 +85,5 @@ namespace LazyFanComix.Cassie
             yield break;
         }
 
-        public Location RiverDeck()
-        {
-            if (CassieCharacterCardController._riverDeck == null)
-            {
-                CassieCharacterCardController._riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
-            }
-            return CassieCharacterCardController._riverDeck;
-        }
-
-        public Card Riverbank()
-        {
-            if (CassieCharacterCardController._riverbank == null)
-            {
-                CassieCharacterCardController._riverbank = this.FindCard("Riverbank", false);
-            }
-            return CassieCharacterCardController._riverbank;
-        }
     }
 }

@@ -22,16 +22,10 @@ namespace LazyFanComix.BreachMage
             this.AddTrigger(this.AddIncreaseDamageTrigger(criteria, 1, null, null, false));
         }
 
-        public override IEnumerator UseOpenPower()
+        public override IEnumerator UniquePower()
         {
-            // Play a card
-            IEnumerator coroutine;
-            coroutine = this.SelectAndPlayCardFromHand(this.HeroTurnTakerController);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            // Draw a card.
-            coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            // Play up to 3 spells.
+            return this.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 3, false, new int?(0), new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
         }
     }
 }

@@ -644,9 +644,10 @@ namespace LazyFanComixTest
 
             DiscardAllCards(Cassie);
 
-            PutInHand(Cassie, new List<string>() { "Waterlog", "RisingWaters", "Retcon" }.ToArray());
-
             // Pull 2, 3, and NA cards for testing.
+            IEnumerable<Card> cards = GetCards("Waterlog", "RisingWaters", "Retcon");
+            MoveCards(Cassie, cards, Cassie.HeroTurnTaker.Hand, overrideIndestructible: true);
+
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
             DecisionSelectTarget = mdp;

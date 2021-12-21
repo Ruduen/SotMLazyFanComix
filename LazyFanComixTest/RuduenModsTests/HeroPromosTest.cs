@@ -118,7 +118,6 @@ namespace LazyFanComixTest
             AssertIsInPlay(initialCards);
 
             AssertNumberOfCardsInHand(az, 4);
-            Assert.IsTrue(az.CharacterCardController.IsPropertyTrue("HeroSetupDone"));
 
             QuickHPStorage(baron);
             UsePower(az);
@@ -939,8 +938,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            AssertIsInPlay("BattlefieldExperience");
-            AssertIsInPlay("OverdoIt");
+            AssertIsInPlay("BattlefieldExperience", "KineticNeutralizer");
 
             AssertNumberOfCardsInHand(knyfe, 4);
         }

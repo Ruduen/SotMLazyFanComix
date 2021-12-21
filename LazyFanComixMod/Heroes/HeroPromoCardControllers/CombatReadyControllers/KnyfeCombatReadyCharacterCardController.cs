@@ -12,20 +12,13 @@ namespace LazyFanComix.Knyfe
         public KnyfeCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AddThisCardControllerToList(CardControllerListType.EnteringGameCheck);
+        }
+        public override IEnumerator PerformEnteringGameResponse()
+        {
+            return SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "BattlefieldExperience", "KineticNeutralizer" });
         }
 
-        public override void AddStartOfGameTriggers()
-        {
-            this.AddStartOfTurnTrigger(
-                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
-                (pca) => SharedCombatReadyCharacter.SetFlag(this),
-                TriggerType.Hidden
-            );
-            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
-            {
-                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "BattlefieldExperience", "OverdoIt" });
-            }
-        }
 
     }
 }

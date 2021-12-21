@@ -22,7 +22,7 @@ namespace LazyFanComix.Cassie
             coroutine = this.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Move to the bottom of the draw deck.
+            // Move to the bottom of the river deck.
             coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, this.Card, RiverDeck(), toBottom: true, evenIfIndestructible: true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }

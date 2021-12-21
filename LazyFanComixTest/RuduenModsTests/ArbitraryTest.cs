@@ -185,6 +185,25 @@ namespace LazyFanComixTest
 
         }
 
+
+
+        [Test()]
+        public void TestLifelineIsIncapDestroy()
+        {
+            SetupGameController("BaronBlade", "Lifeline", "TheWraith", "TheCelestialTribunal");
+
+            StartGame();
+
+            GoToUsePowerPhase(wraith);
+
+            DestroyNonCharacterVillainCards();
+            QuickHPStorage(baron);
+            DestroyCard(wraith);
+            PlayCard("UnnaturalUpheaval");
+            QuickHPCheck(-2);
+
+        }
+
         #endregion Official Tests
     }
 }

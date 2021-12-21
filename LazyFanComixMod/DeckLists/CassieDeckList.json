@@ -29,18 +29,18 @@
       "character": true,
       "powers": [ "You may discard up to 3 cards. You may move a card with an Aqua Cost of your discarded cards' total {magic} or less from the Riverbank to your hand, ignoring its Indestructable status. Draw until you have 3 cards." ],
       "icons": [ "HasPower", "Manipulate", "DrawCardNow" ],
-      "setup": [ "At the start of the game, put The Riverbank into play." ],
+      "setup": [ "At the start of the game, put The Riverbank into play. Take all River cards in {Cassie}'s deck and shuffle them together to create the River deck. [i](This is not currently displayed due to engine restrictions.)[/i] Then, place the top 4 cards of the River deck under this card." ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
         "Cassie"
       ],
       "incapacitatedAbilities": [
-        "One player may play a card.",
+        "One target regains 2 HP.",
         "One hero may use a power.",
         "One player may draw a card."
       ],
       "flippedIcons": [
-        "PlayCardNow",
+        "GainHP",
         "UsePowerNow",
         "DrawCardNow"
       ],
@@ -57,10 +57,8 @@
       "isReal": false,
       "title": "Riverbank",
       "body": [
-        "At the start of the game, take all River cards in {Cassie}'s deck and shuffle them together to create the River deck. [i](This is not currently displayed due to engine restrictions.)[/i] Then, place the top 4 cards of the River deck under this card.",
         "After a card beneath this is played or moved to somewhere other than the River deck, move the top card from the River deck beneath this until there are 4 cards beneath this.",
-        "This card and all cards beneath this card are indestructible.",
-        "This card is not a hero, villain, or environment card."
+        "This card is indestructible and is not a hero, villain, or environment card. Cards under this card are indestructible and are not considered in play."
       ],
       "icons": [
         "Indestructible",
@@ -398,8 +396,8 @@
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
       "character": true,
-      "setup": [ "At the start of the game, put The Riverbank into play. Shuffle all of your River cards to make the River deck." ],
-      "powers": "Move a card from your hand to the bottom of the River deck. Select a card under Riverbank with an Aqua Cost of up to 2 higher than the moved card and move it to your Trash. Draw until you have 3 cards.",
+      "setup": [ "At the start of the game, put The Riverbank into play. Take all River cards in {Cassie}'s deck and shuffle them together to create the River deck. [i](This is not currently displayed due to engine restrictions.)[/i] Then, place the top 4 cards of the River deck under this card." ],
+      "powers": "Move a card from your hand to the bottom of the River deck. Select a card under Riverbank with an Aqua Cost of up to 2 higher than the moved card and move it to your Hand. Draw until you have 3 cards.",
       "icons": [ "HasPower", "Manipulate", "DrawCardNow" ],
       "hitpoints": 24,
       "nemesisIdentifiers": [
@@ -432,7 +430,7 @@
       "backgroundColor": "7FFFD4",
       "foilBackgroundColor": "7FFFD4",
       "character": true,
-      "setup": [ "At the start of the game, put The Riverbank into play." ],
+      "setup": [ "At the start of the game, put The Riverbank into play. Take all River cards in {Cassie}'s deck and shuffle them together to create the River deck. [i](This is not currently displayed due to engine restrictions.)[/i] Then, place the top 4 cards of the River deck under this card." ],
       "powers": "Discard up to 2 cards with {magic} of 2 or more. For each card discarded this way, move 1 card from under Riverbank to the bottom of the River deck, ignoring its indestructible status. Move the card under the Riverbank with the lowest Gain Cost to your Trash, ignoring its indestructible status.",
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 27,

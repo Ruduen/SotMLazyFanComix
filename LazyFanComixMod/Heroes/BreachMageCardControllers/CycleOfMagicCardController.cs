@@ -1,5 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +14,20 @@ namespace LazyFanComix.BreachMage
         {
         }
 
+        public override void AddTriggers()
+        {
+            this.AddEndOfTurnTrigger((tt) => tt == this.TurnTaker, CastCycleAndSelfDestruct, new TriggerType[] { TriggerType.MoveCard, TriggerType.DestroySelf });
+        }
+
+
         public override IEnumerator Play()
         {
-            IEnumerator coroutine;
+            return this.DrawCards(this.HeroTurnTakerController, 2);
+        }
+
+        private IEnumerator CastCycleAndSelfDestruct(PhaseChangeAction arg)
+        {
             List<ActivateAbilityDecision> storedResults = new List<ActivateAbilityDecision>();
-
-            // Draw 2 cards.
-            coroutine = this.DrawCards(this.HeroTurnTakerController, 2);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             //// Use a Cast.
             //CardSource cardSource = this.GetCardSource();
             //if (cardSource == null || cardSource.Card.IsInPlayAndHasGameText || (cardSource.PowerSource.CardSource.Card.IsUnderCard && this.GameController.IsInCardControllerList(cardSource.PowerSource.CardSource.Card.Location.OwnerCard, CardControllerListType.UnderCardsCanHaveText)))
@@ -29,6 +35,7 @@ namespace LazyFanComix.BreachMage
             //    yield break;
             //}
 
+            IEnumerator coroutine;
             // NOTE: REMOVE IF ENGINE ISSUE IS EVER FIXED!
             if (this.GetCardSource().Card.IsInPlayAndHasGameText)
             {
@@ -43,6 +50,9 @@ namespace LazyFanComix.BreachMage
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }
+
+            coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

@@ -14,21 +14,12 @@ namespace LazyFanComix.AbsoluteZero
         public AbsoluteZeroCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AddThisCardControllerToList(CardControllerListType.EnteringGameCheck);
         }
 
-
-        public override void AddStartOfGameTriggers()
+        public override IEnumerator PerformEnteringGameResponse()
         {
-            this.AddStartOfTurnTrigger(
-                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
-                (pca) => SharedCombatReadyCharacter.SetFlag(this),
-                TriggerType.Hidden
-            );
-            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
-            {
-                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "IsothermicTransducer", "GlacialStructure" });
-            }
+            return SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "IsothermicTransducer", "GlacialStructure" });
         }
-
     }
 }

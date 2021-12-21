@@ -8,7 +8,6 @@ using System.Linq;
 
 namespace LazyFanComix.Cassie
 {
-    // Token: 0x0200054D RID: 1357
     public class RiverbankCardController : CassieRiverSharedCardController
     {
         public RiverbankCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
@@ -38,24 +37,11 @@ namespace LazyFanComix.Cassie
             return cardStr;
         }
 
-        public override void AddStartOfGameTriggers()
-        {
-            // Start of Game is best for handling potential oddities with OblivAeon, so do Riverbank setup here.
-
-            this.AddStartOfTurnTrigger(
-                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
-                (pca) => SharedCombatReadyCharacter.SetFlag(this),
-                TriggerType.Hidden
-            );
-            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
-            {
-                SetupRiverbank();
-            }
-        }
         public override void AddTriggers()
         {
-            this.AddTrigger<MoveCardAction>((MoveCardAction m) => m.Origin == this.Riverbank().UnderLocation && m.Destination != this.RiverDeck(), new Func<MoveCardAction, IEnumerator>(this.RefillRiverbankResponse), TriggerType.MoveCard, TriggerTiming.After);
-            this.AddTrigger<PlayCardAction>((PlayCardAction p) => p.Origin == this.Riverbank().UnderLocation, new Func<PlayCardAction, IEnumerator>(this.RefillRiverbankResponse), TriggerType.PlayCard, TriggerTiming.After);
+            this.Card.UnderLocation.OverrideIsInPlay = false;
+            this.AddTrigger<MoveCardAction>((MoveCardAction m) => m.Origin == this.Riverbank().UnderLocation && m.Destination != this.RiverDeck(), RefillRiverbankResponse, TriggerType.MoveCard, TriggerTiming.After);
+            this.AddTrigger<PlayCardAction>((PlayCardAction p) => p.Origin == this.Riverbank().UnderLocation, RefillRiverbankResponse, TriggerType.MoveCard, TriggerTiming.After);
         }
 
         public override bool AskIfCardIsIndestructible(Card card)
@@ -65,52 +51,22 @@ namespace LazyFanComix.Cassie
 
         private IEnumerator RefillRiverbankResponse(PlayCardAction p)
         {
-            IEnumerator coroutine = RefillRiverbankResponseHelper();
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            return RefillRiverbankResponseHelper();
         }
 
         private IEnumerator RefillRiverbankResponse(MoveCardAction m)
         {
-            IEnumerator coroutine = RefillRiverbankResponseHelper();
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            return RefillRiverbankResponseHelper();
         }
 
         private IEnumerator RefillRiverbankResponseHelper()
         {
             IEnumerator coroutine;
             Card remainingCard = Riverbank().UnderLocation.Cards.FirstOrDefault();
-            //// Move remaining riverbank cards.
-            //// Removed during physical revamp to make the process simpler.
-            //while (remainingCard != null)
-            //{
-            //    coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, remainingCard, RiverDeck(), toBottom: true, evenIfIndestructible: true);
-            //    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            //    remainingCard = Riverbank().UnderLocation.Cards.FirstOrDefault();
-            //}
-
-            // Confirm number of cards to move.
-            int cardsToMove = 4 - Riverbank().UnderLocation.Cards.Count();
 
             // Then, move the top card to the riverbank. Normal empty deck logic should work if they aren't available.
-            coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, RiverDeck().GetTopCards(cardsToMove), Riverbank().UnderLocation);
+            coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, RiverDeck().GetTopCards(4 - Riverbank().UnderLocation.Cards.Count()), Riverbank().UnderLocation);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        }
-        private void SetupRiverbank()
-        {
-            IEnumerable<Card> riverCards = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("river") && c.Owner == this.TurnTaker && c.Location == this.TurnTaker.OffToTheSide);
-            if(riverCards.Count() > 0)
-            {
-                Location riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
-                foreach (Card c in riverCards)
-                {
-                    this.TurnTaker.MoveCard(c, riverDeck);
-                }
-                riverDeck.ShuffleCards();
-                for (int i = 0; i < 4; i++)
-                {
-                    this.TurnTaker.MoveCard(riverDeck.TopCard, this.Card.UnderLocation);
-                }
-            }
         }
     }
 }

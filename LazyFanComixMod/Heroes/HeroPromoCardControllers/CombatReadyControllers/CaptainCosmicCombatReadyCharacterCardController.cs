@@ -12,27 +12,20 @@ namespace LazyFanComix.CaptainCosmic
         public CaptainCosmicCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AddThisCardControllerToList(CardControllerListType.EnteringGameCheck);
         }
 
-
-        public override void AddStartOfGameTriggers()
+        public override IEnumerator PerformEnteringGameResponse()
         {
-            this.AddStartOfTurnTrigger(
-                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
-                (pca) => SharedCombatReadyCharacter.SetFlag(this),
-                TriggerType.Hidden
-            );
-            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
-            {
-                InitialSetup();
-            }
+            IEnumerator coroutine;
+
+            coroutine = this.GameController.MoveCard(this.DecisionMaker, SharedCombatReadyCharacter.GetPreferringDeck(this.TurnTaker, "CosmicWeapon"), this.CharacterCard.NextToLocation, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "DestructiveResponse", "SustainedInfluence" });
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-        private void InitialSetup()
-        {
-            this.TurnTaker.MoveCard(SharedCombatReadyCharacter.GetPreferringDeck(this.TurnTaker, "CosmicWeapon"), this.CharacterCard.NextToLocation);
-            SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "DestructiveResponse", "SustainedInfluence" });
-        }
 
     }
 }

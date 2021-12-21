@@ -26,7 +26,7 @@
         "Destroy 1 of your Charge cards. If you do, any player draws 2 cards."
       ],
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
-      "hitpoints": 27,
+      "hitpoints": 26,
       "nemesisIdentifiers": [
         "BreachMage"
       ],
@@ -55,7 +55,7 @@
         "This card is Indestructible.",
         "1 Spell may be next to this card at a time."
       ],
-      "powers": [ "Remove 1 token from this card's Focus Pool. If no token was removed this way, you may play up to 3 Spells." ],
+      "powers": [ "Remove 1 token from this card's Focus Pool. You may draw a card or play a card." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -77,7 +77,7 @@
         "This card is Indestructible.",
         "1 Spell may be next to this card at a time."
       ],
-      "powers": [ "Remove 1 token from this card's Focus Pool. If no token was removed this way, you may play up to 3 Spells." ],
+      "powers": [ "Remove 1 token from this card's Focus Pool. You may draw a card or play a card." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -100,7 +100,7 @@
         "1 Spell may be next to this card at a time.",
         "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1."
       ],
-      "powers": [ "Remove 1 token from this card's Focus Pool. If no token was removed this way, you may play a card and draw a card." ],
+      "powers": [ "Remove 1 token from this card's Focus Pool. You may play up to 3 Spell cards." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -123,7 +123,7 @@
         "1 Spell may be next to this card at a time.",
         "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1."
       ],
-      "powers": [ "Remove 1 token from this card's Focus Pool. If no token was removed this way, you may play a card and draw a card." ],
+      "powers": [ "Remove 1 token from this card's Focus Pool. You may play up to 3 Spell cards." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -140,10 +140,10 @@
       "identifier": "CycleOfMagic",
       "count": 2,
       "title": "Cycle of Magic",
-      "keywords": [ "one-shot" ],
+      "keywords": [ "ongoing" ],
       "body": [
-        "Draw 2 cards.",
-        "Activate a card's [u]Cast[/u] text, then place that card on top of its deck."
+        "When this card enters play, draw 2 cards.",
+        "At the end of your turn, activate a card's [u]Cast[/u] text, place that card on top of its deck, and destroy this card."
       ],
       "icons": [ "DrawCardNow", "Manipulate" ],
       "flavorText": "..."
@@ -313,7 +313,7 @@
         "Destroy 1 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
       ],
       "icons": [ "HasPower", "Destroy" ],
-      "hitpoints": 30,
+      "hitpoints": 29,
       "nemesisIdentifiers": [
         "BreachMage"
       ],

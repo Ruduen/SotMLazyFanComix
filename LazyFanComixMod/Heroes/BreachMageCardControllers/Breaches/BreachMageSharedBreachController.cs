@@ -17,14 +17,9 @@ namespace LazyFanComix.BreachMage
             this.SpecialStringMaker.ShowTokenPool(FocusPool, null, null).Condition = (() => this.Card.IsInPlay);
         }
 
-        public virtual IEnumerator UseOpenPower()
-        {
-            // Play card.
-            IEnumerator coroutine = this.SelectAndPlayCardFromHand(this.HeroTurnTakerController);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        }
+        public abstract IEnumerator UniquePower();
 
-        public virtual IEnumerator UseFocusPower(int powerNumeral)
+        public IEnumerator FocusPower(int powerNumeral)
         {
             IEnumerator coroutine = this.GameController.RemoveTokensFromPool(this.Card.FindTokenPool("FocusPool"), powerNumeral);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -35,17 +30,16 @@ namespace LazyFanComix.BreachMage
             IEnumerator coroutine;
             int powerNumeral = this.GetPowerNumeral(0, 1);
 
-            if (FocusPool.CurrentValue == 0)
+            if (FocusPool.CurrentValue > 0)
             {
-                // Power when open.
-                coroutine = this.UseOpenPower();
+                // Always remove token. 
+                coroutine = FocusPower(powerNumeral);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-            else
-            {
-                coroutine = this.UseFocusPower(powerNumeral);
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
+
+            // Power when open.
+            coroutine = UniquePower();
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
         // Make this card indestructible if any other card asks. This is true on both sides!

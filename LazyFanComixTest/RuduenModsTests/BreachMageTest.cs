@@ -35,7 +35,7 @@ namespace LazyFanComixTest
             Assert.IsInstanceOf(typeof(HeroTurnTakerController), BreachMage);
             Assert.IsInstanceOf(typeof(BreachMageCharacterCardController), BreachMage.CharacterCardController);
 
-            Assert.AreEqual(27, BreachMage.CharacterCard.HitPoints);
+            Assert.AreEqual(26, BreachMage.CharacterCard.HitPoints);
 
             AssertNumberOfCardsInHand(BreachMage, 4); // Starting hand.
             AssertNumberOfCardsInDeck(BreachMage, 36); // Starting deck.
@@ -63,7 +63,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestBreachMageBreachOpenPowers()
+        public void TestBreachMageBreachPowers()
         {
             SetupGameController("BaronBlade", "LazyFanComix.BreachMage", "Megalopolis");
 
@@ -71,6 +71,8 @@ namespace LazyFanComixTest
 
             Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
             int[] initFocus = new int[] { 0, 1, 2, 3 };
+            DiscardAllCards(BreachMage);
+
             Card[] spells = FindCardsWhere((Card c) => c.IsSpell && c.Owner == BreachMage.HeroTurnTaker).ToArray();
             PutInHand(spells);
 
@@ -85,8 +87,10 @@ namespace LazyFanComixTest
 
             QuickHandStorage(BreachMage);
 
-            UsePower(breaches[0]); // Stable Breach: Play up to 3 spells.
-            UsePower(breaches[3]); // Open breach: Play + Draw.
+            DecisionSelectFunctions = new int?[] { 0, 1 };
+            UsePower(breaches[0]); // Stable Breach: Draw or Play
+            UsePower(breaches[0]); // Stable Breach: Draw or Play
+            UsePower(breaches[3]); // Open breach: Play 3.
             // Four spells should be in play.
             AssertIsInPlay(spells[0], spells[1], spells[2], spells[3]);
             QuickHandCheck(-3); // 4 spells played, 1 drawn.
@@ -134,8 +138,7 @@ namespace LazyFanComixTest
             Card card = PutInHand("FlareCascade");
 
             // Use 2 times to open.
-            UsePower(breach);
-            UsePower(breach);
+            RemoveTokensFromPool(breach.TokenPools.First(), 2);
 
             DecisionSelectCards = new Card[] { breach, mdp };
 
@@ -331,14 +334,17 @@ namespace LazyFanComixTest
 
             StartGame();
 
+            GoToStartOfTurn(BreachMage);
+
             Card spell = PlayCard("VisionShock");
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             Card cycle = PutInHand("CycleOfMagic");
             DecisionSelectTarget = mdp;
 
-            QuickHPStorage(mdp);
             QuickHandStorage(BreachMage);
             PlayCard(cycle);
+            QuickHPStorage(mdp);
+            GoToEndOfTurn(BreachMage);
             QuickHPCheck(-4); // Damage Dealt.
             QuickHandCheck(1); // 2 Cards Drawn, -1 for card played.
             AssertInDeck(spell);
@@ -355,9 +361,11 @@ namespace LazyFanComixTest
             Card spell = PlayCard("VisionShock");
             Card cycle = PutInHand("CycleOfMagic");
 
+            GoToStartOfTurn(BreachMage);
             PlayCard("InterpolationBeam");
             SetHitPoints(BreachMage.CharacterCard, 1);
             PlayCard(cycle);
+            GoToEndOfTurn(BreachMage);
 
         }
 

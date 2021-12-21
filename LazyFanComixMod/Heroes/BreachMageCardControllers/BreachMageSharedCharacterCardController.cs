@@ -15,20 +15,12 @@ namespace LazyFanComix.BreachMage
         public BreachMageSharedCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AddThisCardControllerToList(CardControllerListType.EnteringGameCheck);
         }
 
-        public override void AddStartOfGameTriggers()
+        public override IEnumerator PerformEnteringGameResponse()
         {
-            // Start of Game Setup is done here so start of turn triggers can be done.
-            this.AddStartOfTurnTrigger(
-                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
-                (pca) => SharedCombatReadyCharacter.SetFlag(this),
-                TriggerType.Hidden
-            );
-            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
-            {
-                SetupBreaches();
-            }
+            return SetupBreaches();
         }
         public override void AddTriggers()
         {
@@ -36,8 +28,10 @@ namespace LazyFanComix.BreachMage
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, CastResponse, TriggerType.DestroyCard);
         }
 
-        private void SetupBreaches()
+        private IEnumerator SetupBreaches()
         {
+            IEnumerator coroutine;
+
             Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.DoKeywordsContain("breach")).ToArray();
 
             for (int i = 0; i < BreachInitialFocus.Count() && i < breaches.Count(); i++)
@@ -48,11 +42,13 @@ namespace LazyFanComix.BreachMage
                     if (BreachInitialFocus[i] < 0 || BreachInitialFocus[i] > 4)
                     {
                         // Out of bounds breach - remove the breach from the game.
-                        this.TurnTaker.MoveCard(breaches[i], this.TurnTaker.OutOfGame);
+                        coroutine = this.GameController.MoveCard(this.DecisionMaker, breaches[i], this.TurnTaker.OutOfGame, cardSource: this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                     else if (focusPool.CurrentValue == 4) // If breach has not yet been initialized. Used for sanity checking on loads.
                     {
-                        focusPool.RemoveTokens(4 - BreachInitialFocus[i]);
+                        coroutine = this.GameController.RemoveTokensFromPool(focusPool, 4 - BreachInitialFocus[i], cardSource: this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                 }
             }

@@ -11,11 +11,10 @@ namespace LazyFanComix.BreachMage
         {
         }
 
-        public override IEnumerator UseOpenPower()
+        public override IEnumerator UniquePower()
         {
-            // Play up to 3 spells.
-            IEnumerator coroutine = this.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 3, false, new int?(0), new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            // Draw a card or play a card.
+            return this.DrawACardOrPlayACard(this.DecisionMaker, true);
         }
     }
 }

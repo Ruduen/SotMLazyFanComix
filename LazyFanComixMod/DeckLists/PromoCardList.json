@@ -702,7 +702,7 @@
       "count": 1,
       "title": "K.N.Y.F.E.",
       "promoTitle": "Combat Ready K.N.Y.F.E",
-      "setup": [ "At the start of the game, search your deck and cards for {BattlefieldExperience} and {OverdoIt}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "setup": [ "At the start of the game, search your deck and cards for {BattlefieldExperience} and {KineticNeutralizer}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
       "body": "Energy Lance",
       "icons": [
         "HasPower",

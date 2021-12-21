@@ -4,37 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-// TODO: TEST!
 
 namespace LazyFanComix.Cassie
 {
-    public class CassieEssenceFlowCharacterCardController : HeroCharacterCardController, ICassieRiverSharedCardController
+    public class CassieEssenceFlowCharacterCardController : CassieSharedCharacterCardController
     {
-        public string str;
-        protected static Location _riverDeck;
-        protected static Card _riverbank;
-
         public CassieEssenceFlowCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            _riverbank = null;
-            _riverDeck = null;
-            this.SpecialStringMaker.ShowSpecialString(GetRiverbankString, null, null);
         }
-
-        public string GetRiverbankString()
-        {
-            if (Riverbank() != null)
-            {
-                CardController riverCC = this.GameController.FindCardController(Riverbank());
-                if (riverCC is RiverbankCardController)
-                {
-                    return string.Format("The cards under the Riverbank are: {0}", new object[] { ((RiverbankCardController)riverCC).CardsAndCostsUnder() });
-                }
-            }
-            return "The Riverbank is not available.";
-        }
-
 
         public override IEnumerator UsePower(int index = 0)
         {
@@ -71,7 +49,7 @@ namespace LazyFanComix.Cassie
 
                         coroutine = this.GameController.SelectCardAndDoAction(
                             new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == this.Riverbank().UnderLocation && c.FindTokenPool("CassieCostPool") != null && c.FindTokenPool("CassieCostPool").MaximumValue != null && c.FindTokenPool("CassieCostPool").MaximumValue <= spellValue)),
-                            (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Trash, false, false, false, null, true, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
+                            (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Hand, false, false, false, null, true, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
                             false);
                         if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
@@ -94,7 +72,6 @@ namespace LazyFanComix.Cassie
             }
         }
 
-        // TODO: Replace with something more unique!
         public override IEnumerator UseIncapacitatedAbility(int index)
         {
             IEnumerator coroutine;
@@ -102,7 +79,7 @@ namespace LazyFanComix.Cassie
             {
                 case 0:
                     {
-                        coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
+                        coroutine = this.GameController.SelectAndGainHP(this.DecisionMaker, 2, false, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                         break;
                     }
@@ -120,32 +97,6 @@ namespace LazyFanComix.Cassie
                     }
             }
             yield break;
-        }
-
-        public Location RiverDeck()
-        {
-            if (CassieEssenceFlowCharacterCardController._riverDeck == null)
-            {
-                CassieEssenceFlowCharacterCardController._riverDeck = this.TurnTaker.FindSubDeck("RiverDeck");
-                if (CassieEssenceFlowCharacterCardController._riverDeck == null)
-                {
-                    TurnTaker turnTaker = this.FindTurnTakersWhere((TurnTaker tt) => tt.Identifier == "Cassie", false).FirstOrDefault();
-                    if (turnTaker != null)
-                    {
-                        CassieEssenceFlowCharacterCardController._riverDeck = turnTaker.FindSubDeck("RiverDeck");
-                    }
-                }
-            }
-            return CassieEssenceFlowCharacterCardController._riverDeck;
-        }
-
-        public Card Riverbank()
-        {
-            if (CassieEssenceFlowCharacterCardController._riverbank == null)
-            {
-                CassieEssenceFlowCharacterCardController._riverbank = this.FindCard("Riverbank", false);
-            }
-            return CassieEssenceFlowCharacterCardController._riverbank;
         }
     }
 }

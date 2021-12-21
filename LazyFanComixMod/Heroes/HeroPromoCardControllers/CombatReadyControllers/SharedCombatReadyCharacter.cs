@@ -22,34 +22,28 @@ namespace LazyFanComix.Shared
             return cards.FirstOrDefault();
         }
 
-        public static void InitialSetupPutInPlay(CharacterCardController ccc, string[] setupCards)
+        public static IEnumerator InitialSetupPutInPlay(CardController cc, string[] setupCards)
         {
             IEnumerator coroutine;
             List<Card> cardsToPlay = new List<Card>();
+
             foreach (string s in setupCards)
             {
-                cardsToPlay.Add(GetPreferringDeck(ccc.TurnTaker, s));
+                cardsToPlay.Add(GetPreferringDeck(cc.TurnTaker, s));
             }
 
-            foreach (Card c in cardsToPlay.Where((Card c) => c != null))
-            {
-                ccc.TurnTaker.MoveCard(c, ccc.TurnTaker.PlayArea);
-            }
+            coroutine = cc.GameController.MoveCards(cc.DecisionMaker, cardsToPlay, cc.TurnTaker.PlayArea, false, true, cardSource: cc.GetCardSource());
+            if (cc.UseUnityCoroutines) { yield return cc.GameController.StartCoroutine(coroutine); } else { cc.GameController.ExhaustCoroutine(coroutine); }
 
-            ccc.TurnTaker.Deck.ShuffleCards();
+            coroutine = cc.GameController.ShuffleLocation(cc.TurnTaker.Deck, cardSource: cc.GetCardSource());
+            if (cc.UseUnityCoroutines) { yield return cc.GameController.StartCoroutine(coroutine); } else { cc.GameController.ExhaustCoroutine(coroutine); }
 
-            while (ccc.TurnTaker.IsHero && ccc.HeroTurnTaker.NumberOfCardsInHand < 4 && ccc.TurnTaker.Deck.NumberOfCards > 0)
+            if (cc.TurnTaker.IsHero && cc.HeroTurnTaker.NumberOfCardsInHand < 4 && cc.TurnTaker.Deck.NumberOfCards > 0)
             {
-                ccc.TurnTaker.MoveCard(ccc.TurnTaker.Deck.TopCard, ccc.HeroTurnTaker.Hand);
+                coroutine = cc.GameController.MoveCards(cc.DecisionMaker, cc.TurnTaker.Deck.GetTopCards(4 - cc.HeroTurnTaker.NumberOfCardsInHand), cc.HeroTurnTaker.Hand, cardSource: cc.GetCardSource());
+                if (cc.UseUnityCoroutines) { yield return cc.GameController.StartCoroutine(coroutine); } else { cc.GameController.ExhaustCoroutine(coroutine); }
             }
         }
 
-        public static IEnumerator SetFlag(CardController cc)
-        {
-            cc.AddCardPropertyJournalEntry(SetupDone, true);
-            yield break;
-        }
-
-        public static string SetupDone { get { return "HeroSetupDone"; } }
     }
 }

@@ -11,20 +11,14 @@ namespace LazyFanComix.Expatriette
         public ExpatrietteCombatReadyCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AddThisCardControllerToList(CardControllerListType.EnteringGameCheck);
+        }
+        public override IEnumerator PerformEnteringGameResponse()
+        {
+            return SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "SpeedLoading", "Prejudice" });
+
         }
 
-        public override void AddStartOfGameTriggers()
-        {
-            this.AddStartOfTurnTrigger(
-                (tt) => !this.IsPropertyTrue(SharedCombatReadyCharacter.SetupDone),
-                (pca) => SharedCombatReadyCharacter.SetFlag(this),
-                TriggerType.Hidden
-            );
-            if (!this.HasBeenSetToTrueThisGame(SharedCombatReadyCharacter.SetupDone))
-            {
-                SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "SpeedLoading", "Prejudice" });
-            }
-        }
 
     }
 }
