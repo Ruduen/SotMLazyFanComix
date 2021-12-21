@@ -191,7 +191,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestVillainGunGooBlasterAmmo()
+        public void TestVillainGunPaintballMortarAmmo()
         {
             SetupGameController("Omnitron", "Expatriette", "Legacy", "VoidGuardWrithe", "LazyFanComix.LarrysDiscountGunClub");
 
@@ -199,7 +199,7 @@ namespace LazyFanComixTest
 
             GoToEndOfTurn(expatriette);
 
-            PlayCard("GooBlaster");
+            PlayCard("PaintballMortar");
             Card ammo = PlayCard("QuantumRounds");
 
             QuickHPStorage(expatriette, legacy, voidWrithe);

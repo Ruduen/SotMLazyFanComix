@@ -31,12 +31,12 @@
       "flavorText": "Greyhat tried to shout, voice drowned {br}out by the booms of the cannon. {br}“It's a sonic weapon! How is it firing bullets? {BR}Heck, [i]why[/i] is it firing bullets?”"
     },
     {
-      "identifier": "GooBlaster",
+      "identifier": "PaintballMortar",
       "count": 1,
-      "title": "Goo Blaster",
+      "title": "Paintball Mortar",
       "body": [
         "Any number of Ammo cards may be in play next to this card.",
-        "At the start of the Environment turn, the Villain with the highest HP deals the 2 Hero Targets with the Highest HP 3 Toxic Damage each. Each player whose Target took damage this way discards 1 card for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
+        "At the start of the Environment turn, the Villain with the highest HP deals the 2 Hero targets with the Highest HP 3 Toxic Damage each. Each player whose target took damage this way discards 1 card for each Ammo card next to this card. Then, destroy each Ammo card next to this card."
       ],
       "hitpoints": 9,
       "icons": [
@@ -49,7 +49,7 @@
         "gun",
         "device"
       ],
-      "flavorText": "“Does anybody know what's loaded {BR}in that thing?” The group eyed {BR}each other for a moment, before {BR}they backed away from Inquirer."
+      "flavorText": "Inquirer wiped the green paint from {br}his eyes. “The gun's not that unusual. {br}I'm more interested in how he managed {br}to make a paintball of that size.”"
     },
     {
       "identifier": "TheBloodLeech",
@@ -202,7 +202,7 @@
       "flavorQuotes": [
         {
           "identifier": "Larry",
-          "text": "Cleaning up after the fights  {br}takes a while when the  {br}cleaning gun is out of order."
+          "text": "Cleaning up has taken longer since {br}the cleaning gun ran out of ammunition."
         }
       ],
       "flavorReference": "Larry, A Day in the Life: Larry"
@@ -241,7 +241,7 @@
       "keywords": [
         "ammo"
       ],
-      "flavorText": null
+      "flavorText": "“Is this supposed to vibrate a lot, {br}or give someone a concussion?” {br}Larry thought for a moment, before he {br}responded with a nod and a firm, “Yes.”"
     },
     {
       "identifier": "LockedAndLoaded",
@@ -258,7 +258,7 @@
         "PlayCardNow",
         "DestroySelf"
       ],
-      "flavorText": null
+      "flavorText": "“Isn't it against some sort of law to keep {br}guns loaded all the time?” The man sighed. {br}“Some of these guns are against the laws of {br}physics, but that hasn't stopped Larry either.”"
     },
     {
       "identifier": "Larry",

@@ -40,7 +40,7 @@ namespace LazyFanComix.Cassie
         public override void AddTriggers()
         {
             this.Card.UnderLocation.OverrideIsInPlay = false;
-            this.AddTrigger<MoveCardAction>((MoveCardAction m) => m.Origin == this.Riverbank().UnderLocation && m.Destination != this.RiverDeck(), RefillRiverbankResponse, TriggerType.MoveCard, TriggerTiming.After);
+            this.AddTrigger<MoveCardAction>((MoveCardAction m) => m.Origin == this.Riverbank().UnderLocation && m.Destination != this.Riverbank().UnderLocation, RefillRiverbankResponse, TriggerType.MoveCard, TriggerTiming.After);
             this.AddTrigger<PlayCardAction>((PlayCardAction p) => p.Origin == this.Riverbank().UnderLocation, RefillRiverbankResponse, TriggerType.MoveCard, TriggerTiming.After);
         }
 
@@ -65,7 +65,7 @@ namespace LazyFanComix.Cassie
             Card remainingCard = Riverbank().UnderLocation.Cards.FirstOrDefault();
 
             // Then, move the top card to the riverbank. Normal empty deck logic should work if they aren't available.
-            coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, RiverDeck().GetTopCards(4 - Riverbank().UnderLocation.Cards.Count()), Riverbank().UnderLocation);
+            coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, RiverDeck().GetTopCards(4 - Riverbank().UnderLocation.Cards.Count()), Riverbank().UnderLocation, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

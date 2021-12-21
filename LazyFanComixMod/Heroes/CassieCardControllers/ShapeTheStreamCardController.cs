@@ -21,7 +21,7 @@ namespace LazyFanComix.Cassie
             // Yes, this is messy, but it's still the cleanest way of mimicing the official SelectCardAndDoAction without access to the evenIfIndestructable flag. Battle Zones shouldn't be an issue.
 
             coroutine = this.GameController.SelectCardAndDoAction(new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == this.Riverbank().UnderLocation)),
-                (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Deck, false, false, false, evenIfIndestructible: true, cardSource: this.GetCardSource()),
+                (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Deck, false, false, false, cardSource: this.GetCardSource()),
                 false);
 
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

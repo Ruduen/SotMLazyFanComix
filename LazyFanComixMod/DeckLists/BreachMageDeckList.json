@@ -53,7 +53,7 @@
       "keywords": [ "breach" ],
       "body": [
         "This card is Indestructible.",
-        "1 Spell may be next to this card at a time."
+        "If there are tokens in this card's focus pools, Spell cards may not be next to it. Otherwise, 1 Spell may be next to this card at a time."
       ],
       "powers": [ "Remove 1 token from this card's Focus Pool. You may draw a card or play a card." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
@@ -75,7 +75,7 @@
       "keywords": [ "breach" ],
       "body": [
         "This card is Indestructible.",
-        "1 Spell may be next to this card at a time."
+        "If there are tokens in this card's focus pools, Spell cards may not be next to it. Otherwise, 1 Spell may be next to this card at a time."
       ],
       "powers": [ "Remove 1 token from this card's Focus Pool. You may draw a card or play a card." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
@@ -97,10 +97,10 @@
       "keywords": [ "breach" ],
       "body": [
         "This card is Indestructible.",
-        "1 Spell may be next to this card at a time.",
-        "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1."
+        "If there are tokens in this card's focus pools, Spell cards may not be next to it. Otherwise, 1 Spell may be next to this card at a time.",
+        "Increase Damage from Spells next to this by 1."
       ],
-      "powers": [ "Remove 1 token from this card's Focus Pool. You may play up to 3 Spell cards." ],
+      "powers": [ "Remove 1 token from this card's Focus Pool. You may play up to 3 Spells." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -120,10 +120,10 @@
       "keywords": [ "breach" ],
       "body": [
         "This card is Indestructible.",
-        "1 Spell may be next to this card at a time.",
-        "Increase Damage dealt by the [u]Cast[/u] text of Spells next to this by 1."
+        "If there are tokens in this card's focus pools, Spell cards may not be next to it. Otherwise, 1 Spell may be next to this card at a time.",
+        "Increase Damage from Spells next to this by 1."
       ],
-      "powers": [ "Remove 1 token from this card's Focus Pool. You may play up to 3 Spell cards." ],
+      "powers": [ "Remove 1 token from this card's Focus Pool. You may play up to 3 Spells." ],
       "icons": [ "Indestructible", "HasPower", "Destroy" ],
       "tokenPools": [
         {
@@ -211,7 +211,7 @@
       "count": 3,
       "title": "Flare Cascade",
       "keywords": [ "ongoing", "spell" ],
-      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool." ],
+      "body": [ "Play this card next to one of your Breach cards." ],
       "icons": [ "DealDamageFire" ],
       "flavorText": "...",
       "activatableAbilities": [
@@ -226,7 +226,7 @@
       "count": 3,
       "title": "Haunting Echo",
       "keywords": [ "ongoing", "spell" ],
-      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool." ],
+      "body": [ "Play this card next to one of your Breach cards." ],
       "activatableAbilities": [
         {
           "name": "cast",
@@ -238,7 +238,7 @@
     },
     {
       "identifier": "MoltenWave",
-      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool." ],
+      "body": [ "Play this card next to one of your Breach cards." ],
       "count": 3,
       "title": "Molten Wave",
       "keywords": [ "ongoing", "spell" ],
@@ -256,7 +256,7 @@
       "count": 3,
       "title": "Shine",
       "keywords": [ "ongoing", "spell" ],
-      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool." ],
+      "body": [ "Play this card next to one of your Breach cards." ],
       "activatableAbilities": [
         {
           "name": "cast",
@@ -271,7 +271,7 @@
       "count": 3,
       "title": "Vision Shock",
       "keywords": [ "ongoing", "spell" ],
-      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool." ],
+      "body": [ "Play this card next to one of your Breach cards." ],
       "activatableAbilities": [
         {
           "name": "cast",
@@ -286,7 +286,10 @@
       "count": 4,
       "title": "Zap",
       "keywords": [ "ongoing", "spell" ],
-      "body": [ "Play this card next to one of your Breach cards with no tokens in its Focus Pool.", "When this card would be destroyed, put it in your hand instead." ],
+      "body": [
+        "Play this card next to one of your Breach cards.",
+        "When this card would be destroyed, put it in your hand instead."
+      ],
       "activatableAbilities": [
         {
           "name": "cast",

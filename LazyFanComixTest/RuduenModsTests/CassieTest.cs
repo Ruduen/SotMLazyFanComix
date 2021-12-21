@@ -461,7 +461,7 @@ namespace LazyFanComixTest
             PlayCard(play);
             QuickHPCheck(-2); // 1 damage for cost, 1 for boost.
             AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
-            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged.
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), 4); 
         }
 
         [Test()]
@@ -486,7 +486,7 @@ namespace LazyFanComixTest
             PlayCard(play);
             QuickHPCheck(0); // 0 damage, since no magic number exists.
             AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
-            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), riverbankCount); // Unchanged.
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), 4); 
         }
 
         [Test()]

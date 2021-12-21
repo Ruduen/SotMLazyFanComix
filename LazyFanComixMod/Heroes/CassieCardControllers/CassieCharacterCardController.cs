@@ -42,7 +42,7 @@ namespace LazyFanComix.Cassie
                     // Do null checks first for short circuiting purposes!
                     coroutine = this.GameController.SelectCardAndDoAction(
                         new SelectCardDecision(this.GameController, this.HeroTurnTakerController, SelectionType.MoveCard, this.GameController.FindCardsWhere((Card c) => c.Location == Riverbank().UnderLocation && c.FindTokenPool("CassieCostPool") != null && c.FindTokenPool("CassieCostPool").MaximumValue != null && c.FindTokenPool("CassieCostPool").MaximumValue <= spellValue)),
-                        (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Hand, false, false, false, null, true, null, null, null, true, false, null, false, false, false, false, this.GetCardSource()),
+                        (SelectCardDecision d) => this.GameController.MoveCard(this.HeroTurnTakerController, d.SelectedCard, this.HeroTurnTaker.Hand, false, false, false, null, true, cardSource: this.GetCardSource()),
                         false);
                     if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }

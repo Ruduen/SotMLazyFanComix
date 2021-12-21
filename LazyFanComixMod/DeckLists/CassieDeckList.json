@@ -27,7 +27,7 @@
       "foilBackgroundColor": "7FFFD4",
       "hitpointsColor": "C94742",
       "character": true,
-      "powers": [ "You may discard up to 3 cards. You may move a card with an Aqua Cost of your discarded cards' total {magic} or less from the Riverbank to your hand, ignoring its Indestructable status. Draw until you have 3 cards." ],
+      "powers": [ "You may discard up to 3 cards. You may move a card with an Aqua Cost of your discarded cards' total {magic} or less from the Riverbank to your hand. Draw until you have 3 cards." ],
       "icons": [ "HasPower", "Manipulate", "DrawCardNow" ],
       "setup": [ "At the start of the game, put The Riverbank into play. Take all River cards in {Cassie}'s deck and shuffle them together to create the River deck. [i](This is not currently displayed due to engine restrictions.)[/i] Then, place the top 4 cards of the River deck under this card." ],
       "hitpoints": 27,
@@ -57,8 +57,8 @@
       "isReal": false,
       "title": "Riverbank",
       "body": [
-        "After a card beneath this is played or moved to somewhere other than the River deck, move the top card from the River deck beneath this until there are 4 cards beneath this.",
-        "This card is indestructible and is not a hero, villain, or environment card. Cards under this card are indestructible and are not considered in play."
+        "After a card is played or moved from under this card, put the top card from the River deck under this this until there are 4 cards beneath this card.",
+        "This card is indestructible and is not a hero, villain, or environment card. Cards under this card are not considered in play."
       ],
       "icons": [
         "Indestructible",
@@ -73,7 +73,7 @@
       "body": [
         "This card has an Aqua Cost of 1.",
         "Each Hero regains 1 HP.",
-        "You may move all cards beneath Riverbank to the bottom of the River deck in the same order, ignoring their indestructable status, and put the top 4 cards from the River deck under Riverbank."
+        "You may move all cards beneath Riverbank to the bottom of the River deck in the same order."
       ],
       "icons": [ "DealDamageProjectile", "Manipulate" ],
       "magicNumbers": [ 1, 1, 1, 1 ],
@@ -186,9 +186,8 @@
       "keywords": [ "river", "one-shot" ],
       "body": [
         "This card has an Aqua Cost of 3.",
-        "Move a card beneath Riverbank to the bottom of the River deck, ignoring its indestructable status.",
-        "{Cassie} deals 1 target that card's {magic} Cold Damage.",
-        "Put 1 card from the River deck under Riverbank."
+        "Move a card beneath Riverbank to the bottom of the River deck.",
+        "{Cassie} deals 1 target that card's {magic} Cold Damage."
       ],
       "magicNumbers": [ 2, 2, 2, 2 ],
       "icons": [ "Manipulate", "DealDamageCold" ],
@@ -277,7 +276,7 @@
       "keywords": [ "river", "one-shot" ],
       "body": [
         "This card has an Aqua Cost of 6.",
-        "Discard a card. ",
+        "Discard a card.",
         "Play a card from the Riverbank. (It is treated as your card afterward.)"
       ],
       "icons": [ "PlayCardNow", "Manipulate" ],
@@ -360,7 +359,7 @@
       "count": 3,
       "title": "Shape the Stream",
       "keywords": [ "river", "one-shot" ],
-      "body": [ "You may move a card from the Riverbank to the top of your deck, ignoring its Indestructable status. (You do not pay any Aqua Cost.)" ],
+      "body": [ "You may move a card from the Riverbank to the top of your deck. (You do not pay any Aqua Cost.)" ],
       "icons": [ "Manipulate" ],
       "magicNumbers": [ 2, 2, 2 ],
       "tokenPools": [
@@ -431,7 +430,7 @@
       "foilBackgroundColor": "7FFFD4",
       "character": true,
       "setup": [ "At the start of the game, put The Riverbank into play. Take all River cards in {Cassie}'s deck and shuffle them together to create the River deck. [i](This is not currently displayed due to engine restrictions.)[/i] Then, place the top 4 cards of the River deck under this card." ],
-      "powers": "Discard up to 2 cards with {magic} of 2 or more. For each card discarded this way, move 1 card from under Riverbank to the bottom of the River deck, ignoring its indestructible status. Move the card under the Riverbank with the lowest Gain Cost to your Trash, ignoring its indestructible status.",
+      "powers": "Discard up to 2 cards with {magic} of 2 or more. For each card discarded this way, move 1 card from under Riverbank to the bottom of the River deck. Move the card under the Riverbank with the lowest Gain Cost to your Trash.",
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [

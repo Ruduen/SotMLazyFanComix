@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
 {
-    public class GooBlasterCardController : CardController
+    public class PaintballMortarCardController : CardController
     {
-        public GooBlasterCardController(Card card, TurnTakerController turnTakerController)
+        public PaintballMortarCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }

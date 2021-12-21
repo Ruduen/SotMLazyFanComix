@@ -29,16 +29,7 @@ namespace LazyFanComix.Cassie
             if (this.DidPlayerAnswerYes(yesNoDecision))
             {
                 // Reset river into Deck.
-                Card remainingCard = Riverbank().UnderLocation.Cards.FirstOrDefault();
-                while (remainingCard != null)
-                {
-                    coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, remainingCard, RiverDeck(), toBottom: true, evenIfIndestructible: true);
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-                    remainingCard = Riverbank().UnderLocation.Cards.FirstOrDefault();
-                }
-
-                // Then, move the top four river cards to the riverbank. That should already exist due to being a non-real card.
-                coroutine = this.GameController.MoveCards(this.HeroTurnTakerController, RiverDeck().GetTopCards(4), Riverbank().UnderLocation);
+                coroutine = this.GameController.MoveCards(this.DecisionMaker, this.Riverbank().UnderLocation.Cards, this.RiverDeck(), true, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

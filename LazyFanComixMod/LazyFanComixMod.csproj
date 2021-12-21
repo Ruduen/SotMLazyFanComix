@@ -52,7 +52,7 @@
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedAmmoCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\LockedAndLoadedCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\QuantumRoundsCardController.cs" />
-    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\GooBlasterCardController.cs" />
+    <Compile Include="Environments\LarrysDiscountGunClubCardControllers\PaintballMortarCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SharedHeroGunUnearnedCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\TShirtCannonCardController.cs" />
     <Compile Include="Environments\LarrysDiscountGunClubCardControllers\SonicCannonCardController.cs" />

@@ -51,7 +51,7 @@ namespace LazyFanComix.BreachMage
         // One spell per breach if there are no focus tokens!
         public override bool CanOtherCardGoNextToThisCard(Card card)
         {
-            return !card.IsSpell || this.GetNumberOfSpellCardsNextToThisCard() < 1;
+            return !card.IsSpell || (this.GetNumberOfSpellCardsNextToThisCard() < 1 && this.Card.FindTokenPool("FocusPool").CurrentValue == 0);
         }
 
         private int GetNumberOfSpellCardsNextToThisCard()
