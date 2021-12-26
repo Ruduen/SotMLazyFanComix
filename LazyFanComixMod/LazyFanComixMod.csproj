@@ -29,6 +29,9 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CauldronMods">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2437294168\CauldronMods.dll</HintPath>
+    </Reference>
     <Reference Include="EngineCommon, Version=1.0.6479.23224, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
@@ -59,6 +62,7 @@
     <Compile Include="Heroes\BreachMageCardControllers\Archive\BreachMageChargeCasterCharacterCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Breaches\BreachMageSharedPotentBreachCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Breaches\BreachMageSharedStableBreachCardController.cs" />
+    <Compile Include="Heroes\BreachMageCardControllers\BreachMageRenegadeCharacterCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\BreachMageTwincasterCharacterCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Spells\BreachMageSpellSharedCardController.cs" />
     <Compile Include="Heroes\BreachMageCardControllers\Charges\FocusCharmCardController.cs" />
@@ -105,6 +109,9 @@
     <Compile Include="Heroes\GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\AbsoluteZeroOverloadCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\NecroCombatReadyCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\PyreCombatReadyCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\BaccaratCombatReadyCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\TheArgentAdeptCombatReadyCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\KnyfeCombatReadyCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\SharedCombatReadyCharacter.cs" />

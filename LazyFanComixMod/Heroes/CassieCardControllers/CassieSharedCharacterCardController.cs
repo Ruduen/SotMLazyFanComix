@@ -29,13 +29,13 @@ namespace LazyFanComix.Cassie
             if (riverCards.Any())
             {
                 IEnumerator coroutine;
-                coroutine = this.GameController.MoveCards(this.DecisionMaker, riverCards, RiverDeck(), cardSource: this.GetCardSource());
+                coroutine = this.GameController.BulkMoveCards(this.DecisionMaker, riverCards, RiverDeck(), cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 coroutine = this.GameController.ShuffleLocation(RiverDeck(), cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                coroutine = this.GameController.MoveCards(this.DecisionMaker, RiverDeck().GetTopCards(4), Riverbank().UnderLocation, cardSource: this.GetCardSource());
+                coroutine = this.GameController.BulkMoveCards(this.DecisionMaker, RiverDeck().GetTopCards(4), Riverbank().UnderLocation, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

@@ -15,8 +15,8 @@ namespace LazyFanComixTest
         {
             // Tell the engine about our mod assembly so it can load up our code.
             // It doesn't matter which type as long as it comes from the mod's assembly.
-            //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
-            ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(PromoDefaultCharacterCardController))); // replace with your own namespace
+            ModHelper.AddAssembly("Cauldron", Assembly.GetAssembly(typeof(Cauldron.ExtensionMethods)));
+            ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(PromoDefaultCharacterCardController)));
         }
 
         [Test()]
@@ -286,6 +286,18 @@ namespace LazyFanComixTest
             AssertIsInPlay("AlacritousSubdominant", "ScherzoOfFrostAndFlame");
 
             AssertNumberOfCardsInHand(adept, 4);
+        }
+
+
+        [Test()]
+        public void TestBaccaratCombatReady()
+        {
+            SetupGameController("BaronBlade", "Cauldron.Baccarat/LazyFanComix.BaccaratCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(GetCard("BaccaratCharacter").IsPromoCard);
+
+            StartGame();
+
+            AssertNumberOfCardsInTrash(GetTurnTakerController(GetCard("BaccaratCharacter")), 10);
         }
 
         [Test()]
@@ -1579,6 +1591,22 @@ namespace LazyFanComixTest
             AssertInTrash(equip);
         }
 
+
+        [Test()]
+        public void TestNecroCombatReady()
+        {
+            SetupGameController("BaronBlade", "Cauldron.Necro/LazyFanComix.NecroCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(GetCard("NecroCharacter").IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("CorpseExplosion");
+            //AssertIsInPlay("TaintedBlood"); // Can't actually be used due to null TurnTaker check. 
+            AssertIsInPlay("NecroZombie");
+
+            AssertNumberOfCardsInHand(GetTurnTakerController(GetCard("NecroCharacter")).ToHero(), 4);
+        }
+
         [Test()]
         public void TestNightMistPowerDraw()
         {
@@ -1733,6 +1761,20 @@ namespace LazyFanComixTest
             UsePower(parse);
             QuickHPCheck(-3); // Base 1, 2 more.) 
             AssertNumberOfCardsInTrash(baron, 0);
+        }
+
+        [Test()]
+        public void TestPyreCombatReady()
+        {
+            SetupGameController("BaronBlade", "Cauldron.Pyre/LazyFanComix.PyreCombatReadyCharacter", "Megalopolis");
+            Assert.IsTrue(GetCard("PyreCharacter").IsPromoCard);
+
+            StartGame();
+
+            AssertIsInPlay("CherenkovDrive");
+            AssertIsInPlay("ParticleCollider");
+
+            AssertNumberOfCardsInHand(GetTurnTakerController(GetCard("PyreCharacter")).ToHero(), 4);
         }
 
         [Test()]

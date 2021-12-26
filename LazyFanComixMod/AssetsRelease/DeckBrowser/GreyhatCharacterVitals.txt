@@ -1,6 +1,6 @@
 Alias: Anya Smith
-Height: 6' 0" 
-Weight: 155 lbs. 
+Height: 5' 10" 
+Weight: 122 lbs. 
 Hair Color: Red
 Eye Color: Green
 Birthplace: Unknown

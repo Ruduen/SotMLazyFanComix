@@ -166,7 +166,7 @@
       "count": 3,
       "title": "Aura Charm",
       "keywords": [ "equipment", "charge" ],
-      "body": "When you play this, one other player may use a power.",
+      "body": "When this card enters play, one other player may use a power.",
       "icons": [ "UsePowerNow" ],
       "flavorText": "..."
     },
@@ -175,7 +175,7 @@
       "count": 3,
       "title": "Focus Charm",
       "keywords": [ "equipment", "charge" ],
-      "body": "Select one of your Breach cards. Remove a token from that card's Focus Pool.",
+      "body": "When this card enters play, select one of your Breach cards. Remove a token from that card's Focus Pool.",
       "icons": [ "UsePowerNow" ],
       "flavorText": "..."
     },
@@ -184,7 +184,7 @@
       "count": 3,
       "title": "Hammer Charm",
       "keywords": [ "equipment", "charge" ],
-      "body": "When you play this, you may destroy an Ongoing or Environment card.",
+      "body": "When this card enters play, you may destroy an Ongoing or Environment card.",
       "icons": [ "DestroyOngoing", "DestroyEnvironment" ],
       "flavorText": "..."
     },
@@ -193,7 +193,7 @@
       "count": 3,
       "title": "Spiral Charm",
       "keywords": [ "equipment", "charge" ],
-      "body": "When you play this, activate a card's [u]Cast[/u] text. [i](Do not destroy the card.)[/i]",
+      "body": "When this card enters play, activate a card's [u]Cast[/u] text. [i](Do not destroy the card.)[/i]",
       "icons": [],
       "flavorText": "..."
     },
@@ -202,7 +202,7 @@
       "count": 3,
       "title": "Vigor Charm",
       "keywords": [ "equipment", "charge" ],
-      "body": "When you play this, draw 3 cards and {BreachMage} deals themselves 2 Psychic Damage.",
+      "body": "When this card enters play, draw 3 cards and {BreachMage} deals themselves 2 Psychic Damage.",
       "icons": [ "DrawCardNow", "DealDamagePsychic" ],
       "flavorText": "..."
     },
@@ -316,7 +316,7 @@
         "Destroy 1 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
       ],
       "icons": [ "HasPower", "Destroy" ],
-      "hitpoints": 29,
+      "hitpoints": 28,
       "nemesisIdentifiers": [
         "BreachMage"
       ],
@@ -331,8 +331,41 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "...",
-        "dummy": "..."
+        "default": "..."
+      },
+      "complexity": 2
+    },
+    {
+      "identifier": "BreachMageCharacter",
+      "promoIdentifier": "BreachMageRenegadeCharacter",
+      "count": 1,
+      "title": "Breach Mage - Renegade",
+      "body": "Z. Renegade",
+      "backgroundColor": "FAFA00",
+      "foilBackgroundColor": "FAFA00",
+      "character": true,
+      "setup": [ "Put one \"Stable Breach\" into play with 4 tokens in its Focus Pools.", "Put two \"Potent Breach\" into play with 3 and 1 tokens in their Focus Pools." ],
+      "gameplay": [ "At the start of your turn, you may activate the [u]Cast[/u] text of each of your Spells and destroy those spells." ],
+      "powers": [
+        "Destroy 1 of your Charge cards. If you do, each Hero Target regains 3 HP."
+      ],
+      "icons": [ "HasPower", "Destroy" ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "BreachMage"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "I'll do what I must to protect us all."
       },
       "complexity": 2
     }

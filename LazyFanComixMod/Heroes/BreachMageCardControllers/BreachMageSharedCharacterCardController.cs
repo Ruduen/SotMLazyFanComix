@@ -42,7 +42,7 @@ namespace LazyFanComix.BreachMage
                     if (BreachInitialFocus[i] < 0 || BreachInitialFocus[i] > 4)
                     {
                         // Out of bounds breach - remove the breach from the game.
-                        coroutine = this.GameController.MoveCard(this.DecisionMaker, breaches[i], this.TurnTaker.OutOfGame, cardSource: this.GetCardSource());
+                        coroutine = this.GameController.MoveCard(this.DecisionMaker, breaches[i], this.TurnTaker.OutOfGame, evenIfIndestructible: true, cardSource: this.GetCardSource());
                         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                     }
                     else if (focusPool.CurrentValue == 4) // If breach has not yet been initialized. Used for sanity checking on loads.

@@ -249,6 +249,39 @@ namespace LazyFanComixTest
             AssertInTrash(usedCards[0]); // All used charges in trash.
         }
 
+
+        [Test()]
+        public void TestBreachMageRenegadeSetupAndPower()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.BreachMage/LazyFanComix.BreachMageRenegadeCharacter", "Megalopolis");
+
+            StartGame();
+
+            // Special: 3 breaches.
+
+            List<Card> breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToList();
+
+            Assert.IsTrue(breaches.Count() == 3);
+
+            int[] initFocus = new int[] { 4, 3, 1 };
+            for (int i = 0; i < 3; i++)
+            {
+                AssertTokenPoolCount(breaches[i].FindTokenPool("FocusPool"), initFocus[i]);
+            }
+
+            List<Card> charges = new List<Card>
+            {
+                PlayCard("HammerCharm", 0)
+            };
+
+            SetHitPoints(BreachMage, 10);
+
+            QuickHPStorage(BreachMage);
+            UsePower(BreachMage.CharacterCard); // Charge innate.
+            QuickHPCheck(3);
+            AssertInTrash(charges); // All used charges in trash.
+        }
+
         [Test()]
         public void TestBreachMageCastSpellStartOfTurn()
         {

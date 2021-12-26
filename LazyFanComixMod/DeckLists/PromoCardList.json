@@ -1794,6 +1794,138 @@
       }
     }
   ],
+  "Cauldron.Baccarat": [
+    {
+      "identifier": "BaccaratCharacter",
+      "promoIdentifier": "BaccaratCombatReadyCharacter",
+      "count": 1,
+      "promoTitle": "Combat Ready Baccarat",
+      "setup": [ "At the start of the game, put the top 10 cards of your deck into your trash." ],
+      "title": "Baccarat",
+      "body": "Dead Man's Hand",
+      "backgroundColor": "917193",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "917193",
+      "character": true,
+      "powers": [
+        "Discard the top card of your deck or put up to 2 trick cards with the same name from your trash into play."
+      ],
+      "icons": [
+        "HasPower",
+        "Discard",
+        "PlayCardNow"
+      ],
+      "hitpoints": 25,
+      "nemesisIdentifiers": [
+        "Cauldron.Baccarat"
+      ],
+      "incapacitatedAbilities": [
+        "Put 2 cards from a trash on the bottom of their deck.",
+        "Increase the next damage dealt by a hero target by 2.",
+        "Each hero character may deal themselves 3 toxic damage to use a power now."
+      ],
+      "flippedIcons": [
+        "Manipulate",
+        "IncreaseDamageDealt",
+        "DealDamageToxic",
+        "UsePowerNow"
+      ],
+      "openingLines": {
+        "default": "Some players don't know when to fold.",
+        "TheMistressOfFateCharacter": "Cheating is such an ugly word. True, but ugly."
+      },
+      "complexity": 3
+    }
+  ],
+  "Cauldron.Necro": [
+    {
+      "identifier": "NecroCharacter",
+      "promoIdentifier": "NecroCombatReadyCharacter",
+      "promoTitle": "Combat Ready Necro",
+      "setup": [ "At the start of the game, search your deck and cards for {CorpseExplosion} and {NecroZombie}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "count": 1,
+      "title": "Necro",
+      "body": "Blight",
+      "backgroundColor": "916894",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "916894",
+      "character": true,
+      "powers": [
+        "{Necro} deals 1 target 1 toxic damage or 1 undead target 2 toxic damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageToxic"
+      ],
+      "hitpoints": 22,
+      "nemesisIdentifiers": [
+        "Cauldron.Necro"
+      ],
+      "incapacitatedAbilities": [
+        "One hero may deal himself 2 toxic damage to draw 2 cards now.",
+        "One hero may discard up to 3 cards, then regain 2 HP for each card discarded.",
+        "Select a hero target. Increase damage dealt by that target by 3 and increase damage dealt to that target by 2 until the start of your next turn."
+      ],
+      "flippedIcons": [
+        "DealDamageToxic",
+        "DrawCardNow",
+        "GainHP",
+        "IncreaseDamageDealt"
+      ],
+      "openingLines": {
+        "default": "What comes next may be unpleasant.",
+        "WinterTiamatCharacter": "You are but the shape of my folly. I raised you, now I shall send you back to the underworld!",
+        "HydraWinterTiamatCharacter": "Impressive; you have returned from death even stronger. I should like to learn such a trick.",
+        "MythosCharacter": "You seem happy to make it one for others. I will not allow it!"
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.Pyre": [
+    {
+      "identifier": "PyreCharacter",
+      "promoIdentifier": "PyreCombatReadyCharacter",
+      "promoTitle": "Combat Ready Pyre",
+      "setup": [ "At the start of the game, search your deck and cards for {CherenkovDrive} and {ParticleCollider}, put them in play, shuffle your deck, and draw until you have 4 cards in hand." ],
+      "count": 1,
+      "title": "Pyre",
+      "body": "Exponential Decay",
+      "backgroundColor": "bdbebf",
+      "foilBackgroundColor": "FEFEFE",
+      "hitpointColor": "bdbebf",
+      "character": true,
+      "powers": [
+        "1 player draws a card. {Rad} that card until it leaves their hand. Shuffle a cascade card from your trash into your deck."
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "Cauldron.Irradiate",
+        "Manipulate"
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "Cauldron.Pyre"
+      ],
+      "incapacitatedAbilities": [
+        "One player may discard an {Rad} card to draw a card, play a card, and use a power now.",
+        "One hero target deals each target 1 energy damage.",
+        "One player may discard 2 cards, then draw 2 cards."
+      ],
+      "flippedIcons": [
+        "DrawCardNow",
+        "PlayCardNow",
+        "UsePowerNow",
+        "DealDamageEnergy"
+      ],
+      "openingLines": {
+        "default": "This suit isn't for my protection... It's for all of yours.",
+        "GrayCharacter": "Okay, is this some weird time travel stuff again? Where I have to help my past self solve his problems?",
+        "PastTheRamCharacter": "I don't think Alistair will begrudge me a little violence against his upstart of an ancestor."
+      },
+      "complexity": 3
+    }
+  ],
   "Incomplete.TheIdealist": [
     {
       "identifier": "VoidGuardTheIdealistCharacter",
