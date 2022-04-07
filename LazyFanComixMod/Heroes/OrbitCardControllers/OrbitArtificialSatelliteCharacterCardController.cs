@@ -27,14 +27,14 @@ namespace LazyFanComix.Orbit
 
             IEnumerator coroutine;
 
-            coroutine = this.DrawCards(this.DecisionMaker, powerNumerals[0]);
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            ReduceDamageStatusEffect rdse = new ReduceDamageStatusEffect(powerNumerals[1]);
+            ReduceDamageStatusEffect rdse = new ReduceDamageStatusEffect(powerNumerals[0]);
             rdse.TargetCriteria.IsSpecificCard = this.CharacterCard;
             rdse.UntilStartOfNextTurn(this.TurnTaker);
 
             coroutine = this.GameController.AddStatusEffect(rdse, true, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Projectile, 1, false, 1, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

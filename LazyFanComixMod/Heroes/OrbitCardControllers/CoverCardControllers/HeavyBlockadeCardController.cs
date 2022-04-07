@@ -15,6 +15,21 @@ namespace LazyFanComix.Orbit
         public override void AddTriggers()
         {
             this.AddWhenDestroyedTrigger(OnDestroyResponse, TriggerType.DealDamage);
+            this.AddTrigger<DealDamageAction>(
+                (DealDamageAction dda) => dda.DidDealDamage && dda.Target == this.Card && dda.DamageSource?.Card == this.CharacterCard,
+                OnDamageResponse, TriggerType.DealDamage, TriggerTiming.After
+                );
+        }
+
+        private IEnumerator OnDamageResponse(DealDamageAction dda)
+        {
+            List<DealDamageAction> damageInstances = new List<DealDamageAction>() {
+                new DealDamageAction(this.GetCardSource(),new DamageSource(this.GameController,this.Card), null, 2, DamageType.Projectile),
+                new DealDamageAction(this.GetCardSource(),new DamageSource(this.GameController,this.Card), null, 2, DamageType.Melee)
+            };
+
+            return this.SelectTargetsAndDealMultipleInstancesOfDamage(damageInstances, minNumberOfTargets: 1, maxNumberOfTargets: 1);
+
         }
 
         private IEnumerator OnDestroyResponse(DestroyCardAction dca)
@@ -22,20 +37,6 @@ namespace LazyFanComix.Orbit
             return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), 2, DamageType.Melee, 1, false, 1, cardSource: this.GetCardSource());
         }
 
-        public override IEnumerator UsePower(int index = 0)
-        {
-
-            IEnumerator coroutine;
-            List<int> powerNumerals = new List<int>
-            {
-                this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 3)
-            };
-
-            // Deal <a> target <b> damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        }
 
     }
 }

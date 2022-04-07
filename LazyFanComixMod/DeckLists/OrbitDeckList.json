@@ -15,7 +15,7 @@
       "foilBackgroundColor": "EEDDCC",
       "character": true,
       "powers": [
-        "{Orbit} deals 1 target 2 Projectile Damage."
+        "{Orbit} deals up to 3 targets 1 projectile damage."
       ],
       "icons": [
         "HasPower",
@@ -36,7 +36,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Distance and speed are set... Let's get things flying."
+        "default": "Distance and speed are set. Let's get things flying."
       },
       "complexity": 2
     },
@@ -45,10 +45,12 @@
       "count": 3,
       "title": "Heavy Blockade",
       "keywords": [ "cover" ],
-      "hitpoints": 5,
-      "powers": "This card deals 1 target 3 melee damage.",
-      "body": [ "When this card is destroyed, this card deals 1 target 2 melee damage." ],
-      "icons": [ "HasPower", "DealDamageMelee" ],
+      "hitpoints": 6,
+      "body": [
+        "After Orbit deals this card damage, this card deals 1 target 2 projectile damage and 2 melee damage.",
+        "When this card is destroyed, this card deals 1 target 2 melee damage."
+      ],
+      "icons": [ "DealDamageProjectile", "DealDamageMelee" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -62,10 +64,12 @@
       "count": 3,
       "title": "Fractured Backdrop",
       "keywords": [ "cover" ],
-      "hitpoints": 4,
-      "powers": "This card deals up to 4 targets 1 projectile damage each.",
-      "body": [ "When this card is destroyed, this card deals each non-Hero target 1 melee damage and 1 projectile damage." ],
-      "icons": [ "HasPower", "DealDamageProjectile", "DealDamageMelee" ],
+      "hitpoints": 6,
+      "body": [
+        "After Orbit deals this card damage, this card deals up to 4 targets 2 projectile damage.",
+        "When this card is destroyed, this card deals up to 3 targets 1 projectile damage."
+      ],
+      "icons": [ "DealDamageProjectile" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -78,11 +82,13 @@
       "identifier": "VolatileBarricade",
       "count": 3,
       "title": "Volatile Barricade",
-      "hitpoints": 3,
+      "hitpoints": 6,
       "keywords": [ "cover" ],
-      "powers": "This card deals up to 2 targets 2 toxic damage each.",
-      "body": [ "When this card is destroyed, you may destroy up to 2 ongoing or environment cards and this card deals up to 2 targets 2 toxic damage each." ],
-      "icons": [ "HasPower", "DealDamageProjectile", "DealDamageMelee" ],
+      "body": [
+        "After Orbit deals this card damage, this card deals up to 2 targets 2 toxic damage.",
+        "When this card is destroyed, you may destroy up to 2 ongoing or environment cards and this card deals up to 2 targets 1 toxic damage each."
+      ],
+      "icons": [ "DealDamageToxic", "DestroyOngoing", "DestroyEnvironment" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -174,10 +180,10 @@
       "keywords": [ "ongoing", "limited" ],
       "powers": "Search your deck for 2 cover cards and play them. Shuffle your deck. Destroy this card.",
       "body": [
-        "At the start of your turn, destroy 1 cover card.",
+        "At the start of your turn, Orbit deals 1 cover target 3 psychic damage.",
         "Reduce damage deal to {Orbit} by 1 for each cover card in play."
       ],
-      "icons": [ "ReduceDamageTaken", "HasPower", "Search", "DestroySelf" ],
+      "icons": [ "ReduceDamageTaken", "HasPower", "Search", "DealDamagePsychic" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -191,11 +197,11 @@
       "count": 2,
       "title": "Objects in Motion",
       "keywords": [ "ongoing", "limited" ],
-      "powers": "Any hero may use a power now.",
+      "powers": "Any hero may use 1 power. Any hero may play 1 card. If a card is played this way, destroy this card.",
       "body": [
         "During your turn, increase damage dealt by targets other than {Orbit} by 1."
       ],
-      "icons": [ "IncreaseDamageDealt", "HasPower", "UsePowerNow" ],
+      "icons": [ "IncreaseDamageDealt", "HasPower", "UsePowerNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -209,11 +215,11 @@
       "count": 2,
       "title": "Landscape Awareness",
       "keywords": [ "ongoing", "limited" ],
-      "powers": "Draw 1 card.",
+      "powers": "Draw 2 cards.",
       "body": [
-        "You may use an additional power during your power phase."
+        "Damage dealt by {Orbit} to Hero targets is irreducible and cannot be increased."
       ],
-      "icons": [ "UsePowerExtra", "HasPower", "DrawCardNow" ],
+      "icons": [  "HasPower", "DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -253,7 +259,7 @@
       "flavorQuotes": [
         {
           "identifier": "Orbit",
-          "text": "A thrown stone can knock someone out. These move faster than I can throw them."
+          "text": "A thrown stone can knock someone out. These stones move faster than I can throw them."
         }
       ],
       "flavorReference": "Orbit, ???"
@@ -271,7 +277,7 @@
       "flavorQuotes": [
         {
           "identifier": "Orbit",
-          "text": "It's one of those quirks of powers. I can only manipulate so many things at once. But if something I'm manipulating is shattered, it's still one thing."
+          "text": " I can only manipulate so many things at once. But if something I'm manipulating is shattered, it's still one thing."
         }
       ],
       "flavorReference": "Orbit, ???"
@@ -289,7 +295,7 @@
       "flavorQuotes": [
         {
           "identifier": "Orbit",
-          "text": "..."
+          "text": "There are few things as satisfying as getting to line up the perfect shot."
         }
       ],
       "flavorReference": "Orbit, ???"
@@ -306,7 +312,7 @@
       "foilBackgroundColor": "CCDDEE",
       "character": true,
       "powers": [
-        "Draw 1 Card. Reduce damage dealt to {Orbit} by 1 until the start of your next turn."
+        "Reduce damage dealt to {Orbit} by 1 until the start of your next turn. Orbit deals 1 target 1 irreducible projectile damage."
       ],
       "icons": [
         "HasPower",
@@ -328,7 +334,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "I'm already here. Let's get started."
+        "default": "Eyes in the sky are here. Let's see just where things land."
       },
       "complexity": 2
     }

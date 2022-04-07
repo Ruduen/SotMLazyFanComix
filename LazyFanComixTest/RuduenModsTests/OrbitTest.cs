@@ -54,11 +54,9 @@ namespace LazyFanComixTest
 
             Card mdp = GetCardInPlay("MobileDefensePlatform");
 
-            DecisionSelectTarget = mdp;
-
             QuickHPStorage(mdp);
             UsePower(Orbit);
-            QuickHPCheck(-2);
+            QuickHPCheck(-1);
         }
 
         [Test()]
@@ -72,10 +70,10 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            QuickHandStorage(Orbit);
+            DecisionSelectTarget = Orbit.CharacterCard;
+            QuickHPStorage(Orbit);
             UsePower(Orbit);
-            QuickHandCheck(1);
-
+            QuickHPCheck(-1);
 
             QuickHPStorage(Orbit);
             DealDamage(Orbit, Orbit, 2, DamageType.Projectile);
@@ -94,7 +92,7 @@ namespace LazyFanComixTest
             PutInHand("UhYeahImThatGuy");
 
             Card mdp = FindCardInPlay("MobileDefensePlatform");
-            DecisionSelectCards = new Card[] { guise.CharacterCard, mdp };
+            DecisionSelectCards = new Card[] { guise.CharacterCard, mdp, guise.CharacterCard, baron.CharacterCard, mdp, guise.CharacterCard, baron.CharacterCard };
             QuickHPStorage(mdp);
 
             PlayCard("CalledToJudgement");
@@ -126,6 +124,27 @@ namespace LazyFanComixTest
         #endregion Innate Powers
 
         #region Covers
+
+        [Test()]
+        public void TestCoverFracturedBackdrop()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "TheCelestialTribunal");
+
+            StartGame();
+
+            Card cover = PlayCard("FracturedBackdrop");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard, Orbit.CharacterCard, cover, mdp, baron.CharacterCard, Orbit.CharacterCard, cover };
+
+
+            QuickHPStorage(mdp);
+            DealDamage(Orbit.CharacterCard, cover, 1, DamageType.Melee);
+            QuickHPCheck(-2);
+            DestroyCard(cover);
+            QuickHPCheck(-1);
+
+        }
+
         [Test()]
         public void TestCoverHeavyBlockade()
         {
@@ -138,27 +157,8 @@ namespace LazyFanComixTest
             DecisionSelectTarget = mdp;
 
             QuickHPStorage(mdp);
-            UsePower(cover);
-            QuickHPCheck(-3);
-            DestroyCard(cover);
-            QuickHPCheck(-2);
-
-        }
-
-        [Test()]
-        public void TestCoverFracturedBackdrop()
-        {
-            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "TheCelestialTribunal");
-
-            StartGame();
-
-            Card cover = PlayCard("FracturedBackdrop");
-            Card mdp = GetCardInPlay("MobileDefensePlatform");
-            DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard, Orbit.CharacterCard, cover, mdp };
-
-            QuickHPStorage(mdp);
-            UsePower(cover);
-            QuickHPCheck(-1);
+            DealDamage(Orbit.CharacterCard, cover, 1, DamageType.Melee);
+            QuickHPCheck(-4);
             DestroyCard(cover);
             QuickHPCheck(-2);
 
@@ -177,11 +177,11 @@ namespace LazyFanComixTest
             DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard, mdp, baron.CharacterCard };
 
             QuickHPStorage(mdp);
-            UsePower(cover);
+            DealDamage(Orbit.CharacterCard, cover, 1, DamageType.Melee);
             QuickHPCheck(-2);
             DestroyCard(cover);
             AssertInTrash(ongoings);
-            QuickHPCheck(-2);
+            QuickHPCheck(-1);
 
         }
         #endregion Covers
@@ -359,8 +359,9 @@ namespace LazyFanComixTest
             QuickHPCheck(0);
 
             DecisionSelectCard = cover;
+            QuickHPStorage(cover);
             GoToStartOfTurn(Orbit);
-            AssertInTrash(cover);
+            QuickHPCheck(-3);
             
         }
 
@@ -371,7 +372,9 @@ namespace LazyFanComixTest
 
             StartGame();
             Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card play = PutInHand("BlazingTornado");
             DecisionSelectTurnTaker = ra.TurnTaker;
+            DecisionSelectCard = play;
             DecisionSelectTarget = mdp;
 
             QuickHPStorage(mdp);
@@ -385,25 +388,30 @@ namespace LazyFanComixTest
             DealDamage(Orbit.CharacterCard, mdp, 1, DamageType.Melee);
             QuickHPCheck(-1);
 
-            UsePower(limited);
             DealDamage(mdp, mdp, 1, DamageType.Melee);
+            UsePower(limited);
             QuickHPCheck(-2 - 1 - 1 - 1);
+            AssertIsInPlay(play);
+            AssertInTrash(limited);
         }
 
         [Test()]
         public void TestLimitedLandscapeAwareness()
         {
-            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Ra", "WagnerMarsBase");
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Legacy", "WagnerMarsBase");
 
             StartGame();
 
             Card limited = PlayCard("LandscapeAwareness");
-            GoToUsePowerPhase(Orbit);
+
+            UsePower(legacy);
+            QuickHPStorage(Orbit);
+            DealDamage(Orbit, Orbit, 2, DamageType.Melee);
+            QuickHPCheck(-2);
 
             QuickHandStorage(Orbit);
-            AssertPhaseActionCount(2);
             UsePower(limited);
-            QuickHandCheck(1);
+            QuickHandCheck(2);
         }
 
         #endregion Limited

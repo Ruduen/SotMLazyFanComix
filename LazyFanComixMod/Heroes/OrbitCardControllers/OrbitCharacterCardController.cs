@@ -21,12 +21,12 @@ namespace LazyFanComix.Orbit
         {
             List<int> powerNumerals = new List<int>
             {
-                this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 2)
+                this.GetPowerNumeral(0, 3),
+                this.GetPowerNumeral(1, 1)
             };
 
             // Deal <a> target <b> damage.
-            return this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
+            return this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
 
         }
 

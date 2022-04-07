@@ -24,7 +24,7 @@ namespace LazyFanComix.Orbit
             IEnumerator coroutine;
             List<YesNoCardDecision> yncds = new List<YesNoCardDecision>();
 
-            coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.IncreaseDamage, this.Card, dda, yncds, cardSource: this.GetCardSource());
+            coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.Custom, this.Card, dda, yncds, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (this.DidPlayerAnswerYes(yncds))
@@ -37,6 +37,9 @@ namespace LazyFanComix.Orbit
             }
         }
 
-
+        public override CustomDecisionText GetCustomDecisionText(IDecision decision)
+        {
+            return new CustomDecisionText("Do you want to increase this damage by 2 and destroy {CorrectiveMotion}?", "Should they increase this damage by 2 and destroy {CorrectiveMotion}?", "Vote for increasing this damage by 2 and destroying {CorrectiveMotion}?", "increasing this damage by 2 and destroy {CorrectiveMotion}");
+        }
     }
 }

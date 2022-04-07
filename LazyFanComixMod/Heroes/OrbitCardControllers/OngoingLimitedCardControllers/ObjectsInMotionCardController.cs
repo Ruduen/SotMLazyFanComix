@@ -1,6 +1,7 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LazyFanComix.Orbit
@@ -19,7 +20,20 @@ namespace LazyFanComix.Orbit
 
         public override IEnumerator UsePower(int index = 0)
         {
-            return this.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
+            IEnumerator coroutine;
+            List<PlayCardAction> pcaResult = new List<PlayCardAction>();
+
+            coroutine = this.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            coroutine = this.GameController.SelectHeroToPlayCard(this.DecisionMaker, true, storedResultsSelectCard: pcaResult, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            if (pcaResult.Any((PlayCardAction pca) => pca.WasCardPlayed))
+            {
+                coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
         }
 
     }
