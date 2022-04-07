@@ -26,6 +26,9 @@ namespace LazyFanComix.Tempest
             coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
+            coroutine = this.DealDamageToHighestHP(this.CharacterCard, 1, (Card c) => c.IsVillainTarget && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource()), (Card c) => powerNumeral, DamageType.Projectile);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
             SelectCardsDecision selectCardsDecision = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => c.IsInPlay && c.IsEnvironment && !c.IsTarget, SelectionType.CardToDealDamage, null, false, null, true, true, false, new Func<int>(this.NumEnvironmentToDamage), null, null, null, this.GetCardSource());
 
             coroutine = this.GameController.SelectCardsAndDoAction(selectCardsDecision, (SelectCardDecision sc) => this.EnvironmentDamageResponse(sc, powerNumeral), null, null, this.GetCardSource(), null, false, null);

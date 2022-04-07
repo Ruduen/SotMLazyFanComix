@@ -60,6 +60,32 @@ namespace LazyFanComix.Soulbinder
             }
         }
 
-        // TODO: Replace Incap with something more unique!
+        // TODO: Replace with something more unique!
+        public override IEnumerator UseIncapacitatedAbility(int index)
+        {
+            IEnumerator coroutine;
+            switch (index)
+            {
+                case 0:
+                    {
+                        coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        break;
+                    }
+                case 1:
+                    {
+                        coroutine = base.GameController.SelectHeroToUsePower(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        break;
+                    }
+                case 2:
+                    {
+                        coroutine = base.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+                        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                        break;
+                    }
+            }
+            yield break;
+        }
     }
 }

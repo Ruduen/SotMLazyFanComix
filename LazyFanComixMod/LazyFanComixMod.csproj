@@ -29,16 +29,20 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CauldronMods">
+    <Reference Include="CauldronMods, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2437294168\CauldronMods.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EngineCommon, Version=1.0.6479.23224, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="SentinelsEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +112,7 @@
     <Compile Include="Heroes\GreyhatCardControllers\SharedCardControllers\GreyhatSharedNetworkCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\SharedCardControllers\GreyhatSharedLinkCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\SharedCardControllers\GreyhatSharedCheckNextToLinkCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\AbsoluteZeroThermalFluxCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\AbsoluteZeroOverloadCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\NecroCombatReadyCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\PyreCombatReadyCharacterCardController.cs" />
@@ -185,6 +190,23 @@
     <Compile Include="Heroes\HeroPromoCardControllers\MrFixerFlowingStrikeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\FracturedBackdropCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\VolatileBarricadeCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\HeavyBlockadeCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\OrbitalSlingshotCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\GuideTheWreckageCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\RapidFireCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\RedesignateCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\LandscapeAwarenessCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\ObjectsInMotionCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\ControlTheFieldCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\SubtlePreparationCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\CorrectiveMotionCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\GuideTheBlowCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\SharedOrbitalCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\CollisionCourseCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OrbitArtificialSatelliteCharacterCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OrbitCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallUnstableJumpCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallForecastedBlowCharacterCardController.cs" />
@@ -325,6 +347,7 @@
     <EmbeddedResource Include="DeckLists\RecallDeckList.json" />
     <EmbeddedResource Include="DeckLists\TheTurfWarDeckList.json" />
     <EmbeddedResource Include="DeckLists\LarrysDiscountGunClubDeckList.json" />
+    <EmbeddedResource Include="DeckLists\OrbitDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />

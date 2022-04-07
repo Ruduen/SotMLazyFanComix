@@ -4,6 +4,7 @@ using NUnit.Framework;
 using LazyFanComix.HeroPromos;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Linq;
 
 namespace LazyFanComixTest
 {
@@ -15,7 +16,6 @@ namespace LazyFanComixTest
         {
             // Tell the engine about our mod assembly so it can load up our code.
             // It doesn't matter which type as long as it comes from the mod's assembly.
-            ModHelper.AddAssembly("Cauldron", Assembly.GetAssembly(typeof(Cauldron.ExtensionMethods)));
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(PromoDefaultCharacterCardController)));
         }
 
@@ -34,7 +34,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(az);
             UsePower(az);
-            QuickHPCheck(-3); // Damage dealt
+            QuickHPCheck(-2); // Damage dealt
             AssertInPlayArea(az, card);
         }
 
@@ -173,6 +173,22 @@ namespace LazyFanComixTest
             AssertIsInPlay("GlacialStructure");
         }
 
+        [Test()]
+        public void TestAbsoluteZeroThermalFlux()
+        {
+            SetupGameController("BaronBlade", "AbsoluteZero/LazyFanComix.AbsoluteZeroThermalFluxCharacter", "Megalopolis");
+            Assert.IsTrue(az.CharacterCard.IsPromoCard);
+
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+
+            MoveCards(az, (Card c) => c.Identifier == "OmboardModuleInstallation",az.CharacterCard.UnderLocation);
+
+            UsePower(az);
+            Assert.IsTrue(az.TurnTaker.Trash.Cards.Count((Card c) => c.IsOneShot) == 1);
+        }
+
 
         [Test()]
         public void TestAkashThriya()
@@ -288,17 +304,6 @@ namespace LazyFanComixTest
             AssertNumberOfCardsInHand(adept, 4);
         }
 
-
-        [Test()]
-        public void TestBaccaratCombatReady()
-        {
-            SetupGameController("BaronBlade", "Cauldron.Baccarat/LazyFanComix.BaccaratCombatReadyCharacter", "Megalopolis");
-            Assert.IsTrue(GetCard("BaccaratCharacter").IsPromoCard);
-
-            StartGame();
-
-            AssertNumberOfCardsInTrash(GetTurnTakerController(GetCard("BaccaratCharacter")), 10);
-        }
 
         [Test()]
         public void TestBenchmarkNoSoftware()
@@ -1591,22 +1596,6 @@ namespace LazyFanComixTest
             AssertInTrash(equip);
         }
 
-
-        [Test()]
-        public void TestNecroCombatReady()
-        {
-            SetupGameController("BaronBlade", "Cauldron.Necro/LazyFanComix.NecroCombatReadyCharacter", "Megalopolis");
-            Assert.IsTrue(GetCard("NecroCharacter").IsPromoCard);
-
-            StartGame();
-
-            AssertIsInPlay("CorpseExplosion");
-            //AssertIsInPlay("TaintedBlood"); // Can't actually be used due to null TurnTaker check. 
-            AssertIsInPlay("NecroZombie");
-
-            AssertNumberOfCardsInHand(GetTurnTakerController(GetCard("NecroCharacter")).ToHero(), 4);
-        }
-
         [Test()]
         public void TestNightMistPowerDraw()
         {
@@ -1764,17 +1753,26 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestPyreCombatReady()
+        public void TestParsePowerInPlayAttack()
         {
-            SetupGameController("BaronBlade", "Cauldron.Pyre/LazyFanComix.PyreCombatReadyCharacter", "Megalopolis");
-            Assert.IsTrue(GetCard("PyreCharacter").IsPromoCard);
+            // Tool in hand.
+            SetupGameController("BaronBlade", "Parse/LazyFanComix.ParseLaplaceShotCharacter", "Megalopolis");
+            Assert.IsTrue(parse.CharacterCard.IsPromoCard);
 
             StartGame();
 
-            AssertIsInPlay("CherenkovDrive");
-            AssertIsInPlay("ParticleCollider");
+            PlayCard("PlummetingMonorail");
+            DiscardTopCards(env, 2);
 
-            AssertNumberOfCardsInHand(GetTurnTakerController(GetCard("PyreCharacter")).ToHero(), 4);
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectTarget = mdp;
+            DecisionYesNo = true;
+
+            QuickHPStorage(mdp);
+            UsePower(parse);
+            QuickHPCheck(-1 - 2 - 1); // Base 1, 2 more.) 
+            AssertNumberOfCardsInTrash(baron, 0);
         }
 
         [Test()]
@@ -2201,7 +2199,7 @@ namespace LazyFanComixTest
             QuickHandStorage(tempest);
             QuickHPStorage(baron);
             UsePower(tempest);
-            QuickHPCheck(0); //No hits due to no environment non-Targets.
+            QuickHPCheck(-2 - 0); //Tempest, no other hits due to no environment non-Targets.
             QuickHandCheck(1);
         }
 
@@ -2223,7 +2221,7 @@ namespace LazyFanComixTest
             QuickHandStorage(tempest);
             QuickHPStorage(baron);
             UsePower(tempest);
-            QuickHPCheck(-1); // 1 hits due to no environment non-Targets.
+            QuickHPCheck(-2 - 1); // Tempest hits, police hits.
             QuickHandCheck(1);
         }
 
@@ -2255,7 +2253,7 @@ namespace LazyFanComixTest
             QuickHandStorage(tempest);
             QuickHPStorage(dreamer);
             UsePower(tempest);
-            QuickHPCheck(0); // 0 Damage - first hit was redirected, second should've been cancelled.
+            QuickHPCheck(0 - 1 - 1); // 2 Damage - first hit was redirected, second should've been cancelled.
             QuickHandCheck(1);
         }
 
@@ -2287,7 +2285,7 @@ namespace LazyFanComixTest
             QuickHandStorage(tempest);
             QuickHPStorage(dreamer);
             UsePower(tempest);
-            QuickHPCheck(-1); // 1 Damage - first hit was redirected, second was successful.
+            QuickHPCheck(-2 - 0 - 1); // 2 Damage - first hit was redirected, second/third was successful.
             QuickHandCheck(1);
         }
 

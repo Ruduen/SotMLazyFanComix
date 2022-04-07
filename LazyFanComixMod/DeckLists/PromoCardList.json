@@ -10,7 +10,7 @@
       "backgroundColor": "77d2f7",
       "foilBackgroundColor": "77d2f7",
       "character": true,
-      "powers": "{AbsoluteZero} deals himself 3 Fire Damage. Discard the top 4 Cards of your Deck. Play a Module Card from your Trash.",
+      "powers": "{AbsoluteZero} deals himself 2 Fire Damage. Discard the top 5 Cards of your Deck. Play a Module Card from your Trash.",
       "hitpoints": 26,
       "icons": [ "HasPower", "DealDamageCold", "PlayCardNow", "DrawCardNow" ],
       "nemesisIdentifiers": [ "AbsoluteZero" ],
@@ -94,6 +94,35 @@
       "complexity": 3,
       "openingLines": {
         "default": "Tempers are running hot. Time to cool things down!"
+      }
+    },
+    {
+      "identifier": "AbsoluteZeroCharacter",
+      "promoIdentifier": "AbsoluteZeroThermalFluxCharacter",
+      "count": 1,
+      "title": "Absolute Zero",
+      "promoTitle": "Unknownverse Absolute Zero",
+      "body": [ "Thermal Flux" ],
+      "backgroundColor": "77d2f7",
+      "foilBackgroundColor": "77d2f7",
+      "character": true,
+      "powers": "Reveal cards from the top of your deck until a One-Shot card is revealed. Discard the other revealed cards. Put that One-Shot card into play.",
+      "hitpoints": 26,
+      "icons": [ "Reveal", "Discard", "PlayCardNow" ],
+      "nemesisIdentifiers": [ "AbsoluteZero" ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "complexity": 3,
+      "openingLines": {
+        "default": "I'll stop you cold in your tracks."
       }
     }
   ],
@@ -1099,7 +1128,7 @@
       "backgroundColor": "86BB71",
       "foilBackgroundColor": "86BB71",
       "hitpointsColor": "F6AD41",
-      "powers": "{Parse} deals 1 target 1 Projectile Damage, increased by 1 for each card in the Environment Trash. Shuffle the Environment Trash into the Environment Deck.",
+      "powers": "{Parse} deals 1 target 1 Projectile Damage, increased by 1 for each card in the Environment Trash and each Environment Card in play. Shuffle the Environment Trash into the Environment Deck.",
       "hitpoints": 25,
       "icons": [ "HasPower", "Manipulate", "DealDamageProjectile" ],
       "nemesisIdentifiers": [ "Parse" ],
@@ -1116,12 +1145,7 @@
       "complexity": 2,
       "openingLines": {
         "default": "..."
-      },
-      "devNotes": [
-        "This is coded as 'up to 1', but making it actually optional is messy. I'll fix it if there's every something that interacts with it, but since Chrono-Ranger uses similar logic for his optional damage, this is the default for playability.",
-        "This might still be a bit strong in certain combos. Allowing this to mess with Villain decks was a bit much, though, due to those that use the discard as a resource.",
-        "TODO: Switch to 1 base, 1 per in the environment trash? Or shuffle?"
-      ]
+      }
     }
   ],
   "Ra": [
@@ -1482,7 +1506,7 @@
       "backgroundColor": "7accf3",
       "foilBackgroundColor": "7accf3",
       "character": true,
-      "powers": "Draw a card. Each non-Target Environment Card in play deals the non-Hero Target with the highest HP 1 Projectile Damage.",
+      "powers": "Draw a card. {Tempest} and each non-Target Environment Card in play deals the non-Hero Target with the highest HP 1 Projectile Damage.",
       "hitpoints": 27,
       "icons": [ "HasPower", "DrawCardNow", "DealDamageProjectile" ],
       "nemesisIdentifiers": [ "Tempest" ],

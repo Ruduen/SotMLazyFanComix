@@ -1,0 +1,496 @@
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.UnitTest;
+using NUnit.Framework;
+using LazyFanComix.Orbit;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+
+namespace LazyFanComixTest
+{
+    [TestFixture]
+    public class OrbitTest : BaseTest
+    {
+        [OneTimeSetUp]
+        public void DoSetup()
+        {
+            // Tell the engine about our mod assembly so it can load up our code.
+            // It doesn't matter which type as long as it comes from the mod's assembly.
+            //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
+            ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(OrbitCharacterCardController))); // replace with your own namespace
+        }
+
+        protected HeroTurnTakerController Orbit { get { return FindHero("Orbit"); } }
+
+        [Test(Description = "Basic Setup and Health")]
+        public void TestModWorks()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Megalopolis");
+
+            Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
+
+            Assert.IsNotNull(Orbit);
+            Assert.IsInstanceOf(typeof(HeroTurnTakerController), Orbit);
+            Assert.IsInstanceOf(typeof(OrbitCharacterCardController), Orbit.CharacterCardController);
+
+            Assert.AreEqual(28, Orbit.CharacterCard.HitPoints);
+            AssertNumberOfCardsInDeck(Orbit, 36);
+            AssertNumberOfCardsInHand(Orbit, 4);
+        }
+
+        #region Innate Powers
+
+        [Test()]
+        public void TestInnatePowerBase()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Orbit", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            UsePower(Orbit);
+            QuickHPCheck(-2);
+        }
+
+        [Test()]
+        public void TestInnatePowerSatellite()
+        {
+            IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Orbit/LazyFanComix.OrbitArtificialSatelliteCharacter", "Legacy", "Megalopolis"
+            };
+            SetupGameController(setupItems);
+
+            StartGame();
+
+            QuickHandStorage(Orbit);
+            UsePower(Orbit);
+            QuickHandCheck(1);
+
+
+            QuickHPStorage(Orbit);
+            DealDamage(Orbit, Orbit, 2, DamageType.Projectile);
+            QuickHPCheck(-1);
+        }
+
+        [Test()]
+        public void TestTribunalPowerBase()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Orbit" });
+            SelectFromBoxForNextDecision("LazyFanComix.OrbitCharacter", "LazyFanComix.Orbit");
+            DiscardAllCards(guise);
+            PutInHand("UhYeahImThatGuy");
+
+            Card mdp = FindCardInPlay("MobileDefensePlatform");
+            DecisionSelectCards = new Card[] { guise.CharacterCard, mdp };
+            QuickHPStorage(mdp);
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("OrbitCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+        }
+
+        [Test()]
+        public void TestTribunalPowerSatellite()
+        {
+            SetupGameController("BaronBlade", "Guise", "TheCelestialTribunal");
+
+            StartGame();
+            AvailableHeroes = DeckDefinition.AvailableHeroes.Concat(new string[] { "LazyFanComix.Orbit" });
+            SelectFromBoxForNextDecision("LazyFanComix.OrbitArtificialSatelliteCharacter", "LazyFanComix.Orbit");
+            DiscardAllCards(guise);
+
+            PlayCard("CalledToJudgement");
+
+            Card representative = FindCardInPlay("OrbitCharacter");
+            AssertIsInPlay(representative);
+
+            UsePower(representative);
+
+        }
+        #endregion Innate Powers
+
+        #region Covers
+        [Test()]
+        public void TestCoverHeavyBlockade()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "TheCelestialTribunal");
+
+            StartGame();
+
+            Card cover = PlayCard("HeavyBlockade");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+            UsePower(cover);
+            QuickHPCheck(-3);
+            DestroyCard(cover);
+            QuickHPCheck(-2);
+
+        }
+
+        [Test()]
+        public void TestCoverFracturedBackdrop()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "TheCelestialTribunal");
+
+            StartGame();
+
+            Card cover = PlayCard("FracturedBackdrop");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard, Orbit.CharacterCard, cover, mdp };
+
+            QuickHPStorage(mdp);
+            UsePower(cover);
+            QuickHPCheck(-1);
+            DestroyCard(cover);
+            QuickHPCheck(-2);
+
+        }
+
+        [Test()]
+        public void TestCoverVolatileBarricade()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "TheCelestialTribunal");
+
+            StartGame();
+
+            Card cover = PlayCard("VolatileBarricade");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card[] ongoings = new Card[] { PlayCard("LivingForceField") };
+            DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard, mdp, baron.CharacterCard };
+
+            QuickHPStorage(mdp);
+            UsePower(cover);
+            QuickHPCheck(-2);
+            DestroyCard(cover);
+            AssertInTrash(ongoings);
+            QuickHPCheck(-2);
+
+        }
+        #endregion Covers
+
+        #region Orbitals
+
+        [Test()]
+        public void TestOrbitalCollisionCourse()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+            PlayCard("VillainousWeaponry");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card target = PlayCard("BladeBattalion");
+            DecisionSelectCard = mdp;
+            DecisionSelectTarget = target;
+
+            QuickHPStorage(mdp, target);
+            Card orbital = PlayCard("CollisionCourse");
+            QuickHPCheck(-2, 0);
+            GoToEndOfTurn(baron);
+            QuickHPCheck(-2 - 1, -2 - 1);
+            AssertInTrash(orbital);
+        }
+
+        [Test()]
+        public void TestOrbitalCollisionCourseSkip()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+            PlayCard("VillainousWeaponry");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card target = PlayCard("BladeBattalion");
+            DecisionSelectCard = mdp;
+            DecisionSelectTargets = new Card[] { null };
+
+            QuickHPStorage(mdp, target);
+            Card orbital = PlayCard("CollisionCourse");
+            QuickHPCheck(-2, 0);
+            GoToEndOfTurn(baron);
+            QuickHPCheck(0, 0);
+            AssertIsInPlay(orbital);
+        }
+
+        [Test()]
+        public void TestOrbitalGuideTheBlow()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+            PlayCard("VillainousWeaponry");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card target = PlayCard("BladeBattalion");
+            DecisionSelectCard = mdp;
+            DecisionRedirectTarget = target;
+
+            QuickHPStorage(mdp, target);
+            Card orbital = PlayCard("GuideTheBlow");
+            QuickHPCheck(-2, 0);
+            DealDamage(mdp, Orbit, 2, DamageType.Melee);
+            QuickHPCheck(0, -2 - 1);
+            AssertInTrash(orbital);
+        }
+
+        [Test()]
+        public void TestOrbitalGuideTheBlowSkip()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+            PlayCard("VillainousWeaponry");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card target = PlayCard("BladeBattalion");
+            DecisionSelectCard = mdp;
+
+            QuickHPStorage(mdp, target, Orbit.CharacterCard);
+            Card orbital = PlayCard("GuideTheBlow");
+            QuickHPCheck(-2, 0, 0);
+            DealDamage(mdp, Orbit, 2, DamageType.Melee);
+            QuickHPCheck(0, 0, -2 - 1);
+            AssertIsInPlay(orbital);
+        }
+
+
+        [Test()]
+        public void TestOrbitalCorrectiveMotion()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+            PlayCard("VillainousWeaponry");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectCard = mdp;
+            DecisionYesNo = true;
+
+            QuickHPStorage(mdp);
+            Card orbital = PlayCard("CorrectiveMotion");
+            QuickHPCheck(-2);
+            DealDamage(mdp, mdp, 2, DamageType.Melee);
+            QuickHPCheck(-2 - 1 - 2);
+            AssertInTrash(orbital);
+        }
+
+        [Test()]
+        public void TestOrbitalCorrectiveMotionSkip()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+            PlayCard("VillainousWeaponry");
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectCard = mdp;
+            DecisionYesNo = false;
+
+            QuickHPStorage(mdp);
+            Card orbital = PlayCard("CorrectiveMotion");
+            QuickHPCheck(-2);
+            DealDamage(mdp, mdp, 2, DamageType.Melee);
+            QuickHPCheck(-2 - 1);
+            AssertIsInPlay(orbital);
+        }
+        #endregion Orbitals
+
+        #region Limited
+
+        [Test()]
+        public void TestLimitedSubtlePreparation()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            Card[] plays = new Card[] { PutInHand("RapidFire"), PutInHand("OrbitalSlingshot") };
+            DecisionSelectCards = plays;
+            Card limited = PutInHand("SubtlePreparation");
+
+            QuickHPStorage(mdp);
+            QuickHandStorage(Orbit);
+            PlayCard(limited);
+            DealDamage(Orbit, mdp, 2, DamageType.Melee);
+            QuickHPCheck(0);
+            QuickHandCheck(-3 + 2);
+            AssertInTrash(plays);
+
+            GoToStartOfTurn(Orbit);
+            AssertInTrash(limited);
+
+            DealDamage(Orbit, mdp, 2, DamageType.Melee);
+            QuickHPCheck(-2);
+
+        }
+
+        [Test()]
+        public void TestLimitedControlTheField()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+
+            Card limited = PlayCard("ControlTheField");
+            Card cover = PlayCard("HeavyBlockade");
+
+            QuickHPStorage(Orbit);
+            DealDamage(Orbit, Orbit, 3, DamageType.Melee);
+            QuickHPCheck(-2);
+
+            UsePower(limited);
+            AssertInTrash(limited);
+            AssertNumberOfCardsInPlay((Card c) => c.IsCover, 3);
+
+            PlayCard(limited);
+            DealDamage(Orbit, Orbit, 3, DamageType.Melee);
+            QuickHPCheck(0);
+
+            DecisionSelectCard = cover;
+            GoToStartOfTurn(Orbit);
+            AssertInTrash(cover);
+            
+        }
+
+        [Test()]
+        public void TestLimitedObjectsInMotion()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Ra", "WagnerMarsBase");
+
+            StartGame();
+            Card mdp = GetCardInPlay("MobileDefensePlatform");
+            DecisionSelectTurnTaker = ra.TurnTaker;
+            DecisionSelectTarget = mdp;
+
+            QuickHPStorage(mdp);
+
+            Card limited = PlayCard("ObjectsInMotion");
+            DealDamage(mdp, mdp, 1, DamageType.Melee);
+            QuickHPCheck(-1);
+
+            GoToStartOfTurn(Orbit);
+
+            DealDamage(Orbit.CharacterCard, mdp, 1, DamageType.Melee);
+            QuickHPCheck(-1);
+
+            UsePower(limited);
+            DealDamage(mdp, mdp, 1, DamageType.Melee);
+            QuickHPCheck(-2 - 1 - 1 - 1);
+        }
+
+        [Test()]
+        public void TestLimitedLandscapeAwareness()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Ra", "WagnerMarsBase");
+
+            StartGame();
+
+            Card limited = PlayCard("LandscapeAwareness");
+            GoToUsePowerPhase(Orbit);
+
+            QuickHandStorage(Orbit);
+            AssertPhaseActionCount(2);
+            UsePower(limited);
+            QuickHandCheck(1);
+        }
+
+        #endregion Limited
+        #region One-Shots
+
+        [Test()]
+        public void TestOneShotRedesignate()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Ra", "WagnerMarsBase");
+
+            StartGame();
+
+            Card play = PutInHand("Redesignate");
+            DestroyCard("MobileDefensePlatform");
+
+            Card[] orbitals = new Card[] { PutInHand("CollisionCourse"), PlayCard("GuideTheBlow"), PlayCard("CorrectiveMotion") };
+
+            DecisionSelectFunction = 0;
+            DecisionSelectCards = new Card[] { orbitals[1], orbitals[2], orbitals[0], baron.CharacterCard, orbitals[1], baron.CharacterCard, orbitals[2], baron.CharacterCard };
+
+            QuickHPStorage(baron);
+            QuickHandStorage(Orbit);
+            PlayCard(play);
+            QuickHPCheck(-6);
+            QuickHandCheck(-2); // Net lose play and one orbital.
+
+            ResetDecisions();
+
+            DecisionSelectFunction = 1;
+            DecisionSelectCards = orbitals;
+            PlayCard(play);
+            QuickHPCheck(0);
+            QuickHandCheck(6); // 3 Drawn, 3 orbitals added.
+            AssertInHand(orbitals);
+        }
+
+        [Test()]
+        public void TestOneShotRapidFire()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Legacy", "WagnerMarsBase");
+
+            StartGame();
+
+            DestroyCard("MobileDefensePlatform");
+            QuickHPStorage(baron);
+
+            UsePower(legacy);
+
+            QuickHPStorage(baron);
+            PlayCard("RapidFire");
+            QuickHPCheck(-1 - 1 - 2 - 1);
+        }
+
+        [Test()]
+        public void TestOneShotGuideTheWreckage()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+
+            DestroyCard("MobileDefensePlatform");
+            QuickHPStorage(baron);
+            Card cover = PutInTrash("HeavyBlockade");
+
+            QuickHPStorage(baron);
+            PlayCard("GuideTheWreckage");
+            QuickHPCheck(-1 -1);
+            AssertIsInPlay(cover);
+        }
+
+        [Test()]
+        public void TestOneShotOrbitalSlingshot()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+
+            DestroyCard("MobileDefensePlatform");
+            QuickHPStorage(baron);
+            Card cover = PlayCard("HeavyBlockade");
+
+            QuickHPStorage(baron,Orbit);
+            PlayCard("OrbitalSlingshot");
+            QuickHPCheck(-3 - 2, - 2);
+            AssertIsInPlay(cover);
+        }
+        #endregion One-Shots
+
+    }
+}

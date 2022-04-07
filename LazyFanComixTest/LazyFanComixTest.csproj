@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RandomGameTest.cs" />
+    <Compile Include="RuduenModsTests\CauldronPromosTest.cs" />
     <Compile Include="RuduenModsTests\LarrysDiscountGunClubTest.cs" />
     <Compile Include="RuduenModsTests\TheTurfWarTest.cs" />
     <Compile Include="RuduenModsTests\ArbitraryTest.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="RuduenModsTests\HeroPromosTest.cs" />
     <Compile Include="RuduenModsTests\SoulbinderTest.cs" />
     <Compile Include="RuduenModsTests\GreyhatTest.cs" />
+    <Compile Include="RuduenModsTests\OrbitTest.cs" />
     <Compile Include="RuduenModsTests\TrailblazerTest.cs" />
     <Compile Include="RuduenModsTests\SpellforgeTest.cs" />
     <Compile Include="RuduenModsTests\InquirerTest.cs" />

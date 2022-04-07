@@ -1,0 +1,336 @@
+﻿{
+  "name": "Orbit",
+  "kind": "Hero",
+  "expansionIdentifier": "LazyFanComix",
+  "initialCardIdentifiers": [
+    "OrbitCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "OrbitCharacter",
+      "count": 1,
+      "title": "Orbit",
+      "body": "Orbital Shot",
+      "backgroundColor": "EEDDCC",
+      "foilBackgroundColor": "EEDDCC",
+      "character": true,
+      "powers": [
+        "{Orbit} deals 1 target 2 Projectile Damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageProjectile"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "Orbit"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Distance and speed are set... Let's get things flying."
+      },
+      "complexity": 2
+    },
+    {
+      "identifier": "HeavyBlockade",
+      "count": 3,
+      "title": "Heavy Blockade",
+      "keywords": [ "cover" ],
+      "hitpoints": 5,
+      "powers": "This card deals 1 target 3 melee damage.",
+      "body": [ "When this card is destroyed, this card deals 1 target 2 melee damage." ],
+      "icons": [ "HasPower", "DealDamageMelee" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "FracturedBackdrop",
+      "count": 3,
+      "title": "Fractured Backdrop",
+      "keywords": [ "cover" ],
+      "hitpoints": 4,
+      "powers": "This card deals up to 4 targets 1 projectile damage each.",
+      "body": [ "When this card is destroyed, this card deals each non-Hero target 1 melee damage and 1 projectile damage." ],
+      "icons": [ "HasPower", "DealDamageProjectile", "DealDamageMelee" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "VolatileBarricade",
+      "count": 3,
+      "title": "Volatile Barricade",
+      "hitpoints": 3,
+      "keywords": [ "cover" ],
+      "powers": "This card deals up to 2 targets 2 toxic damage each.",
+      "body": [ "When this card is destroyed, you may destroy up to 2 ongoing or environment cards and this card deals up to 2 targets 2 toxic damage each." ],
+      "icons": [ "HasPower", "DealDamageProjectile", "DealDamageMelee" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "These fights would have much less collateral damage if villains followed standard safety regulations."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "CollisionCourse",
+      "count": 4,
+      "title": "Collision Course",
+      "keywords": [ "ongoing", "orbital" ],
+      "body": [
+        "Play this card next to a target.",
+        "{Orbit} deals that target 2 melee damage now.",
+        "At the end of that target's turn, you may have that target deal 1 other target and themselves 2 melee damage. If you do, destroy this card."
+      ],
+      "icons": [ "DealDamageMelee", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "GuideTheBlow",
+      "count": 4,
+      "title": "Guide the Blow",
+      "keywords": [ "ongoing", "orbital" ],
+      "body": [
+        "Play this card next to a target.",
+        "{Orbit} deals that target 2 melee damage now.",
+        "When that target deals damage, you may redirect that damage to another target. If you do, destroy this card."
+      ],
+      "icons": [ "DealDamageMelee", "RedirectDamage", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "CorrectiveMotion",
+      "count": 4,
+      "title": "Corrective Motion",
+      "keywords": [ "ongoing", "orbital" ],
+      "body": [
+        "Play this card next to a target.",
+        "{Orbit} deals that target 2 melee damage now.",
+        "When that target would be dealt damage by a target other than Orbit, you may increase that damage by 2. If you do, destroy this card."
+      ],
+      "icons": [ "DealDamageMelee", "IncreaseDamageTaken", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "SubtlePreparation",
+      "count": 4,
+      "title": "Subtle Preparation",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When this card enters play, you may draw 2 cards and play up to 2 cards.",
+        "{Orbit} cannot deal damage.",
+        "At the start of your turn, destroy this card."
+      ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "CannotDealDamage", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "ControlTheField",
+      "count": 2,
+      "title": "Control the Field",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Search your deck for 2 cover cards and play them. Shuffle your deck. Destroy this card.",
+      "body": [
+        "At the start of your turn, destroy 1 cover card.",
+        "Reduce damage deal to {Orbit} by 1 for each cover card in play."
+      ],
+      "icons": [ "ReduceDamageTaken", "HasPower", "Search", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "ObjectsInMotion",
+      "count": 2,
+      "title": "Objects in Motion",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Any hero may use a power now.",
+      "body": [
+        "During your turn, increase damage dealt by targets other than {Orbit} by 1."
+      ],
+      "icons": [ "IncreaseDamageDealt", "HasPower", "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "LandscapeAwareness",
+      "count": 2,
+      "title": "Landscape Awareness",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Draw 1 card.",
+      "body": [
+        "You may use an additional power during your power phase."
+      ],
+      "icons": [ "UsePowerExtra", "HasPower", "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "Redesignate",
+      "count": 3,
+      "title": "Redesignate",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Put any number of Orbital cards in play back in your hand.",
+        "Draw 3 cards or play up to 3 Orbital cards."
+      ],
+      "icons": [ "Manipulate", "DrawCardNow", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "RapidFire",
+      "count": 2,
+      "title": "Rapid Fire",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Orbit} deals up to 3 targets 1 projectile damage.",
+        "{Orbit} deals up to 2 targets 2 projectile damage."
+      ],
+      "icons": [ "DealDamageProjectile" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "A thrown stone can knock someone out. These move faster than I can throw them."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "GuideTheWreckage",
+      "count": 2,
+      "title": "Guide the Wreckage",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Orbit} deals 1 target 1 melee damage. Increase this damage by 1 for each Cover card in your trash.",
+        "Play 1 Cover card from your trash."
+      ],
+      "icons": [ "DealDamageMelee", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "It's one of those quirks of powers. I can only manipulate so many things at once. But if something I'm manipulating is shattered, it's still one thing."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "OrbitalSlingshot",
+      "count": 2,
+      "title": "Orbital Slingshot",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Orbit} deals 1 target 3 sonic damage. Increase this damage by 2 for each of your Orbital or Cover cards in play.",
+        "Orbit deals themselves 2 sonic damage."
+      ],
+      "icons": [ "DealDamageSonic", "IncreaseDamageDealt" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "OrbitCharacter",
+      "promoIdentifier": "OrbitArtificialSatelliteCharacter",
+      "count": 1,
+      "title": "Orbit - Artificial Satellite",
+      "body": "Artificial Satellite",
+      "backgroundColor": "CCDDEE",
+      "foilBackgroundColor": "CCDDEE",
+      "character": true,
+      "powers": [
+        "Draw 1 Card. Reduce damage dealt to {Orbit} by 1 until the start of your next turn."
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "ReduceDamageTaken"
+      ],
+      "hitpoints": 21,
+      "nemesisIdentifiers": [
+        "Orbit"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "I'm already here. Let's get started."
+      },
+      "complexity": 2
+    }
+  ]
+}

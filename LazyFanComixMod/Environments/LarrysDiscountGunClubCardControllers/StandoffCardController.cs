@@ -18,7 +18,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
         public override void AddTriggers()
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PlayLarryAndSelfDestruct, new TriggerType[] { TriggerType.GainHP });
-            this.AddTrigger<DealDamageAction>(SourceTargetMayBeHighestEnemies, CancelDamageIfSourceTargetAreHighestEnemies, TriggerType.CancelAction, TriggerTiming.Before);
+            this.AddTrigger<DealDamageAction>(SourceTargetMayBeHighestEnemies, CancelDamageIfSourceTargetAreHighestEnemies, TriggerType.CancelAction, TriggerTiming.Before, orderMatters: true);
         }
 
         private IEnumerator PlayLarryAndSelfDestruct(PhaseChangeAction pca)

@@ -17,8 +17,8 @@ namespace LazyFanComix.AbsoluteZero
         public override IEnumerator UsePower(int index = 0)
         {
             List<int> powerNumerals = new List<int>(){
-                this.GetPowerNumeral(0, 3), // Amount of damage.
-                this.GetPowerNumeral(1, 4) // Cards Discarded.
+                this.GetPowerNumeral(0, 2), // Amount of damage.
+                this.GetPowerNumeral(1, 5) // Cards Discarded.
             };
             IEnumerator coroutine;
 

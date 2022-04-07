@@ -18,7 +18,7 @@ namespace LazyFanComix.Baccarat
 
         public override IEnumerator PerformEnteringGameResponse()
         {
-            return this.GameController.BulkMoveCards(this.DecisionMaker, this.TurnTaker.Deck.Cards.Take(10), this.TurnTaker.Trash, cardSource: this.GetCardSource());
+            return this.GameController.BulkMoveCards(this.DecisionMaker, this.TurnTaker.Deck.Cards.Take(10), this.TurnTaker.Trash, responsibleTurnTaker: this.TurnTaker, cardSource: this.GetCardSource());
             // return this.GameController.DiscardTopCards(this.DecisionMaker, this.TurnTaker.Deck, 10, cardSource: this.GetCardSource());
         }
 

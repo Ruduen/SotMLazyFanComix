@@ -587,6 +587,56 @@ namespace LazyFanComixTest
             AssertIsInPlay("Larry");
         }
 
+        [Test()]
+        public void TestStandoffTie()
+        {
+            SetupGameController("BaronBlade", "Expatriette", "Haka", "Unity", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+            DestroyNonCharacterVillainCards();
+
+            PlayCard("StealthBot");
+            PlayCard("Standoff");
+
+            SetHitPoints(expatriette, 10);
+            SetHitPoints(haka, 10);
+            SetHitPoints(unity, 10);
+            DecisionYesNo = true;
+
+            QuickHPStorage(expatriette);
+            DealDamage(baron.CharacterCard, expatriette.CharacterCard, 2, DamageType.Fire);
+            QuickHPCheck(0);
+
+
+            QuickHPStorage(baron);
+            DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
+            QuickHPCheck(0);
+
+            SetHitPoints(baron, 10);
+
+            QuickHPStorage(expatriette);
+            DealDamage(baron.CharacterCard, expatriette.CharacterCard, 2, DamageType.Fire);
+            QuickHPCheck(0);
+
+
+            QuickHPStorage(baron);
+            DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
+            QuickHPCheck(0);
+
+            SetHitPoints(haka, 9);
+            SetHitPoints(unity, 9);
+
+            QuickHPStorage(expatriette);
+            DealDamage(baron.CharacterCard, expatriette.CharacterCard, 2, DamageType.Fire);
+            QuickHPCheck(0);
+
+
+            QuickHPStorage(baron);
+            DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
+            QuickHPCheck(0);
+        }
+
+
 
         #endregion Card Tests
 
