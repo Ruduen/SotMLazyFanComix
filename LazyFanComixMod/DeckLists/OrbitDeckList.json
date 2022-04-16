@@ -41,30 +41,11 @@
       "complexity": 2
     },
     {
-      "identifier": "HeavyBlockade",
-      "count": 3,
-      "title": "Heavy Blockade",
-      "keywords": [ "cover" ],
-      "hitpoints": 6,
-      "body": [
-        "After Orbit deals this card damage, this card deals 1 target 2 projectile damage and 2 melee damage.",
-        "When this card is destroyed, this card deals 1 target 2 melee damage."
-      ],
-      "icons": [ "DealDamageProjectile", "DealDamageMelee" ],
-      "flavorQuotes": [
-        {
-          "identifier": "Orbit",
-          "text": "..."
-        }
-      ],
-      "flavorReference": "Orbit, ???"
-    },
-    {
       "identifier": "FracturedBackdrop",
       "count": 3,
       "title": "Fractured Backdrop",
       "keywords": [ "cover" ],
-      "hitpoints": 6,
+      "hitpoints": 5,
       "body": [
         "After Orbit deals this card damage, this card deals up to 4 targets 2 projectile damage.",
         "When this card is destroyed, this card deals up to 3 targets 1 projectile damage."
@@ -79,10 +60,29 @@
       "flavorReference": "Orbit, ???"
     },
     {
+      "identifier": "HeavyBlockade",
+      "count": 3,
+      "title": "Heavy Blockade",
+      "keywords": [ "cover" ],
+      "hitpoints": 5,
+      "body": [
+        "After Orbit deals this card damage, this card deals 1 target 2 projectile damage and 2 melee damage.",
+        "When this card is destroyed, this card deals 1 target 2 melee damage."
+      ],
+      "icons": [ "DealDamageProjectile", "DealDamageMelee" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
       "identifier": "VolatileBarricade",
       "count": 3,
       "title": "Volatile Barricade",
-      "hitpoints": 6,
+      "hitpoints": 5,
       "keywords": [ "cover" ],
       "body": [
         "After Orbit deals this card damage, this card deals up to 2 targets 2 toxic damage.",
@@ -99,7 +99,7 @@
     },
     {
       "identifier": "CollisionCourse",
-      "count": 4,
+      "count": 3,
       "title": "Collision Course",
       "keywords": [ "ongoing", "orbital" ],
       "body": [
@@ -117,8 +117,27 @@
       "flavorReference": "Orbit, ???"
     },
     {
+      "identifier": "CorrectiveMotion",
+      "count": 3,
+      "title": "Corrective Motion",
+      "keywords": [ "ongoing", "orbital" ],
+      "body": [
+        "Play this card next to a target.",
+        "{Orbit} deals that target 2 melee damage now.",
+        "When that target would be dealt damage by a target other than Orbit, you may increase that damage by 2. If you do, destroy this card."
+      ],
+      "icons": [ "DealDamageMelee", "IncreaseDamageTaken", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
       "identifier": "GuideTheBlow",
-      "count": 4,
+      "count": 3,
       "title": "Guide the Blow",
       "keywords": [ "ongoing", "orbital" ],
       "body": [
@@ -136,16 +155,52 @@
       "flavorReference": "Orbit, ???"
     },
     {
-      "identifier": "CorrectiveMotion",
-      "count": 4,
-      "title": "Corrective Motion",
-      "keywords": [ "ongoing", "orbital" ],
+      "identifier": "ControlTheField",
+      "count": 3,
+      "title": "Control the Field",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Search your deck for 2 cover cards and play them. Shuffle your deck. Destroy this card.",
       "body": [
-        "Play this card next to a target.",
-        "{Orbit} deals that target 2 melee damage now.",
-        "When that target would be dealt damage by a target other than Orbit, you may increase that damage by 2. If you do, destroy this card."
+        "At the start of your turn, Orbit deals 1 cover target 3 psychic damage.",
+        "Reduce damage deal to {Orbit} by 1 for each cover card in play."
       ],
-      "icons": [ "DealDamageMelee", "IncreaseDamageTaken", "DestroySelf" ],
+      "icons": [ "ReduceDamageTaken", "HasPower", "Search", "DealDamagePsychic" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "LandscapeAwareness",
+      "count": 3,
+      "title": "Landscape Awareness",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Draw 2 cards.",
+      "body": [
+        "Damage dealt by {Orbit} to Hero targets is irreducible and cannot be increased."
+      ],
+      "icons": [ "HasPower", "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Orbit",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Orbit, ???"
+    },
+    {
+      "identifier": "ObjectsInMotion",
+      "count": 3,
+      "title": "Objects in Motion",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": "Any hero may use a power. Any hero may play a card. If a card is played this way, destroy this card.",
+      "body": [
+        "During your turn, increase damage dealt by targets other than {Orbit} by 1."
+      ],
+      "icons": [ "IncreaseDamageDealt", "HasPower", "UsePowerNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -174,74 +229,19 @@
       "flavorReference": "Orbit, ???"
     },
     {
-      "identifier": "ControlTheField",
+      "identifier": "GuideTheWreckage",
       "count": 2,
-      "title": "Control the Field",
-      "keywords": [ "ongoing", "limited" ],
-      "powers": "Search your deck for 2 cover cards and play them. Shuffle your deck. Destroy this card.",
-      "body": [
-        "At the start of your turn, Orbit deals 1 cover target 3 psychic damage.",
-        "Reduce damage deal to {Orbit} by 1 for each cover card in play."
-      ],
-      "icons": [ "ReduceDamageTaken", "HasPower", "Search", "DealDamagePsychic" ],
-      "flavorQuotes": [
-        {
-          "identifier": "Orbit",
-          "text": "..."
-        }
-      ],
-      "flavorReference": "Orbit, ???"
-    },
-    {
-      "identifier": "ObjectsInMotion",
-      "count": 2,
-      "title": "Objects in Motion",
-      "keywords": [ "ongoing", "limited" ],
-      "powers": "Any hero may use 1 power. Any hero may play 1 card. If a card is played this way, destroy this card.",
-      "body": [
-        "During your turn, increase damage dealt by targets other than {Orbit} by 1."
-      ],
-      "icons": [ "IncreaseDamageDealt", "HasPower", "UsePowerNow", "PlayCardNow" ],
-      "flavorQuotes": [
-        {
-          "identifier": "Orbit",
-          "text": "..."
-        }
-      ],
-      "flavorReference": "Orbit, ???"
-    },
-    {
-      "identifier": "LandscapeAwareness",
-      "count": 2,
-      "title": "Landscape Awareness",
-      "keywords": [ "ongoing", "limited" ],
-      "powers": "Draw 2 cards.",
-      "body": [
-        "Damage dealt by {Orbit} to Hero targets is irreducible and cannot be increased."
-      ],
-      "icons": [  "HasPower", "DrawCardNow" ],
-      "flavorQuotes": [
-        {
-          "identifier": "Orbit",
-          "text": "..."
-        }
-      ],
-      "flavorReference": "Orbit, ???"
-    },
-    {
-      "identifier": "Redesignate",
-      "count": 3,
-      "title": "Redesignate",
+      "title": "Guide the Wreckage",
       "keywords": [ "one-shot" ],
       "body": [
-        "Put any number of Orbital cards in play back in your hand.",
-        "Draw 3 cards or play up to 3 Orbital cards."
+        "{Orbit} deals 1 target 1 melee damage. Increase this damage by 1 for each Cover card in your trash.",
+        "Play 1 Cover card from your trash."
       ],
-      "icons": [ "Manipulate", "DrawCardNow", "PlayCardNow" ],
+      "icons": [ "DealDamageMelee", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
-          "text": "..."
+          "text": "I can only manipulate so many things at once. But if something I'm manipulating is shattered, it's still one thing."
         }
       ],
       "flavorReference": "Orbit, ???"
@@ -265,33 +265,33 @@
       "flavorReference": "Orbit, ???"
     },
     {
-      "identifier": "GuideTheWreckage",
+      "identifier": "Redesignate",
       "count": 2,
-      "title": "Guide the Wreckage",
+      "title": "Redesignate",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Orbit} deals 1 target 1 melee damage. Increase this damage by 1 for each Cover card in your trash.",
-        "Play 1 Cover card from your trash."
+        "Put any number of Cover or Orbital cards in play back in your hand.",
+        "???"
       ],
-      "icons": [ "DealDamageMelee", "PlayCardNow" ],
+      "icons": [ "Manipulate", "DrawCardNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
-          "text": " I can only manipulate so many things at once. But if something I'm manipulating is shattered, it's still one thing."
+          "text": "..."
         }
       ],
       "flavorReference": "Orbit, ???"
     },
     {
       "identifier": "OrbitalSlingshot",
-      "count": 2,
+      "count": 3,
       "title": "Orbital Slingshot",
-      "keywords": [ "one-shot" ],
+      "keywords": [ "ongoing, limited" ],
       "body": [
-        "{Orbit} deals 1 target 3 sonic damage. Increase this damage by 2 for each of your Orbital or Cover cards in play.",
-        "Orbit deals themselves 2 sonic damage."
+        "After an Orbital card is destroyed, you may draw 1 card or play 1 orbital card.",
+        "???"
       ],
-      "icons": [ "DealDamageSonic", "IncreaseDamageDealt" ],
+      "icons": [ "DrawCardNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
