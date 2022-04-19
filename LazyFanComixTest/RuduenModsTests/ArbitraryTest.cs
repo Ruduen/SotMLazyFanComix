@@ -204,6 +204,38 @@ namespace LazyFanComixTest
 
         }
 
+        [Test()]
+        public void TestWraithRedirect()
+        {
+            SetupGameController("BaronBlade", "MrFixer", "TheWraith", "TheCelestialTribunal");
+
+            StartGame();
+
+            Card reduce = PlayCard("StunBolt");
+            PlayCard("DrivingMantis");
+
+            DecisionSelectCards = new Card[] { fixer.CharacterCard, baron.CharacterCard };
+
+            UsePower(reduce);
+        }
+
+        [Test()]
+        public void TestChronoRangerRedirect()
+        {
+            SetupGameController("BaronBlade", "MrFixer", "ChronoRanger", "WagnerMarsBase");
+
+            StartGame();
+
+            PlayCard("MeteorStorm");
+
+            Card reduce = PlayCard("NeuroToxinDartThrower");
+            PlayCard("DrivingMantis");
+
+            DecisionSelectCards = new Card[] { fixer.CharacterCard, baron.CharacterCard };
+
+            UsePower(reduce);
+        }
+
         #endregion Official Tests
     }
 }

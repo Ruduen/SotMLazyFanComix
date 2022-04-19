@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace LazyFanComix.Orbit
 {
-    public class GuideTheWreckageCardController : CardController
+    public class WreckTheWreckageCardController : CardController
     {
-        public GuideTheWreckageCardController(Card card, TurnTakerController turnTakerController)
+        public WreckTheWreckageCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }

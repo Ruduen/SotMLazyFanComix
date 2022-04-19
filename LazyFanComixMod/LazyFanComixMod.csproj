@@ -193,8 +193,8 @@
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\FracturedBackdropCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\VolatileBarricadeCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\HeavyBlockadeCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\OrbitalSlingshotCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\GuideTheWreckageCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\OrbitalSlingshotCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\WreckTheWreckageCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\RapidFireCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\RedesignateCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\LandscapeAwarenessCardController.cs" />

@@ -25,7 +25,7 @@ namespace LazyFanComix.Orbit
         {
             List<DealDamageAction> damageInstances = new List<DealDamageAction>() {
                 new DealDamageAction(this.GetCardSource(),new DamageSource(this.GameController,this.Card), null, 2, DamageType.Projectile),
-                new DealDamageAction(this.GetCardSource(),new DamageSource(this.GameController,this.Card), null, 2, DamageType.Melee)
+                new DealDamageAction(this.GetCardSource(),new DamageSource(this.GameController,this.Card), null, 1, DamageType.Melee)
             };
 
             return this.SelectTargetsAndDealMultipleInstancesOfDamage(damageInstances, minNumberOfTargets: 1, maxNumberOfTargets: 1);

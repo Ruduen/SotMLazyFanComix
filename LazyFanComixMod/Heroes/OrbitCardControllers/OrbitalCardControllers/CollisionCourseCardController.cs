@@ -16,10 +16,10 @@ namespace LazyFanComix.Orbit
 
         public override void AddUniqueTriggers()
         {
-            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.GetCardThisCardIsNextTo().Owner, OnEndTurnResponse, new TriggerType[] { TriggerType.DealDamage , TriggerType.DestroySelf});
+            this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card != this.CharacterCard && dda.DamageSource.Card.IsTarget && dda.Target == this.GetCardThisCardIsNextTo(), DamageAndDestroyResponse, new TriggerType[] { TriggerType.DealDamage, TriggerType.DestroySelf }, TriggerTiming.After);
         }
 
-        private IEnumerator OnEndTurnResponse(PhaseChangeAction pca)
+        private IEnumerator DamageAndDestroyResponse(DealDamageAction ddaa)
         {
             IEnumerator coroutine;
             List<SelectCardDecision> scds = new List<SelectCardDecision>();
@@ -27,14 +27,11 @@ namespace LazyFanComix.Orbit
             Card nextTo = this.GetCardThisCardIsNextTo();
             if (nextTo == null) { yield break; }
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, nextTo), 2, DamageType.Melee, 1, false, 0, additionalCriteria: (Card c) => c != nextTo, storedResultsDecisions: scds, selectTargetsEvenIfCannotDealDamage: true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, nextTo), 3, DamageType.Melee, 1, false, 0, additionalCriteria: (Card c) => c != nextTo, storedResultsDecisions: scds, selectTargetsEvenIfCannotDealDamage: true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (scds.Any((SelectCardDecision scd) => scd.SelectedCard != null))
             {
-                coroutine = this.GameController.DealDamageToSelf(this.DecisionMaker, (Card c) => c == nextTo, 2, DamageType.Melee, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
                 coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

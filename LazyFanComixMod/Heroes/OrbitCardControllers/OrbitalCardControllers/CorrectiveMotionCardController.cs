@@ -11,12 +11,12 @@ namespace LazyFanComix.Orbit
         public CorrectiveMotionCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            AllowFastCoroutinesDuringPretend = false;
+            this.AllowFastCoroutinesDuringPretend = false;
         }
 
         public override void AddUniqueTriggers()
         {
-            this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card != this.CharacterCard && dda.DamageSource.Card.IsTarget && dda.Target == this.GetCardThisCardIsNextTo(), IncreaseAndDestroyResponse, new TriggerType[] { TriggerType.IncreaseDamage, TriggerType.DestroySelf }, TriggerTiming.Before, isActionOptional: true);
+            this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource != null && !dda.DamageSource.IsSameCard(this.CharacterCard) && dda.DamageSource.Card.IsTarget && dda.Target == this.GetCardThisCardIsNextTo(), IncreaseAndDestroyResponse, new TriggerType[] { TriggerType.IncreaseDamage, TriggerType.DestroySelf }, TriggerTiming.Before);
         }
 
         private IEnumerator IncreaseAndDestroyResponse(DealDamageAction dda)
@@ -36,10 +36,9 @@ namespace LazyFanComix.Orbit
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
         public override CustomDecisionText GetCustomDecisionText(IDecision decision)
         {
-            return new CustomDecisionText("Do you want to increase this damage by 2 and destroy {CorrectiveMotion}?", "Should they increase this damage by 2 and destroy {CorrectiveMotion}?", "Vote for increasing this damage by 2 and destroying {CorrectiveMotion}?", "increasing this damage by 2 and destroy {CorrectiveMotion}");
+            return new CustomDecisionText("Do you want to increase this damage by 2 and destroy Corrective Motion?", "Should they increase this damage by 2 and destroy Corrective Motion?", "Vote for increasing this damage by 2 and destroying Corrective Motion?", "increasing this damage by 2 and destroy Corrective Motion");
         }
     }
 }

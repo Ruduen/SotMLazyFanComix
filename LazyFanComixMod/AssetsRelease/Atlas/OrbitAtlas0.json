@@ -1,6 +1,6 @@
 {"frames": {
 
-"ExpatrietteLiterallyAGunCharacter.png":
+"OrbitCharacter.png":
 {
 	"frame": {"x":0,"y":0,"w":180,"h":256},
 	"rotated": false,
@@ -11,10 +11,10 @@
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "ExpatrietteAtlas0.png",
+	"image": "OrbitAtlas0.png",
 	"format": "RGBA8888",
 	"size": {"w":256,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:af444d06f966bfcee63c1005bb82b3cd:6f7e47686883f42d08f9bf2f5241e811:bb81db2183b82b321ec17c92e339084e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6d6f2724c0baa0e188c3925b031ff292:719b28dc096769eebf6f37fef96689d1:b870f90f0bb500603499dc88be53e1ee$"
 }
 }

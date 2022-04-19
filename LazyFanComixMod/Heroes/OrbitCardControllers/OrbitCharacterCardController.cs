@@ -21,7 +21,7 @@ namespace LazyFanComix.Orbit
         {
             List<int> powerNumerals = new List<int>
             {
-                this.GetPowerNumeral(0, 3),
+                this.GetPowerNumeral(0, 2),
                 this.GetPowerNumeral(1, 1)
             };
 

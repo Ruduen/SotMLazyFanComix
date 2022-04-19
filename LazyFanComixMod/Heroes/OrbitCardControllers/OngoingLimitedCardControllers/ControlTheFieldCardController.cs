@@ -15,8 +15,8 @@ namespace LazyFanComix.Orbit
         public override void AddTriggers()
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker,
-                (PhaseChangeAction pca) => this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 3, DamageType.Psychic, 1, false, 1, additionalCriteria: (Card c) => c.IsCover, cardSource: this.GetCardSource()),
-                TriggerType.DealDamage);
+                (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCards(this.DecisionMaker,new LinqCardCriteria((Card c)=>c.IsCover,"cover"),2,false,2,cardSource: this.GetCardSource()),
+                TriggerType.DestroyCard);
             this.AddReduceDamageTrigger((DealDamageAction dda) => dda.Target == this.CharacterCard, (DealDamageAction dda) => this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("cover")).Count());
         }
 

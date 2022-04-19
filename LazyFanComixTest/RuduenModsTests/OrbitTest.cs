@@ -203,15 +203,15 @@ namespace LazyFanComixTest
             QuickHPStorage(mdp, target);
             Card orbital = PlayCard("CollisionCourse");
             QuickHPCheck(-2, 0);
-            GoToEndOfTurn(baron);
-            QuickHPCheck(-2 - 1, -2 - 1);
+            DealDamage(mdp, mdp, 0, DamageType.Melee);
+            QuickHPCheck(-1, -3 - 1);
             AssertInTrash(orbital);
         }
 
         [Test()]
         public void TestOrbitalCollisionCourseSkip()
         {
-            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Legacy","WagnerMarsBase");
 
             StartGame();
             PlayCard("VillainousWeaponry");
@@ -223,8 +223,8 @@ namespace LazyFanComixTest
             QuickHPStorage(mdp, target);
             Card orbital = PlayCard("CollisionCourse");
             QuickHPCheck(-2, 0);
-            GoToEndOfTurn(baron);
-            QuickHPCheck(0, 0);
+            DealDamage(mdp, mdp, 0, DamageType.Melee);
+            QuickHPCheck(-1, 0);
             AssertIsInPlay(orbital);
         }
 
@@ -310,13 +310,37 @@ namespace LazyFanComixTest
         #region Limited
 
         [Test()]
+        public void TestLimitedOrbitalSlingshot()
+        {
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
+
+            StartGame();
+
+            DestroyCard("MobileDefensePlatform");
+            Card orbital = PlayCard("GuideTheBlow");
+
+            Card limited = PlayCard("OrbitalSlingshot");
+
+            DecisionYesNo = true;
+            DestroyCard(orbital);
+
+            AssertAtLocation(orbital, limited.UnderLocation);
+
+            QuickHPStorage(baron);
+            GoToEndOfTurn(Orbit);
+            QuickHPCheck(-3);
+
+
+        }
+
+        [Test()]
         public void TestLimitedSubtlePreparation()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
 
             StartGame();
             Card mdp = GetCardInPlay("MobileDefensePlatform");
-            Card[] plays = new Card[] { PutInHand("RapidFire"), PutInHand("OrbitalSlingshot") };
+            Card[] plays = new Card[] { PutInHand("RapidFire"), PutInHand("WreckTheWreckage") };
             DecisionSelectCards = plays;
             Card limited = PutInHand("SubtlePreparation");
 
@@ -327,6 +351,10 @@ namespace LazyFanComixTest
             QuickHPCheck(0);
             QuickHandCheck(-3 + 2);
             AssertInTrash(plays);
+
+            DecisionSelectFunction = 1;
+            UsePower(limited);
+            QuickHandCheck(1);
 
             GoToStartOfTurn(Orbit);
             AssertInTrash(limited);
@@ -358,11 +386,9 @@ namespace LazyFanComixTest
             DealDamage(Orbit, Orbit, 3, DamageType.Melee);
             QuickHPCheck(0);
 
-            DecisionSelectCard = cover;
-            QuickHPStorage(cover);
             GoToStartOfTurn(Orbit);
-            QuickHPCheck(-3);
-            
+            AssertNumberOfCardsInPlay((Card c) => c.IsCover, 1);
+
         }
 
         [Test()]
@@ -403,6 +429,7 @@ namespace LazyFanComixTest
             StartGame();
 
             Card limited = PlayCard("LandscapeAwareness");
+            DecisionSelectTarget = Orbit.CharacterCard;
 
             UsePower(legacy);
             QuickHPStorage(Orbit);
@@ -411,7 +438,8 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Orbit);
             UsePower(limited);
-            QuickHandCheck(2);
+            QuickHandCheck(1);
+            QuickHPCheck(-1);
         }
 
         #endregion Limited
@@ -430,22 +458,13 @@ namespace LazyFanComixTest
             Card[] orbitals = new Card[] { PutInHand("CollisionCourse"), PlayCard("GuideTheBlow"), PlayCard("CorrectiveMotion") };
 
             DecisionSelectFunction = 0;
-            DecisionSelectCards = new Card[] { orbitals[1], orbitals[2], orbitals[0], baron.CharacterCard, orbitals[1], baron.CharacterCard, orbitals[2], baron.CharacterCard };
+            DecisionSelectCards = new Card[] { orbitals[1], orbitals[2], orbitals[0], baron.CharacterCard, orbitals[1], baron.CharacterCard };
 
             QuickHPStorage(baron);
             QuickHandStorage(Orbit);
             PlayCard(play);
-            QuickHPCheck(-6);
-            QuickHandCheck(-2); // Net lose play and one orbital.
-
-            ResetDecisions();
-
-            DecisionSelectFunction = 1;
-            DecisionSelectCards = orbitals;
-            PlayCard(play);
-            QuickHPCheck(0);
-            QuickHandCheck(6); // 3 Drawn, 3 orbitals added.
-            AssertInHand(orbitals);
+            QuickHPCheck(-4);
+            QuickHandCheck(1); // Play -1, Return +2, Draw +2, Play -2
         }
 
         [Test()]
@@ -466,7 +485,7 @@ namespace LazyFanComixTest
         }
 
         [Test()]
-        public void TestOneShotGuideTheWreckage()
+        public void TestOneShotWreckTheWreckage()
         {
             SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
 
@@ -477,25 +496,8 @@ namespace LazyFanComixTest
             Card cover = PutInTrash("HeavyBlockade");
 
             QuickHPStorage(baron);
-            PlayCard("GuideTheWreckage");
+            PlayCard("WreckTheWreckage");
             QuickHPCheck(-1 -1);
-            AssertIsInPlay(cover);
-        }
-
-        [Test()]
-        public void TestOneShotOrbitalSlingshot()
-        {
-            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "WagnerMarsBase");
-
-            StartGame();
-
-            DestroyCard("MobileDefensePlatform");
-            QuickHPStorage(baron);
-            Card cover = PlayCard("HeavyBlockade");
-
-            QuickHPStorage(baron,Orbit);
-            PlayCard("OrbitalSlingshot");
-            QuickHPCheck(-3 - 2, - 2);
             AssertIsInPlay(cover);
         }
         #endregion One-Shots

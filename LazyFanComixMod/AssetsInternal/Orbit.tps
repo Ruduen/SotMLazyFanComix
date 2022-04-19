@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>../AssetsRelease/Atlas/ExpatrietteAtlas0.png</filename>
+        <filename>../AssetsRelease/Atlas/OrbitAtlas0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrQualityLevel</key>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../AssetsRelease/Atlas/ExpatrietteAtlas0.json</filename>
+                <filename>../AssetsRelease/Atlas/OrbitAtlas0.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -185,7 +185,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Originals/Expatriette/ExpatrietteLiterallyAGunCharacter.png</key>
+            <key type="filename">Originals/Orbit/OrbitCharacter.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -194,16 +194,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>44,64,89,128</rect>
+                <rect>45,64,90,128</rect>
                 <key>scale9Paddings</key>
-                <rect>44,64,89,128</rect>
+                <rect>45,64,90,128</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>Originals/Expatriette</filename>
+            <filename>Originals/Orbit</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
