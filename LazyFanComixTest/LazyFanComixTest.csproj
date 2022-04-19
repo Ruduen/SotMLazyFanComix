@@ -80,6 +80,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestsToAddress\AZThermalFlux.txt" />
     <Content Include="TestsToAddress\GuiseHighFiveAndShockingAnimationAndWhoKnows.txt" />
     <Content Include="TestsToAddress\GuiseWhat.txt" />
     <Content Include="TestsToAddress\TestsFixed\GuiseCassieEssenceFlow.txt" />

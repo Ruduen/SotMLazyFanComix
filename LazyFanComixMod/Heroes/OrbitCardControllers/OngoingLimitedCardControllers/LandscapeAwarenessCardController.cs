@@ -24,16 +24,15 @@ namespace LazyFanComix.Orbit
             List<int> powerNumerals = new List<int>()
             {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1),
-                this.GetPowerNumeral(2, 1)
+                this.GetPowerNumeral(1, 1)
             };
             IEnumerator coroutine;
-            
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[0], false, cardSource: this.GetCardSource());
+
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => c.DoKeywordsContain("orbital"), "orbital"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Deal <a> target <b> damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[2], DamageType.Projectile, powerNumerals[1], false, 0, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

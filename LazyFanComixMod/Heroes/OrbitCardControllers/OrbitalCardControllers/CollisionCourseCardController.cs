@@ -16,7 +16,7 @@ namespace LazyFanComix.Orbit
 
         public override void AddUniqueTriggers()
         {
-            this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card != this.CharacterCard && dda.DamageSource.Card.IsTarget && dda.Target == this.GetCardThisCardIsNextTo(), DamageAndDestroyResponse, new TriggerType[] { TriggerType.DealDamage, TriggerType.DestroySelf }, TriggerTiming.After);
+            this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card != this.CharacterCard && dda.DamageSource.Card.IsTarget && dda.Target == this.GetCardThisCardIsNextTo() && dda.DidDealDamage, DamageAndDestroyResponse, new TriggerType[] { TriggerType.DealDamage, TriggerType.DestroySelf }, TriggerTiming.After);
         }
 
         private IEnumerator DamageAndDestroyResponse(DealDamageAction ddaa)

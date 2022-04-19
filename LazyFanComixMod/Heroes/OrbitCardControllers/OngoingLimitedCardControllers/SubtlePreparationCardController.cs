@@ -21,7 +21,7 @@ namespace LazyFanComix.Orbit
         {
             IEnumerator coroutine;
 
-            coroutine = this.GameController.DrawCards(this.DecisionMaker, 2, true, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, 2, true, true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, false, 0, cardSource: this.GetCardSource());

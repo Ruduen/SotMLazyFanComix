@@ -164,7 +164,7 @@
         "At the start of your turn, destroy 2 cover cards.",
         "Reduce damage deal to {Orbit} by 1 for each cover card in play."
       ],
-      "icons": [ "ReduceDamageTaken", "HasPower", "Search", "DealDamagePsychic" ],
+      "icons": [ "ReduceDamageTaken", "HasPower", "Search", "DestroySelf" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -175,14 +175,14 @@
     },
     {
       "identifier": "LandscapeAwareness",
-      "count": 3,
+      "count": 2,
       "title": "Landscape Awareness",
       "keywords": [ "ongoing", "limited" ],
-      "powers": "Draw 1 card. {Orbit} deals 1 target 1 projectile damage.",
+      "powers": "You may play a Orbital card. {Orbit} deals 1 target 1 projectile damage.",
       "body": [
         "Damage dealt by {Orbit} to Hero targets is irreducible and cannot be increased."
       ],
-      "icons": [ "HasPower", "DrawCardNow", "DealDamageProjectile" ],
+      "icons": [ "MakeDamageIrreducible", "HasPower", "PlayCardNow", "DealDamageProjectile" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -193,14 +193,15 @@
     },
     {
       "identifier": "ObjectsInMotion",
-      "count": 2,
+      "count": 3,
       "title": "Objects in Motion",
       "keywords": [ "ongoing", "limited" ],
-      "powers": "Any hero may use a power. Any hero may play a card. If a card is played this way, destroy this card.",
+      "powers": [ "Any player may play a card. Destroy this card." ],
       "body": [
-        "During your turn, increase damage dealt by targets other than {Orbit} by 1."
+        "During your turn, increase damage dealt by targets other than {Orbit} by 1.",
+        "After an Orbital card is played, you may draw a card."
       ],
-      "icons": [ "IncreaseDamageDealt", "HasPower", "UsePowerNow", "PlayCardNow" ],
+      "icons": [ "IncreaseDamageDealt", "DrawCardNow", "HasPower", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -218,7 +219,7 @@
         "After an orbital card is destroyed, you may move it under this card.",
         "At the end of your turn, destroy all cards under this card. Then, {Orbit} may deal 1 target 1 projectile damage. Increase this damage by 2 for each card destroyed this way."
       ],
-      "icons": [ "DrawCardNow", "PlayCardNow" ],
+      "icons": [ "EndOfTurnAction", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",
@@ -232,9 +233,8 @@
       "count": 4,
       "title": "Subtle Preparation",
       "keywords": [ "ongoing", "limited" ],
-      "powers": ["Draw a card or play a card."],
       "body": [
-        "When this card enters play, you may draw 2 cards and play up to 2 cards.",
+        "When this card enters play, you may draw up to 2 cards and play up to 2 cards.",
         "{Orbit} cannot deal damage.",
         "At the start of your turn, destroy this card."
       ],

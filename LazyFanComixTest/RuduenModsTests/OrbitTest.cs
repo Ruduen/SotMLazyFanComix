@@ -158,7 +158,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(mdp);
             DealDamage(Orbit.CharacterCard, cover, 1, DamageType.Melee);
-            QuickHPCheck(-4);
+            QuickHPCheck(-2 - 1);
             DestroyCard(cover);
             QuickHPCheck(-2);
 
@@ -211,7 +211,7 @@ namespace LazyFanComixTest
         [Test()]
         public void TestOrbitalCollisionCourseSkip()
         {
-            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Legacy","WagnerMarsBase");
+            SetupGameController("BaronBlade", "LazyFanComix.Orbit", "Legacy", "WagnerMarsBase");
 
             StartGame();
             PlayCard("VillainousWeaponry");
@@ -352,10 +352,6 @@ namespace LazyFanComixTest
             QuickHandCheck(-3 + 2);
             AssertInTrash(plays);
 
-            DecisionSelectFunction = 1;
-            UsePower(limited);
-            QuickHandCheck(1);
-
             GoToStartOfTurn(Orbit);
             AssertInTrash(limited);
 
@@ -398,25 +394,28 @@ namespace LazyFanComixTest
 
             StartGame();
             Card mdp = GetCardInPlay("MobileDefensePlatform");
-            Card play = PutInHand("BlazingTornado");
-            DecisionSelectTurnTaker = ra.TurnTaker;
-            DecisionSelectCard = play;
+            Card play = PutInHand("CollisionCourse");
+            DecisionSelectTurnTaker = Orbit.TurnTaker;
             DecisionSelectTarget = mdp;
+            DecisionSelectCardToPlay = play;
 
             QuickHPStorage(mdp);
 
             Card limited = PlayCard("ObjectsInMotion");
             DealDamage(mdp, mdp, 1, DamageType.Melee);
-            QuickHPCheck(-1);
+            QuickHPCheck(-1); // MDP offturn - 1
 
             GoToStartOfTurn(Orbit);
 
             DealDamage(Orbit.CharacterCard, mdp, 1, DamageType.Melee);
-            QuickHPCheck(-1);
+            QuickHPCheck(-1); // Orbit - 1
 
             DealDamage(mdp, mdp, 1, DamageType.Melee);
+            QuickHPCheck(-1 - 1); // MDP - 1 and increase 1
+
+            QuickHandStorage(Orbit);
             UsePower(limited);
-            QuickHPCheck(-2 - 1 - 1 - 1);
+            QuickHandCheck(0); // Played 1, drew 1. 
             AssertIsInPlay(play);
             AssertInTrash(limited);
         }
@@ -429,6 +428,8 @@ namespace LazyFanComixTest
             StartGame();
 
             Card limited = PlayCard("LandscapeAwareness");
+            DiscardAllCards(Orbit);
+            Card orbital = PutInHand("CollisionCourse");
             DecisionSelectTarget = Orbit.CharacterCard;
 
             UsePower(legacy);
@@ -438,8 +439,9 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Orbit);
             UsePower(limited);
-            QuickHandCheck(1);
             QuickHPCheck(-1);
+            AssertIsInPlay(orbital);
+
         }
 
         #endregion Limited
@@ -497,7 +499,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(baron);
             PlayCard("WreckTheWreckage");
-            QuickHPCheck(-1 -1);
+            QuickHPCheck(-1 - 1);
             AssertIsInPlay(cover);
         }
         #endregion One-Shots

@@ -16,6 +16,7 @@ namespace LazyFanComix.Orbit
         public override void AddTriggers()
         {
             this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card.IsTarget && dda.DamageSource.Card != this.CharacterCard && this.GameController.ActiveTurnTaker == this.TurnTaker, 1);
+            this.AddTrigger<PlayCardAction>((PlayCardAction pca) => pca.CardToPlay.DoKeywordsContain("orbital") && pca.WasCardPlayed && !pca.IsPutIntoPlay, (PlayCardAction pca) => this.GameController.DrawCards(this.DecisionMaker, 1, true, cardSource: this.GetCardSource()), TriggerType.DrawCard, TriggerTiming.After);
         }
 
         public override IEnumerator UsePower(int index = 0)
@@ -23,17 +24,11 @@ namespace LazyFanComix.Orbit
             IEnumerator coroutine;
             List<PlayCardAction> pcaResult = new List<PlayCardAction>();
 
-            coroutine = this.GameController.SelectHeroToUsePower(this.DecisionMaker, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             coroutine = this.GameController.SelectHeroToPlayCard(this.DecisionMaker, true, storedResultsSelectCard: pcaResult, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (pcaResult.Any((PlayCardAction pca) => pca.WasCardPlayed))
-            {
-                coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            }
+            coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
     }

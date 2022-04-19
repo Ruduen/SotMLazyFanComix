@@ -1,0 +1,57 @@
+﻿Test Name:	TestAbsoluteZeroThermalFlux
+Test Outcome:	Failed
+Result Message:	
+Expected: True
+  But was:  False
+Result StandardOutput:	
+Using promo shortcut: AbsoluteZero = LazyFanComix.AbsoluteZeroThermalFluxCharacter
+Created game with random seed: -367987343
+================================ START GAME ================================
+DEBUG: Baron Blade puts Mobile Defense Platform into play.
+DEBUG: Baron Blade shuffles their the villain deck.
+DEBUG: Went to Baron Blade's Start phase.
+DEBUG: GameController destroys Mobile Defense Platform!
+DEBUG: GameController moved Mobile Defense Platform to the villain trash.
+DEBUG: Unknownverse Absolute Zero uses the power on Unknownverse Absolute Zero.
+DEBUG: Revealed card: Cold Snap
+DEBUG: Revealed card: Cold Snap
+DEBUG: Revealed card: Glacial Structure
+DEBUG: Revealed matching card: Onboard Module Installation
+DEBUG: Unknownverse Absolute Zero moved Cold Snap from Absolute Zero's revealed cards to Absolute Zero's trash.
+DEBUG: Unknownverse Absolute Zero moved Cold Snap from Absolute Zero's revealed cards to Absolute Zero's trash.
+DEBUG: Unknownverse Absolute Zero moved Glacial Structure from Absolute Zero's revealed cards to Absolute Zero's trash.
+DEBUG: Created decision [SelectCards/None D1 Absolute Zero]
+DEBUG: Created decision [SelectCard/None D1-1 Absolute Zero]
+DEBUG: Unknownverse Absolute Zero's Thermal Flux puts Onboard Module Installation into play.
+DEBUG: Absolute Zero draws Focused Apertures.
+DEBUG: Created decision [SelectCard/None D2 Absolute Zero]
+MakeDecisions: [SelectCard/MoveCardToHand D2 Absolute Zero]
+[Onboard Module Installation] Absolute Zero, Make a SelectCardDecision of type MoveCardToHand: [Isothermic Transducer, Isothermic Transducer, Null-Point Calibration Unit, Null-Point Calibration Unit, Null-Point Calibration Unit, Null-Point Calibration Unit])
+WARNING: No card was specified for the test, selecting the first available choice.
+Selected: Isothermic Transducer
+DEBUG: Onboard Module Installation moved Isothermic Transducer from Absolute Zero's deck to Absolute Zero's hand.
+DEBUG: Absolute Zero shuffles their Absolute Zero's deck.
+DEBUG: Created decision [SelectCard/None D3 Absolute Zero]
+MakeDecisions: [SelectCard/PlayCard D3 Absolute Zero]
+[Onboard Module Installation] Absolute Zero, Make a SelectCardDecision of type PlayCard: [Onboard Module Installation, Isothermic Transducer, Isothermic Transducer, Hoarfire, Focused Apertures, Isothermic Transducer, Skip])
+WARNING: No card was specified for the test, selecting the first available choice.
+Selected: Onboard Module Installation
+DEBUG: Onboard Module Installation plays Onboard Module Installation.
+DEBUG: Absolute Zero draws Null-Point Calibration Unit.
+DEBUG: Created decision [SelectCard/None D4 Absolute Zero]
+MakeDecisions: [SelectCard/MoveCardToHand D4 Absolute Zero]
+[Onboard Module Installation] Absolute Zero, Make a SelectCardDecision of type MoveCardToHand: [Isothermic Transducer, Null-Point Calibration Unit, Null-Point Calibration Unit, Null-Point Calibration Unit])
+WARNING: No card was specified for the test, selecting the first available choice.
+Selected: Isothermic Transducer
+DEBUG: Onboard Module Installation moved Isothermic Transducer from Absolute Zero's deck to Absolute Zero's hand.
+DEBUG: Absolute Zero shuffles their Absolute Zero's deck.
+DEBUG: Created decision [SelectCard/None D5 Absolute Zero]
+MakeDecisions: [SelectCard/PlayCard D5 Absolute Zero]
+[Onboard Module Installation] Absolute Zero, Make a SelectCardDecision of type PlayCard: [Isothermic Transducer, Isothermic Transducer, Hoarfire, Focused Apertures, Isothermic Transducer, Null-Point Calibration Unit, Isothermic Transducer, Skip])
+WARNING: No card was specified for the test, selecting the first available choice.
+Selected: Isothermic Transducer
+DEBUG: Onboard Module Installation plays Isothermic Transducer.
+DEBUG: GameController moved Onboard Module Installation to Absolute Zero's trash.
+DEBUG: GameController moved Onboard Module Installation to Absolute Zero's trash.
+DEBUG: Created decision [SelectCard/None D1-2 Absolute Zero]
+
