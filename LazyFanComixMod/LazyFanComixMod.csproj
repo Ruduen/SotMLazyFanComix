@@ -193,7 +193,9 @@
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\FracturedBackdropCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\VolatileBarricadeCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\HeavyBlockadeCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\OrbitalSlingshotCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\OrbitalSlingshotCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\RapidSurveyCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OldOrbitalSlingshotCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\WreckTheWreckageCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\RapidFireCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OneShotCardControllers\RedesignateCardController.cs" />
@@ -201,10 +203,10 @@
     <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\ObjectsInMotionCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\ControlTheFieldCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OngoingLimitedCardControllers\SubtlePreparationCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\CorrectiveMotionCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\GuideTheBlowCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\SharedOrbitalCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OrbitalCardControllers\CollisionCourseCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\CorrectiveMotionCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\GuideTheBlowCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\SharedOrbitalCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\CollisionCourseCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OrbitArtificialSatelliteCharacterCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OrbitCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />

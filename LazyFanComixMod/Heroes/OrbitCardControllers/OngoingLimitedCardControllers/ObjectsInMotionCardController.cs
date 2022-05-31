@@ -16,7 +16,6 @@ namespace LazyFanComix.Orbit
         public override void AddTriggers()
         {
             this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card.IsTarget && dda.DamageSource.Card != this.CharacterCard && this.GameController.ActiveTurnTaker == this.TurnTaker, 1);
-            this.AddTrigger<PlayCardAction>((PlayCardAction pca) => pca.CardToPlay.DoKeywordsContain("orbital") && pca.WasCardPlayed && !pca.IsPutIntoPlay, (PlayCardAction pca) => this.GameController.DrawCards(this.DecisionMaker, 1, true, cardSource: this.GetCardSource()), TriggerType.DrawCard, TriggerTiming.After);
         }
 
         public override IEnumerator UsePower(int index = 0)

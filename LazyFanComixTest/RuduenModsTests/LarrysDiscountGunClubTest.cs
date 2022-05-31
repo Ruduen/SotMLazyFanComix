@@ -640,5 +640,37 @@ namespace LazyFanComixTest
 
         #endregion Card Tests
 
+        [Test()]
+        public void TestDoRoundsWorkThatWay()
+        {
+            SetupGameController("BaronBlade", "Expatriette", "Haka", "LazyFanComix.LarrysDiscountGunClub");
+
+            StartGame();
+            DestroyNonCharacterVillainCards();
+
+            PlayCard("PaintballMortar");
+            PlayCard("IncendiaryRounds");
+
+            GoToEndOfTurn(env);
+        }
+
+        [Test()]
+        public void TestDoRoundsWorkThatWayB()
+        {
+            SetupGameController("BaronBlade", "Expatriette", "SkyScraper", "RealmOfDiscord");
+
+            StartGame();
+            DestroyNonCharacterVillainCards();
+
+            PlayCard("ImbuedVitality");
+            Card gun = PlayCard("Pride");
+            PlayCard("ShockRounds");
+
+            DecisionSelectTargetFriendly = gun;
+            PlayCard("CatchARide");
+
+            GoToEndOfTurn(env);
+        }
+
     }
 }

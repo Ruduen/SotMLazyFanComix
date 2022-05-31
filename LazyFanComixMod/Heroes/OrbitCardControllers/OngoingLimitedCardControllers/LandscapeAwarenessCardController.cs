@@ -28,7 +28,7 @@ namespace LazyFanComix.Orbit
             };
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => c.DoKeywordsContain("orbital"), "orbital"), cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => c.IsCover, "cover"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Deal <a> target <b> damage.

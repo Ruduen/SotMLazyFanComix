@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace LazyFanComix.Orbit
 {
-    public class OrbitalSlingshotCardController : CardController
+    public class OldOrbitalSlingshotCardController : CardController
     {
-        public OrbitalSlingshotCardController(Card card, TurnTakerController turnTakerController)
+        public OldOrbitalSlingshotCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
             this.SpecialStringMaker.ShowNumberOfCardsUnderCard(this.Card);

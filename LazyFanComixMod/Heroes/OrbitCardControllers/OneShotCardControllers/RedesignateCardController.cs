@@ -18,7 +18,7 @@ namespace LazyFanComix.Orbit
             IEnumerator coroutine;
             List<MoveCardAction> mcaResults = new List<MoveCardAction>();
 
-            coroutine = this.GameController.SelectAndReturnCards(this.DecisionMaker, null, new LinqCardCriteria((Card c) => c.DoKeywordsContain("orbital") || c.IsCover, "cover or orbital"), true, false, false, 0, mcaResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndReturnCards(this.DecisionMaker, null, new LinqCardCriteria((Card c) => c.IsCover, "cover"), true, false, false, 0, mcaResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if(mcaResults?.Any((MoveCardAction mca) => mca.WasCardMoved) == true)
@@ -27,7 +27,7 @@ namespace LazyFanComix.Orbit
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, false, 0, new LinqCardCriteria((Card c) => c.DoKeywordsContain("orbital") || c.IsCover, "cover or orbital"), cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, false, 0, new LinqCardCriteria((Card c) => c.IsCover, "cover"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

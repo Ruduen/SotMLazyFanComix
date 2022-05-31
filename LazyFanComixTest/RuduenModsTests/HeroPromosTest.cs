@@ -183,10 +183,10 @@ namespace LazyFanComixTest
 
             DestroyNonCharacterVillainCards();
 
-            MoveCards(az, (Card c) => c.Identifier == "OmboardModuleInstallation",az.CharacterCard.UnderLocation);
+            MoveCards(az, (Card c) => c.Identifier == "OmboardModuleInstallation", az.CharacterCard.UnderLocation);
 
             UsePower(az);
-            Assert.IsTrue(az.TurnTaker.Trash.Cards.Count((Card c) => c.IsOneShot) == 1);
+            Assert.IsTrue(az.TurnTaker.Trash.Cards.Count((Card c) => c.IsOneShot) == 1 || az.TurnTaker.Trash.Cards.Any((Card c) => c.Identifier == "OnboardModuleInstallation"));
         }
 
 
