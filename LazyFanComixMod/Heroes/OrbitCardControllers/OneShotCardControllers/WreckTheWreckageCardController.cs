@@ -19,18 +19,18 @@ namespace LazyFanComix.Orbit
             List<PlayCardAction> pcaResults = new List<PlayCardAction>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.TurnTaker.Trash && c.IsCover,storedResults: pcaResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCard(this.DecisionMaker, (Card c) => c.Location == this.TurnTaker.Trash && c.IsCover && c.IsTarget, storedResults: pcaResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             PlayCardAction pca = pcaResults.FirstOrDefault((PlayCardAction pca) => pca.WasCardPlayed);
             if (pca?.CardToPlay != null)
             {
-                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, pca.CardToPlay), 1, DamageType.Projectile, 5, false, 0, cardSource: this.GetCardSource());
+                coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), pca.CardToPlay, 1, DamageType.Projectile, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
             {
-                coroutine = this.GameController.SendMessageAction("No Cover card was played, so no damage will be dealt.", Priority.Low, cardSource: this.GetCardSource(),showCardSource: true);
+                coroutine = this.GameController.SendMessageAction("No Cover card was played, so no damage will be dealt.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 

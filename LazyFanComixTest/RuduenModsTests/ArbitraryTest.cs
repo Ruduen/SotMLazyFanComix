@@ -236,6 +236,24 @@ namespace LazyFanComixTest
             UsePower(reduce);
         }
 
+
+        [Test()]
+        public void TestDestroyedWhileDestroyed()
+        {
+            SetupGameController("BaronBlade", "Unity", "Fanatic", "TheArgentAdept", "Megalopolis");
+
+            StartGame();
+
+            PlayCard("BeeBot");
+            PlayCard("AlacritousSubdominant");
+            PutInHand("FinalDive");
+
+            DecisionNextToCard = adept.CharacterCard;
+            //PlayCard("DynamicSiphon");
+
+            // TO DO: Incomplete. Figure out if Bee Bot is destroyed twice, what happens.
+        }
+
         #endregion Official Tests
     }
 }

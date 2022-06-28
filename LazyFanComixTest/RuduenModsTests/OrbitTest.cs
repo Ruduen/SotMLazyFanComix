@@ -400,7 +400,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(baron);
             PlayCard("WreckTheWreckage");
-            QuickHPCheck(-1);
+            QuickHPCheck(-3); // 2+1 from cover.
             AssertIsInPlay(cover);
         }
 

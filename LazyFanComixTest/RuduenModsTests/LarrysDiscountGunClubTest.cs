@@ -20,7 +20,7 @@ namespace LazyFanComixTest
             // It doesn't matter which type as long as it comes from the mod's assembly.
             //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(SonicCannonCardController))); // replace with your own namespace
-            ModHelper.AddAssembly("SpookyGhostwriter", Assembly.GetAssembly(typeof(SGC_TsukikoCharacterCardController)));
+            ModHelper.AddAssembly("SpookyGhostwriter", Assembly.GetAssembly(typeof(TsukikoCharacterCardController)));
         }
 
         #region Load Tests
@@ -283,7 +283,7 @@ namespace LazyFanComixTest
             AssertOffToTheSide(gun);
 
             QuickHPStorage(omnitron);
-            DecisionSelectCard = PutInHand("SGC_HighHeals");
+            DecisionSelectCard = PutInHand("HighHeals");
             UsePower(gunHero);
             QuickHPCheck(-3 - 1 - 1);
         }

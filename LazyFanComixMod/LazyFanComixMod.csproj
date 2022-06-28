@@ -301,6 +301,15 @@
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerPositionCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\PositionCardControllers\VantagePointCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerCharacterCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\ExploitWeaknessCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\PreliminaryMeasuresCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\BrokenTrailCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\PredeterminedPathCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\TargetOfOpportunityCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\RefinedStrikeCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\DisruptiveFlashCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\TheEtherealExecutionerSharedCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\TheEtherealExecutionerTeamCharacterCardController.cs" />
     <Compile Include="Villains\TheTurfWarCardControllers\PlotsRevealed.cs" />
     <Compile Include="Villains\TheTurfWarCardControllers\ReinforcementsCardController.cs" />
     <Compile Include="Villains\TheTurfWarCardControllers\ShortCircuitCardController.cs" />
@@ -350,6 +359,7 @@
     <EmbeddedResource Include="DeckLists\TheTurfWarDeckList.json" />
     <EmbeddedResource Include="DeckLists\LarrysDiscountGunClubDeckList.json" />
     <EmbeddedResource Include="DeckLists\OrbitDeckList.json" />
+    <EmbeddedResource Include="DeckLists\TheEtherealExecutionerTeamDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />

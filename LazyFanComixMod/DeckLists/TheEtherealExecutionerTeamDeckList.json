@@ -1,0 +1,182 @@
+﻿{
+  "name": "The Ethereal Executioner",
+  "sortName": "EtherealExecutioner",
+  "kind": "VillainTeam",
+  "initialCardIdentifiers": [
+    "TheEtherealExecutionerTeamCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "TheEtherealExecutionerTeamCharacter",
+      "count": 1,
+      "title": "The Ethereal Executioner",
+      "keywords": [
+        "villain"
+      ],
+      "icons": [
+        "EndOfTurnAction",
+        "PlayCardNow"
+      ],
+      "advancedIcons": [
+        "EndOfTurnAction",
+        "PlayCardNow"
+      ],
+      "body": [ "Vigilant Stalker", "[i](Under Development)[/i]" ]
+      "backgroundColor": "CCCCCC",
+      "foilBackgroundColor": "CCCCCC",
+      "character": true,
+      "hitpoints": 12,
+      "nemesisIdentifiers": [
+        "Trailblazer",
+        "Cauldron.Terminus",
+        "Angille.Speedrunner"
+      ],
+      "setup": [
+        "At the start of the game, {TheEtherealExecutionerTeam} enters play “Ethereal Executioner“ side up.",
+        "The Villain Deck is shuffled."
+      ],
+      "gameplay": [
+        "This card may regain HP above its max HP.",
+        "At the end of {TheEtherealExecutionerTeam}'s turn, play the top card of {TheEtherealExecutionerTeam}'s deck."
+      ],
+      "advanced": "At the end of {TheEtherealExecutionerTeam}'s turn, play the top card of {TheEtherealExecutionerTeam}'s deck.",
+      "flippedShowHitpoints": false,
+      "flippedBody": "Incapacitated",
+      "flippedGameplay": [
+        "At the end of {TheEtherealExecutionerTeam}'s turn, if this card has 3 Respawn Tokens on it, remove all tokens from this card, flip this card, restore its HP to 12, and shuffle all of {TheEtherealExecutionerTeam}'s cards together to form their deck.",
+        "Otherwise, add 1 Respawn Token to this card."
+      ],
+      "flippedIcons": [
+        "EndOfTurnAction",
+        "AddTokens",
+        "RemoveTokens",
+        "FlipFaceUp"
+      ],
+      "difficulty": 1,
+      "openingLines": {
+        "default": "Another incarnation, another attempt."
+      },
+      "tokenPools": [
+        {
+          "identifier": "RespawnPool",
+          "name": "{TheEtherealExecutionerTeam}'s Respawn Pool",
+          "initialValue": 0,
+          "minimumValue": 0,
+          "color": "CCCCCC"
+        }
+      ]
+    },
+    {
+      "identifier": "DisruptiveFlash",
+      "count": 3,
+      "title": "Disruptive Flash",
+      "keywords": [
+        "ongoing",
+        "observation"
+      ],
+      "body": "When this card enters play, {TheEtherealExecutionerTeam} deals the Hero with the lowest HP 1 infernal damage. That target's player draws a card for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i]. For each card drawn this way, that player discards a card, chosen randomly.",
+      "icons": [
+        "DealDamageMelee",
+        "IncreaseDamageDealt"
+      ],
+      "flavorText": "..."
+    },
+    {
+      "identifier": "RefinedStrike",
+      "count": 3,
+      "title": "Refined Strike",
+      "keywords": [
+        "ongoing",
+        "observation"
+      ],
+      "body": "When this card enters play, {TheEtherealExecutionerTeam} deals the Hero target with the highest HP 2 melee damage. Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i].",
+      "icons": [
+        "DealDamageMelee",
+        "IncreaseDamageDealt"
+      ],
+      "flavorText": "..."
+    },
+    {
+      "identifier": "PreliminaryMeasures",
+      "count": 3,
+      "title": "Preliminary Steps",
+      "keywords": [
+        "ongoing",
+        "observation"
+      ],
+      "body": "When this card enters play, {TheEtherealExecutionerTeam} gains 2 HP. Increase this HP gain by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i].",
+      "icons": [
+        "GainHP",
+        "IncreaseGainHP"
+      ],
+      "flavorText": "..."
+    },
+    {
+      "identifier": "TargetOfOpportunity",
+      "count": 3,
+      "title": "Target of Opportunity",
+      "keywords": [
+        "ongoing",
+        "observation"
+      ],
+      "body": "When this card enters play, {TheEtherealExecutionerTeam} deals the non-Villain target with the lowest HP 0 irreducible projectile damage. Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i]. If this destroys a target, play the top card of {TheEtherealExecutionerTeam}'s deck.",
+      "icons": [
+        "DealDamageProjectile",
+        "IncreaseDamageDealt",
+        "PlayCardNow"
+      ],
+      "flavorText": "..."
+    },
+    {
+      "identifier": "PredeterminedPath",
+      "count": 2,
+      "title": "Predetermined Path",
+      "keywords": [
+        "ongoing",
+        "observation"
+      ],
+      "body": "When this card enters play, play the top card of {TheEtherealExecutionerTeam}'s deck.",
+      "icons": [
+        "PlayCardNow"
+      ],
+      "flavorText": "..."
+    },
+    {
+      "identifier": "BrokenTrail",
+      "count": 3,
+      "title": "Broken Trail",
+      "keywords": [
+        "one-shot"
+      ],
+      "body": [
+        "Discard the top X cards of the Environment deck, where X = 1 + the number of {TheEtherealExecutionerTeam}'s obervation cards in play.",
+        "If any Target cards are discarded this way, {TheEtherealExecutionerTeam} regains 4 HP.",
+        "If any non-Target cards are discarded this way, {TheEtherealExecutionerTeam} deals each other target 2 Toxic Damage."
+      ],
+      "icons": [
+        "Discard",
+        "GainHP",
+        "DealDamageToxic"
+      ],
+      "flavorText": "..."
+    },
+    {
+      "identifier": "ExploitWeakness",
+      "count": 3,
+      "title": "Exploit Weakness",
+      "keywords": [
+        "one-shot"
+      ],
+      "body": [
+        "Deal the Hero with the highest HP 3 projectile damage. Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s observation cards in play. That Hero destroys 1 of their Ongoing or Equipment cards."
+      ],
+      "icons": [
+        "DealDamageProjectile",
+        "IncreaseDamageDealt",
+        "DestroyOngoing",
+        "DestroyEquipment"
+      ],
+      "flavorText": "..."
+    }
+  ]
+}
