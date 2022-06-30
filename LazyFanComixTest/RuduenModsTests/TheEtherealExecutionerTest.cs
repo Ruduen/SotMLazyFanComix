@@ -61,10 +61,11 @@ namespace LazyFanComixTest
             SetupGameController("LazyFanComix.TheEtherealExecutionerTeam", "Legacy", "Megalopolis");
 
             StartGame();
+            PlayCard("RefinedStrike");
 
-            Card card = PutOnDeck("ExploitWeakness");
+            QuickHPStorage(legacy);
             GoToEndOfTurn(TheEtherealExecutioner);
-            AssertInTrash(card);
+            QuickHPCheck(-2);
         }
 
         [Test()]
@@ -74,7 +75,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card[] cards = new Card[] { PutOnDeck("ExploitWeakness"), PutOnDeck("BrokenTrail") };
+            Card[] cards = new Card[] { PutOnDeck("ExploitWeakness") };
             GoToEndOfTurn(TheEtherealExecutioner);
             AssertInTrash(cards);
         }
@@ -89,16 +90,20 @@ namespace LazyFanComixTest
             DestroyCard(TheEtherealExecutioner.CharacterCard);
             AssertIncapacitated(TheEtherealExecutioner);
 
+            // No environment cards.
             GoToEndOfTurn(TheEtherealExecutioner);
-            AssertTokenPoolCount(FindTokenPool("TheEtherealExecutionerTeamCharacter", "RespawnPool"), 1);
-            GoToEndOfTurn(TheEtherealExecutioner);
-            AssertTokenPoolCount(FindTokenPool("TheEtherealExecutionerTeamCharacter", "RespawnPool"), 2);
-            GoToEndOfTurn(TheEtherealExecutioner);
-            AssertTokenPoolCount(FindTokenPool("TheEtherealExecutionerTeamCharacter", "RespawnPool"), 3);
-            AssertIncapacitated(TheEtherealExecutioner);
+            AssertNumberOfCardsAtLocation(TheEtherealExecutioner.CharacterCard.UnderLocation, 0);
 
-            GoToEndOfTurn(TheEtherealExecutioner);
-            AssertTokenPoolCount(FindTokenPool("TheEtherealExecutionerTeamCharacter", "RespawnPool"), 0);
+            PutInTrash(env.TurnTaker.Deck.TopCard);
+            PutInTrash(env.TurnTaker.Deck.TopCard);
+            GoToStartOfTurn(TheEtherealExecutioner);
+            AssertNumberOfCardsAtLocation(TheEtherealExecutioner.CharacterCard.UnderLocation, 1);
+            GoToStartOfTurn(TheEtherealExecutioner);
+            AssertNumberOfCardsAtLocation(TheEtherealExecutioner.CharacterCard.UnderLocation, 2);
+
+            // In case a heal card was played somehow, just check for HP!
+            GoToStartOfTurn(TheEtherealExecutioner);
+            AssertNumberOfCardsAtLocation(TheEtherealExecutioner.CharacterCard.UnderLocation, 0);
             AssertNotFlipped(TheEtherealExecutioner);
             Assert.IsTrue(TheEtherealExecutioner.CharacterCard.HitPoints > 0);
 
@@ -118,7 +123,7 @@ namespace LazyFanComixTest
         #region Ongoing Card Tests
 
         [Test()]
-        public void TestObservationDisruptiveFlash()
+        public void TestObservationPremeditatedDisruption()
         {
             SetupGameController("LazyFanComix.TheEtherealExecutionerTeam", "Legacy", "Haka", "Megalopolis");
 
@@ -127,12 +132,11 @@ namespace LazyFanComixTest
             // 1 damage to lowest, Ob (1) discard. 
             QuickHandStorage(legacy);
             QuickHPStorage(legacy);
-            Card card = PlayCard("DisruptiveFlash");
+            Card card = PlayCard("PremeditatedDisruption");
             AssertIsInPlay(card);
-            QuickHPCheck(-1);
+            QuickHPCheck(-2);
             QuickHandCheck(0);
             AssertNumberOfCardsInTrash(legacy, 1);
-
         }
 
         [Test()]

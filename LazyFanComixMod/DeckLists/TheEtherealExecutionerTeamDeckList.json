@@ -21,11 +21,11 @@
         "EndOfTurnAction",
         "PlayCardNow"
       ],
-      "body": [ "Vigilant Stalker", "[i](Under Development)[/i]" ]
+      "body": [ "Vigilant Stalker", "[i](Under Development)[/i]" ],
       "backgroundColor": "CCCCCC",
       "foilBackgroundColor": "CCCCCC",
       "character": true,
-      "hitpoints": 12,
+      "hitpoints": 14,
       "nemesisIdentifiers": [
         "Trailblazer",
         "Cauldron.Terminus",
@@ -37,44 +37,38 @@
       ],
       "gameplay": [
         "This card may regain HP above its max HP.",
-        "At the end of {TheEtherealExecutionerTeam}'s turn, play the top card of {TheEtherealExecutionerTeam}'s deck."
+        "At the end of {TheEtherealExecutionerTeam}'s turn, {TheEtherealExecutionerTeam} deals the Hero with the lowest HP 1 sonic damage. Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play."
       ],
       "advanced": "At the end of {TheEtherealExecutionerTeam}'s turn, play the top card of {TheEtherealExecutionerTeam}'s deck.",
       "flippedShowHitpoints": false,
       "flippedBody": "Incapacitated",
       "flippedGameplay": [
-        "At the end of {TheEtherealExecutionerTeam}'s turn, if this card has 3 Respawn Tokens on it, remove all tokens from this card, flip this card, restore its HP to 12, and shuffle all of {TheEtherealExecutionerTeam}'s cards together to form their deck.",
-        "Otherwise, add 1 Respawn Token to this card."
+        "Cards under this card have no game text and are not considered in play.",
+        "At the end of {TheEtherealExecutionerTeam}'s turn, if this card has 2 cards under it, flip this card, restore its HP to 14, shuffle all of {TheEtherealExecutionerTeam}'s cards together to form their deck, and destroy all cards under this card. Otherwise, move the top card of the Environment deck under this card."
       ],
       "flippedIcons": [
-        "EndOfTurnAction",
-        "AddTokens",
-        "RemoveTokens",
-        "FlipFaceUp"
+        "StartOfTurnAction",
+        "Manipulate",
+        "FlipFaceUp",
+        "Destroy"
       ],
       "difficulty": 1,
       "openingLines": {
         "default": "Another incarnation, another attempt."
-      },
-      "tokenPools": [
-        {
-          "identifier": "RespawnPool",
-          "name": "{TheEtherealExecutionerTeam}'s Respawn Pool",
-          "initialValue": 0,
-          "minimumValue": 0,
-          "color": "CCCCCC"
-        }
-      ]
+      }
     },
     {
-      "identifier": "DisruptiveFlash",
+      "identifier": "PremeditatedDisruption",
       "count": 3,
-      "title": "Disruptive Flash",
+      "title": "Premeditated Disruption",
       "keywords": [
         "ongoing",
         "observation"
       ],
-      "body": "When this card enters play, {TheEtherealExecutionerTeam} deals the Hero with the lowest HP 1 infernal damage. That target's player draws a card for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i]. For each card drawn this way, that player discards a card, chosen randomly.",
+      "body": [
+        "When this card enters play, {TheEtherealExecutionerTeam} deals the Hero with the lowest HP 2 infernal damage. ",
+        "For each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i], discard the top card of that Hero's deck."
+      ],
       "icons": [
         "DealDamageMelee",
         "IncreaseDamageDealt"
@@ -89,7 +83,10 @@
         "ongoing",
         "observation"
       ],
-      "body": "When this card enters play, {TheEtherealExecutionerTeam} deals the Hero target with the highest HP 2 melee damage. Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i].",
+      "body": [
+        "When this card enters play, {TheEtherealExecutionerTeam} deals the Hero target with the highest HP 2 melee damage. ",
+        "Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i]."
+      ],
       "icons": [
         "DealDamageMelee",
         "IncreaseDamageDealt"
@@ -99,12 +96,15 @@
     {
       "identifier": "PreliminaryMeasures",
       "count": 3,
-      "title": "Preliminary Steps",
+      "title": "Preliminary Measures",
       "keywords": [
         "ongoing",
         "observation"
       ],
-      "body": "When this card enters play, {TheEtherealExecutionerTeam} gains 2 HP. Increase this HP gain by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i].",
+      "body": [
+        "When this card enters play, {TheEtherealExecutionerTeam} gains 2 HP. ",
+        "Increase this HP gain by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i]."
+      ],
       "icons": [
         "GainHP",
         "IncreaseGainHP"
@@ -119,7 +119,11 @@
         "ongoing",
         "observation"
       ],
-      "body": "When this card enters play, {TheEtherealExecutionerTeam} deals the non-Villain target with the lowest HP 0 irreducible projectile damage. Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i]. If this destroys a target, play the top card of {TheEtherealExecutionerTeam}'s deck.",
+      "body": [
+        "When this card enters play, {TheEtherealExecutionerTeam} deals the non-Villain target with the lowest HP 0 irreducible projectile damage.",
+        "Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s Observation cards in play [i](including this one)[/i].",
+        "If this destroys a target, play the top card of {TheEtherealExecutionerTeam}'s deck."
+      ],
       "icons": [
         "DealDamageProjectile",
         "IncreaseDamageDealt",
@@ -168,7 +172,9 @@
         "one-shot"
       ],
       "body": [
-        "Deal the Hero with the highest HP 3 projectile damage. Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s observation cards in play. That Hero destroys 1 of their Ongoing or Equipment cards."
+        "Deal the Hero with the highest HP 3 projectile damage. ",
+        "Increase this damage by 1 for each of {TheEtherealExecutionerTeam}'s observation cards in play.",
+        "That Hero destroys 1 of their Ongoing or Equipment cards."
       ],
       "icons": [
         "DealDamageProjectile",

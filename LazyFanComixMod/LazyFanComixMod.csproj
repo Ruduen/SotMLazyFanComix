@@ -307,7 +307,7 @@
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\PredeterminedPathCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\TargetOfOpportunityCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\RefinedStrikeCardController.cs" />
-    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\DisruptiveFlashCardController.cs" />
+    <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\PremeditatedDisruptionCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\TheEtherealExecutionerSharedCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\TheEtherealExecutionerTeamCharacterCardController.cs" />
     <Compile Include="Villains\TheTurfWarCardControllers\PlotsRevealed.cs" />

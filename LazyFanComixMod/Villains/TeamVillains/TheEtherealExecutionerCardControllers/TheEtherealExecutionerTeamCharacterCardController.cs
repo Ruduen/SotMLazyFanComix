@@ -19,10 +19,11 @@ namespace LazyFanComix.TheEtherealExecutionerTeam
         {
             if (!this.Card.IsFlipped)
             {
+                this.Card.UnderLocation.OverrideIsInPlay = null;
                 // Play the top card of the deck.
                 Func<PhaseChangeAction, IEnumerator> playTopCardResponse = new Func<PhaseChangeAction, IEnumerator>((PhaseChangeAction pca) => this.GameController.PlayTopCard(this.DecisionMaker, this.TurnTakerController, cardSource: this.GetCardSource()));
 
-                this.AddSideTrigger(this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, playTopCardResponse, TriggerType.PlayCard));
+                this.AddSideTrigger(this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, RealDamageResponse, new TriggerType[] { TriggerType.DealDamage, TriggerType.IncreaseDamage }));
                 if (this.TurnTaker.IsAdvanced)
                 {
                     this.AddSideTrigger(this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, playTopCardResponse, TriggerType.PlayCard));
@@ -30,46 +31,69 @@ namespace LazyFanComix.TheEtherealExecutionerTeam
             }
             else
             {
-                this.AddSideTrigger(this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, IncreaseTokenOrReviveResponse, new TriggerType[] { TriggerType.AddTokensToPool, TriggerType.ModifyTokens, TriggerType.FlipCard, TriggerType.GainHP }));
+                this.Card.UnderLocation.OverrideIsInPlay = false;
+                this.AddSideTrigger(this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, GetCardOrReviveResponse, new TriggerType[] { TriggerType.MoveCard, TriggerType.DestroyCard, TriggerType.FlipCard, TriggerType.GainHP }));
             }
         }
 
-        private IEnumerator IncreaseTokenOrReviveResponse(PhaseChangeAction pca)
+        private IEnumerator RealDamageResponse(PhaseChangeAction arg)
         {
             IEnumerator coroutine;
-            TokenPool respawnPool = this.CharacterCard.FindTokenPool("RespawnPool");
-            if (respawnPool != null)
+
+            // Trigger to increase damage dealt by 1 per card.
+            ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => this.CountObservationCards());
+
+            coroutine = this.DealDamageToLowestHP(this.CharacterCard, 1, (Card c) => c.IsHeroCharacterCard, (Card c) => 1, DamageType.Sonic);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            this.RemoveTrigger(tempIncrease);
+        }
+        public int CountObservationCards()
+        {
+            return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("observation") && c.Owner == this.TurnTaker, true).Count();
+        }
+
+        private IEnumerator GetCardOrReviveResponse(PhaseChangeAction pca)
+        {
+            IEnumerator coroutine;
+
+            if (this.Card.UnderLocation.Cards.Count() >= 2)
             {
-                if (respawnPool.CurrentValue >= 3)
+                coroutine = this.GameController.SendMessageAction("Destroying all cards from under and reviving {TheEtherealExecutionerTeam}!", Priority.Low, this.GetCardSource(), showCardSource: true);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.FlipCard(this.CharacterCardController, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.MakeTargettable(this.CharacterCard, 14, 14, this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.BulkMoveCards(this.TurnTakerController, this.TurnTaker.OutOfGame.Cards.Where((Card c) => c.Owner == this.TurnTaker), this.TurnTaker.Deck, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.ShuffleLocation(this.TurnTaker.Deck, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.UpdateTurnPhasesForTurnTaker(this.TurnTakerController, false);
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation), cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
+            {
+                Location envTrash = this.FindEnvironment().TurnTaker.Trash;
+                if (envTrash.HasCards)
                 {
-                    coroutine = this.GameController.SendMessageAction("Removing " + respawnPool.CurrentValue + " Respawn tokens and reviving {TheEtherealExecutionerTeam}!", Priority.Low, this.GetCardSource(), showCardSource: true);
+                    coroutine = this.GameController.SendMessageAction("{TheEtherealExecutionerTeam} draws power from the environment, moving the top card of the environment trash under their card.", Priority.Low, this.GetCardSource(), showCardSource: true);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                    coroutine = this.GameController.RemoveTokensFromPool(respawnPool, respawnPool.CurrentValue, cardSource: this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    coroutine = this.GameController.FlipCard(this.CharacterCardController, cardSource: this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    coroutine = this.GameController.MakeTargettable(this.CharacterCard, 12, 12, this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    coroutine = this.GameController.BulkMoveCards(this.TurnTakerController, this.TurnTaker.OutOfGame.Cards.Where((Card c) => c.Owner == this.TurnTaker), this.TurnTaker.Deck, cardSource: this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    coroutine = this.GameController.ShuffleLocation(this.TurnTaker.Deck, cardSource: this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    coroutine = this.GameController.UpdateTurnPhasesForTurnTaker(this.TurnTakerController, false);
+                    coroutine = this.GameController.MoveCard(this.TurnTakerController, envTrash.TopCard, this.Card.UnderLocation, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else
                 {
-                    // Otherwise, add 1 token.
-                    coroutine = this.GameController.AddTokensToPool(respawnPool, 1, this.GetCardSource());
-                    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                    coroutine = this.GameController.SendMessageAction("Adding a respawn token to {TheEtherealExecutionerTeam} for a total of " + respawnPool.CurrentValue + ". [i]This is not shown due to engine restrictions.[/i]", Priority.Low, this.GetCardSource(), showCardSource: true);
+                    coroutine = this.GameController.SendMessageAction("There are no cards in the Environment trash for {TheEtherealExecutionerTeam} to move.", Priority.Low, this.GetCardSource(), showCardSource: true);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }

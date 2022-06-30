@@ -35,7 +35,7 @@ namespace LazyFanComix.TheEtherealExecutionerTeam
             }
             else if (hasNonTarget)
             {
-                message = "A non-target was discarded, so {TheEtherealExecutioner} will deal damage.";
+                message = "A non-target was discarded, so {TheEtherealExecutionerTeam} will deal damage.";
             }
 
             coroutine = this.GameController.SendMessageAction(message, Priority.Low, this.GetCardSource(), showCardSource: true);
