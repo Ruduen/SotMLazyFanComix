@@ -293,7 +293,6 @@
     <Compile Include="Heroes\TrailblazerCardControllers\OngoingCardControllers\PartingGiftCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\OngoingCardControllers\RapidRepositioningCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\EquipmentCardControllers\WornBinocularsCardController.cs" />
-    <Compile Include="Heroes\TrailblazerCardControllers\MiscCardControllers\ThrowToTheTrailsCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\EquipmentCardControllers\SupplyPackCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\EquipmentCardControllers\ClimbingHarnessCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\PositionCardControllers\StrikingZoneCardController.cs" />
@@ -301,6 +300,8 @@
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerPositionCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\PositionCardControllers\VantagePointCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerCharacterCardController.cs" />
+    <Compile Include="Villains\PromoCardControllers\MissInformationSuspectedSecretaryTurnTakerController.cs" />
+    <Compile Include="Villains\PromoCardControllers\MissInformationSuspectSecretaryCharacterCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\ExploitWeaknessCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\PreliminaryMeasuresCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\BrokenTrailCardController.cs" />

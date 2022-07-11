@@ -1818,6 +1818,68 @@
       }
     }
   ],
+  "MissInformation": [
+    {
+      "identifier": "MissInformationCharacter",
+      "promoIdentifier": "MissInformationSuspectSecretaryCharacter",
+      "overrideTurnTakerController": "MissInformationSuspectSecretary",
+      "count": 1,
+      "title": "Miss Information",
+      "promoTitle": "Miss Information - Suspect Secretary",
+      "keywords": [
+        "villain"
+      ],
+      "icons": [
+        "StartofTurnAction",
+        "Indestructible",
+        "Manipulate",
+        "HasPower"
+      ],
+      "advancedIcons": [
+        "EndOfTurnAction"
+      ],
+      "body": [ "Suspect Secretary", "[i](Under Development)[/i]" ],
+      "backgroundColor": "B8D8E7",
+      "foilBackgroundColor": "CCE5F0",
+      "character": true,
+      "nemesisIdentifiers": [
+        "Parse"
+      ],
+      "setup": [
+        "At the start of the game, {MissInformation} enters play “Suspect Secretary“ side up.",
+        "Cards are revealed from the top of the villain deck until 2 targets are revealed and put into play. Other revealed cards are shuffled back into the villain deck."
+      ],
+      "gameplay": [
+        "Villain targets are indestructible. When a Villain target would be reduced to 0 HP, restore it to its max HP and up to 3 players may use a power.",
+        "Heroes have these Powers:{br}[b]Power[/b]: Place the top or bottom card of the Villain deck under {MissInformation}.{br}[b]Power[/b]: Reveal the bottom card of the Villain deck. Put it on the bottom of the Villain deck or in the Villain trash.",
+        "At the start of the villain turn, if there are {H * 2} cards under this card, {MissInformation} flips."
+      ],
+      "advanced": "At the end of the Villain turn, reveal cards from the top of the Villain deck until a non-Clue card is revealed and place it under {MissInformation}. Shuffle the other revealed cards back into the Villain deck.",
+      "flippedBody": "Plots Revealed",
+      "flippedHitpoints": 35,
+      "flippedGameplay": [
+        "When Miss Information flips to this side, restore all villain targets to their max HP and reveal each card under this card. Place any revealed Clue cards under {MissInformation}, put any revealed Diversion cards in play, and discard other revealed cards. {MissInformation} deals each Hero target X psychic damage, where X = the number of cards discarded this way.",
+        "Heroes have this power:",
+        "[b]Power[/b]: Destroy {H - 1} cards under Miss Information. If you do, destroy a villain non-character card.",
+        "At the end of the villain turn, {MissInformation} deals each Hero target 3 psychic damage."
+      ],
+      "flippedAdvanced": "Reduce damage dealt to {MissInformation} by 1 for each Diversion card in play.",
+      "flippedIcons": [
+        "Manipulate",
+        "PlayCardNow",
+        "DealDamagePsychic",
+        "HasPower",
+        "EndOfTurnAction"
+      ],
+      "flippedAdvancedIcons": [
+        "ReduceDamageTaken"
+      ],
+      "difficulty": 2,
+      "openingLines": {
+        "default": "Oh, don't mind me! I'm sure everything will be fine with you Heroes on the job!"
+      }
+    }
+  ],
   "Cauldron.Baccarat": [
     {
       "identifier": "BaccaratCharacter",

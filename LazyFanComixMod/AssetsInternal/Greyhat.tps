@@ -2,9 +2,9 @@
 <data version="1.0">
     <struct type="Settings">
         <key>fileFormatVersion</key>
-        <int>4</int>
+        <int>5</int>
         <key>texturePackerVersion</key>
-        <string>5.4.0</string>
+        <string>6.0.2</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -37,24 +37,18 @@
         <filename>../AssetsRelease/Atlas/GreyhatAtlas0.png</filename>
         <key>flipPVR</key>
         <false/>
-        <key>pvrCompressionQuality</key>
-        <enum type="SettingsBase::PvrCompressionQuality">PVR_QUALITY_NORMAL</enum>
-        <key>atfCompressData</key>
-        <false/>
-        <key>mipMapMinSize</key>
-        <uint>32768</uint>
-        <key>etc1CompressionQuality</key>
-        <enum type="SettingsBase::Etc1CompressionQuality">ETC1_QUALITY_LOW_PERCEPTUAL</enum>
-        <key>etc2CompressionQuality</key>
-        <enum type="SettingsBase::Etc2CompressionQuality">ETC2_QUALITY_LOW_PERCEPTUAL</enum>
+        <key>pvrQualityLevel</key>
+        <uint>3</uint>
+        <key>astcQualityLevel</key>
+        <uint>2</uint>
+        <key>basisUniversalQualityLevel</key>
+        <uint>2</uint>
+        <key>etc1QualityLevel</key>
+        <uint>40</uint>
+        <key>etc2QualityLevel</key>
+        <uint>40</uint>
         <key>dxtCompressionMode</key>
         <enum type="SettingsBase::DxtCompressionMode">DXT_PERCEPTUAL</enum>
-        <key>jxrColorFormat</key>
-        <enum type="SettingsBase::JpegXrColorMode">JXR_YUV444</enum>
-        <key>jxrTrimFlexBits</key>
-        <uint>0</uint>
-        <key>jxrCompressionLevel</key>
-        <uint>0</uint>
         <key>ditherType</key>
         <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
         <key>backgroundColor</key>
@@ -78,8 +72,6 @@
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
-        <string></string>
-        <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
@@ -181,6 +173,35 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">Originals/Greyhat/AutoRedirect.png</key>
+            <key type="filename">Originals/Greyhat/BandwidthRestriction.png</key>
+            <key type="filename">Originals/Greyhat/CoercedUplink.png</key>
+            <key type="filename">Originals/Greyhat/CommunicationRelay.png</key>
+            <key type="filename">Originals/Greyhat/DDOS.png</key>
+            <key type="filename">Originals/Greyhat/DataTransfer.png</key>
+            <key type="filename">Originals/Greyhat/DigitalUplink.png</key>
+            <key type="filename">Originals/Greyhat/DirectControl.png</key>
+            <key type="filename">Originals/Greyhat/FlareRelay.png</key>
+            <key type="filename">Originals/Greyhat/NodeCheck.png</key>
+            <key type="filename">Originals/Greyhat/OverclockSystems.png</key>
+            <key type="filename">Originals/Greyhat/PingSweep.png</key>
+            <key type="filename">Originals/Greyhat/ProxyRelay.png</key>
+            <key type="filename">Originals/Greyhat/ShockTherapy.png</key>
+            <key type="filename">Originals/Greyhat/SystemReboot.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>75,75,150,150</rect>
+                <key>scale9Paddings</key>
+                <rect>75,75,150,150</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">Originals/Greyhat/GreyhatCharacter.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>

@@ -1,0 +1,380 @@
+﻿ TestMyStuffTribunal
+   Source: RandomTest.cs line 115
+   Duration: 276 ms
+
+  Message: 
+System.NullReferenceException : Object reference not set to an instance of an object.
+
+  Stack Trace: 
+<UsePower>d__2.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DoActionOnSuccess>d__15.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DoAction>d__83.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DoAction>d__255.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<UsePower>d__417.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<SelectAndUsePower>d__209.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<SelectHeroToUsePower>d__197.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<Play>d__1.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<RunAfterActionAndAfterTriggers>d__62.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DoAction>d__255.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<PlayCard>d__229.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<PlayCardIfAble>d__231.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<SelectCardAndDoAction>d__211.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<SelectAndPlayCardFromHand>d__227.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<SelectAndPlayCardFromHand>d__401.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<SelectAndPerformFunction>d__224.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DrawACardOrPlayACard>d__377.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<UsePower>d__4.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DoActionOnSuccess>d__15.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DoAction>d__83.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<DoAction>d__255.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<UsePower>d__417.MoveNext()
+BaseTest.RunCoroutine(IEnumerator e)
+<SelectAndUsePower>d__209.MoveNext()
+RandomGameTest.RunGame(GameController gameController)
+RandomTest.TestMyStuffTribunal()
+
+  Standard Output: 
+Ambuscade threatens the Multiverse!
+TheCelestialTribunal is the location of the conflict.
+ joins the team!
+ joins the team!
+ joins the team!
+Trailblazer joins the team!
+Created game with random seed: 721708418
+[Game: TurnTakers=[ "Ambuscade", "Cassie", "BreachMage", "Greyhat", "Trailblazer", "TheCelestialTribunal" ], Promos:= [ { "Cassie", "CassieEssenceFlowCharacter" }, { "BreachMage", "BreachMageTwincasterCharacter" }, { "Greyhat", "GreyhatBurstNoiseCharacter" } ], IsAdvanced=True, IsChallenge=False, RandomSeed=721708418]
+DEBUG: GameController puts Sonic Mine into play.
+DEBUG: GameController puts Reactive Plating into play.
+DEBUG: GameController puts Custom Hand-Cannon into play.
+DEBUG: Ambuscade shuffles their the villain deck.
+DEBUG: Cassie - Essence Flow's Essense Flow moves 34 cards cards to the top of Cassie's SubDeck.
+DEBUG: Cassie shuffles their The River Deck.
+DEBUG: Cassie - Essence Flow's Essense Flow moves 4 cards cards to the top of Riverbank's UnderCard.
+DEBUG: Breach Mage - Twincaster's J. Twincaster removes 4 tokens from Stable Breach's Focus Pool, down to its minimum number.
+DEBUG: Breach Mage - Twincaster's J. Twincaster removes 4 tokens from Stable Breach's Focus Pool, down to its minimum number.
+DEBUG: Breach Mage - Twincaster's J. Twincaster removes 1 token from Potent Breach's Focus Pool.
+DEBUG: Breach Mage - Twincaster's J. Twincaster removes 0 tokens from Potent Breach's Focus Pool.
+DEBUG: Went to Ambuscade's Start phase.
+DEBUG: Went from Ambuscade's Start phase to PlayCard phase. 
+DEBUG: GameController plays Explosive Launcher.
+PLAY CARD SANITY: 10
+DEBUG: Went from Ambuscade's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D1]
+DEBUG: Created decision [SelectTarget/None D1-1]
+DEBUG: Ambuscade initiates 3 Projectile damage to Breach Mage - Twincaster.
+DEBUG: Ambuscade deals Breach Mage - Twincaster 3 Projectile damage.
+DEBUG: Breach Mage - Twincaster is now at 25 HP.
+DEBUG: Created decision [SelectTarget/None D1-2]
+DEBUG: Created decision [SelectTargets/None D2]
+DEBUG: Created decision [SelectTarget/None D2-1]
+DEBUG: Ambuscade initiates 2 Projectile damage to Breach Mage - Twincaster.
+DEBUG: Ambuscade deals Breach Mage - Twincaster 2 Projectile damage.
+DEBUG: Breach Mage - Twincaster is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D2-2]
+DEBUG: Created decision [SelectTargets/None D3]
+DEBUG: Created decision [SelectTarget/None D3-1]
+DEBUG: Ambuscade initiates 3 Fire damage to Trailblazer.
+DEBUG: Ambuscade deals Trailblazer 3 Fire damage.
+DEBUG: Trailblazer is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D3-2]
+DEBUG: Ambuscade initiates 3 Fire damage to Breach Mage - Twincaster.
+DEBUG: Ambuscade deals Breach Mage - Twincaster 3 Fire damage.
+DEBUG: Breach Mage - Twincaster is now at 20 HP.
+DEBUG: Created decision [SelectTarget/None D3-3]
+DEBUG: Ambuscade initiates 3 Fire damage to Cassie - Essence Flow.
+DEBUG: Ambuscade deals Cassie - Essence Flow 3 Fire damage.
+DEBUG: Cassie - Essence Flow is now at 21 HP.
+DEBUG: Created decision [SelectTarget/None D3-4]
+DEBUG: Ambuscade initiates 3 Fire damage to Greyhat - Burst Noise.
+DEBUG: Ambuscade deals Greyhat - Burst Noise 3 Fire damage.
+DEBUG: Greyhat - Burst Noise is now at 23 HP.
+DEBUG: Created decision [SelectTarget/None D3-5]
+DEBUG: Went from Ambuscade's End phase to Cassie's Start phase. 
+DEBUG: Went from Cassie's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D4 Cassie]
+DEBUG: GameController plays Water Surge.
+DEBUG: Created decision [SelectTargets/None D5 Cassie]
+DEBUG: Created decision [SelectTarget/None D5-1 Cassie]
+DEBUG: Cassie - Essence Flow initiates 2 Cold damage to Sonic Mine.
+DEBUG: Ambuscade reduces the damage dealt to Sonic Mine by Cassie - Essence Flow by 1.
+DEBUG: Cassie - Essence Flow deals Sonic Mine 1 Cold damage.
+DEBUG: Sonic Mine is now at 0 HP.
+DEBUG: Created decision [SelectTargets/None D6]
+DEBUG: Created decision [SelectTarget/None D6-1]
+DEBUG: Sonic Mine initiates 2 Sonic damage to Greyhat - Burst Noise.
+DEBUG: Sonic Mine deals Greyhat - Burst Noise 2 Sonic damage.
+DEBUG: Greyhat - Burst Noise is now at 21 HP.
+DEBUG: Applying ongoing effect: Greyhat - Burst Noise cannot deal damage.
+Message: Greyhat - Burst Noise cannot deal damage. [ Sonic Mine ]
+DEBUG: Created decision [SelectTarget/None D6-2]
+DEBUG: Sonic Mine initiates 2 Sonic damage to Cassie - Essence Flow.
+DEBUG: Sonic Mine deals Cassie - Essence Flow 2 Sonic damage.
+DEBUG: Cassie - Essence Flow is now at 19 HP.
+DEBUG: Applying ongoing effect: Cassie - Essence Flow cannot deal damage.
+Message: Cassie - Essence Flow cannot deal damage. [ Sonic Mine ]
+DEBUG: Created decision [SelectTarget/None D6-3]
+DEBUG: Sonic Mine initiates 2 Sonic damage to Breach Mage - Twincaster.
+DEBUG: Sonic Mine deals Breach Mage - Twincaster 2 Sonic damage.
+DEBUG: Breach Mage - Twincaster is now at 18 HP.
+DEBUG: Applying ongoing effect: Breach Mage - Twincaster cannot deal damage.
+Message: Breach Mage - Twincaster cannot deal damage. [ Sonic Mine ]
+DEBUG: Created decision [SelectTarget/None D6-4]
+DEBUG: Sonic Mine initiates 2 Sonic damage to Trailblazer.
+DEBUG: Sonic Mine deals Trailblazer 2 Sonic damage.
+DEBUG: Trailblazer is now at 19 HP.
+DEBUG: Applying ongoing effect: Trailblazer cannot deal damage.
+Message: Trailblazer cannot deal damage. [ Sonic Mine ]
+DEBUG: Created decision [SelectTarget/None D6-5]
+DEBUG: Cassie - Essence Flow's Essense Flow destroys Sonic Mine!
+DEBUG: GameController moved Sonic Mine to the villain trash.
+DEBUG: Water Surge caused Cassie - Essence Flow to regain 1 HP. HP is now 20.
+DEBUG: GameController moved Water Surge to Cassie's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Cassie's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D7 Cassie]
+DEBUG: Cassie - Essence Flow uses the power on Cassie - Essence Flow.
+DEBUG: Created decision [SelectCard/None D8 Cassie]
+DEBUG: Cassie - Essence Flow moved Droplet from Cassie's hand to the bottom of The River Deck.
+DEBUG: Created decision [SelectCard/None D9 Cassie]
+DEBUG: Cassie - Essence Flow moved Stream Shot from under Riverbank to Cassie's hand.
+DEBUG: GameController moved River-Worn Stone from The River Deck under Riverbank.
+Message: Cassie - Essence Flow moved Stream Shot from under Riverbank to Cassie's hand. [ Stream Shot ]
+Message: Cassie already has at least 3 cards in their hand. [  ]
+DEBUG: Cassie already has at least 3 cards in their hand.
+POWER SANITY: 10
+DEBUG: Went from Cassie's UsePower phase to DrawCard phase. 
+DEBUG: Cassie draws Droplet.
+DRAW CARD SANITY: 10
+DEBUG: Went from Cassie's DrawCard phase to End phase. 
+DEBUG: Went from Cassie's End phase to Breach Mage's Start phase. 
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D10 Breach Mage]
+DEBUG: GameController plays Vision Shock.
+DEBUG: Created decision [SelectCard/None D11 Breach Mage]
+DEBUG: GameController moved Vision Shock from Breach Mage's hand next to Stable Breach.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D12 Breach Mage]
+DEBUG: Breach Mage - Twincaster uses the power on Breach Mage - Twincaster.
+Message: There are no charge cards in play for Breach Mage - Twincaster to destroy. [ Breach Mage - Twincaster ]
+POWER SANITY: 10
+DEBUG: Went from Breach Mage's UsePower phase to DrawCard phase. 
+DEBUG: Breach Mage draws Cycle of Magic.
+DRAW CARD SANITY: 10
+DEBUG: Went from Breach Mage's DrawCard phase to End phase. 
+DEBUG: Went from Breach Mage's End phase to Greyhat's Start phase. 
+DEBUG: Went from Greyhat's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D13 Greyhat]
+DEBUG: GameController plays DDoS.
+DEBUG: Created decision [SelectCards/None D14 Greyhat]
+DEBUG: Greyhat draws Auto-Redirect.
+DEBUG: Greyhat draws Node Check.
+DEBUG: GameController moved DDoS to Greyhat's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Greyhat's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D15 Greyhat]
+DEBUG: Greyhat - Burst Noise uses the power on Greyhat - Burst Noise.
+DEBUG: Created decision [SelectTargets/None D16 Greyhat]
+DEBUG: Created decision [SelectTarget/None D16-1 Greyhat]
+DEBUG: Greyhat - Burst Noise initiates 1 Sonic damage to Breach Mage - Twincaster.
+DEBUG: DealDamageAction of Greyhat - Burst Noise's Burst Noise was cancelled by Sonic Mine.
+DEBUG: Created decision [SelectCards/None D17 Greyhat]
+DEBUG: Created decision [SelectCard/None D17-1 Greyhat]
+POWER SANITY: 10
+DEBUG: Went from Greyhat's UsePower phase to DrawCard phase. 
+DEBUG: Greyhat draws Shock Therapy.
+DRAW CARD SANITY: 10
+DEBUG: Went from Greyhat's DrawCard phase to End phase. 
+DEBUG: Went from Greyhat's End phase to Trailblazer's Start phase. 
+DEBUG: Went from Trailblazer's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D18 Trailblazer]
+DEBUG: GameController plays Tactical Withdrawl.
+DEBUG: Created decision [SelectCard/None D19 Trailblazer]
+Message: There are no cards that can be chosen. [ Tactical Withdrawl ]
+DEBUG: GameController moved Tactical Withdrawl to Trailblazer's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Trailblazer's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D20 Trailblazer]
+DEBUG: Trailblazer uses the power on Trailblazer.
+Message: Sonic Mine prevented Trailblazer from dealing damage. [ Sonic Mine, Trailblazer ]
+DEBUG: Created decision [SelectCards/None D21 Trailblazer]
+DEBUG: Created decision [SelectCard/None D21-1 Trailblazer]
+DEBUG: Trailblazer's Drifter's Shot plays Vantage Point.
+Message: There are no position cards for Vantage Point to destroy. [ Vantage Point ]
+POWER SANITY: 10
+DEBUG: Vantage Point increased the action count of DrawCard by 1.
+DEBUG: Went from Trailblazer's UsePower phase to DrawCard phase. (Count: 2)
+DEBUG: Trailblazer draws Vantage Point.
+DRAW CARD SANITY: 10
+DEBUG: Trailblazer draws Tactical Withdrawl.
+DRAW CARD SANITY: 9
+DEBUG: Went from Trailblazer's DrawCard phase to End phase. 
+DEBUG: Went from Trailblazer's End phase to The Celestial Tribunal's Start phase. 
+DEBUG: Went from The Celestial Tribunal's Start phase to PlayCard phase. 
+DEBUG: GameController plays Paragon of Sentience.
+DEBUG: Created decision [SelectCard/None D22]
+DEBUG: GameController moved Paragon of Sentience from the environment deck next to Trailblazer.
+PLAY CARD SANITY: 10
+DEBUG: Went from The Celestial Tribunal's PlayCard phase to End phase. 
+DEBUG: Went from The Celestial Tribunal's End phase to Ambuscade's Start phase. 
+DEBUG: Notice: an ongoing effect just expired: Greyhat - Burst Noise cannot deal damage.
+Message: Expiring: Greyhat - Burst Noise cannot deal damage. [ Sonic Mine ]
+DEBUG: Notice: an ongoing effect just expired: Cassie - Essence Flow cannot deal damage.
+Message: Expiring: Cassie - Essence Flow cannot deal damage. [ Sonic Mine ]
+DEBUG: Notice: an ongoing effect just expired: Breach Mage - Twincaster cannot deal damage.
+Message: Expiring: Breach Mage - Twincaster cannot deal damage. [ Sonic Mine ]
+DEBUG: Notice: an ongoing effect just expired: Trailblazer cannot deal damage.
+Message: Expiring: Trailblazer cannot deal damage. [ Sonic Mine ]
+DEBUG: Went from Ambuscade's Start phase to PlayCard phase. 
+DEBUG: GameController plays Sonic Mine.
+PLAY CARD SANITY: 10
+DEBUG: Went from Ambuscade's PlayCard phase to End phase. 
+DEBUG: Created decision [SelectTargets/None D23]
+DEBUG: Created decision [SelectTarget/None D23-1]
+DEBUG: Ambuscade initiates 3 Projectile damage to Greyhat - Burst Noise.
+DEBUG: Ambuscade deals Greyhat - Burst Noise 3 Projectile damage.
+DEBUG: Greyhat - Burst Noise is now at 18 HP.
+DEBUG: Created decision [SelectTarget/None D23-2]
+DEBUG: Created decision [SelectTargets/None D24]
+DEBUG: Created decision [SelectTarget/None D24-1]
+DEBUG: Ambuscade initiates 2 Projectile damage to Breach Mage - Twincaster.
+DEBUG: Ambuscade deals Breach Mage - Twincaster 2 Projectile damage.
+DEBUG: Breach Mage - Twincaster is now at 16 HP.
+DEBUG: Created decision [SelectTarget/None D24-2]
+DEBUG: Created decision [SelectTargets/None D25]
+DEBUG: Created decision [SelectTarget/None D25-1]
+DEBUG: Ambuscade initiates 3 Fire damage to Trailblazer.
+DEBUG: Ambuscade deals Trailblazer 3 Fire damage.
+DEBUG: Trailblazer is now at 16 HP.
+DEBUG: Created decision [SelectTarget/None D25-2]
+DEBUG: Ambuscade initiates 3 Fire damage to Cassie - Essence Flow.
+DEBUG: Ambuscade deals Cassie - Essence Flow 3 Fire damage.
+DEBUG: Cassie - Essence Flow is now at 17 HP.
+DEBUG: Created decision [SelectTarget/None D25-3]
+DEBUG: Ambuscade initiates 3 Fire damage to Greyhat - Burst Noise.
+DEBUG: Ambuscade deals Greyhat - Burst Noise 3 Fire damage.
+DEBUG: Greyhat - Burst Noise is now at 15 HP.
+DEBUG: Created decision [SelectTarget/None D25-4]
+DEBUG: Ambuscade initiates 3 Fire damage to Breach Mage - Twincaster.
+DEBUG: Ambuscade deals Breach Mage - Twincaster 3 Fire damage.
+DEBUG: Breach Mage - Twincaster is now at 13 HP.
+DEBUG: Created decision [SelectTarget/None D25-5]
+DEBUG: Went from Ambuscade's End phase to Cassie's Start phase. 
+DEBUG: Went from Cassie's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D26 Cassie]
+DEBUG: GameController plays Droplet.
+DEBUG: Created decision [SelectCards/None D27 Cassie]
+DEBUG: Created decision [SelectCard/None D27-1 Cassie]
+DEBUG: Droplet caused Cassie - Essence Flow to regain 1 HP. HP is now 18.
+DEBUG: Created decision [SelectCard/None D27-2 Cassie]
+DEBUG: Droplet caused Breach Mage - Twincaster to regain 1 HP. HP is now 14.
+DEBUG: Created decision [SelectCard/None D27-3 Cassie]
+DEBUG: Droplet caused Greyhat - Burst Noise to regain 1 HP. HP is now 16.
+DEBUG: Created decision [SelectCard/None D27-4 Cassie]
+DEBUG: Droplet caused Trailblazer to regain 1 HP. HP is now 17.
+DEBUG: Created decision [SelectCard/None D27-5 Cassie]
+DEBUG: Created decision [YesNoAmount/None D28 Cassie]
+DEBUG: GameController moved Droplet to Cassie's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Cassie's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D29 Cassie]
+DEBUG: Cassie - Essence Flow uses the power on Cassie - Essence Flow.
+DEBUG: Created decision [SelectCard/None D30 Cassie]
+DEBUG: Cassie - Essence Flow moved Droplet from Cassie's hand to the bottom of The River Deck.
+DEBUG: Created decision [SelectCard/None D31 Cassie]
+DEBUG: Cassie - Essence Flow moved River-Worn Stone from under Riverbank to Cassie's hand.
+DEBUG: GameController moved Perpetual Flow from The River Deck under Riverbank.
+Message: Cassie - Essence Flow moved River-Worn Stone from under Riverbank to Cassie's hand. [ River-Worn Stone ]
+Message: Cassie already has at least 3 cards in their hand. [  ]
+DEBUG: Cassie already has at least 3 cards in their hand.
+POWER SANITY: 10
+DEBUG: Went from Cassie's UsePower phase to DrawCard phase. 
+DEBUG: Cassie draws Water Surge.
+DRAW CARD SANITY: 10
+DEBUG: Went from Cassie's DrawCard phase to End phase. 
+DEBUG: Went from Cassie's End phase to Breach Mage's Start phase. 
+DEBUG: Created decision [ActivateAbility/ActivateAbility D32 Breach Mage]
+DEBUG: Breach Mage activates the text on Vision Shock.
+DEBUG: Created decision [SelectTargets/None D33 Breach Mage]
+DEBUG: Created decision [SelectTarget/None D33-1 Breach Mage]
+DEBUG: Breach Mage - Twincaster initiates 4 Lightning damage to Explosive Launcher.
+DEBUG: Ambuscade reduces the damage dealt to Explosive Launcher by Breach Mage - Twincaster by 1.
+DEBUG: Breach Mage - Twincaster deals Explosive Launcher 3 Lightning damage.
+DEBUG: Explosive Launcher is now at 3 HP.
+DEBUG: Created decision [SelectLocation/None D34 Breach Mage]
+DEBUG: Revealed card: Defensive Bulwark
+DEBUG: Revealed card: Wasteland Wanderer
+Message: Vision Shock revealed Defensive Bulwark and Wasteland Wanderer. [ Defensive Bulwark ]
+DEBUG: Created decision [SelectCard/None D35 Breach Mage]
+DEBUG: Vision Shock moved Defensive Bulwark from Trailblazer's revealed cards to Trailblazer's deck.
+DEBUG: Vision Shock moved Wasteland Wanderer from Trailblazer's revealed cards to Trailblazer's deck.
+DEBUG: Breach Mage - Twincaster's J. Twincaster destroys Vision Shock!
+DEBUG: GameController moved Vision Shock to Breach Mage's trash.
+DEBUG: Went from Breach Mage's Start phase to PlayCard phase. 
+DEBUG: Created decision [SelectCard/None D36 Breach Mage]
+DEBUG: GameController plays Focus Breach.
+DEBUG: Breach Mage draws Flare Cascade.
+DEBUG: Created decision [SelectCard/None D37 Breach Mage]
+DEBUG: Focus Breach removes 1 token from Potent Breach's Focus Pool.
+DEBUG: Created decision [SelectCard/None D38 Breach Mage]
+DEBUG: Focus Breach plays Hammer Charm.
+DEBUG: Created decision [SelectCard/None D39 Breach Mage]
+ChooseDestroyCard from <Paragon of Sentience> choosing Paragon of Sentience
+Message: Paragon of Sentience plays the top card of the environment deck. [ Paragon of Sentience ]
+DEBUG: Paragon of Sentience plays Representative of Earth.
+In the box 0: LazyFanComix.BreachMageCharacter
+In the box 1: LazyFanComix.BreachMageRenegadeCharacter
+In the box 2: LazyFanComix.CassieCharacter
+In the box 3: LazyFanComix.GreyhatCharacter
+In the box 4: LazyFanComix.InquirerCharacter
+In the box 5: LazyFanComix.InquirerHardFactsCharacter
+In the box 6: LazyFanComix.InquirerLiesOnLiesCharacter
+In the box 7: LazyFanComix.RecallCharacter
+In the box 8: LazyFanComix.RecallForecastedBlowCharacter
+In the box 9: LazyFanComix.SpellforgeCharacter
+In the box 10: LazyFanComix.SpellforgeDecreeCharacter
+In the box 11: LazyFanComix.SpellforgeRedefineCharacter
+In the box 12: LazyFanComix.SoulbinderCharacter
+In the box 13: LazyFanComix.SoulbinderMortalFormCharacter
+In the box 14: LazyFanComix.TrailblazerSpatialAlignmentCharacter
+DEBUG: Created decision [SelectFromBox/None D40]
+DEBUG: Selected from box: SelectedIdentifier = LazyFanComix.TrailblazerSpatialAlignmentCharacter
+DEBUG: Selected from box: SelectedTurnTakerIdentifier = LazyFanComix.Trailblazer
+DEBUG: Card definition: [CardDefinition: Identifier=TrailblazerCharacter, Title=Trailblazer - Spatial Alignment, Count=1, Namespace=LazyFanComix, PromoIdentifier=TrailblazerSpatialAlignmentCharacter]
+DEBUG: Representative of Earth puts Trailblazer - Spatial Alignment into play.
+DEBUG: GameController moved Trailblazer - Spatial Alignment from The Celestial Tribunal's off to the side next to Representative of Earth.
+DEBUG: Hammer Charm destroys Paragon of Sentience!
+DEBUG: GameController moved Paragon of Sentience to the environment trash.
+DEBUG: GameController moved Focus Breach to Breach Mage's trash.
+PLAY CARD SANITY: 10
+DEBUG: Went from Breach Mage's PlayCard phase to UsePower phase. 
+DEBUG: Created decision [UsePower/UsePower D41 Breach Mage]
+DEBUG: Breach Mage - Twincaster uses the power on Stable Breach.
+DEBUG: Created decision [SelectFunction/SelectFunction D42 Breach Mage]
+DEBUG: Created decision [SelectCard/None D43 Breach Mage]
+DEBUG: Stable Breach plays Aura Charm.
+DEBUG: Created decision [SelectTurnTaker/None D44 Breach Mage]
+DEBUG: Created decision [UsePower/UsePower D45]
+DEBUG: Trailblazer - Spatial Alignment uses the power on Trailblazer - Spatial Alignment.
+DEBUG: Created decision [SelectCards/None D46]
+DEBUG: Created decision [SelectCard/None D46-1]
