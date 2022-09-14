@@ -595,7 +595,6 @@ namespace LazyFanComixTest
             StartGame();
             DestroyNonCharacterVillainCards();
 
-            PlayCard("StealthBot");
             PlayCard("Standoff");
 
             SetHitPoints(expatriette, 10);
@@ -603,33 +602,36 @@ namespace LazyFanComixTest
             SetHitPoints(unity, 10);
             DecisionYesNo = true;
 
+            // Confirm all fine when expat is highest and tied.
+
             QuickHPStorage(expatriette);
             DealDamage(baron.CharacterCard, expatriette.CharacterCard, 2, DamageType.Fire);
             QuickHPCheck(0);
-
 
             QuickHPStorage(baron);
             DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
             QuickHPCheck(0);
 
-            SetHitPoints(baron, 10);
+            // Confirm goes through when selecting no. 
+
+            DecisionYesNo = false;
 
             QuickHPStorage(expatriette);
             DealDamage(baron.CharacterCard, expatriette.CharacterCard, 2, DamageType.Fire);
-            QuickHPCheck(0);
-
+            QuickHPCheck(-2);
 
             QuickHPStorage(baron);
             DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
-            QuickHPCheck(0);
+            QuickHPCheck(-2);
 
-            SetHitPoints(haka, 9);
-            SetHitPoints(unity, 9);
+
+            // Confirm no decision when lower.
+            SetHitPoints(haka, 6);
+            SetHitPoints(unity, 6);
 
             QuickHPStorage(expatriette);
             DealDamage(baron.CharacterCard, expatriette.CharacterCard, 2, DamageType.Fire);
             QuickHPCheck(0);
-
 
             QuickHPStorage(baron);
             DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);

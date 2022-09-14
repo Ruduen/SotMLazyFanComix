@@ -141,7 +141,7 @@ namespace LazyFanComix.MissInformation
                 else
                 {
                     return new Power[] {
-                        new Power(cardController.HeroTurnTakerController, cardController, "Destroy " + (this.H - 1) + " cards under {MissInformation}. If 2 cards are destroyed this way, destroy a villain non-character card.", DestroyCardsUnderResponse(cardController), 0, null, this.GetCardSource())
+                        new Power(cardController.HeroTurnTakerController, cardController, "Destroy " + (this.H - 1) + " cards under {MissInformation}. If 2 cards are destroyed this way, destroy a Diversion or Ongoing card.", DestroyCardsUnderResponse(cardController), 0, null, this.GetCardSource())
                     };
                 }
             }
@@ -197,12 +197,12 @@ namespace LazyFanComix.MissInformation
 
             if (dcaResults.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count() == this.H - 1)
             {
-                coroutine = this.GameController.SelectAndDestroyCards(cardController.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsVillain && !c.IsCharacter), 1, false, 1, storedResultsAction: dcaResults, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectAndDestroyCards(cardController.HeroTurnTakerController, new LinqCardCriteria((Card c) => (c.IsDiversion || c.IsOngoing)), 1, false, 1, storedResultsAction: dcaResults, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
             {
-                coroutine = this.GameController.SendMessageAction("2 cards were not destroyed, so no villain card will be destroyed.", Priority.Low, null);
+                coroutine = this.GameController.SendMessageAction("2 cards were not destroyed, so no Diversion or Ongoing card will be destroyed.", Priority.Low, null);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }

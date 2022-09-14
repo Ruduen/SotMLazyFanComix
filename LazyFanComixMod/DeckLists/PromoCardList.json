@@ -1860,7 +1860,7 @@
       "flippedGameplay": [
         "When Miss Information flips to this side, restore all villain targets to their max HP and reveal each card under this card. Place any revealed Clue cards under {MissInformation}, put any revealed Diversion cards in play, and discard other revealed cards. {MissInformation} deals each Hero target X psychic damage, where X = the number of cards discarded this way.",
         "Heroes have this power:",
-        "[b]Power[/b]: Destroy {H - 1} cards under Miss Information. If you do, destroy a villain non-character card.",
+        "[b]Power[/b]: Destroy {H - 1} cards under Miss Information. If you do, destroy a Diversion or Ongoing card.",
         "At the end of the villain turn, {MissInformation} deals each Hero target 3 psychic damage."
       ],
       "flippedAdvanced": "Reduce damage dealt to {MissInformation} by 1 for each Diversion card in play.",

@@ -5,6 +5,10 @@ using LazyFanComix.HeroPromos;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
+using SpookyGhostwriter.Tsukiko;
+using Handelabra.Sentinels.Engine.Controller;
+using System;
+using System.Text.RegularExpressions;
 
 namespace LazyFanComixTest
 {
@@ -18,6 +22,7 @@ namespace LazyFanComixTest
             // It doesn't matter which type as long as it comes from the mod's assembly.
             //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(PromoDefaultCharacterCardController))); // replace with your own namespace
+            ModHelper.AddAssembly("SpookyGhostwriter", Assembly.GetAssembly(typeof(TsukikoCharacterCardController)));
         }
 
         #region Official Tests
@@ -254,6 +259,170 @@ namespace LazyFanComixTest
             // TO DO: Incomplete. Figure out if Bee Bot is destroyed twice, what happens.
         }
 
+
+        [Test()]
+        public void TestRedirectMine()
+        {
+            SetupGameController("Ambuscade", "Unity", "Fanatic", "TheArgentAdept", "Megalopolis");
+
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+            GoToStartOfTurn(ambuscade);
+
+            QuickHPStorage(fanatic);
+            PlayCard("SonicMine");
+            PlayCard("DivineSacrifice");
+            QuickHPCheck(-6);
+
+        }
+
+        [Test()]
+        public void TestLadyLuck()
+        {
+            SetupGameController("Kismet", "Unity", "Fanatic", "TheArgentAdept", "RealmOfDiscord");
+
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+
+            PlayCard("ImbuedVitality");
+            PlayCard("LadyLuck");
+            Card saved=PlayCard("ScatteredMind");
+
+            PutOnDeck("UnluckyBreak");
+            DealDamage(saved, saved, 10, DamageType.Melee);
+
+            AssertIsInPlay(saved);
+        }
+
+        [Test()]
+        public void TestLadyLuckB()
+        {
+            SetupGameController("Kismet", "Unity", "Fanatic", "TheArgentAdept", "RealmOfDiscord");
+
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+
+            PlayCard("ImbuedVitality");
+            Card saved=PlayCard("LadyLuck");
+
+            PutOnDeck("UnluckyBreak");
+            DealDamage(saved, saved, 10, DamageType.Melee);
+
+            AssertInTrash(saved);
+        }
+
         #endregion Official Tests
+
+        [Test()]
+        public void TestNumerology()
+        {
+            SetupGameController("Omnitron", "SpookyGhostwriter.Tsukiko", "Megalopolis");
+
+            StartGame();
+
+            HeroTurnTakerController Tsukiko = FindHero("Tsukiko");
+            Card card = PlayCard("BoxerShorts");
+
+            //string description = card.GetPowerDescription(0);
+            string description = "{Tsukiko} deals 1 target 2 Melee damage. If she dealt any damage this way, you may destroy a non-target Environment card.";
+            List<string> numeralString = ExtractPowerNumeralsFromPowerDescription(description).ToList();
+
+            Assert.IsTrue(numeralString.Count > 1);
+            return;
+
+        }
+
+
+
+        public IEnumerable<string> ExtractPowerNumeralsFromPowerDescription(string powerDescription)
+        {
+            List<string> list = new List<string>();
+            List<string> list2 = (from Match m in Regex.Matches(powerDescription, "\\d+.[a-zA-Z\\- '{}]*")
+                                  select m.Value).ToList<string>();
+            int num = 0;
+            using (List<string>.Enumerator enumerator = list2.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    string numText = enumerator.Current;
+                    string text = numText;
+                    if (numText.Trim().IndexOf(" ", StringComparison.CurrentCulture) <= 0)
+                    {
+                        text = (from Match m in Regex.Matches(powerDescription, "[a-zA-Z {}]+ \\d+\\.")
+                                select m.Value).ToList<string>().FirstOrDefault<string>();
+                    }
+                    if (!string.IsNullOrEmpty(text))
+                    {
+                        int num2 = text.IndexOf(" and ", StringComparison.CurrentCulture);
+                        if (num2 > 0)
+                        {
+                            text = text.Substring(0, num2);
+                        }
+                        int num3 = text.IndexOf(" ", StringComparison.CurrentCulture);
+                        int num4 = text.IndexOf(" or ", StringComparison.CurrentCulture);
+                        if (num4 > num3 + 1)
+                        {
+                            text = text.Substring(0, num4);
+                        }
+                    }
+                    IEnumerable<string> source = from s in list2
+                                                 where s == numText
+                                                 select s;
+                    if (source.Count<string>() > 1 || (!string.IsNullOrEmpty(text) && Regex.IsMatch(text.Trim(), "^[0-9]+ cards*$")))
+                    {
+                        string lookbackText = numText;
+                        List<string> source2;
+                        do
+                        {
+                            source2 = (from Match m in Regex.Matches(powerDescription, "[a-zA-Z]* " + lookbackText)
+                                       select m.Value).ToList<string>();
+                            lookbackText = source2.ElementAtOrDefault(num);
+                            if (lookbackText == null)
+                            {
+                                goto Block_12;
+                            }
+                        }
+                        while ((from s in source2
+                                where s == lookbackText
+                                select s).Count<string>() > 1);
+                    IL_205:
+                        text = lookbackText;
+                        if (source.Count<string>() > 1)
+                        {
+                            num++;
+                            goto IL_21C;
+                        }
+                        goto IL_21C;
+                    Block_12:
+                        lookbackText = numText;
+                        goto IL_205;
+                    }
+                IL_21C:
+                    if (!string.IsNullOrEmpty(text))
+                    {
+                        int num5 = text.IndexOf(" and ", StringComparison.CurrentCulture);
+                        if (num5 > 0)
+                        {
+                            text = text.Substring(0, num5);
+                        }
+                        int num6 = text.IndexOf(" ", StringComparison.CurrentCulture);
+                        int num7 = text.IndexOf(" or ", StringComparison.CurrentCulture);
+                        if (num7 > num6 + 1)
+                        {
+                            text = text.Substring(0, num7);
+                        }
+                        if (text.Last<char>() == '{')
+                        {
+                            text = text.Substring(0, text.Length - 2);
+                        }
+                        list.Add(text.Trim());
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

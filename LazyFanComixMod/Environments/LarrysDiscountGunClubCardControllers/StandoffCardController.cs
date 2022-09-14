@@ -36,14 +36,26 @@ namespace LazyFanComix.LarrysDiscountGunClub
         }
         private bool SourceTargetMayBeHighestEnemies(DealDamageAction dda)
         {
-            // Quit if any failures on targetting retrieval or self-damage.
-            if (dda?.DamageSource?.Card == null || dda?.Target == null || !dda.CanDealDamage || !dda.CanBeCancelled) { return false; }
-
             IEnumerable<Card> highestVillains = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsVillainCharacterCard, this.GetCardSource());
             IEnumerable<Card> highestHeroes = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsHeroCharacterCard, this.GetCardSource());
 
-            // If Highest Hero is source and highest villain is target, or highest villain is source and highest hero is target, consider.
-            return (highestHeroes.Contains(dda.DamageSource.Card) && highestVillains.Contains(dda.Target)) || (highestVillains.Contains(dda.DamageSource.Card) && highestHeroes.Contains(dda.Target));
+            // Quit if any failures on targetting retrieval or self-damage.
+            if (dda?.DamageSource?.Card?.IsHeroCharacterCard == true && dda?.Target?.IsVillainCharacterCard == true)
+            {
+                if (highestHeroes.Contains(dda.DamageSource.Card)  && highestVillains.Contains(dda.Target))
+                {
+                    return true;
+                }
+            }
+            else if (dda?.DamageSource?.Card?.IsVillainCharacterCard == true && dda?.Target?.IsHeroCharacterCard == true)
+            {
+                if (highestVillains.Contains(dda.DamageSource.Card) && highestHeroes.Contains(dda.Target))
+                {
+                    return true;
+                }
+            }
+            return false;
+
         }
 
         private IEnumerator CancelDamageIfSourceTargetAreHighestEnemies(DealDamageAction dda)
@@ -85,7 +97,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
                 Card villain = decision.AssociatedCards.FirstOrDefault((Card c) => c.IsVillainCharacterCard);
                 if (hero != null && villain != null)
                 {
-                    return new CustomDecisionText("Should this damage be prevented since " + hero.Title + " would be the highest HP Hero and " + villain.Title + " would be the highest HP Villain?", this.DecisionMaker.Name + " is determining if damage should be prevented.", "Should this damage be prevented since " + hero.Title + " would be the highest HP Hero and " + villain.Title + " would be the highest HP Villain?", "Prevent damage since targets would be highest HP Hero and Villain");
+                    return new CustomDecisionText("Should this damage be prevented since " + hero.Title + " would be the highest HP Hero and " + villain.Title + " would be the highest HP Villain?", "Someone is determining if damage should be prevented.", "Should this damage be prevented since " + hero.Title + " would be the highest HP Hero and " + villain.Title + " would be the highest HP Villain?", "Prevent damage since targets would be highest HP Hero and Villain");
                 }
             }
             string wut = "Something went wrong, so make a bug report for Lazy Fan Comix. In the meantime... Prevent a damage?";
