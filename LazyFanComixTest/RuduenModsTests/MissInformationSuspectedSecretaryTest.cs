@@ -119,18 +119,21 @@ namespace LazyFanComixTest
             StartGame();
 
             Card target = FindCard((Card c) => c.IsInPlay && c.IsVillainTarget);
+            Card target3 = PlayCard("InspiringPresence");
             Card target2 = PlayCard(FindCard((Card c) => c.IsVillainTarget && c.Location == miss.TurnTaker.Deck));
 
             FlipCard(miss);
 
             Card[] under = miss.TurnTaker.Deck.Cards.Take(3).ToArray();
 
-            DecisionSelectCards = new Card[] { under[0], under[1], target, under[2], target2 };
+            DecisionSelectCards = new Card[] { under[0], under[1], target, target2, target3 };
             MoveCards(miss, under, miss.CharacterCard.UnderLocation);
             UsePower(legacy, 1);
             AssertInTrash(target);
             UsePower(legacy, 1);
-            AssertIsInPlay(target2);
+            AssertInTrash(target2);
+            UsePower(legacy, 1);
+            AssertIsInPlay(target3);
 
         }
         #endregion Power Tests
@@ -205,7 +208,7 @@ namespace LazyFanComixTest
             AssertUnderCard(miss.CharacterCard, clue);
             AssertIsInPlay(diversion);
             AssertInTrash(oneshot);
-            AssertIsAtMaxHP(target);
+            //AssertIsAtMaxHP(target);
         }
 
         [Test()]

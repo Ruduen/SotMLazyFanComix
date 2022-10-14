@@ -1,8 +1,6 @@
 ﻿using Cauldron.Baccarat;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.Shared;
-using LazyFanComix.HeroPromos;
 using System.Collections;
 using System.Linq;
 

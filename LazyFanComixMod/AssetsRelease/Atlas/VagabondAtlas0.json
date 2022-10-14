@@ -1,0 +1,20 @@
+{"frames": {
+
+"VagabondCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":738,"h":1024},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":738,"h":1024},
+	"sourceSize": {"w":738,"h":1024}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "VagabondAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:664e0e7d36c524e685da4608b4fa04cb:ad4503a205bd24980c38facee40ed35d:d579263f4bcb7961513a49f4bd9ad569$"
+}
+}

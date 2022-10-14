@@ -5,6 +5,8 @@ using LazyFanComix.HeroPromos;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
+using Handelabra.Sentinels.Engine.Controller;
+using SpookyGhostwriter.Tsukiko;
 
 namespace LazyFanComixTest
 {
@@ -17,6 +19,7 @@ namespace LazyFanComixTest
             // Tell the engine about our mod assembly so it can load up our code.
             // It doesn't matter which type as long as it comes from the mod's assembly.
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(PromoDefaultCharacterCardController)));
+            ModHelper.AddAssembly("SpookyGhostwriter", Assembly.GetAssembly(typeof(TsukikoCharacterCardController)));
         }
 
         [Test()]
@@ -2618,5 +2621,6 @@ namespace LazyFanComixTest
         }
 
         #endregion Official Tests
+
     }
 }

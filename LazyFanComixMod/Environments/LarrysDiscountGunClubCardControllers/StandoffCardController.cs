@@ -13,7 +13,13 @@ namespace LazyFanComix.LarrysDiscountGunClub
         public StandoffCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            AllowFastCoroutinesDuringPretend = false;
+            this.PreventingDamage = null;
+            this.SpecialStringMaker.ShowHeroCharacterCardWithHighestHP(1);
+            this.SpecialStringMaker.ShowVillainCharacterCardWithHighestHP(1);
         }
+
+        private bool? PreventingDamage { get; set; }
 
         public override void AddTriggers()
         {
@@ -65,21 +71,33 @@ namespace LazyFanComix.LarrysDiscountGunClub
             List<YesNoCardDecision> yncd = new List<YesNoCardDecision>();
             IEnumerator coroutine;
 
-            if (highestHeroes.Count() > 1 || highestVillains.Count() > 1)
+            if (this.GameController.PretendMode)
             {
-                coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.Custom, this.Card, dda, yncd, new Card[] { dda.DamageSource.Card, dda.Target }, cardSource: this.GetCardSource());
-                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-                if (yncd?.FirstOrDefault()?.Answer == true)
+                if (highestHeroes.Count() > 1 || highestVillains.Count() > 1)
                 {
-                    coroutine = this.CancelAction(dda, true, isPreventEffect: true);
+                    coroutine = this.GameController.MakeYesNoCardDecision(this.DecisionMaker, SelectionType.Custom, this.Card, dda, yncd, new Card[] { dda.DamageSource.Card, dda.Target }, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                    if (yncd?.FirstOrDefault()?.Answer == true)
+                    {
+                        this.PreventingDamage = true;
+                    }
+                }
+                else
+                {
+                    this.PreventingDamage = true;
                 }
             }
-            else
+
+            if (this.PreventingDamage == true)
             {
                 coroutine = this.CancelAction(dda, true, isPreventEffect: true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+
+            if (!base.GameController.PretendMode)
+            {
+                this.PreventingDamage = null;
             }
         }
 

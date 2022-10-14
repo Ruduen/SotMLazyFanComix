@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>../AssetsRelease/Atlas/SetupGame0.png</filename>
+        <filename>../AssetsRelease/Atlas/VagabondAtlas0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrQualityLevel</key>
@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../AssetsRelease/Atlas/SetupGame0.json</filename>
+                <filename>../AssetsRelease/Atlas/VagabondAtlas0.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -173,58 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Originals/SetupGame/BreachMageCharacter.png</key>
-            <key type="filename">Originals/SetupGame/ExpatrietteLiterallyAGunCharacter.png</key>
-            <key type="filename">Originals/SetupGame/GreyhatCharacter.png</key>
-            <key type="filename">Originals/SetupGame/InquirerCharacter.png</key>
-            <key type="filename">Originals/SetupGame/OrbitCharacter.png</key>
-            <key type="filename">Originals/SetupGame/SpellforgeCharacter.png</key>
-            <key type="filename">Originals/SetupGame/TrailblazerCharacter.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>45,64,90,128</rect>
-                <key>scale9Paddings</key>
-                <rect>45,64,90,128</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/CassieCharacter.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>44,64,89,128</rect>
-                <key>scale9Paddings</key>
-                <rect>44,64,89,128</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/SoulbinderCharacter.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>180,256,360,512</rect>
-                <key>scale9Paddings</key>
-                <rect>180,256,360,512</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/VagabondCharacter.png</key>
+            <key type="filename">Originals/Vagabond/VagabondCharacter.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -242,7 +191,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>Originals/SetupGame</filename>
+            <filename>Originals/Vagabond</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

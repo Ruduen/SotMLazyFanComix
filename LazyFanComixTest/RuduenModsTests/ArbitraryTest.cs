@@ -288,7 +288,7 @@ namespace LazyFanComixTest
 
             PlayCard("ImbuedVitality");
             PlayCard("LadyLuck");
-            Card saved=PlayCard("ScatteredMind");
+            Card saved = PlayCard("ScatteredMind");
 
             PutOnDeck("UnluckyBreak");
             DealDamage(saved, saved, 10, DamageType.Melee);
@@ -306,7 +306,7 @@ namespace LazyFanComixTest
             DestroyNonCharacterVillainCards();
 
             PlayCard("ImbuedVitality");
-            Card saved=PlayCard("LadyLuck");
+            Card saved = PlayCard("LadyLuck");
 
             PutOnDeck("UnluckyBreak");
             DealDamage(saved, saved, 10, DamageType.Melee);
@@ -314,8 +314,37 @@ namespace LazyFanComixTest
             AssertInTrash(saved);
         }
 
+        [Test()]
+        public void TestMovingTarget()
+        {
+            SetupGameController("BaronBlade", "Legacy", "Stuntman", "TheArgentAdept", "WagnerMarsBase");
+
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+
+            PlayCard("MovingTarget");
+            PlayCard("MeteorStorm");
+
+            DealDamage(baron, stunt, 2, DamageType.Fire);
+        }
+
+        [Test()]
+        public void TestEnneadNum()
+        {
+            SetupGameController("TheEnnead", "Legacy", "Stuntman", "TheArgentAdept", "WagnerMarsBase");
+
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+
+            AssertNumberOfCardsInPlay(ennead, 10);
+        }
+
+
         #endregion Official Tests
 
+        #region Numerology Text
         [Test()]
         public void TestNumerology()
         {
@@ -424,5 +453,6 @@ namespace LazyFanComixTest
             }
             return list;
         }
+        #endregion Numerology Test
     }
 }

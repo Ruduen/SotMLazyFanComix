@@ -1858,9 +1858,9 @@
       "flippedBody": "Plots Revealed",
       "flippedHitpoints": 35,
       "flippedGameplay": [
-        "When Miss Information flips to this side, restore all villain targets to their max HP and reveal each card under this card. Place any revealed Clue cards under {MissInformation}, put any revealed Diversion cards in play, and discard other revealed cards. {MissInformation} deals each Hero target X psychic damage, where X = the number of cards discarded this way.",
+        "When Miss Information flips to this side, reveal each card under this card. Place any revealed Clue cards under {MissInformation}, put any revealed Diversion cards in play, and discard any other revealed cards. {MissInformation} deals each Hero target X psychic damage, where X = the number of cards discarded this way.",
         "Heroes have this power:",
-        "[b]Power[/b]: Destroy {H - 1} cards under Miss Information. If you do, destroy a Diversion or Ongoing card.",
+        "[b]Power[/b]: Destroy {H - 1} cards under Miss Information. If any cards are destroyed this way, destroy a Diversion or Ongoing card.",
         "At the end of the villain turn, {MissInformation} deals each Hero target 3 psychic damage."
       ],
       "flippedAdvanced": "Reduce damage dealt to {MissInformation} by 1 for each Diversion card in play.",
@@ -2010,6 +2010,89 @@
         "PastTheRamCharacter": "I don't think Alistair will begrudge me a little violence against his upstart of an ancestor."
       },
       "complexity": 3
+    }
+  ],
+  "SpookyGhostwriter.Escarlata": [
+    {
+      "identifier": "EscarlataCharacter",
+      "count": 1,
+      "title": "Escarlata",
+      "promoTitle": "Fanverse Escarlata",
+      "shortPromoTitle": "Fanverse Escarlata",
+      "promoIdentifier": "EscarlataBurnBrighterCharacter",
+      "body": "Burn Brighter",
+      "backgroundColor": "FF5555",
+      "foilBackgroundColor": "FF5555",
+      "hitpointsColor": "FF5555",
+      "character": true,
+      "powers": [
+        "Until the end of your next turn, whenever {Escarlata} would deal themselves fire damage, prevent it and increase the next damage {Escarlata} deals to a non-Hero target by 1. {Escarlata} deals 1 target 1 fire damage."
+      ],
+      "icons": [
+        "HasPower",
+        "ImmuneToDamageFire",
+        "IncreaseDamageDealt",
+        "DealDamageFire"
+      ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "SpookyGhostwriter.Escarlata"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Things are only going to heat up from here!"
+      },
+      "complexity": 2
+    }
+  ],
+  "Incomplete.SpookyGhostwriter.Tsukiko": [
+    {
+      "identifier": "TsukikoCharacter",
+      "count": 1,
+      "title": "Tsukiko",
+      "promoTitle": "Green Thumb Tsukiko",
+      "shortPromoTitle": "Green Thumb Tsukiko",
+      "promoIdentifier": "TsukikoCultivateCharacter",
+      "body": "Cultivate",
+      "backgroundColor": "5555FF",
+      "foilBackgroundColor": "5555FF",
+      "hitpointsColor": "5555FF",
+      "character": true,
+      "powers": [
+        "Choose a suit ({spade}, {heart}, {diamond}, or {club}). Put the top card of your deck face down in your play area. While that card is in play, it is treated as a 5 HP target and you may activate that suit's effects."
+      ],
+      "icons": [
+        "HasPower",
+        "SpookyGhostwriter.anySuit",
+        "Manipulate"
+      ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "SpookyGhostwriter.Tsukiko"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "It's a nice day for an outdoor show!"
+      },
+      "complexity": 2
     }
   ],
   "Incomplete.TheIdealist": [

@@ -128,6 +128,9 @@
     <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\AbsoluteZeroCombatReadyCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\ExpatrietteLiterallyAGunCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\CombatReadyControllers\ExpatrietteCombatReadyCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\WorkshopCharacterCardControllers\SpeedrunnerNextBusCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\WorkshopCharacterCardControllers\EscarlataBurnBrighterCharacterCardController.cs" />
+    <Compile Include="Heroes\HeroPromoCardControllers\WorkshopCharacterCardControllers\TsukikoCultivateCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\LaComodoraTemporalScavengeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\MrFixerFocusedStrikeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\SetbackRunOfLuckCharacterCardController.cs" />
@@ -281,6 +284,28 @@
     <Compile Include="Heroes\SpellforgeCardControllers\SuffixCardControllers\OfHealingCardController.cs" />
     <Compile Include="Heroes\SpellforgeCardControllers\SuffixCardControllers\OfAuraCardController.cs" />
     <Compile Include="Heroes\SpellforgeCardControllers\SuffixCardControllers\OfDisruptionCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\FeignDeathCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\IsolateCardControllers\MakeshiftDiversionCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\IsolateCardControllers\ClandestineExecutionerCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\KiwiCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\EquipmentCardControllers\FlashStepBootsCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\EquipmentCardControllers\BottledLightningCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\EquipmentCardControllers\TwinFangDaggerCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\EquipmentCardControllers\SharedEquipmentCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\EquipmentCardControllers\EndlessPouchesCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\IsolateCardControllers\TakingCareOfSomethingCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\IsolateCardControllers\SharedIsolateCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\SoloCardControllers\ProbingStrikeCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\SoloCardControllers\UnifiedAssaultCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\SoloCardControllers\ImproviseCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\SoloCardControllers\BreakTheKeystoneCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\SoloCardControllers\ImbuedDetonationCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\SoloCardControllers\SharedSoloCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\SoloCardControllers\AlchemicCollectorCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\UnusedCardControllers\BottledLightningOldCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\UnusedCardControllers\MantleOfReposeCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\UnusedCardControllers\SerpentsBiteCardController.cs" />
+    <Compile Include="Heroes\VagabondCardControllers\VagabondCharacterCardController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerSpatialAlignmentCharacterCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\MiscCardControllers\GuidedOdysseyCardController.cs" />
@@ -300,7 +325,7 @@
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerPositionCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\PositionCardControllers\VantagePointCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerCharacterCardController.cs" />
-    <Compile Include="Villains\PromoCardControllers\MissInformationSuspectedSecretaryTurnTakerController.cs" />
+    <Compile Include="Villains\PromoCardControllers\MissInformationSuspectSecretaryTurnTakerController.cs" />
     <Compile Include="Villains\PromoCardControllers\MissInformationSuspectSecretaryCharacterCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\ExploitWeaknessCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\PreliminaryMeasuresCardController.cs" />
@@ -361,6 +386,7 @@
     <EmbeddedResource Include="DeckLists\LarrysDiscountGunClubDeckList.json" />
     <EmbeddedResource Include="DeckLists\OrbitDeckList.json" />
     <EmbeddedResource Include="DeckLists\TheEtherealExecutionerTeamDeckList.json" />
+    <EmbeddedResource Include="DeckLists\VagabondDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />
@@ -435,9 +461,7 @@
     <Content Include="AssetsRelease\LargeCardTextures\Trailblazer\TrailblazerCharacter.png" />
     <Content Include="AssetsRelease\preview.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Heroes\HeroPromoCardControllers\WorkshopCharacterCardControllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

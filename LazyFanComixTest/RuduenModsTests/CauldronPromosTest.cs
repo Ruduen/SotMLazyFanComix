@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
 using LazyFanComix.HeroPromos;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace LazyFanComixTest

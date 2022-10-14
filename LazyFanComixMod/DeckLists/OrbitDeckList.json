@@ -47,7 +47,7 @@
       "keywords": [ "cover" ],
       "hitpoints": 4,
       "body": [
-        "After Orbit deals this card damage, this card deals up to 4 targets 2 projectile damage.",
+        "After {Orbit} deals this card damage, this card deals up to 4 targets 2 projectile damage.",
         "When this card is destroyed, this card deals up to 3 targets 1 projectile damage."
       ],
       "icons": [ "DealDamageProjectile" ],
@@ -66,7 +66,7 @@
       "keywords": [ "cover" ],
       "hitpoints": 4,
       "body": [
-        "After Orbit deals this card damage, this card deals 1 target 2 projectile damage and 1 melee damage.",
+        "After {Orbit} deals this card damage, this card deals 1 target 2 projectile damage and 1 melee damage.",
         "When this card is destroyed, this card deals 1 target 2 melee damage."
       ],
       "icons": [ "DealDamageProjectile", "DealDamageMelee" ],
@@ -85,7 +85,7 @@
       "hitpoints": 4,
       "keywords": [ "cover" ],
       "body": [
-        "After Orbit deals this card damage, this card deals up to 2 targets 2 toxic damage.",
+        "After {Orbit} deals this card damage, this card deals up to 2 targets 2 toxic damage.",
         "When this card is destroyed, you may destroy up to 2 ongoing or environment cards and this card deals up to 2 targets 1 toxic damage each."
       ],
       "icons": [ "DealDamageToxic", "DestroyOngoing", "DestroyEnvironment" ],
@@ -273,7 +273,7 @@
       "foilBackgroundColor": "CCDDEE",
       "character": true,
       "powers": [
-        "Reduce damage dealt to {Orbit} by 1 until the start of your next turn. Orbit deals 1 target 1 irreducible projectile damage."
+        "Reduce damage dealt to {Orbit} by 1 until the start of your next turn. {Orbit} deals 1 target 1 irreducible projectile damage."
       ],
       "icons": [
         "HasPower",

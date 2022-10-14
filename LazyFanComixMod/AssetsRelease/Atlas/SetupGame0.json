@@ -42,7 +42,7 @@
 },
 "OrbitCharacter.png":
 {
-	"frame": {"x":0,"y":259,"w":180,"h":256},
+	"frame": {"x":912,"y":0,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -50,7 +50,7 @@
 },
 "SoulbinderCharacter.png":
 {
-	"frame": {"x":183,"y":259,"w":180,"h":256},
+	"frame": {"x":1095,"y":0,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -58,7 +58,7 @@
 },
 "SpellforgeCharacter.png":
 {
-	"frame": {"x":366,"y":259,"w":180,"h":256},
+	"frame": {"x":1278,"y":0,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -66,19 +66,27 @@
 },
 "TrailblazerCharacter.png":
 {
-	"frame": {"x":549,"y":259,"w":180,"h":256},
+	"frame": {"x":1461,"y":0,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
 	"sourceSize": {"w":180,"h":256}
+},
+"VagabondCharacter.png":
+{
+	"frame": {"x":0,"y":259,"w":738,"h":1024},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":738,"h":1024},
+	"sourceSize": {"w":738,"h":1024}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "SetupGame0.png",
 	"format": "RGBA8888",
-	"size": {"w":1024,"h":1024},
+	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:328c4788d0640605c166e47e63f06fa7:b329b1fbe79f90ca86fded43b42aaac3:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:eb7322327ce8f42ab1920461b1723123:d22059aa8d3bc8fc8b78a543cff901e5:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

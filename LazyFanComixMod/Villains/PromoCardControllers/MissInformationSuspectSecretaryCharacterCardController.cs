@@ -75,9 +75,6 @@ namespace LazyFanComix.MissInformation
             List<RevealCardsAction> rcaResults = new List<RevealCardsAction>();
             List<MoveCardAction> mcaResults = new List<MoveCardAction>();
 
-            coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsVillainTarget, (Card c) => c.MaximumHitPoints.Value - c.HitPoints.Value, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             coroutine = this.GameController.ChangeMaximumHP(this.Card, this.Card.Definition.FlippedHitPoints.Value, true, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -141,7 +138,7 @@ namespace LazyFanComix.MissInformation
                 else
                 {
                     return new Power[] {
-                        new Power(cardController.HeroTurnTakerController, cardController, "Destroy " + (this.H - 1) + " cards under {MissInformation}. If 2 cards are destroyed this way, destroy a Diversion or Ongoing card.", DestroyCardsUnderResponse(cardController), 0, null, this.GetCardSource())
+                        new Power(cardController.HeroTurnTakerController, cardController, "Destroy " + (this.H - 1) + " cards under {MissInformation}. If any cards are destroyed this way, destroy a Diversion or Ongoing card.", DestroyCardsUnderResponse(cardController), 0, null, this.GetCardSource())
                     };
                 }
             }
@@ -195,14 +192,14 @@ namespace LazyFanComix.MissInformation
             coroutine = this.GameController.SelectAndDestroyCards(cardController.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation, "cards under " + this.Card.Title), this.H - 1, false, this.H - 1, storedResultsAction: dcaResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if (dcaResults.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count() == this.H - 1)
+            if (dcaResults.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count() > 0)
             {
                 coroutine = this.GameController.SelectAndDestroyCards(cardController.HeroTurnTakerController, new LinqCardCriteria((Card c) => (c.IsDiversion || c.IsOngoing)), 1, false, 1, storedResultsAction: dcaResults, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
             {
-                coroutine = this.GameController.SendMessageAction("2 cards were not destroyed, so no Diversion or Ongoing card will be destroyed.", Priority.Low, null);
+                coroutine = this.GameController.SendMessageAction("No cards were destroyed so no Diversion or Ongoing card will be destroyed.", Priority.Low, null);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
