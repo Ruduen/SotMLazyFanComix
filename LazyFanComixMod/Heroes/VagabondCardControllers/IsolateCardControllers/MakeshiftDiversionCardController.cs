@@ -16,7 +16,7 @@ namespace LazyFanComix.Vagabond
 
         public override void AddUniqueTriggers()
         {
-            this.AddReduceDamageTrigger((Card c) => c == base.CharacterCard, 1);
+            this.AddReduceDamageTrigger((Card c) => c == this.CharacterCard, 1);
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, MoveCardResponse, TriggerType.MoveCard);
         }
 

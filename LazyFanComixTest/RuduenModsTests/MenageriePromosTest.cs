@@ -35,6 +35,37 @@ namespace LazyFanComixTest
             PlayCard("IsolatedHero");
             PlayCard("LightTheWay");
         }
+
+        [Test()]
+        public void TestCharadePromo()
+        {
+            SetupGameController("MissInformation", "Legacy", "Menagerie.Charade/LazyFanComix.CharadeRecklessPlans", "Megalopolis");
+
+            HeroTurnTakerController Charade = FindHero("Charade");
+
+            Assert.IsTrue(Charade.CharacterCard.IsPromoCard);
+
+            StartGame();
+            DestroyNonCharacterVillainCards();
+
+            QuickHandStorage(Charade);
+            UsePower(Charade);
+            QuickHandCheck(1);
+            AssertNumberOfCardsUnderCard(Charade.CharacterCard, 2);
+
+            MoveAllCards(Charade, Charade.TurnTaker.Deck, Charade.TurnTaker.Trash, leaveSomeCards: 1);
+
+            QuickHandStorage(Charade);
+            UsePower(Charade);
+            QuickHandCheck(1);
+            AssertNumberOfCardsUnderCard(Charade.CharacterCard, 2);
+
+
+            QuickHandStorage(Charade);
+            UsePower(Charade);
+            QuickHandCheck(1);
+            AssertNumberOfCardsUnderCard(Charade.CharacterCard, 1);
+        }
         #endregion
     }
 }

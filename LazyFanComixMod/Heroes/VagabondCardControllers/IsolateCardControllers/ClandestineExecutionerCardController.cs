@@ -16,7 +16,7 @@ namespace LazyFanComix.Vagabond
 
         public override void AddUniqueTriggers()
         {
-            this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.IsSameCard(this.CharacterCard), 1);
+            this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda?.DamageSource?.IsSameCard(this.CharacterCard) == true, 1);
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectAndUsePower(this.DecisionMaker, true, cardSource: this.GetCardSource()), TriggerType.MoveCard);
         }
     }

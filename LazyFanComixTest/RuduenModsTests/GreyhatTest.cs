@@ -34,7 +34,7 @@ namespace LazyFanComixTest
             Assert.IsInstanceOf(typeof(HeroTurnTakerController), Greyhat);
             Assert.IsInstanceOf(typeof(GreyhatCharacterCardController), Greyhat.CharacterCardController);
 
-            Assert.AreEqual(23, Greyhat.CharacterCard.HitPoints);
+            Assert.AreEqual(22, Greyhat.CharacterCard.HitPoints);
             AssertNumberOfCardsInDeck(Greyhat, 36);
             AssertNumberOfCardsInHand(Greyhat, 4);
         }

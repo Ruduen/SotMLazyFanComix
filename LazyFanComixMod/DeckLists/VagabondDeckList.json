@@ -11,8 +11,8 @@
       "count": 1,
       "title": "Vagabond",
       "body": "Ambush",
-      "backgroundColor": "FF5555",
-      "foilBackgroundColor": "FF5555",
+      "backgroundColor": "66AAEE",
+      "foilBackgroundColor": "66AAEE",
       "character": true,
       "powers": [
         "{Vagabond} deals 1 Target 2 Projectile Damage."
@@ -21,7 +21,7 @@
         "HasPower",
         "DealDamageProjectile"
       ],
-      "hitpoints": 24,
+      "hitpoints": 23,
       "nemesisIdentifiers": [
         "Vagabond"
       ],
@@ -46,8 +46,9 @@
       "title": "Alchemic Collector",
       "keywords": [ "one-shot" ],
       "body": [
-        "Each Hero target regains 2 HP.",
-        "If {Vagabond} is the only active Hero, {Vagabond} deals up to 2 targets 3 fire damage each."
+        "Your hero targets regain 2 HP each.",
+        "If {Vagabond} is the only active Hero, {Vagabond} deals up to 2 targets 3 fire damage each.",
+        "Otherwise, other players' hero targets regain 2 HP each."
       ],
       "icons": [ "GainHP", "DealDamageFire" ],
       "flavorQuotes": [
@@ -56,7 +57,7 @@
           "text": "Here's a set for healing, two for{br} unconsciousness, and one for an{br} explosion. Don't shake that one."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #??"
     },
     {
       "identifier": "ImbuedDetonation",
@@ -64,35 +65,41 @@
       "title": "Imbued Detonation",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Vagabond} deals 1 target 3 energy damage.",
-        "If {Vagabond} is the only active Hero, you may discard 2 cards. If you do, repeat the entire game text of this card."
+        "{Vagabond} deals 1 target 2 energy damage.",
+        "If {Vagabond} is the only active Hero, {Vagabond} deals each target 3 fire damage.",
+        "Otherwise, {Vagabond} deals 1 target 2 fire damage."
       ],
-      "icons": [ "DealDamageEnergy", "Discard" ],
+      "icons": [ "DealDamageEnergy", "DealDamageFire" ],
       "flavorQuotes": [
         {
           "identifier": "Vagabond",
           "text": "It's a trick to make metal {br}explode, and coins are easier to{br} replace than good knives."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #??"
     },
     {
-      "identifier": "BreakTheKeystone",
+      "identifier": "ExcessivePreparation",
       "count": 3,
-      "title": "Break the Keystone",
+      "title": "Excessive Preparation",
       "keywords": [ "one-shot" ],
       "body": [
-        "Destroy up to 2 ongoing cards",
-        "If {Vagabond} is the only active Hero, use up to 2 powers now."
+        "You may destroy an ongoing or environment card.",
+        "If {Vagabond} is the only active Hero, use up to 2 powers now.",
+        "Otherwise, another player may play a card now."
       ],
-      "icons": [ "UsePowerNow", "DealDamageMelee" ],
+      "icons": [ "DestroyOngoing", "DestroyEnvironment", "UsePowerNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
+          "identifier": "Orbit",
+          "text": "You had four plans for psychics?"
+        },
+        {
           "identifier": "Vagabond",
-          "text": "???"
+          "text": "Five. Apparently I had my memory {br}wiped after preparing the fifth."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Tales of the Marches Vol. 2 #??"
     },
     {
       "identifier": "ProbingStrike",
@@ -100,10 +107,11 @@
       "title": "Probing Strike",
       "keywords": [ "one-shot" ],
       "body": [
-        "Draw 3 cards. {Vagabond} deals 1 target 1 melee damage.",
-        "If {Vagabond} is the only active Hero, you may play a card now."
+        "Draw 1 cards. {Vagabond} deals 1 target 1 melee damage.",
+        "If {Vagabond} is the only active Hero, you may play a non-solo card.",
+        "Otherwise, a Hero other than {Vagabond} may deal 1 target 2 melee damage."
       ],
-      "icons": [ "DrawCardNow", "PlayCardNow" ],
+      "icons": [ "DrawCardNow", "DealDamageMelee", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "The Wrecker",
@@ -114,7 +122,7 @@
           "text": "They can break you."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #??"
     },
     {
       "identifier": "Improvise",
@@ -122,8 +130,9 @@
       "title": "Improvise",
       "keywords": [ "one-shot" ],
       "body": [
-        "Up to 3 players may draw a card now.",
-        "If {Vagabond} is the only active Hero, play the top 2 cards of your deck."
+        "You may draw 2 cards.",
+        "If {Vagabond} is the only active Hero, reveal cards from the top of your deck until you reveal a one-shot card, put it in play or in your hand, and shuffle the other cards into your deck.",
+        "Otherwise, up to 2 other players may draw a card."
       ],
       "icons": [ "DrawCardNow", "PlayCardNow" ],
       "flavorQuotes": [
@@ -132,7 +141,7 @@
           "text": "I've got some rope {br}and a ten-foot pole. More than {br}enough to work with."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #??"
     },
     {
       "identifier": "UnifiedAssault",
@@ -140,8 +149,9 @@
       "title": "Unified Assault",
       "keywords": [ "one-shot" ],
       "body": [
-        "Up to 2 players may use a power now.",
-        "If {Vagabond} is the only active Hero, {Vagabond} deals 1 target 4 melee damage."
+        "You may use a power now.",
+        "If {Vagabond} is the only active Hero, {Vagabond} deals 1 target 3 melee damage.",
+        "Otherwise, another player may use a power now."
       ],
       "icons": [ "UsePowerNow", "DealDamageMelee" ],
       "flavorQuotes": [
@@ -154,7 +164,7 @@
           "text": "Wait, one-two-three? {br}Or one-two-three-go?"
         }
       ],
-      "flavorReference": "Tales of the Marches ??"
+      "flavorReference": "Tales of the Marches Vol. 2 #??"
     },
     {
       "identifier": "EndlessPouches",
@@ -162,7 +172,7 @@
       "title": "Endless Pouches",
       "keywords": [ "equipment" ],
       "body": [
-        "When this card enters play, use the power on it now."
+        "When this card enters play, use the power on it."
       ],
       "powers": [
         "If Kiwi is in play, draw 1 card. Otherwise, search your hand, deck and trash for Kiwi, play it, and shuffle your deck."
@@ -174,7 +184,7 @@
           "text": "It's standard gear where I'm from. {br}I just have spares."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #??"
     },
     {
       "identifier": "TwinFangDagger",
@@ -182,10 +192,10 @@
       "title": "Twin Fang Dagger",
       "keywords": [ "equipment" ],
       "body": [
-        "When this card enters play, use the power on it now."
+        "When this card enters play, use the power on it."
       ],
       "powers": [
-        "{Vagabond} deals 1 target 2 melee damage and 1 toxic damage."
+        "{Vagabond} deals 1 target 1 melee damage and 1 irreducible toxic damage."
       ],
       "icons": [ "UsePowerNow", "HasPower", "DealDamageMelee", "DealDamageToxic" ],
       "flavorQuotes": [
@@ -194,7 +204,7 @@
           "text": "The fangs aren't even {br}the oddest gift he's given me."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #??"
     },
     {
       "identifier": "FlashStepBoots",
@@ -202,10 +212,10 @@
       "title": "Flash-Step Boots",
       "keywords": [ "equipment" ],
       "body": [
-        "When this card enters play, use the power on it now."
+        "When this card enters play, use the power on it."
       ],
       "powers": [
-        "You may play 1 non-equipment card."
+        "Play 1 one-shot card."
       ],
       "icons": [ "UsePowerNow", "HasPower", "PlayCardNow" ],
       "flavorQuotes": [
@@ -222,10 +232,10 @@
       "title": "Bottled Lightning",
       "keywords": [ "equipment" ],
       "body": [
-        "When this card enters play, use the power on it now."
+        "When this card enters play, use the power on it."
       ],
       "powers": [
-        "1 target regains 2 HP. Until the end of your next turn, increase damage dealt by that target by 1."
+        "1 target regains 1 HP. Until the start of your next turn, increase damage dealt by that target by 1."
       ],
       "icons": [ "UsePowerNow", "HasPower", "DealDamageLightning", "IncreaseDamageDealt" ],
       "flavorQuotes": [
@@ -279,8 +289,8 @@
       "title": "Taking Care of Something",
       "keywords": [ "ongoing", "solo", "limited" ],
       "body": [
-        "{Vagabond} and your cards cannot affect or be affected by any other Hero card or effect from another Hero deck. [i](Your cards will treat {Vagabond} as the only active Hero.)[/i]",
-        "At the start of your turn, you may destroy an Ongoing card, Environment Card, or a target with 5 or fewer HP. Then, you may play a non-Solo card. Then, destroy this card."
+        "{Vagabond} and {Vagabond}'s cards cannot affect or be affected by other Heroes and their cards. [i](Your cards will treat [/i]{Vagabond}[i] as the only active Hero.)[/i]",
+        "At the start of your turn, destroy up to 1 Ongoing card, up to 1 Environment card, and up to 1 target with 7 or fewer HP. Then, you may play a non-Solo card. Then, destroy this card."
       ],
       "icons": [ "StartOfTurnAction", "Destroy", "PlayCardNow", "DestroySelf" ],
       "flavorQuotes": [
@@ -297,8 +307,8 @@
       "title": "Clandestine Executioner",
       "keywords": [ "ongoing", "solo", "limited" ],
       "body": [
-        "{Vagabond} and your cards cannot affect or be affected by any other Hero card or effect from another Hero deck. [i](Your cards will treat {Vagabond} as the only active Hero.)[/i]",
-        "Increase damage dealt by Vagabond by 1.",
+        "{Vagabond} and {Vagabond}'s cards cannot affect or be affected by other Heroes and their cards. [i](Your cards will treat [/i]{Vagabond}[i] as the only active Hero.)[/i]",
+        "Increase damage dealt by {Vagabond} by 1.",
         "At the start of your turn, you may use a power. Then, you may play a non-Solo card. Then, destroy this card."
       ],
       "icons": [ "IncreaseDamageDealt", "StartOfTurnAction", "PlayCardNow", "DestroySelf" ],
@@ -316,8 +326,8 @@
       "title": "Makeshift Diversion",
       "keywords": [ "ongoing", "solo", "limited" ],
       "body": [
-        "{Vagabond} and your cards cannot affect or be affected by any other Hero card or effect from another Hero deck. [i](Your cards will treat {Vagabond} as the only active Hero.)[/i]",
-        "Reduce damage taken by Vagabond 1.",
+        "{Vagabond} and {Vagabond}'s cards cannot affect or be affected by other Heroes and their cards. [i](Your cards will treat [/i]{Vagabond}[i] as the only active Hero.)[/i]",
+        "Reduce damage taken by {Vagabond} 1.",
         "At the start of your turn, put the top card of the Environment Deck on top of the Villain Deck. Then, you may play a non-Solo card. Then, destroy this card."
       ],
       "icons": [ "ReduceDamageTaken", "StartOfTurnAction", "Manipulate", "DestroySelf" ],
@@ -328,6 +338,42 @@
         }
       ],
       "flavorReference": "Vagabond, Tales of the Marches ??"
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "VagabondCharacter",
+      "promoIdentifier": "VagabondElusiveCharacter",
+      "count": 1,
+      "title": "Vagabond - Elusive",
+      "body": [ "Untraced Paths" ],
+      "backgroundColor": "66AAEE",
+      "foilBackgroundColor": "66AAEE",
+      "character": true,
+      "powers": [ "Until the end of your turn, {Vagabond} and {Vagabond}'s cards cannot affect or be affected by other Heroes and their cards. Draw a card or play a card." ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "PlayCardNow"
+      ],
+      "hitpoints": 21,
+      "nemesisIdentifiers": [
+        "Vagabond"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "And here I was hoping I wouldn't meet any familiar faces."
+      },
+      "complexity": 1
     }
   ]
 }

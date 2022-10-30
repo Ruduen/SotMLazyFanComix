@@ -16,17 +16,17 @@ namespace LazyFanComix.Vagabond
 
         protected override IEnumerator OnPlayAlways()
         {
-            return this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero, 2, cardSource: this.GetCardSource());
+            return this.GameController.GainHP(this.DecisionMaker, (Card c) => c.Owner == this.TurnTaker, 2, cardSource: this.GetCardSource());
         }
 
         protected override IEnumerator OnPlayIfSolo()
         {
-            return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController,this.CharacterCard), 3, DamageType.Fire, 2, false, 0, cardSource: this.GetCardSource());
+            return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 3, DamageType.Fire, 2, false, 0, cardSource: this.GetCardSource());
         }
 
-        protected override string IfNotSoloMessage()
+        protected override IEnumerator OnPlayIfNotSolo()
         {
-            return "no damage will be dealt";
+            return this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsHero && c.Owner != this.TurnTaker, 2, cardSource: this.GetCardSource());
         }
     }
 }

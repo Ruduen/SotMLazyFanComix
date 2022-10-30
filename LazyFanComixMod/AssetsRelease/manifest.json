@@ -4,17 +4,17 @@
   "description": [
     "No solid backstory! No quality art! Just ideas and refinement for what hope to be solid, playable characters for your SotM Game!",
     "This is a collection of Ruduen's custom content for Sentinels of the Multiverse. It currently includes:",
-    "- 7 Completely Custom Heroes",
+    "- 9 Completely Custom Heroes",
     "- 1 Aeon's End Inspired Hero",
-    "- 1-3 Variants for every Official Hero",
+    "- 1+ Variants for most Official Heroes",
+    "- 1+ Variants for a handful of Mod Heroes",
     "- 1 Variant for an Official Villain",
-    "- 1 Completely Custom Villain (Under Development)",
     "- 1 Completely Custom Team Villain (Since Why Not?)",
     "- 1 Completely Custom Environment",
     "- Other things that don't fit well into a tidy list",
     "Ruduen is not an artist, so art will likely remain random-Unicode quality."
   ],
-  "version": "v0.5.5.7.0",
+  "version": "v0.5.5.7.2",
   "credits": [ "New work by Ruduen. Available under CC BY 4.0.", "Original scripting Copyright 2020 Handelabra Games Inc. Available under MIT License.", "Breach Mage concept based on Aeon's End, Copyright 2016 Lone Oak Games. Used with (tentative) permission.", "Greyhat Card Art by TheStoreman" ],
   "color": "AAAAFF",
   "dll": "LazyFanComix.dll",
@@ -87,7 +87,10 @@
     "Cauldron.Baccarat": [ "BaccaratCombatReadyCharacter" ],
     "Cauldron.Necro": [ "NecroCombatReadyCharacter" ],
     "Cauldron.Pyre": [ "PyreCombatReadyCharacter" ],
-    "SpookyGhostwriter.Escarlata": [ "EscarlataBurnBrighterCharacter" ]
+    "SpookyGhostwriter.Escarlata": [ "EscarlataBurnBrighterCharacter" ],
+    "Angille.Theurgy": [ "TheurgyTieTheLinesCharacter" ],
+    "Menagerie.Charade": [ "CharadeRecklessPlansCharacter" ],
+    "CaseFiles.Tucker": ["TuckerRunAndGunCharacter"]
   },
   "devVariants": {
     "SkyScraper": [ "SkyScraperConsistentCharacter", "SkyScraperQuickShiftNormalCharacter" ],

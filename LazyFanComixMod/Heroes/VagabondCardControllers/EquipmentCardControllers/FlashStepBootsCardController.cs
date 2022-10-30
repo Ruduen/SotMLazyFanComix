@@ -18,7 +18,8 @@ namespace LazyFanComix.Vagabond
         {
             int powerNum = this.GetPowerNumeral(0, 1);
 
-            return this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, powerNum, false, 0, new LinqCardCriteria((Card c) => !this.IsEquipment(c)), cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, powerNum, false, powerNum, new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot"), cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

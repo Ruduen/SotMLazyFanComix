@@ -18,7 +18,7 @@ namespace LazyFanComix.Vagabond
         {
             int[] powerNums = new int[] {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 2),
+                this.GetPowerNumeral(1, 1),
                 this.GetPowerNumeral(2, 1)
             };
             List<GainHPAction> ghaResults = new List<GainHPAction>();
@@ -35,7 +35,7 @@ namespace LazyFanComix.Vagabond
                 // Increase round of damage based on power numeral.
                 IncreaseDamageStatusEffect idse = new IncreaseDamageStatusEffect(powerNums[2]);
                 idse.SourceCriteria.IsSpecificCard = c;
-                idse.UntilEndOfNextTurn(this.TurnTaker);
+                idse.UntilStartOfNextTurn(this.TurnTaker);
                 idse.UntilCardLeavesPlay(c);
                 coroutine = this.AddStatusEffect(idse, true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

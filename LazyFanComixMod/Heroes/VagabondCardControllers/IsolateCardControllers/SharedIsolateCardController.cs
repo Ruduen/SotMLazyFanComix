@@ -9,6 +9,7 @@ namespace LazyFanComix.Vagabond
 {
     public abstract class SharedIsolateCardController : CardController
     {
+        // TODO: Needs AskIfActionCanBePerformed? 
         public SharedIsolateCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {

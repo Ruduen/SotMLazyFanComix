@@ -341,6 +341,51 @@ namespace LazyFanComixTest
             AssertNumberOfCardsInPlay(ennead, 10);
         }
 
+        [Test()]
+        public void TestUnderCardEntersPlay()
+        {
+            SetupGameController("BaronBlade", "VoidGuardTheIdealist", "Guise/SantaGuise", "TimeCataclysm");
+
+
+            StartGame();
+
+            QuickHPStorage(voidIdealist);
+            PlayCard("FocusingTiara");
+            PlayCard("FlyingStabbyKnives");
+            DecisionSelectFunction = 1;
+            PlayCard("SurpriseShoppingTrip");
+            QuickHPCheck(0);
+            UsePower(guise);
+            QuickHPCheck(-2);
+
+            GoToStartOfTurn(voidIdealist);
+
+        }
+
+        [Test()]
+        public void TestMissInfoAndTrial()
+        {
+            SetupGameController("MissInformation", "VoidGuardTheIdealist", "Guise/SantaGuise", "TheCelestialTribunal");
+            StartGame();
+
+            PlayCard("CalledToJudgement");
+
+            PlayCard("IsolatedHero");
+        }
+
+        [Test()]
+        public void TestMissInfoIsolatedRedirect()
+        {
+            SetupGameController("MissInformation", "Guise", "Ra", "Legacy", "DokThorathCapital");
+            StartGame();
+
+            Card redirect = PlayCard("AbjectRefugees");
+            PlayCard("IsolatedHero");
+
+            DecisionSelectTargets = new Card[] { redirect, guise.CharacterCard };
+
+            UsePower(ra);
+        }
 
         #endregion Official Tests
 

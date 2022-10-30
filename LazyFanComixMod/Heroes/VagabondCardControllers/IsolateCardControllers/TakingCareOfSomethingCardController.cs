@@ -16,7 +16,10 @@ namespace LazyFanComix.Vagabond
 
         public override void AddUniqueTriggers()
         {
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment || (c.IsTarget && c.HitPoints <= 5)), true, cardSource: this.GetCardSource()), TriggerType.DestroyCard);
+
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing), true, cardSource: this.GetCardSource()), TriggerType.DestroyCard);
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsEnvironment), true, cardSource: this.GetCardSource()), TriggerType.DestroyCard);
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCard(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsTarget && c.HitPoints <= 7), true, cardSource: this.GetCardSource()), TriggerType.DestroyCard);
         }
     }
 }

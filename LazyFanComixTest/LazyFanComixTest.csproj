@@ -28,6 +28,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Angille">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2708828820\Angille.dll</HintPath>
+    </Reference>
+    <Reference Include="CaseFiles">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2436980109\CaseFiles.dll</HintPath>
+    </Reference>
     <Reference Include="CauldronMods, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2437294168\CauldronMods.dll</HintPath>
@@ -54,7 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RandomGameTest.cs" />
+    <Compile Include="RuduenModsTests\CaseFilesPromosTest.cs" />
     <Compile Include="RuduenModsTests\MenageriePromosTest.cs" />
+    <Compile Include="RuduenModsTests\MythikalPromosTest.cs" />
     <Compile Include="RuduenModsTests\SpookyGhostwriterPromosTest.cs" />
     <Compile Include="RuduenModsTests\CauldronPromosTest.cs" />
     <Compile Include="RuduenModsTests\LarrysDiscountGunClubTest.cs" />

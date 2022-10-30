@@ -806,7 +806,7 @@
       "backgroundColor": "fbf8f9",
       "foilBackgroundColor": "fbf8f9",
       "powers": "Play a One-Shot or Discard a Card and Draw a Card.",
-      "hitpoints": 30,
+      "hitpoints": 29,
       "icons": [ "HasPower", "PlayCardNow", "DrawCardsNow" ],
       "nemesisIdentifiers": [ "Legacy" ],
       "incapacitatedAbilities": [
@@ -965,7 +965,7 @@
         "HasPower",
         "DealDamageMelee"
       ],
-      "hitpoints": 28,
+      "hitpoints": 27,
       "nemesisIdentifiers": [
         "MrFixer"
       ],
@@ -1269,7 +1269,7 @@
       "backgroundColor": "DFE6E5",
       "foilBackgroundColor": "DFE6E5",
       "powers": "Add 2 tokens to your Unlucky pool. Draw 1 card. If there are more tokens in your Unlucky pool than cards in your hand, Play 2 cards.",
-      "hitpoints": 29,
+      "hitpoints": 28,
       "icons": [ "HasPower", "AddTokens", "DrawCardNow", "PlayCardNow" ],
       "nemesisIdentifiers": [ "Setback" ],
       "incapacitatedAbilities": [
@@ -2052,6 +2052,130 @@
         "default": "Things are only going to heat up from here!"
       },
       "complexity": 2
+    }
+  ],
+  "Angille.Theurgy": [
+    {
+      "identifier": "TheurgyCharacter",
+      "count": 1,
+      "title": "Theurgy",
+      "promoTitle": "Fanverse Theurgy",
+      "shortPromoTitle": "Fanverse Theurgy",
+      "promoIdentifier": "TheurgyTieTheLinesCharacter",
+      "body": "Tie the Lines",
+      "backgroundColor": "945783",
+      "foilBackgroundColor": "945783",
+      "hitpointsColor": "945783",
+      "character": true,
+      "powers": [
+        "Discard a card. Reveal cards from your deck until you reveal a Charm card, put it in your hand, and shuffle the other revealed cards into your deck."
+      ],
+      "icons": [
+        "HasPower",
+        "Discard",
+        "Manipulate"
+      ],
+      "hitpoints": 20,
+      "nemesisIdentifiers": [
+        "Angille.Theurgy"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "This one might require a more forceful approach."
+      },
+      "complexity": 2
+    }
+  ],
+  "Menagerie.Charade": [
+    {
+      "identifier": "CharadeCharacter",
+      "count": 1,
+      "title": "Charade",
+      "promoTitle": "Fanverse Charade",
+      "shortPromoTitle": "Fanverse Charade",
+      "promoIdentifier": "CharadeRecklessPlansCharacter",
+      "body": "Reckless Plans",
+      "backgroundColor": "bd3a3d",
+      "foilBackgroundColor": "bd3a3d",
+      "hitpointsColor": "bd3a3d",
+      "character": true,
+      "powers": [
+        "Put the top 3 cards of your deck under this card. Put 1 card from under this card in your hand."
+      ],
+      "icons": [
+        "HasPower",
+        "Manipulate",
+        "DrawCardNow"
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "Menagerie.Charade"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "No time for stray thoughts. It's all within my plans."
+      },
+      "complexity": 3
+    }
+  ],
+  "CaseFiles.Tucker": [
+    {
+      "identifier": "TuckerCharacter",
+      "count": 1,
+      "title": "Tucker",
+      "promoTitle": "Fanverse Tucker",
+      "shortPromoTitle": "Fanverse Tucker",
+      "promoIdentifier": "TuckerRunAndGunCharacter",
+      "body": "Run and Gun",
+      "backgroundColor": "A2D2A8",
+      "foilBackgroundColor": "A2D2A8",
+      "hitpointsColor": "5A4025",
+      "character": true,
+      "powers": [
+        "Draw 2 cards. Discard 2 cards. For each Handgun card discarded this way, {Tucker} deals 1 target 1 projectile damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "Discard",
+        "DealDamageProjectile"
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "Menagerie.Charade"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Looks like we have a firefight on our hands."
+      },
+      "complexity": 1
     }
   ],
   "Incomplete.SpookyGhostwriter.Tsukiko": [

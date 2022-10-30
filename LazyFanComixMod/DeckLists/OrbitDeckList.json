@@ -177,7 +177,7 @@
       "title": "Wreck the Wreckage",
       "keywords": [ "one-shot" ],
       "body": [
-        "Play 1 Cover target from your trash. {Orbit} deals that target 2 projectile damage."
+        "Play 1 Cover target from your trash. {Orbit} deals that target 1 projectile damage."
       ],
       "icons": [ "DealDamageMelee", "PlayCardNow" ],
       "flavorQuotes": [

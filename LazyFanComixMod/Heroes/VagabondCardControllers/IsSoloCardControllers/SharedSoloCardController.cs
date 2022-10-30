@@ -37,17 +37,16 @@ namespace LazyFanComix.Vagabond
             }
             else
             {
-                coroutine = this.GameController.SendMessageAction(this.CharacterCard.AlternateTitleOrTitle + " is not the only active hero, so " + IfNotSoloMessage() + ".",Priority.Low,this.GetCardSource(),showCardSource: true);
+                coroutine = OnPlayIfNotSolo();
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
 
 
 
-        protected abstract string IfNotSoloMessage();
-
         protected abstract IEnumerator OnPlayAlways();
         protected abstract IEnumerator OnPlayIfSolo();
+        protected abstract IEnumerator OnPlayIfNotSolo();
 
     }
 }
