@@ -268,7 +268,7 @@
       "foilBackgroundColor": "fcf170",
       "character": true,
       "powers": "Draw 3 cards. Discard a card for each of your cards with powers in play. This turn, you may use as many powers as you have cards with powers in play.",
-      "hitpoints": 26,
+      "hitpoints": 27,
       "icons": [ "HasPower", "DrawCardNow", "Discard", "UsePowerExtra" ],
       "nemesisIdentifiers": [ "Bunker" ],
       "incapacitatedAbilities": [
@@ -464,7 +464,7 @@
       "backgroundColor": "996cae",
       "foilBackgroundColor": "996cae",
       "powers": "Until the end of the turn, reduce damage dealt by {Expatriette} by 1. Play the top card of your deck. You may use an additional power this turn.",
-      "hitpoints": 27,
+      "hitpoints": 28,
       "icons": [ "HasPower", "ReduceDamageDealt", "PlayCardNow", "UsePowerExtra" ],
       "nemesisIdentifiers": [ "Expatriette" ],
       "incapacitatedAbilities": [
@@ -595,7 +595,7 @@
       "backgroundColor": "FFDD00",
       "foilBackgroundColor": "FFDD00",
       "powers": "Draw 1 card. Wait, that's it? Fine, you may play 1 Ongoing and make it indestructible until the end of your next turn.",
-      "hitpoints": 26,
+      "hitpoints": 27,
       "icons": [ "HasPower", "DrawCardsNow", "Indestructible" ],
       "nemesisIdentifiers": [ "Guise" ],
       "incapacitatedAbilities": [
@@ -1160,7 +1160,7 @@
       "backgroundColor": "ec9322",
       "foilBackgroundColor": "ec9322",
       "powers": "{Ra} deals 1 Target 1 Irreducible Fire Damage. If that target is destroyed, repeat this power.",
-      "hitpoints": 29,
+      "hitpoints": 30,
       "icons": [ "HasPower", "DealDamageFire", "UsePowerNow" ],
       "nemesisIdentifiers": [ "Ra" ],
       "incapacitatedAbilities": [
@@ -1507,7 +1507,7 @@
       "foilBackgroundColor": "7accf3",
       "character": true,
       "powers": "Draw a card. {Tempest} and each non-Target Environment Card in play deals the non-Hero Target with the highest HP 1 Projectile Damage.",
-      "hitpoints": 27,
+      "hitpoints": 28,
       "icons": [ "HasPower", "DrawCardNow", "DealDamageProjectile" ],
       "nemesisIdentifiers": [ "Tempest" ],
       "incapacitatedAbilities": [
@@ -1797,7 +1797,7 @@
       "backgroundColor": "8a69ad",
       "foilBackgroundColor": "8a69ad",
       "powers": "Play a card. If that card has a Power, immediately use its Power twice, then destroy it.",
-      "hitpoints": 25,
+      "hitpoints": 24,
       "icons": [ "HasPower", "PlayCardNow", "UsePowerNow", "DestroyCard" ],
       "nemesisIdentifiers": [ "TheWraith" ],
       "incapacitatedAbilities": [
@@ -1838,7 +1838,7 @@
       "advancedIcons": [
         "EndOfTurnAction"
       ],
-      "body": [ "Suspect Secretary", "[i](Under Development)[/i]" ],
+      "body": [ "Suspect Secretary" ],
       "backgroundColor": "B8D8E7",
       "foilBackgroundColor": "CCE5F0",
       "character": true,
@@ -1858,7 +1858,7 @@
       "flippedBody": "Plots Revealed",
       "flippedHitpoints": 35,
       "flippedGameplay": [
-        "When Miss Information flips to this side, reveal each card under this card. Place any revealed Clue cards under {MissInformation}, put any revealed Diversion cards in play, and discard any other revealed cards. {MissInformation} deals each Hero target X psychic damage, where X = the number of cards discarded this way.",
+        "When Miss Information flips to this side, reveal each card under this card. Place any revealed Clue cards under {MissInformation}, put any revealed Diversion cards into play, and discard any other revealed cards. {MissInformation} deals each Hero target X psychic damage, where X = the number of cards discarded this way.",
         "Heroes have this power:",
         "[b]Power[/b]: Destroy {H - 1} cards under Miss Information. If any cards are destroyed this way, destroy a Diversion or Ongoing card.",
         "At the end of the villain turn, {MissInformation} deals each Hero target 3 psychic damage."
@@ -2150,7 +2150,7 @@
       "hitpointsColor": "5A4025",
       "character": true,
       "powers": [
-        "Draw 2 cards. Discard 2 cards. For each Handgun card discarded this way, {Tucker} deals 1 target 1 projectile damage."
+        "Draw 3 cards. Discard 2 cards. For each Handgun card discarded this way, {Tucker} deals 1 target 1 projectile damage."
       ],
       "icons": [
         "HasPower",

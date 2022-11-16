@@ -387,6 +387,44 @@ namespace LazyFanComixTest
             UsePower(ra);
         }
 
+        [Test()]
+        public void TestGuiseBangBang()
+        {
+            SetupGameController("Kismet", "Guise", "Expatriette", "Legacy", "DokThorathCapital");
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+            SetHitPoints(guise, 10);
+            PlayCard("WeakHeart");
+
+            PlayCard("Prejudice");
+            Card power = PlayCard("Pride");
+
+            DecisionSelectCards = new Card[] { power, kismet.CharacterCard };
+            DecisionSelectPower = power;
+            DecisionYesNo = true;
+
+            PlayCard("LemmeSeeThat");
+            SelectAndUsePower(guise, out _);
+        }
+
+        [Test()]
+        public void TestMissInfoIsolatedDoesLifelineSee()
+        {
+            SetupGameController("MissInformation", "Lifeline", "Fanatic", "DokThorathCapital");
+            StartGame();
+
+            DestroyNonCharacterVillainCards();
+            PlayCard("CatStuckInATree");
+
+            SetHitPoints(fanatic, 10);
+            PlayCard("Embolden");
+            //            PlayCard("IsolatedHero"); // Isolate here to isolate Fanatic.
+            Card power=PlayCard("CrypticAlignment");
+            PlayCard("IsolatedHero"); // Isolate here to isolate Lifeline.
+            UsePower(power);
+        }
+
         #endregion Official Tests
 
         #region Numerology Text

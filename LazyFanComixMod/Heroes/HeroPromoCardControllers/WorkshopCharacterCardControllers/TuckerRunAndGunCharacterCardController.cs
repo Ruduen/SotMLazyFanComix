@@ -18,7 +18,7 @@ namespace LazyFanComix.Tucker
         {
 
             int[] powerNums = new int[] { 
-                this.GetPowerNumeral(0, 2),
+                this.GetPowerNumeral(0, 3),
                 this.GetPowerNumeral(1, 2),
                 this.GetPowerNumeral(2, 1),
                 this.GetPowerNumeral(3, 1)

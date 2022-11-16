@@ -26,7 +26,7 @@
         "Destroy 1 of your Charge cards. If you do, any player draws 2 cards."
       ],
       "icons": [ "HasPower", "Destroy", "DrawCardNow" ],
-      "hitpoints": 26,
+      "hitpoints": 25,
       "nemesisIdentifiers": [
         "BreachMage"
       ],
@@ -316,7 +316,7 @@
         "Destroy 1 of your Charge cards. If you do, select a card and activate its [u]Cast[/u] text twice, then destroy that card."
       ],
       "icons": [ "HasPower", "Destroy" ],
-      "hitpoints": 28,
+      "hitpoints": 27,
       "nemesisIdentifiers": [
         "BreachMage"
       ],
@@ -350,7 +350,7 @@
         "Destroy 1 of your Charge cards. If you do, each Hero Target regains 3 HP."
       ],
       "icons": [ "HasPower", "Destroy" ],
-      "hitpoints": 26,
+      "hitpoints": 24,
       "nemesisIdentifiers": [
         "BreachMage"
       ],

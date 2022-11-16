@@ -36,7 +36,7 @@ namespace LazyFanComix.Vagabond
             List<SelectCardDecision> scdResults = new List<SelectCardDecision>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.SelectTargetFriendly, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsTarget && c.IsHero && c != this.CharacterCard, "hero targets other than " + this.CharacterCard.Title + " in play", false), scdResults, false, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectCardAndStoreResults(this.DecisionMaker, SelectionType.SelectTargetFriendly, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsTarget && c.IsHeroCharacterCard && c != this.CharacterCard, "hero targets other than " + this.CharacterCard.Title + " in play", false), scdResults, false, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if(scdResults.FirstOrDefault()?.SelectedCard != null)

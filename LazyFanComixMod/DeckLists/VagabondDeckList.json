@@ -46,7 +46,7 @@
       "title": "Alchemic Collector",
       "keywords": [ "one-shot" ],
       "body": [
-        "Your hero targets regain 2 HP each.",
+        "Each of your targets regain 2 HP.",
         "If {Vagabond} is the only active Hero, {Vagabond} deals up to 2 targets 3 fire damage each.",
         "Otherwise, other players' hero targets regain 2 HP each."
       ],
@@ -57,7 +57,7 @@
           "text": "Here's a set for healing, two for{br} unconsciousness, and one for an{br} explosion. Don't shake that one."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches #??"
+      "flavorReference": "Vagabond, Tales of the Marches #23"
     },
     {
       "identifier": "ImbuedDetonation",
@@ -76,7 +76,7 @@
           "text": "It's a trick to make metal {br}explode, and coins are easier to{br} replace than good knives."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches #??"
+      "flavorReference": "Vagabond, Tales of the Marches #41"
     },
     {
       "identifier": "ExcessivePreparation",
@@ -96,10 +96,10 @@
         },
         {
           "identifier": "Vagabond",
-          "text": "Five. Apparently I had my memory {br}wiped after preparing the fifth."
+          "text": "Five. Apparently I had my memory wiped after preparing the fifth."
         }
       ],
-      "flavorReference": "Tales of the Marches Vol. 2 #??"
+      "flavorReference": "Tales of the Marches Vol. 2 #3"
     },
     {
       "identifier": "ProbingStrike",
@@ -107,7 +107,7 @@
       "title": "Probing Strike",
       "keywords": [ "one-shot" ],
       "body": [
-        "Draw 1 cards. {Vagabond} deals 1 target 1 melee damage.",
+        "Draw 1 card. {Vagabond} deals 1 target 1 melee damage.",
         "If {Vagabond} is the only active Hero, you may play a non-solo card.",
         "Otherwise, a Hero other than {Vagabond} may deal 1 target 2 melee damage."
       ],
@@ -122,7 +122,7 @@
           "text": "They can break you."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches #??"
+      "flavorReference": "Vagabond, Tales of the Marches Vol. 2 #1"
     },
     {
       "identifier": "Improvise",
@@ -141,7 +141,7 @@
           "text": "I've got some rope {br}and a ten-foot pole. More than {br}enough to work with."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches #??"
+      "flavorReference": "Vagabond, Tales of the Marches #23"
     },
     {
       "identifier": "UnifiedAssault",
@@ -164,7 +164,7 @@
           "text": "Wait, one-two-three? {br}Or one-two-three-go?"
         }
       ],
-      "flavorReference": "Tales of the Marches Vol. 2 #??"
+      "flavorReference": "Tales of the Marches Vol. 2 #17"
     },
     {
       "identifier": "EndlessPouches",
@@ -175,7 +175,7 @@
         "When this card enters play, use the power on it."
       ],
       "powers": [
-        "If Kiwi is in play, draw 1 card. Otherwise, search your hand, deck and trash for Kiwi, play it, and shuffle your deck."
+        "If Kiwi is in play, draw 1 card. Otherwise, search your hand, deck and trash for Kiwi, put it into play, and shuffle your deck."
       ],
       "icons": [ "UsePowerNow", "HasPower", "DrawCardNow", "Search" ],
       "flavorQuotes": [
@@ -184,7 +184,7 @@
           "text": "It's standard gear where I'm from. {br}I just have spares."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches #??"
+      "flavorReference": "Vagabond, Tales of the Marches Vol. 2 #2"
     },
     {
       "identifier": "TwinFangDagger",
@@ -204,7 +204,7 @@
           "text": "The fangs aren't even {br}the oddest gift he's given me."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches #??"
+      "flavorReference": "Vagabond, Tales of the Marches #41"
     },
     {
       "identifier": "FlashStepBoots",
@@ -224,7 +224,7 @@
           "text": "???"
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #29"
     },
     {
       "identifier": "BottledLightning",
@@ -244,7 +244,7 @@
           "text": "???"
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #23"
     },
     {
       "identifier": "Kiwi",
@@ -262,7 +262,7 @@
           "text": "If you need me, {br}I'll be in the bag working on {br}my latest piece!"
         }
       ],
-      "flavorReference": "Kiwi, Tales of the Marches 22"
+      "flavorReference": "Kiwi, Tales of the Marches #22"
     },
     {
       "identifier": "FeignDeath",
@@ -281,7 +281,7 @@
           "text": "Half the villains you fight have {br}copies of themselves running around. {br}I'm allowed a fake or two."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches Vol. 2 #12"
     },
     {
       "identifier": "TakingCareOfSomething",
@@ -299,7 +299,7 @@
           "text": "It's weird when we come back to {br}our problems solved without any idea{br} how he solved them."
         }
       ],
-      "flavorReference": "Trailblazer, Tales of the Marches 22"
+      "flavorReference": "Trailblazer, Tales of the Marches Vol. 2 #6"
     },
     {
       "identifier": "ClandestineExecutioner",
@@ -318,7 +318,7 @@
           "text": "They know of how I fight. {br}I'd rather not have them {br}know of how I kill."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches 22"
+      "flavorReference": "Vagabond, Tales of the Marches #31"
     },
     {
       "identifier": "MakeshiftDiversion",
@@ -327,7 +327,7 @@
       "keywords": [ "ongoing", "solo", "limited" ],
       "body": [
         "{Vagabond} and {Vagabond}'s cards cannot affect or be affected by other Heroes and their cards. [i](Your cards will treat [/i]{Vagabond}[i] as the only active Hero.)[/i]",
-        "Reduce damage taken by {Vagabond} 1.",
+        "Reduce damage dealt to {Vagabond} 1.",
         "At the start of your turn, put the top card of the Environment Deck on top of the Villain Deck. Then, you may play a non-Solo card. Then, destroy this card."
       ],
       "icons": [ "ReduceDamageTaken", "StartOfTurnAction", "Manipulate", "DestroySelf" ],
@@ -337,7 +337,7 @@
           "text": "If the golems and the spiders {br}are busy fighting each other, {br}they're not fighting us."
         }
       ],
-      "flavorReference": "Vagabond, Tales of the Marches ??"
+      "flavorReference": "Vagabond, Tales of the Marches #27"
     }
   ],
   "promoCards": [
@@ -356,7 +356,7 @@
         "DrawCardNow",
         "PlayCardNow"
       ],
-      "hitpoints": 21,
+      "hitpoints": 20,
       "nemesisIdentifiers": [
         "Vagabond"
       ],
@@ -371,7 +371,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "And here I was hoping I wouldn't meet any familiar faces."
+        "default": "And here I was hoping I wouldn't meet any familiar faces this time."
       },
       "complexity": 1
     }

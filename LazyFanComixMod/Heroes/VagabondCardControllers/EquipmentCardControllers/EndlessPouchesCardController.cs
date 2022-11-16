@@ -27,7 +27,7 @@ namespace LazyFanComix.Vagabond
             }
             else if (kiwi?.Location == this.HeroTurnTaker.Hand || kiwi?.Location == this.TurnTaker.Deck || kiwi?.Location == this.TurnTaker.Trash)
             {
-                coroutine = this.GameController.PlayCard(this.DecisionMaker, kiwi, cardSource: this.GetCardSource());
+                coroutine = this.GameController.PlayCard(this.DecisionMaker, kiwi, true, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 coroutine = this.GameController.ShuffleLocation(this.TurnTaker.Deck, cardSource: this.GetCardSource());
