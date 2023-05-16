@@ -1,7 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Controller.TheSentinels;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +16,6 @@ namespace LazyFanComix.TheSentinels
             this.AddAsPowerContributor();
         }
 
-
         public override void AddStartOfGameTriggers()
         {
             // Start of Game trigger is the best trigger for handling potential oddities with Oblivaeon.
@@ -27,7 +25,7 @@ namespace LazyFanComix.TheSentinels
         private void SetupUnderCard()
         {
             // Sanity check: Move if this is a start. The only way this should happen is if all of the characters are active and at max HP, since
-            // private variables are not yet set. 
+            // private variables are not yet set.
             // Not perfect, since Guise can do weird things with numerology, but this is the best doable without more TurnTaker shenanigans.
 
             if (this.TurnTaker.CharacterCards.Where((Card c) => c.IsInPlayAndNotUnderCard && c.HitPoints == c.MaximumHitPoints && c.IsActive).Count() == 4)
@@ -62,6 +60,7 @@ namespace LazyFanComix.TheSentinels
             }
             return card;
         }
+
         public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
         {
             if (cardController.TurnTaker == this.TurnTaker && cardController.Card.IsHeroCharacterCard && cardController.Card.IsRealCard &&

@@ -18,6 +18,5 @@ namespace LazyFanComix.Pyre
         {
             return SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "CherenkovDrive", "ParticleCollider" });
         }
-
     }
 }

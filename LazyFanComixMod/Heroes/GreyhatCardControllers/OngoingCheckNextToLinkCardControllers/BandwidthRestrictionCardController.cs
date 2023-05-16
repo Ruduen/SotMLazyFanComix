@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System.Collections;
 using System.Linq;
 
 // Manually tested!
@@ -12,7 +11,6 @@ namespace LazyFanComix.Greyhat
         public BandwidthRestrictionCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
-
 
         public override void AddTriggers()
         {

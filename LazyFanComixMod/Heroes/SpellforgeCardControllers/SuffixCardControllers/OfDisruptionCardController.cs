@@ -12,7 +12,7 @@ namespace LazyFanComix.Spellforge
         {
         }
 
-        List<CardSource> __createdCardSources = new List<CardSource>();
+        private List<CardSource> __createdCardSources = new List<CardSource>();
 
         public override IEnumerator Play()
         {
@@ -26,6 +26,7 @@ namespace LazyFanComix.Spellforge
             coroutine = this.GameController.DrawCards(this.DecisionMaker, 3, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         protected override ITrigger AddModifierTriggerOverride()
         {
             __createdCardSources.Clear();
@@ -41,14 +42,13 @@ namespace LazyFanComix.Spellforge
         protected IEnumerator RunResponse(DealDamageAction dda)
         {
             IEnumerator coroutine;
-            CardSource  cs= this._cardControllerActivatingModifiers.GetCardSource();
+            CardSource cs = this._cardControllerActivatingModifiers.GetCardSource();
             __createdCardSources.Add(cs);
 
             // Self Damage Response
             coroutine = this.DealDamage(dda.Target, dda.Target, 1, DamageType.Sonic, cardSource: cs);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
 
         protected override void ClearOtherValues()
         {

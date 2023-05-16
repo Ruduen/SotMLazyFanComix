@@ -1,7 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace LazyFanComix.Orbit
 {
@@ -25,10 +24,10 @@ namespace LazyFanComix.Orbit
         {
             return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), 2, DamageType.Projectile, 4, false, 0, cardSource: this.GetCardSource());
         }
+
         private IEnumerator OnDestroyResponse(DestroyCardAction dca)
         {
             return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), 1, DamageType.Projectile, 3, false, 0, cardSource: this.GetCardSource());
         }
-
     }
 }

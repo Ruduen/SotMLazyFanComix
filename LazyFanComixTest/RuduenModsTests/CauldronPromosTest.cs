@@ -1,7 +1,7 @@
 ﻿using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.HeroPromos;
+using NUnit.Framework;
 using System.Reflection;
 
 namespace LazyFanComixTest
@@ -29,7 +29,6 @@ namespace LazyFanComixTest
             AssertNumberOfCardsInTrash(GetTurnTakerController(GetCard("BaccaratCharacter")), 10);
         }
 
-
         [Test()]
         public void TestNecroCombatReady()
         {
@@ -39,7 +38,7 @@ namespace LazyFanComixTest
             StartGame();
 
             AssertIsInPlay("CorpseExplosion");
-            //AssertIsInPlay("TaintedBlood"); // Can't actually be used due to null TurnTaker check. 
+            //AssertIsInPlay("TaintedBlood"); // Can't actually be used due to null TurnTaker check.
             AssertIsInPlay("NecroZombie");
 
             AssertNumberOfCardsInHand(GetTurnTakerController(GetCard("NecroCharacter")).ToHero(), 4);
@@ -58,6 +57,5 @@ namespace LazyFanComixTest
 
             AssertNumberOfCardsInHand(GetTurnTakerController(GetCard("PyreCharacter")).ToHero(), 4);
         }
-
     }
 }

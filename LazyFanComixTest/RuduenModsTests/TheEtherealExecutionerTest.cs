@@ -1,11 +1,11 @@
-﻿using Handelabra.Sentinels.Engine.Model;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.TheEtherealExecutionerTeam;
+using NUnit.Framework;
 using System.Collections.Generic;
-using System.Reflection;
-using Handelabra.Sentinels.Engine.Controller;
 using System.Linq;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -23,11 +23,17 @@ namespace LazyFanComixTest
 
         #region Load Tests
 
+        protected TurnTakerController TheEtherealExecutioner
+        { get { return FindVillain("TheEtherealExecutionerTeam"); } }
 
-        protected TurnTakerController TheEtherealExecutioner { get { return FindVillain("TheEtherealExecutionerTeam"); } }
-        protected Card Calin { get { return FindCardInPlay("Calin"); } }
-        protected Card Kanya { get { return FindCardInPlay("Kanya"); } }
-        protected Card Sez { get { return FindCardInPlay("Sez"); } }
+        protected Card Calin
+        { get { return FindCardInPlay("Calin"); } }
+
+        protected Card Kanya
+        { get { return FindCardInPlay("Kanya"); } }
+
+        protected Card Sez
+        { get { return FindCardInPlay("Sez"); } }
 
         [Test()]
         public void TestModWorks()
@@ -48,7 +54,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            AssertNumberOfCardsInDeck(TheEtherealExecutioner, 20); // Default villain card count. 
+            AssertNumberOfCardsInDeck(TheEtherealExecutioner, 20); // Default villain card count.
         }
 
         #endregion Load Tests
@@ -129,7 +135,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            // 1 damage to lowest, Ob (1) discard. 
+            // 1 damage to lowest, Ob (1) discard.
             QuickHandStorage(legacy);
             QuickHPStorage(legacy);
             Card card = PlayCard("PremeditatedDisruption");
@@ -146,7 +152,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            // 2 damage, 1 increased. 
+            // 2 damage, 1 increased.
             QuickHPStorage(haka);
             Card card = PlayCard("RefinedStrike");
             AssertIsInPlay(card);
@@ -274,7 +280,6 @@ namespace LazyFanComixTest
             SetupGameController("LazyFanComix.TheEtherealExecutionerTeam", "Legacy", "Luminary", "Megalopolis");
 
             StartGame();
-
 
             PutOnDeck("ExploitWeakness");
 

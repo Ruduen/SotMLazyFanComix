@@ -11,7 +11,8 @@ namespace LazyFanComix.Soulbinder
 {
     public abstract class SoulbinderSharedInstructionsCharacterCardController : PromoDefaultCharacterCardController
     {
-        private string[] ShardIdentifiers { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
+        private string[] ShardIdentifiers
+        { get { return new string[] { "SoulshardOfLightningCharacter", "SoulshardOfMercuryCharacter", "SoulshardOfIronCharacter" }; } }
 
         public SoulbinderSharedInstructionsCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

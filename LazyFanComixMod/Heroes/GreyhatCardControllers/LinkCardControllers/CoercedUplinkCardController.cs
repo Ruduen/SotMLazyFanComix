@@ -8,7 +8,8 @@ namespace LazyFanComix.Greyhat
 {
     public class CoercedUplinkCardController : GreyhatSharedLinkCardController
     {
-        protected override LinqCardCriteria NextToCriteria { get { return new LinqCardCriteria((Card c) => c.IsTarget && !c.IsHero, "non-hero target"); } }
+        protected override LinqCardCriteria NextToCriteria
+        { get { return new LinqCardCriteria((Card c) => c.IsTarget && !c.IsHero, "non-hero target"); } }
 
         public CoercedUplinkCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {

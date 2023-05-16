@@ -34,6 +34,5 @@ namespace LazyFanComix.Spellforge
             IEnumerator coroutine = this.GameController.IncreaseDamage(dda, (dda) => 2, this._cardControllerActivatingModifiers.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

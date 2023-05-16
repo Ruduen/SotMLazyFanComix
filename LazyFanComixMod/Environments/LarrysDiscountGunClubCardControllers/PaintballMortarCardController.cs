@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +18,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartOfTurnDamageTrigger, new TriggerType[] { TriggerType.DealDamage, TriggerType.DiscardCard, TriggerType.DestroyCard });
         }
+
         private IEnumerator StartOfTurnDamageTrigger(PhaseChangeAction arg)
         {
             IEnumerator coroutine;
@@ -29,7 +29,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
             coroutine = this.DealDamageToHighestHP(null, 1, (Card c) => c.IsHero, (Card c) => 3, DamageType.Toxic, storedResults: ddas, numberOfTargets: () => 2, damageSourceInfo: new TargetInfo(HighestLowestHP.HighestHP, 1, 1, new LinqCardCriteria((Card c) => c.IsVillainCharacterCard, "the villain character card with the highest HP")));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Look for every instance where damage was dealt to a Hero target, get the Hero Turn Takers, and get every distinct one. 
+            // Look for every instance where damage was dealt to a Hero target, get the Hero Turn Takers, and get every distinct one.
             IEnumerable<TurnTaker> damagedHeroTurnTakers = ddas.Where((DealDamageAction dda) => dda.DidDealDamage && dda.Target.IsHero && dda.Target.Owner.IsHero).Select((DealDamageAction dda) => dda.Target.Owner).Distinct();
 
             if (AmmoNextToThis() > 0 && damagedHeroTurnTakers.Any())

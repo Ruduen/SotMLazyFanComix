@@ -10,7 +10,6 @@ namespace LazyFanComix.Vagabond
 {
     public class VagabondCharacterCardController : PromoDefaultCharacterCardController
     {
-
         public VagabondCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -26,7 +25,6 @@ namespace LazyFanComix.Vagabond
 
             // Deal <a> target <b> damage.
             return this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
-
         }
 
         // TODO: Replace Incap with something more unique!

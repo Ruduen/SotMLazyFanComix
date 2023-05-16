@@ -1,7 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Controller.CaptainCosmic;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
 using LazyFanComix.Shared;
 using System.Collections;
 
@@ -25,7 +24,5 @@ namespace LazyFanComix.CaptainCosmic
             coroutine = SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "DestructiveResponse", "SustainedInfluence" });
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
-
     }
 }

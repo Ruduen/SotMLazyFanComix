@@ -32,7 +32,5 @@ namespace LazyFanComix.Orbit
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
-
     }
 }

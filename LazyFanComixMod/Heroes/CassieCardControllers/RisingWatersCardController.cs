@@ -21,7 +21,7 @@ namespace LazyFanComix.Cassie
         protected IEnumerator DestroyOngoingResponse(PhaseChangeAction phaseChange)
         {
             // Destroy an ongoing.
-            IEnumerator coroutine = base.GameController.SelectAndDestroyCard(base.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing", true, false, null, null, false), false, null, null, base.GetCardSource(null));
+            IEnumerator coroutine = base.GameController.SelectAndDestroyCard(base.HeroTurnTakerController, new LinqCardCriteria((Card c) => this.IsOngoing(c), "ongoing", true, false, null, null, false), false, null, null, base.GetCardSource(null));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

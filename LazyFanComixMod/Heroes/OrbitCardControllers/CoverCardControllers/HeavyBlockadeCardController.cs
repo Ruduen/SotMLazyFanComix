@@ -29,14 +29,11 @@ namespace LazyFanComix.Orbit
             };
 
             return this.SelectTargetsAndDealMultipleInstancesOfDamage(damageInstances, minNumberOfTargets: 1, maxNumberOfTargets: 1);
-
         }
 
         private IEnumerator OnDestroyResponse(DestroyCardAction dca)
         {
             return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), 2, DamageType.Melee, 1, false, 1, cardSource: this.GetCardSource());
         }
-
-
     }
 }

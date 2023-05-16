@@ -22,20 +22,19 @@ namespace LazyFanComix.Soulbinder
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 
-
         public override IEnumerator UsePower(int index = 0)
         {
             IEnumerator coroutine;
             List<Card> target = new List<Card>();
 
-            // TODO: Verify this works! 
+            // TODO: Verify this works!
             List<int> powerNumerals = GetUniquePowerNumerals();
 
             // Do unique thing.
             coroutine = this.UseUniquePower(powerNumerals);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Third from last item is the self damage. 
+            // Third from last item is the self damage.
             coroutine = this.SelectYourTargetToDealDamage(target, powerNumerals[powerNumerals.Count - 3], DamageType.Infernal);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -47,9 +46,8 @@ namespace LazyFanComix.Soulbinder
             }
 
             // Last item is always number of cards, second to last is number of tokens.
-            coroutine = this.RemoveTokenAction(powerNumerals[powerNumerals.Count-1], powerNumerals[powerNumerals.Count-2]);
+            coroutine = this.RemoveTokenAction(powerNumerals[powerNumerals.Count - 1], powerNumerals[powerNumerals.Count - 2]);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
 
         private IEnumerator RemoveTokenAction(int numRituals, int numTokens)
@@ -70,6 +68,7 @@ namespace LazyFanComix.Soulbinder
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
+
         private IEnumerator RemoveTokenResponse(SelectCardDecision scd, int number)
         {
             if (scd.SelectedCard != null && scd.SelectedCard.FindTokenPool("RitualTokenPool").CurrentValue > 0)
@@ -86,6 +85,7 @@ namespace LazyFanComix.Soulbinder
         }
 
         protected abstract IEnumerator UseUniquePower(List<int> powerNumerals);
+
         protected abstract List<int> GetUniquePowerNumerals();
     }
 }

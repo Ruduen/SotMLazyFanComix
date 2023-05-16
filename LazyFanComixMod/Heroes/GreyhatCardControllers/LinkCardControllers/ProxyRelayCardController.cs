@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 // Manually tested!
 
@@ -10,7 +9,8 @@ namespace LazyFanComix.Greyhat
 {
     public class ProxyRelayCardController : GreyhatSharedLinkCardController
     {
-        protected override LinqCardCriteria NextToCriteria { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c.Owner == this.TurnTaker, "hero character"); } }
+        protected override LinqCardCriteria NextToCriteria
+        { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c.Owner == this.TurnTaker, "hero character"); } }
 
         public ProxyRelayCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {

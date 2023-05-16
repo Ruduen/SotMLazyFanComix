@@ -2,8 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Speedrunner
 {
@@ -16,9 +14,9 @@ namespace LazyFanComix.Speedrunner
 
         public override IEnumerator UsePower(int index = 0)
         {
-            int[] powerNums = { 
+            int[] powerNums = {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1) 
+                this.GetPowerNumeral(1, 1)
             };
             IEnumerator coroutine;
 

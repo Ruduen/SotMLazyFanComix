@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Trailblazer;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(TrailblazerCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Trailblazer { get { return FindHero("Trailblazer"); } }
+        protected HeroTurnTakerController Trailblazer
+        { get { return FindHero("Trailblazer"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -144,8 +145,8 @@ namespace LazyFanComixTest
             AssertIsInPlay(representative);
 
             UsePower(representative);
-
         }
+
         #endregion Innate Powers
 
         #region Positions
@@ -347,7 +348,6 @@ namespace LazyFanComixTest
             DecisionSelectCard = position;
             UsePower(Trailblazer);
             AssertNotUsablePower(Trailblazer, position); // Power used.
-
         }
 
         [Test()]

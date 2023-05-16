@@ -20,7 +20,7 @@ namespace LazyFanComix.TheTurfWar
             coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, true, false, false, new LinqCardCriteria((Card c) => c.IsTarget, "target"), 1, storedPlayResults: playedCards, shuffleReturnedCards: true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if(playedCards != null && playedCards.Count() > 0)
+            if (playedCards != null && playedCards.Count() > 0)
             {
                 coroutine = this.GameController.DealDamage(this.DecisionMaker, playedCards.FirstOrDefault(), (Card c) => !c.DoKeywordsContain(playedCards.FirstOrDefault().GetKeywords()), 2, DamageType.Toxic, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

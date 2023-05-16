@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using System.Collections;
-using System.Linq;
 
 // Manually tested!
 
@@ -19,7 +18,7 @@ namespace LazyFanComix.Greyhat
 
         public override IEnumerator UsePower(int index = 0)
         {
-            int[] numerals = new int[]{ 
+            int[] numerals = new int[]{
                 this.GetPowerNumeral(0, 2),
                 this.GetPowerNumeral(1, 1),
             };

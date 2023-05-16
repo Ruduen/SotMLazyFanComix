@@ -1,7 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.Shared;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +8,8 @@ namespace LazyFanComix.BreachMage
 {
     public class BreachMageSharedCharacterCardController : HeroCharacterCardController
     {
-        protected virtual int[] BreachInitialFocus { get { return new int[] { 4, 4, 4, 4 }; } }
+        protected virtual int[] BreachInitialFocus
+        { get { return new int[] { 4, 4, 4, 4 }; } }
 
         public BreachMageSharedCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -22,6 +21,7 @@ namespace LazyFanComix.BreachMage
         {
             return SetupBreaches();
         }
+
         public override void AddTriggers()
         {
             // add start-of-turn trigger to optionally cast spells
@@ -61,7 +61,7 @@ namespace LazyFanComix.BreachMage
             List<Card> usedAbilityCards = new List<Card>();
             bool finishedCasting = false;
 
-            // Only allow each card to be used once. This is to prevent indestructible shenanigans. 
+            // Only allow each card to be used once. This is to prevent indestructible shenanigans.
             while (this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.Owner == this.TurnTaker && c.HasActivatableAbility("cast") && c.IsSpell && !usedAbilityCards.Contains(c)).Count() > 0 && !finishedCasting)
             {
                 storedResults.Clear();
@@ -75,7 +75,7 @@ namespace LazyFanComix.BreachMage
                 {
                     Card castCard = storedResults.FirstOrDefault().SelectedCard;
 
-                    // Track for future iterations if appropriate, to avoid indestructible edge cases. 
+                    // Track for future iterations if appropriate, to avoid indestructible edge cases.
                     if (castCard.IsInPlay)
                     {
                         usedAbilityCards.Add(castCard);
@@ -87,7 +87,7 @@ namespace LazyFanComix.BreachMage
                 }
                 else
                 {
-                    // No spell cast was done, so abort. 
+                    // No spell cast was done, so abort.
                     finishedCasting = true;
                 }
             }

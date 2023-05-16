@@ -3,7 +3,6 @@ using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.NightMist
 {
@@ -32,7 +31,6 @@ namespace LazyFanComix.NightMist
             // Play a card
             coroutine = this.DrawACardOrPlayACard(this.HeroTurnTakerController, true);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
     }
 }

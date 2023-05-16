@@ -1,11 +1,10 @@
-﻿using Handelabra.Sentinels.Engine.Model;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.TheTurfWar;
-using System.Collections.Generic;
-using System.Reflection;
-using Handelabra.Sentinels.Engine.Controller;
+using NUnit.Framework;
 using System.Linq;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -23,11 +22,17 @@ namespace LazyFanComixTest
 
         #region Load Tests
 
+        protected TurnTakerController TurfWar
+        { get { return FindVillain("TheTurfWar"); } }
 
-        protected TurnTakerController TurfWar { get { return FindVillain("TheTurfWar"); } }
-        protected Card Calin { get { return FindCardInPlay("Calin"); } }
-        protected Card Kanya { get { return FindCardInPlay("Kanya"); } }
-        protected Card Sez { get { return FindCardInPlay("Sez"); } }
+        protected Card Calin
+        { get { return FindCardInPlay("Calin"); } }
+
+        protected Card Kanya
+        { get { return FindCardInPlay("Kanya"); } }
+
+        protected Card Sez
+        { get { return FindCardInPlay("Sez"); } }
 
         [Test()]
         public void TestModWorks()
@@ -51,12 +56,13 @@ namespace LazyFanComixTest
             AssertIsInPlay("Kanya");
             AssertIsInPlay("Sez");
 
-            AssertNumberOfCardsInDeck(TurfWar, 20); // Default villain card count. 
+            AssertNumberOfCardsInDeck(TurfWar, 20); // Default villain card count.
         }
 
         #endregion Load Tests
 
         #region Victory Tests
+
         [Test()]
         public void TestPartialVictory()
         {
@@ -85,6 +91,7 @@ namespace LazyFanComixTest
 
             AssertGameOver(EndingResult.VillainDestroyedVictory);
         }
+
         #endregion Victory Tests
 
         #region Instructions Card Test
@@ -148,14 +155,14 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            // TODO: Need to figure out the convoluted circumstance which could have something be 'not destroyed', then be destroyed, then re-played and is valid for destruction. 
+            // TODO: Need to figure out the convoluted circumstance which could have something be 'not destroyed', then be destroyed, then re-played and is valid for destruction.
             // No, I can't yet think of such a case. Yes, it's a pain.
         }
 
         [Test()]
         public void TestFlippedActivationFigureheadDamageIsDestroyFailsDiscover()
         {
-            /// Scenario where the figurehead is destroyed along the way. 
+            /// Scenario where the figurehead is destroyed along the way.
             SetupGameController("LazyFanComix.TheTurfWar", "MrFixer", "Megalopolis");
 
             StartGame();
@@ -172,13 +179,8 @@ namespace LazyFanComixTest
             AssertNotInPlay((Card c) => c.IsCultist);
         }
 
-
         #endregion Instructions Card Test
 
-        #region Figurehead Tests
-
-
-        #endregion Figurehead Tests
         [Test()]
         public void TestCardCalinActive()
         {
@@ -250,7 +252,6 @@ namespace LazyFanComixTest
             QuickHPCheck(0, -1, -1);
         }
 
-
         [Test()]
         public void TestCardKanyaIncap()
         {
@@ -283,9 +284,7 @@ namespace LazyFanComixTest
             GoToEndOfTurn(TurfWar);
             QuickHPCheck(-3);
             AssertNumberOfCardsUnderCard(Kanya, 0);
-
         }
-
 
         [Test()]
         public void TestCardSezIncap()
@@ -324,9 +323,7 @@ namespace LazyFanComixTest
             QuickHPCheck(3);
             AssertNumberOfCardsInPlay(env, 1);
             AssertNumberOfCardsUnderCard(Sez, 0);
-
         }
-
 
         [Test()]
         public void TestCardSezActive()
@@ -372,7 +369,6 @@ namespace LazyFanComixTest
             AssertNumberOfCardsAtLocation(Sez.UnderLocation, 0);
         }
 
-
         [Test()]
         public void TestCardTheLeeches()
         {
@@ -396,7 +392,6 @@ namespace LazyFanComixTest
             AssertUnderCard(Calin, ongoings[1]);
             AssertIsInPlayAndNotUnderCard(ongoings[2]);
         }
-
 
         [Test()]
         public void TestCardTheConduit()
@@ -423,8 +418,6 @@ namespace LazyFanComixTest
             QuickHPCheck(-3, -3);
         }
 
-
-
         [Test()]
         public void TestCardChalice()
         {
@@ -442,7 +435,6 @@ namespace LazyFanComixTest
             PlayCard("RivetingCrane");
             GoToEndOfTurn(TurfWar);
             AssertNumberOfCardsAtLocation(Calin.UnderLocation, 1);
-
         }
 
         [Test()]
@@ -511,7 +503,6 @@ namespace LazyFanComixTest
             PlayCard("DualCrowbars");
             GoToEndOfTurn(TurfWar);
             AssertNumberOfCardsAtLocation(Kanya.UnderLocation, 1);
-
         }
 
         [Test()]
@@ -578,7 +569,6 @@ namespace LazyFanComixTest
             // Target is Active - Put Under.
             GoToEndOfTurn(TurfWar);
             AssertNumberOfCardsAtLocation(Sez.UnderLocation, 1);
-
         }
 
         #endregion Target Tests
@@ -610,8 +600,6 @@ namespace LazyFanComixTest
             PlayCard("PlotsRevealed");
             QuickHPCheck(-2, 0, -2);
             AssertUnderCard(Sez, envCard);
-
-
         }
 
         [Test()]
@@ -644,7 +632,7 @@ namespace LazyFanComixTest
             QuickHPStorage(Calin, Kanya, fixer.CharacterCard);
 
             GoToEndOfTurn(TurfWar);
-            // Damage Totals: 
+            // Damage Totals:
             // Calin: Calin 2, Kanya 1+1, Sez 0, Heal 10.
             // Kanya: Calin 2+1, Kanya 0, Sez 0
             // Fixer: Calin 2, Kanya 1, Sez 0
@@ -652,8 +640,8 @@ namespace LazyFanComixTest
 
             GoToStartOfTurn(TurfWar);
             QuickHPCheck(0, 0, -2); // Start of turn, Calin damages non-Villains.
-
         }
+
         #endregion Non-Specific Cards Test
     }
 }

@@ -1,0 +1,315 @@
+﻿{
+  "name": "Thri",
+  "kind": "Hero",
+  "expansionIdentifier": "LazyFanComix",
+  "initialCardIdentifiers": [
+    "ThriCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "ThriCharacter",
+      "count": 1,
+      "title": "Thri",
+      "body": "Take The Shot",
+      "backgroundColor": "AAEEAA",
+      "foilBackgroundColor": "AAEEAA",
+      "character": true,
+      "powers": [
+        "{Thri} deals 1 target 1 projectile damage. If this is the third power used this turn, increase that damage by 3."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageProjectile",
+        "IncreaseDamageDealt"
+      ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "Thri"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Starting the count. One, two..."
+      },
+      "complexity": 1
+    },
+    {
+      "identifier": "RuleOfThree",
+      "count": 3,
+      "title": "Rule of Three",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "If you use the third power on any turn, increase damage dealt by that power by 2.",
+        "You may use 1 additional power during your power phase."
+      ],
+      "icons": [ "IncraseDamageDealt", "UsePowerExtra" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "FindTheShot",
+      "count": 3,
+      "title": "Find the Shot",
+      "keywords": [ "ongoing", "limited" ],
+      "powers": [ "Draw 1 card. Discard 1 card. You may use 1 power now." ],
+      "icons": [ "DrawCardNow", "DiscardCard", "UsePowerExtra" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "CallTheShot",
+      "count": 3,
+      "title": "Call the Shot",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "At the end of each Hero turn, you may destroy this card.",
+        "When this card is destroyed, you may use 1 power.",
+        "Each Hero gains the following power:",
+        "[b]Power:[/b] This hero deals 1 target{BR}       2 projectile damage."
+      ],
+      "icons": [ "DestroySelf", "UsePowerNow", "HasPower", "DealDamageEnergy" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "LoadoutAnchor",
+      "count": 3,
+      "title": "Loadout: Anchor",
+      "keywords": [ "equipment" ],
+      "powers": [
+        "{Thri} deals 1 target 1 projectile damage and 1 toxic damage. If this is the third power used this turn, {Thri} deals that target 1 radiant damage and you may destroy an ongoing or environment card."
+      ],
+      "icons": [ "HasPower", "DealDamageProjectile", "DestroyOngoing", "DestroyEnvironment" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "LoadoutSlick",
+      "count": 3,
+      "title": "Loadout: Slick",
+      "keywords": [ "equipment" ],
+      "powers": [
+        "{Thri} deals 1 target 3 radiant damage. If this is the third power used this turn, {Thri} deals up to 2 other targets 3 radiant damage each."
+      ],
+      "icons": [ "HasPower", "DealDamageProjectile" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "LoadoutWhisper",
+      "count": 3,
+      "title": "Loadout: Whisper",
+      "keywords": [ "equipment" ],
+      "powers": [
+        "{Thri} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, draw 3 cards."
+      ],
+      "icons": [ "HasPower", "DealDamageProjectile", "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "ToolsOfTheTrade",
+      "count": 3,
+      "title": "Tools of the Trade",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Search your deck for 1 equipment card and play it. Shuffle your deck.",
+        "You may use 1 power now."
+      ],
+      "icons": [ "Search", "PlayCardNow", "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "GearedUp",
+      "count": 3,
+      "title": "Geared Up",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Each player may draw 1 card or play 1 equipment card.",
+        "{Thri} deals up to 6 targets 1 projectile damage each."
+      ],
+      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageProjectile" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "FromTheHip",
+      "count": 4,
+      "title": "From the Hip",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "You may use 1 power now.",
+        "You may draw 1 card.",
+        "You may play 1 card."
+      ],
+      "icons": [ "UsePowerNow", "DrawCardNow", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "SynchronizeStrike",
+      "count": 3,
+      "title": "Synchronize Strike",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Up to 2 players, other than you, use 1 power now."
+      ],
+      "icons": [ "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "ThirdTimesTheCharm",
+      "count": 3,
+      "title": "Third Time's the Charm'",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Draw 3 cards.",
+        "Use the power printed on {Thri} thrice.",
+        "{Thri} deals themselves 3 psychic damage."
+      ],
+      "icons": [ "DrawCardNow", "UsePowerNow", "DealDamagePsychic" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "CoveringFire",
+      "count": 3,
+      "title": "Covering Fire",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When {Thri} would deal a Hero projectile damage, prevent it and put the bottom card of that Hero's deck under this card.",
+        "When a Hero would be dealt damage by a non-Hero target damage, destroy all of that Hero's cards under this card and reduce that damage by 2 for each card destroyed this way."
+      ],
+      "powers": [ "Use a power now." ],
+      "icons": [ "CancelledDamageGreen", "Manipulate", "Destroy", "ReduceDamageTaken" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    },
+    {
+      "identifier": "LeadTheTarget",
+      "count": 3,
+      "title": "Lead the Target",
+      "keywords": [ "ongoing", "limited" ],
+      "body": [
+        "When {Thri} uses a power, you may put the bottom card of another Hero's deck under this card.",
+        "When another Hero would deal a non-Hero target damage, destroy all of that Hero's cards under this card and increase that damage by 1 for each card destroyed this way."
+      ],
+      "powers": [ "Use 1 power now." ],
+      "icons": [ "Manipulate", "IncreaseDamageDealt", "HasPower", "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Thri",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Thri, ???"
+    }
+  ],
+  "promoCards": [
+    {
+      "identifier": "ThriCharacter",
+      "promoIdentifier": "ThriGunClubCharacter",
+      "count": 1,
+      "title": "Thri - Gun Club",
+      "body": "Rapid Planning",
+      "backgroundColor": "AADDAA",
+      "foilBackgroundColor": "AADDAA",
+      "character": true,
+      "powers": [
+        "Play a card."
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow"
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "Thri"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "No idea how people move in these things. Whatever, let's get this done."
+      },
+      "complexity": 2
+    }
+  ]
+}

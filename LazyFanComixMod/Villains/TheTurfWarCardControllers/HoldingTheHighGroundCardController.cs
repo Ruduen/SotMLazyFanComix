@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -41,6 +41,7 @@ namespace LazyFanComix.TheTurfWar
             coroutine = this.GameController.SelectCardAndDoAction(scd, DealDamageDelegate);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         private IEnumerator DealDamageDelegate(SelectCardDecision scd)
         {
             Card figurehead = scd.SelectedCard;

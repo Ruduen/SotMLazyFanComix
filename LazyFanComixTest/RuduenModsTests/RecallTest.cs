@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Recall;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(RecallCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Recall { get { return FindHero("Recall"); } }
+        protected HeroTurnTakerController Recall
+        { get { return FindHero("Recall"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -41,7 +42,6 @@ namespace LazyFanComixTest
         }
 
         #region Innate Powers
-
 
         [Test()]
         public void TestInnatePowerParadoxProof()
@@ -63,7 +63,6 @@ namespace LazyFanComixTest
             UsePower(Recall);
             AssertIsInPlay("ParadoxAnchor");
         }
-
 
         [Test()]
         public void TestInnatePowerForecastedBlow()
@@ -103,11 +102,12 @@ namespace LazyFanComixTest
         //    UsePower(Recall);
         //    AssertCurrentTurnPhase(Recall, Phase.Start, true);
         //    GoToStartOfTurn(baron);
-        //    // If possible, figure out how to confirm all other turns were skipped. 
+        //    // If possible, figure out how to confirm all other turns were skipped.
         //    AssertCurrentTurnPhase(baron, Phase.Start, false);
         //    AssertNumberOfCardsUnderCard(Recall.CharacterCard, 1);
 
         //}
+
         #endregion Innate Powers
 
         #region Tribunal Cases
@@ -166,6 +166,7 @@ namespace LazyFanComixTest
         #endregion Tribunal Cases
 
         #region Incapped Case Test
+
         [Test()]
         public void TestIncappedToForecastedPower()
         {
@@ -180,6 +181,7 @@ namespace LazyFanComixTest
             DecisionSelectCard = target;
             UseIncapacitatedAbility(FindHero("BreachMage").CharacterCard, 1);
         }
+
         #endregion Incapped Case Test
 
         #region Loop Cards
@@ -202,7 +204,7 @@ namespace LazyFanComixTest
             AssertCurrentTurnPhase(Recall, Phase.Start, false);
 
             GoToNextTurn();
-            // If possible, figure out how to confirm all other turns were skipped. 
+            // If possible, figure out how to confirm all other turns were skipped.
             AssertCurrentTurnPhase(legacy, Phase.Start, false);
             AssertNumberOfCardsUnderCard(Recall.CharacterCard, 1);
         }
@@ -218,11 +220,10 @@ namespace LazyFanComixTest
 
             StartGame();
 
-
             PlayCard("ImmediateJump");
             AssertCurrentTurnPhase(Recall, Phase.Start, true);
             GoToStartOfTurn(baron);
-            // If possible, figure out how to confirm all other turns were skipped. 
+            // If possible, figure out how to confirm all other turns were skipped.
             AssertCurrentTurnPhase(baron, Phase.Start, false);
             AssertNumberOfCardsUnderCard(Recall.CharacterCard, 1);
         }
@@ -255,11 +256,10 @@ namespace LazyFanComixTest
             GoToStartOfTurn(Recall);
             QuickHPCheck(-2);
 
-            // Power damage. 
+            // Power damage.
             QuickHPStorage(mdp);
             UsePower(power);
             QuickHPCheck(-4);
-
         }
 
         [Test()]
@@ -280,7 +280,6 @@ namespace LazyFanComixTest
             PlayCard("DejaVu");
             AssertIsInPlay(played);
         }
-
 
         [Test()]
         public void TestCardDejaVuSelf()
@@ -304,7 +303,6 @@ namespace LazyFanComixTest
             AssertInTrash(trash);
             AssertExpectedMessageWasShown();
         }
-
 
         [Test()]
         public void TestCardNoteToSelf()
@@ -331,6 +329,7 @@ namespace LazyFanComixTest
             QuickHandCheck(3); // 1 from trash, 3 drawn.
             AssertNumberOfCardsUnderCard(Recall.CharacterCard, 0);
         }
+
         [Test()]
         public void TestCardCloseTheLoop()
         {
@@ -356,7 +355,6 @@ namespace LazyFanComixTest
             AssertNumberOfCardsUnderCard(Recall.CharacterCard, 0);
             QuickHPCheck(-4, -4);
         }
-
 
         [Test()]
         public void TestCardSeenItBefore()
@@ -407,8 +405,6 @@ namespace LazyFanComixTest
             AssertIsInPlay(play);
         }
 
-
-
         [Test()]
         public void TestCardParadoxAnchor()
         {
@@ -452,9 +448,8 @@ namespace LazyFanComixTest
             GoToEndOfTurn(Recall);
             DestroyCard(redirect);
             DealDamage(Recall, fixer, 0, DamageType.Cold);
-            QuickHPCheck(-2 - 5 - 0); // 0+2 damage the first time, 2+3 the second, 0 the third due to environment turn. 
+            QuickHPCheck(-2 - 5 - 0); // 0+2 damage the first time, 2+3 the second, 0 the third due to environment turn.
         }
-
 
         [Test()]
         public void TestCardGoingThroughTheMotions()
@@ -469,7 +464,6 @@ namespace LazyFanComixTest
             DestroyCard("MobileDefensePlatform");
             PlayCard("GoingThroughTheMotions");
 
-
             GoToStartOfTurn(Recall);
             DecisionSelectFunction = 1;
             UsePower(Recall);
@@ -477,7 +471,7 @@ namespace LazyFanComixTest
 
             QuickHandStorage(Recall);
             GoToPlayCardPhase(Recall);
-            QuickHandCheck(1); // No power usable, draw instead. 
+            QuickHandCheck(1); // No power usable, draw instead.
 
             ResetDecisions();
 
@@ -541,7 +535,6 @@ namespace LazyFanComixTest
             AssertPhaseActionCount(1);
         }
 
-
         [Test()]
         public void TestCardTemporalAnomaly()
         {
@@ -565,8 +558,5 @@ namespace LazyFanComixTest
         }
 
         #endregion Other Cards
-
-
-
     }
 }

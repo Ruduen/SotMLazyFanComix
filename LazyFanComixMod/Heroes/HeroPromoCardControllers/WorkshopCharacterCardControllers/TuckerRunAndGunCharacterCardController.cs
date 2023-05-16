@@ -16,8 +16,7 @@ namespace LazyFanComix.Tucker
 
         public override IEnumerator UsePower(int index = 0)
         {
-
-            int[] powerNums = new int[] { 
+            int[] powerNums = new int[] {
                 this.GetPowerNumeral(0, 3),
                 this.GetPowerNumeral(1, 2),
                 this.GetPowerNumeral(2, 1),
@@ -36,7 +35,7 @@ namespace LazyFanComix.Tucker
 
             if (discardedHandguns > 0)
             {
-                for(int i = 0; i < discardedHandguns; i++)
+                for (int i = 0; i < discardedHandguns; i++)
                 {
                     coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNums[3], DamageType.Projectile, powerNums[2], false, powerNums[2], cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -48,6 +47,5 @@ namespace LazyFanComix.Tucker
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
     }
 }

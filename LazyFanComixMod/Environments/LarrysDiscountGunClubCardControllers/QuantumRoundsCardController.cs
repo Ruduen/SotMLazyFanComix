@@ -1,11 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Controller.Expatriette;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
 {
@@ -22,6 +17,5 @@ namespace LazyFanComix.LarrysDiscountGunClub
             this.AddToTemporaryTriggerList(this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda.CardSource.Card == this.GetCardThisCardIsNextTo(true) && dda.Target.HitPoints != null && dda.Target.HitPoints <= 4, (DealDamageAction dda) => this.GameController.DestroyCard(this.DecisionMaker, dda.Target, cardSource: this.GetCardSource()), TriggerType.DealDamage, TriggerTiming.After));
             yield return null;
         }
-
     }
 }

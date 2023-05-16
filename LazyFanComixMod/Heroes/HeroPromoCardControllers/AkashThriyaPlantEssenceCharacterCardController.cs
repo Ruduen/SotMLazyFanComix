@@ -29,7 +29,6 @@ namespace LazyFanComix.AkashThriya
 
             coroutine = this.GameController.SelectAndPerformFunction(sfd, null, null);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
 
         private IEnumerator PutCardInEnvDeck(int numeral)
@@ -38,11 +37,11 @@ namespace LazyFanComix.AkashThriya
             List<SelectCardDecision> scdResult = new List<SelectCardDecision>();
             Location envDeck = this.GameController.FindEnvironmentTurnTakerController().TurnTaker.Deck;
 
-            // Shuffle the environment deck. 
+            // Shuffle the environment deck.
             coroutine = this.GameController.ShuffleLocation(envDeck, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Select a card from hand. 
+            // Select a card from hand.
             coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.MoveCardUnderTopCardOfDeck, this.HeroTurnTaker.Hand.Cards, scdResult, false, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

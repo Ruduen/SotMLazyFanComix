@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 // Manually tested!
 
@@ -10,7 +9,8 @@ namespace LazyFanComix.Greyhat
 {
     public class DigitalUplinkCardController : GreyhatSharedLinkCardController
     {
-        protected override LinqCardCriteria NextToCriteria { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c != this.CharacterCard, "hero character"); } }
+        protected override LinqCardCriteria NextToCriteria
+        { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c != this.CharacterCard, "hero character"); } }
 
         public DigitalUplinkCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
@@ -26,7 +26,7 @@ namespace LazyFanComix.Greyhat
                 List<DiscardCardAction> dcaResults = new List<DiscardCardAction>();
                 HeroTurnTakerController httc = this.GameController.FindCardController(nextTo).HeroTurnTakerControllerWithoutReplacements;
 
-                // httc is optional due to Celestial Tribunal, so only proceed if it was found. 
+                // httc is optional due to Celestial Tribunal, so only proceed if it was found.
                 if (httc != null)
                 {
                     coroutine = this.GameController.DrawCards(httc, 1, cardSource: this.GetCardSource());

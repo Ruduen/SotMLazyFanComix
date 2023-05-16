@@ -52,7 +52,7 @@ namespace LazyFanComix.Spellforge
                 }
             }
 
-            // Yes, this extra logic is necessary for actually selecting a hero, since no method exists to restrict card plays after. 
+            // Yes, this extra logic is necessary for actually selecting a hero, since no method exists to restrict card plays after.
             IEnumerable<TurnTaker> source = this.GameController.FindTurnTakersWhere((TurnTaker tt) => tt.IsHero);
             if (source.All((TurnTaker tt) => tt != this.TurnTaker && this.GameController.DoAnyCardsPreventAction<PlayCardAction>(this.FindTurnTakerController(tt)).Any()))
             {

@@ -32,7 +32,7 @@ namespace LazyFanComix.BreachMage
 
             if (FocusPool.CurrentValue > 0)
             {
-                // Always remove token. 
+                // Always remove token.
                 coroutine = FocusPower(powerNumeral);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

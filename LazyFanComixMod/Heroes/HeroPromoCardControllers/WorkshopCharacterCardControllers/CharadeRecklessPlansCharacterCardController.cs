@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace LazyFanComix.Charade
@@ -17,12 +16,13 @@ namespace LazyFanComix.Charade
 
         public override IEnumerator UsePower(int index = 0)
         {
-
-            int[] powerNums = new int[] { 
+            int[] powerNums = new int[] {
                 this.GetPowerNumeral(0, 3),
                 this.GetPowerNumeral(1, 1)
             };
             IEnumerator coroutine;
+
+            // TODO: Add Completionist Guise Handling Logic
 
             if (this.TurnTaker.Deck.Cards.Any())
             {
@@ -34,6 +34,5 @@ namespace LazyFanComix.Charade
             coroutine = this.GameController.SelectAndMoveCard(this.DecisionMaker, (Card c) => c.Location == this.CharacterCard.UnderLocation, this.HeroTurnTaker.Hand, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

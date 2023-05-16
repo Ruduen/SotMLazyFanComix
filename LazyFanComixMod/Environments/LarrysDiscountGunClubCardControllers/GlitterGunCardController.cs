@@ -1,7 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,10 +31,10 @@ namespace LazyFanComix.LarrysDiscountGunClub
                 }
             };
         }
+
         protected override TriggerType[] ClaimTriggerTypes()
         {
             return new TriggerType[] { TriggerType.DestroyCard };
         }
-
     }
 }

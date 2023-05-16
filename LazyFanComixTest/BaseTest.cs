@@ -1,14 +1,14 @@
-﻿using NUnit.Framework;
-using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Controller.PromoCardUnlockControllers;
 using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Collections.Generic;
-using System.Linq;
+using NUnit.Framework;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using Handelabra.Sentinels.Engine.Controller.PromoCardUnlockControllers;
 
 namespace Handelabra.Sentinels.UnitTest
 {
@@ -18,6 +18,7 @@ namespace Handelabra.Sentinels.UnitTest
 
         // Properties you can set for MakeDecisions to use
         protected Card DecisionSelectTarget { get; set; }
+
         protected Card DecisionSelectCard { get; set; }
         protected SelectionType? DecisionDoNotSelectCard { get; set; }
         protected bool DecisionDoNotSelectFunction { get; set; }
@@ -126,122 +127,313 @@ namespace Handelabra.Sentinels.UnitTest
         private Card _notDamageSource;
         private SelectionType? _assertDecisionOptional;
 
-
         protected int NumberOfDecisionsAnswered { get; private set; }
 
         // Turn taker controller helpers
-        protected HeroTurnTakerController adept { get { return FindHero("TheArgentAdept"); } }
-        protected HeroTurnTakerController az { get { return FindHero("AbsoluteZero"); } }
-        protected HeroTurnTakerController bench { get { return FindHero("Benchmark"); } }
-        protected HeroTurnTakerController bunker { get { return FindHero("Bunker"); } }
-        protected HeroTurnTakerController chrono { get { return FindHero("ChronoRanger"); } }
-        protected HeroTurnTakerController comodora { get { return FindHero("LaComodora"); } }
-        protected HeroTurnTakerController cosmic { get { return FindHero("CaptainCosmic"); } }
-        protected HeroTurnTakerController expatriette { get { return FindHero("Expatriette"); } }
-        protected HeroTurnTakerController fanatic { get { return FindHero("Fanatic"); } }
-        protected HeroTurnTakerController fixer { get { return FindHero("MrFixer"); } }
-        protected HeroTurnTakerController guise { get { return FindHero("Guise"); } }
-        protected HeroTurnTakerController haka { get { return FindHero("Haka"); } }
-        protected HeroTurnTakerController harpy { get { return FindHero("TheHarpy"); } }
-        protected HeroTurnTakerController knyfe { get { return FindHero("Knyfe"); } }
-        protected HeroTurnTakerController legacy { get { return FindHero("Legacy"); } }
-        protected HeroTurnTakerController luminary { get { return FindHero("Luminary"); } }
-        protected HeroTurnTakerController lifeline { get { return FindHero("Lifeline"); } }
-        protected HeroTurnTakerController mist { get { return FindHero("NightMist"); } }
-        protected HeroTurnTakerController naturalist { get { return FindHero("TheNaturalist"); } }
-        protected HeroTurnTakerController omnix { get { return FindHero("OmnitronX"); } }
-        protected HeroTurnTakerController parse { get { return FindHero("Parse"); } }
-        protected HeroTurnTakerController ra { get { return FindHero("Ra"); } }
-        protected HeroTurnTakerController scholar { get { return FindHero("TheScholar"); } }
-        protected HeroTurnTakerController sentinels { get { return FindHero("TheSentinels"); } }
-        protected HeroTurnTakerController setback { get { return FindHero("Setback"); } }
-        protected HeroTurnTakerController sky { get { return FindHero("SkyScraper"); } }
-        protected HeroTurnTakerController stunt { get { return FindHero("Stuntman"); } }
-        protected HeroTurnTakerController tachyon { get { return FindHero("Tachyon"); } }
-        protected HeroTurnTakerController thriya { get { return FindHero("AkashThriya"); } }
-        protected HeroTurnTakerController tempest { get { return FindHero("Tempest"); } }
-        protected HeroTurnTakerController unity { get { return FindHero("Unity"); } }
-        protected HeroTurnTakerController visionary { get { return FindHero("TheVisionary"); } }
-        protected HeroTurnTakerController voidMedico { get { return FindHero("VoidGuardDrMedico"); } }
-        protected HeroTurnTakerController voidMainstay { get { return FindHero("VoidGuardMainstay"); } }
-        protected HeroTurnTakerController voidIdealist { get { return FindHero("VoidGuardTheIdealist"); } }
-        protected HeroTurnTakerController voidWrithe { get { return FindHero("VoidGuardWrithe"); } }
-        protected HeroTurnTakerController wraith { get { return FindHero("TheWraith"); } }
+        protected HeroTurnTakerController adept
+        { get { return FindHero("TheArgentAdept"); } }
+
+        protected HeroTurnTakerController az
+        { get { return FindHero("AbsoluteZero"); } }
+
+        protected HeroTurnTakerController bench
+        { get { return FindHero("Benchmark"); } }
+
+        protected HeroTurnTakerController bunker
+        { get { return FindHero("Bunker"); } }
+
+        protected HeroTurnTakerController chrono
+        { get { return FindHero("ChronoRanger"); } }
+
+        protected HeroTurnTakerController comodora
+        { get { return FindHero("LaComodora"); } }
+
+        protected HeroTurnTakerController cosmic
+        { get { return FindHero("CaptainCosmic"); } }
+
+        protected HeroTurnTakerController expatriette
+        { get { return FindHero("Expatriette"); } }
+
+        protected HeroTurnTakerController fanatic
+        { get { return FindHero("Fanatic"); } }
+
+        protected HeroTurnTakerController fixer
+        { get { return FindHero("MrFixer"); } }
+
+        protected HeroTurnTakerController guise
+        { get { return FindHero("Guise"); } }
+
+        protected HeroTurnTakerController haka
+        { get { return FindHero("Haka"); } }
+
+        protected HeroTurnTakerController harpy
+        { get { return FindHero("TheHarpy"); } }
+
+        protected HeroTurnTakerController knyfe
+        { get { return FindHero("Knyfe"); } }
+
+        protected HeroTurnTakerController legacy
+        { get { return FindHero("Legacy"); } }
+
+        protected HeroTurnTakerController luminary
+        { get { return FindHero("Luminary"); } }
+
+        protected HeroTurnTakerController lifeline
+        { get { return FindHero("Lifeline"); } }
+
+        protected HeroTurnTakerController mist
+        { get { return FindHero("NightMist"); } }
+
+        protected HeroTurnTakerController naturalist
+        { get { return FindHero("TheNaturalist"); } }
+
+        protected HeroTurnTakerController omnix
+        { get { return FindHero("OmnitronX"); } }
+
+        protected HeroTurnTakerController parse
+        { get { return FindHero("Parse"); } }
+
+        protected HeroTurnTakerController ra
+        { get { return FindHero("Ra"); } }
+
+        protected HeroTurnTakerController scholar
+        { get { return FindHero("TheScholar"); } }
+
+        protected HeroTurnTakerController sentinels
+        { get { return FindHero("TheSentinels"); } }
+
+        protected HeroTurnTakerController setback
+        { get { return FindHero("Setback"); } }
+
+        protected HeroTurnTakerController sky
+        { get { return FindHero("SkyScraper"); } }
+
+        protected HeroTurnTakerController stunt
+        { get { return FindHero("Stuntman"); } }
+
+        protected HeroTurnTakerController tachyon
+        { get { return FindHero("Tachyon"); } }
+
+        protected HeroTurnTakerController thriya
+        { get { return FindHero("AkashThriya"); } }
+
+        protected HeroTurnTakerController tempest
+        { get { return FindHero("Tempest"); } }
+
+        protected HeroTurnTakerController unity
+        { get { return FindHero("Unity"); } }
+
+        protected HeroTurnTakerController visionary
+        { get { return FindHero("TheVisionary"); } }
+
+        protected HeroTurnTakerController voidMedico
+        { get { return FindHero("VoidGuardDrMedico"); } }
+
+        protected HeroTurnTakerController voidMainstay
+        { get { return FindHero("VoidGuardMainstay"); } }
+
+        protected HeroTurnTakerController voidIdealist
+        { get { return FindHero("VoidGuardTheIdealist"); } }
+
+        protected HeroTurnTakerController voidWrithe
+        { get { return FindHero("VoidGuardWrithe"); } }
+
+        protected HeroTurnTakerController wraith
+        { get { return FindHero("TheWraith"); } }
 
         // The Sentinels
-        protected Card medico { get { return GetCard("DrMedicoCharacter"); } }
-        protected Card mainstay { get { return GetCard("MainstayCharacter"); } }
-        protected Card idealist { get { return GetCard("TheIdealistCharacter"); } }
-        protected Card writhe { get { return GetCard("WritheCharacter"); } }
+        protected Card medico
+        { get { return GetCard("DrMedicoCharacter"); } }
+
+        protected Card mainstay
+        { get { return GetCard("MainstayCharacter"); } }
+
+        protected Card idealist
+        { get { return GetCard("TheIdealistCharacter"); } }
+
+        protected Card writhe
+        { get { return GetCard("WritheCharacter"); } }
 
         // Villains
-        protected TurnTakerController akash { get { return FindVillain("AkashBhuta"); } }
-        protected TurnTakerController ambuscade { get { return FindVillain("Ambuscade"); } }
-        protected TurnTakerController apostate { get { return FindVillain("Apostate"); } }
-        protected TurnTakerController baron { get { return FindVillain("BaronBlade"); } }
-        protected TurnTakerController capitan { get { return FindVillain("LaCapitan"); } }
-        protected TurnTakerController chairman { get { return FindVillain("TheChairman"); } }
-        protected TurnTakerController choke { get { return FindVillain("Chokepoint"); } }
-        protected TurnTakerController dawn { get { return FindVillain("CitizenDawn"); } }
-        protected TurnTakerController deadline { get { return FindVillain("Deadline"); } }
-        protected TurnTakerController dreamer { get { return FindVillain("TheDreamer"); } }
-        protected TurnTakerController ennead { get { return FindVillain("TheEnnead"); } }
-        protected TurnTakerController gloom { get { return FindVillain("GloomWeaver"); } }
-        protected TurnTakerController infinitor { get { return FindVillain("Infinitor"); } }
-        protected TurnTakerController iron { get { return FindVillain("IronLegacy"); } }
-        protected TurnTakerController kismet { get { return FindVillain("Kismet"); } }
-        protected TurnTakerController matriarch { get { return FindVillain("TheMatriarch"); } }
-        protected TurnTakerController miss { get { return FindVillain("MissInformation"); } }
-        protected TurnTakerController omnitron { get { return FindVillain("Omnitron"); } }
-        protected TurnTakerController plague { get { return FindVillain("PlagueRat"); } }
-        protected TurnTakerController progeny { get { return FindVillain("Progeny"); } }
-        protected TurnTakerController spite { get { return FindVillain("Spite"); } }
-        protected TurnTakerController voss { get { return FindVillain("GrandWarlordVoss"); } }
-        protected TurnTakerController wager { get { return FindVillain("WagerMaster"); } }
-        protected TurnTakerController warfang { get { return FindVillain("KaargraWarfang"); } }
+        protected TurnTakerController akash
+        { get { return FindVillain("AkashBhuta"); } }
+
+        protected TurnTakerController ambuscade
+        { get { return FindVillain("Ambuscade"); } }
+
+        protected TurnTakerController apostate
+        { get { return FindVillain("Apostate"); } }
+
+        protected TurnTakerController baron
+        { get { return FindVillain("BaronBlade"); } }
+
+        protected TurnTakerController capitan
+        { get { return FindVillain("LaCapitan"); } }
+
+        protected TurnTakerController chairman
+        { get { return FindVillain("TheChairman"); } }
+
+        protected TurnTakerController choke
+        { get { return FindVillain("Chokepoint"); } }
+
+        protected TurnTakerController dawn
+        { get { return FindVillain("CitizenDawn"); } }
+
+        protected TurnTakerController deadline
+        { get { return FindVillain("Deadline"); } }
+
+        protected TurnTakerController dreamer
+        { get { return FindVillain("TheDreamer"); } }
+
+        protected TurnTakerController ennead
+        { get { return FindVillain("TheEnnead"); } }
+
+        protected TurnTakerController gloom
+        { get { return FindVillain("GloomWeaver"); } }
+
+        protected TurnTakerController infinitor
+        { get { return FindVillain("Infinitor"); } }
+
+        protected TurnTakerController iron
+        { get { return FindVillain("IronLegacy"); } }
+
+        protected TurnTakerController kismet
+        { get { return FindVillain("Kismet"); } }
+
+        protected TurnTakerController matriarch
+        { get { return FindVillain("TheMatriarch"); } }
+
+        protected TurnTakerController miss
+        { get { return FindVillain("MissInformation"); } }
+
+        protected TurnTakerController omnitron
+        { get { return FindVillain("Omnitron"); } }
+
+        protected TurnTakerController plague
+        { get { return FindVillain("PlagueRat"); } }
+
+        protected TurnTakerController progeny
+        { get { return FindVillain("Progeny"); } }
+
+        protected TurnTakerController spite
+        { get { return FindVillain("Spite"); } }
+
+        protected TurnTakerController voss
+        { get { return FindVillain("GrandWarlordVoss"); } }
+
+        protected TurnTakerController wager
+        { get { return FindVillain("WagerMaster"); } }
+
+        protected TurnTakerController warfang
+        { get { return FindVillain("KaargraWarfang"); } }
 
         // Team villains
-        protected TurnTakerController baronTeam { get { return FindVillainTeamMember("BaronBlade"); } }
-        protected TurnTakerController ermineTeam { get { return FindVillainTeamMember("Ermine"); } }
-        protected TurnTakerController frictionTeam { get { return FindVillainTeamMember("Friction"); } }
-        protected TurnTakerController frightTeam { get { return FindVillainTeamMember("FrightTrain"); } }
-        protected TurnTakerController proleTeam { get { return FindVillainTeamMember("Proletariat"); } }
-        protected TurnTakerController ambuscadeTeam { get { return FindVillainTeamMember("Ambuscade"); } }
-        protected TurnTakerController biomancerTeam { get { return FindVillainTeamMember("Biomancer"); } }
-        protected TurnTakerController bugbearTeam { get { return FindVillainTeamMember("Bugbear"); } }
-        protected TurnTakerController greazerTeam { get { return FindVillainTeamMember("Greazer"); } }
-        protected TurnTakerController lacapitanTeam { get { return FindVillainTeamMember("LaCapitan"); } }
-        protected TurnTakerController missinfoTeam { get { return FindVillainTeamMember("MissInformation"); } }
-        protected TurnTakerController plagueratTeam { get { return FindVillainTeamMember("PlagueRat"); } }
-        protected TurnTakerController sgtsteelTeam { get { return FindVillainTeamMember("SergeantSteel"); } }
-        protected TurnTakerController operativeTeam { get { return FindVillainTeamMember("TheOperative"); } }
-        protected TurnTakerController hammeranvilTeam { get { return FindVillainTeamMember("CitizensHammerAndAnvil"); } }
+        protected TurnTakerController baronTeam
+        { get { return FindVillainTeamMember("BaronBlade"); } }
+
+        protected TurnTakerController ermineTeam
+        { get { return FindVillainTeamMember("Ermine"); } }
+
+        protected TurnTakerController frictionTeam
+        { get { return FindVillainTeamMember("Friction"); } }
+
+        protected TurnTakerController frightTeam
+        { get { return FindVillainTeamMember("FrightTrain"); } }
+
+        protected TurnTakerController proleTeam
+        { get { return FindVillainTeamMember("Proletariat"); } }
+
+        protected TurnTakerController ambuscadeTeam
+        { get { return FindVillainTeamMember("Ambuscade"); } }
+
+        protected TurnTakerController biomancerTeam
+        { get { return FindVillainTeamMember("Biomancer"); } }
+
+        protected TurnTakerController bugbearTeam
+        { get { return FindVillainTeamMember("Bugbear"); } }
+
+        protected TurnTakerController greazerTeam
+        { get { return FindVillainTeamMember("Greazer"); } }
+
+        protected TurnTakerController lacapitanTeam
+        { get { return FindVillainTeamMember("LaCapitan"); } }
+
+        protected TurnTakerController missinfoTeam
+        { get { return FindVillainTeamMember("MissInformation"); } }
+
+        protected TurnTakerController plagueratTeam
+        { get { return FindVillainTeamMember("PlagueRat"); } }
+
+        protected TurnTakerController sgtsteelTeam
+        { get { return FindVillainTeamMember("SergeantSteel"); } }
+
+        protected TurnTakerController operativeTeam
+        { get { return FindVillainTeamMember("TheOperative"); } }
+
+        protected TurnTakerController hammeranvilTeam
+        { get { return FindVillainTeamMember("CitizensHammerAndAnvil"); } }
 
         // Citizens Hammer and Anvil
-        protected Card hammer { get { return GetCard("CitizenHammerTeamCharacter"); } }
-        protected Card anvil { get { return GetCard("CitizenAnvilTeamCharacter"); } }
+        protected Card hammer
+        { get { return GetCard("CitizenHammerTeamCharacter"); } }
 
-        protected TurnTakerController env { get { return FindEnvironment(); } }
+        protected Card anvil
+        { get { return GetCard("CitizenAnvilTeamCharacter"); } }
+
+        protected TurnTakerController env
+        { get { return FindEnvironment(); } }
 
         // OblivAeon mode
-        protected TurnTakerController oblivaeon { get { return FindVillain("OblivAeon"); } }
-        protected BattleZone bzOne { get { return this.GameController.GetBattleZone("BattleZoneOne"); } }
-        protected BattleZone bzTwo { get { return this.GameController.GetBattleZone("BattleZoneTwo"); } }
-        protected TurnTakerController envOne { get { return this.GameController.FindEnvironmentTurnTakerController(bzOne); } }
-        protected TurnTakerController envTwo { get { return this.GameController.FindEnvironmentTurnTakerController(bzTwo); } }
-        protected TurnTakerController scionOne { get { return this.GameController.FindTurnTakerController(bzOne.FindScion()); } }
-        protected TurnTakerController scionTwo { get { return this.GameController.FindTurnTakerController(bzTwo.FindScion()); } }
+        protected TurnTakerController oblivaeon
+        { get { return FindVillain("OblivAeon"); } }
 
-        protected Card aeonScion { get { return GetCard("AeonMasterCharacter"); } }
-        protected Card borrScion { get { return GetCard("BorrTheUnstableCharacter"); } }
-        protected Card mindScion { get { return GetCard("DarkMindCharacter"); } }
-        protected Card empScion { get { return GetCard("EmpyreonCharacter"); } }
-        protected Card faultScion { get { return GetCard("FaultlessCharacter"); } }
-        protected Card nixScion { get { return GetCard("NixiousTheChosenCharacter"); } }
-        protected Card progScion { get { return GetCard("ProgenyScionCharacter"); } }
-        protected Card vossScion { get { return GetCard("RainekKelVossCharacter"); } }
-        protected Card sanctScion { get { return GetCard("SanctionCharacter"); } }
-        protected Card voidScion { get { return GetCard("VoidsoulCharacter"); } }
+        protected BattleZone bzOne
+        { get { return this.GameController.GetBattleZone("BattleZoneOne"); } }
+
+        protected BattleZone bzTwo
+        { get { return this.GameController.GetBattleZone("BattleZoneTwo"); } }
+
+        protected TurnTakerController envOne
+        { get { return this.GameController.FindEnvironmentTurnTakerController(bzOne); } }
+
+        protected TurnTakerController envTwo
+        { get { return this.GameController.FindEnvironmentTurnTakerController(bzTwo); } }
+
+        protected TurnTakerController scionOne
+        { get { return this.GameController.FindTurnTakerController(bzOne.FindScion()); } }
+
+        protected TurnTakerController scionTwo
+        { get { return this.GameController.FindTurnTakerController(bzTwo.FindScion()); } }
+
+        protected Card aeonScion
+        { get { return GetCard("AeonMasterCharacter"); } }
+
+        protected Card borrScion
+        { get { return GetCard("BorrTheUnstableCharacter"); } }
+
+        protected Card mindScion
+        { get { return GetCard("DarkMindCharacter"); } }
+
+        protected Card empScion
+        { get { return GetCard("EmpyreonCharacter"); } }
+
+        protected Card faultScion
+        { get { return GetCard("FaultlessCharacter"); } }
+
+        protected Card nixScion
+        { get { return GetCard("NixiousTheChosenCharacter"); } }
+
+        protected Card progScion
+        { get { return GetCard("ProgenyScionCharacter"); } }
+
+        protected Card vossScion
+        { get { return GetCard("RainekKelVossCharacter"); } }
+
+        protected Card sanctScion
+        { get { return GetCard("SanctionCharacter"); } }
+
+        protected Card voidScion
+        { get { return GetCard("VoidsoulCharacter"); } }
 
         protected List<TurnPhase> turnPhaseList = null;
 
@@ -477,14 +669,14 @@ namespace Handelabra.Sentinels.UnitTest
             return gameController;
         }
 
-        IEnumerable<KeyValuePair<string, string>> HandleGetHeroCardsInBoxRequest(Func<string, bool> identifierCriteria, Func<string, bool> turnTakerCriteria)
+        private IEnumerable<KeyValuePair<string, string>> HandleGetHeroCardsInBoxRequest(Func<string, bool> identifierCriteria, Func<string, bool> turnTakerCriteria)
         {
             var result = new List<KeyValuePair<string, string>>();
 
             var modDefs = ModHelper.GetAllPromoDefinitions();
 
             // Find all the playable hero character cards in the box (including other sizes of Sky-Scraper)
-            // Check AvailableHeroes. if it is null, fallback to deck definition. 
+            // Check AvailableHeroes. if it is null, fallback to deck definition.
             var availableHeroes = (AvailableHeroes?.ToArray() ?? DeckDefinition.AvailableHeroes);
             foreach (var heroTurnTaker in availableHeroes.Where(turnTakerCriteria))
             {
@@ -537,7 +729,6 @@ namespace Handelabra.Sentinels.UnitTest
             return result;
         }
 
-
         protected void SetPersistentValueInView(string key, object value)
         {
             _savedViewData[key] = value;
@@ -549,7 +740,6 @@ namespace Handelabra.Sentinels.UnitTest
 
             while (_continueRunningGame && e.MoveNext())
             {
-
             }
         }
 
@@ -557,7 +747,6 @@ namespace Handelabra.Sentinels.UnitTest
         {
             while (_continueRunningGame && e.MoveNext())
             {
-
             }
 
             yield return null;
@@ -1282,7 +1471,6 @@ namespace Handelabra.Sentinels.UnitTest
                         _numberOfChoicesInNextDecision = null;
                     }
 
-
                     string sequence = "";
                     if (selectTurnTaker.NumberOfCards != null)
                     {
@@ -1752,7 +1940,7 @@ namespace Handelabra.Sentinels.UnitTest
             RunCoroutine(this.GameController.StartGame());
 
             // FLAKY FIX:
-            // If Unity starts without a bot in hand, it causes tests to fail when they assert messages or 
+            // If Unity starts without a bot in hand, it causes tests to fail when they assert messages or
             // try to go to her play card phase. Make sure that never happens.
             var unityTTC = FindHero("Unity", false);
             if (unityTTC != null && unityTTC.HeroTurnTaker.Hand.Cards.All(c => IsMechanicalGolem(c)))
@@ -2660,14 +2848,14 @@ namespace Handelabra.Sentinels.UnitTest
 
         protected IEnumerable<DamagePreviewResult> GetDamagePreviewResults(Card source, Card target, int amount, DamageType? damageType, bool isIrreducible = false)
         {
-            var results = this.GameController.GetDamagePreviewResults(new DamageSource(this.GameController, source), target, amount, null, damageType, isIrreducible);
+            var results = this.GameController.GetDamagePreviewResults(new DamageSource(this.GameController, source), target, amount, null, damageType, isIrreducible, null);
             OutputDamagePreviewResults(results);
             return results;
         }
 
         protected IEnumerable<DamagePreviewResult> GetDamagePreviewResults(TurnTaker source, Card target, int amount, DamageType? damageType, bool isIrreducible = false)
         {
-            var results = this.GameController.GetDamagePreviewResults(new DamageSource(this.GameController, source), target, amount, null, damageType, isIrreducible);
+            var results = this.GameController.GetDamagePreviewResults(new DamageSource(this.GameController, source), target, amount, null, damageType, isIrreducible, null);
             OutputDamagePreviewResults(results);
             return results;
         }
@@ -3319,6 +3507,7 @@ namespace Handelabra.Sentinels.UnitTest
         {
             Assert.IsTrue(card.Location == ttc.TurnTaker.Trash, card.Title + " should be in " + ttc.Name + "'s trash, but it was in " + card.Location.GetFriendlyName());
         }
+
         protected void AssertInTrash(params Card[] cards)
         {
             cards.ForEach(c => AssertInTrash(c));
@@ -3421,7 +3610,6 @@ namespace Handelabra.Sentinels.UnitTest
         {
             AssertAtLocation(cardUnderCard, mainCard.UnderLocation);
         }
-
 
         protected void AssertNumberOfCardsInHand(HeroTurnTakerController httc, int number)
         {
@@ -4041,7 +4229,6 @@ namespace Handelabra.Sentinels.UnitTest
         {
             return FindCardsWhere(c => c.IsInPlay && c.Identifier == identifier).ElementAt(index);
         }
-
 
         protected Card FindCardInPlay(string identifier)
         {
@@ -4736,7 +4923,7 @@ namespace Handelabra.Sentinels.UnitTest
             MoveCard(FindTurnTakerController(card.Owner), card, card.NativeDeck, toBottom);
         }
 
-        Dictionary<Location, string[]> _stackAfterReshuffle = new Dictionary<Location, string[]>();
+        private Dictionary<Location, string[]> _stackAfterReshuffle = new Dictionary<Location, string[]>();
 
         private IEnumerator StackCardsResponse(ShuffleCardsAction action)
         {
@@ -4816,7 +5003,7 @@ namespace Handelabra.Sentinels.UnitTest
             QuickHPCheck(hpChanges.ToArray());
         }
 
-        #endregion
+        #endregion Convenience Methods
 
         protected void SaveGameToTemp(string name, bool quiet = false, GameController controller = null)
         {
@@ -4844,7 +5031,6 @@ namespace Handelabra.Sentinels.UnitTest
             catch (SerializationException e)
             {
                 Assert.Inconclusive("Failed to serialize. Reason: " + e.Message);
-
             }
             catch (IOException e)
             {
@@ -5664,7 +5850,6 @@ namespace Handelabra.Sentinels.UnitTest
             return this.GameController.GetUsablePowersThisTurn(hero);
         }
 
-
         protected void AssertNextDecisionSourceOutput(string output)
         {
             _expectedDecisionSourceOutput = output;
@@ -5958,4 +6143,3 @@ namespace Handelabra.Sentinels.UnitTest
         }
     }
 }
-

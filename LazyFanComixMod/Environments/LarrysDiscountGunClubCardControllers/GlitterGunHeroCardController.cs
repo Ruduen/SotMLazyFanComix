@@ -1,10 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
 {
@@ -29,6 +25,5 @@ namespace LazyFanComix.LarrysDiscountGunClub
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.DecisionMaker.CharacterCard), numerals[1], DamageType.Radiant, numerals[0], false, 0, addStatusEffect: (DealDamageAction dda) => this.ReduceDamageDealtByThatTargetUntilTheStartOfYourNextTurnResponse(dda, numerals[2]), selectTargetsEvenIfCannotDealDamage: true, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

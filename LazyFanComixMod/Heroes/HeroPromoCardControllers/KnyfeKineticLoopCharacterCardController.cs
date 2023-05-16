@@ -28,7 +28,7 @@ namespace LazyFanComix.Knyfe
             {
                 turnTakerName = this.Card.Title;
             }
-            OnDealDamageStatusEffect onDealDamageStatusEffect = new OnDealDamageStatusEffect(this.CardWithoutReplacements, "HealResponse", "Until the start of " + turnTakerName +"'s next turn, whenever " + turnTakerName + " is dealt Damage, they Regain " + powerNumeral + " HP.", new TriggerType[] { TriggerType.DealDamage }, this.HeroTurnTaker, this.Card, new int[] { powerNumeral });
+            OnDealDamageStatusEffect onDealDamageStatusEffect = new OnDealDamageStatusEffect(this.CardWithoutReplacements, "HealResponse", "Until the start of " + turnTakerName + "'s next turn, whenever " + turnTakerName + " is dealt Damage, they Regain " + powerNumeral + " HP.", new TriggerType[] { TriggerType.DealDamage }, this.HeroTurnTaker, this.Card, new int[] { powerNumeral });
             onDealDamageStatusEffect.TargetCriteria.IsSpecificCard = this.CharacterCard;
             onDealDamageStatusEffect.SourceCriteria.IsSpecificCard = this.CharacterCard;
             onDealDamageStatusEffect.CanEffectStack = true;

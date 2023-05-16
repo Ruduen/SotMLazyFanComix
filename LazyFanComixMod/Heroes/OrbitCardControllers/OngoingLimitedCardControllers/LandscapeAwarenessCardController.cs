@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Orbit
 {
@@ -19,6 +18,7 @@ namespace LazyFanComix.Orbit
             this.AddTrigger<DealDamageAction>((DealDamageAction dd) => dd.DamageSource?.Card == this.CharacterCard && dd.Target.IsHero,
                 (DealDamageAction dd) => this.GameController.MakeDamageUnincreasable(dd, base.GetCardSource()), TriggerType.MakeDamageUnincreasable, TriggerTiming.Before);
         }
+
         public override IEnumerator UsePower(int index = 0)
         {
             List<int> powerNumerals = new List<int>()
@@ -35,6 +35,5 @@ namespace LazyFanComix.Orbit
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

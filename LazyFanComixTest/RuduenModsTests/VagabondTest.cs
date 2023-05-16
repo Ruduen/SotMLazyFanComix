@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Vagabond;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(VagabondCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Vagabond { get { return FindHero("Vagabond"); } }
+        protected HeroTurnTakerController Vagabond
+        { get { return FindHero("Vagabond"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -40,6 +41,7 @@ namespace LazyFanComixTest
         }
 
         #region Innate Tests
+
         [Test()]
         public void TestInnatePowerElusive()
         {
@@ -107,11 +109,10 @@ namespace LazyFanComixTest
             DealDamage(guise, guise, 1, DamageType.Fire);
             QuickHPCheck(-1, -1);
 
-
             QuickHPStorage(Vagabond, guise);
             PlayCard("ImbuedDetonation"); // Vagabond self 3 only, no other damage.
             DecisionSelectTarget = guise.CharacterCard; // Can only use self's power, and must use that to punch self.
-            PlayCard("ICanDoThatToo"); // Guise 
+            PlayCard("ICanDoThatToo"); // Guise
             QuickHPCheck(-3, -1);
         }
 
@@ -152,7 +153,7 @@ namespace LazyFanComixTest
             // LOW PRIORITY: Vagabond and Environment is still affected.
             QuickHPStorage(Vagabond);
             DealDamage(Vagabond, Vagabond, 1, DamageType.Melee);
-            QuickHPCheck(-2); 
+            QuickHPCheck(-2);
         }
 
         #endregion Innate Tests
@@ -192,9 +193,7 @@ namespace LazyFanComixTest
             QuickHPStorage(Vagabond, legacy);
             PlayCard("AlchemicCollector");
             QuickHPCheck(2 - 3, 0);
-
         }
-
 
         [Test()]
         public void TestAlchemicalCollectorSolo()
@@ -211,7 +210,6 @@ namespace LazyFanComixTest
             QuickHPStorage(Vagabond, legacy);
             PlayCard("AlchemicCollector");
             QuickHPCheck(2 - 3, 0);
-
         }
 
         [Test()]
@@ -229,9 +227,7 @@ namespace LazyFanComixTest
             QuickHPStorage(Vagabond);
             PlayCard("AlchemicCollector");
             QuickHPCheck(2 - 3);
-
         }
-
 
         [Test()]
         public void TestImbuedDetonation()
@@ -251,7 +247,6 @@ namespace LazyFanComixTest
             PlayCard("TakingCareOfSomething");
             PlayCard(play);
             QuickHPCheck(-2 - 3, -3); // 2 damage + 3 damage, 3 self damage.
-
         }
 
         [Test()]
@@ -296,7 +291,6 @@ namespace LazyFanComixTest
 
             PlayCard("TakingCareOfSomething");
 
-
             DecisionMoveCardDestination = new MoveCardDestination(Vagabond.HeroTurnTaker.PlayArea);
             Card playFromTop = PutOnDeck("ImbuedDetonation");
             Card reshuffled = PutOnDeck("ClandestineExecutioner");
@@ -320,7 +314,6 @@ namespace LazyFanComixTest
             AssertInHand(playFromTop);
             AssertInDeck(reshuffled);
         }
-
 
         [Test()]
         public void TestUnifiedAssault()
@@ -346,7 +339,6 @@ namespace LazyFanComixTest
             AssertUsablePower(legacy, legacy.CharacterCard);
             QuickHPCheck(-2 - 3);
         }
-
 
         [Test()]
         public void TestProbingStrike()
@@ -379,6 +371,7 @@ namespace LazyFanComixTest
         #endregion Solo Card Tests
 
         #region Equipment Tests
+
         //[Test()]
         //public void TestBottledLightning()
         //{
@@ -426,7 +419,6 @@ namespace LazyFanComixTest
             UsePower("BottledLightning");
             DealDamage(Vagabond, baron, 1, DamageType.Fire);
             QuickHPCheck(1, -1 - 1);
-
         }
 
         [Test()]
@@ -478,7 +470,6 @@ namespace LazyFanComixTest
             AssertInTrash(play);
         }
 
-
         [Test()]
         public void TestTwinFangDagger()
         {
@@ -498,6 +489,7 @@ namespace LazyFanComixTest
         #endregion Equipment Tests
 
         #region Isolate Tests
+
         [Test()]
         public void TestIsolateGeneric()
         {
@@ -524,7 +516,6 @@ namespace LazyFanComixTest
             GoToEndOfTurn(baron);
             DestroyNonCharacterVillainCards();
 
-
             PlayCard("ClandestineExecutioner");
             DecisionSelectCardToPlay = PutInHand("Kiwi");
             QuickHPStorage(baron);
@@ -543,7 +534,6 @@ namespace LazyFanComixTest
             GoToEndOfTurn(baron);
             DestroyNonCharacterVillainCards();
 
-
             PlayCard("MakeshiftDiversion");
             DecisionSelectCardToPlay = PutInHand("Kiwi");
             QuickHPStorage(Vagabond);
@@ -551,7 +541,6 @@ namespace LazyFanComixTest
             QuickHPCheck(-1);
 
             Card top = PutOnDeck("SelfDestructSequence");
-
 
             GoToStartOfTurn(Vagabond);
             AssertIsInPlay("Kiwi");
@@ -578,12 +567,10 @@ namespace LazyFanComixTest
             AssertIsInPlay("Kiwi");
         }
 
-
-
         #endregion Isolate Tests
 
-
         #region Other Test
+
         [Test()]
         public void TestFeignDeath()
         {
@@ -601,7 +588,6 @@ namespace LazyFanComixTest
             AssertNotIncapacitatedOrOutOfGame(Vagabond);
             AssertIsInPlay(solo);
 
-
             PutInDeck(solo);
             PlayCard(feign);
             DealDamage(Vagabond, Vagabond, 500, DamageType.Fire);
@@ -609,15 +595,12 @@ namespace LazyFanComixTest
             AssertNotIncapacitatedOrOutOfGame(Vagabond);
             AssertIsInPlay(solo);
 
-
             QuickHPStorage(baron);
             PutInDeck(solo);
             PlayCard(feign);
             UsePower(feign);
             QuickHPCheck(-2);
             AssertIsInPlay(solo);
-
-
         }
 
         [Test()]
@@ -641,9 +624,7 @@ namespace LazyFanComixTest
             GoToStartOfTurn(Vagabond);
             UsePower(Vagabond);
             QuickHPCheck(-2 - 2);
-
         }
-
 
         [Test()]
         public void TestKiwiGrantedPower()
@@ -668,7 +649,6 @@ namespace LazyFanComixTest
             GoToStartOfTurn(Vagabond);
             UsePower(Vagabond, 2);
             QuickHPCheck(-3 - 3);
-
         }
 
         [Test()]
@@ -725,6 +705,7 @@ namespace LazyFanComixTest
             AssertInTrash(infections[0]);
             AssertIsInPlay(infections[1]);
         }
+
         #endregion Other Test
 
         #region Deprecated Tests
@@ -767,11 +748,10 @@ namespace LazyFanComixTest
         //    QuickHPCheck(-6);
         //}
 
-
         //[Test()]
         //public void TestKiwiMultiPowerComplete()
         //{
-        //    // TODO: Rewrite to better handle possibility of multiple powers due to outside source (cosmic/damage?). 
+        //    // TODO: Rewrite to better handle possibility of multiple powers due to outside source (cosmic/damage?).
         //    SetupGameController("BaronBlade", "LazyFanComix.Vagabond", "Legacy", "WagnerMarsBase");
 
         //    StartGame();

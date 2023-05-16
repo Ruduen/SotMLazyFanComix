@@ -13,7 +13,6 @@ namespace LazyFanComix.Orbit
         {
         }
 
-
         public override void AddUniqueTriggers()
         {
             this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card != this.CharacterCard && dda.DamageSource.Card.IsTarget && dda.Target == this.GetCardThisCardIsNextTo() && dda.DidDealDamage, DamageAndDestroyResponse, new TriggerType[] { TriggerType.DealDamage, TriggerType.DestroySelf }, TriggerTiming.After);
@@ -36,7 +35,5 @@ namespace LazyFanComix.Orbit
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
-
     }
 }

@@ -1,7 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +15,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
         }
 
         protected abstract IEnumerator ClaimTrigger(PhaseChangeAction pca);
+
         protected abstract TriggerType[] ClaimTriggerTypes();
 
         public override void AddTriggers()
@@ -24,12 +23,13 @@ namespace LazyFanComix.LarrysDiscountGunClub
             //// Destroyed trigger should handle destroy cases, which is the only case when the owner
             //this.AddWhenDestroyedTrigger(ResetTrashDestinationToOwner, TriggerType.Hidden);
 
-            //// BeforeLeavesPlayAction should handle all other movement cases, since it seems to be overridden. 
+            //// BeforeLeavesPlayAction should handle all other movement cases, since it seems to be overridden.
             //this.AddBeforeLeavesPlayAction(ResetOwner, TriggerType.Hidden);
 
-            // And every one should have a start-of-hero-turn method for claiming! 
+            // And every one should have a start-of-hero-turn method for claiming!
             this.AddStartOfTurnTrigger((TurnTaker tt) => !this.Card.Owner.IsHero && tt.IsHero && !tt.IsIncapacitatedOrOutOfGame, ClaimTrigger, ClaimTriggerTypes());
         }
+
         //private IEnumerator ResetOwner(GameAction ga)
         //{
         //    TurnTaker env = this.FindEnvironment().TurnTaker;
@@ -70,7 +70,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
 
             coroutine = this.GameController.SwitchCards(this.Card, heroWeapon, false, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-            
+
             coroutine = this.GameController.MoveCard(this.DecisionMaker, heroWeapon, httc.TurnTaker.PlayArea, playCardIfMovingToPlayArea: false, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -85,7 +85,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
 
         public override bool CanOtherCardGoNextToThisCard(Card card)
         {
-            return !card.IsAmmo || this.Card.NextToLocation.Cards.Where((Card c)=>c.IsAmmo).Count() < 1;
+            return !card.IsAmmo || this.Card.NextToLocation.Cards.Where((Card c) => c.IsAmmo).Count() < 1;
         }
     }
 }

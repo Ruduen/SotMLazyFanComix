@@ -16,6 +16,7 @@ namespace LazyFanComix.Recall
             : base(card, turnTakerController)
         {
         }
+
         public override IEnumerator UsePower(int index = 0)
         {
             List<DealDamageAction> ddaResult = new List<DealDamageAction>();
@@ -27,7 +28,7 @@ namespace LazyFanComix.Recall
 
             ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => CardsUnderSelf() * 2);
 
-            coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), this.CharacterCard, numerals[0], DamageType.Psychic,storedResults: ddaResult, cardSource: this.GetCardSource());
+            coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.CharacterCard), this.CharacterCard, numerals[0], DamageType.Psychic, storedResults: ddaResult, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             this.RemoveTrigger(tempIncrease);
@@ -57,6 +58,7 @@ namespace LazyFanComix.Recall
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
+
         protected int CardsUnderSelf()
         {
             return this.CharacterCard.UnderLocation.Cards.Count();

@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Cassie;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(CassieCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Cassie { get { return FindHero("Cassie"); } }
+        protected HeroTurnTakerController Cassie
+        { get { return FindHero("Cassie"); } }
 
         [Test()]
         public void TestModWorks()
@@ -34,7 +35,7 @@ namespace LazyFanComixTest
             Assert.IsInstanceOf(typeof(HeroTurnTakerController), Cassie);
             Assert.IsInstanceOf(typeof(CassieCharacterCardController), Cassie.CharacterCardController);
 
-            Assert.AreEqual(27, Cassie.CharacterCard.HitPoints);
+            Assert.AreEqual(28, Cassie.CharacterCard.HitPoints);
         }
 
         [Test()]
@@ -461,7 +462,7 @@ namespace LazyFanComixTest
             PlayCard(play);
             QuickHPCheck(-2); // 1 damage for cost, 1 for boost.
             AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
-            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), 4); 
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), 4);
         }
 
         [Test()]
@@ -486,7 +487,7 @@ namespace LazyFanComixTest
             PlayCard(play);
             QuickHPCheck(0); // 0 damage, since no magic number exists.
             AssertAtLocation(riverCard, Cassie.TurnTaker.FindSubDeck("RiverDeck"));
-            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), 4); 
+            AssertNumberOfCardsUnderCard(GetCard("Riverbank"), 4);
         }
 
         [Test()]
@@ -666,7 +667,6 @@ namespace LazyFanComixTest
 
         // TODO: Add riverbank tests when the River deck has been emptied! Yes, it will stop drawing cards - but you have a full deck to play with already, so at that stage that's your own fault!
 
-
         #region Tribunal
 
         [Test()]
@@ -723,7 +723,6 @@ namespace LazyFanComixTest
 
             QuickHandCheck(3);
         }
-
 
         #endregion Tribunal
     }

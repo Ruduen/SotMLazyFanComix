@@ -1,9 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Vagabond
 {
@@ -16,7 +13,7 @@ namespace LazyFanComix.Vagabond
 
         protected override IEnumerator OnPlayAlways()
         {
-            return this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment"), 1, false, 0, cardSource: this.GetCardSource());
+            return this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => this.IsOngoing(c) || c.IsEnvironment, "ongoing or environment"), 1, false, 0, cardSource: this.GetCardSource());
         }
 
         protected override IEnumerator OnPlayIfSolo()

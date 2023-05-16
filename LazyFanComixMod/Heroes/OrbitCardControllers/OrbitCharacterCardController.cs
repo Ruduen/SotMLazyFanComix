@@ -27,7 +27,6 @@ namespace LazyFanComix.Orbit
 
             // Deal <a> target <b> damage.
             return this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
-
         }
 
         // TODO: Replace Incap with something more unique!

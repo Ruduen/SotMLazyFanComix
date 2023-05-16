@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System;
+using System.Collections;
+using System.Linq;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -17,10 +16,12 @@ namespace LazyFanComix.TheTurfWar
         {
             return this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.DealDamageResponse), TriggerType.DealDamage, null, false);
         }
+
         protected override ITrigger AddUniqueIncapacitatedTrigger()
         {
             return this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, new Func<PhaseChangeAction, IEnumerator>(this.DestroyCardsResponse), TriggerType.DestroyCard, null, false);
         }
+
         private IEnumerator DealDamageResponse(PhaseChangeAction pca)
         {
             IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => !c.IsMinion, 1, DamageType.Fire, cardSource: this.GetCardSource());

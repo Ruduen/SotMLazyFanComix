@@ -10,13 +10,16 @@ namespace LazyFanComix.SkyScraper
     public abstract class SkyScraperQuickShiftSharedCharacterCardController : SkyScraperCharacterCardController
     {
         protected abstract string cardKeyword();
+
         protected abstract string charKeyword();
+
         protected List<string> otherCharKeywords()
         {
             List<string> keywords = new List<string>() { "Tiny", "Normal", "Huge" };
             keywords.Remove(charKeyword());
             return keywords;
         }
+
         public SkyScraperQuickShiftSharedCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -36,7 +39,7 @@ namespace LazyFanComix.SkyScraper
             coroutine = this.GameController.SelectAndPerformFunction(new SelectFunctionDecision(this.GameController, this.DecisionMaker, choices, true, null, this.TurnTaker.Name + " cannot draw any cards or play any " + cardKeyword() + " cards, so " + this.Card.Title + " has no effect.", null, this.GetCardSource()));
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Select and switch sizes.            
+            // Select and switch sizes.
             choices = new List<Function>();
             foreach (string keyword in otherCharKeywords())
             {
@@ -51,7 +54,6 @@ namespace LazyFanComix.SkyScraper
                 new SelectFunctionDecision(this.GameController, this.DecisionMaker, choices, false, null, this.TurnTaker.Name + " is unable to switch to another character card.", cardSource: this.GetCardSource())
                 );
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
     }
 }

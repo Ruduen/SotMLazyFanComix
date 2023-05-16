@@ -1,11 +1,10 @@
-﻿using Handelabra.Sentinels.Engine.Model;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.MissInformation;
-using System.Collections.Generic;
-using System.Reflection;
-using Handelabra.Sentinels.Engine.Controller;
+using NUnit.Framework;
 using System.Linq;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -22,7 +21,6 @@ namespace LazyFanComixTest
         }
 
         #region Load Tests
-
 
         [Test()]
         public void TestModWorks()
@@ -42,12 +40,13 @@ namespace LazyFanComixTest
             SetupGameController("MissInformation/LazyFanComix.MissInformationSuspectSecretaryCharacter", "Legacy", "Bunker", "Tachyon", "Megalopolis");
 
             StartGame();
-            AssertNumberOfCardsInPlay((Card c) => c.IsVillainTarget, 2);
+            AssertNumberOfCardsInPlay((Card c) => c.IsVillain && c.IsTarget, 2);
         }
 
         #endregion Load Tests
 
         #region Victory Tests
+
         [Test()]
         public void TestVictory()
         {
@@ -60,6 +59,7 @@ namespace LazyFanComixTest
 
             AssertGameOver(EndingResult.VillainDestroyedVictory);
         }
+
         #endregion Victory Tests
 
         #region Power Tests
@@ -86,7 +86,6 @@ namespace LazyFanComixTest
             UsePower(legacy, 1);
             AssertNumberOfCardsUnderCard(miss.CharacterCard, 2);
         }
-
 
         [Test()]
         public void TestHeroPowerB()
@@ -118,9 +117,9 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillainTarget);
+            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillain && c.IsTarget);
             Card target3 = PlayCard("InspiringPresence");
-            Card target2 = PlayCard(FindCard((Card c) => c.IsVillainTarget && c.Location == miss.TurnTaker.Deck));
+            Card target2 = PlayCard(FindCard((Card c) => c.IsVillain && c.IsTarget && c.Location == miss.TurnTaker.Deck));
 
             FlipCard(miss);
 
@@ -134,11 +133,12 @@ namespace LazyFanComixTest
             AssertInTrash(target2);
             UsePower(legacy, 1);
             AssertIsInPlay(target3);
-
         }
+
         #endregion Power Tests
 
         #region General Tests
+
         [Test()]
         public void TestCardUnderNotInPlay()
         {
@@ -157,7 +157,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillainTarget);
+            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillain && c.IsTarget);
 
             DestroyCard(target);
             AssertIsInPlay(target);
@@ -174,7 +174,7 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillainTarget);
+            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillain && c.IsTarget);
 
             QuickHPStorage(target);
             DealDamage(target, target, 20, DamageType.Fire);
@@ -199,7 +199,7 @@ namespace LazyFanComixTest
             Card oneshot = MoveCard(miss, "DiversionaryTactics", miss.CharacterCard.UnderLocation);
             MoveCards(miss, miss.TurnTaker.Deck.Cards.Take(3), miss.CharacterCard.UnderLocation);
 
-            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillainTarget);
+            Card target = FindCard((Card c) => c.IsInPlay && c.IsVillain && c.IsTarget);
             SetHitPoints(target, 5);
 
             GoToStartOfTurn(miss);
@@ -223,10 +223,8 @@ namespace LazyFanComixTest
             QuickHPStorage(legacy);
             GoToEndOfTurn(legacy);
             QuickHPCheck(-3);
-
-
         }
-        #endregion General Tests
 
+        #endregion General Tests
     }
 }

@@ -2,14 +2,12 @@
 using Handelabra.Sentinels.Engine.Model;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Vagabond
 {
     public abstract class SharedIsolateCardController : CardController
     {
-        // TODO: Needs AskIfActionCanBePerformed? 
+        // TODO: Needs AskIfActionCanBePerformed?
         public SharedIsolateCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {

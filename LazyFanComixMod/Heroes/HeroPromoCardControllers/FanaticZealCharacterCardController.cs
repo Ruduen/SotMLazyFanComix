@@ -22,7 +22,6 @@ namespace LazyFanComix.Fanatic
                 this.GetPowerNumeral(1, 1), // Amount of damage.
             };
 
-
             IEnumerator coroutine;
 
             // Deal target damage.

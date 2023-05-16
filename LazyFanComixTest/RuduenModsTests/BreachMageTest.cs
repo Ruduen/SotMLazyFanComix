@@ -1,12 +1,11 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.BreachMage;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System;
 
 namespace LazyFanComixTest
 {
@@ -22,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(BreachMageCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController BreachMage { get { return FindHero("BreachMage"); } }
+        protected HeroTurnTakerController BreachMage
+        { get { return FindHero("BreachMage"); } }
 
         [Test()]
         public void TestModWorks()
@@ -35,7 +35,7 @@ namespace LazyFanComixTest
             Assert.IsInstanceOf(typeof(HeroTurnTakerController), BreachMage);
             Assert.IsInstanceOf(typeof(BreachMageCharacterCardController), BreachMage.CharacterCardController);
 
-            Assert.AreEqual(26, BreachMage.CharacterCard.HitPoints);
+            Assert.AreEqual(25, BreachMage.CharacterCard.HitPoints);
 
             AssertNumberOfCardsInHand(BreachMage, 4); // Starting hand.
             AssertNumberOfCardsInDeck(BreachMage, 36); // Starting deck.
@@ -249,7 +249,6 @@ namespace LazyFanComixTest
             AssertInTrash(usedCards[0]); // All used charges in trash.
         }
 
-
         [Test()]
         public void TestBreachMageRenegadeSetupAndPower()
         {
@@ -357,7 +356,6 @@ namespace LazyFanComixTest
 
             SetHitPoints(BreachMage.CharacterCard, 1);
             GoToStartOfTurn(BreachMage);
-
         }
 
         [Test()]
@@ -399,7 +397,6 @@ namespace LazyFanComixTest
             SetHitPoints(BreachMage.CharacterCard, 1);
             PlayCard(cycle);
             GoToEndOfTurn(BreachMage);
-
         }
 
         [Test()]
@@ -680,6 +677,7 @@ namespace LazyFanComixTest
         }
 
         #region Dang It Guise
+
         [Test()]
         public void TestUhYeahImThatSpell()
         {
@@ -715,7 +713,7 @@ namespace LazyFanComixTest
             AssertInTrash(usedCards[4]);
             QuickHPCheck(-6);
         }
-        #endregion Dang It Guise
 
+        #endregion Dang It Guise
     }
 }

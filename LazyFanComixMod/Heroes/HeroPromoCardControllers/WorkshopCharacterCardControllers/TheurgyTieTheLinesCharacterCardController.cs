@@ -2,8 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Theurgy
 {
@@ -29,6 +27,5 @@ namespace LazyFanComix.Theurgy
             coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.DecisionMaker, this.TurnTaker.Deck, false, false, true, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "charm")), 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

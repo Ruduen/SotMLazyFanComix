@@ -71,8 +71,8 @@ namespace LazyFanComix.Expatriette
 
         public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
         {
-            // If there are any active status effects which has this card as the source (which should be the only way for this incap to be used), and the target is a hero character, 
-            // They get a power! 
+            // If there are any active status effects which has this card as the source (which should be the only way for this incap to be used), and the target is a hero character,
+            // They get a power!
 
             // TODO: If any wacky incap things in the future are done, specifically check for status effects/holders and confirm the status effect type is the corresponding status effect. But that's not worth it now.
             if (this.GameController.StatusEffectManager.StatusEffectControllers.Where((StatusEffectController sec) => sec.StatusEffect.CardSource == this.Card).Count() > 0 && cardController.Card.IsHeroCharacterCard)

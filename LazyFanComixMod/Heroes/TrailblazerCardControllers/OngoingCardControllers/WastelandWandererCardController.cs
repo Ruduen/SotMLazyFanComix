@@ -7,7 +7,6 @@ namespace LazyFanComix.Trailblazer
 {
     public class WastelandWandererCardController : CardController
     {
-
         public WastelandWandererCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -27,7 +26,6 @@ namespace LazyFanComix.Trailblazer
                 this.GetPowerNumeral(1, 3),
                 this.GetPowerNumeral(2, 1)
             };
-
 
             // Trigger to increase damage dealt by 1 for each card under the card.
             ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => DamageBoost(numerals[2]));

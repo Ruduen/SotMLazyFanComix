@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace LazyFanComix.Cassie
 {
     public class CassieEssenceFlowCharacterCardController : CassieSharedCharacterCardController
@@ -64,7 +63,6 @@ namespace LazyFanComix.Cassie
                     coroutine = this.GameController.SendMessageAction("The Riverbank is not available, so no cards can be moved from under it.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
-
 
                 // Draw until you have 3 cards.
                 coroutine = this.DrawCardsUntilHandSizeReached(this.HeroTurnTakerController, powerNumerals[1]);

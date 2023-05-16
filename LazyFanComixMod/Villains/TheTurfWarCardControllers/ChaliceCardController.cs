@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -23,7 +22,7 @@ namespace LazyFanComix.TheTurfWar
         {
             IEnumerator coroutine;
             List<DestroyCardAction> dca = new List<DestroyCardAction>();
-            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => !this.IsVillain(c) && c.IsOngoing), 1, storedResultsAction: dca, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => !this.IsVillain(c) && this.IsOngoing(c)), 1, storedResultsAction: dca, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             if (dca != null && dca.Count() > 0)

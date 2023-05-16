@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +43,5 @@ namespace LazyFanComix.Shared
                 if (cc.UseUnityCoroutines) { yield return cc.GameController.StartCoroutine(coroutine); } else { cc.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
     }
 }

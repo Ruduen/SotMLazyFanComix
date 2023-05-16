@@ -21,7 +21,7 @@ namespace LazyFanComix.Orbit
             coroutine = this.GameController.SelectAndReturnCards(this.DecisionMaker, null, new LinqCardCriteria((Card c) => c.IsCover, "cover"), true, false, false, 0, mcaResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if(mcaResults?.Any((MoveCardAction mca) => mca.WasCardMoved) == true)
+            if (mcaResults?.Any((MoveCardAction mca) => mca.WasCardMoved) == true)
             {
                 coroutine = this.GameController.DrawCards(this.DecisionMaker, mcaResults.Count((MoveCardAction mca) => mca.WasCardMoved), cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -30,6 +30,5 @@ namespace LazyFanComix.Orbit
             coroutine = this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 2, false, 0, new LinqCardCriteria((Card c) => c.IsCover, "cover"), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

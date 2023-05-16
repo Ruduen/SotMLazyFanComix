@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Soulbinder;
+using NUnit.Framework;
 using System.Linq;
 using System.Reflection;
 
@@ -20,9 +20,11 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(SoulbinderCharacterCardController))); // replace with your own namespace
         }
 
-        private int InitialRitual { get { return 3; } }
+        private int InitialRitual
+        { get { return 3; } }
 
-        protected HeroTurnTakerController Soulbinder { get { return FindHero("Soulbinder"); } }
+        protected HeroTurnTakerController Soulbinder
+        { get { return FindHero("Soulbinder"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -83,7 +85,6 @@ namespace LazyFanComixTest
             StartGame(false);
             Card mdp = FindCardInPlay("MobileDefensePlatform");
 
-
             Card damager = PlayCard("RitualComponents");
             PlayCard("ImbuedVitality");
 
@@ -93,7 +94,6 @@ namespace LazyFanComixTest
             UsePower(Soulbinder);
             QuickHPCheck(-2, -4);
         }
-
 
         [Test]
         public void TestPowerMortalNoRitual()
@@ -206,7 +206,6 @@ namespace LazyFanComixTest
             QuickHPCheck(-2, -1);
         }
 
-
         [Test()]
         public void TestTribunalBasePower()
         {
@@ -230,7 +229,6 @@ namespace LazyFanComixTest
             AssertHitPoints(guise.CharacterCard, (int)(guise.CharacterCard.MaximumHitPoints - 2));
             AssertHitPoints(representative, (int)(representative.MaximumHitPoints - 2));
             AssertHitPoints(mdp, (int)(mdp.MaximumHitPoints - 4 - 4));
-
         }
 
         [Test()]

@@ -1,13 +1,12 @@
-﻿using NUnit.Framework;
-using System;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Troschuetz.Random;
 using Troschuetz.Random.Generators;
-using System.IO;
 
 namespace Handelabra.Sentinels.UnitTest
 {
@@ -721,4 +720,3 @@ namespace Handelabra.Sentinels.UnitTest
         */
     }
 }
-

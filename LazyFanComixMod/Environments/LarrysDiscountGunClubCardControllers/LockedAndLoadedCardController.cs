@@ -1,9 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
@@ -19,12 +16,11 @@ namespace LazyFanComix.LarrysDiscountGunClub
         {
             IEnumerator coroutine;
 
-
             coroutine = this.GameController.BulkMoveCards(this.DecisionMaker, this.TurnTaker.Deck.Cards, this.TurnTaker.Trash, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            Card topGun = this.TurnTaker.Trash.Cards.FirstOrDefault((Card c)=>c.IsGun);
-            if(topGun != null)
+            Card topGun = this.TurnTaker.Trash.Cards.FirstOrDefault((Card c) => c.IsGun);
+            if (topGun != null)
             {
                 coroutine = this.GameController.PlayCard(this.DecisionMaker, topGun, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

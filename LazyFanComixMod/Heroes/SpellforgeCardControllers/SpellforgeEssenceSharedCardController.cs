@@ -74,7 +74,7 @@ namespace LazyFanComix.Spellforge
 
             // Clear all temporary triggers created by this card.
             this.RemoveTemporaryTriggers();
-            foreach(SpellforgeModifierSharedCardController wcc in modifierCardControllers)
+            foreach (SpellforgeModifierSharedCardController wcc in modifierCardControllers)
             {
                 wcc.RemoveModifierTrigger();
             }

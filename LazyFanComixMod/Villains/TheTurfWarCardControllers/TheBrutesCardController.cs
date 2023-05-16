@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System.Collections;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -17,7 +14,6 @@ namespace LazyFanComix.TheTurfWar
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, MoveCardResponse, TriggerType.MoveCard);
             this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, DealDamageResponse, TriggerType.DealDamage, null, false);
-
         }
 
         private IEnumerator MoveCardResponse(PhaseChangeAction pca)

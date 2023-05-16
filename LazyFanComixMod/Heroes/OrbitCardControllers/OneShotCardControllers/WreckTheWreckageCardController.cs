@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,8 +32,6 @@ namespace LazyFanComix.Orbit
                 coroutine = this.GameController.SendMessageAction("No Cover card was played, so no damage will be dealt.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
-
     }
 }

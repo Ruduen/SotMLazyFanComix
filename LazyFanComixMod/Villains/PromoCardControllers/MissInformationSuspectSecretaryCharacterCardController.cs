@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.MissInformation
 {
     public class MissInformationSuspectSecretaryCharacterCardController : VillainCharacterCardController
     {
-
         public MissInformationSuspectSecretaryCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -18,7 +16,7 @@ namespace LazyFanComix.MissInformation
 
         public override bool AskIfCardIsIndestructible(Card card)
         {
-            return (card.IsVillainTarget && !this.Card.IsFlipped);
+            return (this.IsVillainTarget(card) && !this.Card.IsFlipped);
         }
 
         public override void AddSideTriggers()
@@ -27,14 +25,14 @@ namespace LazyFanComix.MissInformation
 
             if (!this.Card.IsFlipped)
             {
-                // Indestructible check handled in other settings. 
+                // Indestructible check handled in other settings.
 
-                // After a villain would be reduced to 0 HP, restore it to max and up to 3 players may use a power. 
-                this.AddSideTrigger(this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda.Target.IsVillainTarget && dda.Amount >= dda.Target.HitPoints.Value, RestoreTargetAndHeroPowersResponse, new TriggerType[] { TriggerType.UsePower }, TriggerTiming.Before));
+                // After a villain would be reduced to 0 HP, restore it to max and up to 3 players may use a power.
+                this.AddSideTrigger(this.AddTrigger<DealDamageAction>((DealDamageAction dda) => this.IsVillainTarget(dda.Target) && dda.Amount >= dda.Target.HitPoints.Value, RestoreTargetAndHeroPowersResponse, new TriggerType[] { TriggerType.UsePower }, TriggerTiming.Before));
 
-                // Power checks handled in other settings. 
+                // Power checks handled in other settings.
 
-                // At the start of the villain turn, if there are enough card, flip.. 
+                // At the start of the villain turn, if there are enough card, flip..
                 this.AddSideTrigger(this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, FlipResponse, TriggerType.FlipCard));
             }
             else
@@ -46,6 +44,7 @@ namespace LazyFanComix.MissInformation
             }
             this.AddDefeatedIfDestroyedTriggers();
         }
+
         private IEnumerator RestoreTargetAndHeroPowersResponse(DealDamageAction dda)
         {
             IEnumerator coroutine;
@@ -59,7 +58,7 @@ namespace LazyFanComix.MissInformation
                 coroutine = this.GameController.SetHP(dda.Target, dda.Target.MaximumHitPoints.Value, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // Up to 3 players may use a power. 
+                // Up to 3 players may use a power.
                 coroutine = this.GameController.SelectTurnTakersAndDoAction(this.DecisionMaker, new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && tt.IsHero), SelectionType.UsePower, (TurnTaker tt) => this.GameController.SelectAndUsePower(this.GameController.FindHeroTurnTakerController(tt.ToHero()), true, cardSource: this.GetCardSource()), 3, false, 0, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
@@ -67,8 +66,7 @@ namespace LazyFanComix.MissInformation
 
         public override IEnumerator AfterFlipCardImmediateResponse()
         {
-
-            // Do basic stuff. 
+            // Do basic stuff.
             IEnumerator coroutine = base.AfterFlipCardImmediateResponse();
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
@@ -104,7 +102,6 @@ namespace LazyFanComix.MissInformation
                 coroutine = this.DealDamage(this.CharacterCard, (Card c) => c.IsHero, mcaResults.Where((MoveCardAction mca) => mca.WasCardMoved).Count(), DamageType.Psychic);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
 
         private IEnumerator FlipResponse(PhaseChangeAction arg)
@@ -119,7 +116,6 @@ namespace LazyFanComix.MissInformation
                 coroutine = this.GameController.DestroyAnyCardsThatShouldBeDestroyed(cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
 
         public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
@@ -194,7 +190,7 @@ namespace LazyFanComix.MissInformation
 
             if (dcaResults.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count() > 0)
             {
-                coroutine = this.GameController.SelectAndDestroyCards(cardController.HeroTurnTakerController, new LinqCardCriteria((Card c) => (c.IsDiversion || c.IsOngoing)), 1, false, 1, storedResultsAction: dcaResults, cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectAndDestroyCards(cardController.HeroTurnTakerController, new LinqCardCriteria((Card c) => (c.IsDiversion || this.IsOngoing(c))), 1, false, 1, storedResultsAction: dcaResults, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             else
@@ -203,6 +199,5 @@ namespace LazyFanComix.MissInformation
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
     }
 }

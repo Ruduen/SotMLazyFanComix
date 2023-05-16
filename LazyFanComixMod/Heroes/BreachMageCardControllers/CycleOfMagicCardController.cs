@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +17,6 @@ namespace LazyFanComix.BreachMage
         {
             this.AddEndOfTurnTrigger((tt) => tt == this.TurnTaker, CastCycleAndSelfDestruct, new TriggerType[] { TriggerType.MoveCard, TriggerType.DestroySelf });
         }
-
 
         public override IEnumerator Play()
         {

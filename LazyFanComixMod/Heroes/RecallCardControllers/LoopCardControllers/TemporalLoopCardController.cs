@@ -33,10 +33,9 @@ namespace LazyFanComix.Recall
             coroutine = this.GameController.SkipToTurnPhase(destinationTurnPhase, false, true, true, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Temporarily prevent all other cards/turns/etc. from acting unexpectedly. 
+            // Temporarily prevent all other cards/turns/etc. from acting unexpectedly.
             this.AddInhibitorException((GameAction ga) => true);
             this.GameController.AddTemporaryTriggerInhibitor<PhaseChangeAction>((ITrigger t) => ((t is PhaseChangeTrigger && !(t as PhaseChangeTrigger).PhaseCriteria(destinationTurnPhase.Phase) && !(t as PhaseChangeTrigger).TurnTakerCriteria(destinationTurnPhase.TurnTaker)) || (!(t is PhaseChangeTrigger) && !t.Types.Contains(TriggerType.ChangePostDestroyDestination))) && t.CardSource != null && t.CardSource.Card != this.Card, (PhaseChangeAction p) => p.FromPhase == oldTurnPhase, this.GetCardSource());
-
 
             // Move all one-shots to the trash to prevent odd 'stasis' condition.
             coroutine = this.GameController.MoveCards(this.TurnTakerController,
@@ -46,7 +45,7 @@ namespace LazyFanComix.Recall
             );
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Inhibit any remaining actions except phase change actions from the old turn or play card actions which are explicitly canceled. 
+            // Inhibit any remaining actions except phase change actions from the old turn or play card actions which are explicitly canceled.
             IEnumerable<GameAction> actions = (from ga in this.GameController.UnresolvedActions where ga.CardSource == null || ga.CardSource.Card != this.Card select ga);
             foreach (GameAction action in actions)
             {

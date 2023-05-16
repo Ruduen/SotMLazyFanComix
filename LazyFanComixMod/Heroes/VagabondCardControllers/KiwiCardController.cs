@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,14 +38,14 @@ namespace LazyFanComix.Vagabond
         //        return false;
         //    }
 
-        //    // Quit if not the first used.Due to wording, use journal, so sequenced powers don't break! (AKA playing Boots into a second power.) 
+        //    // Quit if not the first used.Due to wording, use journal, so sequenced powers don't break! (AKA playing Boots into a second power.)
         //    // Match power based on both card granting power and power index.
         //    if (upje.CardWithPower != upa.Power.CardController.CardWithoutReplacements || upje.PowerIndex != upa.Power.Index || upje.CardSource != upa.Power.CardSource?.Card || upje.CardThatAllowedPowerToBeUsed != upa.CardSource?.Card)
         //    {
         //        return false;
         //    }
 
-        //    // Otherwise looks good, move forward. 
+        //    // Otherwise looks good, move forward.
         //    return true;
         //}
 
@@ -57,7 +56,6 @@ namespace LazyFanComix.Vagabond
             Power power = null;
             IEnumerator coroutine;
 
-
             //// Sanity check for contributed powers. Creating a new instance of the power does not seem to work, so instead, manually retrieve it.
             //// Check based on same power sources and contribution, since situation could've changed. Most annoying example: Plague rat losing powers due to order of destruction.
             //if (upa.Power.IsContributionFromCardSource)
@@ -65,7 +63,7 @@ namespace LazyFanComix.Vagabond
             //    IEnumerable<Power> powers = upa.Power.CardSource.CardController.AskIfContributesPowersToCardController(upa.Power.HeroCharacterCardUsingPower);
             //    if (powers != null)
             //    {
-            //        power = powers.FirstOrDefault((Power p) => p.Description == upa.Power.Description); 
+            //        power = powers.FirstOrDefault((Power p) => p.Description == upa.Power.Description);
             //        if (power == null)
             //        {
             //            // If this is the case of a contributed power that is no longer available, which is possible if, say, plague rat's second power is used to destroy an infection, then quit since the question is no longer relevant.
@@ -78,7 +76,7 @@ namespace LazyFanComix.Vagabond
             {
                 IEnumerable<Power> powers = this.GameController.GetAllPowersForCardController(upa.Power.CardController);
                 power = powers.FirstOrDefault((Power p) => p.CardSource.Card == upa.Power.CardSource.Card && p.Title == upa.Power.Title && p.Description == upa.Power.Description);
-                if(power == null)
+                if (power == null)
                 {
                     yield break;
                 }
@@ -100,7 +98,6 @@ namespace LazyFanComix.Vagabond
                     //// Create a new instance of the power. This isn't perfect, but it's best to not rely on name/index checking which can be fuzzy, especially if the power is no longer granted, such as an infection being destroyed and causing the powre to be lost. EDIT: Doesn't work.
                     //Power power = new Power(upa.Power.TurnTakerController.ToHero(), upa.Power.CardController, upa.Power.Description, upa.Power.Method, upa.Power.Index, upa.Power.CopiedFromCardController, upa.Power.CardSource, upa.Power.HeroCharacterCardUsingPower);
                     //if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
 
                     coroutine = this.GameController.UsePower(upa.Power.CardController.Card, upa.Power.Index, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

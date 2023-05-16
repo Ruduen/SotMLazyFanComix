@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Inquirer;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(InquirerCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Inquirer { get { return FindHero("Inquirer"); } }
+        protected HeroTurnTakerController Inquirer
+        { get { return FindHero("Inquirer"); } }
 
         [Test()]
         public void TestModWorks()
@@ -34,7 +35,7 @@ namespace LazyFanComixTest
             Assert.IsInstanceOf(typeof(InquirerTurnTakerController), Inquirer);
             Assert.IsInstanceOf(typeof(InquirerCharacterCardController), Inquirer.CharacterCardController);
 
-            Assert.AreEqual(26, Inquirer.CharacterCard.HitPoints);
+            Assert.AreEqual(27, Inquirer.CharacterCard.HitPoints);
         }
 
         [Test()]
@@ -119,7 +120,6 @@ namespace LazyFanComixTest
             SetupGameController(setupItems);
 
             StartGame();
-
 
             Card distortionWithDeck = PlayCard("YoureOnOurSide");
             Card distortionWithoutDeck = PlayCard("IveFixedTheWound");
@@ -534,7 +534,6 @@ namespace LazyFanComixTest
             QuickHPCheck(0);
         }
 
-
         #endregion Distortions
 
         [Test()]
@@ -622,7 +621,6 @@ namespace LazyFanComixTest
             PlayCard("Fisticuffs");
         }
 
-
         [Test()]
         public void TestTheRightQuestions()
         {
@@ -651,7 +649,6 @@ namespace LazyFanComixTest
             AssertInHand(distortion);  // Played and returned distortion.
             QuickHPCheck(-4); // All damage dealt, no destroy trigger hit.
         }
-
 
         #region Tribunal
 

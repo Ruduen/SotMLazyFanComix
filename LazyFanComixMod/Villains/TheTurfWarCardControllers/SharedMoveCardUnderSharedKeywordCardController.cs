@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -17,10 +16,11 @@ namespace LazyFanComix.TheTurfWar
         {
             return MoveCardsUnderFigureheadWithSharedKeyword(new List<Card>() { card });
         }
+
         protected IEnumerator MoveCardsUnderFigureheadWithSharedKeyword(IEnumerable<Card> cards)
         {
             IEnumerator coroutine;
-            if(cards.Count() == 0)
+            if (cards.Count() == 0)
             {
                 coroutine = this.GameController.SendMessageAction("There are no cards to move.", Priority.Low, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -31,7 +31,7 @@ namespace LazyFanComix.TheTurfWar
                 if (validCharacters.Count() > 0)
                 {
                     SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCardToUnderCard, validCharacters, cardSource: this.GetCardSource());
-                    coroutine = this.GameController.SelectCardAndDoAction(scd, (SelectCardDecision scd)=> MoveCardsUnderSelectedDestination(scd, cards));
+                    coroutine = this.GameController.SelectCardAndDoAction(scd, (SelectCardDecision scd) => MoveCardsUnderSelectedDestination(scd, cards));
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
                 else

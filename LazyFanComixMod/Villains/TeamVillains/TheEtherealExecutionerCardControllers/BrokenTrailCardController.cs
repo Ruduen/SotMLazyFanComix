@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.TheEtherealExecutionerTeam
 {
@@ -29,7 +29,7 @@ namespace LazyFanComix.TheEtherealExecutionerTeam
             {
                 message = "Both a target and a non-Target were discarded, so {TheEtherealExecutionerTeam} will heal and deal damage.";
             }
-            else if (hasTarget) 
+            else if (hasTarget)
             {
                 message = "A target was discarded, so {TheEtherealExecutionerTeam} will heal.";
             }
@@ -43,13 +43,13 @@ namespace LazyFanComix.TheEtherealExecutionerTeam
 
             if (hasTarget)
             {
-                // Heal 4. 
+                // Heal 4.
                 coroutine = this.GameController.GainHP(this.CharacterCard, 4, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
             if (hasNonTarget)
             {
-                // 2 Damage to Each Other Target. 
+                // 2 Damage to Each Other Target.
                 coroutine = this.DealDamage(this.CharacterCard, (Card c) => c.IsTarget && c != this.CharacterCard, 2, DamageType.Toxic);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

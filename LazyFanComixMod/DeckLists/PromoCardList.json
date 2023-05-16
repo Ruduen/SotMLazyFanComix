@@ -2109,7 +2109,7 @@
       "hitpointsColor": "bd3a3d",
       "character": true,
       "powers": [
-        "Put the top 3 cards of your deck under this card. Put 1 card from under this card in your hand."
+        "Put the top 3 cards of your deck under this card. Put 1 card from under this card into your hand."
       ],
       "icons": [
         "HasPower",
@@ -2160,7 +2160,7 @@
       ],
       "hitpoints": 24,
       "nemesisIdentifiers": [
-        "Menagerie.Charade"
+        "CaseFiles.Tucker"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",

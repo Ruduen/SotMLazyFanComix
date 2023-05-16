@@ -34,7 +34,7 @@ namespace LazyFanComix.Recall
         protected int CardsUnderSelf()
         {
             // Add sanity check. Unknown how a unit test got into a bad state, but it happened.
-            if ( this.CharacterCard?.UnderLocation?.Cards == null)
+            if (this.CharacterCard?.UnderLocation?.Cards == null)
             {
                 return 0;
             }

@@ -1,92 +1,216 @@
-{"frames": {
-
-"BreachMageCharacter.png":
 {
-	"frame": {"x":0,"y":0,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"CassieCharacter.png":
-{
-	"frame": {"x":183,"y":0,"w":177,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":256},
-	"sourceSize": {"w":177,"h":256}
-},
-"ExpatrietteLiterallyAGunCharacter.png":
-{
-	"frame": {"x":363,"y":0,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"GreyhatCharacter.png":
-{
-	"frame": {"x":546,"y":0,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"InquirerCharacter.png":
-{
-	"frame": {"x":729,"y":0,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"OrbitCharacter.png":
-{
-	"frame": {"x":0,"y":259,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"SoulbinderCharacter.png":
-{
-	"frame": {"x":183,"y":259,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"SpellforgeCharacter.png":
-{
-	"frame": {"x":366,"y":259,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"TrailblazerCharacter.png":
-{
-	"frame": {"x":549,"y":259,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-},
-"VagabondCharacter.png":
-{
-	"frame": {"x":732,"y":259,"w":180,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
-}},
-"meta": {
-	"app": "https://www.codeandweb.com/texturepacker",
-	"version": "1.0",
-	"image": "SetupGame0.png",
-	"format": "RGBA8888",
-	"size": {"w":1024,"h":1024},
-	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a8ef22d5730cfba42601d77b1f8812fb:e2dd21ec08f13a69e4b0c37c7d58df0d:4ee285c32a91b7652e02ac049f918b2a$"
-}
+  "frames": {
+    "BreachMageCharacter.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "CassieCharacter.png": {
+      "frame": {
+        "x": 183,
+        "y": 0,
+        "w": 177,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 177,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 177,
+        "h": 256
+      }
+    },
+    "ExpatrietteLiterallyAGunCharacter.png": {
+      "frame": {
+        "x": 363,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "GreyhatCharacter.png": {
+      "frame": {
+        "x": 546,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "InquirerCharacter.png": {
+      "frame": {
+        "x": 729,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "OrbitCharacter.png": {
+      "frame": {
+        "x": 0,
+        "y": 259,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "SoulbinderCharacter.png": {
+      "frame": {
+        "x": 183,
+        "y": 259,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "SpellforgeCharacter.png": {
+      "frame": {
+        "x": 366,
+        "y": 259,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "TrailblazerCharacter.png": {
+      "frame": {
+        "x": 549,
+        "y": 259,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    },
+    "VagabondCharacter.png": {
+      "frame": {
+        "x": 732,
+        "y": 259,
+        "w": 180,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 180,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 180,
+        "h": 256
+      }
+    }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "SetupGame0.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1024,
+      "h": 1024
+    },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:a8ef22d5730cfba42601d77b1f8812fb:e2dd21ec08f13a69e4b0c37c7d58df0d:4ee285c32a91b7652e02ac049f918b2a$"
+  }
 }

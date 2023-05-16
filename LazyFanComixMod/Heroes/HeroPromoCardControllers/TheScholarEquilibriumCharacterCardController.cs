@@ -30,7 +30,7 @@ namespace LazyFanComix.TheScholar
             coroutine = this.DrawCards(this.HeroTurnTakerController, this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsElemental).Count());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Trigger to increase damage dealt to self by 2 per elemental. 
+            // Trigger to increase damage dealt to self by 2 per elemental.
             ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => ElementalDamage(numerals[1]));
 
             // Deal self 1 damage. Trigger will increase damage as necessary.
@@ -39,6 +39,7 @@ namespace LazyFanComix.TheScholar
 
             this.RemoveTrigger(tempIncrease);
         }
+
         private int ElementalDamage(int numeral)
         {
             return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsElemental).Count() * numeral;

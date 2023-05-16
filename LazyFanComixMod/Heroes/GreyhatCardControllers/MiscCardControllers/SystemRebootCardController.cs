@@ -16,7 +16,7 @@ namespace LazyFanComix.Greyhat
             List<MoveCardAction> mcaResults = new List<MoveCardAction>();
             IEnumerator coroutine;
 
-            // Shuffle your trash into your deck. 
+            // Shuffle your trash into your deck.
             coroutine = this.GameController.ShuffleTrashIntoDeck(this.HeroTurnTakerController, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

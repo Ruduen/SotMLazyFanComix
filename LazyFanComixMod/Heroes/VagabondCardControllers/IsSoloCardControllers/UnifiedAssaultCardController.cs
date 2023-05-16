@@ -1,9 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Vagabond
 {
@@ -21,7 +18,6 @@ namespace LazyFanComix.Vagabond
 
         protected override IEnumerator OnPlayIfSolo()
         {
-
             return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 3, DamageType.Melee, 1, false, 1, cardSource: this.GetCardSource());
         }
 

@@ -1,7 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace LazyFanComix.Orbit
 {
@@ -14,7 +13,7 @@ namespace LazyFanComix.Orbit
 
         public override void AddTriggers()
         {
-            this.AddWhenDestroyedTrigger(OnDestroyResponse,new TriggerType[] { TriggerType.DestroyCard, TriggerType.DealDamage });
+            this.AddWhenDestroyedTrigger(OnDestroyResponse, new TriggerType[] { TriggerType.DestroyCard, TriggerType.DealDamage });
             this.AddTrigger<DealDamageAction>(
                 (DealDamageAction dda) => dda.DidDealDamage && dda.Target == this.Card && dda.DamageSource?.Card == this.CharacterCard,
                 OnDamageResponse, TriggerType.DealDamage, TriggerTiming.After
@@ -37,14 +36,11 @@ namespace LazyFanComix.Orbit
         {
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment"), 2, false, 0, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => this.IsOngoing(c) || c.IsEnvironment, "ongoing or environment"), 2, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), 1, DamageType.Toxic, 2, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
-
-
     }
 }

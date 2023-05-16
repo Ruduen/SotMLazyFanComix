@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System;
+using System.Collections;
+using System.Linq;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -17,15 +16,13 @@ namespace LazyFanComix.TheTurfWar
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartDamageResponse, TriggerType.DealDamage);
             this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, EndDamageResponse, TriggerType.DealDamage);
-
         }
 
         private IEnumerator StartDamageResponse(PhaseChangeAction pca)
         {
+            Func<DealDamageAction, int> PlayersWithOngoings = (DealDamageAction dda) => this.FindTurnTakersWhere((TurnTaker tt) => tt.IsHero && tt.HasCardsWhere((Card c) => this.IsOngoing(c) && c.IsInPlayAndHasGameText)).Count();
 
-            Func<DealDamageAction, int> PlayersWithOngoings = (DealDamageAction dda) => this.FindTurnTakersWhere((TurnTaker tt) => tt.IsHero && tt.HasCardsWhere((Card c) => c.IsOngoing && c.IsInPlayAndHasGameText)).Count();
-
-            // Increase trigger. 
+            // Increase trigger.
             ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, PlayersWithOngoings);
 
             IEnumerator coroutine = this.GameController.DealDamage(this.DecisionMaker, this.Card, (Card c) => true, 1, DamageType.Infernal, cardSource: this.GetCardSource());

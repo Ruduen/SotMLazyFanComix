@@ -1,20 +1,10 @@
-﻿using NUnit.Framework;
-using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Linq;
-using System.Collections;
 using Handelabra.Sentinels.UnitTest;
-using System.Collections.Generic;
-using LazyFanComix;
-using LazyFanComix.BreachMage;
-using LazyFanComix.Cassie;
-using LazyFanComix.Greyhat;
-using LazyFanComix.Inquirer;
-using LazyFanComix.Recall;
-using LazyFanComix.Spellforge;
-using LazyFanComix.Soulbinder;
 using LazyFanComix.Trailblazer;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace LazyFanComixTestRandom
@@ -22,7 +12,7 @@ namespace LazyFanComixTestRandom
     [TestFixture()]
     public class RandomTest : RandomGameTest
     {
-        static string[] ModHeroes = {
+        private static string[] ModHeroes = {
             "LazyFanComix.BreachMage",
             "LazyFanComix.Cassie",
             "LazyFanComix.Greyhat",
@@ -32,9 +22,10 @@ namespace LazyFanComixTestRandom
             "LazyFanComix.Soulbinder",
             "LazyFanComix.Trailblazer"
         };
-        static string[] ModVillains = { };
-        static string[] ModEnvironments = { };
-        static string[] ModPromos = { }; // TODO: Add mod promos!
+
+        private static string[] ModVillains = { };
+        private static string[] ModEnvironments = { };
+        private static string[] ModPromos = { }; // TODO: Add mod promos!
 
         [OneTimeSetUp]
         public void DoSetup()
@@ -44,7 +35,6 @@ namespace LazyFanComixTestRandom
             //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(TrailblazerCharacterCardController))); // replace with your own namespace
         }
-
 
         [Test]
         [Repeat(10)]
@@ -122,7 +112,6 @@ namespace LazyFanComixTestRandom
             Assert.IsTrue(gameController.ShouldIncapacitatedHeroesLoseTheGame);
         }
 
-
         //[Test]
         //public void TestMyStuff()
         //{
@@ -133,9 +122,9 @@ namespace LazyFanComixTestRandom
         //    RunGame(gameController);
         //}
 
-
         #region Arbitrary Tests
-        // Doesn't work - arbitrary tests don't take the same actions, so we can only try to narrow down items via logs. 
+
+        // Doesn't work - arbitrary tests don't take the same actions, so we can only try to narrow down items via logs.
         //[Test]
         //public void TestArbitrary()
         //{
@@ -143,6 +132,7 @@ namespace LazyFanComixTestRandom
         //    GameController gameController = SetupGameController(new List<String>() { "IronLegacy", "Guise", "LazyFanComix.BreachMage", "LazyFanComix.Trailblazer", "TheTempleOfZhuLong" }, true, randomSeed: 263719487);
         //    RunGame(gameController);
         //}
+
         #endregion Arbitrary Tests
     }
 }

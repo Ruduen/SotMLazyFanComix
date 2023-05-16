@@ -143,7 +143,7 @@
       "body": [
         "During your turn, increase damage dealt by targets other than {Orbit} by 1."
       ],
-      "icons": [ "IncreaseDamageDealt", "HasPower", "PlayCardNow","DestroySelf" ],
+      "icons": [ "IncreaseDamageDealt", "HasPower", "PlayCardNow", "DestroySelf" ],
       "flavorQuotes": [
         {
           "identifier": "Orbit",

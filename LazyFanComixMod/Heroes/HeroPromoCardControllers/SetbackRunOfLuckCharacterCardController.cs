@@ -2,8 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Setback
 {
@@ -34,7 +32,6 @@ namespace LazyFanComix.Setback
                 coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, powerNumerals[2], false, cardSource: this.GetCardSource());
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
     }
 }

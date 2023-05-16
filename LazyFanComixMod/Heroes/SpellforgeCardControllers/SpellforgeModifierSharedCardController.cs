@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System;
 using System.Collections;
-using System.Linq;
 
 namespace LazyFanComix.Spellforge
 {
@@ -18,11 +17,12 @@ namespace LazyFanComix.Spellforge
 
         protected bool CoreDealDamageActionCriteria(DealDamageAction dda)
         {
-            // Damage is being dealt, card source is non-null, 
+            // Damage is being dealt, card source is non-null,
             return dda.CanDealDamage && dda.CardSource != null &&
                 // either card being modified matches or power being modified exists and matches.
                 (dda.CardSource.Card == this._cardToModify);
         }
+
         public ITrigger AddModifierTrigger(CardController cardControllerActivatingModifiers, Card cardToModify)
         {
             _cardControllerActivatingModifiers = cardControllerActivatingModifiers;
@@ -62,7 +62,7 @@ namespace LazyFanComix.Spellforge
         {
             return;
         }
-        protected abstract ITrigger AddModifierTriggerOverride();
 
+        protected abstract ITrigger AddModifierTriggerOverride();
     }
 }

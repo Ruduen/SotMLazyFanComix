@@ -13,7 +13,8 @@ namespace LazyFanComix.Soulbinder
         {
         }
 
-        protected override TriggerType[] RitualTriggerTypes { get { return new TriggerType[] { TriggerType.DealDamage }; } }
+        protected override TriggerType[] RitualTriggerTypes
+        { get { return new TriggerType[] { TriggerType.DealDamage }; } }
 
         protected override IEnumerator RitualCompleteResponse()
         {

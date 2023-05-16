@@ -1,9 +1,7 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace LazyFanComix.LarrysDiscountGunClub
@@ -19,6 +17,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartOfTurnDamageTrigger, new TriggerType[] { TriggerType.DealDamage, TriggerType.DestroyCard });
         }
+
         private IEnumerator StartOfTurnDamageTrigger(PhaseChangeAction arg)
         {
             IEnumerator coroutine;
@@ -33,7 +32,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
 
             this.RemoveTrigger(tempIncrease);
 
-            coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c)=>c.IsAmmo && c.Location == this.Card.NextToLocation), cardSource: this.GetCardSource());
+            coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsAmmo && c.Location == this.Card.NextToLocation), cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

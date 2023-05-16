@@ -21,14 +21,13 @@
 //            int powerNum = this.GetPowerNumeral(0, 5); // Amount of health.
 
 //            return PutTopCardFaceDown(powerNum);
-            
-            
+
 //        }
 
 //        private IEnumerator PutTopCardFaceDown(int powerNum)
 //        {
 //            IEnumerator coroutine;
-//            // Reset deck if necessary. 
+//            // Reset deck if necessary.
 //            if (this.HeroTurnTaker.Deck.IsEmpty)
 //            {
 //                if (this.HeroTurnTaker.Trash.IsEmpty)
@@ -43,12 +42,11 @@
 //                }
 //            }
 
-//            // Attempt to move top card in with appropriate flip. 
+//            // Attempt to move top card in with appropriate flip.
 //            Card cardToPlay = this.HeroTurnTaker.Deck.TopCard;
 //            if (cardToPlay != null)
 //            {
-
-//                // Select a suit. 
+//                // Select a suit.
 //                List<SelectWordDecision> swdResults = new List<SelectWordDecision>();
 //                coroutine = base.GameController.SelectWord(this.DecisionMaker, TsukikoCardController.allSuits.ToArray(), SelectionType.NaturalistForm, swdResults, false, null, base.GetCardSource(null));
 //                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -70,8 +68,7 @@
 //                coroutine = this.GameController.MoveCard(this.DecisionMaker, cardToPlay, this.HeroTurnTaker.PlayArea, false, false, cardToPlay.IsMissionCard, responsibleTurnTaker: this.TurnTaker, storedResults: mcaResults, cardSource: this.GetCardSource());
 //                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-
-//                // If card is played, set up 'while in play' status effect for health and suit. 
+//                // If card is played, set up 'while in play' status effect for health and suit.
 //                if (mcaResults.Any((MoveCardAction mca) => mca.WasCardMoved))
 //                {
 //                    MakeTargetStatusEffect mtse = new MakeTargetStatusEffect(powerNum, false);

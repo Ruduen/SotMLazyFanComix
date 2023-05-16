@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Orbit;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(OrbitCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Orbit { get { return FindHero("Orbit"); } }
+        protected HeroTurnTakerController Orbit
+        { get { return FindHero("Orbit"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -119,8 +120,8 @@ namespace LazyFanComixTest
             AssertIsInPlay(representative);
 
             UsePower(representative);
-
         }
+
         #endregion Innate Powers
 
         #region Covers
@@ -136,13 +137,11 @@ namespace LazyFanComixTest
             Card mdp = GetCardInPlay("MobileDefensePlatform");
             DecisionSelectTargets = new Card[] { mdp, baron.CharacterCard, Orbit.CharacterCard, cover, mdp, baron.CharacterCard, Orbit.CharacterCard, cover };
 
-
             QuickHPStorage(mdp);
             DealDamage(Orbit.CharacterCard, cover, 1, DamageType.Melee);
             QuickHPCheck(-2);
             DestroyCard(cover);
             QuickHPCheck(-1);
-
         }
 
         [Test()]
@@ -161,7 +160,6 @@ namespace LazyFanComixTest
             QuickHPCheck(-2 - 1);
             DestroyCard(cover);
             QuickHPCheck(-2);
-
         }
 
         [Test()]
@@ -182,8 +180,8 @@ namespace LazyFanComixTest
             DestroyCard(cover);
             AssertInTrash(ongoings);
             QuickHPCheck(-1);
-
         }
+
         #endregion Covers
 
         #region Limited
@@ -212,7 +210,6 @@ namespace LazyFanComixTest
 
             DealDamage(Orbit, mdp, 2, DamageType.Melee);
             QuickHPCheck(-2);
-
         }
 
         [Test()]
@@ -239,7 +236,6 @@ namespace LazyFanComixTest
 
             GoToStartOfTurn(Orbit);
             AssertNumberOfCardsInPlay((Card c) => c.IsCover, 1);
-
         }
 
         [Test()]
@@ -296,10 +292,10 @@ namespace LazyFanComixTest
             UsePower(limited);
             QuickHPCheck(-1);
             AssertIsInPlay(cover);
-
         }
 
         #endregion Limited
+
         #region One-Shots
 
         [Test()]
@@ -423,6 +419,5 @@ namespace LazyFanComixTest
         }
 
         #endregion One-Shots
-
     }
 }

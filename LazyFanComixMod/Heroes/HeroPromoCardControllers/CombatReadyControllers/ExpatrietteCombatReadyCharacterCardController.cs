@@ -13,12 +13,10 @@ namespace LazyFanComix.Expatriette
         {
             this.AddThisCardControllerToList(CardControllerListType.EnteringGameCheck);
         }
+
         public override IEnumerator PerformEnteringGameResponse()
         {
             return SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "SpeedLoading", "Prejudice" });
-
         }
-
-
     }
 }

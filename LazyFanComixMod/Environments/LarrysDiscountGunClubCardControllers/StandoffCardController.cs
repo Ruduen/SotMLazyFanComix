@@ -1,7 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +38,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
             coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         private bool SourceTargetMayBeHighestEnemies(DealDamageAction dda)
         {
             IEnumerable<Card> highestVillains = this.GameController.FindAllTargetsWithHighestHitPoints(1, (Card c) => c.IsVillainCharacterCard, this.GetCardSource());
@@ -48,7 +47,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
             // Quit if any failures on targetting retrieval or self-damage.
             if (dda?.DamageSource?.Card?.IsHeroCharacterCard == true && dda?.Target?.IsVillainCharacterCard == true)
             {
-                if (highestHeroes.Contains(dda.DamageSource.Card)  && highestVillains.Contains(dda.Target))
+                if (highestHeroes.Contains(dda.DamageSource.Card) && highestVillains.Contains(dda.Target))
                 {
                     return true;
                 }
@@ -61,7 +60,6 @@ namespace LazyFanComix.LarrysDiscountGunClub
                 }
             }
             return false;
-
         }
 
         private IEnumerator CancelDamageIfSourceTargetAreHighestEnemies(DealDamageAction dda)

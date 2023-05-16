@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System.Collections;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -13,13 +10,14 @@ namespace LazyFanComix.TheTurfWar
         {
             get { return false; }
         }
+
         public TheTurfWarSharedCharacterCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
         }
 
         public override void AddSideTriggers()
         {
-            // TODO: Verify flipped side trigger. (Non-Flipped Triggers are Unique.) 
+            // TODO: Verify flipped side trigger. (Non-Flipped Triggers are Unique.)
             if (!this.Card.IsFlipped)
             {
                 this.AddSideTrigger(this.AddUniqueActiveTrigger());

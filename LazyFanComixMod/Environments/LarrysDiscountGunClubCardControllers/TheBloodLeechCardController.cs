@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +18,7 @@ namespace LazyFanComix.LarrysDiscountGunClub
         {
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, StartOfTurnDamageTrigger, new TriggerType[] { TriggerType.DealDamage, TriggerType.GainHP, TriggerType.DestroyCard });
         }
+
         private IEnumerator StartOfTurnDamageTrigger(PhaseChangeAction arg)
         {
             IEnumerator coroutine;

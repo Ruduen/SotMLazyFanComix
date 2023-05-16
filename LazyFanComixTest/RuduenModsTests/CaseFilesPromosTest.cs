@@ -1,11 +1,11 @@
-﻿using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
-using LazyFanComix.HeroPromos;
-using System.Reflection;
-using CaseFiles.Tucker;
+﻿using CaseFiles.Tucker;
 using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.UnitTest;
+using LazyFanComix.HeroPromos;
+using NUnit.Framework;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -22,7 +22,6 @@ namespace LazyFanComixTest
         }
 
         #region Homebrew Tests
-
 
         [Test()]
         public void TestTuckerPromo()
@@ -41,12 +40,11 @@ namespace LazyFanComixTest
             QuickHandStorage(Tucker);
             QuickHPStorage(baron);
             UsePower(Tucker);
-            QuickHandCheck(0);
             QuickHPCheck(-2);
+            QuickHandCheck(1);
             AssertInTrash(discards);
-
-
         }
-        #endregion
+
+        #endregion Homebrew Tests
     }
 }

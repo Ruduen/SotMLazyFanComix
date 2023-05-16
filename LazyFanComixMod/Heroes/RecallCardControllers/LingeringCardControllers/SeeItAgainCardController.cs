@@ -15,7 +15,7 @@ namespace LazyFanComix.Recall
 
         public override void AddTriggers()
         {
-            // One other player may draw. 
+            // One other player may draw.
             this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => OneOtherPlayerDraws(), TriggerType.DrawCard);
         }
 

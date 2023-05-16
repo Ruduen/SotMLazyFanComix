@@ -1,9 +1,7 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Vagabond
 {
@@ -22,7 +20,7 @@ namespace LazyFanComix.Vagabond
                 this.GetPowerNumeral(2, 1)
             };
 
-            List<DealDamageAction> ddas = new List<DealDamageAction>() { 
+            List<DealDamageAction> ddas = new List<DealDamageAction>() {
                 new DealDamageAction(this.GetCardSource(),new DamageSource(this.GameController, this.CharacterCard), null, powerNums[1],DamageType.Melee),
                 new DealDamageAction(this.GetCardSource(),new DamageSource(this.GameController, this.CharacterCard), null, powerNums[2],DamageType.Toxic, true)
             };

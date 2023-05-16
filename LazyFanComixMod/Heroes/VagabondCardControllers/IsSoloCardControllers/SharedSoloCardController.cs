@@ -42,11 +42,10 @@ namespace LazyFanComix.Vagabond
             }
         }
 
-
-
         protected abstract IEnumerator OnPlayAlways();
-        protected abstract IEnumerator OnPlayIfSolo();
-        protected abstract IEnumerator OnPlayIfNotSolo();
 
+        protected abstract IEnumerator OnPlayIfSolo();
+
+        protected abstract IEnumerator OnPlayIfNotSolo();
     }
 }

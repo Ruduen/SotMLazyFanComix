@@ -4,7 +4,6 @@ using LazyFanComix.HeroPromos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.LaComodora
 {
@@ -90,7 +89,6 @@ namespace LazyFanComix.LaComodora
                 coroutine = this.GameController.SendMessageAction(tryToPlayCardMessage, Priority.High, this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
 
         private IEnumerator PlayCardDelegate(SelectCardDecision d)

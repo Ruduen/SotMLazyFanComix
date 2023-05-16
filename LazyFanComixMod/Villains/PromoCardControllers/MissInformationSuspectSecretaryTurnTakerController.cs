@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System.Collections;
 
 namespace LazyFanComix.MissInformation
 {
@@ -11,6 +10,7 @@ namespace LazyFanComix.MissInformation
             : base(turnTaker, gameController)
         {
         }
+
         public override IEnumerator StartGame()
         {
             IEnumerator coroutine;

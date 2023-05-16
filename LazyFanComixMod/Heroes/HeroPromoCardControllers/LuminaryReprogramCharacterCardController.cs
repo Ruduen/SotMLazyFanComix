@@ -29,8 +29,7 @@ namespace LazyFanComix.Luminary
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Lightning, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddaResults, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-
-            // Get all damaged cards that are devices. 
+            // Get all damaged cards that are devices.
             IEnumerable<Card> devices = ddaResults.Where((DealDamageAction dda) => dda.DidDealDamage && dda.Target.IsDevice).Select((DealDamageAction dda) => dda.Target);
 
             if (devices.Count() > 0)

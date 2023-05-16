@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Greyhat;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,7 +21,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(GreyhatCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Greyhat { get { return FindHero("Greyhat"); } }
+        protected HeroTurnTakerController Greyhat
+        { get { return FindHero("Greyhat"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
@@ -72,7 +73,6 @@ namespace LazyFanComixTest
 
             UsePower(FindCardInPlay("GreyhatCharacter"));
         }
-
 
         [Test()]
         public void TestInnatePowerBurstNoise()
@@ -138,7 +138,6 @@ namespace LazyFanComixTest
 
             StartGame();
 
-
             SelectFromBoxForNextDecision("LazyFanComix.GreyhatBurstNoiseCharacter", "LazyFanComix.Greyhat");
             PlayCard("CalledToJudgement");
 
@@ -146,6 +145,7 @@ namespace LazyFanComixTest
         }
 
         #region Link Cards
+
         [Test()]
         public void TestLinkAllMultiPlay()
         {
@@ -157,19 +157,19 @@ namespace LazyFanComixTest
 
             StartGame();
 
-            // Confirm two plays. 
+            // Confirm two plays.
             DiscardAllCards(Greyhat);
             Card[] cards = new Card[] { PutInHand("CoercedUplink"), PutInHand("CommunicationRelay") };
             PlayCard(cards[0]);
             AssertIsInPlay(cards);
 
-            // Confirm post bounce, replay of same card is fine. 
+            // Confirm post bounce, replay of same card is fine.
             cards = new Card[] { PutInHand("CoercedUplink"), PutInHand("CommunicationRelay") };
             PlayCard(cards[0]);
             AssertIsInPlay(cards[0]);
             AssertInHand(cards[1]);
 
-            // Villain played first. 
+            // Villain played first.
             cards = new Card[] { PutInHand("CoercedUplink"), PutInHand("CommunicationRelay") };
             GoToStartOfTurn(Greyhat);
             Card swarm = PlayCard("OcularSwarm");
@@ -186,7 +186,6 @@ namespace LazyFanComixTest
             PlayCard(cards[0]);
             // Ocular swarm interrupts by playing, but 'first' should be set, so a play should be available.
             AssertIsInPlay(cards);
-
         }
 
         [Test()]
@@ -205,7 +204,6 @@ namespace LazyFanComixTest
             QuickHPStorage(omnitron);
             PlayCard("CoercedUplink");
             QuickHPCheck(-2);
-
         }
 
         [Test()]
@@ -309,7 +307,6 @@ namespace LazyFanComixTest
             AssertInTrash(destroyCard);
             UsePower(Greyhat, 1);
             AssertIsInPlay(play);
-
         }
 
         #endregion Link Cards
@@ -340,7 +337,7 @@ namespace LazyFanComixTest
             PlayCard(play);
             QuickHandCheck(0);
 
-            // Villain played first. 
+            // Villain played first.
             GoToStartOfTurn(Greyhat);
             Card swarm = PlayCard("OcularSwarm");
             PlayCard(play);
@@ -358,7 +355,6 @@ namespace LazyFanComixTest
             PlayCard(play);
             // Ocular swarm interrupts by playing, but 'first' should be set, so a play should be available.
             QuickHandCheck(draws);
-
         }
 
         [Test()]
@@ -442,7 +438,6 @@ namespace LazyFanComixTest
 
         //    // TODO: Test convoluted case of damage dealing (Link played midway, link removed midway).
         //}
-
 
         [Test()]
         public void TestPlayDataTransfer()
@@ -544,7 +539,6 @@ namespace LazyFanComixTest
 
         #region UsesLinkCardsOngoing
 
-
         [Test()]
         public void TestPlayBandwidthRestriction()
         {
@@ -635,6 +629,7 @@ namespace LazyFanComixTest
         #endregion UsesLinkCardsOngoing
 
         #region Ungrouped Cards
+
         [Test()]
         public void TestPlaySystemReboot()
         {

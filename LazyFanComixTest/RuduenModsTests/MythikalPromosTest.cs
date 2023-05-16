@@ -1,10 +1,10 @@
-﻿using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
-using LazyFanComix.HeroPromos;
-using System.Reflection;
+﻿using Angille.Theurgy;
 using Handelabra.Sentinels.Engine.Controller;
-using Angille.Theurgy;
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.UnitTest;
+using LazyFanComix.HeroPromos;
+using NUnit.Framework;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -38,10 +38,10 @@ namespace LazyFanComixTest
             Card charm = PutOnDeck("GuideTheStrike");
 
             UsePower(Theurgy);
-            QuickHandCheck(0); // Net 0. 
+            QuickHandCheck(0); // Net 0.
             AssertInHand(charm);
         }
 
-        #endregion
+        #endregion Homebrew Tests
     }
 }

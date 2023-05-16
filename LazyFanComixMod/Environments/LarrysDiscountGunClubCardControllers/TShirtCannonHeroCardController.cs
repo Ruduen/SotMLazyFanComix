@@ -1,7 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using LazyFanComix.HeroPromos;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,13 +37,10 @@ namespace LazyFanComix.LarrysDiscountGunClub
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.DecisionMaker.CharacterCard), numerals[1], DamageType.Projectile, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            foreach(ITrigger t in tempIncrease)
+            foreach (ITrigger t in tempIncrease)
             {
                 this.RemoveTrigger(t);
             }
-
         }
-
-
     }
 }

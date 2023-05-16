@@ -36,6 +36,7 @@ namespace LazyFanComix.Cassie
             }
             return "The Riverbank is not available.";
         }
+
         public Location RiverDeck()
         {
             return this.TurnTakerControllerWithoutReplacements.TurnTaker.FindSubDeck("RiverDeck");

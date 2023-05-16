@@ -9,7 +9,9 @@ namespace LazyFanComix.BreachMage
     public class BreachMageTwincasterCharacterCardController : BreachMageSharedCharacterCardController
     {
         public string str;
-        protected override int[] BreachInitialFocus { get { return new int[] { 0, 0, 3, 4 }; } }
+
+        protected override int[] BreachInitialFocus
+        { get { return new int[] { 0, 0, 3, 4 }; } }
 
         public BreachMageTwincasterCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -47,7 +49,7 @@ namespace LazyFanComix.BreachMage
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                     // Destroy the cast card.
-                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, storedResults.FirstOrDefault().SelectedCard,cardSource: this.GetCardSource());
+                    coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, storedResults.FirstOrDefault().SelectedCard, cardSource: this.GetCardSource());
                     if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
                 }
             }

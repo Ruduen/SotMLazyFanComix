@@ -11,7 +11,8 @@ namespace LazyFanComix.Soulbinder
         {
         }
 
-        protected override TriggerType[] RitualTriggerTypes { get { return new TriggerType[] { TriggerType.GainHP, TriggerType.DrawCard }; } }
+        protected override TriggerType[] RitualTriggerTypes
+        { get { return new TriggerType[] { TriggerType.GainHP, TriggerType.DrawCard }; } }
 
         protected override IEnumerator RitualCompleteResponse()
         {

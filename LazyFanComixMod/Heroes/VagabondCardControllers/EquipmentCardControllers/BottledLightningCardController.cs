@@ -1,6 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +24,7 @@ namespace LazyFanComix.Vagabond
 
             IEnumerator coroutine;
 
-            // Select target(s). 
+            // Select target(s).
 
             coroutine = this.GameController.SelectAndGainHP(this.DecisionMaker, powerNums[1], false, null, powerNums[0], powerNums[0], false, ghaResults, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -40,7 +39,6 @@ namespace LazyFanComix.Vagabond
                 coroutine = this.AddStatusEffect(idse, true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
     }
 }

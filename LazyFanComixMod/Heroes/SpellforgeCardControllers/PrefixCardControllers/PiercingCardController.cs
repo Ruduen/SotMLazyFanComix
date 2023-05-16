@@ -41,6 +41,5 @@ namespace LazyFanComix.Spellforge
             coroutine = this.GameController.MakeDamageNotRedirectable(dda, this._cardControllerActivatingModifiers.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
     }
 }

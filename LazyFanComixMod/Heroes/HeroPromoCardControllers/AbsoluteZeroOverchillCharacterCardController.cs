@@ -51,7 +51,5 @@ namespace LazyFanComix.AbsoluteZero
             coroutine = this.GameController.SelectAndDestroyCard(this.HeroTurnTakerController, cardCriteria: new LinqCardCriteria((Card c) => c.Owner == this.HeroTurnTaker && this.IsEquipment(c), "equipment"), false, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
-
     }
 }

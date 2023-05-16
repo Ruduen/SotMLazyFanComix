@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -7,7 +7,10 @@
     <OutputType>Library</OutputType>
     <RootNamespace>LazyFanComix</RootNamespace>
     <AssemblyName>LazyFanComix</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -19,6 +22,7 @@
     <WarningLevel>1</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <LangVersion>8.0</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -27,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <LangVersion>8.0</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CauldronMods, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -39,6 +44,7 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="System" />
     <Reference Include="SentinelsEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
@@ -214,7 +220,21 @@
     <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\SharedOrbitalCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\CollisionCourseCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OrbitArtificialSatelliteCharacterCardController.cs" />
-    <Compile Include="Heroes\OrbitCardControllers\OrbitCharacterCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\CallTheShotCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\CoveringFireCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\LeadTheTargetCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\FindTheShotCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\FromTheHipCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\ThirdTimesTheCharmCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\SynchronizeStrikeCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\GearedUpCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\ToolsOfTheTradeCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\RuleOfThreeCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutWhisperCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutSlickCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\ThriThirdPowerCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutAnchorCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\ThriCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallUnstableJumpCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallForecastedBlowCharacterCardController.cs" />
@@ -287,6 +307,7 @@
     <Compile Include="Heroes\SpellforgeCardControllers\SuffixCardControllers\OfHealingCardController.cs" />
     <Compile Include="Heroes\SpellforgeCardControllers\SuffixCardControllers\OfAuraCardController.cs" />
     <Compile Include="Heroes\SpellforgeCardControllers\SuffixCardControllers\OfDisruptionCardController.cs" />
+    <Compile Include="Heroes\OrbitCardControllers\OrbitCharacterCardController.cs" />
     <Compile Include="Heroes\VagabondCardControllers\FeignDeathCardController.cs" />
     <Compile Include="Heroes\VagabondCardControllers\IsolateCardControllers\MakeshiftDiversionCardController.cs" />
     <Compile Include="Heroes\VagabondCardControllers\IsolateCardControllers\ClandestineExecutionerCardController.cs" />
@@ -391,6 +412,7 @@
     <EmbeddedResource Include="DeckLists\OrbitDeckList.json" />
     <EmbeddedResource Include="DeckLists\TheEtherealExecutionerTeamDeckList.json" />
     <EmbeddedResource Include="DeckLists\VagabondDeckList.json" />
+    <EmbeddedResource Include="DeckLists\ThriDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />

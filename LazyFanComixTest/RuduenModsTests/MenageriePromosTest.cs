@@ -1,10 +1,10 @@
-﻿using Handelabra.Sentinels.Engine.Model;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.HeroPromos;
-using System.Reflection;
 using Menagerie.Radiance;
-using Handelabra.Sentinels.Engine.Controller;
+using NUnit.Framework;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -60,12 +60,12 @@ namespace LazyFanComixTest
             QuickHandCheck(1);
             AssertNumberOfCardsUnderCard(Charade.CharacterCard, 2);
 
-
             QuickHandStorage(Charade);
             UsePower(Charade);
             QuickHandCheck(1);
             AssertNumberOfCardsUnderCard(Charade.CharacterCard, 1);
         }
-        #endregion
+
+        #endregion Homebrew Tests
     }
 }

@@ -12,14 +12,14 @@ namespace LazyFanComix.Spellforge
         {
         }
 
-        List<CardSource> __createdCardSources = new List<CardSource>();
+        private List<CardSource> __createdCardSources = new List<CardSource>();
 
         public override IEnumerator Play()
         {
             IEnumerator coroutine;
 
             // Destroy.
-            coroutine = this.GameController.SelectAndDestroyCard(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment"), true, null, null, this.GetCardSource());
+            coroutine = this.GameController.SelectAndDestroyCard(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => this.IsOngoing(c) || c.IsEnvironment, "ongoing or environment"), true, null, null, this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             // Draw 3.
@@ -50,7 +50,5 @@ namespace LazyFanComix.Spellforge
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
-
-
     }
 }

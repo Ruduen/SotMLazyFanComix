@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 // Manually tested!
 
@@ -10,7 +9,8 @@ namespace LazyFanComix.Greyhat
 {
     public class CommunicationRelayCardController : GreyhatSharedLinkCardController
     {
-        protected override LinqCardCriteria NextToCriteria { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c.Owner == this.TurnTaker, "hero character"); } }
+        protected override LinqCardCriteria NextToCriteria
+        { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c.Owner == this.TurnTaker, "hero character"); } }
 
         public CommunicationRelayCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
@@ -20,7 +20,7 @@ namespace LazyFanComix.Greyhat
         protected override IEnumerator UniquePlay()
         {
             // Destroy.
-            IEnumerator coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment"), 1, false, 0, cardSource: this.GetCardSource());
+            IEnumerator coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => this.IsOngoing(c) || c.IsEnvironment, "ongoing or environment"), 1, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
 

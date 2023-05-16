@@ -34,7 +34,7 @@ namespace LazyFanComix.Guise
             coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, numerals[0], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Play ongoing and make indestructible. 
+            // Play ongoing and make indestructible.
             coroutine = PlayOngoingAndMakeIndestructable(numerals[1]);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
@@ -54,7 +54,7 @@ namespace LazyFanComix.Guise
             List<PlayCardAction> pcaResults = new List<PlayCardAction>();
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, numeral, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.IsOngoing), storedResults: pcaResults, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, numeral, false, 0, cardCriteria: new LinqCardCriteria((Card c) => this.IsOngoing(c)), storedResults: pcaResults, cardSource: this.GetCardSource());
             if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             List<Card> playedAndValidCards = pcaResults.Where((PlayCardAction pca) => pca.WasCardPlayed && pca.CardToPlay.IsInPlay).Select((PlayCardAction pca) => pca.CardToPlay).ToList();

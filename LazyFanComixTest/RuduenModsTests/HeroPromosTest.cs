@@ -1,12 +1,11 @@
 ﻿using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.HeroPromos;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
+using NUnit.Framework;
 using SpookyGhostwriter.Tsukiko;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -28,7 +27,6 @@ namespace LazyFanComixTest
             SetupGameController("BaronBlade", "AbsoluteZero/LazyFanComix.AbsoluteZeroOverloadCharacter", "TheBlock");
 
             StartGame();
-
 
             Assert.IsTrue(az.CharacterCard.IsPromoCard);
             Card card = PutInTrash("IsothermicTransducer");
@@ -56,7 +54,6 @@ namespace LazyFanComixTest
 
             UsePower(representative);
         }
-
 
         [Test()]
         public void TestAbsoluteZeroOverchillPlay()
@@ -164,7 +161,6 @@ namespace LazyFanComixTest
             SelectFromBoxForNextDecision("LazyFanComix.AbsoluteZeroCombatReadyCharacter", "AbsoluteZero");
             SelectYesNoForNextDecision(false);
 
-
             DestroyCard(legacy);
             GoToAfterEndOfTurn(legacy);
             RunActiveTurnPhase();
@@ -191,7 +187,6 @@ namespace LazyFanComixTest
             UsePower(az);
             Assert.IsTrue(az.TurnTaker.Trash.Cards.Count((Card c) => c.IsOneShot) == 1 || az.TurnTaker.Trash.Cards.Any((Card c) => c.Identifier == "OnboardModuleInstallation"));
         }
-
 
         [Test()]
         public void TestAkashThriya()
@@ -222,7 +217,7 @@ namespace LazyFanComixTest
             DiscardAllCards(thriya);
             UsePower(thriya);
 
-            // Check nothing completely breaks if the environment deck is empty. 
+            // Check nothing completely breaks if the environment deck is empty.
             DiscardAllCards(thriya);
             PutInHand(tree);
             MoveAllCards(env, env.TurnTaker.Deck, env.TurnTaker.Trash);
@@ -306,7 +301,6 @@ namespace LazyFanComixTest
 
             AssertNumberOfCardsInHand(adept, 4);
         }
-
 
         [Test()]
         public void TestBenchmarkNoSoftware()
@@ -469,8 +463,6 @@ namespace LazyFanComixTest
             AssertIsInPlay(equip);
         }
 
-
-
         [Test()]
         public void TestBunkerCombatReady()
         {
@@ -484,7 +476,6 @@ namespace LazyFanComixTest
 
             AssertNumberOfCardsInHand(bunker, 4);
         }
-
 
         [Test()]
         public void TestCaptainCosmicNoConstruct()
@@ -520,7 +511,6 @@ namespace LazyFanComixTest
             GoToStartOfTurn(cosmic);
             AssertInTrash(construct);
         }
-
 
         [Test()]
         public void TestCaptainCosmicCombatReady()
@@ -608,7 +598,6 @@ namespace LazyFanComixTest
             UsePower(expatriette);
             QuickHPCheck(-4, 0); // Shoot Omni twice.
             QuickHandCheck(1);
-
         }
 
         [Test()]
@@ -662,7 +651,6 @@ namespace LazyFanComixTest
             UsePower(expatriette);
             AssertNumberOfCardsInDeck(expatriette, 0); // Deck remains empty.
         }
-
 
         [Test()]
         public void TestExpatrietteCombatReady()
@@ -804,8 +792,6 @@ namespace LazyFanComixTest
 
             UsePower(FindCardInPlay("GuiseCharacter", 1));
         }
-
-
 
         [Test()]
         public void TestHaka()
@@ -1443,7 +1429,6 @@ namespace LazyFanComixTest
             AssertNotInPlay((Card c) => c.IsTool);
         }
 
-
         [Test()]
         public void TestMrFixerCombatReady()
         {
@@ -1475,11 +1460,10 @@ namespace LazyFanComixTest
             GoToStartOfTurn(comodora);
             QuickHandStorage(comodora);
             UsePower(comodora);
-            QuickHandCheck(1); // Card draw part. 
+            QuickHandCheck(1); // Card draw part.
             DiscardAllCards(comodora);
 
             PlayCard(equip);
-
 
             // Cannon portal self-destructs at start of turn. Confirm it's now under.
             DecisionYesNo = true;
@@ -1525,7 +1509,7 @@ namespace LazyFanComixTest
 
             DecisionYesNo = true;
 
-            // Guise can do that too - but make sure it still goes under La Capitan. 
+            // Guise can do that too - but make sure it still goes under La Capitan.
             PlayCard("ICanDoThatToo");
 
             GoToStartOfTurn(comodora);
@@ -1536,6 +1520,7 @@ namespace LazyFanComixTest
             // Guise can play from under, too!
             PlayCard("ICanDoThatToo");
         }
+
         [Test()]
         public void TestLaComodoraPowerTribunal()
         {
@@ -1565,7 +1550,6 @@ namespace LazyFanComixTest
             DestroyCard(equip);
             AssertUnderCard(representative, equip);
 
-
             // Wraith power to play from under.
             DecisionSelectFunction = 1;
             PlayCard("CalledToJudgement");
@@ -1586,7 +1570,7 @@ namespace LazyFanComixTest
             DestroyCard(equip);
             AssertUnderCard(representative, equip);
 
-            // Representative can play this. 
+            // Representative can play this.
             DecisionSelectFunction = 1;
             UsePower(representative);
             AssertIsInPlayAndNotUnderCard(equip);
@@ -1751,7 +1735,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(mdp);
             UsePower(parse);
-            QuickHPCheck(-3); // Base 1, 2 more.) 
+            QuickHPCheck(-3); // Base 1, 2 more.)
             AssertNumberOfCardsInTrash(baron, 0);
         }
 
@@ -1774,7 +1758,7 @@ namespace LazyFanComixTest
 
             QuickHPStorage(mdp);
             UsePower(parse);
-            QuickHPCheck(-1 - 2 - 1); // Base 1, 2 more.) 
+            QuickHPCheck(-1 - 2 - 1); // Base 1, 2 more.)
             AssertNumberOfCardsInTrash(baron, 0);
         }
 
@@ -1969,7 +1953,6 @@ namespace LazyFanComixTest
             // Provided powers can't be duplicated, so this should be fine.
         }
 
-
         [Test()]
         public void TestSetbackDoubleOrNothingNoMatch()
         {
@@ -2055,13 +2038,13 @@ namespace LazyFanComixTest
             ResetDecisions();
             DecisionSelectFunctions = new int?[] { 0, 1 };
             UsePower(sky);
-            QuickHandCheck(-1); // Card played, re-linking should not allow for any change. 
+            QuickHandCheck(-1); // Card played, re-linking should not allow for any change.
             AssertCardHasKeyword(sky.CharacterCard, "Huge", false);
 
             ResetDecisions();
             DecisionSelectFunctions = new int?[] { 0, 1 };
             UsePower(sky);
-            QuickHandCheck(-1); // Card played, re-linking should not allow for any change. 
+            QuickHandCheck(-1); // Card played, re-linking should not allow for any change.
             AssertCardHasKeyword(sky.CharacterCard, "Normal", false);
         }
 
@@ -2590,6 +2573,7 @@ namespace LazyFanComixTest
         }
 
         #region Official Tests
+
         [Test()]
         public void TestTribunalCompletionistTurn()
         {
@@ -2621,6 +2605,5 @@ namespace LazyFanComixTest
         }
 
         #endregion Official Tests
-
     }
 }

@@ -1,8 +1,5 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Controller.SkyScraper;
 using Handelabra.Sentinels.Engine.Model;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace LazyFanComix.SkyScraper
 {

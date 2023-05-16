@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 // Manually tested!
 
@@ -10,7 +9,8 @@ namespace LazyFanComix.Greyhat
 {
     public class FlareRelayCardController : GreyhatSharedLinkCardController
     {
-        protected override LinqCardCriteria NextToCriteria { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c.Owner == this.TurnTaker, "hero character"); } }
+        protected override LinqCardCriteria NextToCriteria
+        { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c.Owner == this.TurnTaker, "hero character"); } }
 
         public FlareRelayCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
@@ -22,6 +22,7 @@ namespace LazyFanComix.Greyhat
             IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Fire, 3, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
+
         public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
         {
             if (this.GetCardThisCardIsNextTo() != null && cardController.Card == this.GetCardThisCardIsNextTo())

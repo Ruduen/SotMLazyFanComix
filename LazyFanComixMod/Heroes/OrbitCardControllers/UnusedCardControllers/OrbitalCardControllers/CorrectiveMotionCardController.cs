@@ -2,7 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Orbit
 {
@@ -36,6 +35,7 @@ namespace LazyFanComix.Orbit
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
         }
+
         public override CustomDecisionText GetCustomDecisionText(IDecision decision)
         {
             return new CustomDecisionText("Do you want to increase this damage by 2 and destroy Corrective Motion?", "Should they increase this damage by 2 and destroy Corrective Motion?", "Vote for increasing this damage by 2 and destroying Corrective Motion?", "increasing this damage by 2 and destroy Corrective Motion");

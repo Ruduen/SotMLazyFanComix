@@ -16,9 +16,8 @@ namespace LazyFanComix.Necro
 
         public override IEnumerator PerformEnteringGameResponse()
         {
-            // Tainted Blood has trigger issues, so I can't use it here. 
+            // Tainted Blood has trigger issues, so I can't use it here.
             return SharedCombatReadyCharacter.InitialSetupPutInPlay(this, new string[] { "CorpseExplosion", "NecroZombie" });
         }
-
     }
 }

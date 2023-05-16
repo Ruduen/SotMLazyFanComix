@@ -10,7 +10,6 @@ namespace LazyFanComix.Cassie
 {
     public abstract class CassieSharedCharacterCardController : HeroCharacterCardController, ICassieRiverSharedCardController
     {
-
         public CassieSharedCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {

@@ -1,8 +1,8 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
 using LazyFanComix.Spellforge;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -34,7 +34,8 @@ namespace LazyFanComixTest
             ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(SpellforgeCharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Spellforge { get { return FindHero("Spellforge"); } }
+        protected HeroTurnTakerController Spellforge
+        { get { return FindHero("Spellforge"); } }
 
         [Test()]
         public void TestModWorks()
@@ -176,7 +177,6 @@ namespace LazyFanComixTest
 
             UsePower(representative);
         }
-
 
         [Test()]
         public void TestInnateRedefinePower()
@@ -363,7 +363,6 @@ namespace LazyFanComixTest
                 CardDamage["Inspired"] + CardDamage["Impact"] + CardDamage["Inspired"] + CardDamage["OfDisruption"]); // 1 controlled. 2 boosted to MDP, doubled by Resonance.
         }
 
-
         [Test()]
         [Category("DiscardModifier")]
         public void TestDiscardPiercingReduction()
@@ -386,7 +385,6 @@ namespace LazyFanComixTest
             PlayCard(play);
             QuickHPCheck(CardDamage["Impact"], CardDamage["Impact"], CardDamage["Impact"] + CardDamage["OfDisruption"]); // 1 base and irreducible. Self-damage is also irreducible.
         }
-
 
         [Test()]
         [Category("DiscardModifier")]
@@ -507,7 +505,6 @@ namespace LazyFanComixTest
             QuickHandCheck(-2, 1); // 3 used, 1 drawn for Spellforge, 1 drawn for others.
         }
 
-
         [Test]
         [Category("DiscardModifier")]
         public void TestPlayControlled()
@@ -581,7 +578,6 @@ namespace LazyFanComixTest
             QuickHandCheck(-1 + 3); // 1 played, 3 drawn.
             AssertInTrash(environment); // Destroyed.
         }
-
 
         [Test]
         [Category("DiscardModifier")]
@@ -744,7 +740,5 @@ namespace LazyFanComixTest
             UsePower(representative);
             QuickHandCheck(2); // Discarded.
         }
-
-
     }
 }

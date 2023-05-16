@@ -5,12 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace LazyFanComix.Vagabond
 {
     public class VagabondElusiveCharacterCardController : PromoDefaultCharacterCardController
     {
-
         public VagabondElusiveCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
@@ -29,7 +27,7 @@ namespace LazyFanComix.Vagabond
 
         public override IEnumerator UsePower(int index = 0)
         {
-            // Until the end of your turn, solo. Draw or play. 
+            // Until the end of your turn, solo. Draw or play.
             IEnumerator coroutine;
 
             if (this.TurnTaker.IsHero)
@@ -72,7 +70,6 @@ namespace LazyFanComix.Vagabond
         /// </summary>
         public override bool? AskIfTurnTakerIsVisibleToCardSource(TurnTaker tt, CardSource cardSource)
         {
-
             if (cardSource == null || !cardSource.Card.IsHero || !tt.IsHero)
             {
                 return true;
@@ -89,10 +86,9 @@ namespace LazyFanComix.Vagabond
             return !soloTurnTakerControllers.Contains(tt);
         }
 
-        // NOT WORTH IT: Environment hero case. 
+        // NOT WORTH IT: Environment hero case.
         //public override bool? AskIfTurnTakerIsVisibleToCardSource(TurnTaker tt, CardSource cardSource)
         //{
-
         //    if (cardSource == null)
         //    {
         //        return true;
@@ -127,7 +123,7 @@ namespace LazyFanComix.Vagabond
 
             //public override bool IsRedundant(IEnumerable<StatusEffect> otherStatusEffects)
             //{
-            //    // Get all preliminary matches. 
+            //    // Get all preliminary matches.
             //    IEnumerable<ActivateEffectStatusEffectWithTextOverride> otherRelevantOverrides = otherStatusEffects.Where((StatusEffect se) => this.IsSameAs(se) && se is ActivateEffectStatusEffectWithTextOverride).Select((StatusEffect se) => (ActivateEffectStatusEffectWithTextOverride)se);
 
             //    // Also confirm turn taker.
@@ -154,6 +150,7 @@ namespace LazyFanComix.Vagabond
                 return string.Format("{0} cannot affect or be affected other Heroes this turn.", name);
             }
         }
+
         // TODO: Replace Incap with something more unique!
     }
 }

@@ -11,6 +11,7 @@ namespace LazyFanComix.Cassie
             : base(card, turnTakerController)
         {
         }
+
         public override IEnumerator UsePower(int index = 0)
         {
             int[] powerNumerals = new int[] { this.GetPowerNumeral(0, 3), this.GetPowerNumeral(1, 3) };
@@ -34,7 +35,7 @@ namespace LazyFanComix.Cassie
                     spellValue += discard.CardToDiscard.MagicNumber;
                 }
 
-                // If the Riverbank exists, do stuff. It might not - blame the Celestial Tribunal. 
+                // If the Riverbank exists, do stuff. It might not - blame the Celestial Tribunal.
                 if (Riverbank() != null && RiverDeck() != null)
                 {
                     // Select a card under the riverbank whose cost is less than the total value of discarded cards
@@ -56,8 +57,8 @@ namespace LazyFanComix.Cassie
                 coroutine = this.DrawCardsUntilHandSizeReached(this.HeroTurnTakerController, powerNumerals[1]);
                 if (UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
+
         public override IEnumerator UseIncapacitatedAbility(int index)
         {
             IEnumerator coroutine;
@@ -84,6 +85,5 @@ namespace LazyFanComix.Cassie
             }
             yield break;
         }
-
     }
 }

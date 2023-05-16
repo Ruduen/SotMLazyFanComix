@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
+using System;
 using System.Collections;
 using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.TheEtherealExecutionerTeam
 {
@@ -48,6 +48,7 @@ namespace LazyFanComix.TheEtherealExecutionerTeam
 
             this.RemoveTrigger(tempIncrease);
         }
+
         public int CountObservationCards()
         {
             return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("observation") && c.Owner == this.TurnTaker, true).Count();

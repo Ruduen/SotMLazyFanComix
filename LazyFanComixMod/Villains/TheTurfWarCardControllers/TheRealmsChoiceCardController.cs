@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
+﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.TheTurfWar
@@ -17,7 +13,7 @@ namespace LazyFanComix.TheTurfWar
         {
             this.AddEndOfTurnTrigger(
                 (TurnTaker tt) => tt == this.TurnTaker,
-                (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c)=>c.IsEnvironment && c.IsInPlayAndNotUnderCard),1,false,1,cardSource: this.GetCardSource()),
+                (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsEnvironment && c.IsInPlayAndNotUnderCard), 1, false, 1, cardSource: this.GetCardSource()),
                 TriggerType.DestroyCard
             );
             this.AddEndOfTurnTrigger(

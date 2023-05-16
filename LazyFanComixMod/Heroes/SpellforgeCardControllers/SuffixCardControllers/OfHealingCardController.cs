@@ -1,7 +1,6 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace LazyFanComix.Spellforge
 {
@@ -41,7 +40,5 @@ namespace LazyFanComix.Spellforge
             IEnumerator coroutine = this.GameController.GainHP(dda.Target, 3, cardSource: this._cardControllerActivatingModifiers.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
-
-
     }
 }

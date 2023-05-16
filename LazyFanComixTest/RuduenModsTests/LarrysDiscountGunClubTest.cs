@@ -1,12 +1,12 @@
-﻿using Handelabra.Sentinels.Engine.Model;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using NUnit.Framework;
-using System.Reflection;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Linq;
 using LazyFanComix.LarrysDiscountGunClub;
-using System.Collections.Generic;
+using NUnit.Framework;
 using SpookyGhostwriter.Tsukiko;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -24,7 +24,6 @@ namespace LazyFanComixTest
         }
 
         #region Load Tests
-
 
         [Test()]
         public void TestModWorks()
@@ -64,9 +63,7 @@ namespace LazyFanComixTest
 
             Card ammo = PlayCard("QuantumRounds");
             AssertInTrash(ammo);
-
         }
-
 
         [Test()]
         public void TestGunMovementFriendly()
@@ -94,8 +91,7 @@ namespace LazyFanComixTest
             UsePower(expatriette);
             DiscardAllCards(expatriette);
             UsePower(pistolHero);
-            QuickHPCheck(-4); // Confirm damage is coming from correct source, and is increased appropriately. 
-
+            QuickHPCheck(-4); // Confirm damage is coming from correct source, and is increased appropriately.
         }
 
         [Test()]
@@ -121,7 +117,6 @@ namespace LazyFanComixTest
             AssertInTrash(expatriette, pistolHero);
         }
 
-
         [Test()]
         public void TestGunMovementIncap()
         {
@@ -141,7 +136,6 @@ namespace LazyFanComixTest
             DestroyCard(expatriette);
             AssertOutOfGame(pistolHero);
         }
-
 
         [Test()]
         public void TestGunFullAmmo()
@@ -166,7 +160,6 @@ namespace LazyFanComixTest
             PlayCard(failToPlay);
             AssertInTrash(failToPlay);
         }
-
 
         #endregion Generic Tests
 
@@ -230,7 +223,6 @@ namespace LazyFanComixTest
             AssertInTrash(ammo);
         }
 
-
         [Test()]
         public void TestTShirtCannonGainPowerAmmo()
         {
@@ -261,7 +253,6 @@ namespace LazyFanComixTest
             QuickHPCheck(-3 - 1);
         }
 
-
         [Test()]
         public void TestTShirtCannonGainPowerTsukiko()
         {
@@ -287,7 +278,6 @@ namespace LazyFanComixTest
             UsePower(gunHero);
             QuickHPCheck(-3 - 1 - 1);
         }
-
 
         [Test()]
         public void TestTShirtCannonFailGain()
@@ -339,7 +329,6 @@ namespace LazyFanComixTest
             DealDamage(omnitron, expatriette, 2, DamageType.Sonic);
             QuickHPCheck(-2 + 1);
         }
-
 
         [Test()]
         public void TestGlitterGunNumerology()
@@ -444,7 +433,6 @@ namespace LazyFanComixTest
             QuickHPCheck(0);
         }
 
-
         [Test()]
         public void TestAmmoQuantumRounds()
         {
@@ -470,7 +458,6 @@ namespace LazyFanComixTest
             AssertIncapacitated(haka);
             AssertInTrash(ammo);
         }
-
 
         [Test()]
         public void TestAmmoConcussive()
@@ -499,8 +486,6 @@ namespace LazyFanComixTest
 
             Card notPlayed = PutOnDeck("TShirtCannon");
             Card play = PlayCard("LockedAndLoaded");
-
-
 
             AssertNumberOfCardsInPlay((Card c) => c.IsGun && c != notPlayed, 1);
             AssertNumberOfCardsInPlay((Card c) => c.IsAmmo, 1);
@@ -552,13 +537,13 @@ namespace LazyFanComixTest
             QuickHPStorage(baron, expatriette, haka);
             DealDamage(baron, haka, 5, DamageType.Fire);
             DealDamage(haka, baron, 5, DamageType.Fire);
-            // Highest are immune. 
+            // Highest are immune.
             QuickHPCheck(0, 0, 0);
 
             DealDamage(baron, expatriette, 5, DamageType.Fire);
             DealDamage(expatriette, baron, 5, DamageType.Fire);
 
-            // Damage is dealt. 
+            // Damage is dealt.
             QuickHPCheck(-5, -5, 0);
 
             SetHitPoints(expatriette, 15);
@@ -570,7 +555,7 @@ namespace LazyFanComixTest
             DealDamage(haka, baron, 5, DamageType.Fire);
             DealDamage(expatriette, baron, 5, DamageType.Fire);
             DealDamage(baron, expatriette, 5, DamageType.Fire);
-            // Tied highest are immune if yes. 
+            // Tied highest are immune if yes.
             QuickHPCheck(0, 0, 0);
 
             DecisionYesNo = false;
@@ -612,7 +597,7 @@ namespace LazyFanComixTest
             DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
             QuickHPCheck(0);
 
-            // Confirm goes through when selecting no. 
+            // Confirm goes through when selecting no.
 
             DecisionYesNo = false;
 
@@ -623,7 +608,6 @@ namespace LazyFanComixTest
             QuickHPStorage(baron);
             DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
             QuickHPCheck(-2);
-
 
             // Confirm no decision when lower.
             SetHitPoints(haka, 6);
@@ -637,8 +621,6 @@ namespace LazyFanComixTest
             DealDamage(expatriette.CharacterCard, baron.CharacterCard, 2, DamageType.Fire);
             QuickHPCheck(0);
         }
-
-
 
         #endregion Card Tests
 
@@ -673,6 +655,5 @@ namespace LazyFanComixTest
 
             GoToEndOfTurn(env);
         }
-
     }
 }

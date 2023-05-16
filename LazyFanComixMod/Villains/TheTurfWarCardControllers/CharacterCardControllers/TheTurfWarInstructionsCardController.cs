@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.TheTurfWar
 {
@@ -15,7 +15,6 @@ namespace LazyFanComix.TheTurfWar
             this.SpecialStringMaker.ShowSpecialString(() => "This should eventually track how many cards are under each figurehead.");
             this.AddThisCardControllerToList(CardControllerListType.MakesIndestructible);
         }
-
 
         public override void AddStartOfGameTriggers()
         {
@@ -35,6 +34,7 @@ namespace LazyFanComix.TheTurfWar
                     case "Sez":
                         cardsToMove.Add(c);
                         break;
+
                     default:
                         break;
                 }
@@ -76,9 +76,8 @@ namespace LazyFanComix.TheTurfWar
 
                 // On front: When environment cards are destroyed, put it under the appropriate figurehead.
                 this.AddSideTrigger(
-                    this.AddTrigger<DestroyCardAction>((DestroyCardAction dca) =>dca.CardToDestroy.Card.IsEnvironment && !dca.CardToDestroy.Card.Location.IsUnderCard &&dca.PostDestroyDestinationCanBeChanged && dca.CardToDestroy.CanBeDestroyed && dca.WasCardDestroyed, PutUnderAFigurehead, TriggerType.MoveCard, TriggerTiming.After)
+                    this.AddTrigger<DestroyCardAction>((DestroyCardAction dca) => dca.CardToDestroy.Card.IsEnvironment && !dca.CardToDestroy.Card.Location.IsUnderCard && dca.PostDestroyDestinationCanBeChanged && dca.CardToDestroy.CanBeDestroyed && dca.WasCardDestroyed, PutUnderAFigurehead, TriggerType.MoveCard, TriggerTiming.After)
                 );
-
             }
             else
             {
@@ -187,18 +186,18 @@ namespace LazyFanComix.TheTurfWar
             IEnumerator coroutine;
             if (figurehead != null)
             {
-                // Destroy 3 cards from under. 
+                // Destroy 3 cards from under.
                 coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == figurehead.UnderLocation, "under " + figurehead.Title, false, true), 3, false, 3, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // Damaging aspects. 
+                // Damaging aspects.
                 coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => c != figurehead && c.DoKeywordsContain("figurehead"), 2, DamageType.Toxic, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
                 coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => !c.DoKeywordsContain("figurehead") && !c.DoKeywordsContain(figurehead.GetKeywords()), 2, DamageType.Toxic, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-                // Discover a shared keyword. 
+                // Discover a shared keyword.
                 coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, true, false, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain(figurehead.GetKeywords())), 1);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

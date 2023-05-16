@@ -47,7 +47,6 @@ namespace LazyFanComix.Recall
                 coroutine = this.AddStatusEffect(idse, true);
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
-
         }
 
         private IEnumerator DamageResponse(UsePowerAction upa)
@@ -62,7 +61,6 @@ namespace LazyFanComix.Recall
             {
                 coroutine = this.GameController.DealDamageToTarget(new DamageSource(this.GameController, this.TurnTaker.CharacterCard), this.TurnTaker.CharacterCard, 1, DamageType.Projectile, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
             }
         }
     }

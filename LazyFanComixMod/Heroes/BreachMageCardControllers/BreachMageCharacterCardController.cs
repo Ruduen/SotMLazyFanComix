@@ -8,7 +8,9 @@ namespace LazyFanComix.BreachMage
     // Manually tested!
     public class BreachMageCharacterCardController : BreachMageSharedCharacterCardController
     {
-        protected override int[] BreachInitialFocus { get { return new int[] { 0, 1, 2, 3 }; } }
+        protected override int[] BreachInitialFocus
+        { get { return new int[] { 0, 1, 2, 3 }; } }
+
         public BreachMageCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {

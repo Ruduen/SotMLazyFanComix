@@ -2,8 +2,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Vagabond
 {
@@ -50,7 +48,6 @@ namespace LazyFanComix.Vagabond
 
             coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
         }
 
         private IEnumerator SelfDestroyResponse(DestroyCardAction dca)

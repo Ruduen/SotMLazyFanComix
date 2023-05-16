@@ -26,7 +26,7 @@ namespace LazyFanComix.Tempest
             coroutine = this.DrawCards(this.HeroTurnTakerController, 1);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            coroutine = this.DealDamageToHighestHP(this.CharacterCard, 1, (Card c) => c.IsVillainTarget && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource()), (Card c) => powerNumeral, DamageType.Projectile);
+            coroutine = this.DealDamageToHighestHP(this.CharacterCard, 1, (Card c) => this.IsVillainTarget(c) && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource()), (Card c) => powerNumeral, DamageType.Projectile);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             SelectCardsDecision selectCardsDecision = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => c.IsInPlay && c.IsEnvironment && !c.IsTarget, SelectionType.CardToDealDamage, null, false, null, true, true, false, new Func<int>(this.NumEnvironmentToDamage), null, null, null, this.GetCardSource());
@@ -52,7 +52,7 @@ namespace LazyFanComix.Tempest
             Card selectedCard = sc.SelectedCard;
             this.actedEnvironments.Add(selectedCard);
 
-            IEnumerator coroutine = this.DealDamageToHighestHP(selectedCard, 1, (Card c) => c.IsVillainTarget && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource()), (Card c) => damageAmount, DamageType.Projectile);
+            IEnumerator coroutine = this.DealDamageToHighestHP(selectedCard, 1, (Card c) => this.IsVillainTarget(c) && this.GameController.IsCardVisibleToCardSource(c, this.GetCardSource()), (Card c) => damageAmount, DamageType.Projectile);
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }

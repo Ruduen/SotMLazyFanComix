@@ -15,7 +15,6 @@ namespace LazyFanComix.TheVisionary
 
         public override IEnumerator UsePower(int index = 0)
         {
-
             List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
             List<Function> list = new List<Function>()
             {

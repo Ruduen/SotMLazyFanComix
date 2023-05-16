@@ -1,14 +1,13 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.Recall
 {
     public class ParadoxAnchorCardController : CardController
     {
         private const string _FirstDamageDealtThisTurn = "FirstDamageDealtThisTurn";
+
         public ParadoxAnchorCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
