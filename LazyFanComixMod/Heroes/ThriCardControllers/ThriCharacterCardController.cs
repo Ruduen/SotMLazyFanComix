@@ -56,7 +56,7 @@ namespace LazyFanComix.Thri
             int[] powerNumerals = new int[]
             {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1),
+                this.GetPowerNumeral(1, 2),
                 this.GetPowerNumeral(1, 3)
             };
 

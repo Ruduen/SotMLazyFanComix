@@ -11,6 +11,7 @@ namespace LazyFanComix.Thri
         public CoveringFireCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AllowFastCoroutinesDuringPretend = false;
         }
 
         public override void AddTriggers()
@@ -23,9 +24,10 @@ namespace LazyFanComix.Thri
         {
             int[] powerNumerals = new int[]
             {
-                this.GetPowerNumeral(0,1)
+                this.GetPowerNumeral(0, 2),
+                this.GetPowerNumeral(1, 1)
             };
-            return this.GameController.SelectAndUsePower(this.DecisionMaker, true, numberOfPowers: powerNumerals[0], cardSource: this.GetCardSource());
+            return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[2], DamageType.Projectile, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
         }
 
         private IEnumerator MoveTargetCardResponse(DealDamageAction dda)
@@ -41,12 +43,19 @@ namespace LazyFanComix.Thri
         {
             IEnumerator coroutine;
             int count;
-            List<DestroyCardAction> dcas = new List<DestroyCardAction>();
+            if (this.GameController.PretendMode)
+            {
+                count = this.Card.UnderLocation.Cards.Where((Card c) => c.Owner == dda.Target.Owner).Count();
+            }
+            else
+            {
+                List<DestroyCardAction> dcas = new List<DestroyCardAction>();
 
-            coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation && c.Owner == dda.Target.Owner), storedResults: dcas, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+                coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation && c.Owner == dda.Target.Owner), storedResults: dcas, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            count = dcas.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count();
+                count = dcas.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count();
+            }
 
             coroutine = this.GameController.ReduceDamage(dda, count * 2, null, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

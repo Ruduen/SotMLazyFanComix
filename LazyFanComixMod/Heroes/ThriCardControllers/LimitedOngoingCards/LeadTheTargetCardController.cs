@@ -11,6 +11,7 @@ namespace LazyFanComix.Thri
         public LeadTheTargetCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
+            this.AllowFastCoroutinesDuringPretend = false;
         }
 
         public override void AddTriggers()
@@ -45,16 +46,39 @@ namespace LazyFanComix.Thri
             return this.GameController.SendMessageAction("There are no Hero decks with cards to move.", Priority.Low, this.GetCardSource(), showCardSource: true);
         }
 
+        //private IEnumerator DestroyCardsToIncreaseDamageResponse(DealDamageAction dda)
+        //{
+        //    IEnumerator coroutine;
+        //    int count;
+        //    List<DestroyCardAction> dcas = new List<DestroyCardAction>();
+
+        //    coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation && c.Owner == dda.DamageSource.Owner), storedResults: dcas, cardSource: this.GetCardSource());
+        //    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+        //    count = dcas.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count();
+
+        //    coroutine = this.GameController.IncreaseDamage(dda, count, cardSource: this.GetCardSource());
+        //    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        //}
+
         private IEnumerator DestroyCardsToIncreaseDamageResponse(DealDamageAction dda)
         {
             IEnumerator coroutine;
             int count;
-            List<DestroyCardAction> dcas = new List<DestroyCardAction>();
+            if (this.GameController.PretendMode)
+            {
+                count = this.Card.UnderLocation.Cards.Where((Card c) => c.Owner == dda.DamageSource.Owner).Count();
 
-            coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation && c.Owner == dda.DamageSource.Owner), storedResults: dcas, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            else
+            {
+                List<DestroyCardAction> dcas = new List<DestroyCardAction>();
 
-            count = dcas.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count();
+                coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Location == this.Card.UnderLocation && c.Owner == dda.DamageSource.Owner), storedResults: dcas, cardSource: this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+                count = dcas.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count();
+            }
 
             coroutine = this.GameController.IncreaseDamage(dda, count, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }

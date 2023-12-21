@@ -5,6 +5,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+//p: Locke ran into the issue with Parahumans; he 's getting this crash in the log:
+//MissingMethodException: Method not found: void Handelabra.Sentinels.Engine.Controller.FlipCardAction..ctor(Handelabra.Sentinels.Engine.Controller.GameController, Handelabra.Sentinels.Engine.Controller.CardController, bool, bool, Handelabra.Sentinels.Engine.Controller.GameAction)
+//  at UnityEngine.SetupCoroutine.InvokeMoveNext(System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00026] in < 3b8923fd9a8047b48f33ffc628622664 >:0
+//UnityEngine.MonoBehaviour:StartCoroutineManaged2(MonoBehaviour, IEnumerator)
+//UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+//Handelabra.Sentinels.Engine.Controller.< DoActionOnSuccess > d__59:MoveNext()
+//UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+//UnityEngine.MonoBehaviour:StartCoroutineManaged2(MonoBehaviour, IEnumerator)
+//UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+//Handelabra.Sentinels.Engine.Controller.< DoAction > d__83:MoveNext()
+//UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+//UnityEngine.MonoBehaviour:StartCoroutineManaged2(MonoBehaviour, IEnumerator)
+//UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+//Handelabra.Sentinels.Engine.Controller.< DoAction > d__260:MoveNext()
+//UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+//[9:19 AM]Jp: I've replicated that I can get that crash with the current workshop version of my mod against current sentinels, but it doesn't occur in unit tests. I think that when the additional default parameter was added to that constructor in version 4.0.2 it broke mods that weren't compiled against that version
+
 namespace LazyFanComix.TheTurfWar
 {
     public class TheTurfWarInstructionsCardController : VillainCharacterCardController

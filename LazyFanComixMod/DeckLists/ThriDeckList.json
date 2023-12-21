@@ -15,7 +15,7 @@
       "foilBackgroundColor": "AAEEAA",
       "character": true,
       "powers": [
-        "{Thri} deals 1 target 1 projectile damage. If this is the third power used this turn, increase that damage by 3."
+        "{Thri} deals 1 target 2 projectile damage. If this is the third power used this turn, increase that damage by 3."
       ],
       "icons": [
         "HasPower",
@@ -65,7 +65,7 @@
       "title": "Find the Shot",
       "keywords": [ "ongoing", "limited" ],
       "powers": [ "Draw 1 card. Discard 1 card. You may use 1 power now." ],
-      "icons": [ "DrawCardNow", "DiscardCard", "UsePowerExtra" ],
+      "icons": [ "DrawCardNow", "Discard", "UsePowerExtra" ],
       "flavorQuotes": [
         {
           "identifier": "Thri",
@@ -245,7 +245,7 @@
         "When {Thri} would deal a Hero projectile damage, prevent it and put the bottom card of that Hero's deck under this card.",
         "When a Hero would be dealt damage by a non-Hero target damage, destroy all of that Hero's cards under this card and reduce that damage by 2 for each card destroyed this way."
       ],
-      "powers": [ "Use a power now." ],
+      "powers": [ "Thri deals up to 2 targets 1 projectile damage." ],
       "icons": [ "CancelledDamageGreen", "Manipulate", "Destroy", "ReduceDamageTaken" ],
       "flavorQuotes": [
         {
@@ -286,11 +286,12 @@
       "foilBackgroundColor": "AADDAA",
       "character": true,
       "powers": [
-        "Play a card."
+        "Play a card or use a power now."
       ],
       "icons": [
         "HasPower",
-        "PlayCardNow"
+        "PlayCardNow",
+        "UsePowerNow"
       ],
       "hitpoints": 24,
       "nemesisIdentifiers": [

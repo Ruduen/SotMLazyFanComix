@@ -434,18 +434,18 @@ namespace LazyFanComixTest
         //    PlayCard("SuckerPunch");
         //}
 
-        [Test()]
-        public void LingeringEndOfTurn()
-        {
-            SetupGameController("Chokepoint", "OmnitronX/OmnitronUCharacter", "Fanatic", "DokThorathCapital");
-            StartGame();
+        //[Test()]
+        //public void LingeringEndOfTurn()
+        //{
+        //    SetupGameController("Chokepoint", "OmnitronX/OmnitronUCharacter", "Fanatic", "DokThorathCapital");
+        //    StartGame();
 
-            DiscardAllCards(omnix);
-            UsePower(omnix);
-            GoToPlayCardPhaseAndPlayCard(omnix, "SlipThroughTime");
+        //    DiscardAllCards(omnix);
+        //    UsePower(omnix);
+        //    GoToPlayCardPhaseAndPlayCard(omnix, "SlipThroughTime");
 
-            GoToEndOfTurn(omnix);
-        }
+        //    GoToEndOfTurn(omnix);
+        //}
 
         #endregion Official Tests
 

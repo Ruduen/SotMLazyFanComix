@@ -10,7 +10,7 @@ using System.Reflection;
 namespace LazyFanComixTest
 {
     [TestFixture]
-    public class ThriText : BaseTest
+    public class ThriTest : BaseTest
     {
         [OneTimeSetUp]
         public void DoSetup()
@@ -58,22 +58,23 @@ namespace LazyFanComixTest
 
             QuickHPStorage(baron);
             UsePower(Thri);
-            QuickHPCheck(-1);
+            QuickHPCheck(-2);
             UsePower(Thri);
-            QuickHPCheck(-1);
+            QuickHPCheck(-2);
             UsePower(Thri);
-            QuickHPCheck(-4);
+            QuickHPCheck(-2 -3);
             UsePower(Thri);
-            QuickHPCheck(-1);
+            QuickHPCheck(-2);
 
             GoToStartOfTurn(bunker);
             UsePower(Thri);
-            QuickHPCheck(-1);
+            QuickHPCheck(-2);
             UsePower(bunker);
             QuickHPCheck(0);
             UsePower(Thri);
-            QuickHPCheck(-4);
+            QuickHPCheck(-2 -3);
             UsePower(Thri);
+            QuickHPCheck(-2);
         }
 
 
@@ -98,7 +99,7 @@ namespace LazyFanComixTest
 
             SelectFromBoxForNextDecision("LazyFanComix.ThriCharacter", "LazyFanComix.Thri");
             PlayCard("CalledToJudgement");
-            QuickHPCheck(-4);
+            QuickHPCheck(-2-3);
 
             GoToStartOfTurn(guise);
             UsePower(tempest);
@@ -106,7 +107,7 @@ namespace LazyFanComixTest
             UsePower(tempest);
             QuickHPCheck(-1);
             UsePower(FindCardInPlay("ThriCharacter"));
-            QuickHPCheck(-4);
+            QuickHPCheck(-2-3);
         }
 
         #endregion Innate Tests
@@ -265,7 +266,7 @@ namespace LazyFanComixTest
             QuickHandStorage(Thri);
             UsePower(power);
             AssertInTrash(discard);
-            QuickHPCheck(-4); // Base power used. Third power, so confirm increase.
+            QuickHPCheck(-2 -3); // Base power used. Third power, so confirm increase.
             QuickHandCheck(0); // Draw 1, Discard 1. 
         }
 
@@ -293,7 +294,7 @@ namespace LazyFanComixTest
 
             DecisionYesNo = true;
             GoToEndOfTurn(Thri);
-            QuickHPCheck(-4); // Bonus power obtained, should be modified. 
+            QuickHPCheck(-2 -3); // Bonus  power obtained, base damageshould be modified. 
         }
         #endregion Ongoing Tests
 
@@ -317,7 +318,7 @@ namespace LazyFanComixTest
             QuickHPStorage(baron);
             PlayCard("ToolsOfTheTrade");
             AssertIsInPlay(equip);
-            QuickHPCheck(-1); // Default power used.
+            QuickHPCheck(-2); // Default power used.
         }
 
         [Test()]
@@ -362,7 +363,7 @@ namespace LazyFanComixTest
             QuickHPStorage(baron);
             PlayCard("FromTheHip");
             AssertIsInPlay(equip); // Drew and played card.
-            QuickHPCheck(-1); // Default power used.
+            QuickHPCheck(-2); // Default power used.
         }
 
 
@@ -401,7 +402,7 @@ namespace LazyFanComixTest
             QuickHPStorage(Thri, baron);
             PlayCard("ThirdTimesTheCharm");
             QuickHandCheck(3);
-            QuickHPCheck(-3, -1 - 1 - 4); 
+            QuickHPCheck(-3, -2 -2 -2 -3); 
         }
 
         #endregion One-Shot Tests
@@ -453,15 +454,15 @@ namespace LazyFanComixTest
             StartGame();
             DestroyNonCharacterVillainCards();
 
-            Card power=PlayCard("LeadTheTarget");
-            UsePower(power);
+            PlayCard("LeadTheTarget");
+            UsePower(Thri);
 
             QuickHPStorage(baron);
             DealDamage(fanatic, baron, 2, DamageType.Fire);
             QuickHPCheck(-2);
             DealDamage(ra, baron, 2, DamageType.Fire);
-            QuickHPCheck(-2 - 2);
-            AssertNumberOfCardsInTrash(ra, 2);
+            QuickHPCheck(-2 - 1);
+            AssertNumberOfCardsInTrash(ra, 1);
             DealDamage(ra, baron, 2, DamageType.Fire);
             QuickHPCheck(-2);
         }
