@@ -79,13 +79,8 @@
       "count": 3,
       "title": "Call the Shot",
       "keywords": [ "ongoing", "limited" ],
-      "body": [
-        "At the end of each Hero turn, you may destroy this card.",
-        "When this card is destroyed, you may use 1 power.",
-        "Each Hero gains the following power:",
-        "[b]Power:[/b] This hero deals 1 target{BR}       2 projectile damage."
-      ],
-      "icons": [ "DestroySelf", "UsePowerNow", "HasPower", "DealDamageEnergy" ],
+      "powers": [ "Discard 1 card. Another player may use 1 power now." ],
+      "icons": [ "UsePowerNow", "HasPower" ],
       "flavorQuotes": [
         {
           "identifier": "Thri",
@@ -99,6 +94,9 @@
       "count": 3,
       "title": "Loadout: Anchor",
       "keywords": [ "equipment" ],
+      "body": [
+        "When this card enters play, use the power on it."
+      ],
       "powers": [
         "{Thri} deals 1 target 1 projectile damage and 1 toxic damage. If this is the third power used this turn, {Thri} deals that target 1 radiant damage and you may destroy an ongoing or environment card."
       ],
@@ -116,8 +114,11 @@
       "count": 3,
       "title": "Loadout: Slick",
       "keywords": [ "equipment" ],
+      "body": [
+        "When this card enters play, use the power on it."
+      ],
       "powers": [
-        "{Thri} deals 1 target 3 radiant damage. If this is the third power used this turn, {Thri} deals up to 2 other targets 3 radiant damage each."
+        "{Thri} deals 1 target 3 projectile damage. If this is the third power used this turn, {Thri} deals up to 2 other targets 3 projectile damage each."
       ],
       "icons": [ "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -133,6 +134,9 @@
       "count": 3,
       "title": "Loadout: Whisper",
       "keywords": [ "equipment" ],
+      "body": [
+        "When this card enters play, use the power on it."
+      ],
       "powers": [
         "{Thri} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, draw 3 cards."
       ],
@@ -151,8 +155,8 @@
       "title": "Tools of the Trade",
       "keywords": [ "one-shot" ],
       "body": [
-        "Search your deck for 1 equipment card and play it. Shuffle your deck.",
-        "You may use 1 power now."
+        "{Thri} deals up to 3 targets 1 projectile damage.",
+        "Search your deck for 1 equipment card and play it. Shuffle your deck."
       ],
       "icons": [ "Search", "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
@@ -169,8 +173,8 @@
       "title": "Geared Up",
       "keywords": [ "one-shot" ],
       "body": [
-        "Each player may draw 1 card or play 1 equipment card.",
-        "{Thri} deals up to 6 targets 1 projectile damage each."
+        "{Thri} deals up to 6 targets 1 projectile damage each.",
+        "Each player may draw 1 card or play 1 equipment card."
       ],
       "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -245,7 +249,6 @@
         "When {Thri} would deal a Hero projectile damage, prevent it and put the bottom card of that Hero's deck under this card.",
         "When a Hero would be dealt damage by a non-Hero target damage, destroy all of that Hero's cards under this card and reduce that damage by 2 for each card destroyed this way."
       ],
-      "powers": [ "Thri deals up to 2 targets 1 projectile damage." ],
       "icons": [ "CancelledDamageGreen", "Manipulate", "Destroy", "ReduceDamageTaken" ],
       "flavorQuotes": [
         {
@@ -264,7 +267,6 @@
         "When {Thri} uses a power, you may put the bottom card of another Hero's deck under this card.",
         "When another Hero would deal a non-Hero target damage, destroy all of that Hero's cards under this card and increase that damage by 1 for each card destroyed this way."
       ],
-      "powers": [ "Use 1 power now." ],
       "icons": [ "Manipulate", "IncreaseDamageDealt", "HasPower", "UsePowerNow" ],
       "flavorQuotes": [
         {

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LazyFanComix.Thri
 {
-    public class ThriThirdPowerCardController : CardController
+    public class ThriThirdPowerEquipCardController : CardController
     {
         private bool _isThirdPower;
         private UsePowerAction _thirdPowerUpa;
@@ -16,7 +16,7 @@ namespace LazyFanComix.Thri
             get { return _isThirdPower; }
         }
 
-        public ThriThirdPowerCardController(Card card, TurnTakerController turnTakerController)
+        public ThriThirdPowerEquipCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
             this.SpecialStringMaker.ShowSpecialString(() => string.Format("{0} powers have been used this turn.", this.Journal.UsePowerEntriesThisTurn().Count().ToString()));
@@ -24,18 +24,10 @@ namespace LazyFanComix.Thri
             _thirdPowerUpa = null;
         }
 
-        //protected bool checkThirdPower()
-        //{
-        //     Check if this is the third power.
-        //     NOTE: This is currently unstable, since it only checks if 2 powers were used, which may not be accurate if another power was used while this one is still resolving, such as
-        //     from an earlier trigger. But I haven't figured out the best way to sanely future-proof for the 'use multiple times' case. That's a future goal, not a playtesting one.
-        //    IEnumerable<UsePowerJournalEntry> powersThisTurn = this.Journal.UsePowerEntriesThisTurn();
-        //    if (powersThisTurn.Count() == 3 && powersThisTurn.ElementAt(2).CardSource == this.Card)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        public override IEnumerator Play()
+        {
+            return this.GameController.UsePower(this.Card, 0, cardSource: this.GetCardSource());
+        }
 
         // Use trigger on power use to note that something is the third power use, since that has better potential to handle ordering given timing point.
         public override void AddTriggers()

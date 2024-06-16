@@ -26,13 +26,14 @@ namespace LazyFanComix.Thri
                     () => this.GameController.DrawCards(httc, 1, cardSource: this.GetCardSource()), this.CanDrawCards(httc), httc.TurnTaker.Name + " cannot draw any cards, so they must play an equipment card.")
             };
 
+            // Thri deals up to 6 targets 1 damage.
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Projectile, 6, false, 0, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
             // Players may draw or play. 
             coroutine = this.EachPlayerSelectsFunction((HeroTurnTakerController httc) => !httc.IsIncapacitatedOrOutOfGame, funcs, 0, null, (HeroTurnTakerController httc) => httc.Name + " cannot draw any cards or play any equipment cards.");
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Thri deals up to 6 targets 1 damage.
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Projectile, 6, false, 0, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

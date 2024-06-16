@@ -62,7 +62,7 @@ namespace LazyFanComixTest
             UsePower(Thri);
             QuickHPCheck(-2);
             UsePower(Thri);
-            QuickHPCheck(-2 -3);
+            QuickHPCheck(-2 - 3);
             UsePower(Thri);
             QuickHPCheck(-2);
 
@@ -72,7 +72,7 @@ namespace LazyFanComixTest
             UsePower(bunker);
             QuickHPCheck(0);
             UsePower(Thri);
-            QuickHPCheck(-2 -3);
+            QuickHPCheck(-2 - 3);
             UsePower(Thri);
             QuickHPCheck(-2);
         }
@@ -99,7 +99,7 @@ namespace LazyFanComixTest
 
             SelectFromBoxForNextDecision("LazyFanComix.ThriCharacter", "LazyFanComix.Thri");
             PlayCard("CalledToJudgement");
-            QuickHPCheck(-2-3);
+            QuickHPCheck(-2 - 3);
 
             GoToStartOfTurn(guise);
             UsePower(tempest);
@@ -107,7 +107,7 @@ namespace LazyFanComixTest
             UsePower(tempest);
             QuickHPCheck(-1);
             UsePower(FindCardInPlay("ThriCharacter"));
-            QuickHPCheck(-2-3);
+            QuickHPCheck(-2 - 3);
         }
 
         #endregion Innate Tests
@@ -129,13 +129,12 @@ namespace LazyFanComixTest
 
             UsePower(Thri);
 
-            Card equip = PlayCard("LoadoutAnchor");
             Card ongoing = PlayCard("BacklashField");
 
             QuickHPStorage(baron);
-            UsePower(equip);
+            Card equip = PlayCard("LoadoutAnchor");
             QuickHPCheck(-1 - 1);
-            UsePower(equip,0);
+            UsePower(equip, 0);
             QuickHPCheck(-1 - 1 - 1);
             AssertInTrash(ongoing);
             UsePower(equip);
@@ -158,13 +157,12 @@ namespace LazyFanComixTest
 
             UsePower(Thri);
 
-            Card equip = PlayCard("LoadoutSlick");
-            Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0) , PlayCard("MobileDefensePlatform", 1), PlayCard("BladeBattalion") };
+            Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1), PlayCard("BladeBattalion") };
 
             DecisionSelectTargets = new Card[] { targets[0], targets[0], targets[1], targets[2] };
 
             QuickHPStorage(targets);
-            UsePower(equip);
+            Card equip = PlayCard("LoadoutSlick");
             QuickHPCheck(-3, -0, -0);
             UsePower(equip, 0);
             QuickHPCheck(-3, -3, -3);
@@ -189,12 +187,11 @@ namespace LazyFanComixTest
 
             UsePower(Thri);
 
-            Card equip = PlayCard("LoadoutWhisper");
             Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1) };
 
             QuickHandStorage(Thri);
             QuickHPStorage(targets);
-            UsePower(equip);
+            Card equip = PlayCard("LoadoutWhisper");
             QuickHPCheck(-1, -1);
             QuickHandCheck(0);
             UsePower(equip);
@@ -220,13 +217,14 @@ namespace LazyFanComixTest
 
             StartGame();
 
+            Card equip = PlayCard("LoadoutWhisper");
+
             GoToUsePowerPhase(Thri);
 
             DestroyNonCharacterVillainCards();
             PlayCard("RuleOfThree");
             AssertPhaseActionCount(2);
 
-            Card equip = PlayCard("LoadoutWhisper");
             Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1) };
 
             QuickHPStorage(targets);
@@ -256,6 +254,8 @@ namespace LazyFanComixTest
             Card power = PlayCard("FindTheShot");
             Card equip = PlayCard("LoadoutWhisper");
 
+            GoToStartOfTurn(Thri);
+
             UsePower(equip);
 
             Card discard = PutInHand("CallTheShot");
@@ -266,7 +266,7 @@ namespace LazyFanComixTest
             QuickHandStorage(Thri);
             UsePower(power);
             AssertInTrash(discard);
-            QuickHPCheck(-2 -3); // Base power used. Third power, so confirm increase.
+            QuickHPCheck(-2 - 3); // Base power used. Third power, so confirm increase.
             QuickHandCheck(0); // Draw 1, Discard 1. 
         }
 
@@ -284,17 +284,13 @@ namespace LazyFanComixTest
             DestroyNonCharacterVillainCards();
 
             Card power = PlayCard("CallTheShot");
-            GoToUsePowerPhase(Thri);
 
             QuickHPStorage(baron);
-            UsePower(Thri, 1); // Confirm new power.
-            QuickHPCheck(-2);
-            UsePower(bunker, 1); // Confirm Bunker has new power to use.
-            QuickHPCheck(-2);
-
-            DecisionYesNo = true;
-            GoToEndOfTurn(Thri);
-            QuickHPCheck(-2 -3); // Bonus  power obtained, base damageshould be modified. 
+            QuickHandStorage(bunker);
+            UsePower(power);
+            UsePower(Thri);
+            QuickHPCheck(-2 - 3); // Confirm bonus damage from default confirmed
+            QuickHandCheck(1);    // and Bunker used initialize.
         }
         #endregion Ongoing Tests
 
@@ -312,13 +308,13 @@ namespace LazyFanComixTest
             DestroyNonCharacterVillainCards();
 
 
-            Card equip = PutInDeck("LoadoutAnchor");
-            DecisionSelectCards = new Card[] { equip, baron.CharacterCard };
+            Card equip = PutInDeck("LoadoutWhisper");
+            DecisionSelectCards = new Card[] { baron.CharacterCard, null, equip, null };
 
             QuickHPStorage(baron);
             PlayCard("ToolsOfTheTrade");
             AssertIsInPlay(equip);
-            QuickHPCheck(-2); // Default power used.
+            QuickHPCheck(-1); // 1 damage effect used.
         }
 
         [Test()]
@@ -335,14 +331,14 @@ namespace LazyFanComixTest
 
             Card equip = PutInHand("LoadoutAnchor");
             PutInHand("LoadoutSlick"); // Make it a decision.
-            DecisionSelectCards = new Card[] { equip, baron.CharacterCard, null };
+            DecisionSelectCards = new Card[] { baron.CharacterCard, null, equip, baron.CharacterCard, null };
 
             QuickHPStorage(baron);
             QuickHandStorage(parse);
             PlayCard("GearedUp");
             AssertIsInPlay(equip); // Play card by default.
             QuickHandCheck(1); // Parse has no equip, so will draw.
-            QuickHPCheck(-1); // Default power used.
+            QuickHPCheck(-1 - 2); // Default power and anchor on-play used.
         }
 
         [Test()]
@@ -358,7 +354,7 @@ namespace LazyFanComixTest
             DestroyNonCharacterVillainCards();
 
             DiscardAllCards(Thri);
-            Card equip=PutOnDeck("LoadoutAnchor");
+            Card equip = PutOnDeck("RuleOfThree");
 
             QuickHPStorage(baron);
             PlayCard("FromTheHip");
@@ -402,7 +398,7 @@ namespace LazyFanComixTest
             QuickHPStorage(Thri, baron);
             PlayCard("ThirdTimesTheCharm");
             QuickHandCheck(3);
-            QuickHPCheck(-3, -2 -2 -2 -3); 
+            QuickHPCheck(-3, -2 - 2 - 2 - 3);
         }
 
         #endregion One-Shot Tests

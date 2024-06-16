@@ -7,14 +7,22 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
+},
+"SpellforgeIcon.png":
+{
+	"frame": {"x":131,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "Icons0.png",
 	"format": "RGBA8888",
-	"size": {"w":128,"h":128},
+	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d1d1f8638ff1688925e3ad588c48ff8c:956f86cda4cb24c97e75610d0a98b8fc:c680398f21d101d0a1ae6d7fc2a23608$"
+	"smartupdate": "$TexturePacker:SmartUpdate:64869fbde3510a888812fb37f7dbdd6f:fa79a58d441031650f314337c150d2f3:c680398f21d101d0a1ae6d7fc2a23608$"
 }
 }

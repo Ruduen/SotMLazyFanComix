@@ -69,6 +69,9 @@ namespace LazyFanComix.Thri
             // Check if this is the third power.
             if (this._isThirdPower)
             {
+                coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " deals " + powerNumerals[2] + " additional damage.", Priority.Low, this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
                 tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, powerNumerals[2]);
             }
 

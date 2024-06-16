@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LazyFanComix.Thri
 {
-    public class LoadoutWhisperCardController : ThriThirdPowerCardController
+    public class LoadoutWhisperCardController : ThriThirdPowerEquipCardController
     {
         public LoadoutWhisperCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -26,11 +26,15 @@ namespace LazyFanComix.Thri
 
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Radiant, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
+            // TODO: Third Power message?
             if (this.isThirdPower)
             {
+                coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " draws " + powerNumerals[2] + " cards.",Priority.Low,this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
                 coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[2], cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

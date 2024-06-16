@@ -232,7 +232,7 @@
     <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\RuleOfThreeCardController.cs" />
     <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutWhisperCardController.cs" />
     <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutSlickCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\ThriThirdPowerCardController.cs" />
+    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\ThriThirdPowerEquipCardController.cs" />
     <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutAnchorCardController.cs" />
     <Compile Include="Heroes\ThriCardControllers\ThriCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />

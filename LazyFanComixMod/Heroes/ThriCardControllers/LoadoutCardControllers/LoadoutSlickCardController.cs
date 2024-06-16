@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LazyFanComix.Thri
 {
-    public class LoadoutSlickCardController : ThriThirdPowerCardController
+    public class LoadoutSlickCardController : ThriThirdPowerEquipCardController
     {
         public LoadoutSlickCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -28,13 +28,17 @@ namespace LazyFanComix.Thri
 
             IEnumerator coroutine;
 
-            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Radiant, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddas, cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddas, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
+            // TODO: Third Power message?
             if (this.isThirdPower)
             {
+                coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " deals " + powerNumerals[2] + " additional targets damage.", Priority.Low, this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
                 IEnumerable<Card> damagedTargets = ddas.Select((DealDamageAction dda) => dda.Target);
-                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[3], DamageType.Radiant, powerNumerals[2], false, 0, additionalCriteria: (Card c) => !damagedTargets.Contains(c), cardSource: this.GetCardSource());
+                coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[3], DamageType.Projectile, powerNumerals[2], false, 0, additionalCriteria: (Card c) => !damagedTargets.Contains(c), cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }
 

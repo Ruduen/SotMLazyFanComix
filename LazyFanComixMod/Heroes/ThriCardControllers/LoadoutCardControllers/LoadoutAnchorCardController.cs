@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace LazyFanComix.Thri
 {
-    public class LoadoutAnchorCardController : ThriThirdPowerCardController
+    public class LoadoutAnchorCardController : ThriThirdPowerEquipCardController
     {
         public LoadoutAnchorCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -31,6 +31,7 @@ namespace LazyFanComix.Thri
                 new DealDamageAction(this.GetCardSource(), ds, null, powerNumerals[2], DamageType.Toxic)
             };
 
+            // TODO: Third Power message?
             if (this.isThirdPower)
             {
                 ddas.Add(new DealDamageAction(this.GetCardSource(), ds, null, powerNumerals[3], DamageType.Radiant));
@@ -41,6 +42,9 @@ namespace LazyFanComix.Thri
 
             if (this.isThirdPower)
             {
+                coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " may destroy an ongoing or environment cards.", Priority.Low, this.GetCardSource());
+                if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
                 coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c != this.Card && (this.IsOngoing(c) || c.IsEnvironment), "ongoing or environment"), 1, false, 0, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
             }

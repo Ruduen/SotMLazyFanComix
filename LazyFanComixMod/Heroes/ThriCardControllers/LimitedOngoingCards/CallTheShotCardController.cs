@@ -10,31 +10,24 @@ namespace LazyFanComix.Thri
         public CallTheShotCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-            this.AddAsPowerContributor();
         }
-
-        public override void AddTriggers()
+        public override IEnumerator UsePower(int index = 0)
         {
-            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.DestroyCard(this.DecisionMaker, this.Card, true, cardSource: this.GetCardSource()), new TriggerType[] { TriggerType.DestroyCard, TriggerType.DestroySelf });
-            this.AddWhenDestroyedTrigger((DestroyCardAction dca) => this.GameController.SelectAndUsePower(this.DecisionMaker, cardSource: this.GetCardSource()), TriggerType.UsePower);
-        }
-
-        public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cardController)
-        {
-            if (cardController.HeroTurnTakerController != null && cardController.Card.IsHeroCharacterCard && !cardController.Card.Owner.IsIncapacitated && !cardController.Card.IsFlipped)
+            int[] powerNumerals = new int[]
             {
-                return new Power[] { new Power(cardController.HeroTurnTakerController, cardController, "Your hero deals 1 target 2 projectile damage.", DealDamageResponse(cardController), 0, null, this.GetCardSource()) };
-            }
-            return null;
-        }
-
-        private IEnumerator DealDamageResponse(CardController characterCard)
-        {
-            int[] powerNumerals = new int[] {
-                this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 2)
+                this.GetPowerNumeral(0,1),
+                this.GetPowerNumeral(1,1),
+                this.GetPowerNumeral(2,1)
             };
-            return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, characterCard.Card), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[1], cardSource: this.GetCardSource());
+            IEnumerator coroutine;
+
+
+            coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, powerNumerals[1], false, powerNumerals[1], cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+            // Another hero may use a power. 
+            coroutine = this.GameController.SelectHeroToUsePower(this.DecisionMaker, additionalCriteria: new LinqTurnTakerCriteria((TurnTaker tt) => tt != this.TurnTaker), cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
 }

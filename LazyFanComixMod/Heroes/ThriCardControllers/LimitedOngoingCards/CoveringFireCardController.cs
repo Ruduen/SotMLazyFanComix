@@ -20,16 +20,6 @@ namespace LazyFanComix.Thri
             this.AddTrigger<DealDamageAction>((DealDamageAction dda) => !dda.DamageSource.Card.IsHero && dda.Target.IsHeroCharacterCard && this.Card.UnderLocation.Cards.Select((Card c) => c.Owner).Contains(dda.Target.Owner), DestroyCardsToReduceDamageResponse, new TriggerType[] { TriggerType.DestroyCard, TriggerType.ReduceDamage }, TriggerTiming.Before, orderMatters: true);
         }
 
-        public override IEnumerator UsePower(int index = 0)
-        {
-            int[] powerNumerals = new int[]
-            {
-                this.GetPowerNumeral(0, 2),
-                this.GetPowerNumeral(1, 1)
-            };
-            return this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[2], DamageType.Projectile, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
-        }
-
         private IEnumerator MoveTargetCardResponse(DealDamageAction dda)
         {
             if (dda?.Target?.Owner?.Deck?.BottomCard != null)
