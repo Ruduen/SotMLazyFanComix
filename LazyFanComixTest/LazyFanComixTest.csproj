@@ -71,6 +71,7 @@
     <Compile Include="RuduenModsTests\CaseFilesPromosTest.cs" />
     <Compile Include="RuduenModsTests\MenageriePromosTest.cs" />
     <Compile Include="RuduenModsTests\MythikalPromosTest.cs" />
+    <Compile Include="RuduenModsTests\LaggardTest.cs" />
     <Compile Include="RuduenModsTests\SpookyGhostwriterPromosTest.cs" />
     <Compile Include="RuduenModsTests\CauldronPromosTest.cs" />
     <Compile Include="RuduenModsTests\LarrysDiscountGunClubTest.cs" />

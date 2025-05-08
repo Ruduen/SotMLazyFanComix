@@ -1,0 +1,386 @@
+﻿{
+  "name": "Labbard",
+  "kind": "Hero",
+  "expansionIdentifier": "LazyFanComix",
+  "initialCardIdentifiers": [
+    "LaggardCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "LaggardCharacter",
+      "count": 1,
+      "title": "Laggard",
+      "body": "Right Place, Wrong Time",
+      "backgroundColor": "CCCCCC",
+      "foilBackgroundColor": "CCCCCC",
+      "character": true,
+      "powers": [
+        "{Laggard} deals 1 target 1 irreducible damage. Increase this damage by 1 for each Hindsight card in play."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageMelee",
+        "IncreaseDamageDealt"
+      ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "Laggard"
+      ],
+      "incapacitatedAbilities": [
+        "Reveal and replace the top card of any deck.",
+        "Place 1 card from any player's hand on top of their deck. ",
+        "Play the top card of any deck."
+      ],
+      "flippedIcons": [
+        "Manipulate",
+        "PlayCardNow"
+      ],
+      "openingLines": {
+        "default": "I'm here now - let's get this done!"
+      },
+      "complexity": 2
+    },
+    {
+      "identifier": "LateBreakingNews",
+      "count": 2,
+      "title": "Late Breaking News",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "???",
+        "???"
+      ],
+      "icons": [ "PlayCardNow", "Destroy" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "It's too late to stop it, but it's not too late to start fixing things."
+        }
+      ],
+      "flavorReference": "Laggard, Lazy Crossover #?"
+    },
+    {
+      "identifier": "EscapeRoute",
+      "count": 3,
+      "title": "Escape Route",
+      "keywords": [ "ongoing", "hindsight" ],
+      "body": [
+        "Play this card next to a Hero.",
+        "Reduce damage dealt to that Hero by 2.",
+        "At the start of your turn, that Hero draws 2 cards. Then, destroy this card."
+      ],
+      "icons": [ "ReduceDamageTaken", "StartOfTurnAction", "DrawCardNow", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "I don't think the cliffside route's ever had this many people on it, but it's a little late for second thoughts!"
+        }
+      ],
+      "flavorReference": "Laggard, Lazy Crossover #?"
+    },
+    {
+      "identifier": "ForegoneConclusion",
+      "count": 2,
+      "title": "Foregone Conclusion",
+      "keywords": [ "ongoing, limited" ],
+      "body": [
+        "After you use a power, you may draw a card."
+      ],
+      "powers": [
+        "Reveal the top card of the villain deck. Either return it to the top of the villain deck or play it."
+      ],
+      "icons": [ "EndOfTurnAction", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "If we hurry, we can... Oh. They're already getting away."
+        }
+      ],
+      "flavorReference": "Laggard, Lazy Crossover #?"
+    },
+    {
+      "identifier": "LateToTheParty",
+      "count": 4,
+      "title": "Late to the Party",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Draw 4 cards.",
+        "Play up to 3 Hindsight cards.",
+        "Immediately end your turn. "
+      ],
+      "icons": [ "DrawCardsNow", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "???",
+          "text": "Eh, don't worry about him - I'm sure he'll catch up."
+
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "Postseen",
+      "count": 3,
+      "title": "Postseen",
+      "keywords": [ "ongoing", "hindsight" ],
+      "body": [
+        "Play this card next to a non-Hero target.",
+        "If that target leaves play, use a power and return this card to your hand.",
+        "After that target deals damage to a Hero, that Hero may use a power.",
+        "At the start of your turn, destroy this card. "
+      ],
+      "icons": [ "UsePowerNow", "Manipulate", "StartOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "I saw them setting up the ambush, so we can ambush the ambush before they ambush us!"
+        }
+      ],
+      "flavorReference": "Laggard, Lazy Crossover #?"
+    },
+    {
+      "identifier": "SeekVisions",
+      "count": 3,
+      "title": "SeekVisions",
+      "keywords": [ "ongoing", "hindsight" ],
+      "body": [
+        "Play this card next to a character.",
+        "At the start of your turn, put a card from that character's trash on top of that character's deck. Then, you may play the top card of that character's deck. Then, destroy this card."
+      ],
+      "icons": [ "Manipulate", "PlayCardNow", "StartOfTurnAction", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "I saw them setting up the ambush, so we can ambush the ambush before they ambush us!"
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "Again",
+      "count": 2,
+      "title": "Again?",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Draw 2 cards.",
+        "You may play a Hindsight card from your trash."
+      ],
+      "icons": [ "DrawCardsNow", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "???",
+          "text": "When I started this, I didn't realize how much heroics involved jumping off of cliffs."
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "AtLeastWereWarned",
+      "count": 3,
+      "title": "At Least we're Warned",
+      "keywords": [ "ongoing", "hindsight" ],
+      "body": [
+        "Play this card next to another Hero.",
+        "At the start of your turn, that hero may play a card and use a power. Then, destroy this card."
+      ],
+      "icons": [ "StartOfTurnAction", "PlayCardNow", "UsePowerNow", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "No, that one's the one where the guards with flamethowers went... Oh, right. You should be fine."
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "GlimpseOfTheUnknown",
+      "count": 2,
+      "title": "Glimpse of the Unknown",
+      "keywords": [ "ongoing, limited" ],
+      "body": [
+        "When this card is destroyed, you may use a power."
+      ],
+      "powers": [
+        "Destroy 1 ongoing or environment card. Destroy 1 hero non-character card."
+      ],
+      "icons": [ "HasPower", "Destroy", "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "???",
+          "text": "I'm just glad he confirmed it was a survivable before the drinks really hit."
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "DirectMethod",
+      "count": 4,
+      "title": "Direct Method",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Laggard deals 1 target 3 melee damage.",
+        "Laggard may deal himself 2 psychic damage. If damage is dealt this way, Laggard deals 1 target 5 projectile damage."
+      ],
+      "icons": [ "DealDamageMelee", "DealDamagePsychic", "DealDamage" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "I've known you were causing trouble for months. Why wouldn't I keep something around for dealing with you?"
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "SlowChaseSequence",
+      "count": 2,
+      "title": "Slow Chase Sequence",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Laggard deals 1 target 3 melee damage.. If a non-indestructible, non-Character target dealt damage this way is in play, place it on top of its deck."
+      ],
+      "icons": [ "DealDamageMelee", "Manipulate" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "The others should be here by the time you're back to normal."
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "FashionablyLate",
+      "count": 2,
+      "title": "Fashionably Late",
+      "keywords": [ "ongoing, limited" ],
+      "body": [
+        "At the end of your turn, you may draw 1 card or use 1 power."
+      ],
+      "powers": [
+        "Laggard deals 1 target 3 projectile damage."
+      ],
+      "icons": [ "EndOfTurnAction", "HasPower", "DealDamageProjectile" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "Look, I was still around to help wrap things up. That counts."
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "ChronicleOfUnknownVisions",
+      "count": 2,
+      "title": "Chronicle of Unknown Visions",
+      "keywords": [ "ongoing, limited" ],
+      "body": [
+        "When this card enters play, draw 2 cards."
+      ],
+      "powers": [
+        "Reveal the top card of any deck. Put that card on the top or bottom of its deck."
+      ],
+      "icons": [ "DrawCardNow", "HasPower", "Manipulate" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "I try to archive the scenes I don't recognize. They tend to come up later."
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "LostAndFound",
+      "count": 3,
+      "title": "Lost and Found",
+      "keywords": [ "ongoing", "hindsight" ],
+      "body": [
+        "Play this card next to a target.",
+        "If that target leaves play, use a power and return this card to your hand.",
+        "At the start of your turn, Laggard deals that target 6 projectile damage. Then, destroy this card."
+      ],
+      "icons": [ "UsePowerNow", "StartOfTurnAction", "DealDamageProjectile", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "They're down this alley! Wait, scratch that, that alley!"
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    },
+    {
+      "identifier": "StallTactics",
+      "count": 3,
+      "title": "Stall Tactics",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "Play this card next to a target. If that target leaves play, destroy this card.",
+        "Reduce damage dealt to and by that target by 1.",
+        "At the start of your turn, discard up to 2 cards. If you did not discard 2 cards this way, destroy this card."
+      ],
+      "icons": [ "ReduceDamageDealt", "ReduceDamageTaken", "StartOfTurnAction", "DiscardCard" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Laggard",
+          "text": "I don't need to stop them. Just slow them for long enough that it won't matter."
+        }
+      ],
+      "flavorReference": "???, Lazy Crossover #?"
+    }
+  ],
+  "promoCardsUnderDev": [
+    {
+      "identifier": "LaggardCharacter",
+      "promoIdentifier": "LaggardUnderDevelopmentCharacter",
+      "count": 1,
+      "title": "Laggard - Under Development",
+      "body": "Under Development",
+      "backgroundColor": "CCCCCC",
+      "foilBackgroundColor": "CCCCCC",
+      "character": true,
+      "powers": [
+        "???"
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "ReduceDamageTaken"
+      ],
+      "hitpoints": 21,
+      "nemesisIdentifiers": [
+        "Laggard"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "???"
+      },
+      "complexity": 2
+    }
+  ],
+  "exampleCards": [
+    {
+      "identifier": "CardName",
+      "count": 2,
+      "title": "Card Name",
+      "keywords": [ "ongoing, limited" ],
+      "body": [
+        "???",
+        "???"
+      ],
+      "icons": [ "EndOfTurnAction", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Person",
+          "text": "There are few things as satisfying as {br}getting to line up the perfect shot."
+        }
+      ],
+      "flavorReference": "???, ???"
+    }
+  ]
+}

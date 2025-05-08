@@ -202,6 +202,24 @@
     <Compile Include="Heroes\HeroPromoCardControllers\MrFixerFlowingStrikeCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\VoidGuardMainstayShrugItOffCharacterCardController.cs" />
     <Compile Include="Heroes\HeroPromoCardControllers\TheHarpyExtremeCallingCharacterCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\FashionablyLateCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\ChronicleOfUnknownScenesCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\HindsightBounceCardControllers\LostAndFoundController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\StallTacticsCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\SlowChaseSequenceCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\HindsightBounceCardControllers\PostseenCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\HindsightCardControllers\AtLeastWereWarnedCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\HindsightCardControllers\SeekVisionsCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\HindsightCardControllers\EscapeRouteCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\LaggardSharedHindsightCanBounceCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\LaggardSharedHindsightCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\LaggardCharacterCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\ForegoneConclusionCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\AgainCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\GlimpseOfTheUnknownCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\DirectMethodCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\LateToThePartyCardController.cs" />
+    <Compile Include="Heroes\LaggardCardControllers\LateBreakingNewsCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\FracturedBackdropCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\VolatileBarricadeCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\CoverCardControllers\HeavyBlockadeCardController.cs" />
@@ -413,6 +431,7 @@
     <EmbeddedResource Include="DeckLists\TheEtherealExecutionerTeamDeckList.json" />
     <EmbeddedResource Include="DeckLists\VagabondDeckList.json" />
     <EmbeddedResource Include="DeckLists\ThriDeckList.json" />
+    <EmbeddedResource Include="DeckLists\LaggardDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />

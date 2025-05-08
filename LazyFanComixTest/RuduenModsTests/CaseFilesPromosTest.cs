@@ -45,6 +45,22 @@ namespace LazyFanComixTest
             AssertInTrash(discards);
         }
 
+        [Test()]
+        public void TestTuckerSpellforge()
+        {
+            SetupGameController("BaronBlade", "CaseFiles.Tucker", "LazyFanComix.Spellforge/SpellforgeRedefineCharacter", "Megalopolis");
+
+            HeroTurnTakerController Spellforge = FindHero("Spellforge");
+            StartGame();
+            DestroyNonCharacterVillainCards();
+
+            QuickHPStorage(baron);
+            DecisionSelectCards = new List<Card>() { PutInHand("Inspired"), PutInHand("Bank") , baron.CharacterCard, null };
+            UsePower(Spellforge);
+            QuickHPCheck(-3);
+
+        }
+
         #endregion Homebrew Tests
     }
 }
