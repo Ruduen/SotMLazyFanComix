@@ -20,8 +20,7 @@ namespace LazyFanComix.Laggard
     public override void AddTriggers()
     {
       // For "next to" cards - adjust location.
-      this.AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToTheirPlayAreaTrigger(!KeepTriggers,
-      this.GetCardThisCardIsNextTo() != null && !GetCardThisCardIsNextTo().IsHeroCharacterCard);
+      this.AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToTheirPlayAreaTrigger(false, this.GetCardThisCardIsNextTo() != null && !GetCardThisCardIsNextTo().IsHeroCharacterCard);
       // Unique triggers.
       this.AddUniqueTriggers();
       // Selfdestruct triggers. Occur after the others.
@@ -37,8 +36,6 @@ namespace LazyFanComix.Laggard
 
 
     protected abstract void AddUniqueTriggers();
-
-    protected virtual bool KeepTriggers => false;
 
   }
 }

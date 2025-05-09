@@ -1,5 +1,5 @@
 ﻿{
-  "name": "Labbard",
+  "name": "Laggard",
   "kind": "Hero",
   "expansionIdentifier": "LazyFanComix",
   "initialCardIdentifiers": [
@@ -9,7 +9,7 @@
     {
       "identifier": "LaggardCharacter",
       "count": 1,
-      "title": "Laggard",
+      "title": "Laggard (Under Development!)",
       "body": "Right Place, Wrong Time",
       "backgroundColor": "CCCCCC",
       "foilBackgroundColor": "CCCCCC",
@@ -124,7 +124,6 @@
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
         "Play this card next to a non-Hero target.",
-        "If that target leaves play, use a power and return this card to your hand.",
         "After that target deals damage to a Hero, that Hero may use a power.",
         "At the start of your turn, destroy this card. "
       ],
@@ -143,7 +142,7 @@
       "title": "SeekVisions",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
-        "Play this card next to a character.",
+        "Play this card next to a character other than {Laggard}.",
         "At the start of your turn, put a card from that character's trash on top of that character's deck. Then, you may play the top card of that character's deck. Then, destroy this card."
       ],
       "icons": [ "Manipulate", "PlayCardNow", "StartOfTurnAction", "DestroySelf" ],
@@ -217,8 +216,8 @@
       "title": "Direct Method",
       "keywords": [ "one-shot" ],
       "body": [
-        "Laggard deals 1 target 3 melee damage.",
-        "Laggard may deal himself 2 psychic damage. If damage is dealt this way, Laggard deals 1 target 5 projectile damage."
+        "{Laggard} deals 1 target 3 melee damage.",
+        "{Laggard} may deal himself 2 psychic damage. If damage is dealt this way, {Laggard} deals 1 target 5 projectile damage."
       ],
       "icons": [ "DealDamageMelee", "DealDamagePsychic", "DealDamage" ],
       "flavorQuotes": [
@@ -235,7 +234,7 @@
       "title": "Slow Chase Sequence",
       "keywords": [ "one-shot" ],
       "body": [
-        "Laggard deals 1 target 3 melee damage.. If a non-indestructible, non-Character target dealt damage this way is in play, place it on top of its deck."
+        "{Laggard} deals 1 target 3 melee damage.. If a non-indestructible, non-Character target dealt damage this way is in play, place it on top of its deck."
       ],
       "icons": [ "DealDamageMelee", "Manipulate" ],
       "flavorQuotes": [
@@ -255,7 +254,7 @@
         "At the end of your turn, you may draw 1 card or use 1 power."
       ],
       "powers": [
-        "Laggard deals 1 target 3 projectile damage."
+        "{Laggard} deals 1 target 3 projectile damage."
       ],
       "icons": [ "EndOfTurnAction", "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -267,15 +266,16 @@
       "flavorReference": "???, Lazy Crossover #?"
     },
     {
-      "identifier": "ChronicleOfUnknownVisions",
+      "identifier": "ChronicleOfUnknownScenes",
       "count": 2,
-      "title": "Chronicle of Unknown Visions",
+      "title": "Chronicle of Unknown Scenes",
       "keywords": [ "ongoing, limited" ],
       "body": [
-        "When this card enters play, draw 2 cards."
+        "Reduce damage dealt to each hero target by 1 for each Hindsight card next to that target.",
+        "Increase damage dealt to each non-hero target by 1 for each Hindsight card next to that target."
       ],
       "powers": [
-        "Reveal the top card of any deck. Put that card on the top or bottom of its deck."
+        "You may draw 1 card or play 1 hindsight card."
       ],
       "icons": [ "DrawCardNow", "HasPower", "Manipulate" ],
       "flavorQuotes": [
@@ -293,8 +293,7 @@
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
         "Play this card next to a target.",
-        "If that target leaves play, use a power and return this card to your hand.",
-        "At the start of your turn, Laggard deals that target 6 projectile damage. Then, destroy this card."
+        "At the start of your turn, {Laggard} deals that target 6 projectile damage. Then, destroy this card."
       ],
       "icons": [ "UsePowerNow", "StartOfTurnAction", "DealDamageProjectile", "DestroySelf" ],
       "flavorQuotes": [

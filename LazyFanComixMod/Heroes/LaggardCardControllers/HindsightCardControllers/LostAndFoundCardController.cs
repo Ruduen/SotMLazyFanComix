@@ -6,12 +6,12 @@ using System.Collections;
 
 namespace LazyFanComix.Laggard
 {
-  public class LostAndFoundController : LaggardSharedHindsightCanBounceCardController
+  public class LostAndFoundCardController : LaggardSharedHindsightCardController
   {
     protected override LinqCardCriteria NextToCriteria
     { get { return new LinqCardCriteria((Card c) => c.IsTarget, "target"); } }
 
-    public LostAndFoundController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public LostAndFoundCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
     }
 

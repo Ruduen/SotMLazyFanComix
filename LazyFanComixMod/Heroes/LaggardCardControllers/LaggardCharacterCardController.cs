@@ -31,12 +31,13 @@ namespace LazyFanComix.Laggard
 
 
       // Trigger to increase damage dealt to self by 2 per elemental.
-      ITrigger tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => this.HindsightDamage(powerNumerals[2]));
+      ITrigger tempIncrease = this.AddToTemporaryTriggerList(this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => this.HindsightDamage(powerNumerals[2])));
 
       // Deal <a> target <b> damage.
-      return this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[0], true, cardSource: this.GetCardSource());
+      IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[0], true, cardSource: this.GetCardSource());
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      this.RemoveTrigger(tempIncrease);
+      this.RemoveTemporaryTrigger(tempIncrease);
     }
     private int HindsightDamage(int numeral)
     {

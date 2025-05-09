@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace LazyFanComix.Laggard
 {
-  public class PostseenCardController : LaggardSharedHindsightCanBounceCardController
+  public class PostseenCardController : LaggardSharedHindsightCardController
   {
     protected override LinqCardCriteria NextToCriteria
     { get { return new LinqCardCriteria((Card c) => !c.IsHero && c.IsTarget, "non-Hero target"); } }
@@ -25,9 +25,9 @@ namespace LazyFanComix.Laggard
       if (target != null && target.IsHeroCharacterCard == true && target.Owner?.IsHero == true)
       {
         HeroTurnTakerController httc = this.FindHeroTurnTakerController(target.Owner.ToHero());
-        yield return this.GameController.SelectAndUsePower(httc, cardSource: this.GetCardSource());
+        IEnumerator coroutine = this.GameController.SelectAndUsePower(httc, cardSource: this.GetCardSource());
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
-
       yield break;
     }
   }

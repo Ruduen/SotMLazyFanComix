@@ -19,7 +19,7 @@ namespace LazyFanComix.Laggard
       coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 3, DamageType.Melee, 1, false, 1, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      coroutine = this.GameController.DealDamageToSelf(this.HeroTurnTakerController, (Card c) => c == this.CharacterCard, 2, DamageType.Psychic, storedResults: selfDamageResults, cardSource: this.GetCardSource());
+      coroutine = this.GameController.DealDamageToSelf(this.HeroTurnTakerController, (Card c) => c == this.CharacterCard, 2, DamageType.Psychic, storedResults: selfDamageResults, isOptional: true, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       DealDamageAction dda = selfDamageResults.FirstOrDefault();

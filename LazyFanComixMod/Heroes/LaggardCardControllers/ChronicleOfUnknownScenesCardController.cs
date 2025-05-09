@@ -1,7 +1,10 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 
 namespace LazyFanComix.Laggard
 {
@@ -11,34 +14,36 @@ namespace LazyFanComix.Laggard
     {
     }
 
-    public override IEnumerator Play()
+    public override void AddTriggers()
     {
-      return this.GameController.DrawCards(this.HeroTurnTakerController, 2, cardSource: this.GetCardSource());
+      this.AddIncreaseDamageTrigger((DealDamageAction dda) => !dda.Target.IsHero && dda.Target.NextToLocation.Cards.Any((Card c) => c.DoKeywordsContain("hindsight")), amountToAdjust);
+      this.AddReduceDamageTrigger((DealDamageAction dda) => dda.Target.IsHero && dda.Target.NextToLocation.Cards.Any((Card c) => c.DoKeywordsContain("hindsight")), amountToAdjust);
+    }
+
+    private int amountToAdjust(DealDamageAction dda)
+    {
+      return dda.Target.NextToLocation.Cards.Where((Card c) => c.DoKeywordsContain("hindsight")).Count();
     }
 
     public override IEnumerator UsePower(int index = 0)
     {
-      // TODO - Ported from Eyepiece - consider separate cleanup.
-      List<SelectLocationDecision> storedResults = new List<SelectLocationDecision>();
-      IEnumerator coroutine;
-      coroutine = this.GameController.SelectADeck(this.HeroTurnTakerController, SelectionType.RevealTopCardOfDeck, (Location l) => true, storedResults, cardSource: this.GetCardSource());
-      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+      int[] powerNumerals =
+        {
+          this.GetPowerNumeral(0, 1),
+          this.GetPowerNumeral(1, 1)
+        };
+      Function[] functions =
+        {
+          new Function(this.HeroTurnTakerController, "Play " + powerNumerals[1] + " hindsight Card", SelectionType.PlayCard, () => this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, powerNumerals[1],false,powerNumerals[1],
+                   new LinqCardCriteria((Card c) => c.DoKeywordsContain("hindsight"), "hindsight"),
+                  cardSource: this.GetCardSource()), this.CanPlayCardsFromHand(this.HeroTurnTakerController) && this.HeroTurnTaker.Hand.Cards.Any((Card c) => c.DoKeywordsContain("hindsight"))),
+          new Function(this.HeroTurnTakerController, "Draw " + powerNumerals[0] + " Card", SelectionType.DrawCard, () => this.GameController.DrawCards(this.HeroTurnTakerController, powerNumerals[0], cardSource: this.GetCardSource()), this.CanDrawCards(this.HeroTurnTakerController))
+        };
 
-      Location deck = this.GetSelectedLocation(storedResults);
-      List<Card> storedCards = new List<Card>();
-      if (deck != null)
-      {
-        coroutine = this.RevealCardsFromTopOfDeck_PutOnTopAndOnBottom(this.HeroTurnTakerController, this.TurnTakerController, deck, 1, 1, 1, storedCards);
-        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-      }
-      if (deck != null)
-      {
-        List<Location> list = new List<Location>();
-        list.Add(deck.OwnerTurnTaker.Revealed);
-        coroutine = this.GameController.CleanupCardsAtLocations(this.TurnTakerController, list, deck, false, true, false, false, false, true, storedCards, this.GetCardSource());
-        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-      }
-      yield break;
+      SelectFunctionDecision sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, functions, true, null, this.TurnTaker.Name + " cannot play any hindsight cards or draw any cards, so " + this.Card.Title + " has no effect.", null, this.GetCardSource());
+
+      IEnumerator coroutine = this.GameController.SelectAndPerformFunction(sfd, null, null);
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
     }
   }
 }
