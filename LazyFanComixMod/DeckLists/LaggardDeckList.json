@@ -46,14 +46,14 @@
       "title": "Late Breaking News",
       "keywords": [ "one-shot" ],
       "body": [
-        "???",
-        "???"
+        "Play the top card of each deck in turn order.",
+        "You may destroy a non-character card."
       ],
       "icons": [ "PlayCardNow", "Destroy" ],
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "It's too late to stop it, but it's not too late to start fixing things."
+          "text": "It's too late to stop it, {br}but it's not too late to start fixing things."
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
@@ -111,7 +111,7 @@
       "flavorQuotes": [
         {
           "identifier": "???",
-          "text": "Eh, don't worry about him - I'm sure he'll catch up."
+          "text": "Eh, don't worry {br}about him - I'm sure he'll catch up."
 
         }
       ],
@@ -131,7 +131,7 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I saw them setting up the ambush, so we can ambush the ambush before they ambush us!"
+          "text": "I saw them setting up the ambush, {br}so we can ambush the ambush before {br}they ambush us!"
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
@@ -139,7 +139,7 @@
     {
       "identifier": "SeekVisions",
       "count": 3,
-      "title": "SeekVisions",
+      "title": "Spiritual Vision",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
         "Play this card next to a character other than {Laggard}.",
@@ -149,7 +149,7 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I saw them setting up the ambush, so we can ambush the ambush before they ambush us!"
+          "text": "Look, I only get visions when I'm tipsy, {br}and apparently it'd set a bad example to keep {br}a booze stash at HQ."
         }
       ],
       "flavorReference": "???, Lazy Crossover #?"
@@ -216,14 +216,14 @@
       "title": "Direct Method",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Laggard} deals 1 target 3 melee damage.",
-        "{Laggard} may deal himself 2 psychic damage. If damage is dealt this way, {Laggard} deals 1 target 5 projectile damage."
+        "You may discard up to 5 cards.",
+        "{Laggard} deals 1 target 2 melee damage. Increase this damage by 2 for each hindsight card discarded this way and 1 for each other card discarded this way."
       ],
       "icons": [ "DealDamageMelee", "DealDamagePsychic", "DealDamage" ],
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I've known you were causing trouble for months. Why wouldn't I keep something around for dealing with you?"
+          "text": "I've known you were causing trouble {br}for months. Why wouldn't I keep something {br}around for dealing with you?"
         }
       ],
       "flavorReference": "???, Lazy Crossover #?"
@@ -234,7 +234,7 @@
       "title": "Slow Chase Sequence",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Laggard} deals 1 target 3 melee damage.. If a non-indestructible, non-Character target dealt damage this way is in play, place it on top of its deck."
+        "{Laggard} deals 1 target 3 melee damage. If a non-indestructible, non-Character target dealt damage this way is in play, place it on top of its deck."
       ],
       "icons": [ "DealDamageMelee", "Manipulate" ],
       "flavorQuotes": [
@@ -260,16 +260,16 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "Look, I was still around to help wrap things up. That counts."
+          "text": "Look, I was still around to help {br}wrap things up. That counts."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #?"
     },
     {
       "identifier": "ChronicleOfUnknownScenes",
       "count": 2,
       "title": "Chronicle of Unknown Scenes",
-      "keywords": [ "ongoing, limited" ],
+      "keywords": [ "equipment, limited" ],
       "body": [
         "Reduce damage dealt to each hero target by 1 for each Hindsight card next to that target.",
         "Increase damage dealt to each non-hero target by 1 for each Hindsight card next to that target."
@@ -281,10 +281,10 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I try to archive the scenes I don't recognize. They tend to come up later."
+          "text": "I try to archive the scenes I don't recognize. {br}They tend to come up later."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #?"
     },
     {
       "identifier": "LostAndFound",
@@ -310,9 +310,8 @@
       "title": "Stall Tactics",
       "keywords": [ "ongoing" ],
       "body": [
-        "Play this card next to a target. If that target leaves play, destroy this card.",
-        "Reduce damage dealt to and by that target by 1.",
-        "At the start of your turn, discard up to 2 cards. If you did not discard 2 cards this way, destroy this card."
+        "Reduce damage dealt to and by Laggard by 1.",
+        "At the start of your turn, {Laggard} may regain 3 HP. If HP was regained this way, destroy this card."
       ],
       "icons": [ "ReduceDamageDealt", "ReduceDamageTaken", "StartOfTurnAction", "DiscardCard" ],
       "flavorQuotes": [

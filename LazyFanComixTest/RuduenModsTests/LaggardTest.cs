@@ -90,15 +90,14 @@ namespace LazyFanComixTest
       StartGame();
 
       PlayCard("EscapeRoute");
+      DealDamage(baron, wraith, 5, DamageType.Toxic);
       QuickHPStorage(wraith);
       QuickHandStorage(wraith);
-      DealDamage(baron, wraith, 3, DamageType.Toxic);
-      QuickHPCheck(-1);
       GoToStartOfTurn(wraith);
       QuickHandCheckZero();
       GoToStartOfTurn(Laggard);
       QuickHandCheck(2);
-
+      QuickHPCheck(3);
     }
 
 
@@ -200,9 +199,10 @@ namespace LazyFanComixTest
       StartGame();
 
       Card playFromTrash = PutInTrash("SeekVisions");
+      Card play = PutInTrash("Again");
 
       QuickHandStorage(Laggard);
-      PlayCard("Again");
+      PlayCard(play);
       QuickHandCheck(2);
       AssertIsInPlay(playFromTrash);
     }
@@ -260,13 +260,25 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      QuickHPStorage(Laggard, baron);
+      Card[] hindsights = FindCardsWhere((Card c) => c.DoKeywordsContain("hindsight")).ToArray();
+      Card[] nonSights = FindCardsWhere((Card c) => !c.DoKeywordsContain("hindsight") && c.Owner == Laggard.TurnTaker).ToArray();
+      DiscardAllCards(Laggard);
+      PutInHand(hindsights);
+      QuickHPStorage(baron);
       PlayCard("DirectMethod");
-      QuickHPCheck(0, -3);
+      QuickHPCheck(-12);
 
-      DecisionYesNo = true;
+      DiscardAllCards(Laggard);
       PlayCard("DirectMethod");
-      QuickHPCheck(-2, -8);
+      QuickHPCheck(-2);
+
+      PutInHand(hindsights[0]);
+      PutInHand(hindsights[1]);
+      PutInHand(hindsights[2]);
+      PutInHand(nonSights[0]);
+      PutInHand(nonSights[1]);
+      PlayCard("DirectMethod");
+      QuickHPCheck(-10);
 
     }
     #endregion
@@ -303,19 +315,20 @@ namespace LazyFanComixTest
       SetupGameController("BaronBlade", "TheWraith", "Legacy", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
       StartGame();
-
-      Card mdp = GetCardInPlay("MobileDefensePlatform");
-
-      DecisionSelectTarget = mdp;
+      DestroyNonCharacterVillainCards();
 
       Card card = PlayCard("FashionablyLate");
 
       DecisionSelectPower = card;
 
       DecisionSelectFunction = 0;
-      QuickHPStorage(mdp);
+      QuickHPStorage(baron);
       GoToEndOfTurn(Laggard);
       QuickHPCheck(-3);
+
+      PlayCard("LivingForceField");
+      GoToEndOfTurn(Laggard);
+      QuickHPCheck(-3 + 1);
 
       DecisionSelectFunction = 1;
       QuickHandStorage(Laggard);
@@ -399,23 +412,23 @@ namespace LazyFanComixTest
       StartGame();
 
       Card mdp = GetCardInPlay("MobileDefensePlatform");
-      DecisionSelectCard = mdp;
       Card play = PlayCard("StallTactics");
-      AssertNextToCard(play, mdp);
-      DecisionSelectCard = null;
 
       QuickHPStorage(mdp, Laggard.CharacterCard);
-      DealDamage(mdp, Laggard.CharacterCard, 3, DamageType.Melee);
-      DealDamage(Laggard.CharacterCard, mdp, 3, DamageType.Melee);
-      QuickHPCheck(-2, -2);
+      DealDamage(mdp, Laggard.CharacterCard, 5, DamageType.Melee);
+      DealDamage(Laggard.CharacterCard, mdp, 5, DamageType.Melee);
+      QuickHPCheck(-4, -4);
 
-      QuickHandStorage(Laggard);
+      DecisionYesNo = false;
       GoToStartOfTurn(Laggard);
-      QuickHandCheck(-2);
+      QuickHPCheck(0, 0);
+      AssertIsInPlay(play);
 
-      DiscardAllCards(Laggard);
+      DecisionYesNo = true;
       GoToStartOfTurn(Laggard);
+      QuickHPCheck(0, 3);
       AssertInTrash(play);
+
     }
     #endregion
   }

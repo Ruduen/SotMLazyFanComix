@@ -15,20 +15,19 @@ namespace LazyFanComix.Laggard
     public override IEnumerator Play()
     {
       IEnumerator coroutine;
-      List<DealDamageAction> selfDamageResults = new List<DealDamageAction>();
-      coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 3, DamageType.Melee, 1, false, 1, cardSource: this.GetCardSource());
+      List<DiscardCardAction> dca = new List<DiscardCardAction>();
+
+      coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 5, false, 0, dca, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      coroutine = this.GameController.DealDamageToSelf(this.HeroTurnTakerController, (Card c) => c == this.CharacterCard, 2, DamageType.Psychic, storedResults: selfDamageResults, isOptional: true, cardSource: this.GetCardSource());
+      
+      ITrigger tempIncrease = this.AddToTemporaryTriggerList(this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => dca.Where((DiscardCardAction dca) => dca.IsSuccessful && dca.CardToDiscard.DoKeywordsContain("hindsight")).Count() * 2 + dca.Where((DiscardCardAction dca) => dca.IsSuccessful && !dca.CardToDiscard.DoKeywordsContain("hindsight")).Count()));
+
+      // Deal <a> target <b> damage.
+      coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), 2, DamageType.Melee, 1, false, 1, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      DealDamageAction dda = selfDamageResults.FirstOrDefault();
-      if (dda != null && dda.DidDealDamage)
-      {
-        coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 5, DamageType.Projectile, 1, false, 1, cardSource: this.GetCardSource());
-        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-      }
-
+      this.RemoveTemporaryTrigger(tempIncrease);
     }
   }
 }

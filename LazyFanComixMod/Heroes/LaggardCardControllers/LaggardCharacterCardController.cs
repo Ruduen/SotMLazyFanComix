@@ -29,8 +29,6 @@ namespace LazyFanComix.Laggard
                 this.GetPowerNumeral(2, 1)
             };
 
-
-      // Trigger to increase damage dealt to self by 2 per elemental.
       ITrigger tempIncrease = this.AddToTemporaryTriggerList(this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, (DealDamageAction dda) => this.HindsightDamage(powerNumerals[2])));
 
       // Deal <a> target <b> damage.

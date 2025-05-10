@@ -22,7 +22,7 @@ namespace LazyFanComix.Laggard
       DealDamageAction dda = damageResults.FirstOrDefault();
       if (dda != null && dda.DidDealDamage && dda.Target != null && !dda.Target.IsCharacter && !this.GameController.IsCardIndestructible(dda.Target) && dda.Target.IsInPlayAndHasGameText)
       {
-        coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, dda.Target, dda.Target.NativeDeck, cardSource: this.GetCardSource());
+        coroutine = this.GameController.MoveCard(this.HeroTurnTakerController, dda.Target, dda.Target.NativeDeck, showMessage: true, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
 
