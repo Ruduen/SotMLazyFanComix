@@ -6,18 +6,18 @@ using System.Collections;
 
 namespace LazyFanComix.Laggard
 {
-  public class PostseenCardController : LaggardSharedHindsightCardController
+  public class HindseenCardController : LaggardSharedHindsightCardController
   {
     protected override LinqCardCriteria NextToCriteria
     { get { return new LinqCardCriteria((Card c) => !c.IsHero && c.IsTarget, "non-Hero target"); } }
 
-    public PostseenCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public HindseenCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
     }
 
     protected override void AddUniqueTriggers()
     {
-      this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card == this.GetCardThisCardIsNextTo() && dda.Target.IsHeroCharacterCard, (DealDamageAction dda) => HeroPowerResponse(dda.Target), TriggerType.UsePower, TriggerTiming.After);
+      this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda?.DamageSource?.Card != null && dda.DamageSource.Card == this.GetCardThisCardIsNextTo() && dda.Target.IsHeroCharacterCard && dda.DidDealDamage, (DealDamageAction dda) => HeroPowerResponse(dda.Target), TriggerType.UsePower, TriggerTiming.After);
     }
 
     private IEnumerator HeroPowerResponse(Card target)

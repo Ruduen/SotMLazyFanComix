@@ -59,20 +59,19 @@
       "flavorReference": "Laggard, Lazy Crossover #?"
     },
     {
-      "identifier": "EscapeRoute",
-      "count": 3,
-      "title": "Escape Route",
-      "keywords": [ "ongoing", "hindsight" ],
+      "identifier": "Postdiction",
+      "count": 2,
+      "title": "Postdiction",
+      "keywords": [ "ongoing", "limited" ],
       "body": [
-        "Play this card next to a Hero.",
-        "Reduce damage dealt to that Hero by 2.",
-        "At the start of your turn, that Hero draws 2 cards. Then, destroy this card."
+        "After you play a Hindsight card next to a Hero, that Hero draws 1 card.",
+        "After you play a Hindsight card next to a non-Hero target, Laggard deals that target 2 projectile damage."
       ],
       "icons": [ "ReduceDamageTaken", "StartOfTurnAction", "DrawCardNow", "DestroySelf" ],
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I don't think the cliffside route's ever had this many people on it, but it's a little late for second thoughts!"
+          "text": "Look, I'm sure there's something {br}valuable off that cliff, and pretty {br}sure we'd survive the fall!"
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
@@ -81,7 +80,7 @@
       "identifier": "ForegoneConclusion",
       "count": 2,
       "title": "Foregone Conclusion",
-      "keywords": [ "ongoing, limited" ],
+      "keywords": [ "ongoing", "limited" ],
       "body": [
         "After you use a power, you may draw a card."
       ],
@@ -99,7 +98,7 @@
     },
     {
       "identifier": "LateToTheParty",
-      "count": 4,
+      "count": 3,
       "title": "Late to the Party",
       "keywords": [ "one-shot" ],
       "body": [
@@ -118,9 +117,9 @@
       "flavorReference": "???, Lazy Crossover #?"
     },
     {
-      "identifier": "Postseen",
-      "count": 3,
-      "title": "Postseen",
+      "identifier": "Hindseen",
+      "count": 4,
+      "title": "Hindseen",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
         "Play this card next to a non-Hero target.",
@@ -138,7 +137,7 @@
     },
     {
       "identifier": "SeekVisions",
-      "count": 3,
+      "count": 4,
       "title": "Spiritual Vision",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
@@ -161,20 +160,20 @@
       "keywords": [ "one-shot" ],
       "body": [
         "Draw 2 cards.",
-        "You may play a Hindsight card from your trash."
+        "Play a Hindsight card from your trash."
       ],
       "icons": [ "DrawCardsNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "???",
-          "text": "When I started this, I didn't realize how much heroics involved jumping off of cliffs."
+          "text": "When I started this, I didn't realize {br}how much heroics involved jumping off of cliffs."
         }
       ],
       "flavorReference": "???, Lazy Crossover #?"
     },
     {
       "identifier": "AtLeastWereWarned",
-      "count": 3,
+      "count": 4,
       "title": "At Least we're Warned",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
@@ -194,7 +193,7 @@
       "identifier": "GlimpseOfTheUnknown",
       "count": 2,
       "title": "Glimpse of the Unknown",
-      "keywords": [ "ongoing, limited" ],
+      "keywords": [ "ongoing", "limited" ],
       "body": [
         "When this card is destroyed, you may use a power."
       ],
@@ -212,7 +211,7 @@
     },
     {
       "identifier": "DirectMethod",
-      "count": 4,
+      "count": 3,
       "title": "Direct Method",
       "keywords": [ "one-shot" ],
       "body": [
@@ -249,9 +248,9 @@
       "identifier": "FashionablyLate",
       "count": 2,
       "title": "Fashionably Late",
-      "keywords": [ "ongoing, limited" ],
+      "keywords": [ "ongoing", "limited" ],
       "body": [
-        "At the end of your turn, you may draw 1 card or use 1 power."
+        "At the end of your turn, {Laggard} may deal 1 target 2 projectile damage."
       ],
       "powers": [
         "{Laggard} deals 1 target 3 projectile damage."
@@ -269,13 +268,13 @@
       "identifier": "ChronicleOfUnknownScenes",
       "count": 2,
       "title": "Chronicle of Unknown Scenes",
-      "keywords": [ "equipment, limited" ],
+      "keywords": [ "equipment", "limited" ],
       "body": [
-        "Reduce damage dealt to each hero target by 1 for each Hindsight card next to that target.",
-        "Increase damage dealt to each non-hero target by 1 for each Hindsight card next to that target."
+        "Reduce damage dealt to each hero target by 1 if there is a Hindsight card next to that target.",
+        "Increase damage dealt to each non-hero target by 1 if there is a Hindsight card next to that target."
       ],
       "powers": [
-        "You may draw 1 card or play 1 hindsight card."
+        "You may play 1 hindsight card."
       ],
       "icons": [ "DrawCardNow", "HasPower", "Manipulate" ],
       "flavorQuotes": [
@@ -288,7 +287,7 @@
     },
     {
       "identifier": "LostAndFound",
-      "count": 3,
+      "count": 4,
       "title": "Lost and Found",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
@@ -306,7 +305,7 @@
     },
     {
       "identifier": "StallTactics",
-      "count": 3,
+      "count": 2,
       "title": "Stall Tactics",
       "keywords": [ "ongoing" ],
       "body": [

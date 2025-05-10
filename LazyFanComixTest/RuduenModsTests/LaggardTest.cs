@@ -83,21 +83,25 @@ namespace LazyFanComixTest
     }
 
     [Test()]
-    public void TestCard2EscapeRoute()
+    public void TestCard2Postdiction()
     {
       SetupGameController("BaronBlade", "TheWraith", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
       StartGame();
 
-      PlayCard("EscapeRoute");
-      DealDamage(baron, wraith, 5, DamageType.Toxic);
-      QuickHPStorage(wraith);
+      DestroyNonCharacterVillainCards();
+
+      PlayCard("Postdiction");
+      QuickHPStorage(baron);
       QuickHandStorage(wraith);
-      GoToStartOfTurn(wraith);
-      QuickHandCheckZero();
-      GoToStartOfTurn(Laggard);
-      QuickHandCheck(2);
-      QuickHPCheck(3);
+
+      DecisionSelectCard = wraith.CharacterCard;
+      PlayCard("AtLeastWereWarned");
+      QuickHandCheck(1);
+
+      DecisionSelectCard = baron.CharacterCard;
+      PlayCard("Hindseen");
+      QuickHPCheck(-2);
     }
 
 
@@ -132,7 +136,7 @@ namespace LazyFanComixTest
       StartGame();
 
       DiscardAllCards(Laggard);
-      Card[] hindsights = { PutOnDeck("EscapeRoute"), PutOnDeck("Postseen"), PutOnDeck("SeekVisions") };
+      Card[] hindsights = { PutOnDeck("LostAndFound"), PutOnDeck("Hindseen"), PutOnDeck("SeekVisions") };
       PutOnDeck("Again");
       QuickHandStorage(Laggard);
       PlayCard("LateToTheParty");
@@ -142,7 +146,7 @@ namespace LazyFanComixTest
     }
 
     [Test()]
-    public void TestCard5Postseen()
+    public void TestCard5Hindseen()
     {
       SetupGameController("BaronBlade", "Ra", "Legacy", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
@@ -151,7 +155,7 @@ namespace LazyFanComixTest
       Card mdp = GetCardInPlay("MobileDefensePlatform");
       DecisionSelectCard = mdp;
       DecisionSelectTarget = mdp;
-      Card card = PlayCard("Postseen");
+      Card card = PlayCard("Hindseen");
       QuickHPStorage(mdp);
       DealDamage(mdp, Laggard, 1, DamageType.Melee);
       QuickHPCheck(-2);
@@ -323,17 +327,15 @@ namespace LazyFanComixTest
 
       DecisionSelectFunction = 0;
       QuickHPStorage(baron);
-      GoToEndOfTurn(Laggard);
+      UsePower(card);
       QuickHPCheck(-3);
 
-      PlayCard("LivingForceField");
       GoToEndOfTurn(Laggard);
-      QuickHPCheck(-3 + 1);
+      QuickHPCheck(-2);
 
-      DecisionSelectFunction = 1;
-      QuickHandStorage(Laggard);
-      GoToEndOfTurn(Laggard);
-      QuickHandCheck(1);
+      PlayCard("LivingForceField");
+      UsePower(card);
+      QuickHPCheck(-3 + 1);
 
     }
 
@@ -348,15 +350,10 @@ namespace LazyFanComixTest
       Card card = PlayCard("ChronicleOfUnknownScenes");
 
       DecisionSelectFunction = 1;
-      Card hindsight = PutInHand("Postseen"); // Next to Baron
-      QuickHandStorage(Laggard);
-      UsePower(card);
-      QuickHandCheck(1);
 
       DiscardAllCards(Laggard);
       PutInHand("FashionablyLate");
-      PutInHand(hindsight); // Next to Baron
-      DecisionSelectFunction = 0;
+      Card hindsight = PutInHand("Hindseen"); // Next to Baron
       UsePower(card);
       AssertIsInPlay(hindsight);
 
@@ -370,7 +367,7 @@ namespace LazyFanComixTest
       DealDamage(wraith, wraith, 3, DamageType.Melee);
       DealDamage(Laggard, Laggard, 3, DamageType.Melee);
 
-      QuickHPCheck(-3 - 1, -3 + 2, -3);
+      QuickHPCheck(-3 - 1, -3 + 1, -3);
     }
 
 
