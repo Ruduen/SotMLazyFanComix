@@ -33,7 +33,7 @@ namespace LazyFanComix.Laggard
       IEnumerator coroutine;
       List<GainHPAction> gha = new List<GainHPAction>();
 
-      YesNoAmountDecision yesNo = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.GainHP, new int?(4), false, false, null, null, this.GetCardSource());
+      YesNoAmountDecision yesNo = new YesNoAmountDecision(this.GameController, this.DecisionMaker, SelectionType.GainHP, 3, false, false, null, null, this.GetCardSource());
       coroutine = this.GameController.MakeDecisionAction(yesNo, true);
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace LazyFanComix.Laggard
 {
-  public class SeekVisionsCardController : LaggardSharedHindsightCardController
+  public class SpiritualVisionCardController : LaggardSharedHindsightCardController
   {
     protected override LinqCardCriteria NextToCriteria
     { get { return new LinqCardCriteria((Card c) => c.IsCharacter && c != this.CharacterCard, "another character"); } }
 
-    public SeekVisionsCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public SpiritualVisionCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
     }
 

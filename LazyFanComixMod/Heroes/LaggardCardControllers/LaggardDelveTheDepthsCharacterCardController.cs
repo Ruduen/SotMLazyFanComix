@@ -7,35 +7,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-// TODO: TEST!
 
 namespace LazyFanComix.Laggard
 {
-  public class LaggardCharacterCardController : HeroCharacterCardController
+  public class LaggardDelveTheDepthsCharacterCardController : HeroCharacterCardController
   {
     public string str;
 
-    public LaggardCharacterCardController(Card card, TurnTakerController turnTakerController)
+    public LaggardDelveTheDepthsCharacterCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
+      this.SpecialStringMaker.ShowNumberOfCardsAtLocation(base.TurnTaker.Deck, new LinqCardCriteria((Card c) => c.DoKeywordsContain("hindsight"), "hindsight"));
     }
 
     public override IEnumerator UsePower(int index = 0)
     {
-      List<int> powerNumerals = new List<int>
-            {
-                this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 1),
-                this.GetPowerNumeral(2, 2)
-            };
-
-      ITrigger tempIncrease = this.AddToTemporaryTriggerList(this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this && this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("hindsight")).Any(), (DealDamageAction dda) => powerNumerals[2]));
-
-      // Deal <a> target <b> damage.
-      IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[0], true, cardSource: this.GetCardSource());
-      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-      this.RemoveTemporaryTrigger(tempIncrease);
+      return this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.HeroTurnTakerController, this.TurnTaker.Deck, false, false, true, new LinqCardCriteria((Card c) => c.DoKeywordsContain("hindsight"), "hindsight"), 1);
     }
     public override IEnumerator UseIncapacitatedAbility(int index)
     {

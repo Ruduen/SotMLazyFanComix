@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>../AssetsRelease/Atlas/CassieAtlas0.png</filename>
+        <filename>../AssetsRelease/Atlas/LaggardAtlas0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrQualityLevel</key>
@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../AssetsRelease/Atlas/CassieAtlas0.json</filename>
+                <filename>../AssetsRelease/Atlas/LaggardAtlas0.json</filename>
             </struct>
         </map>
         <key>multiPackMode</key>
@@ -173,7 +173,20 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Originals/Cassie/CassieCharacter.png</key>
+            <key type="filename">Originals/Laggard/Again.png</key>
+            <key type="filename">Originals/Laggard/AtLeastWereWarned.png</key>
+            <key type="filename">Originals/Laggard/ChronicleOfUnknownScenes.png</key>
+            <key type="filename">Originals/Laggard/DirectMethod.png</key>
+            <key type="filename">Originals/Laggard/FashionablyLate.png</key>
+            <key type="filename">Originals/Laggard/ForegoneConclusion.png</key>
+            <key type="filename">Originals/Laggard/GlimpseOfTheUnknown.png</key>
+            <key type="filename">Originals/Laggard/LateToTheParty.png</key>
+            <key type="filename">Originals/Laggard/RecursiveAmbush.png</key>
+            <key type="filename">Originals/Laggard/RelayPriorities.png</key>
+            <key type="filename">Originals/Laggard/Retrophet.png</key>
+            <key type="filename">Originals/Laggard/SlowChaseSequence.png</key>
+            <key type="filename">Originals/Laggard/SpiritualVision.png</key>
+            <key type="filename">Originals/Laggard/StallTactics.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -182,24 +195,13 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>256,369,512,738</rect>
+                <rect>67,50,135,100</rect>
                 <key>scale9Paddings</key>
-                <rect>256,369,512,738</rect>
+                <rect>67,50,135,100</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Originals/Cassie/CondensedOrb.jpg</key>
-            <key type="filename">Originals/Cassie/Droplet.jpg</key>
-            <key type="filename">Originals/Cassie/MeetingTheOcean.jpg</key>
-            <key type="filename">Originals/Cassie/PerpetualFlow.jpg</key>
-            <key type="filename">Originals/Cassie/RisingWaters.jpg</key>
-            <key type="filename">Originals/Cassie/RiverWornStone.jpg</key>
-            <key type="filename">Originals/Cassie/Riverbank.jpg</key>
-            <key type="filename">Originals/Cassie/RushingWaters.jpg</key>
-            <key type="filename">Originals/Cassie/StormSwell.jpg</key>
-            <key type="filename">Originals/Cassie/StreamShot.jpg</key>
-            <key type="filename">Originals/Cassie/WaterSurge.jpg</key>
-            <key type="filename">Originals/Cassie/Waterlog.jpg</key>
+            <key type="filename">Originals/Laggard/LaggardCharacter.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -208,9 +210,24 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>150,116,300,232</rect>
+                <rect>256,256,512,512</rect>
                 <key>scale9Paddings</key>
-                <rect>150,116,300,232</rect>
+                <rect>256,256,512,512</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Originals/Laggard/LostAndFound.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>67,50,134,100</rect>
+                <key>scale9Paddings</key>
+                <rect>67,50,134,100</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -221,7 +238,7 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>Originals/Cassie</filename>
+                    <filename>Originals/Laggard</filename>
                 </array>
             </struct>
         </map>

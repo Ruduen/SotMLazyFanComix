@@ -15,7 +15,7 @@
       "foilBackgroundColor": "CCCCCC",
       "character": true,
       "powers": [
-        "{Laggard} deals 1 target 1 irreducible damage. Increase this damage by 1 for each Hindsight card in play."
+        "{Laggard} deals 1 target 1 irreducible damage. Increase this damage by 2 if there is a Hindsight card in play."
       ],
       "icons": [
         "HasPower",
@@ -36,14 +36,14 @@
         "PlayCardNow"
       ],
       "openingLines": {
-        "default": "I'm here now - let's get this done!"
+        "default": "Oh, good, I'm still on time for this."
       },
       "complexity": 2
     },
     {
-      "identifier": "LateBreakingNews",
+      "identifier": "RelayPriorities",
       "count": 2,
-      "title": "Late Breaking News",
+      "title": "Relay Priorities",
       "keywords": [ "one-shot" ],
       "body": [
         "Play the top card of each deck in turn order.",
@@ -53,18 +53,18 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "It's too late to stop it, {br}but it's not too late to start fixing things."
+          "text": "I just had a vision of {br}the museum going up in flames, {br}and I'm halfway across the country. {br}Can someone take care of that?"
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
     },
     {
-      "identifier": "Postdiction",
+      "identifier": "Retrophet",
       "count": 2,
-      "title": "Postdiction",
+      "title": "Retrophet",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "After you play a Hindsight card next to a Hero, that Hero draws 1 card.",
+        "After you play a Hindsight card next to a Hero, that Hero's player draws 1 card.",
         "After you play a Hindsight card next to a non-Hero target, Laggard deals that target 2 projectile damage."
       ],
       "icons": [ "ReduceDamageTaken", "StartOfTurnAction", "DrawCardNow", "DestroySelf" ],
@@ -91,7 +91,7 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "If we hurry, we can... Oh. They're already getting away."
+          "text": "If we hurry, I catch one {br}and slow them down before... Oh. {br}They're already getting away."
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
@@ -102,8 +102,7 @@
       "title": "Late to the Party",
       "keywords": [ "one-shot" ],
       "body": [
-        "Draw 4 cards.",
-        "Play up to 3 Hindsight cards.",
+        "You may either draw 5 cards or play up to 3 Hindsight cards.",
         "Immediately end your turn. "
       ],
       "icons": [ "DrawCardsNow", "PlayCardNow" ],
@@ -117,9 +116,9 @@
       "flavorReference": "???, Lazy Crossover #?"
     },
     {
-      "identifier": "Hindseen",
+      "identifier": "RecursiveAmbush",
       "count": 4,
-      "title": "Hindseen",
+      "title": "Recursive Ambush",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
         "Play this card next to a non-Hero target.",
@@ -136,7 +135,7 @@
       "flavorReference": "Laggard, Lazy Crossover #?"
     },
     {
-      "identifier": "SeekVisions",
+      "identifier": "SpiritualVision",
       "count": 4,
       "title": "Spiritual Vision",
       "keywords": [ "ongoing", "hindsight" ],
@@ -184,7 +183,7 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "No, that one's the one where the guards with flamethowers went... Oh, right. You should be fine."
+          "text": "No, that one's the one where {br}the guards with flamethowers went... Oh, right. {br}You should be fine."
         }
       ],
       "flavorReference": "???, Lazy Crossover #?"
@@ -204,7 +203,7 @@
       "flavorQuotes": [
         {
           "identifier": "???",
-          "text": "I'm just glad he confirmed it was a survivable before the drinks really hit."
+          "text": "I'm just glad he confirmed it {br}was a habitable world before the drinks really hit."
         }
       ],
       "flavorReference": "???, Lazy Crossover #?"
@@ -250,16 +249,16 @@
       "title": "Fashionably Late",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "At the end of your turn, {Laggard} may deal 1 target 2 projectile damage."
+        "At the start of your turn, {Laggard} may deal 1 target 2 projectile damage."
       ],
       "powers": [
-        "{Laggard} deals 1 target 3 projectile damage."
+        "{Laggard} deals 1 target 1 melee damage. Reduce the next damage dealt by that target by 2."
       ],
-      "icons": [ "EndOfTurnAction", "HasPower", "DealDamageProjectile" ],
+      "icons": [ "StartOfTurnAction", "DealDamageProjectile","DecreaseDamageDealt" ],
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "Look, I was still around to help {br}wrap things up. That counts."
+          "text": "Look, I was around to help {br}slow down the last ones. That counts."
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
@@ -276,7 +275,7 @@
       "powers": [
         "You may play 1 hindsight card."
       ],
-      "icons": [ "DrawCardNow", "HasPower", "Manipulate" ],
+      "icons": [ "IncreaseDamageDealt","DecreaseDamageDealt","HasPower","PlayCardNow"],
       "flavorQuotes": [
         {
           "identifier": "Laggard",
@@ -291,14 +290,14 @@
       "title": "Lost and Found",
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
-        "Play this card next to a target.",
+        "Play this card next to a non-Hero target.",
         "At the start of your turn, {Laggard} deals that target 6 projectile damage. Then, destroy this card."
       ],
       "icons": [ "UsePowerNow", "StartOfTurnAction", "DealDamageProjectile", "DestroySelf" ],
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "They're down this alley! Wait, scratch that, that alley!"
+          "text": "They're down this alley! {br}Wait, scratch that, that alley!"
         }
       ],
       "flavorReference": "???, Lazy Crossover #?"
@@ -322,25 +321,25 @@
       "flavorReference": "???, Lazy Crossover #?"
     }
   ],
-  "promoCardsUnderDev": [
+  "promoCards": [
     {
       "identifier": "LaggardCharacter",
-      "promoIdentifier": "LaggardUnderDevelopmentCharacter",
+      "promoIdentifier": "LaggardDelveTheDepthsCharacter",
       "count": 1,
-      "title": "Laggard - Under Development",
+      "title": "Laggard - Delve the Depths (Under Development!)",
       "body": "Under Development",
       "backgroundColor": "CCCCCC",
       "foilBackgroundColor": "CCCCCC",
       "character": true,
       "powers": [
-        "???"
+        "Reveal cards from the top of your deck until you reveal a Hindsight card. Put it into your hand. Shuffle the rest of the revealed cards into your deck."
       ],
       "icons": [
         "HasPower",
         "DrawCardNow",
         "ReduceDamageTaken"
       ],
-      "hitpoints": 21,
+      "hitpoints": 25,
       "nemesisIdentifiers": [
         "Laggard"
       ],
@@ -355,7 +354,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "???"
+        "default": "Good, I still am... Will be... Was on time for this. I think."
       },
       "complexity": 2
     }

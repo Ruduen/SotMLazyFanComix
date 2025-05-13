@@ -40,6 +40,29 @@ namespace LazyFanComixTest
       AssertNumberOfCardsInHand(Laggard, 4);
     }
 
+    #region Flips Correctly
+    [Test()]
+    public void FlipsOnIncap()
+    {
+
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Laggard", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      AssertIsInPlay(Laggard.CharacterCard);
+      DestroyCard(Laggard.CharacterCard);
+      AssertIsInPlay(Laggard.CharacterCard);
+      AssertFlipped(Laggard.CharacterCard);
+
+      AssertOutOfGame(GetCard("LostAndFound"));
+
+    }
+    #endregion
+
     #region Innate Powers
     [Test()]
     public void TestInnatePowerBase()
@@ -61,13 +84,37 @@ namespace LazyFanComixTest
 
       PutIntoPlay("LostAndFound");
       UsePower(Laggard);
-      QuickHPCheck(-2);
+      QuickHPCheck(-3);
+
+      PutIntoPlay("Retrophet");
+      UsePower(Laggard);
+      QuickHPCheck(-3);
+    }
+
+    [Test()]
+    public void TestInnatePowerDelve()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.Laggard/LazyFanComix.LaggardDelveTheDepthsCharacter", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+      DiscardAllCards(Laggard);
+      QuickHandStorage(Laggard);
+      UsePower(Laggard);
+      UsePower(Laggard);
+      UsePower(Laggard);
+      QuickHandCheck(3);
+      foreach (Card c in Laggard.HeroTurnTaker.Hand.Cards)
+      {
+        AssertCardHasKeyword(c, "hindsight", false);
+      }
     }
     #endregion Innate Powers
 
     #region Cards 1-5
     [Test()]
-    public void TestCard1LateBreakingNews()
+    public void TestCard1RelayPriorities()
     {
       SetupGameController("BaronBlade", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
@@ -77,13 +124,13 @@ namespace LazyFanComixTest
       DecisionSelectCard = mdp;
       Card[] inPlay = { PutOnDeck("LivingForceField"), PutOnDeck("LostAndFound"), PutOnDeck("CelestialExecutioner") };
 
-      PlayCard("LateBreakingNews");
+      PlayCard("RelayPriorities");
       AssertIsInPlay(inPlay);
       AssertNotInPlay(mdp);
     }
 
     [Test()]
-    public void TestCard2Postdiction()
+    public void TestCard2Retrophet()
     {
       SetupGameController("BaronBlade", "TheWraith", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
@@ -91,7 +138,7 @@ namespace LazyFanComixTest
 
       DestroyNonCharacterVillainCards();
 
-      PlayCard("Postdiction");
+      PlayCard("Retrophet");
       QuickHPStorage(baron);
       QuickHandStorage(wraith);
 
@@ -100,7 +147,7 @@ namespace LazyFanComixTest
       QuickHandCheck(1);
 
       DecisionSelectCard = baron.CharacterCard;
-      PlayCard("Hindseen");
+      PlayCard("RecursiveAmbush");
       QuickHPCheck(-2);
     }
 
@@ -136,17 +183,27 @@ namespace LazyFanComixTest
       StartGame();
 
       DiscardAllCards(Laggard);
-      Card[] hindsights = { PutOnDeck("LostAndFound"), PutOnDeck("Hindseen"), PutOnDeck("SeekVisions") };
+
       PutOnDeck("Again");
+      Card[] hindsights = { PutInHand("LostAndFound"), PutInHand("RecursiveAmbush"), PutInHand("SpiritualVision") };
+      QuickHandStorage(Laggard);
+
+      DecisionSelectFunction = 1;
+      PlayCard("LateToTheParty");
+      QuickHandCheck(5); // Draw 5
+
+      DecisionSelectFunction = 0;
+      DiscardAllCards(Laggard);
+      PutInHand(hindsights);
       QuickHandStorage(Laggard);
       PlayCard("LateToTheParty");
       AssertIsInPlay(hindsights);
-      QuickHandCheck(1); // Draw 4, play 3
+      QuickHandCheck(-3); // Played 3. 
 
     }
 
     [Test()]
-    public void TestCard5Hindseen()
+    public void TestCard5RecursiveAmbush()
     {
       SetupGameController("BaronBlade", "Ra", "Legacy", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
@@ -155,10 +212,11 @@ namespace LazyFanComixTest
       Card mdp = GetCardInPlay("MobileDefensePlatform");
       DecisionSelectCard = mdp;
       DecisionSelectTarget = mdp;
-      Card card = PlayCard("Hindseen");
+      Card card = PlayCard("RecursiveAmbush");
       QuickHPStorage(mdp);
       DealDamage(mdp, Laggard, 1, DamageType.Melee);
-      QuickHPCheck(-2);
+      // Power with hindsight in play
+      QuickHPCheck(-3);
 
       GoToNextTurn();
       DealDamage(mdp, ra, 1, DamageType.Melee);
@@ -173,7 +231,7 @@ namespace LazyFanComixTest
 
     #region Cards 6-10
     [Test()]
-    public void TestCard6SeekVisions()
+    public void TestCard6SpiritualVision()
     {
       SetupGameController("BaronBlade", "TheWraith", "Legacy", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
@@ -181,7 +239,7 @@ namespace LazyFanComixTest
       Card card = PutInTrash("UtilityBelt");
       DecisionSelectCard = wraith.CharacterCard;
       DecisionYesNo = true;
-      PlayCard("SeekVisions");
+      PlayCard("SpiritualVision");
       GoToStartOfTurn(Laggard);
       AssertIsInPlay(card);
 
@@ -189,7 +247,7 @@ namespace LazyFanComixTest
       DestroyCard(mdp);
       DecisionSelectCard = baron.CharacterCard;
       DecisionYesNo = false;
-      PlayCard("SeekVisions");
+      PlayCard("SpiritualVision");
       GoToStartOfTurn(Laggard);
       AssertAtLocation(mdp, baron.TurnTaker.Deck);
     }
@@ -201,14 +259,17 @@ namespace LazyFanComixTest
       SetupGameController("BaronBlade", "TheWraith", "Legacy", "LazyFanComix.Laggard", "TheCelestialTribunal");
 
       StartGame();
+      DiscardAllCards(Laggard);
 
-      Card playFromTrash = PutInTrash("SeekVisions");
+      Card playFromTrash = PutInTrash("SpiritualVision");
       Card play = PutInTrash("Again");
 
       QuickHandStorage(Laggard);
       PlayCard(play);
       QuickHandCheck(2);
       AssertIsInPlay(playFromTrash);
+      AssertInTrash(play);
+      AssertNumberOfCardsInTrash(Laggard, 1);
     }
 
 
@@ -326,16 +387,18 @@ namespace LazyFanComixTest
       DecisionSelectPower = card;
 
       DecisionSelectFunction = 0;
-      QuickHPStorage(baron);
+      QuickHPStorage(baron, Laggard);
       UsePower(card);
-      QuickHPCheck(-3);
+      DealDamage(baron, Laggard, 4, DamageType.Melee);
+      QuickHPCheck(-1, -4 + 2);
 
-      GoToEndOfTurn(Laggard);
+      QuickHPStorage(baron);
+      GoToStartOfTurn(Laggard);
       QuickHPCheck(-2);
 
       PlayCard("LivingForceField");
       UsePower(card);
-      QuickHPCheck(-3 + 1);
+      QuickHPCheck(-1 + 1);
 
     }
 
@@ -353,13 +416,13 @@ namespace LazyFanComixTest
 
       DiscardAllCards(Laggard);
       PutInHand("FashionablyLate");
-      Card hindsight = PutInHand("Hindseen"); // Next to Baron
+      Card hindsight = PutInHand("RecursiveAmbush"); // Next to Baron
       UsePower(card);
       AssertIsInPlay(hindsight);
 
       DecisionSelectCard = wraith.CharacterCard;
       PlayCard("LostAndFound"); // Next to Wraith
-      PlayCard("SeekVisions"); // Next to Wraith
+      PlayCard("SpiritualVision"); // Next to Wraith
 
       QuickHPStorage(baron, wraith, Laggard);
 

@@ -9,7 +9,7 @@ namespace LazyFanComix.Laggard
   public class LostAndFoundCardController : LaggardSharedHindsightCardController
   {
     protected override LinqCardCriteria NextToCriteria
-    { get { return new LinqCardCriteria((Card c) => c.IsTarget, "target"); } }
+    { get { return new LinqCardCriteria((Card c) => !c.IsHero && c.IsTarget, "non-Hero target"); } }
 
     public LostAndFoundCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {

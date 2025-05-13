@@ -7,10 +7,10 @@ using System.Linq;
 
 namespace LazyFanComix.Laggard
 {
-  public class PostdictionCardController : CardController
+  public class RetrophetCardController : CardController
   {
 
-    public PostdictionCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public RetrophetCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
     }
 

@@ -107,6 +107,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestsToAddress\MythikalGreyhat.txt" />
     <Content Include="TestsToAddress\AZThermalFlux.txt" />
     <Content Include="TestsToAddress\GuiseHighFiveAndShockingAnimationAndWhoKnows.txt" />
     <Content Include="TestsToAddress\GuiseAndSomethingAgain.txt" />

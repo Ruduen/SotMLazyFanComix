@@ -10,7 +10,7 @@ namespace LazyFanComix.Laggard
   public class AtLeastWereWarnedCardController : LaggardSharedHindsightCardController
   {
     protected override LinqCardCriteria NextToCriteria
-    { get { return new LinqCardCriteria((Card c) => c.IsCharacter, "Character"); } }
+    { get { return new LinqCardCriteria((Card c) => c.IsHeroCharacterCard && c != this.CharacterCard, "another Hero"); } }
 
     public AtLeastWereWarnedCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {

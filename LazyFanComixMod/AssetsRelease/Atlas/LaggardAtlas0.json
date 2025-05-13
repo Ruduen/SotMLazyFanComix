@@ -1,0 +1,140 @@
+{"frames": {
+
+"Again.png":
+{
+	"frame": {"x":453,"y":0,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"AtLeastWereWarned.png":
+{
+	"frame": {"x":725,"y":0,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"ChronicleOfUnknownScenes.png":
+{
+	"frame": {"x":997,"y":0,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"DirectMethod.png":
+{
+	"frame": {"x":1269,"y":0,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"FashionablyLate.png":
+{
+	"frame": {"x":1541,"y":0,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"ForegoneConclusion.png":
+{
+	"frame": {"x":0,"y":272,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"GlimpseOfTheUnknown.png":
+{
+	"frame": {"x":272,"y":272,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"LaggardCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":179,"h":250},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":250},
+	"sourceSize": {"w":179,"h":250}
+},
+"LateToTheParty.png":
+{
+	"frame": {"x":544,"y":272,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"LostAndFound.png":
+{
+	"frame": {"x":182,"y":0,"w":268,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":269},
+	"sourceSize": {"w":268,"h":269}
+},
+"RecursiveAmbush.png":
+{
+	"frame": {"x":816,"y":272,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"RelayPriorities.png":
+{
+	"frame": {"x":272,"y":544,"w":362,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":362,"h":269},
+	"sourceSize": {"w":362,"h":269}
+},
+"Retrophet.png":
+{
+	"frame": {"x":1088,"y":272,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"SlowChaseSequence.png":
+{
+	"frame": {"x":1360,"y":272,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"SpiritualVision.png":
+{
+	"frame": {"x":1632,"y":272,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+},
+"StallTactics.png":
+{
+	"frame": {"x":0,"y":544,"w":269,"h":269},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":269},
+	"sourceSize": {"w":269,"h":269}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "LaggardAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:31959c52b577784a76df91d225a75cda:45634d70a26b054f1a76b7334726e2d1:c351f35a2e6518d3e41b3ac39ac4a7d1$"
+}
+}

@@ -20,6 +20,9 @@ namespace LazyFanComix.Laggard
       coroutine = this.GameController.SelectCardFromLocationAndMoveIt(this.HeroTurnTakerController, this.HeroTurnTaker.Trash, new LinqCardCriteria((Card c) => c.DoKeywordsContain("hindsight"), "hindsight"), new MoveCardDestination(this.HeroTurnTaker.PlayArea).ToEnumerable(), cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
+      coroutine = this.GameController.ShuffleTrashIntoDeck(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
     }
   }
 }

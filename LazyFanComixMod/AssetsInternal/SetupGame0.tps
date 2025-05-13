@@ -2,9 +2,9 @@
 <data version="1.0">
     <struct type="Settings">
         <key>fileFormatVersion</key>
-        <int>5</int>
+        <int>6</int>
         <key>texturePackerVersion</key>
-        <string>6.0.2</string>
+        <string>7.6.3</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -127,8 +127,8 @@
                 <filename>../AssetsRelease/Atlas/SetupGame0.json</filename>
             </struct>
         </map>
-        <key>multiPack</key>
-        <false/>
+        <key>multiPackMode</key>
+        <enum type="SettingsBase::MultiPackMode">MultiPackOff</enum>
         <key>forceIdenticalLayout</key>
         <false/>
         <key>outputFormat</key>
@@ -177,6 +177,7 @@
             <key type="filename">Originals/SetupGame/ExpatrietteLiterallyAGunCharacter.png</key>
             <key type="filename">Originals/SetupGame/GreyhatCharacter.png</key>
             <key type="filename">Originals/SetupGame/InquirerCharacter.png</key>
+            <key type="filename">Originals/SetupGame/LaggardCharacter.png</key>
             <key type="filename">Originals/SetupGame/OrbitCharacter.png</key>
             <key type="filename">Originals/SetupGame/SpellforgeCharacter.png</key>
             <key type="filename">Originals/SetupGame/TrailblazerCharacter.png</key>
@@ -240,10 +241,16 @@
                 <false/>
             </struct>
         </map>
-        <key>fileList</key>
-        <array>
-            <filename>Originals/SetupGame</filename>
-        </array>
+        <key>fileLists</key>
+        <map type="SpriteSheetMap">
+            <key>default</key>
+            <struct type="SpriteSheet">
+                <key>files</key>
+                <array>
+                    <filename>Originals/SetupGame</filename>
+                </array>
+            </struct>
+        </map>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>

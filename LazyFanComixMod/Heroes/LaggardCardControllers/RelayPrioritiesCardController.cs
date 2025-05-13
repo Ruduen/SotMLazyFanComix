@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace LazyFanComix.Laggard
 {
-  public class LateBreakingNewsCardController : CardController
+  public class RelayPrioritiesCardController : CardController
   {
-    public LateBreakingNewsCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public RelayPrioritiesCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
     }
 

@@ -15,13 +15,13 @@
     "- Other things that don't fit well into a tidy list",
     "Ruduen is not an artist, so art will likely remain random-Unicode quality."
   ],
-  "version": "v0.5.7.0.2",
+  "version": "v0.5.7.0.4",
   "credits": [
     "New work by Ruduen. Available under CC BY 4.0.",
     "Original scripting Copyright 2020 Handelabra Games Inc. Available under MIT License.",
     "Breach Mage concept based on Aeon's End, Copyright 2016 Lone Oak Games. Used with (tentative) permission.",
     "Greyhat Card Art by TheStoreman",
-    "Laggard Card Art by YakGuardian. Cameos owned by DragonsDream, Bobbertoriley, Matthew Bishop, insomn, Talkalots, TeslaCoil, Stranded, Gaist, Pazuzumaki, Bart KF, Tonitrus, Zerami, and Angille."
+    "Laggard Card Art by YakGuardian. Cameos owned by DragonsDream, Bobbertoriley, Matthew Bishop, insomn, Talkalots, TeslaCoil, Stranded, Gaist, Pazuzumaki, Bart KF, Tonitrus, Zerami, and Angille. Thanks to everyone in the Sentinels homebrew community for the good times!"
   ],
   "color": "AAAAFF",
   "dll": "LazyFanComix.dll",
