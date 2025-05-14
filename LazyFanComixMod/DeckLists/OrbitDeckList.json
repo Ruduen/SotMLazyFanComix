@@ -183,7 +183,7 @@
       "flavorQuotes": [
         {
           "identifier": "Orbit",
-          "text": "I can only manipulate so many {br}things at once. But if something I'm manipulating {br}shatters... Well, is it still one thing?"
+          "text": "I can only manipulate so many {br}things at once. But if something I'm {br}manipulating shatters... Well, is it {br}still one thing?"
         }
       ],
       "flavorReference": "Orbit, ???"

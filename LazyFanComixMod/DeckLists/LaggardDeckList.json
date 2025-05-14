@@ -9,7 +9,7 @@
     {
       "identifier": "LaggardCharacter",
       "count": 1,
-      "title": "Laggard (Under Development!)",
+      "title": "Laggard",
       "body": "Right Place, Wrong Time",
       "backgroundColor": "CCCCCC",
       "foilBackgroundColor": "CCCCCC",
@@ -53,7 +53,7 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I just had a vision of {br}the museum going up in flames, {br}and I'm halfway across the country. {br}Can someone take care of that?"
+          "text": "The museum's going up in flames, {br}and I'm halfway across the country. {br}Can someone take care of that?"
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
@@ -91,7 +91,7 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "If we hurry, I catch one {br}and slow them down before... Oh. {br}They're already getting away."
+          "text": "If we hurry, I can catch one {br}and slow them down before... Oh. {br}They're already getting away."
         }
       ],
       "flavorReference": "Laggard, Lazy Crossover #?"
@@ -132,7 +132,7 @@
           "text": "I saw them setting up the ambush, {br}so we can ambush the ambush before {br}they ambush us!"
         }
       ],
-      "flavorReference": "Laggard, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     },
     {
       "identifier": "SpiritualVision",
@@ -147,10 +147,10 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "Look, I only get visions when I'm tipsy, {br}and apparently it'd set a bad example to keep {br}a booze stash at HQ."
+          "text": "Look, I only get visions when I'm tipsy, {br}and apparently it'd set a bad example to {br}keep a booze stash at HQ."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     },
     {
       "identifier": "Again",
@@ -165,10 +165,10 @@
       "flavorQuotes": [
         {
           "identifier": "???",
-          "text": "When I started this, I didn't realize {br}how much heroics involved jumping off of cliffs."
+          "text": "When I started this, I didn't {br}realize how much heroics involved {br}jumping off of cliffs."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #?"
     },
     {
       "identifier": "AtLeastWereWarned",
@@ -183,10 +183,10 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "No, that one's the one where {br}the guards with flamethowers went... Oh, right. {br}You should be fine."
+          "text": "No, that one's the one where {br}the guards with flamethowers went...  {br}Oh, right. You should be fine."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     },
     {
       "identifier": "GlimpseOfTheUnknown",
@@ -203,10 +203,10 @@
       "flavorQuotes": [
         {
           "identifier": "???",
-          "text": "I'm just glad he confirmed it {br}was a habitable world before the drinks really hit."
+          "text": "I'm just glad he confirmed {br}it was a habitable world before {br}the drinks really hit."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Vagabond, Lazy Crossover #1"
     },
     {
       "identifier": "DirectMethod",
@@ -224,7 +224,7 @@
           "text": "I've known you were causing trouble {br}for months. Why wouldn't I keep something {br}around for dealing with you?"
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     },
     {
       "identifier": "SlowChaseSequence",
@@ -238,10 +238,10 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "The others should be here by the time you're back to normal."
+          "text": "The others should be here {br}before you can move normally again."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #?"
     },
     {
       "identifier": "FashionablyLate",
@@ -261,7 +261,7 @@
           "text": "Look, I was around to help {br}slow down the last ones. That counts."
         }
       ],
-      "flavorReference": "Laggard, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     },
     {
       "identifier": "ChronicleOfUnknownScenes",
@@ -279,10 +279,10 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I try to archive the scenes I don't recognize. {br}They tend to come up later."
+          "text": "I try to archive the scenes I don't {br}recognize. They tend to come up later."
         }
       ],
-      "flavorReference": "Laggard, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     },
     {
       "identifier": "LostAndFound",
@@ -300,7 +300,7 @@
           "text": "They're down this alley! {br}Wait, scratch that, that alley!"
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     },
     {
       "identifier": "StallTactics",
@@ -315,10 +315,10 @@
       "flavorQuotes": [
         {
           "identifier": "Laggard",
-          "text": "I don't need to stop them. Just slow them for long enough that it won't matter."
+          "text": "I don't need to stop them. {br}Just slow them for long enough that {br}it won't matter."
         }
       ],
-      "flavorReference": "???, Lazy Crossover #?"
+      "flavorReference": "Laggard, Lazy Crossover #1"
     }
   ],
   "promoCards": [
@@ -326,8 +326,8 @@
       "identifier": "LaggardCharacter",
       "promoIdentifier": "LaggardDelveTheDepthsCharacter",
       "count": 1,
-      "title": "Laggard - Delve the Depths (Under Development!)",
-      "body": "Under Development",
+      "title": "Laggard",
+      "body": "Delve the Depths",
       "backgroundColor": "CCCCCC",
       "foilBackgroundColor": "CCCCCC",
       "character": true,

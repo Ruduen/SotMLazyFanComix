@@ -42,11 +42,11 @@
 },
 "LaggardCharacter.png":
 {
-	"frame": {"x":0,"y":259,"w":180,"h":256},
+	"frame": {"x":0,"y":259,"w":180,"h":250},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
-	"sourceSize": {"w":180,"h":256}
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":250},
+	"sourceSize": {"w":180,"h":250}
 },
 "OrbitCharacter.png":
 {
@@ -95,6 +95,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:3e1f220e5d0534abf42093fd96eaed15:1fbd929c8bcc4d4fd15568600f14ddb8:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6092eee7451790962fcdf3c571e27831:55140327d9565f60d076680a96d38919:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }
