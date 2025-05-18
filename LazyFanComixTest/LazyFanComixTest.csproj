@@ -65,11 +65,15 @@
     <Reference Include="Troschuetz.Random, Version=0.0.0.0, Culture=neutral, PublicKeyToken=2f204b7110a52060, processorArchitecture=MSIL">
       <HintPath>..\packages\Troschuetz.Random.4.3.1\lib\net472\Troschuetz.Random.dll</HintPath>
     </Reference>
+    <Reference Include="VainFacadePlaytest">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2835111137\VainFacadePlaytest.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RandomGameTest.cs" />
     <Compile Include="RuduenModsTests\CaseFilesPromosTest.cs" />
     <Compile Include="RuduenModsTests\MenageriePromosTest.cs" />
+    <Compile Include="RuduenModsTests\BaronessBasicTest.cs" />
     <Compile Include="RuduenModsTests\MythikalPromosTest.cs" />
     <Compile Include="RuduenModsTests\LaggardTest.cs" />
     <Compile Include="RuduenModsTests\SpookyGhostwriterPromosTest.cs" />

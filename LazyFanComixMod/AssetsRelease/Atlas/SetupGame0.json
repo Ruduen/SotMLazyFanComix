@@ -48,9 +48,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":250},
 	"sourceSize": {"w":180,"h":250}
 },
+"LaggardDelveTheDepthsCharacter.png":
+{
+	"frame": {"x":183,"y":259,"w":179,"h":250},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":250},
+	"sourceSize": {"w":179,"h":250}
+},
 "OrbitCharacter.png":
 {
-	"frame": {"x":183,"y":259,"w":180,"h":256},
+	"frame": {"x":365,"y":259,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -58,7 +66,7 @@
 },
 "SoulbinderCharacter.png":
 {
-	"frame": {"x":366,"y":259,"w":180,"h":256},
+	"frame": {"x":548,"y":259,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -66,7 +74,7 @@
 },
 "SpellforgeCharacter.png":
 {
-	"frame": {"x":549,"y":259,"w":180,"h":256},
+	"frame": {"x":731,"y":259,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -74,7 +82,7 @@
 },
 "TrailblazerCharacter.png":
 {
-	"frame": {"x":732,"y":259,"w":180,"h":256},
+	"frame": {"x":0,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -82,7 +90,7 @@
 },
 "VagabondCharacter.png":
 {
-	"frame": {"x":0,"y":518,"w":180,"h":256},
+	"frame": {"x":183,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -95,6 +103,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:6092eee7451790962fcdf3c571e27831:55140327d9565f60d076680a96d38919:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c99aa251fbf0a12b891069a7bec1d667:f9f20736f6517f7f628712c53725efb5:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

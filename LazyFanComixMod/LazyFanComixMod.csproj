@@ -368,6 +368,8 @@
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerPositionCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\PositionCardControllers\VantagePointCardController.cs" />
     <Compile Include="Heroes\TrailblazerCardControllers\TrailblazerCharacterCardController.cs" />
+    <Compile Include="Villains\PromoCardControllers\TheBaronessBasicTurnTakerController.cs" />
+    <Compile Include="Villains\PromoCardControllers\TheBaronessBasicCharacterCardController.cs" />
     <Compile Include="Villains\PromoCardControllers\MissInformationSuspectSecretaryTurnTakerController.cs" />
     <Compile Include="Villains\PromoCardControllers\MissInformationSuspectSecretaryCharacterCardController.cs" />
     <Compile Include="Villains\TeamVillains\TheEtherealExecutionerCardControllers\ExploitWeaknessCardController.cs" />

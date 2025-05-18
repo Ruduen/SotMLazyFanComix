@@ -58,7 +58,7 @@
 },
 "LaggardCharacter.png":
 {
-	"frame": {"x":272,"y":486,"w":180,"h":250},
+	"frame": {"x":0,"y":243,"w":180,"h":250},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":250},
@@ -66,15 +66,31 @@
 },
 "LaggardCharacterBack.png":
 {
-	"frame": {"x":455,"y":486,"w":180,"h":250},
+	"frame": {"x":183,"y":243,"w":180,"h":250},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":250},
 	"sourceSize": {"w":180,"h":250}
 },
+"LaggardDelveTheDepthsCharacter.png":
+{
+	"frame": {"x":366,"y":243,"w":179,"h":250},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":250},
+	"sourceSize": {"w":179,"h":250}
+},
+"LaggardDelveTheDepthsCharacterBack.png":
+{
+	"frame": {"x":548,"y":243,"w":179,"h":250},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":250},
+	"sourceSize": {"w":179,"h":250}
+},
 "LateToTheParty.png":
 {
-	"frame": {"x":0,"y":243,"w":269,"h":240},
+	"frame": {"x":730,"y":243,"w":269,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":240},
@@ -82,7 +98,7 @@
 },
 "LostAndFound.png":
 {
-	"frame": {"x":272,"y":243,"w":268,"h":240},
+	"frame": {"x":1002,"y":243,"w":268,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":240},
@@ -90,7 +106,7 @@
 },
 "RecursiveAmbush.png":
 {
-	"frame": {"x":543,"y":243,"w":269,"h":240},
+	"frame": {"x":1273,"y":243,"w":269,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":240},
@@ -98,7 +114,7 @@
 },
 "RelayPriorities.png":
 {
-	"frame": {"x":815,"y":243,"w":269,"h":240},
+	"frame": {"x":1545,"y":243,"w":269,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":240},
@@ -106,7 +122,7 @@
 },
 "Retrophet.png":
 {
-	"frame": {"x":1087,"y":243,"w":269,"h":240},
+	"frame": {"x":0,"y":496,"w":269,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":240},
@@ -114,7 +130,7 @@
 },
 "SlowChaseSequence.png":
 {
-	"frame": {"x":1359,"y":243,"w":269,"h":240},
+	"frame": {"x":272,"y":496,"w":269,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":240},
@@ -122,7 +138,7 @@
 },
 "SpiritualVision.png":
 {
-	"frame": {"x":1631,"y":243,"w":269,"h":240},
+	"frame": {"x":544,"y":496,"w":269,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":240},
@@ -130,7 +146,7 @@
 },
 "StallTactics.png":
 {
-	"frame": {"x":0,"y":486,"w":269,"h":240},
+	"frame": {"x":816,"y":496,"w":269,"h":240},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":269,"h":240},
@@ -143,6 +159,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d21b7a812325558ba6ff145cdbb70367:e461f95e508728f4b6e7277e3ea2924e:c351f35a2e6518d3e41b3ac39ac4a7d1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:652db18163ade1a96c0215bc320b569a:9f8a74ee26475a0cba30d3af7bb973c3:c351f35a2e6518d3e41b3ac39ac4a7d1$"
 }
 }

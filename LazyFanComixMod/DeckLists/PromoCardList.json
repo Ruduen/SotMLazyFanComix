@@ -1830,7 +1830,7 @@
         "villain"
       ],
       "icons": [
-        "StartofTurnAction",
+        "StartOfTurnAction",
         "Indestructible",
         "Manipulate",
         "HasPower"
@@ -2176,6 +2176,55 @@
         "default": "Looks like we have a firefight on our hands."
       },
       "complexity": 1
+    }
+  ],
+  "VainFacadePlaytest.TheBaroness": [
+    {
+      "identifier": "TheBaronessCharacter",
+      "promoIdentifier": "TheBaronessBasicCharacter",
+      "overrideTurnTakerController": "TheBaronessBasic",
+      "count": 1,
+      "title": "The Baroness",
+      "promoTitle": "Back to Basics",
+      "keywords": [
+        "villain"
+      ],
+      "icons": [
+        "StartOfTurnAction",
+        "Manipulate",
+        "PlayCardNow"
+      ],
+      "advancedIcons": [
+      ],
+      "body": [ "Simple Plots" ],
+      "hitpoints": 100,
+      "backgroundColor": "B8D8E7",
+      "foilBackgroundColor": "CCE5F0",
+      "character": true,
+      "nemesisIdentifiers": [
+        "VainFacadePlaytest.Glyph"
+      ],
+      "setup": [
+        "Put the card Vampirism into play."
+      ],
+      "gameplay": [
+        "Vampirism is indestructible.",
+        "At the start of the villain turn, reveal cards from the top of {TheBaroness's} deck until a scheme card is revealed. Put that scheme card into play and shuffle the rest of the cards into the deck. If no card is put into play this way, {TheBaroness} flips."
+      ],
+      "flippedBody": "Payoff",
+      "flippedHitpoints": 100,
+      "flippedGameplay": [
+        "Vampirism is indestructible.",
+        "At the end of the villain turn, {TheBaroness} deals the {H} hero targets with the lowest HP 1 infernal damage. Increase this damage by 1 for each scheme card in play. Then, if there are no scheme cards in play, {TheBaroness} flips."
+      ],
+      "flippedIcons": [
+        "EndOfTurnAction",
+        "DealDamageInfernal"
+      ],
+      "difficulty": 3,
+      "openingLines": {
+        "default": "A bunch of heroes? Let's see if you can handle everything I have to throw at you."
+      }
     }
   ],
   "Incomplete.SpookyGhostwriter.Tsukiko": [

@@ -67,6 +67,9 @@
         "After you play a Hindsight card next to a Hero, that Hero's player draws 1 card.",
         "After you play a Hindsight card next to a non-Hero target, Laggard deals that target 2 projectile damage."
       ],
+      "powers": [
+        "Discard the top 3 cards of your deck. You may play a Hindsight card discarded this way."
+      ],
       "icons": [ "ReduceDamageTaken", "StartOfTurnAction", "DrawCardNow", "DestroySelf" ],
       "flavorQuotes": [
         {
@@ -154,12 +157,13 @@
     },
     {
       "identifier": "Again",
-      "count": 2,
+      "count": 3,
       "title": "Again?",
       "keywords": [ "one-shot" ],
       "body": [
         "Draw 2 cards.",
-        "Play a Hindsight card from your trash."
+        "Play a Hindsight card from your trash.",
+        "Shuffle your trash into your deck." 
       ],
       "icons": [ "DrawCardsNow", "PlayCardNow" ],
       "flavorQuotes": [
@@ -177,7 +181,7 @@
       "keywords": [ "ongoing", "hindsight" ],
       "body": [
         "Play this card next to another Hero.",
-        "At the start of your turn, that hero may play a card and use a power. Then, destroy this card."
+        "At the start of your turn, that Hero's player may play a card and use a power. Then, destroy this card."
       ],
       "icons": [ "StartOfTurnAction", "PlayCardNow", "UsePowerNow", "DestroySelf" ],
       "flavorQuotes": [
@@ -202,7 +206,7 @@
       "icons": [ "HasPower", "Destroy", "UsePowerNow" ],
       "flavorQuotes": [
         {
-          "identifier": "???",
+          "identifier": "Vagabond",
           "text": "I'm just glad he confirmed {br}it was a habitable world before {br}the drinks really hit."
         }
       ],
@@ -210,7 +214,7 @@
     },
     {
       "identifier": "DirectMethod",
-      "count": 3,
+      "count": 2,
       "title": "Direct Method",
       "keywords": [ "one-shot" ],
       "body": [
@@ -332,12 +336,12 @@
       "foilBackgroundColor": "CCCCCC",
       "character": true,
       "powers": [
-        "Reveal cards from the top of your deck until you reveal a Hindsight card. Put it into your hand. Shuffle the rest of the revealed cards into your deck."
+        "Draw 2 cards. You may play 1 hindsight card drawn this way. "
       ],
       "icons": [
         "HasPower",
         "DrawCardNow",
-        "ReduceDamageTaken"
+        "PlayCardNow"
       ],
       "hitpoints": 25,
       "nemesisIdentifiers": [

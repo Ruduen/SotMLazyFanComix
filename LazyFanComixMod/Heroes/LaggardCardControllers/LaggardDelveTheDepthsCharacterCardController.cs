@@ -22,7 +22,30 @@ namespace LazyFanComix.Laggard
 
     public override IEnumerator UsePower(int index = 0)
     {
-      return this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.HeroTurnTakerController, this.TurnTaker.Deck, false, false, true, new LinqCardCriteria((Card c) => c.DoKeywordsContain("hindsight"), "hindsight"), 1);
+      IEnumerator coroutine;
+      List<DrawCardAction> dcas = new List<DrawCardAction>();
+      int[] powerNumerals =
+            {
+                this.GetPowerNumeral(0, 2),
+                this.GetPowerNumeral(1, 1)
+            };
+
+      coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, powerNumerals[0], storedResults: dcas, cardSource: this.GetCardSource());
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+      Card[] drawnHindsights = dcas?.Where((DrawCardAction dca) => dca.DrawnCard.DoKeywordsContain("hindsight") && dca.IsSuccessful)?.Select((DrawCardAction dca) => dca.DrawnCard)?.ToArray();
+
+      if (drawnHindsights?.Length > 0)
+      {
+        coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, powerNumerals[1], false, 0, new LinqCardCriteria((Card c) => drawnHindsights.Contains(c), "hindsight"), false, cardSource: this.GetCardSource());
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+      }
+      else
+      {
+        coroutine = this.GameController.SendMessageAction("No hindsight were drawn, so no hindsight card can be played.", Priority.Low, cardSource: this.GetCardSource(), showCardSource: true);
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+      }
+
     }
     public override IEnumerator UseIncapacitatedAbility(int index)
     {

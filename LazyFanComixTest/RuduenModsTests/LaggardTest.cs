@@ -99,16 +99,21 @@ namespace LazyFanComixTest
                 "BaronBlade", "LazyFanComix.Laggard/LazyFanComix.LaggardDelveTheDepthsCharacter", "Legacy", "Megalopolis"
             };
       SetupGameController(setupItems);
-      DiscardAllCards(Laggard);
+
+      StartGame();
+
+      PutInTrash(FindCardsWhere((Card c) => c.Owner == Laggard.TurnTaker && c.DoKeywordsContain("hindsight")).ToArray());
+
+      Card hindsight = PutOnDeck("RecursiveAmbush");
+
       QuickHandStorage(Laggard);
       UsePower(Laggard);
+      QuickHandCheck(1);
+      AssertIsInPlay(hindsight);
+
       UsePower(Laggard);
-      UsePower(Laggard);
-      QuickHandCheck(3);
-      foreach (Card c in Laggard.HeroTurnTaker.Hand.Cards)
-      {
-        AssertCardHasKeyword(c, "hindsight", false);
-      }
+      QuickHandCheck(2);
+
     }
     #endregion Innate Powers
 
@@ -138,7 +143,7 @@ namespace LazyFanComixTest
 
       DestroyNonCharacterVillainCards();
 
-      PlayCard("Retrophet");
+      Card card = PlayCard("Retrophet");
       QuickHPStorage(baron);
       QuickHandStorage(wraith);
 
@@ -149,6 +154,22 @@ namespace LazyFanComixTest
       DecisionSelectCard = baron.CharacterCard;
       PlayCard("RecursiveAmbush");
       QuickHPCheck(-2);
+
+      MoveAllCards(Laggard, Laggard.TurnTaker.Deck, Laggard.TurnTaker.Trash);
+      PutOnDeck(Laggard, FindCardsWhere((Card c) => !c.DoKeywordsContain("hindsight") && c.Location == Laggard.TurnTaker.Trash));
+      Card played = PutOnDeck("RecursiveAmbush");
+      DecisionSelectCard = null;
+
+      AssertNotInPlay(played);
+      int trashCount = Laggard.TurnTaker.Trash.Cards.Count();
+
+      UsePower(card);
+      AssertIsInPlay(played);
+      AssertNumberOfCardsAtLocation(Laggard.TurnTaker.Trash, trashCount + 2);
+      UsePower(card);
+      AssertNumberOfCardsAtLocation(Laggard.TurnTaker.Trash, trashCount + 5);
+
+
     }
 
 
@@ -260,6 +281,7 @@ namespace LazyFanComixTest
 
       StartGame();
       DiscardAllCards(Laggard);
+      ShuffleTrashIntoDeck(Laggard);
 
       Card playFromTrash = PutInTrash("SpiritualVision");
       Card play = PutInTrash("Again");
