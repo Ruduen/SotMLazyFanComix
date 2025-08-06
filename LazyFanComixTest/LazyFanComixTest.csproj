@@ -35,6 +35,9 @@
     <Reference Include="Angille">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2708828820\Angille.dll</HintPath>
     </Reference>
+    <Reference Include="ArtifactMod">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2887958701\ArtifactMod.dll</HintPath>
+    </Reference>
     <Reference Include="CaseFiles">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\337150\2436980109\CaseFiles.dll</HintPath>
     </Reference>
@@ -71,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RandomGameTest.cs" />
+    <Compile Include="RuduenModsTests\ModArtifactTest.cs" />
     <Compile Include="RuduenModsTests\CaseFilesPromosTest.cs" />
     <Compile Include="RuduenModsTests\MenageriePromosTest.cs" />
     <Compile Include="RuduenModsTests\BaronessBasicTest.cs" />

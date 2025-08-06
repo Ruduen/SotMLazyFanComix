@@ -73,17 +73,23 @@ namespace LazyFanComixTest
     public void TestBaseStartOfTurn()
     {
       SetupGameController("VainFacadePlaytest.TheBaroness/LazyFanComix.TheBaronessBasic", "Legacy", "Megalopolis");
-
       StartGame(); // Game starts by resolving SoT.
+
+      DestroyNonCharacterVillainCards();
+      PutOnDeck("WingedTerror"); // Pick one that doesn't selfdestruct
+
+      GoToStartOfTurn(Baroness);
       AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 1);
 
       GoToStartOfTurn(Baroness);
 
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 2);
+      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 1);
+      AssertFlipped(Baroness);
     }
 
+
     [Test()]
-    public void TestBaseStartOfTurnFlip()
+    public void TestBaseStartOfTurnFlipNoDeck()
     {
       SetupGameController("VainFacadePlaytest.TheBaroness/LazyFanComix.TheBaronessBasic", "Legacy", "Megalopolis");
 
@@ -94,10 +100,6 @@ namespace LazyFanComixTest
       GoToStartOfTurn(Baroness);
       AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 0);
       AssertFlipped(Baroness);
-
-
-      GoToStartOfTurn(Baroness);
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 0);
     }
 
     [Test()]
@@ -106,18 +108,87 @@ namespace LazyFanComixTest
       SetupGameController("VainFacadePlaytest.TheBaroness/LazyFanComix.TheBaronessBasic", "Legacy", "TheWraith", "Haka", "Unity", "Megalopolis");
 
       StartGame(); // Game starts by resolving SoT.
+      DestroyNonCharacterVillainCards();
       FlipCard(Baroness);
       Card target = PutIntoPlay("SwiftBot");
+      Card nonIntrusiveScheme = PlayCard("WingedTerror");
       QuickHPStorage(legacy.CharacterCard, wraith.CharacterCard, haka.CharacterCard, unity.CharacterCard, target);
 
-      GoToEndOfTurn(Baroness); // Should be increased?
+      GoToEndOfTurn(Baroness);
       QuickHPCheck(-2, -2, 0, -2, -2);
       AssertFlipped(Baroness);
 
       DestroyNonCharacterVillainCards();
       GoToEndOfTurn(Baroness);
-      QuickHPCheck(-1, -1, 0, -1, -1);
+      QuickHPCheck(-2, -2, 0, -2, -2);
       AssertNotFlipped(Baroness);
+
+      PutOnDeck(Baroness, nonIntrusiveScheme);
+      GoToEndOfTurn(Baroness);
+      QuickHPCheck(0, 0, 0, 0, 0);
+    }
+
+
+    [Test()]
+    public void TestBaseAdvanced()
+    {
+      string[] identifiers = { "VainFacadePlaytest.TheBaroness/LazyFanComix.TheBaronessBasic", "Legacy", "Megalopolis" };
+      SetupGameController(identifiers, advanced: true);
+      StartGame(); // Game starts by resolving SoT.
+
+      DestroyNonCharacterVillainCards();
+
+      QuickHPStorage(Baroness);
+      DealDamage(Baroness, Baroness, 2, DamageType.Projectile);
+      QuickHPCheck(-2);
+
+      PutOnDeck("WingedTerror"); // Pick one that doesn't selfdestruct
+      GoToStartOfTurn(Baroness);
+      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 1);
+      AssertNotFlipped(Baroness);
+
+      PutOnDeck("VampiricStrength");
+      GoToStartOfTurn(Baroness);
+      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 2);
+      AssertNotFlipped(Baroness);
+
+      PutOnDeck("ArcaneVeins");
+      GoToStartOfTurn(Baroness);
+      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 3);
+      AssertNotFlipped(Baroness);
+
+      GoToStartOfTurn(Baroness);
+      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 3);
+      AssertFlipped(Baroness);
+
+      DestroyNonCharacterVillainCards();
+      DealDamage(Baroness, Baroness, 2, DamageType.Projectile);
+      QuickHPCheck(-1);
+
+    }
+
+
+    [Test()]
+    public void TestBaseChallenge()
+    {
+      string[] identifiers = { "VainFacadePlaytest.TheBaroness/LazyFanComix.TheBaronessBasic", "Legacy", "Megalopolis" };
+      SetupGameController(identifiers, challenge: true);
+      StartGame(); // Game starts by resolving SoT.
+
+      DestroyNonCharacterVillainCards();
+
+      QuickHPStorage(legacy);
+      DealDamage(Baroness, legacy, 2, DamageType.Projectile);
+      QuickHPCheck(-2);
+
+      PlayCard("WingedTerror");
+      DealDamage(Baroness, legacy, 2, DamageType.Projectile);
+      QuickHPCheck(-2 - 1);
+
+      PlayCard("ArcaneVeins");
+      DealDamage(Baroness, legacy , 2, DamageType.Projectile);
+      QuickHPCheck(-2 - 2);
+
     }
 
     #endregion General Tests

@@ -14,7 +14,7 @@
       "backgroundColor": "999999",
       "foilBackgroundColor": "999999",
       "character": true,
-      "powers": [ "Draw a Card or Play a Paradox." ],
+      "powers": [ "Draw a card or Play a Paradox card." ],
       "icons": [ "HasPower", "DrawCardNow", "PlayCardNow" ],
       "hitpoints": 27,
       "nemesisIdentifiers": [
@@ -55,12 +55,11 @@
       "body": [
         "{Recall} deals themselves Psychic Damage equal to the number of cards under {Recall} times 2.",
         "Move this card under {Recall}.",
-        "Take a full turn now, out of turn order sequence."
+        "You may play a card, you may use a power, and you may draw a card now."
       ],
       "icons": [ "TakeExtraTurn", "DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
-      ],
-      "notes": "If Ephemeral turns end up being too problematic, use the 'play, power, draw' sequence instead."
+      ],"notes":  "Unfortunately, ephemeral turns don't work nicely and the lack of extra abilities require a lot of revamping. So, on hold."
     },
     {
       "identifier": "Recalled",
@@ -70,7 +69,7 @@
       "keywords": [ "paradox" ],
       "body": [
         "When this card enters play, {Recall} deals themselves 3 Psychic Damage.",
-        "When {Recall} would be destroyed, instead restore them to 7 HP and destroy this card.",
+        "When {Recall} would be destroyed, instead, restore them to 7 HP and destroy this card.",
         "At the start of your turn, this card deals 1 target 2 Projectile Damage."
       ],
       "powers": [ "This card deals 1 Target 2 Energy Damage. {Recall} deals that target 2 Energy Damage." ],
@@ -106,7 +105,10 @@
       "count": 3,
       "title": "Going Through The Motions",
       "keywords": [ "ongoing", "paradox", "limited" ],
-      "body": [ "You may skip your Play Phase. If you do, draw a card, or {Recall} deals 1 Target 2 Energy Damage." ],
+      "body": [
+        "Damage dealt by {Recall} to themselves cannot be increased.",
+        "You may skip your Play Phase. If you do, draw a card, or {Recall} deals 1 Target 2 Energy Damage."
+      ],
       "icons": [ "DrawCardNow", "UsePowerNow" ],
       "flavorQuotes": [
         {
@@ -158,7 +160,7 @@
       "body": [
         "At the start of your turn, you may discard the top 3 cards of a Hero deck."
       ],
-      "powers": [ "Play an Equipment from any trash." ],
+      "powers": [ "Play an Equipment card from any trash." ],
       "icons": [ "Manipulate", "HasPower", "PlayCardNow" ],
       "flavorQuotes": [
         {
@@ -270,7 +272,7 @@
       "complexity": 3
     }
   ],
-  "dummy": [
+  "placeholder": [
     {
       "identifier": "RecallCharacter",
       "promoIdentifier": "RecallUnstableJumpCharacter",

@@ -29,7 +29,7 @@ namespace LazyFanComix.Laggard
       coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsEnvironment || this.GameController.IsOngoing(c), "environment or ongoing"), powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsHero && !c.IsCharacter, "hero non-character"), powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsHero && !c.IsCharacter && !c.IsOneShot, "hero non-character"), powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
     }
   }

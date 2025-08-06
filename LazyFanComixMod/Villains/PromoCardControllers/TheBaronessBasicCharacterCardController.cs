@@ -16,7 +16,7 @@ namespace LazyFanComix.TheBaroness
 
     public override bool AskIfCardIsIndestructible(Card card)
     {
-      return card.Owner == base.TurnTaker && card.Identifier == "Vampirism";
+      return card.Owner == this.TurnTaker && card.Identifier == "Vampirism";
     }
 
 
@@ -24,8 +24,9 @@ namespace LazyFanComix.TheBaroness
     {
       if (!this.Card.IsFlipped)
       {
+        int revealmax = this.IsGameAdvanced ? 2 : 0;
         this.SideTriggers.Add(
-          this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => StartOfTurnResponse(), new TriggerType[] { TriggerType.RevealCard, TriggerType.PutIntoPlay, TriggerType.FlipCard })
+          this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => StartOfTurnResponse(revealmax), new TriggerType[] { TriggerType.RevealCard, TriggerType.PutIntoPlay, TriggerType.FlipCard })
           );
       }
       else
@@ -36,18 +37,29 @@ namespace LazyFanComix.TheBaroness
         this.SideTriggers.Add(
           this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => EoTFlipResponse(), new TriggerType[] { TriggerType.FlipCard })
           );
+        if (this.IsGameAdvanced)
+        {
+          this.AddReduceDamageTrigger((Card c) => c == this.Card, 1);
+        }
       }
       this.AddDefeatedIfDestroyedTriggers(false);
       base.AddSideTriggers();
+      if (this.IsGameChallenge)
+      {
+        this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda?.DamageSource?.Card == this.Card && GetSchemeCount() > 0, (DealDamageAction dda) => GetSchemeCount());
+      }
     }
 
-    private IEnumerator StartOfTurnResponse()
+    private IEnumerator StartOfTurnResponse(int revealMax)
     {
       IEnumerator coroutine;
       List<Card> played = new List<Card>();
 
-      coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, false, true, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain("scheme"), "scheme"), 1, storedPlayResults: played);
-      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+      if (this.GameController.FindCardsWhere(new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("scheme"))).Count() <= revealMax)
+      {
+        coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, false, true, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain("scheme"), "scheme"), 1, storedPlayResults: played);
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+      }
 
       if (played?.Count == 0)
       {
@@ -62,13 +74,8 @@ namespace LazyFanComix.TheBaroness
     private IEnumerator EoTDamageResponse()
     {
       IEnumerator coroutine;
-
-      ITrigger tempIncrease = this.AddToTemporaryTriggerList(this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.Card == this.Card && GetSchemeCount() > 0, (DealDamageAction dda) => GetSchemeCount()));
-
-      coroutine = this.DealDamageToLowestHP(this.Card, 1, (Card c) => this.IsHeroTarget(c), (Card c) => 1, DamageType.Infernal, numberOfTargets: this.H);
+      coroutine = this.DealDamageToLowestHP(this.Card, 1, (Card c) => this.IsHeroTarget(c), (Card c) => 2, DamageType.Infernal, numberOfTargets: this.H);
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-      this.RemoveTemporaryTrigger(tempIncrease);
     }
 
     private int GetSchemeCount()
@@ -80,9 +87,12 @@ namespace LazyFanComix.TheBaroness
     {
       IEnumerator coroutine;
 
-      if(GetSchemeCount() == 0)
+      if (GetSchemeCount() == 0)
       {
-        coroutine = this.GameController.SendMessageAction("No scheme cards are in play, so Baroness flips.", Priority.Medium, cardSource: this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("No scheme cards are in play, so the villain trash is shuffled into the villain deck and Baroness flips.", Priority.Medium, cardSource: this.GetCardSource());
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+        coroutine = this.GameController.ShuffleTrashIntoDeck(this.TurnTakerController, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         coroutine = this.GameController.FlipCard(this, cardSource: this.GetCardSource());

@@ -2185,7 +2185,7 @@
       "overrideTurnTakerController": "TheBaronessBasic",
       "count": 1,
       "title": "The Baroness",
-      "promoTitle": "Back to Basics",
+      "promoTitle": "Basic Baroness",
       "keywords": [
         "villain"
       ],
@@ -2196,8 +2196,8 @@
       ],
       "advancedIcons": [
       ],
-      "body": [ "Simple Plots" ],
-      "hitpoints": 100,
+      "body": [ "Back to Basics" ],
+      "hitpoints": 90,
       "backgroundColor": "B8D8E7",
       "foilBackgroundColor": "CCE5F0",
       "character": true,
@@ -2209,19 +2209,26 @@
       ],
       "gameplay": [
         "Vampirism is indestructible.",
-        "At the start of the villain turn, reveal cards from the top of {TheBaroness's} deck until a scheme card is revealed. Put that scheme card into play and shuffle the rest of the cards into the deck. If no card is put into play this way, {TheBaroness} flips."
+        "At the start of the villain turn, if there are no scheme cards in play, reveal cards from the top of {TheBaroness's} deck until a scheme card is revealed, put that scheme card into play and shuffle the rest of the cards into the deck. If no card is put into play this way, {TheBaroness} flips."
       ],
+      "advanced": "{TheBaroness's} start of turn effect will now reveal cards if there are 2 or fewer scheme cards in play.",
       "flippedBody": "Payoff",
-      "flippedHitpoints": 100,
+      "flippedHitpoints": 90,
       "flippedGameplay": [
         "Vampirism is indestructible.",
-        "At the end of the villain turn, {TheBaroness} deals the {H} hero targets with the lowest HP 1 infernal damage. Increase this damage by 1 for each scheme card in play. Then, if there are no scheme cards in play, {TheBaroness} flips."
+        "At the end of the villain turn, {TheBaroness} deals the {H} hero targets with the lowest HP 2 infernal damage. Then, if there are no scheme cards in play, shuffle the villain trash into the villain deck and {TheBaroness} flips."
       ],
       "flippedIcons": [
         "EndOfTurnAction",
         "DealDamageInfernal"
       ],
-      "difficulty": 3,
+      "flippedAdvanced": "Reduce damage dealt to {TheBaroness} by 1.",
+      "challengeTitle": "Prepared Grounds",
+      "challengeText": "Increase damage dealt by {TheBaroness} by 1 for each scheme card in play.",
+      "challengeIcons": [
+        "IncreaseDamageDealt"
+      ],
+      "difficulty": 2,
       "openingLines": {
         "default": "A bunch of heroes? Let's see if you can handle everything I have to throw at you."
       }

@@ -310,7 +310,7 @@
       "identifier": "StallTactics",
       "count": 2,
       "title": "Stall Tactics",
-      "keywords": [ "ongoing" ],
+      "keywords": [ "ongoing", "limited" ],
       "body": [
         "Reduce damage dealt to and by Laggard by 1.",
         "At the start of your turn, {Laggard} may regain 3 HP. If HP was regained this way, destroy this card."
@@ -336,7 +336,7 @@
       "foilBackgroundColor": "CCCCCC",
       "character": true,
       "powers": [
-        "Draw 2 cards. You may play 1 hindsight card drawn this way. "
+        "Draw 2 cards. You may play a hindsight card drawn this way. "
       ],
       "icons": [
         "HasPower",

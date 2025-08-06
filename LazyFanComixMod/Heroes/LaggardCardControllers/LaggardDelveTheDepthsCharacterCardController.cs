@@ -26,8 +26,7 @@ namespace LazyFanComix.Laggard
       List<DrawCardAction> dcas = new List<DrawCardAction>();
       int[] powerNumerals =
             {
-                this.GetPowerNumeral(0, 2),
-                this.GetPowerNumeral(1, 1)
+                this.GetPowerNumeral(0, 2)
             };
 
       coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, powerNumerals[0], storedResults: dcas, cardSource: this.GetCardSource());
@@ -37,7 +36,7 @@ namespace LazyFanComix.Laggard
 
       if (drawnHindsights?.Length > 0)
       {
-        coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, powerNumerals[1], false, 0, new LinqCardCriteria((Card c) => drawnHindsights.Contains(c), "hindsight"), false, cardSource: this.GetCardSource());
+        coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, new LinqCardCriteria((Card c) => drawnHindsights.Contains(c), "hindsight"), false, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
       else
