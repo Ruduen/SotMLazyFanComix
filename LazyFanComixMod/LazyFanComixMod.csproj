@@ -238,21 +238,21 @@
     <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\SharedOrbitalCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\UnusedCardControllers\OrbitalCardControllers\CollisionCourseCardController.cs" />
     <Compile Include="Heroes\OrbitCardControllers\OrbitArtificialSatelliteCharacterCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\CallTheShotCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\CoveringFireCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\LeadTheTargetCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\FindTheShotCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\FromTheHipCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\ThirdTimesTheCharmCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\SynchronizeStrikeCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\GearedUpCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\OneShotCardControllers\ToolsOfTheTradeCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LimitedOngoingCards\RuleOfThreeCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutWhisperCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutSlickCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\ThriThirdPowerEquipCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\LoadoutCardControllers\LoadoutAnchorCardController.cs" />
-    <Compile Include="Heroes\ThriCardControllers\ThriCharacterCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\CallTheShotCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\CoveringFireCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\LeadTheTargetCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\FindTheShotCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\FromTheHipCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\ThirdTimesTheCharmCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\SynchronizeStrikeCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\GearedUpCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\ToolsOfTheTradeCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\DoubleTapCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutWhisperCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutSlickCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\T210ThirdPowerEquipCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutAnchorCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\T210CharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallUnstableJumpCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallForecastedBlowCharacterCardController.cs" />
@@ -432,7 +432,7 @@
     <EmbeddedResource Include="DeckLists\OrbitDeckList.json" />
     <EmbeddedResource Include="DeckLists\TheEtherealExecutionerTeamDeckList.json" />
     <EmbeddedResource Include="DeckLists\VagabondDeckList.json" />
-    <EmbeddedResource Include="DeckLists\ThriDeckList.json" />
+    <EmbeddedResource Include="DeckLists\T210DeckList.json" />
     <EmbeddedResource Include="DeckLists\LaggardDeckList.json" />
   </ItemGroup>
   <ItemGroup>

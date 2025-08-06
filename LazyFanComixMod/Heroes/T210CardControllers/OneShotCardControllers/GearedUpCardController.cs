@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LazyFanComix.Thri
+namespace LazyFanComix.T210
 {
     public class GearedUpCardController : CardController
     {
@@ -26,7 +26,7 @@ namespace LazyFanComix.Thri
                     () => this.GameController.DrawCards(httc, 1, cardSource: this.GetCardSource()), this.CanDrawCards(httc), httc.TurnTaker.Name + " cannot draw any cards, so they must play an equipment card.")
             };
 
-            // Thri deals up to 6 targets 1 damage.
+            // T210 deals up to 6 targets 1 damage.
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Projectile, 6, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LazyFanComix.Thri
+namespace LazyFanComix.T210
 {
-    public class ThriThirdPowerEquipCardController : CardController
+    public class T210ThirdPowerEquipCardController : CardController
     {
         private bool _isThirdPower;
         private UsePowerAction _thirdPowerUpa;
@@ -16,7 +16,7 @@ namespace LazyFanComix.Thri
             get { return _isThirdPower; }
         }
 
-        public ThriThirdPowerEquipCardController(Card card, TurnTakerController turnTakerController)
+        public T210ThirdPowerEquipCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
             this.SpecialStringMaker.ShowSpecialString(() => string.Format("{0} powers have been used this turn.", this.Journal.UsePowerEntriesThisTurn().Count().ToString()));

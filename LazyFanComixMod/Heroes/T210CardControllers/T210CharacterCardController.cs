@@ -7,14 +7,14 @@ using System.Linq;
 
 // Manually tested!
 
-namespace LazyFanComix.Thri
+namespace LazyFanComix.T210
 {
-    public class ThriCharacterCardController : PromoDefaultCharacterCardController
+    public class T210CharacterCardController : PromoDefaultCharacterCardController
     {
         private bool _isThirdPower;
         private UsePowerAction _thirdPowerUpa;
 
-        public ThriCharacterCardController(Card card, TurnTakerController turnTakerController)
+        public T210CharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
             this.SpecialStringMaker.ShowSpecialString(() => string.Format("{0} powers have been used this turn.", this.Journal.UsePowerEntriesThisTurn().Count().ToString()));

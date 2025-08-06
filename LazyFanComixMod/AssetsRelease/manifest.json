@@ -37,6 +37,7 @@
       "Spellforge",
       "Soulbinder",
       "Trailblazer",
+      "T210",
       "Vagabond"
     ],
     "environments": [
@@ -47,8 +48,7 @@
     ],
     "underDev": {
       "heroes": [
-        "Recall",
-        "Thri"
+        "Recall"
       ],
       "villains": [
         "TheTurfWar"

@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LazyFanComix.Thri
+namespace LazyFanComix.T210
 {
-    public class LoadoutWhisperCardController : ThriThirdPowerEquipCardController
+    public class LoadoutWhisperCardController : T210ThirdPowerEquipCardController
     {
         public LoadoutWhisperCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

@@ -1,7 +1,7 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
-using LazyFanComix.Thri;
+using LazyFanComix.T210;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Reflection;
 namespace LazyFanComixTest
 {
     [TestFixture]
-    public class ThriTest : BaseTest
+    public class T210Test : BaseTest
     {
         [OneTimeSetUp]
         public void DoSetup()
@@ -18,26 +18,26 @@ namespace LazyFanComixTest
             // Tell the engine about our mod assembly so it can load up our code.
             // It doesn't matter which type as long as it comes from the mod's assembly.
             //var a = Assembly.GetAssembly(typeof(InquirerCharacterCardController)); // replace with your own type
-            ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(ThriCharacterCardController))); // replace with your own namespace
+            ModHelper.AddAssembly("LazyFanComix", Assembly.GetAssembly(typeof(T210CharacterCardController))); // replace with your own namespace
         }
 
-        protected HeroTurnTakerController Thri
-        { get { return FindHero("Thri"); } }
+        protected HeroTurnTakerController T210
+        { get { return FindHero("T210"); } }
 
         [Test(Description = "Basic Setup and Health")]
         public void TestModWorks()
         {
-            SetupGameController("BaronBlade", "LazyFanComix.Thri", "Megalopolis");
+            SetupGameController("BaronBlade", "LazyFanComix.T210", "Megalopolis");
 
             Assert.AreEqual(3, this.GameController.TurnTakerControllers.Count());
 
-            Assert.IsNotNull(Thri);
-            Assert.IsInstanceOf(typeof(HeroTurnTakerController), Thri);
-            Assert.IsInstanceOf(typeof(ThriCharacterCardController), Thri.CharacterCardController);
+            Assert.IsNotNull(T210);
+            Assert.IsInstanceOf(typeof(HeroTurnTakerController), T210);
+            Assert.IsInstanceOf(typeof(T210CharacterCardController), T210.CharacterCardController);
 
-            Assert.AreEqual(27, Thri.CharacterCard.HitPoints);
-            AssertNumberOfCardsInDeck(Thri, 36);
-            AssertNumberOfCardsInHand(Thri, 4);
+            Assert.AreEqual(27, T210.CharacterCard.HitPoints);
+            AssertNumberOfCardsInDeck(T210, 36);
+            AssertNumberOfCardsInHand(T210, 4);
         }
 
         #region Innate Tests
@@ -48,7 +48,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -57,23 +57,23 @@ namespace LazyFanComixTest
             DestroyNonCharacterVillainCards();
 
             QuickHPStorage(baron);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2 - 3);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2);
 
             GoToStartOfTurn(bunker);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2);
             UsePower(bunker);
             QuickHPCheck(0);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2 - 3);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2);
         }
 
@@ -97,7 +97,7 @@ namespace LazyFanComixTest
             UsePower(tempest);
             QuickHPCheck(-1);
 
-            SelectFromBoxForNextDecision("LazyFanComix.ThriCharacter", "LazyFanComix.Thri");
+            SelectFromBoxForNextDecision("LazyFanComix.T210Character", "LazyFanComix.T210");
             PlayCard("CalledToJudgement");
             QuickHPCheck(-2 - 3);
 
@@ -106,7 +106,7 @@ namespace LazyFanComixTest
             QuickHPCheck(-1);
             UsePower(tempest);
             QuickHPCheck(-1);
-            UsePower(FindCardInPlay("ThriCharacter"));
+            UsePower(FindCardInPlay("T210Character"));
             QuickHPCheck(-2 - 3);
         }
 
@@ -119,7 +119,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -127,7 +127,7 @@ namespace LazyFanComixTest
 
             DestroyNonCharacterVillainCards();
 
-            UsePower(Thri);
+            UsePower(T210);
 
             Card ongoing = PlayCard("BacklashField");
 
@@ -147,7 +147,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -155,7 +155,7 @@ namespace LazyFanComixTest
 
             DestroyNonCharacterVillainCards();
 
-            UsePower(Thri);
+            UsePower(T210);
 
             Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1), PlayCard("BladeBattalion") };
 
@@ -177,7 +177,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -185,11 +185,11 @@ namespace LazyFanComixTest
 
             DestroyNonCharacterVillainCards();
 
-            UsePower(Thri);
+            UsePower(T210);
 
             Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1) };
 
-            QuickHandStorage(Thri);
+            QuickHandStorage(T210);
             QuickHPStorage(targets);
             Card equip = PlayCard("LoadoutWhisper");
             QuickHPCheck(-1, -1);
@@ -207,11 +207,11 @@ namespace LazyFanComixTest
         #region Ongoing Tests
 
         [Test()]
-        public void TestOngoingRuleOfThree()
+        public void TestOngoingDoubleTap()
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -219,23 +219,12 @@ namespace LazyFanComixTest
 
             Card equip = PlayCard("LoadoutWhisper");
 
-            GoToUsePowerPhase(Thri);
+            GoToUsePowerPhase(T210);
 
             DestroyNonCharacterVillainCards();
-            PlayCard("RuleOfThree");
+            PlayCard("DoubleTap");
             AssertPhaseActionCount(2);
 
-            Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1) };
-
-            QuickHPStorage(targets);
-            UsePower(equip);
-            QuickHPCheck(-1, -1);
-            UsePower(equip);
-            QuickHPCheck(-1, -1);
-            UsePower(equip);
-            QuickHPCheck(-1 - 2, -1 - 2);
-            UsePower(equip);
-            QuickHPCheck(-1, -1);
         }
 
         [Test()]
@@ -243,18 +232,18 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
             StartGame();
             DestroyNonCharacterVillainCards();
-            DiscardAllCards(Thri);
+            DiscardAllCards(T210);
 
             Card power = PlayCard("FindTheShot");
             Card equip = PlayCard("LoadoutWhisper");
 
-            GoToStartOfTurn(Thri);
+            GoToStartOfTurn(T210);
 
             UsePower(equip);
 
@@ -263,7 +252,7 @@ namespace LazyFanComixTest
 
 
             QuickHPStorage(baron);
-            QuickHandStorage(Thri);
+            QuickHandStorage(T210);
             UsePower(power);
             AssertInTrash(discard);
             QuickHPCheck(-2 - 3); // Base power used. Third power, so confirm increase.
@@ -276,7 +265,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -288,7 +277,7 @@ namespace LazyFanComixTest
             QuickHPStorage(baron);
             QuickHandStorage(bunker);
             UsePower(power);
-            UsePower(Thri);
+            UsePower(T210);
             QuickHPCheck(-2 - 3); // Confirm bonus damage from default confirmed
             QuickHandCheck(1);    // and Bunker used initialize.
         }
@@ -300,7 +289,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Bunker", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -322,7 +311,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Parse", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Parse", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -346,14 +335,14 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Parse", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Parse", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
             StartGame();
             DestroyNonCharacterVillainCards();
 
-            DiscardAllCards(Thri);
+            DiscardAllCards(T210);
             Card equip = PutOnDeck("RuleOfThree");
 
             QuickHPStorage(baron);
@@ -368,7 +357,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Ra", "Fanatic", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Ra", "Fanatic", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -386,16 +375,16 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Ra", "Fanatic", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Ra", "Fanatic", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
             StartGame();
             DestroyNonCharacterVillainCards();
-            DiscardAllCards(Thri);
+            DiscardAllCards(T210);
 
-            QuickHandStorage(Thri);
-            QuickHPStorage(Thri, baron);
+            QuickHandStorage(T210);
+            QuickHPStorage(T210, baron);
             PlayCard("ThirdTimesTheCharm");
             QuickHandCheck(3);
             QuickHPCheck(-3, -2 - 2 - 2 - 3);
@@ -410,29 +399,29 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Ra", "Fanatic", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Ra", "Fanatic", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
             StartGame();
             DestroyNonCharacterVillainCards();
 
-            QuickHPStorage(Thri, ra, fanatic);
+            QuickHPStorage(T210, ra, fanatic);
             PlayCard("CoveringFire");
-            DealDamage(Thri, Thri, 4, DamageType.Projectile);
-            DealDamage(Thri, ra, 4, DamageType.Projectile);
-            DealDamage(Thri, ra, 4, DamageType.Projectile);
-            DealDamage(Thri, fanatic, 4, DamageType.Projectile);
-            DealDamage(Thri, fanatic, 4, DamageType.Projectile);
+            DealDamage(T210, T210, 4, DamageType.Projectile);
+            DealDamage(T210, ra, 4, DamageType.Projectile);
+            DealDamage(T210, ra, 4, DamageType.Projectile);
+            DealDamage(T210, fanatic, 4, DamageType.Projectile);
+            DealDamage(T210, fanatic, 4, DamageType.Projectile);
             QuickHPCheck(0, 0, 0);
 
-            DealDamage(baron, Thri, 4, DamageType.Projectile);
+            DealDamage(baron, T210, 4, DamageType.Projectile);
             DealDamage(baron, ra, 1, DamageType.Projectile);
             DealDamage(baron, fanatic, 5, DamageType.Projectile);
 
             QuickHPCheck(-4 + 2, -1 + 1, -5 + 4);
 
-            AssertNumberOfCardsInTrash(Thri, 1);
+            AssertNumberOfCardsInTrash(T210, 1);
             AssertNumberOfCardsInTrash(ra, 2);
             AssertNumberOfCardsInTrash(fanatic, 2);
         }
@@ -443,7 +432,7 @@ namespace LazyFanComixTest
         {
             IEnumerable<string> setupItems = new List<string>()
             {
-                "BaronBlade", "LazyFanComix.Thri", "Ra", "Fanatic", "TheCelestialTribunal"
+                "BaronBlade", "LazyFanComix.T210", "Ra", "Fanatic", "TheCelestialTribunal"
             };
             SetupGameController(setupItems);
 
@@ -451,7 +440,7 @@ namespace LazyFanComixTest
             DestroyNonCharacterVillainCards();
 
             PlayCard("LeadTheTarget");
-            UsePower(Thri);
+            UsePower(T210);
 
             QuickHPStorage(baron);
             DealDamage(fanatic, baron, 2, DamageType.Fire);

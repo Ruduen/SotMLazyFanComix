@@ -3,9 +3,9 @@ using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace LazyFanComix.Thri
+namespace LazyFanComix.T210
 {
-    public class LoadoutAnchorCardController : ThriThirdPowerEquipCardController
+    public class LoadoutAnchorCardController : T210ThirdPowerEquipCardController
     {
         public LoadoutAnchorCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)

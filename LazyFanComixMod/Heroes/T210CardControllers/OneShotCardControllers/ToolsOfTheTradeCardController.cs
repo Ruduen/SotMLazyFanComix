@@ -2,7 +2,7 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
 
-namespace LazyFanComix.Thri
+namespace LazyFanComix.T210
 {
     public class ToolsOfTheTradeCardController : CardController
     {
@@ -15,7 +15,7 @@ namespace LazyFanComix.Thri
         {
             IEnumerator coroutine;
 
-            // Thri deals 3 targets 1 projectile.
+            // T210 deals 3 targets 1 projectile.
             coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Projectile, 3, false, 0, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

@@ -1,16 +1,16 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
-using System.Collections.Generic;
 
-namespace LazyFanComix.Thri
+namespace LazyFanComix.T210
 {
-    public class CallTheShotCardController : CardController
+    public class FindTheShotCardController : CardController
     {
-        public CallTheShotCardController(Card card, TurnTakerController turnTakerController)
+        public FindTheShotCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
+
         public override IEnumerator UsePower(int index = 0)
         {
             int[] powerNumerals = new int[]
@@ -21,12 +21,13 @@ namespace LazyFanComix.Thri
             };
             IEnumerator coroutine;
 
+            coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[0], cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             coroutine = this.GameController.SelectAndDiscardCards(this.DecisionMaker, powerNumerals[1], false, powerNumerals[1], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            // Another hero may use a power. 
-            coroutine = this.GameController.SelectHeroToUsePower(this.DecisionMaker, additionalCriteria: new LinqTurnTakerCriteria((TurnTaker tt) => tt != this.TurnTaker), cardSource: this.GetCardSource());
+            coroutine = this.GameController.SelectAndUsePower(this.DecisionMaker, true, numberOfPowers: powerNumerals[2], cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
         }
     }
