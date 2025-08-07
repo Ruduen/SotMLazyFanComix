@@ -3,10 +3,10 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.Soulbinder
 {
-    public class SoulbinderTurnTakerController : HeroTurnTakerController
+  public class SoulbinderTurnTakerController : HeroTurnTakerController
+  {
+    public SoulbinderTurnTakerController(TurnTaker tt, GameController gc) : base(tt, gc)
     {
-        public SoulbinderTurnTakerController(TurnTaker tt, GameController gc) : base(tt, gc)
-        {
-        }
     }
+  }
 }

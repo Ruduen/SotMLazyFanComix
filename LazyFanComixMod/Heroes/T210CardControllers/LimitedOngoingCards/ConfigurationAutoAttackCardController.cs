@@ -1,22 +1,20 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using System.Collections;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System;
-using System.Collections;
-using System.Linq;
 
 // Manually tested!
 
 namespace LazyFanComix.T210
 {
-  public class ConfigurationFullAssaultCardController : CardController
+  public class ConfigurationAutoAttackCardController : CardController
   {
-    public ConfigurationFullAssaultCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public ConfigurationAutoAttackCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
     }
 
     public override void AddTriggers()
     {
-      this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PlayLoadoutResponse, TriggerType.PlayCard);
+      this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, PlayLoadoutResponse, TriggerType.PlayCard);
     }
 
     private IEnumerator PlayLoadoutResponse(PhaseChangeAction pca)

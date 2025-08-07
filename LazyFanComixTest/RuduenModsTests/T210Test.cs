@@ -1,11 +1,11 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using LazyFanComix.T210;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -44,7 +44,7 @@ namespace LazyFanComixTest
 
 
     [Test()]
-    public void TestBaseInnatePower()
+    public void TestInnatePowerBase()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -133,12 +133,12 @@ namespace LazyFanComixTest
 
       QuickHPStorage(baron);
       Card equip = PlayCard("LoadoutKnife");
-      QuickHPCheck(-1 - 1);
+      QuickHPCheck(-2);
       UsePower(equip, 0);
-      QuickHPCheck(-1 - 1 - 1);
+      QuickHPCheck(-2 - 2);
       AssertInTrash(ongoing);
       UsePower(equip);
-      QuickHPCheck(-1 - 1);
+      QuickHPCheck(-2);
 
     }
 
@@ -359,7 +359,7 @@ namespace LazyFanComixTest
 
 
     [Test()]
-    public void TestConfigurationFullAssault()
+    public void TestConfigurationAutoAttack()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -372,11 +372,11 @@ namespace LazyFanComixTest
 
       Card play = PutInHand("LoadoutAssault");
       DecisionSelectCardToPlay = play;
-      PlayCard("ConfigurationFullAssault");
+      PlayCard("ConfigurationAutoAttack");
 
       AssertNotInPlay(play);
 
-      GoToStartOfTurn(T210);
+      GoToEndOfTurn(T210);
       AssertIsInPlay(play);
     }
 
@@ -400,16 +400,14 @@ namespace LazyFanComixTest
       QuickHandStorage(T210);
 
       // Mandatory draw - draws 1.
-      GoToEndOfTurn(T210);
+      GoToStartOfTurn(T210);
       QuickHandCheck(1);
 
       // Force recover.
       DestroyCard(loadout);
-      GoToDrawCardPhase(T210);
-      QuickHandStorage(T210);
       PlayCard("TrafficPileup");
 
-      GoToEndOfTurn(T210);
+      GoToStartOfTurn(T210);
       AssertInHand(loadout);
     }
 

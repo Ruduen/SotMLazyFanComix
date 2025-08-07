@@ -105,7 +105,7 @@
     <Compile Include="Heroes\GreyhatCardControllers\MiscCardControllers\NodeCheckCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\MiscCardControllers\PingSweepCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigurationRapidRebootCardController.cs" />
-    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigurationFullAssaultCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigurationAutoAttackCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigurationFlashFireCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\OverclockSystemsCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\CheckNextToLinkCardControllers\DDoSCardController.cs" />

@@ -1,7 +1,6 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using System.Collections;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System.Collections;
-using System.Linq;
 
 
 namespace LazyFanComix.Laggard

@@ -1,11 +1,5 @@
-﻿using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.UnitTest;
-using LazyFanComix.HeroPromos;
+﻿using Handelabra.Sentinels.UnitTest;
 using NUnit.Framework;
-using SpookyGhostwriter.Tsukiko;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 namespace LazyFanComixTest
 {

@@ -1,11 +1,11 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using LazyFanComix.Recall;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 namespace LazyFanComixTest
 {

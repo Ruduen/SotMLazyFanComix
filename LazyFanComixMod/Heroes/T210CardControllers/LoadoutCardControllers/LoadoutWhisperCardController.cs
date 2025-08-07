@@ -1,8 +1,6 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using System.Collections;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace LazyFanComix.T210
 {
@@ -32,7 +30,7 @@ namespace LazyFanComix.T210
       // TODO: Third Power message?
       if (this.isThirdPower)
       {
-        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " draws " + powerNumerals[2] + " cards.", Priority.Low, this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard.AlternateTitleOrTitle + " draws " + powerNumerals[2] + " cards.", Priority.Low, this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[2], cardSource: this.GetCardSource());

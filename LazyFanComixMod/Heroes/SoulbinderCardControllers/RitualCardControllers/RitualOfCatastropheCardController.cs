@@ -1,28 +1,28 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using System.Collections;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
-using System.Collections;
 
 namespace LazyFanComix.Soulbinder
 {
-    public class RitualOfCatastropheCardController : SoulbinderSharedRitualCardController
+  public class RitualOfCatastropheCardController : SoulbinderSharedRitualCardController
+  {
+    public RitualOfCatastropheCardController(Card card, TurnTakerController turnTakerController)
+        : base(card, turnTakerController)
     {
-        public RitualOfCatastropheCardController(Card card, TurnTakerController turnTakerController)
-            : base(card, turnTakerController)
-        {
-        }
-
-        protected override TriggerType[] RitualTriggerTypes
-        { get { return new TriggerType[] { TriggerType.DealDamage }; } }
-
-        protected override IEnumerator RitualCompleteResponse()
-        {
-            IEnumerator coroutine;
-
-            coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c != this.Card && (this.IsOngoing(c) || c.IsEnvironment), "ongoing or environment"), 2, false, 0, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-            coroutine = this.GameController.DealDamageToSelf(this.HeroTurnTakerController, (Card c) => !c.IsHero, 3, DamageType.Infernal, true, cardSource: this.GetCardSource());
-            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-        }
     }
+
+    protected override TriggerType[] RitualTriggerTypes
+    { get { return new TriggerType[] { TriggerType.DealDamage }; } }
+
+    protected override IEnumerator RitualCompleteResponse()
+    {
+      IEnumerator coroutine;
+
+      coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c != this.Card && (this.IsOngoing(c) || c.IsEnvironment), "ongoing or environment"), 2, false, 0, cardSource: this.GetCardSource());
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+      coroutine = this.GameController.DealDamageToSelf(this.HeroTurnTakerController, (Card c) => !c.IsHero, 3, DamageType.Infernal, true, cardSource: this.GetCardSource());
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+    }
+  }
 }

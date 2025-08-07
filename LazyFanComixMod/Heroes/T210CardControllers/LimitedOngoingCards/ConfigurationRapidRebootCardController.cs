@@ -1,9 +1,8 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 
 // Manually tested!
 
@@ -17,7 +16,7 @@ namespace LazyFanComix.T210
 
     public override void AddTriggers()
     {
-      this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, DrawOrRecoverResponse, TriggerType.PlayCard);
+      this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, DrawOrRecoverResponse, TriggerType.PlayCard);
     }
 
     private IEnumerator DrawOrRecoverResponse(PhaseChangeAction pca)

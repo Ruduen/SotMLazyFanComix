@@ -1,8 +1,8 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
-using Handelabra.Sentinels.Engine.Model;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.T210
 {
@@ -34,7 +34,7 @@ namespace LazyFanComix.T210
       // TODO: Third Power message?
       if (this.isThirdPower)
       {
-        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " deals " + powerNumerals[2] + " additional targets damage.", Priority.Low, this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard.AlternateTitleOrTitle + " deals " + powerNumerals[2] + " additional targets damage.", Priority.Low, this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         IEnumerable<Card> damagedTargets = ddas.Select((DealDamageAction dda) => dda.Target);

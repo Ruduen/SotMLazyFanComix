@@ -1,10 +1,10 @@
-﻿using Handelabra.Sentinels.Engine.Controller;
+﻿using System.Linq;
+using System.Reflection;
+using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.UnitTest;
 using LazyFanComix.TheBaroness;
 using NUnit.Framework;
-using System.Linq;
-using System.Reflection;
 
 namespace LazyFanComixTest
 {
@@ -186,7 +186,7 @@ namespace LazyFanComixTest
       QuickHPCheck(-2 - 1);
 
       PlayCard("ArcaneVeins");
-      DealDamage(Baroness, legacy , 2, DamageType.Projectile);
+      DealDamage(Baroness, legacy, 2, DamageType.Projectile);
       QuickHPCheck(-2 - 2);
 
     }

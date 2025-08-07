@@ -114,7 +114,7 @@
         "When this card enters play, use the power on it."
       ],
       "powers": [
-        "{T-210} deals 1 target 1 projectile damage and 1 toxic damage. If this is the third power used this turn, {T-210} deals that target 1 fire damage and you may destroy an ongoing or environment card. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
+        "{T210} deals 1 target 2 projectile damage. If this is the third power used this turn, {T210} deals that target 2 fire damage and you may destroy an ongoing or environment card. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
       ],
       "icons": [ "HasPower", "DealDamageProjectile", "DestroyOngoing", "DestroyEnvironment" ],
       "flavorQuotes": [
@@ -134,7 +134,7 @@
         "When this card enters play, use the power on it."
       ],
       "powers": [
-        "{T-210} deals 1 target 3 fire damage. If this is the third power used this turn, {T-210} deals up to 3 other targets 3 fire damage each. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
+        "{T210} deals 1 target 3 fire damage. If this is the third power used this turn, {T210} deals up to 3 other targets 3 fire damage each. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
       ],
       "icons": [ "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -210,7 +210,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If this power is printed on your character card, {T-210} regains 4 HP.",
+        "If this power is printed on your character card, {T210} regains 4 HP.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "RegainHP", "DrawCardNow" ],
@@ -228,7 +228,7 @@
       "title": "Configuration: Flash Fire",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "The first time {T-210} is dealt damage by a non-Hero target each turn, you use the power on one of your Loadout cards."
+        "The first time {T210} is dealt damage by a non-Hero target each turn, you use the power on one of your Loadout cards."
       ],
       "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
@@ -240,12 +240,12 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "ConfigurationFullAssault",
+      "identifier": "ConfigurationAutoAttack",
       "count": 3,
-      "title": "Configuration: Full Assault",
+      "title": "Configuration: Auto Attack",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the start of your turn, you may use the power printed on one of your Loadout cards."
+        "At the end of your turn, you may play a Loadout card."
       ],
       "icons": [ "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
@@ -262,7 +262,7 @@
       "title": "Configuration: Rapid Reboot",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the end of your turn, you may either draw 1 card or move 1 Loadout card from your trash to your hand."
+        "At the start of your turn, you may either draw 1 card or move 1 Loadout card from your trash to your hand."
       ],
       "icons": [ "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
@@ -293,7 +293,7 @@
       "flavorReference": "T210, ???"
     }
   ],
-  "promoCards": [
+  "placeholderpromoCards": [
     {
       "identifier": "T210Character",
       "promoIdentifier": "T210GunClubCharacter",
