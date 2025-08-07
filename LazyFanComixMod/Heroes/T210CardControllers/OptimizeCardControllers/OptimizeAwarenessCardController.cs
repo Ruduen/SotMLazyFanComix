@@ -13,7 +13,7 @@ namespace LazyFanComix.T210
 
     protected override LinqCardCriteria AppropriateCards()
     {
-      return new LinqCardCriteria((Card c) => IsOngoing(c));
+      return new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && IsOngoing(c));
     }
 
     protected override IEnumerator MatchCardAction()

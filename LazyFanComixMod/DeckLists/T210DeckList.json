@@ -171,7 +171,7 @@
       "title": "Optimize Weaponry",
       "keywords": [ "one-shot" ],
       "body": [
-        "Use a power now.",
+        "You may use a power now.",
         "If this power is printed on a Loadout card, {T210} deals 1 target 3 projectile damage.",
         "Otherwise, draw 2 cards. "
       ],
@@ -190,7 +190,7 @@
       "title": "Optimize Awareness",
       "keywords": [ "one-shot" ],
       "body": [
-        "Use a power now.",
+        "You may use a power now.",
         "If this power is printed on an Ongoing card, up to 3 players may draw a card.",
         "Otherwise, draw 2 cards. "
       ],
@@ -209,7 +209,7 @@
       "title": "Optimize Frame",
       "keywords": [ "one-shot" ],
       "body": [
-        "Use a power now.",
+        "You may use a power now.",
         "If this power is printed on your character card, {T-210} regains 4 HP.",
         "Otherwise, draw 2 cards. "
       ],

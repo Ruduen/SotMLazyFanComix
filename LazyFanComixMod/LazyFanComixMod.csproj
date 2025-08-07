@@ -244,7 +244,7 @@
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\CallTheShotCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\OptimizeCardControllers\OptimizeFrameCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\OptimizeCardControllers\OptimizeAwarenessCardController.cs" />
-    <Compile Include="Heroes\T210CardControllers\OptimizeCardControllers\OptimizeLoadoutCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\OptimizeCardControllers\OptimizeWeaponryCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\OutdatedCardControllers\CoveringFireCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\OutdatedCardControllers\LeadTheTargetCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\FindTheShotCardController.cs" />

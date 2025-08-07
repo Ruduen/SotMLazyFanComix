@@ -143,7 +143,7 @@ namespace LazyFanComixTest
     }
 
     [Test()]
-    public void TestEquipLoadoutAssault()
+    public void TestLoadoutAssault()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -203,7 +203,7 @@ namespace LazyFanComixTest
     }
 
     [Test()]
-    public void TestEquipLoadoutDoubleUse()
+    public void TestLoadoutDoubleUse()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -223,7 +223,8 @@ namespace LazyFanComixTest
 
       QuickHPStorage(targets);
       Card equip = PlayCard("LoadoutAssault");
-      QuickHPCheck(-3 - 3, -3, -3);
+      // Double fire, second shot would target same twice.
+      QuickHPCheck(-6, -3, -3);
       AssertIsInPlay(equip);
       AssertInTrash(destroyed);
 
@@ -245,12 +246,19 @@ namespace LazyFanComixTest
       StartGame();
 
       Card equip = PlayCard("LoadoutWhisper");
+      DestroyNonCharacterVillainCards();
 
       GoToUsePowerPhase(T210);
+      AssertPhaseActionCount(1);
 
-      DestroyNonCharacterVillainCards();
-      PlayCard("DoubleTap");
+      Card card = PlayCard("DoubleTap");
       AssertPhaseActionCount(2);
+
+      GoToUsePowerPhase(T210);
+      AssertPhaseActionCount(2);
+
+      DestroyCard(card);
+      AssertPhaseActionCount(1);
 
     }
 
@@ -308,9 +316,225 @@ namespace LazyFanComixTest
       QuickHPCheck(-2 - 3); // Confirm bonus damage from default confirmed
       QuickHandCheck(1);    // and Bunker used initialize.
     }
+
+    [Test()]
+    public void TestConfigurationFlashFire()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+      DestroyNonCharacterVillainCards();
+
+      Card power = PlayCard("LoadoutAssault");
+
+      GoToStartOfTurn(T210);
+
+      QuickHPStorage(baron);
+      // Preplay hit - No damage
+      DealDamage(baron, T210, 1, DamageType.Energy);
+      QuickHPCheck(-0);
+
+      Card card = PlayCard("ConfigurationFlashFire");
+      // First hit - retaliate
+      DealDamage(baron, T210, 1, DamageType.Energy);
+      QuickHPCheck(-3);
+
+      // Second hit - fail
+      DealDamage(baron, T210, 1, DamageType.Energy);
+      QuickHPCheck(-0);
+
+      DestroyCard(power);
+      GoToStartOfTurn(T210);
+
+      // First hit - No Power
+      DealDamage(baron, T210, 1, DamageType.Energy);
+      QuickHPCheck(0);
+
+
+    }
+
+
+    [Test()]
+    public void TestConfigurationFullAssault()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+      DestroyNonCharacterVillainCards();
+
+      Card play = PutInHand("LoadoutAssault");
+      DecisionSelectCardToPlay = play;
+      PlayCard("ConfigurationFullAssault");
+
+      AssertNotInPlay(play);
+
+      GoToStartOfTurn(T210);
+      AssertIsInPlay(play);
+    }
+
+
+    [Test()]
+    public void TestConfigurationRapidReboot()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+      DestroyNonCharacterVillainCards();
+
+      Card loadout = PutIntoPlay("LoadoutAssault");
+      PlayCard("ConfigurationRapidReboot");
+
+      GoToDrawCardPhase(T210);
+      QuickHandStorage(T210);
+
+      // Mandatory draw - draws 1.
+      GoToEndOfTurn(T210);
+      QuickHandCheck(1);
+
+      // Force recover.
+      DestroyCard(loadout);
+      GoToDrawCardPhase(T210);
+      QuickHandStorage(T210);
+      PlayCard("TrafficPileup");
+
+      GoToEndOfTurn(T210);
+      AssertInHand(loadout);
+    }
+
     #endregion Ongoing Tests
 
     #region One-Shot Tests
+
+
+    [Test()]
+    public void TestOneShotOptimizeWeaponry()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210", "Ra", "Fanatic", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+      DestroyNonCharacterVillainCards();
+
+      Card power = PlayCard("LoadoutAssault");
+      Card play = PutInTrash("OptimizeWeaponry");
+
+      DecisionSelectPowers = new Card[]
+      {
+        power, T210.CharacterCard, T210.CharacterCard, power
+      };
+
+      GoToStartOfTurn(T210);
+
+      // Special: Here only, check both ways so mandatory decision case won't come up.
+
+      QuickHPStorage(baron);
+      QuickHandStorage(T210);
+
+      PlayCard(play);
+      QuickHPCheck(-3 - 3);
+      QuickHandCheck(0);
+
+
+      PlayCard(play);
+      QuickHPCheck(-2); // Base power, no extra damage.
+      QuickHandCheck(2);
+
+      GoToStartOfTurn(T210);
+
+      PlayCard(play);
+      QuickHPCheck(-2); // Base power, no extra damage.
+      QuickHandCheck(2);
+
+      PlayCard(play);
+      QuickHPCheck(-3 - 3);
+      QuickHandCheck(0);
+    }
+
+    [Test()]
+    public void TestOneShotOptimizeAwareness()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210", "Ra", "Fanatic", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+      DestroyNonCharacterVillainCards();
+
+      Card power = PlayCard("CallTheShot");
+      Card play = PutInTrash("OptimizeAwareness");
+
+      DecisionSelectPowers = new Card[]
+      {
+        T210.CharacterCard, ra.CharacterCard, power
+      };
+
+      GoToStartOfTurn(T210);
+
+      QuickHandStorage(T210, ra);
+
+      // No discard, draw 2 from effect. 
+      PlayCard(play);
+      QuickHandCheck(2, 0);
+
+      // Use power by default, then use ra's power.
+      // Discard 1 from power, all draw 1 from effect;
+      PlayCard(play);
+      QuickHandCheck(0, 1);
+    }
+
+    [Test()]
+    public void TestOneShotOptimizeFrame()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210", "Ra", "Fanatic", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+      DestroyNonCharacterVillainCards();
+
+      Card power = PlayCard("LoadoutAssault");
+      Card play = PutInTrash("OptimizeFrame");
+
+      DecisionSelectPowers = new Card[]
+      {
+        T210.CharacterCard, ra.CharacterCard
+      };
+
+      GoToStartOfTurn(T210);
+      DealDamage(T210, T210, 10, DamageType.Cold);
+
+      QuickHandStorage(T210);
+      QuickHPStorage(T210);
+
+      // Heal effect.
+      PlayCard(play);
+      QuickHandCheck(0);
+      QuickHPCheck(4);
+
+      // No discard, draw 2 from effect. 
+      PlayCard(play);
+      QuickHandCheck(2);
+      QuickHPCheck(0);
+    }
 
     [Test()]
     public void TestOneShotDualStrike()

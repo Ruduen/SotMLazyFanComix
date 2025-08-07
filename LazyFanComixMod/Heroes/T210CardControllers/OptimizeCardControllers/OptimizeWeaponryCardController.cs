@@ -6,16 +6,16 @@ using System.Linq;
 
 namespace LazyFanComix.T210
 {
-  public class OptimizeLoadoutCardController : OptimizeSharedCardController
+  public class OptimizeWeaponryCardController : OptimizeSharedCardController
   {
-    public OptimizeLoadoutCardController(Card card, TurnTakerController turnTakerController)
+    public OptimizeWeaponryCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
     }
 
     protected override LinqCardCriteria AppropriateCards()
     {
-      return new LinqCardCriteria((Card c) => c.DoKeywordsContain("loadout"));
+      return new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("loadout"));
     }
 
     protected override IEnumerator MatchCardAction()

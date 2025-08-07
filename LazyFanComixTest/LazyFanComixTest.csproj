@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RandomGameTest.cs" />
+    <Compile Include="RuduenModsTests\OfficialOnlyTest.cs" />
     <Compile Include="RuduenModsTests\ModArtifactTest.cs" />
     <Compile Include="RuduenModsTests\CaseFilesPromosTest.cs" />
     <Compile Include="RuduenModsTests\MenageriePromosTest.cs" />

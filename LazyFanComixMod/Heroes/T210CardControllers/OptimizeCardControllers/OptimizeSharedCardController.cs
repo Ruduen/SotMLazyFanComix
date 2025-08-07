@@ -21,15 +21,17 @@ namespace LazyFanComix.T210
     protected IEnumerator PlayHelper()
     {
       IEnumerable<Card> validCards;
+      Card powerCard;
       IEnumerator coroutine;
       List<UsePowerDecision> usePowerDecisions = new List<UsePowerDecision>();
 
-      coroutine = this.GameController.SelectAndUsePower(this.HeroTurnTakerController, false, storedResults: usePowerDecisions, cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectAndUsePower(this.HeroTurnTakerController, true, storedResults: usePowerDecisions, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       // If any UPD cards are in the selected cards...
       validCards = this.GameController.FindCardsWhere(AppropriateCards());
-      if (usePowerDecisions.Where((UsePowerDecision upd) => validCards.Contains(upd.SelectedCard)).Any())
+      powerCard = usePowerDecisions.FirstOrDefault()?.SelectedCard;
+      if (validCards.Contains(powerCard))
       {
         coroutine = MatchCardAction();
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
