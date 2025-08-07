@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace LazyFanComix.T210
 {
-  public class LoadoutWhisperCardController : LoadoutSharedCardController
+  public class LoadoutAssaultCardController : LoadoutSharedCardController
   {
-    public LoadoutWhisperCardController(Card card, TurnTakerController turnTakerController)
+    public LoadoutAssaultCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
     }
@@ -16,32 +16,34 @@ namespace LazyFanComix.T210
     public override IEnumerator UsePower(int index = 0)
     {
       //bool isThirdPower = this.checkThirdPower();
+      List<DealDamageAction> ddas = new List<DealDamageAction>();
       int[] powerNumerals = new int[]
       {
-                this.GetPowerNumeral(0, 3),
-                this.GetPowerNumeral(1, 1),
-                this.GetPowerNumeral(2, 3)
+                this.GetPowerNumeral(0, 1),
+                this.GetPowerNumeral(1, 3),
+                this.GetPowerNumeral(2, 2),
+                this.GetPowerNumeral(3, 3)
       };
       DamageSource ds = new DamageSource(this.GameController, this.CharacterCard);
 
       IEnumerator coroutine;
 
-      coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, true, cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddas, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       // TODO: Third Power message?
       if (this.isThirdPower)
       {
-        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " draws " + powerNumerals[2] + " cards.", Priority.Low, this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " deals " + powerNumerals[2] + " additional targets damage.", Priority.Low, this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-        coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[2], cardSource: this.GetCardSource());
+        IEnumerable<Card> damagedTargets = ddas.Select((DealDamageAction dda) => dda.Target);
+        coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[3], DamageType.Projectile, powerNumerals[2], false, 0, additionalCriteria: (Card c) => !damagedTargets.Contains(c), cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
 
       coroutine = PostPowerDestroy();
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
 
     }
   }

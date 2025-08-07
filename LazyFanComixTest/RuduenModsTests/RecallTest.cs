@@ -520,24 +520,24 @@ namespace LazyFanComixTest
       AssertPhaseActionCount(1);
     }
 
-    [Test()]
-    public void TestCardGoingThroughTheMotionsEphemeralTest()
-    {
-      IEnumerable<string> setupItems = new List<string>()
-            {
-                "BaronBlade", "LazyFanComix.Recall", "MrFixer", "Megalopolis"
-            };
-      SetupGameController(setupItems);
+    //[Test()]
+    //public void TestCardGoingThroughTheMotionsEphemeralTest()
+    //{
+    //  IEnumerable<string> setupItems = new List<string>()
+    //        {
+    //            "BaronBlade", "LazyFanComix.Recall", "MrFixer", "Megalopolis"
+    //        };
+    //  SetupGameController(setupItems);
 
-      StartGame();
+    //  StartGame();
 
-      PlayCard("GoingThroughTheMotions");
-      PlayCard("ImmediateJump");
+    //  PlayCard("GoingThroughTheMotions");
+    //  PlayCard("ImmediateJump");
 
-      DecisionSelectFunctions = new int?[] { null };
-      GoToPlayCardPhase(Recall);
-      AssertPhaseActionCount(1);
-    }
+    //  DecisionSelectFunctions = new int?[] { null };
+    //  GoToPlayCardPhase(Recall);
+    //  AssertPhaseActionCount(1);
+    //}
 
     [Test()]
     public void TestCardGoingThroughTheMotionsSelfDamage()

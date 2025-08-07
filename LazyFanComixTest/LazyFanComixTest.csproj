@@ -95,7 +95,7 @@
     <Compile Include="RuduenModsTests\SoulbinderTest.cs" />
     <Compile Include="RuduenModsTests\GreyhatTest.cs" />
     <Compile Include="RuduenModsTests\OrbitTest.cs" />
-    <Compile Include="RuduenModsTests\ThriTest.cs" />
+    <Compile Include="RuduenModsTests\T210Test.cs" />
     <Compile Include="RuduenModsTests\VagabondTest.cs" />
     <Compile Include="RuduenModsTests\TrailblazerTest.cs" />
     <Compile Include="RuduenModsTests\SpellforgeTest.cs" />

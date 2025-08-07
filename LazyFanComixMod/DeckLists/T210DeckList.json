@@ -22,7 +22,7 @@
         "DealDamageProjectile",
         "IncreaseDamageDealt"
       ],
-      "hitpoints": 27,
+      "hitpoints": 31,
       "nemesisIdentifiers": [
         "T210"
       ],
@@ -50,6 +50,23 @@
         "You may use 1 additional power during your power phase."
       ],
       "icons": [ "UsePowerExtra" ],
+      "flavorQuotes": [
+        {
+          "identifier": "T210",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "T210, ???"
+    },
+    {
+      "identifier": "DualStrike",
+      "count": 2,
+      "title": "Dual Strike",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "Up to 2 players, other than you, use 1 power now."
+      ],
+      "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "T210",
@@ -89,15 +106,15 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "LoadoutAnchor",
+      "identifier": "LoadoutKnife",
       "count": 3,
-      "title": "Loadout: Anchor",
-      "keywords": [ "equipment" ],
+      "title": "Loadout: Knife",
+      "keywords": [ "equipment", "loadout" ],
       "body": [
         "When this card enters play, use the power on it."
       ],
       "powers": [
-        "{T210} deals 1 target 1 projectile damage and 1 toxic damage. If this is the third power used this turn, {T210} deals that target 1 radiant damage and you may destroy an ongoing or environment card."
+        "{T-210} deals 1 target 1 projectile damage and 1 toxic damage. If this is the third power used this turn, {T-210} deals that target 1 fire damage and you may destroy an ongoing or environment card. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
       ],
       "icons": [ "HasPower", "DealDamageProjectile", "DestroyOngoing", "DestroyEnvironment" ],
       "flavorQuotes": [
@@ -109,15 +126,15 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "LoadoutSlick",
+      "identifier": "LoadoutAssault",
       "count": 3,
-      "title": "Loadout: Slick",
-      "keywords": [ "equipment" ],
+      "title": "Loadout: Assault",
+      "keywords": [ "equipment", "loadout" ],
       "body": [
         "When this card enters play, use the power on it."
       ],
       "powers": [
-        "{T210} deals 1 target 3 projectile damage. If this is the third power used this turn, {T210} deals up to 2 other targets 3 projectile damage each."
+        "{T-210} deals 1 target 3 fire damage. If this is the third power used this turn, {T-210} deals up to 3 other targets 3 fire damage each. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
       ],
       "icons": [ "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -132,12 +149,12 @@
       "identifier": "LoadoutWhisper",
       "count": 3,
       "title": "Loadout: Whisper",
-      "keywords": [ "equipment" ],
+      "keywords": [ "equipment", "loadout" ],
       "body": [
         "When this card enters play, use the power on it."
       ],
       "powers": [
-        "{T210} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, draw 3 cards."
+        "{T210} deals up to 3 targets 1 irreducible projectile damage each. If this is the third power used this turn, draw 3 cards."
       ],
       "icons": [ "HasPower", "DealDamageProjectile", "DrawCardNow" ],
       "flavorQuotes": [
@@ -149,15 +166,16 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "ToolsOfTheTrade",
+      "identifier": "OptimizeWeaponry",
       "count": 3,
-      "title": "Tools of the Trade",
+      "title": "Optimize Weaponry",
       "keywords": [ "one-shot" ],
       "body": [
-        "{T210} deals up to 3 targets 1 projectile damage.",
-        "Search your deck for 1 equipment card and play it. Shuffle your deck."
+        "Use a power now.",
+        "If this power is printed on a Loadout card, {T210} deals 1 target 3 projectile damage.",
+        "Otherwise, draw 2 cards. "
       ],
-      "icons": [ "Search", "PlayCardNow", "UsePowerNow" ],
+      "icons": [ "UsePowerNow", "DealDamageProjectile", "DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "T210",
@@ -167,15 +185,16 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "GearedUp",
+      "identifier": "OptimizeAwareness",
       "count": 3,
-      "title": "Geared Up",
+      "title": "Optimize Awareness",
       "keywords": [ "one-shot" ],
       "body": [
-        "{T210} deals up to 6 targets 1 projectile damage each.",
-        "Each player may draw 1 card or play 1 equipment card."
+        "Use a power now.",
+        "If this power is printed on an Ongoing card, up to 3 players may draw a card.",
+        "Otherwise, draw 2 cards. "
       ],
-      "icons": [ "DrawCardNow", "PlayCardNow", "DealDamageProjectile" ],
+      "icons": [ "UsePowerNow", "DealDamageProjectile", "DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "T210",
@@ -185,16 +204,16 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "FromTheHip",
-      "count": 4,
-      "title": "From the Hip",
+      "identifier": "OptimizeFrame",
+      "count": 3,
+      "title": "Optimize Frame",
       "keywords": [ "one-shot" ],
       "body": [
-        "You may use 1 power now.",
-        "You may draw 1 card.",
-        "You may play 1 card."
+        "Use a power now.",
+        "If this power is printed on your character card, {T-210} regains 4 HP.",
+        "Otherwise, draw 2 cards. "
       ],
-      "icons": [ "UsePowerNow", "DrawCardNow", "PlayCardNow" ],
+      "icons": [ "UsePowerNow", "RegainHP", "DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "T210",
@@ -204,14 +223,48 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "DualStrike",
-      "count": 2,
-      "title": "Dual Strike",
-      "keywords": [ "one-shot" ],
+      "identifier": "ConfigurationFlashFire",
+      "count": 3,
+      "title": "Configuration: Flash Fire",
+      "keywords": [ "equipment", "limited" ],
       "body": [
-        "Up to 2 players, other than you, use 1 power now."
+        "The first time {T-210} is dealt damage by a non-Hero target each turn, you use the power on one of your Loadout cards."
       ],
       "icons": [ "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "T210",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "T210, ???"
+    },
+    {
+      "identifier": "ConfigurationFullAssault",
+      "count": 3,
+      "title": "Configuration: Full Assault",
+      "keywords": [ "equipment", "limited" ],
+      "body": [
+        "At the start of your turn, you may use the power printed on one of your Loadout cards."
+      ],
+      "icons": [ "PlayCardNow", "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "T210",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "T210, ???"
+    },
+    {
+      "identifier": "ConfigurationRapidReboot",
+      "count": 3,
+      "title": "Configuration: Rapid Reboot",
+      "keywords": [ "equipment", "limited" ],
+      "body": [
+        "At the end of your turn, you may either draw 1 card or move 1 Loadout card from your trash to your hand."
+      ],
+      "icons": [ "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "T210",
@@ -231,42 +284,6 @@
         "{T210} deals themselves 3 psychic damage."
       ],
       "icons": [ "DrawCardNow", "UsePowerNow", "DealDamagePsychic" ],
-      "flavorQuotes": [
-        {
-          "identifier": "T210",
-          "text": "..."
-        }
-      ],
-      "flavorReference": "T210, ???"
-    },
-    {
-      "identifier": "CoveringFire",
-      "count": 3,
-      "title": "Covering Fire",
-      "keywords": [ "ongoing", "limited" ],
-      "body": [
-        "When {T210} would deal a Hero projectile damage, prevent it and put the bottom card of that Hero's deck under this card.",
-        "When a Hero would be dealt damage by a non-Hero target damage, destroy all of that Hero's cards under this card and reduce that damage by 2 for each card destroyed this way."
-      ],
-      "icons": [ "CancelledDamageGreen", "Manipulate", "Destroy", "ReduceDamageTaken" ],
-      "flavorQuotes": [
-        {
-          "identifier": "T210",
-          "text": "..."
-        }
-      ],
-      "flavorReference": "T210, ???"
-    },
-    {
-      "identifier": "LeadTheTarget",
-      "count": 3,
-      "title": "Lead the Target",
-      "keywords": [ "ongoing", "limited" ],
-      "body": [
-        "When {T210} uses a power, you may put the bottom card of another Hero's deck under this card.",
-        "When another Hero would deal a non-Hero target damage, destroy all of that Hero's cards under this card and increase that damage by 1 for each card destroyed this way."
-      ],
-      "icons": [ "Manipulate", "IncreaseDamageDealt", "HasPower", "UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "T210",

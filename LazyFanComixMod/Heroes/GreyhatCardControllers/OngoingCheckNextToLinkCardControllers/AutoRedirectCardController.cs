@@ -2,11 +2,9 @@
 using Handelabra.Sentinels.Engine.Model;
 using System.Linq;
 
-// Manually tested!
-
 namespace LazyFanComix.Greyhat
 {
-    public class AutoRedirectCardController : GreyhatSharedNetworkCardController
+  public class AutoRedirectCardController : GreyhatSharedNetworkCardController
     {
         public AutoRedirectCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
         {
