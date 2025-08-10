@@ -332,11 +332,24 @@ namespace LazyFanComixTest
       PlayCard("ConfigurationFlashFire");
 
       QuickHPStorage(baron);
-      UsePower(T210);
-      QuickHPCheck(-2 - 1);
+      GoToEndOfTurn(T210);
+      QuickHPCheck(0);
 
-      PlayCard("LoadoutAssault");
-      QuickHPCheck(-3 - 1);
+      GoToStartOfTurn(T210);
+      UsePower(T210);
+      QuickHPCheck(-2);
+
+      GoToEndOfTurn(T210);
+      QuickHPCheck(-1);
+
+      GoToStartOfTurn(T210);
+      UsePower(T210);
+      QuickHPCheck(-2);
+      UsePower(T210);
+      QuickHPCheck(-2);
+
+      GoToEndOfTurn(T210);
+      QuickHPCheck(-2);
 
     }
 
@@ -379,18 +392,19 @@ namespace LazyFanComixTest
       Card loadout = PutIntoPlay("LoadoutAssault");
       PlayCard("ConfigurationRapidReboot");
 
-      GoToDrawCardPhase(T210);
-      QuickHandStorage(T210);
+      DealDamage(T210, T210, 5, DamageType.Cold);
 
-      // Mandatory draw - draws 1.
+      QuickHPStorage(T210);
+
+      // Mandatory regain. 
       GoToStartOfTurn(T210);
-      QuickHandCheck(1);
+      QuickHPCheck(1);
 
-      // Force recover.
       DestroyCard(loadout);
-      PlayCard("TrafficPileup");
 
+      DecisionSelectFunction = 1;
       GoToStartOfTurn(T210);
+      QuickHPCheck(0);
       AssertInHand(loadout);
     }
 

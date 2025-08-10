@@ -114,7 +114,7 @@
         "When this card enters play, use the power on it."
       ],
       "powers": [
-        "{T210} deals 1 target 2 projectile damage. If this is the third power used this turn, {T210} deals that target 2 fire damage and you may destroy an ongoing or environment card. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
+        "{T210} deals 1 target 2 projectile damage. If this is the third power used this turn, you may destroy an ongoing card, equipment card, or non-character card damaged by this power. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
       ],
       "icons": [ "HasPower", "DealDamageProjectile", "DestroyOngoing", "DestroyEnvironment" ],
       "flavorQuotes": [
@@ -228,7 +228,7 @@
       "title": "Configuration: Flash Fire",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the end of your turn, T210 may deal 1 target X fire damage, where X = the number of powers you have used this turn."
+        "At the end of your turn, T210 may deal 1 target X fire damage, where X = the number of powers used this turn."
       ],
       "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
@@ -262,7 +262,7 @@
       "title": "Configuration: Rapid Reboot",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the start of your turn, either {T210} regains 1 HP or move 1 Loadout card from your trash to your hand."
+        "At the start of your turn, either {T210} gains 1 HP or move 1 Loadout card from your trash to your hand."
       ],
       "icons": [ "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [

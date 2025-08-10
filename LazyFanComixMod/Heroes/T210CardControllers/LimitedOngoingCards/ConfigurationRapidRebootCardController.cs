@@ -24,14 +24,13 @@ namespace LazyFanComix.T210
       List<Function> list = new List<Function>();
       SelectFunctionDecision sfd;
 
-      list.Add(new Function(this.HeroTurnTakerController, "Draw 1 Card", SelectionType.DrawCard,
-          () => this.GameController.DrawCards(this.HeroTurnTakerController, 1, cardSource: this.GetCardSource()),
-          this.HeroTurnTakerController != null && this.CanDrawCards(this.HeroTurnTakerController), this.TurnTaker.Name + " cannot move any loadout cards from their trash to their hand, so they must draw 1 card."));
+      list.Add(new Function(this.HeroTurnTakerController, this.CharacterCard.Title + "Gains 1 HP", SelectionType.GainHP,
+          () => this.GameController.GainHP(this.CharacterCard, 1, cardSource: this.GetCardSource()), null, this.TurnTaker.Name + " cannot move any loadout cards to their hand, so they must regain HP."));
       list.Add(new Function(this.HeroTurnTakerController, "Move 1 Loadout Card from your Trash to your Hand", SelectionType.MoveCard,
           () => this.GameController.SelectCardsFromLocationAndMoveThem(this.HeroTurnTakerController, this.HeroTurnTaker.Trash, 1, 1, new LinqCardCriteria((Card c) => c.DoKeywordsContain("loadout"), "loadout"), new List<MoveCardDestination> { new MoveCardDestination(this.HeroTurnTaker.Hand) }, cardSource: this.GetCardSource()),
           this.TurnTakerController != null && this.TurnTaker.Trash.Cards.Where((Card c) => c.DoKeywordsContain("loadout")).Any(),
-          this.TurnTaker.Name + " cannot draw any cards, so they must move a Loadout card from their trash to their hand."));
-      sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, list, false, null, this.TurnTaker.Name + " cannot draw any cards or move any loadout cards from their trash to their hand, so" + this.Card.Title + " has no effect.", null, this.GetCardSource());
+          this.TurnTaker.Name + " cannot regain HP, so they must move a Loadout card from their trash to their hand."));
+      sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, list, false, null, this.TurnTaker.Name + " cannot regain HP or move any loadout cards from their trash to their hand, so" + this.Card.Title + " has no effect.", null, this.GetCardSource());
 
       return this.GameController.SelectAndPerformFunction(sfd, null, null);
     }
