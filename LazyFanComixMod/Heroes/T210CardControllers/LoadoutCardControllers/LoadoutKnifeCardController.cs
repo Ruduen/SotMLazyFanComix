@@ -34,7 +34,7 @@ namespace LazyFanComix.T210
       }
       else
       {
-        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard + " will deal additional damage and may destroy an ongoing or environment cards.", Priority.Low, this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard.AlternateTitleOrTitle + " will deal additional damage and may destroy an ongoing or environment cards.", Priority.Low, this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         ddas = new List<DealDamageAction>()

@@ -228,7 +228,7 @@
       "title": "Configuration: Flash Fire",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "The first time {T210} is dealt damage by a non-Hero target each turn, you use the power on one of your Loadout cards."
+        "At the end of your turn, T210 may deal 1 target X fire damage, where X = the number of powers you have used this turn."
       ],
       "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
@@ -262,7 +262,7 @@
       "title": "Configuration: Rapid Reboot",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the start of your turn, you may either draw 1 card or move 1 Loadout card from your trash to your hand."
+        "At the start of your turn, either {T210} regains 1 HP or move 1 Loadout card from your trash to your hand."
       ],
       "icons": [ "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
@@ -276,7 +276,7 @@
     {
       "identifier": "ThirdTimesTheCharm",
       "count": 3,
-      "title": "Third Time's the Charm'",
+      "title": "Third Time's the Charm",
       "keywords": [ "one-shot" ],
       "body": [
         "Draw 3 cards.",

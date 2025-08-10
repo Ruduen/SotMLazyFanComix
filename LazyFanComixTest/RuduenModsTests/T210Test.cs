@@ -329,31 +329,14 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      Card power = PlayCard("LoadoutAssault");
-
-      GoToStartOfTurn(T210);
+      PlayCard("ConfigurationFlashFire");
 
       QuickHPStorage(baron);
-      // Preplay hit - No damage
-      DealDamage(baron, T210, 1, DamageType.Energy);
-      QuickHPCheck(-0);
+      UsePower(T210);
+      QuickHPCheck(-2 - 1);
 
-      Card card = PlayCard("ConfigurationFlashFire");
-      // First hit - retaliate
-      DealDamage(baron, T210, 1, DamageType.Energy);
-      QuickHPCheck(-3);
-
-      // Second hit - fail
-      DealDamage(baron, T210, 1, DamageType.Energy);
-      QuickHPCheck(-0);
-
-      DestroyCard(power);
-      GoToStartOfTurn(T210);
-
-      // First hit - No Power
-      DealDamage(baron, T210, 1, DamageType.Energy);
-      QuickHPCheck(0);
-
+      PlayCard("LoadoutAssault");
+      QuickHPCheck(-3 - 1);
 
     }
 
