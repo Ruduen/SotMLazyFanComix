@@ -111,10 +111,10 @@
       "title": "Loadout: Knife",
       "keywords": [ "equipment", "loadout" ],
       "body": [
-        "When this card enters play, use the power on it."
+        "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T210} deals 1 target 2 projectile damage. If this is the third power used this turn, you may destroy an ongoing card, equipment card, or non-character card damaged by this power. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
+        "{T210} deals up to 2 targets 2 toxic damage. If this is the third power used this turn, you may destroy a ongoing card, environment card or non-character target damaged by this power."
       ],
       "icons": [ "HasPower", "DealDamageProjectile", "DestroyOngoing", "DestroyEnvironment" ],
       "flavorQuotes": [
@@ -126,15 +126,15 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "LoadoutAssault",
+      "identifier": "LoadoutFirestorm",
       "count": 3,
-      "title": "Loadout: Assault",
+      "title": "Loadout: Firestorm",
       "keywords": [ "equipment", "loadout" ],
       "body": [
-        "When this card enters play, use the power on it."
+        "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T210} deals 1 target 3 fire damage. If this is the third power used this turn, {T210} deals up to 3 other targets 3 fire damage each. Destroy all of your other Loadout cards. For each Loadout card destroyed this way, use this power again."
+        "{T210} deals 1 target 3 fire damage. If this is the third power used this turn, {T210} deals up to 3 other targets 3 fire damage each."
       ],
       "icons": [ "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
@@ -151,10 +151,10 @@
       "title": "Loadout: Whisper",
       "keywords": [ "equipment", "loadout" ],
       "body": [
-        "When this card enters play, use the power on it."
+        "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T210} deals up to 3 targets 1 irreducible projectile damage each. If this is the third power used this turn, draw 3 cards."
+        "{T210} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, reduce damage dealt by those targets by 1 until the start of your turn and draw 1 card."
       ],
       "icons": [ "HasPower", "DealDamageProjectile", "DrawCardNow" ],
       "flavorQuotes": [
@@ -172,7 +172,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If this power is printed on a Loadout card, {T210} deals 1 target 3 projectile damage.",
+        "If that power is printed on a Loadout card, {T210} deals 1 target 3 projectile damage.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "DealDamageProjectile", "DrawCardNow" ],
@@ -191,7 +191,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If this power is printed on an Ongoing card, up to 3 players may draw a card.",
+        "If that power is printed on an Ongoing card, up to 3 players may draw a card.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "DealDamageProjectile", "DrawCardNow" ],
@@ -210,7 +210,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If this power is printed on your character card, {T210} regains 4 HP.",
+        "If that power is printed on your character card, {T210} regains 4 HP.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "RegainHP", "DrawCardNow" ],
@@ -223,9 +223,9 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "ConfigurationFlashFire",
+      "identifier": "ConfigFlashFlare",
       "count": 3,
-      "title": "Configuration: Flash Fire",
+      "title": "Config: Flash Flare",
       "keywords": [ "equipment", "limited" ],
       "body": [
         "At the end of your turn, T210 may deal 1 target X fire damage, where X = the number of powers used this turn."
@@ -240,12 +240,12 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "ConfigurationAutoAttack",
+      "identifier": "ConfigAutoAssault",
       "count": 3,
-      "title": "Configuration: Auto Attack",
+      "title": "Config: Auto Assault",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the end of your turn, you may play a Loadout card."
+        "At the start of your turn, you may destroy 1 of your non-character cards in play, other than this card. If a card is destroyed this way, you may play a loadout card."
       ],
       "icons": [ "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
@@ -257,12 +257,12 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "ConfigurationRapidReboot",
+      "identifier": "ConfigRapidReboot",
       "count": 3,
-      "title": "Configuration: Rapid Reboot",
+      "title": "Config: Rapid Reboot",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the start of your turn, either {T210} gains 1 HP or move 1 Loadout card from your trash to your hand."
+        "At the end of your turn, either {T210} gains 1 HP or move 1 Loadout card from your trash to your hand."
       ],
       "icons": [ "PlayCardNow", "UsePowerNow" ],
       "flavorQuotes": [
@@ -274,9 +274,9 @@
       "flavorReference": "T210, ???"
     },
     {
-      "identifier": "ThirdTimesTheCharm",
+      "identifier": "ThirdTimesACharm",
       "count": 3,
-      "title": "Third Time's the Charm",
+      "title": "Third Time's a Charm",
       "keywords": [ "one-shot" ],
       "body": [
         "Draw 3 cards.",

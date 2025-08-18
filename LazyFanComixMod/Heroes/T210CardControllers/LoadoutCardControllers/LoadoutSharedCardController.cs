@@ -26,7 +26,24 @@ namespace LazyFanComix.T210
 
     public override IEnumerator Play()
     {
-      return this.GameController.UsePower(this.Card, 0, cardSource: this.GetCardSource());
+      IEnumerator coroutine;
+      int destroyedCount;
+      List<DestroyCardAction> dcaResults = new List<DestroyCardAction>();
+
+      coroutine = this.GameController.DestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("loadout") && c.Owner == this.TurnTaker && c != this.Card, "other loadout"), storedResults: dcaResults, cardSource: this.GetCardSource());
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); }
+      else { this.GameController.ExhaustCoroutine(coroutine); }
+
+      if(dcaResults.Any((DestroyCardAction dca) => dca.WasCardDestroyed))
+      {
+        coroutine = this.GameController.UsePower(this.Card, 0, cardSource: this.GetCardSource());
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); }
+        else { this.GameController.ExhaustCoroutine(coroutine); }
+      }
+
+      coroutine = this.GameController.UsePower(this.Card, 0, cardSource: this.GetCardSource()); if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); }
+      else { this.GameController.ExhaustCoroutine(coroutine); }
+
     }
 
     // Use trigger on power use to note that something is the third power use, since that has better potential to handle ordering given timing point.
@@ -58,25 +75,6 @@ namespace LazyFanComix.T210
       this._isThirdPower = false;
       this._thirdPowerUpa = null;
       yield break;
-    }
-
-    protected IEnumerator PostPowerDestroy()
-    {
-      IEnumerator coroutine;
-      int destroyedCount;
-      List<DestroyCardAction> dcaResults = new List<DestroyCardAction>();
-
-      coroutine = this.GameController.DestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("loadout") && c.Owner == this.TurnTaker && c != this.Card, "other loadout"), storedResults: dcaResults, cardSource: this.GetCardSource());
-      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); }
-      else { this.GameController.ExhaustCoroutine(coroutine); }
-
-      destroyedCount = dcaResults.Where((DestroyCardAction dca) => dca.WasCardDestroyed).Count();
-      for (int i = 0; i < destroyedCount; i++)
-      {
-        coroutine = this.GameController.UsePower(this.Card, 0, cardSource: this.GetCardSource());
-        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); }
-        else { this.GameController.ExhaustCoroutine(coroutine); }
-      }
     }
 
   }

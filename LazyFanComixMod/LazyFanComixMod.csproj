@@ -104,9 +104,9 @@
     <Compile Include="Heroes\GreyhatCardControllers\LinkCardControllers\ProxyRelayCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\MiscCardControllers\NodeCheckCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\MiscCardControllers\PingSweepCardController.cs" />
-    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigurationRapidRebootCardController.cs" />
-    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigurationAutoAttackCardController.cs" />
-    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigurationFlashFireCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigRapidRebootCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigAutoAssaultCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigFlashFlareCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\OngoingCheckNextToLinkCardControllers\OverclockSystemsCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\CheckNextToLinkCardControllers\DDoSCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\CheckNextToLinkCardControllers\DataTransferCardController.cs" />
@@ -253,7 +253,7 @@
     <Compile Include="Heroes\T210CardControllers\OptimizeCardControllers\OptimizeSharedCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\DoubleTapCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutWhisperCardController.cs" />
-    <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutAssaultCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutFirestormCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutSharedCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutKnifeCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\T210CharacterCardController.cs" />

@@ -8,9 +8,9 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.T210
 {
-  public class ConfigurationFlashFireCardController : CardController
+  public class ConfigFlashFlareCardController : CardController
   {
-    public ConfigurationFlashFireCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public ConfigFlashFlareCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
       this.SpecialStringMaker.ShowSpecialString(() => string.Format("{0} powers have been used this turn.", this.Journal.UsePowerEntriesThisTurn().Count().ToString()));
     }

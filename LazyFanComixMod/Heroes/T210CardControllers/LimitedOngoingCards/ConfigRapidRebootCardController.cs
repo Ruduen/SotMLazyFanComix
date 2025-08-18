@@ -4,19 +4,18 @@ using System.Linq;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 
-// Manually tested!
 
 namespace LazyFanComix.T210
 {
-  public class ConfigurationRapidRebootCardController : CardController
+  public class ConfigRapidRebootCardController : CardController
   {
-    public ConfigurationRapidRebootCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+    public ConfigRapidRebootCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
     {
     }
 
     public override void AddTriggers()
     {
-      this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, DrawOrRecoverResponse, TriggerType.PlayCard);
+      this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, DrawOrRecoverResponse, new TriggerType[] { TriggerType.PlayCard, TriggerType.GainHP });
     }
 
     private IEnumerator DrawOrRecoverResponse(PhaseChangeAction pca)

@@ -135,15 +135,29 @@ namespace LazyFanComixTest
       Card equip = PlayCard("LoadoutKnife");
       QuickHPCheck(-2);
       UsePower(equip, 0);
-      QuickHPCheck(-2 - 2);
+      QuickHPCheck(-2);
       AssertInTrash(ongoing);
+      UsePower(equip);
+      QuickHPCheck(-2);
+
+      GoToStartOfTurn(T210);
+      Card mdp = PlayCard("MobileDefensePlatform");
+      QuickHPStorage(baron.CharacterCard, mdp);
+      UsePower(equip, 0);
+      QuickHPCheck(0, -2);
+      UsePower(equip, 0);
+      QuickHPCheck(0, -2);
+      QuickHPStorage(baron);
+      UsePower(equip, 0);
+      QuickHPCheck(0);
+      AssertInTrash(mdp);
       UsePower(equip);
       QuickHPCheck(-2);
 
     }
 
     [Test()]
-    public void TestLoadoutAssault()
+    public void TestLoadoutFirestorm()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -162,7 +176,7 @@ namespace LazyFanComixTest
       DecisionSelectTargets = new Card[] { targets[0], targets[0], targets[1], targets[2] };
 
       QuickHPStorage(targets);
-      Card equip = PlayCard("LoadoutAssault");
+      Card equip = PlayCard("LoadoutFirestorm");
       QuickHPCheck(-3, -0, -0);
       UsePower(equip, 0);
       QuickHPCheck(-3, -3, -3);
@@ -187,18 +201,21 @@ namespace LazyFanComixTest
 
       UsePower(T210);
 
-      Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1) };
+      Card[] targets = new Card[] { PlayCard("MobileDefensePlatform", 0), PlayCard("MobileDefensePlatform", 1), T210.CharacterCard };
 
       QuickHandStorage(T210);
       QuickHPStorage(targets);
       Card equip = PlayCard("LoadoutWhisper");
-      QuickHPCheck(-1, -1);
+      DealDamage(targets[0], T210.CharacterCard, 2, DamageType.Cold);
+      QuickHPCheck(-1, -1, -2);
       QuickHandCheck(0);
       UsePower(equip);
-      QuickHPCheck(-1, -1);
-      QuickHandCheck(3);
+      DealDamage(targets[0], T210.CharacterCard, 2, DamageType.Cold);
+      QuickHPCheck(-1, -1, -2 + 1);
+      QuickHandCheck(1);
       UsePower(equip);
-      QuickHPCheck(-1, -1);
+      DealDamage(targets[0], T210.CharacterCard, 2, DamageType.Cold);
+      QuickHPCheck(-1, -1, -2 + 1);
       QuickHandCheck(0);
     }
 
@@ -222,7 +239,7 @@ namespace LazyFanComixTest
       DecisionSelectTargets = new Card[] { targets[0], targets[0], targets[1], targets[2] };
 
       QuickHPStorage(targets);
-      Card equip = PlayCard("LoadoutAssault");
+      Card equip = PlayCard("LoadoutFirestorm");
       // Double fire, second shot would target same twice.
       QuickHPCheck(-6, -3, -3);
       AssertIsInPlay(equip);
@@ -318,7 +335,7 @@ namespace LazyFanComixTest
     }
 
     [Test()]
-    public void TestConfigurationFlashFire()
+    public void TestConfigFlashFlare()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -329,7 +346,7 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      PlayCard("ConfigurationFlashFire");
+      PlayCard("ConfigFlashFlare");
 
       QuickHPStorage(baron);
       GoToEndOfTurn(T210);
@@ -355,7 +372,7 @@ namespace LazyFanComixTest
 
 
     [Test()]
-    public void TestConfigurationAutoAttack()
+    public void TestConfigAutoAssault()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -366,19 +383,23 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      Card play = PutInHand("LoadoutAssault");
+      Card play = PutInHand("LoadoutFirestorm");
       DecisionSelectCardToPlay = play;
-      PlayCard("ConfigurationAutoAttack");
+      PlayCard("ConfigAutoAssault");
 
       AssertNotInPlay(play);
 
-      GoToEndOfTurn(T210);
+      GoToStartOfTurn(T210);
+      AssertNotInPlay(play);
+
+      PlayCard("FindTheShot");
+      GoToStartOfTurn(T210);
       AssertIsInPlay(play);
     }
 
 
     [Test()]
-    public void TestConfigurationRapidReboot()
+    public void TestConfigRapidReboot()
     {
       IEnumerable<string> setupItems = new List<string>()
             {
@@ -389,21 +410,21 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      Card loadout = PutIntoPlay("LoadoutAssault");
-      PlayCard("ConfigurationRapidReboot");
+      Card loadout = PutIntoPlay("LoadoutFirestorm");
+      PlayCard("ConfigRapidReboot");
 
       DealDamage(T210, T210, 5, DamageType.Cold);
 
       QuickHPStorage(T210);
 
       // Mandatory regain. 
-      GoToStartOfTurn(T210);
+      GoToEndOfTurn(T210);
       QuickHPCheck(1);
 
       DestroyCard(loadout);
 
       DecisionSelectFunction = 1;
-      GoToStartOfTurn(T210);
+      GoToEndOfTurn(T210);
       QuickHPCheck(0);
       AssertInHand(loadout);
     }
@@ -425,7 +446,7 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      Card power = PlayCard("LoadoutAssault");
+      Card power = PlayCard("LoadoutFirestorm");
       Card play = PutInTrash("OptimizeWeaponry");
 
       DecisionSelectPowers = new Card[]
@@ -506,7 +527,7 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      Card power = PlayCard("LoadoutAssault");
+      Card power = PlayCard("LoadoutFirestorm");
       Card play = PutInTrash("OptimizeFrame");
 
       DecisionSelectPowers = new Card[]
@@ -564,7 +585,7 @@ namespace LazyFanComixTest
 
       QuickHandStorage(T210);
       QuickHPStorage(T210, baron);
-      PlayCard("ThirdTimesTheCharm");
+      PlayCard("ThirdTimesACharm");
       QuickHandCheck(3);
       QuickHPCheck(-3, -2 - 2 - 2 - 3);
     }

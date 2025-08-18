@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 
@@ -18,27 +19,30 @@ namespace LazyFanComix.T210
       {
                 this.GetPowerNumeral(0, 3),
                 this.GetPowerNumeral(1, 1),
-                this.GetPowerNumeral(2, 3)
+                this.GetPowerNumeral(2, 1),
+                this.GetPowerNumeral(3, 1)
       };
       DamageSource ds = new DamageSource(this.GameController, this.CharacterCard);
 
       IEnumerator coroutine;
+      Func<DealDamageAction, IEnumerator> statusEffect = null;
 
-      coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, true, cardSource: this.GetCardSource());
-      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-      // TODO: Third Power message?
       if (this.isThirdPower)
       {
-        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard.AlternateTitleOrTitle + " draws " + powerNumerals[2] + " cards.", Priority.Low, this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("This is the third power, so damage will be reduced until the start of your next turn and " + this.CharacterCard.AlternateTitleOrTitle + " will draw " + powerNumerals[3] + " cards.", Priority.Low, this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-        coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[2], cardSource: this.GetCardSource());
-        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        statusEffect = (DealDamageAction dd) => this.ReduceDamageDealtByThatTargetUntilTheStartOfYourNextTurnResponse(dd, powerNumerals[2]);
       }
 
-      coroutine = PostPowerDestroy();
+      coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, 0, true, addStatusEffect: statusEffect, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+      if (this.isThirdPower)
+      {
+        coroutine = this.GameController.DrawCards(this.DecisionMaker, powerNumerals[3], cardSource: this.GetCardSource());
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+      }
 
 
     }

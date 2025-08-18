@@ -15,6 +15,14 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
+},
+"T210Icon.png":
+{
+	"frame": {"x":262,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -23,6 +31,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:64869fbde3510a888812fb37f7dbdd6f:fa79a58d441031650f314337c150d2f3:c680398f21d101d0a1ae6d7fc2a23608$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c0c51cfcda6e82591a99a4e4b0490822:20dec181514c251a567995c8d3247fc5:c680398f21d101d0a1ae6d7fc2a23608$"
 }
 }

@@ -6,9 +6,9 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.T210
 {
-  public class LoadoutAssaultCardController : LoadoutSharedCardController
+  public class LoadoutFirestormCardController : LoadoutSharedCardController
   {
-    public LoadoutAssaultCardController(Card card, TurnTakerController turnTakerController)
+    public LoadoutFirestormCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
     }
@@ -28,7 +28,7 @@ namespace LazyFanComix.T210
 
       IEnumerator coroutine;
 
-      coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddas, cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[1], DamageType.Fire, powerNumerals[0], false, powerNumerals[0], storedResultsDamage: ddas, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       // TODO: Third Power message?
@@ -38,13 +38,9 @@ namespace LazyFanComix.T210
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         IEnumerable<Card> damagedTargets = ddas.Select((DealDamageAction dda) => dda.Target);
-        coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[3], DamageType.Projectile, powerNumerals[2], false, 0, additionalCriteria: (Card c) => !damagedTargets.Contains(c), cardSource: this.GetCardSource());
+        coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, ds, powerNumerals[3], DamageType.Fire, powerNumerals[2], false, 0, additionalCriteria: (Card c) => !damagedTargets.Contains(c), cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
-
-      coroutine = PostPowerDestroy();
-      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
     }
   }
 }

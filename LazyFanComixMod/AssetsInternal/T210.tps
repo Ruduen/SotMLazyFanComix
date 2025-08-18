@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>json</string>
         <key>textureFileName</key>
-        <filename>../AssetsRelease/Atlas/SetupGame0.png</filename>
+        <filename>../AssetsRelease/Atlas/T210Atlas0.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrQualityLevel</key>
@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../AssetsRelease/Atlas/SetupGame0.json</filename>
+                <filename>../AssetsRelease/Atlas/T210Atlas0.json</filename>
             </struct>
         </map>
         <key>multiPackMode</key>
@@ -173,14 +173,20 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Originals/SetupGame/BreachMageCharacter.png</key>
-            <key type="filename">Originals/SetupGame/ExpatrietteLiterallyAGunCharacter.png</key>
-            <key type="filename">Originals/SetupGame/GreyhatCharacter.png</key>
-            <key type="filename">Originals/SetupGame/InquirerCharacter.png</key>
-            <key type="filename">Originals/SetupGame/LaggardCharacter.png</key>
-            <key type="filename">Originals/SetupGame/OrbitCharacter.png</key>
-            <key type="filename">Originals/SetupGame/SpellforgeCharacter.png</key>
-            <key type="filename">Originals/SetupGame/TrailblazerCharacter.png</key>
+            <key type="filename">Originals/T210/CallTheShot.png</key>
+            <key type="filename">Originals/T210/ConfigAutoAssault.png</key>
+            <key type="filename">Originals/T210/ConfigFlashFlare.png</key>
+            <key type="filename">Originals/T210/ConfigRapidReboot.png</key>
+            <key type="filename">Originals/T210/DoubleTap.png</key>
+            <key type="filename">Originals/T210/DualStrike.png</key>
+            <key type="filename">Originals/T210/FindTheShot.png</key>
+            <key type="filename">Originals/T210/LoadoutFirestorm.png</key>
+            <key type="filename">Originals/T210/LoadoutKnife.png</key>
+            <key type="filename">Originals/T210/LoadoutWhisper.png</key>
+            <key type="filename">Originals/T210/OptimizeAwareness.png</key>
+            <key type="filename">Originals/T210/OptimizeFrame.png</key>
+            <key type="filename">Originals/T210/OptimizeWeaponry.png</key>
+            <key type="filename">Originals/T210/ThirdTimesACharm.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -189,79 +195,18 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>45,64,90,128</rect>
+                <rect>64,50,128,99</rect>
                 <key>scale9Paddings</key>
-                <rect>45,64,90,128</rect>
+                <rect>64,50,128,99</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Originals/SetupGame/CassieCharacter.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>44,64,89,128</rect>
-                <key>scale9Paddings</key>
-                <rect>44,64,89,128</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/LaggardCharacterBack.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>45,63,90,125</rect>
-                <key>scale9Paddings</key>
-                <rect>45,63,90,125</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/LaggardDelveTheDepthsCharacter.png</key>
-            <key type="filename">Originals/SetupGame/LaggardDelveTheDepthsCharacterBack.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>45,63,89,125</rect>
-                <key>scale9Paddings</key>
-                <rect>45,63,89,125</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/SoulbinderCharacter.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>180,256,360,512</rect>
-                <key>scale9Paddings</key>
-                <rect>180,256,360,512</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/T210Character.png</key>
-            <key type="filename">Originals/SetupGame/T210CharacterBack.png</key>
-            <key type="filename">Originals/SetupGame/T210ChibiCharacter.png</key>
-            <key type="filename">Originals/SetupGame/T210ChibiCharacterBack.png</key>
-            <key type="filename">Originals/SetupGame/T210TeamCharacter.png</key>
-            <key type="filename">Originals/SetupGame/T210TeamCharacterBack.png</key>
+            <key type="filename">Originals/T210/T210Character.png</key>
+            <key type="filename">Originals/T210/T210CharacterBack.png</key>
+            <key type="filename">Originals/T210/T210ChibiCharacter.png</key>
+            <key type="filename">Originals/T210/T210ChibiCharacterBack.png</key>
+            <key type="filename">Originals/T210/T210TeamCharacter.png</key>
+            <key type="filename">Originals/T210/T210TeamCharacterBack.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -273,21 +218,6 @@
                 <rect>45,64,89,128</rect>
                 <key>scale9Paddings</key>
                 <rect>45,64,89,128</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/VagabondCharacter.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>185,256,369,512</rect>
-                <key>scale9Paddings</key>
-                <rect>185,256,369,512</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -298,7 +228,7 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>Originals/SetupGame</filename>
+                    <filename>Originals/T210</filename>
                 </array>
             </struct>
         </map>
