@@ -4,9 +4,9 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.T210
 {
-  public class ThirdTimesTheCharmCardController : CardController
+  public class ThirdTimesACharmCardController : CardController
   {
-    public ThirdTimesTheCharmCardController(Card card, TurnTakerController turnTakerController)
+    public ThirdTimesACharmCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
     }

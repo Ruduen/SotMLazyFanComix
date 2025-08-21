@@ -15,14 +15,14 @@
       "foilBackgroundColor": "AAEEAA",
       "character": true,
       "powers": [
-        "{T210} deals 1 target 2 projectile damage. If this is the third power used this turn, increase that damage by 3."
+        "{T-210} deals 1 target 2 projectile damage. If this is the third power used this turn, increase that damage by 3."
       ],
       "icons": [
         "HasPower",
         "DealDamageProjectile",
         "IncreaseDamageDealt"
       ],
-      "hitpoints": 31,
+      "hitpoints": 28,
       "nemesisIdentifiers": [
         "T210"
       ],
@@ -37,7 +37,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Starting the count. One, two..."
+        "default": "Initializing count: One, two..."
       },
       "complexity": 1
     },
@@ -52,11 +52,11 @@
       "icons": [ "UsePowerExtra" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "DualStrike",
@@ -69,11 +69,11 @@
       "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "FindTheShot",
@@ -81,14 +81,14 @@
       "title": "Find the Shot",
       "keywords": [ "ongoing", "limited" ],
       "powers": [ "Draw 1 card. Discard 1 card. You may use 1 power now." ],
-      "icons": [ "DrawCardNow", "Discard", "UsePowerExtra" ],
+      "icons": [ "HasPower", "DrawCardNow", "Discard", "UsePowerExtra" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "CallTheShot",
@@ -96,14 +96,14 @@
       "title": "Call the Shot",
       "keywords": [ "ongoing", "limited" ],
       "powers": [ "Discard 1 card. Another player may use 1 power now." ],
-      "icons": [ "UsePowerNow", "HasPower" ],
+      "icons": [ "HasPower", "Discard", "UsePowerNow" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "LoadoutKnife",
@@ -114,16 +114,16 @@
         "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T210} deals up to 2 targets 2 toxic damage. If this is the third power used this turn, you may destroy a ongoing card, environment card or non-character target damaged by this power."
+        "{T-210} deals up to 2 targets 2 toxic damage. If this is the third power used this turn, you may destroy an ongoing card, environment card, or target with 5 or fewer HP."
       ],
-      "icons": [ "HasPower", "DealDamageProjectile", "DestroyOngoing", "DestroyEnvironment" ],
+      "icons": [ "HasPower", "DealDamageToxic", "DestroyOngoing", "DestroyEnvironment" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "LoadoutFirestorm",
@@ -134,16 +134,16 @@
         "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T210} deals 1 target 3 fire damage. If this is the third power used this turn, {T210} deals up to 3 other targets 3 fire damage each."
+        "{T-210} deals 1 target 3 fire damage. If this is the third power used this turn, {T-210} deals up to 3 other targets 3 fire damage each."
       ],
-      "icons": [ "HasPower", "DealDamageProjectile" ],
+      "icons": [ "HasPower", "DealDamageFire" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "LoadoutWhisper",
@@ -154,16 +154,16 @@
         "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T210} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, reduce damage dealt by those targets by 1 until the start of your turn and draw 1 card."
+        "{T-210} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, reduce damage dealt by those targets by 1 until the start of your turn and draw 1 card."
       ],
-      "icons": [ "HasPower", "DealDamageProjectile", "DrawCardNow" ],
+      "icons": [ "HasPower", "DealDamageProjectile", "ReduceDamageDealt", "DrawCardNow" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "OptimizeWeaponry",
@@ -172,17 +172,17 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If that power is printed on a Loadout card, {T210} deals 1 target 3 projectile damage.",
+        "If that power is printed on a Loadout card, {T-210} deals 1 target 3 projectile damage.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "DealDamageProjectile", "DrawCardNow" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "OptimizeAwareness",
@@ -194,14 +194,14 @@
         "If that power is printed on an Ongoing card, up to 3 players may draw a card.",
         "Otherwise, draw 2 cards. "
       ],
-      "icons": [ "UsePowerNow", "DealDamageProjectile", "DrawCardNow" ],
+      "icons": [ "UsePowerNow", "DrawCardNow" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "OptimizeFrame",
@@ -210,17 +210,17 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If that power is printed on your character card, {T210} regains 4 HP.",
+        "If that power is printed on your character card, {T-210} regains 4 HP.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "RegainHP", "DrawCardNow" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "ConfigFlashFlare",
@@ -228,16 +228,16 @@
       "title": "Config: Flash Flare",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the end of your turn, T210 may deal 1 target X fire damage, where X = the number of powers used this turn."
+        "At the end of your turn, {T-210} may deal 1 target X fire damage, where X = the number of powers used this turn."
       ],
-      "icons": [ "UsePowerNow" ],
+      "icons": [ "EndOfTurnAction", "DealDamageFire" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "ConfigAutoAssault",
@@ -247,14 +247,14 @@
       "body": [
         "At the start of your turn, you may destroy 1 of your non-character cards in play, other than this card. If a card is destroyed this way, you may play a loadout card."
       ],
-      "icons": [ "PlayCardNow", "UsePowerNow" ],
+      "icons": [ "StartOfTurnAction", "Destroy", "PlayCardNow" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "ConfigRapidReboot",
@@ -262,16 +262,16 @@
       "title": "Config: Rapid Reboot",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the end of your turn, either {T210} gains 1 HP or move 1 Loadout card from your trash to your hand."
+        "At the end of your turn, either {T-210} gains 1 HP or move 1 Loadout card from your trash to your hand."
       ],
-      "icons": [ "PlayCardNow", "UsePowerNow" ],
+      "icons": [ "EndOfTurnAction", "GainHP", "Manipulate" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     },
     {
       "identifier": "ThirdTimesACharm",
@@ -280,38 +280,38 @@
       "keywords": [ "one-shot" ],
       "body": [
         "Draw 3 cards.",
-        "Use the power printed on {T210} thrice.",
-        "{T210} deals themselves 3 psychic damage."
+        "Use the power printed on {T-210} thrice.",
+        "{T-210} deals themselves 3 psychic damage."
       ],
       "icons": [ "DrawCardNow", "UsePowerNow", "DealDamagePsychic" ],
       "flavorQuotes": [
         {
-          "identifier": "T210",
+          "identifier": "T-210",
           "text": "..."
         }
       ],
-      "flavorReference": "T210, ???"
+      "flavorReference": "T-210, ???"
     }
   ],
-  "placeholderpromoCards": [
+  "promoCards": [
     {
       "identifier": "T210Character",
-      "promoIdentifier": "T210GunClubCharacter",
+      "promoIdentifier": "T210TeamCharacter",
       "count": 1,
-      "title": "T210 - Team",
-      "body": "Rapid Planning",
+      "title": "Team T-210",
+      "body": "Well-Armed",
       "backgroundColor": "AADDAA",
       "foilBackgroundColor": "AADDAA",
       "character": true,
       "powers": [
-        "Play a card or use a power now."
+        "{T-210} deals 1 target 2 projectile damage.",
+        "{T-210} deals 2 targets 1 projectile damage each."
       ],
       "icons": [
         "HasPower",
-        "PlayCardNow",
-        "UsePowerNow"
+        "DealDamageProjectile"
       ],
-      "hitpoints": 24,
+      "hitpoints": 29,
       "nemesisIdentifiers": [
         "T210"
       ],
@@ -326,7 +326,44 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "No idea how people move in these things. Whatever, let's get this done."
+        "default": "Plan confirmed. Begining armament utilization."
+      },
+      "complexity": 2
+    },
+    {
+      "identifier": "T210Character",
+      "promoIdentifier": "T210ChibiCharacter",
+      "count": 1,
+      "title": "Chibi T-210",
+      "body": "Nobody Expects the Follow-up!",
+      "backgroundColor": "AABBAA",
+      "foilBackgroundColor": "AABBAA",
+      "character": true,
+      "powers": [
+        "Draw 1 card. If this is the fifth power used this turn, {T-210} deals 1 target 9 irreducible projectile damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "DealDamageProjectile",
+        "MakeDamageIrreducible"
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "T210"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Beep beep boop boop BANG!"
       },
       "complexity": 2
     }

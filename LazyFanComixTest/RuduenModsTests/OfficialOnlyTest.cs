@@ -23,7 +23,6 @@ namespace LazyFanComixTest
       PlayCard("TemporalRigging");
       GoToEndOfTurn(comodora);
     }
-
     #endregion Official Tests
   }
 }

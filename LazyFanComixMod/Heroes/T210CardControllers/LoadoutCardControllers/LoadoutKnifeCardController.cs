@@ -25,19 +25,16 @@ namespace LazyFanComix.T210
       IEnumerator coroutine;
       List<DealDamageAction> ddas = new List<DealDamageAction>();
       DamageSource ds = new DamageSource(this.GameController, this.CharacterCard);
-      IEnumerable<Card> damaged;
 
       coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], DamageType.Toxic, powerNumerals[0], false, 0, storedResultsDamage: ddas, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       if (this.isThirdPower)
       {
-        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard.AlternateTitleOrTitle + " may destroy a non-character, ongoing, or environment card.", Priority.Low, this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("This is the third power, so " + this.CharacterCard.AlternateTitleOrTitle + " may destroy an ongoing or environment card or target with 5 or fewer HP.", Priority.Low, this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-        damaged = ddas.Where((DealDamageAction dda) => dda.DidDealDamage == true && !dda.Target.IsCharacter).Select((DealDamageAction dda) => dda.Target);
-
-        coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c != this.Card && (this.IsOngoing(c) || c.IsEnvironment || damaged.Contains(c)), "non-character, ongoing, or environment"), 1, false, 0, cardSource: this.GetCardSource());
+        coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c != this.Card && (this.IsOngoing(c) || c.IsEnvironment || (c.IsTarget && c.HitPoints <= 5)), "ongoing, environment, or target with 5 HP", false, false, "ongoing card, environment card, or target with 5 HP", "ongoing cards, environment cards, or targets with 5 HP"), 1, false, 0, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
     }

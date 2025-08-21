@@ -248,7 +248,7 @@
     <Compile Include="Heroes\T210CardControllers\OutdatedCardControllers\CoveringFireCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\OutdatedCardControllers\LeadTheTargetCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\FindTheShotCardController.cs" />
-    <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\ThirdTimesTheCharmCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\ThirdTimesACharmCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\OneShotCardControllers\DualStrikeCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\OptimizeCardControllers\OptimizeSharedCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\DoubleTapCardController.cs" />
@@ -256,6 +256,8 @@
     <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutFirestormCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutSharedCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LoadoutCardControllers\LoadoutKnifeCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\T210ChibiCharacterCardController.cs" />
+    <Compile Include="Heroes\T210CardControllers\T210TeamCharacterCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\T210CharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallCharacterCardController.cs" />
     <Compile Include="Heroes\RecallCardControllers\CharacterCardControllers\RecallUnstableJumpCharacterCardController.cs" />

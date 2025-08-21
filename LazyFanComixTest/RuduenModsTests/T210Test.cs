@@ -35,7 +35,7 @@ namespace LazyFanComixTest
       Assert.IsInstanceOf(typeof(HeroTurnTakerController), T210);
       Assert.IsInstanceOf(typeof(T210CharacterCardController), T210.CharacterCardController);
 
-      Assert.AreEqual(31, T210.CharacterCard.HitPoints);
+      Assert.AreEqual(28, T210.CharacterCard.HitPoints);
       AssertNumberOfCardsInDeck(T210, 36);
       AssertNumberOfCardsInHand(T210, 4);
     }
@@ -76,8 +76,6 @@ namespace LazyFanComixTest
       UsePower(T210);
       QuickHPCheck(-2);
     }
-
-
     [Test()]
     public void TestInnatePowerTribunal()
     {
@@ -109,6 +107,59 @@ namespace LazyFanComixTest
       UsePower(FindCardInPlay("T210Character"));
       QuickHPCheck(-2 - 3);
     }
+
+    [Test()]
+    public void TestInnatePowerTeam()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210/LazyFanComix.T210TeamCharacter", "Bunker", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      QuickHPStorage(baron);
+      UsePower(T210, 0);
+      QuickHPCheck(-2);
+      UsePower(T210, 1);
+      QuickHPCheck(-1);
+    }
+
+
+    [Test()]
+    public void TestInnatePowerChibi()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210/LazyFanComix.T210ChibiCharacter", "Bunker", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+
+      QuickHPStorage(baron);
+      QuickHandStorage(T210);
+      UsePower(T210);
+      UsePower(T210);
+      UsePower(T210);
+      UsePower(T210);
+      QuickHPCheck(0);
+      QuickHandCheck(4);
+
+      PlayCard("LivingForceField");
+      UsePower(T210);
+      QuickHPCheck(-9);
+      QuickHandCheck(1);
+
+
+    }
+
 
     #endregion Innate Tests
 
@@ -591,6 +642,31 @@ namespace LazyFanComixTest
     }
 
     #endregion One-Shot Tests
+
+    #region Complex Tests
+
+    // Todo: Eventual test for Numerology on base power. Shouldn't happen with official content. 
+    //[Test()]
+    //public void TestGuiseNumerologyPower()
+    //{
+    //  SetupGameController("BaronBlade", "Guise", "TheHarpy", "LazyFanComix.T210", "TheCelestialTribunal");
+
+    //  StartGame();
+
+    //  DestroyNonCharacterVillainCards();
+
+    //  PlayCard("AppliedNumerology");
+    //  DecisionSelectTurnTaker = harpy.TurnTaker;
+    //  PlayCard("UhYeahImThatGuy");
+
+
+    //  MoveCard(T210, "T210Character", guise.HeroTurnTaker.Hand);
+    //  MoveCard(T210, "T210Character", guise.TurnTaker.PlayArea);
+
+    //  DecisionSelectPower = T210.CharacterCard;
+    //  PlayCard("ICanDoThatToo");
+    //}
+    #endregion Complex Tests
 
     #region MoveUnderCards
 
