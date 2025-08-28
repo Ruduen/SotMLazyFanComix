@@ -15,7 +15,7 @@
       "foilBackgroundColor": "AAEEAA",
       "character": true,
       "powers": [
-        "{T-210} deals 1 target 2 projectile damage. If this is the third power used this turn, increase that damage by 3."
+        "{T210} deals 1 target 2 projectile damage. If this is the third power used this turn, increase that damage by 3."
       ],
       "icons": [
         "HasPower",
@@ -39,7 +39,7 @@
       "openingLines": {
         "default": "Initializing count: One, two..."
       },
-      "complexity": 1
+      "complexity": 2
     },
     {
       "identifier": "DoubleTap",
@@ -114,7 +114,7 @@
         "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T-210} deals up to 2 targets 2 toxic damage. If this is the third power used this turn, you may destroy an ongoing card, environment card, or target with 5 or fewer HP."
+        "{T210} deals up to 2 targets 2 toxic damage. If this is the third power used this turn, you may destroy an ongoing card, environment card, or target with 5 or fewer HP."
       ],
       "icons": [ "HasPower", "DealDamageToxic", "DestroyOngoing", "DestroyEnvironment" ],
       "flavorQuotes": [
@@ -134,7 +134,7 @@
         "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T-210} deals 1 target 3 fire damage. If this is the third power used this turn, {T-210} deals up to 3 other targets 3 fire damage each."
+        "{T210} deals 1 target 3 fire damage. If this is the third power used this turn, {T210} deals up to 3 other targets 3 fire damage each."
       ],
       "icons": [ "HasPower", "DealDamageFire" ],
       "flavorQuotes": [
@@ -154,7 +154,7 @@
         "When this card enters play, destroy all of your other Loadout cards. If a card is destroyed this way, use the power on this card twice. Otherwise, use the power on this card."
       ],
       "powers": [
-        "{T-210} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, reduce damage dealt by those targets by 1 until the start of your turn and draw 1 card."
+        "{T210} deals up to 3 targets 1 projectile damage each. If this is the third power used this turn, reduce damage dealt by those targets by 1 until the start of your turn and draw 1 card."
       ],
       "icons": [ "HasPower", "DealDamageProjectile", "ReduceDamageDealt", "DrawCardNow" ],
       "flavorQuotes": [
@@ -172,7 +172,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If that power is printed on a Loadout card, {T-210} deals 1 target 3 projectile damage.",
+        "If that power is printed on a Loadout card, {T210} deals 1 target 3 projectile damage.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "DealDamageProjectile", "DrawCardNow" ],
@@ -210,7 +210,7 @@
       "keywords": [ "one-shot" ],
       "body": [
         "You may use a power now.",
-        "If that power is printed on your character card, {T-210} regains 4 HP.",
+        "If that power is printed on your character card, {T210} regains 4 HP.",
         "Otherwise, draw 2 cards. "
       ],
       "icons": [ "UsePowerNow", "RegainHP", "DrawCardNow" ],
@@ -228,7 +228,7 @@
       "title": "Config: Flash Flare",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the end of your turn, {T-210} may deal 1 target X fire damage, where X = the number of powers used this turn."
+        "At the end of your turn, {T210} may deal 1 target X fire damage, where X = the number of powers used this turn."
       ],
       "icons": [ "EndOfTurnAction", "DealDamageFire" ],
       "flavorQuotes": [
@@ -262,7 +262,7 @@
       "title": "Config: Rapid Reboot",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the end of your turn, either {T-210} gains 1 HP or move 1 Loadout card from your trash to your hand."
+        "At the end of your turn, either {T210} gains 1 HP or move 1 Loadout card from your trash to your hand."
       ],
       "icons": [ "EndOfTurnAction", "GainHP", "Manipulate" ],
       "flavorQuotes": [
@@ -280,8 +280,8 @@
       "keywords": [ "one-shot" ],
       "body": [
         "Draw 3 cards.",
-        "Use the power printed on {T-210} thrice.",
-        "{T-210} deals themselves 3 psychic damage."
+        "Use the power printed on {T210} thrice.",
+        "{T210} deals themselves 3 psychic damage."
       ],
       "icons": [ "DrawCardNow", "UsePowerNow", "DealDamagePsychic" ],
       "flavorQuotes": [
@@ -304,8 +304,8 @@
       "foilBackgroundColor": "AADDAA",
       "character": true,
       "powers": [
-        "{T-210} deals 1 target 2 projectile damage.",
-        "{T-210} deals 2 targets 1 projectile damage each."
+        "{T210} deals 1 target 2 projectile damage.",
+        "{T210} deals 2 targets 1 projectile damage each."
       ],
       "icons": [
         "HasPower",
@@ -340,7 +340,7 @@
       "foilBackgroundColor": "AABBAA",
       "character": true,
       "powers": [
-        "Draw 1 card. If this is the fifth power used this turn, {T-210} deals 1 target 9 irreducible projectile damage."
+        "Draw 1 card. If this is the fifth power used this turn, {T210} deals 1 target 9 irreducible projectile damage."
       ],
       "icons": [
         "HasPower",

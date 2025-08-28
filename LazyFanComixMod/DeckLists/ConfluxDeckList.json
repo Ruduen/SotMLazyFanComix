@@ -1,0 +1,380 @@
+﻿{
+  "name": "Conflux",
+  "kind": "Hero",
+  "expansionIdentifier": "LazyFanComix",
+  "initialCardIdentifiers": [
+    "ConfluxCharacter"
+  ],
+  "cards": [
+    {
+      "identifier": "ConfluxCharacter",
+      "count": 1,
+      "title": "Conflux",
+      "body": "Elemental Vortex",
+      "backgroundColor": "CC44CC",
+      "foilBackgroundColor": "CC44CC",
+      "character": true,
+      "powers": [
+        "{Conflux} deals 1 target 2 damage of a type of your choice."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamage"
+      ],
+      "hitpoints": 25,
+      "nemesisIdentifiers": [
+        "Conflux"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Let us see if you can handle all I have!"
+      },
+      "complexity": 1
+    },
+    {
+      "identifier": "PowerCrystal",
+      "count": 4,
+      "title": "Power Crystal",
+      "keywords": [ "equipment", "limited" ],
+      "body": [
+        "Increase damage dealt by {Conflux} by 1 for each different type of damage {Conflux} has dealt this turn.",
+        "At the start of your turn, {Conflux} may deal themselves 1 irreducible psychic damage. If {Conflux} takes no damage this way, destroy this card."
+      ],
+      "icons": [ "IncreaseDamageDealt", "DealDamagePsychic", "DestroySelf" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "Negabolt",
+      "count": 3,
+      "title": "Negabolt",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Conflux} deals 1 target 2 infernal damage. If a target dealt damage this way has 2 or fewer HP, destroy it.",
+        "Play a card now or {Conflux} deals 1 target 3 infernal damage."
+      ],
+      "icons": [ "DealDamageInfernal", "DestroyCard", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "Flarebolt",
+      "count": 3,
+      "title": "Flarebolt",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Conflux} deals 1 target 2 fire damage. Draw 1 card.",
+        "Play a card now or {Conflux} deals 1 target 3 fire damage."
+      ],
+      "icons": [ "DealDamageFire", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "Snowbolt",
+      "count": 3,
+      "title": "Snowbolt",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Conflux} deals 1 target 2 cold damage. {Conflux} gains 2 HP.",
+        "Play a card now or {Conflux} deals 1 target 3 cold damage."
+      ],
+      "icons": [ "DealDamageCold", "GainHP", "PlayCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "LightningAndThunder",
+      "count": 3,
+      "title": "Lightning and Thunder",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Conflux} deals 1 target 3 lightning damage.",
+        "{Conflux} deals each non-Hero target 1 sonic damage.",
+        "Draw 2 cards."
+      ],
+      "icons": [ "DealDamageLightning", "DealDamageSonic", "DrawCardNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "PreyAndSpray",
+      "count": 3,
+      "title": "Prey and Spray",
+      "keywords": [ "one-shot" ],
+      "body": [
+        "{Conflux} deals 1 target 3 radiant damage.",
+        "{Conflux} deals each non-Hero target 1 toxic damage.",
+        "You may use a power now."
+      ],
+      "icons": [ "DealDamageRadiant", "DealDamageToxic", "UsePowerNow" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "EchoedBlast",
+      "count": 2,
+      "title": "Echoed Blast",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "After the first time {Conflux} deals a target damage each turn, {Conflux} may deal a target 2 damage of the same type."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "ChannelEssence",
+      "count": 2,
+      "title": "Channel Essence",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "When this card enters play, {Conflux} deals regains 3 HP.",
+        "At the end of your turn, draw cards equal to the number of different types of damage {Conflux} has dealt this turn. If 3 or more cards are drawn this way, destroy this card."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "InterceptingShot",
+      "count": 2,
+      "title": "Intercepting Shot",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "If {Conflux} would be dealt damage by a non-Hero target, prevent that Damage and {Conflux} may deal 1 target 2 Energy Damage, increased by the amount of damage prevented by this card.",
+        "Then, destroy this card."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "EyeOfTheVortex",
+      "count": 3,
+      "title": "Eye of the Vortex",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "When this card is destroyed, you may destroy up to 3 ongoing or environment cards."
+      ],
+      "powers": [
+        "Draw 2 cards. Destroy this card."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "ExtraArms",
+      "count": 3,
+      "title": "Extra Arms",
+      "keywords": [ "equipment" ],
+      "body": [
+        "You may use an additional power during your power phase."
+      ],
+      "powers": [
+        "{Conflux} deals 1 target 1 melee damage.",
+        "{Conflux} deals 1 target 1 projectile damage.",
+        "Draw 1 card."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "OverwhelmingBlast",
+      "count": 3,
+      "title": "Overwhelming Blast",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "Damage dealt by {Conflux} is irreducible."
+      ],
+      "powers": [
+        "Power: {Conflux} deals 1 target 3 energy damage."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "GatheredVigor",
+      "count": 3,
+      "title": "Gathered Vigor",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "Each Hero gains the following power:",
+        "[b]Power:[/b] This hero deals themselves 2 psychic damage. Reveal cards from the top of your deck until a Limited card is revealed. You may put this card either into your hand or into play. Shuffle the rest of the revealed cards your deck."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    },
+    {
+      "identifier": "CascadeBlast",
+      "count": 3,
+      "title": "Cascade Blast",
+      "keywords": [ "ongoing" ],
+      "body": [
+        "After you use a power, {Conflux} may deal 1 target X energy damage, where X = the number of different types of damage {Conflux} has dealt this turn times 2.",
+        "If damage is dealt this way, destroy this card."
+      ],
+      "icons": [ "" ],
+      "flavorQuotes": [
+        {
+          "identifier": "Conflux",
+          "text": "..."
+        }
+      ],
+      "flavorReference": "Conflux, ???"
+    }
+  ],
+  "placeholderPromoCards": [
+    {
+      "identifier": "T210Character",
+      "promoIdentifier": "T210TeamCharacter",
+      "count": 1,
+      "title": "Team T-210",
+      "body": "Well-Armed",
+      "backgroundColor": "AADDAA",
+      "foilBackgroundColor": "AADDAA",
+      "character": true,
+      "powers": [
+        "{T-210} deals 1 target 2 projectile damage.",
+        "{T-210} deals 2 targets 1 projectile damage each."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageProjectile"
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "T210"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Plan confirmed. Begining armament utilization."
+      },
+      "complexity": 2
+    },
+    {
+      "identifier": "T210Character",
+      "promoIdentifier": "T210ChibiCharacter",
+      "count": 1,
+      "title": "Chibi T-210",
+      "body": "Nobody Expects the Follow-up!",
+      "backgroundColor": "AABBAA",
+      "foilBackgroundColor": "AABBAA",
+      "character": true,
+      "powers": [
+        "Draw 1 card. If this is the fifth power used this turn, {T-210} deals 1 target 9 irreducible projectile damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "DealDamageProjectile",
+        "MakeDamageIrreducible"
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "T210"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may use a power.",
+        "One player may draw a card."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Beep beep boop boop BANG!"
+      },
+      "complexity": 2
+    }
+  ]
+}

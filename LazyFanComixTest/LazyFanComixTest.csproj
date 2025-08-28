@@ -84,6 +84,7 @@
     <Compile Include="RuduenModsTests\SpookyGhostwriterPromosTest.cs" />
     <Compile Include="RuduenModsTests\CauldronPromosTest.cs" />
     <Compile Include="RuduenModsTests\LarrysDiscountGunClubTest.cs" />
+    <Compile Include="RuduenModsTests\ConfluxTest.cs" />
     <Compile Include="RuduenModsTests\TheEtherealExecutionerTest.cs" />
     <Compile Include="RuduenModsTests\MissInformationSuspectedSecretaryTest.cs" />
     <Compile Include="RuduenModsTests\TheTurfWarTest.cs" />

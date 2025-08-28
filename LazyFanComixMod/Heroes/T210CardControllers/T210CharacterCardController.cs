@@ -4,7 +4,6 @@ using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
 
-// Manually tested!
 
 namespace LazyFanComix.T210
 {

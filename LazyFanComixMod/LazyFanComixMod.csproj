@@ -98,6 +98,23 @@
     <Compile Include="Heroes\BreachMageCardControllers\BreachMageCharacterCardController.cs" />
     <Compile Include="Heroes\CassieCardControllers\CassieSharedCharacterCardController.cs" />
     <Compile Include="Heroes\CassieCardControllers\CassieEssenceFlowCharacterCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\ConfluxDamageTypesDealtCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\ConfluxCharacterCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\OneShotCardControllers\PreyAndSprayCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\OneShotCardControllers\LightningAndThunderCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\OneShotCardControllers\BoltSharedCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\OneShotCardControllers\SnowboltCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\OneShotCardControllers\FlareboltCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\OneShotCardControllers\NegaboltCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\ExtraArmsCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\OverwhelmingBlastCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\InterceptingShotCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\CascadeBlastCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\GatheredVigorCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\PowerCrystalCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\EchoedBlastCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\ChannelEssenceCardController.cs" />
+    <Compile Include="Heroes\ConfluxCardControllers\PersistentCardControllers\EyeOfTheVortexCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\GreyhatBurstNoiseCharacterCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\LinkCardControllers\FlareRelayCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\LinkCardControllers\CommunicationRelayCardController.cs" />
@@ -440,6 +457,7 @@
     <EmbeddedResource Include="DeckLists\VagabondDeckList.json" />
     <EmbeddedResource Include="DeckLists\T210DeckList.json" />
     <EmbeddedResource Include="DeckLists\LaggardDeckList.json" />
+    <EmbeddedResource Include="DeckLists\ConfluxDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />
