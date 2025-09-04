@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
@@ -8,7 +9,7 @@ using LazyFanComix.HeroPromos;
 
 namespace LazyFanComix.T210
 {
-  public class T210TeamCharacterCardController : PromoDefaultCharacterCardController
+  public class T210TeamCharacterCardController : HeroCharacterCardController
   {
     private bool _isThirdPower;
     private UsePowerAction _thirdPowerUpa;
@@ -77,38 +78,53 @@ namespace LazyFanComix.T210
       }
     }
 
-    //public override IEnumerator UsePower(int index = 0)
-    //{
-    //    int[] powerNumerals = new int[]
-    //    {
-    //        this.GetPowerNumeral(0, 1),
-    //        this.GetPowerNumeral(1, 1),
-    //        this.GetPowerNumeral(1, 3)
-    //    };
 
-    //    // Deal <a> target <b> damage.
-    //    IEnumerator coroutine;
-    //    // Trigger to increase damage by 2 per cover card.
-    //    ITrigger tempIncrease = null;
+    public override IEnumerator UseIncapacitatedAbility(int index)
+    {
+      IEnumerator coroutine;
+      switch (index)
+      {
+        case 0:
+          {
+            coroutine = this.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+        case 1:
+          {
+            List<SelectLocationDecision> sldResults = new List<SelectLocationDecision>();
+            coroutine = this.GameController.SelectADeck(this.HeroTurnTakerController, SelectionType.DiscardFromDeck, (Location l) => true, sldResults, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-    //    // Check if this is the third power.
-    //    // NOTE: This is currently unstable, since it only checks if 2 powers were used, which may not be accurate if another power was used while this one is still resolving, such as
-    //    // from an earlier trigger. But I haven't figured out the best way to sanely future-proof for the 'use multiple times' case. That's a future goal, not a playtesting one.
-    //    IEnumerable<UsePowerJournalEntry> powersThisTurn = this.Journal.UsePowerEntriesThisTurn();
-    //    if (powersThisTurn.Count() == 3 && powersThisTurn.ElementAt(2).CardSource == this.Card)
-    //    {
-    //        tempIncrease = this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this, powerNumerals[2]);
-    //    }
+            if (sldResults.Count > 0 && sldResults?.First()?.SelectedLocation.Location != null)
+            {
+              coroutine = this.GameController.DiscardTopCards(this.HeroTurnTakerController, sldResults.First().SelectedLocation.Location, 1, responsibleTurnTaker: this.TurnTaker, cardSource: this.GetCardSource());
+              if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            break;
+          }
+        case 2:
+          {
+            List<SelectCardDecision> scdResults = new List<SelectCardDecision>();
+            List<DealDamageAction> ddaResults = new List<DealDamageAction>();
+            coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.HeroToDealDamage, new LinqCardCriteria((Card c) => !c.IsIncapacitatedOrOutOfGame && c.IsInPlayAndNotUnderCard && this.IsHeroCharacterCard(c), "Hero character"), scdResults, false, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-    //    coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Projectile, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
-    //    if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
-    //    if (tempIncrease != null)
-    //    {
-    //        this.RemoveTrigger(tempIncrease);
-    //    }
-    //}
-
-    // TODO: Replace Incap with something more unique!
+            SelectCardDecision scd = scdResults.FirstOrDefault();
+            if (scd?.SelectedCard != null)
+            {
+              coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, scd.SelectedCard), 1, DamageType.Projectile, 1, false, 1, storedResultsDamage: ddaResults, cardSource: this.GetCardSource());
+              if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            if (ddaResults.Count > 0 && ddaResults.First().DidDealDamage == false)
+            {
+              coroutine = this.EachPlayerUsesAPower(this.HeroTurnTakerController);
+              if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            break;
+          }
+      }
+      yield break;
+    }
   }
 }

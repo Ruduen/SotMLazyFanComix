@@ -16,18 +16,12 @@ namespace LazyFanComix.Conflux
     protected override IEnumerator PlayUnique()
     {
       IEnumerator coroutine;
-      Card target;
-      List<DealDamageAction> srd = new List<DealDamageAction>();
 
-      coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 2, DamageType.Infernal, 1, false, 1, storedResultsDamage: srd, cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 2, DamageType.Infernal, 1, false, 1, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      if(srd.Where((DealDamageAction dda)=>dda.DidDealDamage && dda.Target.IsInPlayAndHasGameText && dda.Target.HitPoints.Value <= 2).Any())
-      {
-        target = srd.Where((DealDamageAction dda) => dda.DidDealDamage && dda.Target.IsInPlayAndHasGameText && dda.Target.HitPoints <= 2).Select((DealDamageAction dda) => dda.Target).First();
-        coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, target, cardSource: this.GetCardSource());
-        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-      }
+      coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => this.IsOngoing(c), "ongoing"), 1, false, 0, cardSource: this.GetCardSource());
+      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
     }
 
     protected override DamageType UniqueDamageType()

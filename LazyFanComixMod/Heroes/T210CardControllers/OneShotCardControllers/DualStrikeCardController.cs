@@ -13,7 +13,7 @@ namespace LazyFanComix.T210
 
     public override IEnumerator Play()
     {
-      return this.GameController.SelectTurnTakersAndDoAction(this.HeroTurnTakerController, new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && tt.IsHero && tt != this.TurnTaker), SelectionType.UsePower, (TurnTaker tt) => this.GameController.SelectAndUsePower(this.GameController.FindHeroTurnTakerController(tt.ToHero()), true, cardSource: this.GetCardSource()), 2, false, 0, cardSource: this.GetCardSource());
+      return this.GameController.SelectTurnTakersAndDoAction(this.HeroTurnTakerController, new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && tt.IsHero && tt != this.TurnTaker && this.GameController.CanUsePowers(this.FindHeroTurnTakerController(tt.ToHero()), this.GetCardSource())), SelectionType.UsePower, (TurnTaker tt) => this.GameController.SelectAndUsePower(this.GameController.FindHeroTurnTakerController(tt.ToHero()), true, cardSource: this.GetCardSource()), 2, false, 0, cardSource: this.GetCardSource());
     }
   }
 }

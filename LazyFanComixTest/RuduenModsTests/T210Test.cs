@@ -163,6 +163,106 @@ namespace LazyFanComixTest
 
     #endregion Innate Tests
 
+    #region Incap Tests
+    [Test()]
+    public void TestIncapBase()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210", "Bunker", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      DestroyCard(T210);
+
+      // Bunker uses power.
+      UseIncapacitatedAbility(T210, 0);
+      AssertNotUsablePower(bunker, bunker.CharacterCard);
+
+      // Bunker draws card.
+      QuickHandStorage(bunker);
+      UseIncapacitatedAbility(T210, 1);
+      QuickHandCheck(1);
+
+      QuickHPStorage(baron, bunker);
+      UseIncapacitatedAbility(T210, 2);
+      QuickHPCheck(-3, -3);
+      QuickHandCheck(-3);
+
+      DiscardAllCards(bunker);
+      UseIncapacitatedAbility(T210, 2);
+      QuickHPCheck(0, 0);
+    }
+
+    [Test()]
+    public void TestIncapTeam()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210/LazyFanComix.T210TeamCharacter", "Bunker", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      DestroyCard(T210);
+
+      // Bunker draws card.
+      QuickHandStorage(bunker);
+      UseIncapacitatedAbility(T210, 0);
+      QuickHandCheck(1);
+
+      Card discarded = this.GetTopCardOfDeck(baron);
+      UseIncapacitatedAbility(T210, 1);
+      AssertInTrash(discarded);
+
+      QuickHPStorage(baron);
+      UseIncapacitatedAbility(T210, 2);
+      QuickHPCheck(-1);
+
+      PlayCard("LivingForceField");
+      UseIncapacitatedAbility(T210, 2);
+      QuickHPCheck(0);
+      AssertNotUsablePower(bunker, bunker.CharacterCard);
+    }
+
+    [Test()]
+    public void TestIncapChibi()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.T210/LazyFanComix.T210Chibi", "Bunker", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      DestroyCard(T210);
+
+      // Bunker draws card.
+      QuickHandStorage(bunker);
+      UseIncapacitatedAbility(T210, 0);
+      QuickHandCheck(1);
+
+      Card boom = PlayCard("LivingForceField");
+      UseIncapacitatedAbility(T210, 1);
+      AssertInTrash(boom);
+
+      UseIncapacitatedAbility(T210, 2);
+      AssertNumberOfCardsInHand(bunker, 2 + 1);
+      AssertNotUsablePower(bunker, bunker.CharacterCard);
+
+    }
+
+    #endregion Incap Tests
     #region Equipment Tests
 
     [Test()]

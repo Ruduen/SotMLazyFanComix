@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>6</int>
         <key>texturePackerVersion</key>
-        <string>7.6.3</string>
+        <string>7.9.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -210,6 +210,32 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">Originals/SetupGame/ConfluxCharacter.png</key>
+            <key type="filename">Originals/SetupGame/ConfluxCharacterBack.png</key>
+            <key type="filename">Originals/SetupGame/ConfluxChibiCharacter.png</key>
+            <key type="filename">Originals/SetupGame/ConfluxChibiCharacterBack.png</key>
+            <key type="filename">Originals/SetupGame/ConfluxTeamCharacter.png</key>
+            <key type="filename">Originals/SetupGame/ConfluxTeamCharacterBack.png</key>
+            <key type="filename">Originals/SetupGame/T210Character.png</key>
+            <key type="filename">Originals/SetupGame/T210CharacterBack.png</key>
+            <key type="filename">Originals/SetupGame/T210ChibiCharacter.png</key>
+            <key type="filename">Originals/SetupGame/T210ChibiCharacterBack.png</key>
+            <key type="filename">Originals/SetupGame/T210TeamCharacter.png</key>
+            <key type="filename">Originals/SetupGame/T210TeamCharacterBack.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>45,64,89,128</rect>
+                <key>scale9Paddings</key>
+                <rect>45,64,89,128</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">Originals/SetupGame/LaggardCharacterBack.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -253,26 +279,6 @@
                 <rect>180,256,360,512</rect>
                 <key>scale9Paddings</key>
                 <rect>180,256,360,512</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Originals/SetupGame/T210Character.png</key>
-            <key type="filename">Originals/SetupGame/T210CharacterBack.png</key>
-            <key type="filename">Originals/SetupGame/T210ChibiCharacter.png</key>
-            <key type="filename">Originals/SetupGame/T210ChibiCharacterBack.png</key>
-            <key type="filename">Originals/SetupGame/T210TeamCharacter.png</key>
-            <key type="filename">Originals/SetupGame/T210TeamCharacterBack.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>45,64,89,128</rect>
-                <key>scale9Paddings</key>
-                <rect>45,64,89,128</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

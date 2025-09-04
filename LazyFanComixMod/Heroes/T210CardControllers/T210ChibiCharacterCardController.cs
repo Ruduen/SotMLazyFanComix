@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
@@ -8,7 +9,7 @@ using LazyFanComix.HeroPromos;
 
 namespace LazyFanComix.T210
 {
-  public class T210ChibiCharacterCardController : PromoDefaultCharacterCardController
+  public class T210ChibiCharacterCardController : HeroCharacterCardController
   {
     private bool _isFifthPower;
     private UsePowerAction _fifthPowerUpa;
@@ -78,5 +79,41 @@ namespace LazyFanComix.T210
 
     }
 
+    public override IEnumerator UseIncapacitatedAbility(int index)
+    {
+      IEnumerator coroutine;
+      switch (index)
+      {
+        case 0:
+          {
+            coroutine = this.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+        case 1:
+          {
+            coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => this.IsOngoing(c), "ongoing"), 1, false, 1, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+          }
+          break;
+        case 2:
+          {
+            List<SelectTurnTakerDecision> sttdResults = new List<SelectTurnTakerDecision>();
+            coroutine = this.GameController.SelectHeroToDiscardTheirHand(this.HeroTurnTakerController, false, false, storedResultsTurnTaker: sttdResults, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            if (sttdResults.Count > 0 && sttdResults.First().SelectedTurnTaker != null && sttdResults.First().SelectedTurnTaker.IsHero)
+            {
+              HeroTurnTakerController httc = this.FindHeroTurnTakerController(sttdResults.First().SelectedTurnTaker.ToHero());
+              coroutine = this.GameController.DrawCards(httc, 2, cardSource: this.GetCardSource());
+              if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+              coroutine = this.GameController.SelectAndUsePower(httc, false, cardSource: this.GetCardSource());
+              if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            }
+            break;
+          }
+      }
+      yield break;
+    }
   }
 }

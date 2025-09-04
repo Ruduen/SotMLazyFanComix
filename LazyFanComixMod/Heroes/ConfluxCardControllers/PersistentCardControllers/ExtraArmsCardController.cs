@@ -60,10 +60,16 @@ namespace LazyFanComix.Conflux
 
           powerNumerals = new int[]
           {
-             this.GetPowerNumeral(0, 1)
+             this.GetPowerNumeral(0, 1),
+             this.GetPowerNumeral(1, 1)
           };
+
           coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, powerNumerals[0], cardSource: this.GetCardSource());
           if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+          coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, powerNumerals[1], false, powerNumerals[1], cardSource: this.GetCardSource());
+          if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
 
           break;
         default:

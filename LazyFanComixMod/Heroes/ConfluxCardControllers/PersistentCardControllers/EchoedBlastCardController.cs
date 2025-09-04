@@ -7,27 +7,27 @@ namespace LazyFanComix.Conflux
 {
   public class EchoedBlastCardController : CardController
   {
-    private const string _FirstDamageDealtThisTurn = "FirstDamageDealtThisTurn";
+    private const string _FirstPowerUsedThisTurn = "FirstPowerUsedThisTurn";
 
     public EchoedBlastCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
-      this.SpecialStringMaker.ShowHasBeenUsedThisTurn(_FirstDamageDealtThisTurn, this.CharacterCard.Title + " has already dealt damage this turn.", this.CharacterCard.Title + " has not yet dealt damage this turn.");
+      this.SpecialStringMaker.ShowHasBeenUsedThisTurn(_FirstPowerUsedThisTurn, this.CharacterCard.Title + " has already used a power this turn.", this.CharacterCard.Title + " has not yet used a power this turn.");
     }
 
     public override void AddTriggers()
     {
-      this.AddTrigger<DealDamageAction>((DealDamageAction dda) => dda.DamageSource.Card != null && dda.DamageSource.Card == this.CharacterCard && !this.IsPropertyTrue(_FirstDamageDealtThisTurn), TrackAndDamageResponse, TriggerType.DealDamage, TriggerTiming.After);
-      this.AddAfterLeavesPlayAction((GameAction ga) => this.ResetFlagAfterLeavesPlay(_FirstDamageDealtThisTurn), TriggerType.Hidden);
+      this.AddTrigger<UsePowerAction>((UsePowerAction upa) => upa.HeroUsingPower == this.HeroTurnTakerController && !this.IsPropertyTrue(_FirstPowerUsedThisTurn), TrackAndRepeatPowerResponse, TriggerType.UsePower, TriggerTiming.After);
+      this.AddAfterLeavesPlayAction((GameAction ga) => this.ResetFlagAfterLeavesPlay(_FirstPowerUsedThisTurn), TriggerType.Hidden);
     }
 
-    private IEnumerator TrackAndDamageResponse(DealDamageAction dda)
+    private IEnumerator TrackAndRepeatPowerResponse(UsePowerAction upa)
     {
       IEnumerator coroutine;
 
-      this.SetCardPropertyToTrueIfRealAction(_FirstDamageDealtThisTurn);
+      this.SetCardPropertyToTrueIfRealAction(_FirstPowerUsedThisTurn);
 
-      coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 2, damageType: dda.DamageType, 1, false, 0, cardSource: this.GetCardSource());
+      coroutine = this.GameController.UsePower(upa.Power, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
     }

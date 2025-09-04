@@ -27,9 +27,9 @@
         "T210"
       ],
       "incapacitatedAbilities": [
-        "One player may play a card.",
         "One hero may use a power.",
-        "One player may draw a card."
+        "One player may draw a card.",
+        "One player discards up to 3 cards. That player's hero deals up to X targets 3 projectile damage, where X = the number of cards discarded this way."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -245,7 +245,7 @@
       "title": "Config: Auto Assault",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "At the start of your turn, you may destroy 1 of your non-character cards in play, other than this card. If a card is destroyed this way, you may play a loadout card."
+        "At the start of your turn, you may destroy 1 of your non-character cards in play, other than this card. If a card is destroyed this way, you may play a card."
       ],
       "icons": [ "StartOfTurnAction", "Destroy", "PlayCardNow" ],
       "flavorQuotes": [
@@ -316,9 +316,9 @@
         "T210"
       ],
       "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "One player may draw a card.",
+        "Discard the top card of any deck.",
+        "One Hero deals 1 target 1 projectile damage. If no damage is dealt this way, each Hero may use a power."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -353,9 +353,9 @@
         "T210"
       ],
       "incapacitatedAbilities": [
-        "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "One player may draw a card.",
+        "Destroy 1 ongoing card.",
+        "Any hero discards their hand. That hero draws 2 cards and uses 1 power now."
       ],
       "flippedIcons": [
         "PlayCardNow",

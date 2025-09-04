@@ -7,7 +7,7 @@ using LazyFanComix.HeroPromos;
 
 namespace LazyFanComix.Conflux
 {
-  public class ConfluxCharacterCardController : PromoDefaultCharacterCardController
+  public class ConfluxCharacterCardController : HeroCharacterCardController
   {
     public ConfluxCharacterCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
@@ -17,7 +17,7 @@ namespace LazyFanComix.Conflux
 
     private DamageType[] confluxDamageTypesDealt()
     {
-      return this.Journal.DealDamageEntriesThisTurn().Where((DealDamageJournalEntry ddje) => ddje.SourceCard == this.CharacterCard && ddje.Amount > 0).Select((DealDamageJournalEntry ddje) => ddje.DamageType).Distinct().ToArray();
+      return this.Journal.DealDamageEntriesThisTurn().Where((DealDamageJournalEntry ddje) => ddje.SourceCard == this.Card && ddje.Amount > 0).Select((DealDamageJournalEntry ddje) => ddje.DamageType).Distinct().ToArray();
     }
 
     private string damageTypeList()
@@ -54,9 +54,37 @@ namespace LazyFanComix.Conflux
 
       dt = sdtResults.First((SelectDamageTypeDecision d) => d.Completed).SelectedDamageType.Value;
 
-      coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), powerNumerals[1], dt, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], dt, powerNumerals[0], false, powerNumerals[0], cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
     }
 
+    public override IEnumerator UseIncapacitatedAbility(int index)
+    {
+      IEnumerator coroutine;
+      switch (index)
+      {
+        case 0:
+          {
+            coroutine = this.SelectHeroToPlayCard(this.HeroTurnTakerController);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+        case 1:
+          {
+            coroutine = this.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+        case 2:
+          {
+            IncreaseDamageStatusEffect idse = new IncreaseDamageStatusEffect(1);
+            idse.UntilStartOfNextTurn(this.TurnTaker);
+            coroutine = this.AddStatusEffect(idse, true);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+      }
+      yield break;
+    }
   }
 }

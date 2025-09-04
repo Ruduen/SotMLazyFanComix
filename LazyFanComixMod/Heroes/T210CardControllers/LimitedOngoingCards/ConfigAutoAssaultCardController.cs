@@ -31,10 +31,10 @@ namespace LazyFanComix.T210
 
       if (dca.Any((DestroyCardAction dca) => dca.WasCardDestroyed))
       {
-        coroutine = this.GameController.SendMessageAction("A card was destroyed by " + this.Card.Title + ", so you may play a loadout card.", Priority.Low, this.GetCardSource());
+        coroutine = this.GameController.SendMessageAction("A card was destroyed by " + this.Card.Title + ", so you may play card.", Priority.Low, this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-        coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, new LinqCardCriteria((Card c) => c.DoKeywordsContain("loadout")), cardSource: this.GetCardSource());
+        coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
       else

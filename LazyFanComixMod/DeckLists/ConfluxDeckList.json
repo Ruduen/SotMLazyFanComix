@@ -27,13 +27,13 @@
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "One player may draw a card.",
+        "Until the start of your next turn, increase all damage dealt by 1."
       ],
       "flippedIcons": [
         "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
+        "DrawCardNow",
+        "IncreaseDamageDealt"
       ],
       "openingLines": {
         "default": "Let us see if you can handle all I have!"
@@ -46,10 +46,10 @@
       "title": "Power Crystal",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "Increase damage dealt by {Conflux} by 1 for each different type of damage {Conflux} has dealt this turn.",
-        "At the start of your turn, {Conflux} may deal themselves 1 irreducible psychic damage. If {Conflux} takes no damage this way, destroy this card."
+        "Increase damage dealt by {Conflux} to non-hero targets by 1 for each different type of damage {Conflux} has dealt this turn.",
+        "At the start of your turn, {Conflux} may deal themselves 2 irreducible psychic damage. If {Conflux} takes no damage this way, return this card to your hand."
       ],
-      "icons": [ "IncreaseDamageDealt", "DealDamagePsychic", "DestroySelf" ],
+      "icons": [ "IncreaseDamageDealt", "StartOfTurnAction","DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -64,10 +64,10 @@
       "title": "Negabolt",
       "keywords": [ "one-shot" ],
       "body": [
-        "{Conflux} deals 1 target 2 infernal damage. If a target dealt damage this way has 2 or fewer HP, destroy it.",
+        "{Conflux} deals 1 target 2 infernal damage. You may destroy an ongoing card.",
         "Play a card now or {Conflux} deals 1 target 3 infernal damage."
       ],
-      "icons": [ "DealDamageInfernal", "DestroyCard", "PlayCardNow" ],
+      "icons": [ "DealDamageInfernal", "DestroyOngoing", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -85,7 +85,7 @@
         "{Conflux} deals 1 target 2 fire damage. Draw 1 card.",
         "Play a card now or {Conflux} deals 1 target 3 fire damage."
       ],
-      "icons": [ "DealDamageFire", "PlayCardNow" ],
+      "icons": [ "DealDamageFire", "DrawCardNow", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -156,9 +156,9 @@
       "title": "Echoed Blast",
       "keywords": [ "ongoing" ],
       "body": [
-        "After the first time {Conflux} deals a target damage each turn, {Conflux} may deal a target 2 damage of the same type."
+        "After the first time you use a power each turn, use that power again."
       ],
-      "icons": [ "" ],
+      "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -168,15 +168,14 @@
       "flavorReference": "Conflux, ???"
     },
     {
-      "identifier": "ChannelEssence",
-      "count": 2,
-      "title": "Channel Essence",
-      "keywords": [ "ongoing" ],
-      "body": [
-        "When this card enters play, {Conflux} deals regains 3 HP.",
-        "At the end of your turn, draw cards equal to the number of different types of damage {Conflux} has dealt this turn. If 3 or more cards are drawn this way, destroy this card."
+      "identifier": "OverchargedCrystal",
+      "count": 3,
+      "title": "Overcharged Crystal",
+      "keywords": [ "equipment" ],
+      "powers": [
+        "Each hero target regains 2 HP. {Conflux} deals each non-Hero target 2 energy damage. Draw 2 cards. Destroy 1 of your non-character cards."
       ],
-      "icons": [ "" ],
+      "icons": [ "HasPower","GainHP","DealDamageEnergy","DrawCard" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -191,10 +190,10 @@
       "title": "Intercepting Shot",
       "keywords": [ "ongoing" ],
       "body": [
-        "If {Conflux} would be dealt damage by a non-Hero target, prevent that Damage and {Conflux} may deal 1 target 2 Energy Damage, increased by the amount of damage prevented by this card.",
-        "Then, destroy this card."
+        "If {Conflux} would be dealt damage by a non-Hero target, you may prevent that Damage and destroy this card.",
+        "When this card is destroyed, you may use a power."
       ],
-      "icons": [ "" ],
+      "icons": [ "CancelledDamageGreen","DestroySelf","UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -214,7 +213,7 @@
       "powers": [
         "Draw 2 cards. Destroy this card."
       ],
-      "icons": [ "" ],
+      "icons": [ "DestroyOngoing","DestroyEnvironment","HasPower","DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -234,9 +233,9 @@
       "powers": [
         "{Conflux} deals 1 target 1 melee damage.",
         "{Conflux} deals 1 target 1 projectile damage.",
-        "Draw 1 card."
+        "Draw 1 card. Discard 1 card."
       ],
-      "icons": [ "" ],
+      "icons": [ "UsePowerExtra","HasPower","DealDamage","DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -254,9 +253,9 @@
         "Damage dealt by {Conflux} is irreducible."
       ],
       "powers": [
-        "Power: {Conflux} deals 1 target 3 energy damage."
+        "{Conflux} deals 1 target 3 energy damage."
       ],
-      "icons": [ "" ],
+      "icons": [ "MakeDamageIrreducible","HasPower","DealDamageEnergy" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -274,7 +273,7 @@
         "Each Hero gains the following power:",
         "[b]Power:[/b] This hero deals themselves 2 psychic damage. Reveal cards from the top of your deck until a Limited card is revealed. You may put this card either into your hand or into play. Shuffle the rest of the revealed cards your deck."
       ],
-      "icons": [ "" ],
+      "icons": [ "HasPower","DealDamagePsychic","Manipulate" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -284,15 +283,14 @@
       "flavorReference": "Conflux, ???"
     },
     {
-      "identifier": "CascadeBlast",
-      "count": 3,
-      "title": "Cascade Blast",
+      "identifier": "ChannelEssence",
+      "count": 2,
+      "title": "Channel Essence",
       "keywords": [ "ongoing" ],
       "body": [
-        "After you use a power, {Conflux} may deal 1 target X energy damage, where X = the number of different types of damage {Conflux} has dealt this turn times 2.",
-        "If damage is dealt this way, destroy this card."
+        "At the end of your turn, select a player for each different type of damage {Conflux} has dealt this turn. The selected players may draw a card."
       ],
-      "icons": [ "" ],
+      "icons": [ "EndOfTurnAction","DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -302,79 +300,78 @@
       "flavorReference": "Conflux, ???"
     }
   ],
-  "placeholderPromoCards": [
+  "promoCards": [
     {
-      "identifier": "T210Character",
-      "promoIdentifier": "T210TeamCharacter",
+      "identifier": "ConfluxCharacter",
+      "promoIdentifier": "ConfluxTeamCharacter",
       "count": 1,
-      "title": "Team T-210",
-      "body": "Well-Armed",
+      "title": "Team Conflux",
+      "body": "Element Sense",
       "backgroundColor": "AADDAA",
       "foilBackgroundColor": "AADDAA",
       "character": true,
       "powers": [
-        "{T-210} deals 1 target 2 projectile damage.",
-        "{T-210} deals 2 targets 1 projectile damage each."
+        "{Conflux} deals 1 target 1 energy damage. Select up to 1 target for each type of damage {Conflux} has dealt this turn. Until the start of your next turn, reduce damage dealt to those targets by 1."
       ],
       "icons": [
         "HasPower",
-        "DealDamageProjectile"
+        "DealDamageEnergy",
+        "ReduceDamageTaken"
       ],
-      "hitpoints": 29,
+      "hitpoints": 21,
       "nemesisIdentifiers": [
-        "T210"
+        "Conflux"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "Select a Hero.  Until the start of your turn reduce damage dealt to that Hero by 1.",
+        "Select a damage type. Until the start of your next turn, change all damage dealt to that type."
       ],
       "flippedIcons": [
         "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
+        "ReduceDamageTaken"
       ],
       "openingLines": {
-        "default": "Plan confirmed. Begining armament utilization."
+        "default": "Everything around us stands against you!"
       },
-      "complexity": 2
+      "complexity": 1
     },
     {
-      "identifier": "T210Character",
-      "promoIdentifier": "T210ChibiCharacter",
+      "identifier": "ConfluxCharacter",
+      "promoIdentifier": "ConfluxChibiCharacter",
       "count": 1,
-      "title": "Chibi T-210",
-      "body": "Nobody Expects the Follow-up!",
+      "title": "Chibi Conflux",
+      "body": "Bigger Boom!",
       "backgroundColor": "AABBAA",
       "foilBackgroundColor": "AABBAA",
       "character": true,
       "powers": [
-        "Draw 1 card. If this is the fifth power used this turn, {T-210} deals 1 target 9 irreducible projectile damage."
+        "Draw 1 card. Discard up to 1 card for each different type of damage {Conflux} has dealt this turn. {Conflux} deals up to 2 targets X fire damage, where X = the number of cards discarded this way."
       ],
       "icons": [
         "HasPower",
         "DrawCardNow",
-        "DealDamageProjectile",
-        "MakeDamageIrreducible"
+        "Discard",
+        "DealDamageFire",
       ],
-      "hitpoints": 29,
+      "hitpoints": 23,
       "nemesisIdentifiers": [
-        "T210"
+        "Conflux"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "Destroy an ongoing card.",
+        "One environment target deals each non-environment target 2 fire damage and themselves 10 fire damage."
       ],
       "flippedIcons": [
         "PlayCardNow",
-        "UsePowerNow",
-        "DrawCardNow"
+        "DestroyOngoing",
+        "DealDamageFire"
       ],
       "openingLines": {
-        "default": "Beep beep boop boop BANG!"
+        "default": "I bet I have more of a blast than you!"
       },
-      "complexity": 2
+      "complexity": 1
     }
   ]
 }
