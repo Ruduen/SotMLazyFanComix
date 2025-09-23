@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RandomGameTest.cs" />
+    <Compile Include="RuduenModsTests\ShellShockTest.cs" />
     <Compile Include="RuduenModsTests\OfficialOnlyTest.cs" />
     <Compile Include="RuduenModsTests\ModArtifactTest.cs" />
     <Compile Include="RuduenModsTests\CaseFilesPromosTest.cs" />
@@ -148,6 +149,7 @@
     <Content Include="TestsToAddress\TestsFixed\TribunalRecallForecastedBlowB.txt" />
     <Content Include="TestsToAddress\TestsFixed\BreachMageCycleEngineBugB.txt" />
     <Content Include="TestsToAddress\TribunalUnknown.txt" />
+    <Content Include="TestsToReport\MythikalGreyhat.txt" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\workshop\content\337150\2616657693\Menagerie.dll" />

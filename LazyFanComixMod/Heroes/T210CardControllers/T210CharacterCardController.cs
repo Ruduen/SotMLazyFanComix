@@ -106,9 +106,9 @@ namespace LazyFanComix.T210
             coroutine = this.GameController.SelectHeroToDiscardCards(this.HeroTurnTakerController, 0, 3, storedResultsDiscard: dcaResults, cardSource: this.GetCardSource());
             if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-            if(dcaResults.Count() > 0 && dcaResults?.First()?.HeroTurnTakerController != null)
+            if (dcaResults.Count() > 0 && dcaResults?.First()?.HeroTurnTakerController != null)
             {
-              coroutine = this.GameController.SelectTargetsAndDealDamage(dcaResults.First().HeroTurnTakerController,new DamageSource(this.GameController, dcaResults.First().HeroTurnTakerController.CharacterCard),3,DamageType.Projectile,this.GetNumberOfCardsDiscarded(dcaResults),false,0,cardSource: this.GetCardSource());
+              coroutine = this.GameController.SelectTargetsAndDealDamage(dcaResults.First().HeroTurnTakerController, new DamageSource(this.GameController, dcaResults.First().HeroTurnTakerController.CharacterCard), 3, DamageType.Projectile, this.GetNumberOfCardsDiscarded(dcaResults), false, 0, cardSource: this.GetCardSource());
               if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
             }
@@ -117,5 +117,36 @@ namespace LazyFanComix.T210
       }
       yield break;
     }
+
+    //public override bool ShouldChangeCutout(CutoutInfo currentInfo, GameAction action, ActionTiming timing, out CutoutInfo changedInfo, out CutoutAnimation animation)
+    //{
+    //  bool cutoutChangeFlag = base.ShouldChangeCutout(currentInfo, action, timing, out changedInfo, out animation);
+    //  if (this.TurnTakerControllerWithoutReplacements != null && this.TurnTakerController.IsHero && action != null && action is UsePowerAction && timing == ActionTiming.DidPerform)
+    //  {
+    //    UsePowerAction upa = action as UsePowerAction;
+    //    if (checkIsThirdPower(upa))
+    //    {
+    //      List<CutoutInfo> cutoutList = new List<CutoutInfo>()
+    //      {
+    //        new CutoutInfo
+    //        {
+    //          Identifier = "ThirdEffects",
+    //          IsEffect = true,
+    //          EffectDuration = 1f
+    //        }
+    //      };
+    //      changedInfo.ExtraCutouts = cutoutList;
+    //      cutoutChangeFlag = true;
+    //    }
+    //    else
+    //    {
+    //      // TODO: Check if fourth?
+    //      cutoutChangeFlag = true;
+    //    }
+    //  }
+
+    //  return cutoutChangeFlag;
+    //}
+
   }
 }

@@ -15,7 +15,7 @@
     "- Other things that don't fit well into a tidy list",
     "Ruduen is not an artist, so art will likely remain random-Unicode quality."
   ],
-  "version": "v0.5.7.1.3",
+  "version": "v0.5.7.1.5",
   "credits": [
     "New work by Ruduen. Available under CC BY 4.0.",
     "Original scripting Copyright 2020 Handelabra Games Inc. Available under MIT License.",
@@ -37,6 +37,7 @@
       "Inquirer",
       "Laggard",
       "Orbit",
+      "ShellShock",
       "Spellforge",
       "Soulbinder",
       "Trailblazer",

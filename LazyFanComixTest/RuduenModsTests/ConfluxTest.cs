@@ -35,7 +35,7 @@ namespace LazyFanComixTest
       Assert.IsInstanceOf(typeof(HeroTurnTakerController), Conflux);
       Assert.IsInstanceOf(typeof(ConfluxCharacterCardController), Conflux.CharacterCardController);
 
-      Assert.AreEqual(25, Conflux.CharacterCard.HitPoints);
+      Assert.AreEqual(22, Conflux.CharacterCard.HitPoints);
       AssertNumberOfCardsInDeck(Conflux, 36);
       AssertNumberOfCardsInHand(Conflux, 4);
     }
@@ -518,27 +518,33 @@ namespace LazyFanComixTest
       QuickHPCheck(0, -3);
 
       DecisionYesNo = true;
+      QuickHandStorage(Conflux);
       GoToStartOfTurn(Conflux);
+      QuickHandCheck(-2);
       AssertIsInPlay(crystal);
       // Plus from psychic damage.
       DealDamage(Conflux, baron, 1, DamageType.Cold);
-      QuickHPCheck(-3, -2);
+      QuickHPCheck(0, -1);
+      DealDamage(Conflux, baron, 1, DamageType.Toxic);
+      QuickHPCheck(0, -2);
       DealDamage(Conflux, baron, 1, DamageType.Toxic);
       QuickHPCheck(0, -3);
-      DealDamage(Conflux, baron, 1, DamageType.Toxic);
-      QuickHPCheck(0, -4);
 
-      DecisionYesNo = false;
+
+      DiscardAllCards(Conflux);
+      DrawCard(Conflux);
       GoToStartOfTurn(Conflux);
-      QuickHPCheck(0, 0);
+      AssertInHand(crystal);
+      AssertNumberOfCardsInHand(Conflux, 1);
+
+      DecisionSelectCards = new Card[] { null };
+
+      PlayCard(crystal);
+      GoToStartOfTurn(Conflux);
+      AssertNumberOfCardsInHand(Conflux, 1);
       AssertInHand(crystal);
 
 
-      DecisionYesNo = true;
-      PlayCard("MeteorStorm");
-      GoToStartOfTurn(Conflux);
-      QuickHPCheck(0, 0);
-      AssertInHand(crystal);
     }
 
     [Test()]

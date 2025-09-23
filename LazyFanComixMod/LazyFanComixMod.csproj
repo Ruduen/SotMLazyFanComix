@@ -123,6 +123,23 @@
     <Compile Include="Heroes\GreyhatCardControllers\LinkCardControllers\ProxyRelayCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\MiscCardControllers\NodeCheckCardController.cs" />
     <Compile Include="Heroes\GreyhatCardControllers\MiscCardControllers\PingSweepCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\OneShotCardControllers\CanvasTheSceneCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\OneShotCardControllers\MeasuredAssaultCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\OneShotCardControllers\LeftUnspokenCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\OneShotCardControllers\RooftopReconnissanceCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\EmergencyLandingCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\EyeFromAboveCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\InTheWeedsCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\KnifeFightCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\PlansAndPayoffCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellBlimpCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellBuggieCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellCopterCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellGliderCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\VehicleSharedCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\VehicularDefenseCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ZapLadCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\VagabondCharacterCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigRapidRebootCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigAutoAssaultCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigFlashFlareCardController.cs" />
@@ -460,6 +477,7 @@
     <EmbeddedResource Include="DeckLists\T210DeckList.json" />
     <EmbeddedResource Include="DeckLists\LaggardDeckList.json" />
     <EmbeddedResource Include="DeckLists\ConfluxDeckList.json" />
+    <EmbeddedResource Include="DeckLists\ShellShockDeckList.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsRelease\Atlas\BreachMageAtlas0.png" />

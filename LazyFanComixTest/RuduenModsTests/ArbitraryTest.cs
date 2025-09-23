@@ -447,6 +447,83 @@ namespace LazyFanComixTest
     //    GoToEndOfTurn(omnix);
     //}
 
+
+
+    [Test()]
+    public void PowerCountSimple()
+    {
+      SetupGameController("Chokepoint", "Legacy", "DokThorathCapital");
+      StartGame();
+
+      Card power1 = PlayCard("NextEvolution");
+      Card power2 = PlayCard("MotivationalCharge");
+      Card ring = PlayCard("TheLegacyRing");
+
+      // Test 1: Ring is bounced after final power.
+      GoToUsePowerPhase(legacy);
+      AssertPhaseActionCount(2);
+
+      UsePower(legacy);
+      UsePower(power1);
+
+      AssertPhaseActionCount(0);
+      DestroyCard(ring);
+      PlayCard(ring);
+      AssertPhaseActionCount(1);
+
+      // Test 2: Ring is bounced after first power.
+      GoToUsePowerPhase(legacy);
+      AssertPhaseActionCount(2);
+
+      UsePower(legacy);
+      AssertPhaseActionCount(1);
+      DestroyCard(ring);
+      PlayCard(ring);
+      AssertPhaseActionCount(1);
+
+      // Test 3: Ring is bounced before first power.
+      GoToUsePowerPhase(legacy);
+      AssertPhaseActionCount(2);
+
+      DestroyCard(ring);
+      PlayCard(ring);
+      AssertPhaseActionCount(2);
+    }
+
+    [Test()]
+    public void PowerCountComplex()
+    {
+      SetupGameController("MissInformationTeam", "Fanatic/PrimeWardensFanaticCharacter", "Unity", "CaptainCosmic", "DokThorathCapital");
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      GoToUsePowerPhase(fanatic);
+
+      Card first = PlayCard("Embolden", 0);
+      Card extra = PutInHand(fanatic, "Embolden", 1);
+      PutOnDeck(fanatic, extra);
+      Card bee = PlayCard("BeeBot");
+      Card stealth = PlayCard("StealthBot");
+      PutOnDeck("InternalCollapse");
+      Card extraPower = PlayCard("SacrosanctMartyr"); 
+      Card extraPower2 = PlayCard("Absolution");
+      PlayCard("CosmicWeapon");
+
+      AssertPhaseActionCount(2);
+      UsePower(extraPower);
+      SetHitPoints(fanatic, 1);
+      SetHitPoints(unity, 1);
+      SetHitPoints(stealth, 1);
+      Card ambig=PlayCard("HeroesUnallied", 0);
+      DecisionSelectTargets = new Card[] { bee, unity.CharacterCard, stealth, fanatic.CharacterCard };
+      DecisionDestroyCard = first;
+      DecisionAmbiguousCard = ambig;
+      DecisionsYesNo = new bool[] { false, true };
+      UsePower(fanatic);
+      AssertPhaseActionCount(1);
+
+    }
     #endregion Official Tests
 
     #region Numerology Text

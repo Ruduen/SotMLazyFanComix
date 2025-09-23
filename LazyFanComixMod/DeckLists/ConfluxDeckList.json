@@ -21,7 +21,7 @@
         "HasPower",
         "DealDamage"
       ],
-      "hitpoints": 25,
+      "hitpoints": 22,
       "nemesisIdentifiers": [
         "Conflux"
       ],
@@ -47,9 +47,9 @@
       "keywords": [ "equipment", "limited" ],
       "body": [
         "Increase damage dealt by {Conflux} to non-hero targets by 1 for each different type of damage {Conflux} has dealt this turn.",
-        "At the start of your turn, {Conflux} may deal themselves 2 irreducible psychic damage. If {Conflux} takes no damage this way, return this card to your hand."
+        "At the start of your turn, you may discard up to 2 cards. If 2 cards were not discarded this way, return this card to your hand."
       ],
-      "icons": [ "IncreaseDamageDealt", "StartOfTurnAction","DealDamagePsychic", "Manipulate" ],
+      "icons": [ "IncreaseDamageDealt", "StartOfTurnAction", "Discard", "Manipulate" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -175,7 +175,7 @@
       "powers": [
         "Each hero target regains 2 HP. {Conflux} deals each non-Hero target 2 energy damage. Draw 2 cards. Destroy 1 of your non-character cards."
       ],
-      "icons": [ "HasPower","GainHP","DealDamageEnergy","DrawCard" ],
+      "icons": [ "HasPower", "GainHP", "DealDamageEnergy", "DrawCard" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -193,7 +193,7 @@
         "If {Conflux} would be dealt damage by a non-Hero target, you may prevent that Damage and destroy this card.",
         "When this card is destroyed, you may use a power."
       ],
-      "icons": [ "CancelledDamageGreen","DestroySelf","UsePowerNow" ],
+      "icons": [ "CancelledDamageGreen", "DestroySelf", "UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -213,7 +213,7 @@
       "powers": [
         "Draw 2 cards. Destroy this card."
       ],
-      "icons": [ "DestroyOngoing","DestroyEnvironment","HasPower","DrawCardNow" ],
+      "icons": [ "DestroyOngoing", "DestroyEnvironment", "HasPower", "DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -235,7 +235,7 @@
         "{Conflux} deals 1 target 1 projectile damage.",
         "Draw 1 card. Discard 1 card."
       ],
-      "icons": [ "UsePowerExtra","HasPower","DealDamage","DrawCardNow" ],
+      "icons": [ "UsePowerExtra", "HasPower", "DealDamage", "DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -255,7 +255,7 @@
       "powers": [
         "{Conflux} deals 1 target 3 energy damage."
       ],
-      "icons": [ "MakeDamageIrreducible","HasPower","DealDamageEnergy" ],
+      "icons": [ "MakeDamageIrreducible", "HasPower", "DealDamageEnergy" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -273,7 +273,7 @@
         "Each Hero gains the following power:",
         "[b]Power:[/b] This hero deals themselves 2 psychic damage. Reveal cards from the top of your deck until a Limited card is revealed. You may put this card either into your hand or into play. Shuffle the rest of the revealed cards your deck."
       ],
-      "icons": [ "HasPower","DealDamagePsychic","Manipulate" ],
+      "icons": [ "HasPower", "DealDamagePsychic", "Manipulate" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -290,7 +290,7 @@
       "body": [
         "At the end of your turn, select a player for each different type of damage {Conflux} has dealt this turn. The selected players may draw a card."
       ],
-      "icons": [ "EndOfTurnAction","DrawCardNow" ],
+      "icons": [ "EndOfTurnAction", "DrawCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",
@@ -352,7 +352,7 @@
         "HasPower",
         "DrawCardNow",
         "Discard",
-        "DealDamageFire",
+        "DealDamageFire"
       ],
       "hitpoints": 23,
       "nemesisIdentifiers": [
