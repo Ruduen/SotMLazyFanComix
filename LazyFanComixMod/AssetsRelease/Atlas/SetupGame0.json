@@ -2,7 +2,7 @@
 
 "BreachMageCharacter.png":
 {
-	"frame": {"x":0,"y":0,"w":180,"h":256},
+	"frame": {"x":1448,"y":259,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -10,7 +10,7 @@
 },
 "CassieCharacter.png":
 {
-	"frame": {"x":183,"y":0,"w":177,"h":256},
+	"frame": {"x":909,"y":0,"w":177,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":256},
@@ -18,7 +18,7 @@
 },
 "ConfluxCharacter.png":
 {
-	"frame": {"x":363,"y":0,"w":178,"h":256},
+	"frame": {"x":1089,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -26,7 +26,7 @@
 },
 "ConfluxCharacterBack.png":
 {
-	"frame": {"x":544,"y":0,"w":178,"h":256},
+	"frame": {"x":1270,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -34,7 +34,7 @@
 },
 "ConfluxChibiCharacter.png":
 {
-	"frame": {"x":725,"y":0,"w":178,"h":256},
+	"frame": {"x":1451,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -42,7 +42,7 @@
 },
 "ConfluxChibiCharacterBack.png":
 {
-	"frame": {"x":906,"y":0,"w":178,"h":256},
+	"frame": {"x":1632,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -50,7 +50,7 @@
 },
 "ConfluxTeamCharacter.png":
 {
-	"frame": {"x":1087,"y":0,"w":178,"h":256},
+	"frame": {"x":1813,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -58,7 +58,7 @@
 },
 "ConfluxTeamCharacterBack.png":
 {
-	"frame": {"x":1268,"y":0,"w":178,"h":256},
+	"frame": {"x":0,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -66,7 +66,7 @@
 },
 "ExpatrietteLiterallyAGunCharacter.png":
 {
-	"frame": {"x":1449,"y":0,"w":180,"h":256},
+	"frame": {"x":1631,"y":259,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -74,7 +74,7 @@
 },
 "GreyhatCharacter.png":
 {
-	"frame": {"x":1632,"y":0,"w":180,"h":256},
+	"frame": {"x":1814,"y":259,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -82,7 +82,7 @@
 },
 "InquirerCharacter.png":
 {
-	"frame": {"x":1815,"y":0,"w":180,"h":256},
+	"frame": {"x":0,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -90,7 +90,7 @@
 },
 "LaggardCharacter.png":
 {
-	"frame": {"x":0,"y":259,"w":180,"h":250},
+	"frame": {"x":364,"y":0,"w":180,"h":250},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":250},
@@ -98,7 +98,7 @@
 },
 "LaggardCharacterBack.png":
 {
-	"frame": {"x":183,"y":259,"w":180,"h":250},
+	"frame": {"x":547,"y":0,"w":180,"h":250},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":250},
@@ -106,7 +106,7 @@
 },
 "LaggardDelveTheDepthsCharacter.png":
 {
-	"frame": {"x":366,"y":259,"w":179,"h":250},
+	"frame": {"x":0,"y":0,"w":179,"h":250},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":250},
@@ -114,7 +114,7 @@
 },
 "LaggardDelveTheDepthsCharacterBack.png":
 {
-	"frame": {"x":548,"y":259,"w":179,"h":250},
+	"frame": {"x":182,"y":0,"w":179,"h":250},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":179,"h":250},
@@ -122,15 +122,31 @@
 },
 "OrbitCharacter.png":
 {
-	"frame": {"x":730,"y":259,"w":180,"h":256},
+	"frame": {"x":183,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
 	"sourceSize": {"w":180,"h":256}
 },
+"ShellShockCharacter.png":
+{
+	"frame": {"x":181,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"ShellShockCharacterClipped.png":
+{
+	"frame": {"x":362,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "SoulbinderCharacter.png":
 {
-	"frame": {"x":913,"y":259,"w":180,"h":256},
+	"frame": {"x":366,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -138,7 +154,7 @@
 },
 "SpellforgeCharacter.png":
 {
-	"frame": {"x":1096,"y":259,"w":180,"h":256},
+	"frame": {"x":549,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -146,7 +162,7 @@
 },
 "T210Character.png":
 {
-	"frame": {"x":1279,"y":259,"w":176,"h":256},
+	"frame": {"x":730,"y":0,"w":176,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":256},
@@ -154,7 +170,7 @@
 },
 "T210CharacterBack.png":
 {
-	"frame": {"x":1458,"y":259,"w":178,"h":256},
+	"frame": {"x":543,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -162,7 +178,7 @@
 },
 "T210ChibiCharacter.png":
 {
-	"frame": {"x":1639,"y":259,"w":178,"h":256},
+	"frame": {"x":724,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -170,7 +186,7 @@
 },
 "T210ChibiCharacterBack.png":
 {
-	"frame": {"x":1820,"y":259,"w":178,"h":256},
+	"frame": {"x":905,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -178,7 +194,7 @@
 },
 "T210TeamCharacter.png":
 {
-	"frame": {"x":0,"y":518,"w":178,"h":256},
+	"frame": {"x":1086,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -186,7 +202,7 @@
 },
 "T210TeamCharacterBack.png":
 {
-	"frame": {"x":181,"y":518,"w":178,"h":256},
+	"frame": {"x":1267,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -194,7 +210,7 @@
 },
 "TrailblazerCharacter.png":
 {
-	"frame": {"x":362,"y":518,"w":180,"h":256},
+	"frame": {"x":732,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -202,7 +218,7 @@
 },
 "VagabondCharacter.png":
 {
-	"frame": {"x":545,"y":518,"w":180,"h":256},
+	"frame": {"x":915,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -215,6 +231,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a4305894dfb9e50b91ba4063921b5449:1a102760bae294176c93fac5e86f9c37:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:2ef6f48d465bdbba1b25e12f14924d48:6026d2a7e284138bedd6f5572d821705:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

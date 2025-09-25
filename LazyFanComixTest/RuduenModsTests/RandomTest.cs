@@ -13,14 +13,19 @@ namespace LazyFanComixTestRandom
   public class RandomTest : RandomGameTest
   {
     private static string[] ModHeroes = {
-            "LazyFanComix.BreachMage",
-            "LazyFanComix.Cassie",
-            "LazyFanComix.Greyhat",
-            "LazyFanComix.Inquirer",
-            "LazyFanComix.Recall",
-            "LazyFanComix.Spellforge",
-            "LazyFanComix.Soulbinder",
-            "LazyFanComix.Trailblazer"
+      "LazyFanComix.BreachMage",
+      "LazyFanComix.Cassie",
+      "LazyFanComix.Conflux",
+      "LazyFanComix.Greyhat",
+      "LazyFanComix.Inquirer",
+      "LazyFanComix.Laggard",
+      "LazyFanComix.Orbit",
+      "LazyFanComix.ShellShock",
+      "LazyFanComix.Spellforge",
+      "LazyFanComix.Soulbinder",
+      "LazyFanComix.Trailblazer",
+      "LazyFanComix.T210",
+      "LazyFanComix.Vagabond"
         };
 
     private static string[] ModVillains = { };

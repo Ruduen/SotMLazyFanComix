@@ -183,13 +183,31 @@ namespace LazyFanComixTest
       DestroyNonCharacterVillainCards();
 
       PlayCard("ZapLad");
-      Card vehicle = PlayCard("ShellBlimp");
+      Card vehicle = PlayCard("RefurbishedBlimp");
       DealDamage(vehicle, vehicle, 5, DamageType.Melee);
 
       QuickHPStorage(baron.CharacterCard, vehicle);
       GoToStartOfTurn(ShellShock);
       GoToEndOfTurn(ShellShock);
       QuickHPCheck(-1, 1);
+    }
+
+    [Test()]
+    public void TestTargetBoom()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.ShellShock", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      Card vehicle = PlayCard("ShellCopter");
+      PlayCard("ShellBuggie");
+      AssertInTrash(vehicle);
     }
 
     [Test()]
@@ -207,11 +225,11 @@ namespace LazyFanComixTest
 
       Card vehicle = PlayCard("ShellCopter");
 
-      QuickHPStorage(baron.CharacterCard, vehicle);
+      QuickHPStorage(baron.CharacterCard, ShellShock.CharacterCard, vehicle);
       GoToStartOfTurn(ShellShock);
       UsePower(ShellShock, 1);
       UsePower(legacy, 1);
-      QuickHPCheck(-2 - 2, -3 - 2 - 2);
+      QuickHPCheck(-2 - 2, - 2 - 2, -3);
     }
 
     [Test()]
@@ -232,11 +250,9 @@ namespace LazyFanComixTest
 
       QuickHPStorage(baron.CharacterCard, vehicle);
       GoToStartOfTurn(ShellShock);
-      Card boom = PlayCard("RooftopCombat");
       UsePower(ShellShock, 1);
       UsePower(legacy, 1);
       QuickHPCheck(-3 - 3, -3);
-      AssertInTrash(boom);
     }
 
     [Test()]
@@ -272,7 +288,7 @@ namespace LazyFanComixTest
 
       DestroyNonCharacterVillainCards();
 
-      Card vehicle = PlayCard("ShellBlimp");
+      Card vehicle = PlayCard("RefurbishedBlimp");
 
       DealDamage(ShellShock, ShellShock, 4, DamageType.Melee);
       DealDamage(legacy, legacy, 4, DamageType.Melee);
@@ -284,7 +300,7 @@ namespace LazyFanComixTest
       UsePower(legacy, 1);
 
       QuickHandCheck(1, 1);
-      QuickHPCheck(2, 2);
+      QuickHPCheck(1, 1);
     }
     #endregion Targets
 
@@ -311,7 +327,7 @@ namespace LazyFanComixTest
       DealDamage(baron.CharacterCard, vehicle, 0, DamageType.Melee);
       QuickHPCheck(-2 - 0, -2 - 0);
 
-      DecisionSelectCard = PutInHand("ShellBlimp");
+      DecisionSelectCard = PutInHand("RefurbishedBlimp");
       UsePower(persistent);
       AssertIsInPlay(DecisionSelectCard);
     }
@@ -385,8 +401,8 @@ namespace LazyFanComixTest
 
       QuickHPStorage(baron, ShellShock);
       DealDamage(baron, ShellShock, 2, DamageType.Melee);
-      UsePower(ShellShock);
-      QuickHPCheck(-2 - 1, -2 + 1);
+      UsePower(persistent);
+      QuickHPCheck(-1 - 1, -2 + 1 - 1);
     }
 
     [Test()]

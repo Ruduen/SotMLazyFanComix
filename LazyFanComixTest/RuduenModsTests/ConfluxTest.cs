@@ -511,40 +511,25 @@ namespace LazyFanComixTest
 
       QuickHPStorage(Conflux, baron);
       DealDamage(Conflux, baron, 1, DamageType.Cold);
-      QuickHPCheck(0, -2);
+      QuickHPCheck(0, -1 - 0);
       DealDamage(Conflux, baron, 1, DamageType.Toxic);
-      QuickHPCheck(0, -2);
-      DealDamage(Conflux, baron, 1, DamageType.Toxic);
-      QuickHPCheck(0, -3);
+      QuickHPCheck(0, -1 - 0);
+      DealDamage(Conflux, baron, 1, DamageType.Fire);
+      QuickHPCheck(0, -1 - 1);
+      DealDamage(Conflux, baron, 1, DamageType.Melee);
+      QuickHPCheck(0, -1 - 1);
+      DealDamage(Conflux, baron, 1, DamageType.Fire);
+      QuickHPCheck(0, -1 - 2);
 
-      DecisionYesNo = true;
-      QuickHandStorage(Conflux);
+
       GoToStartOfTurn(Conflux);
-      QuickHandCheck(-2);
-      AssertIsInPlay(crystal);
       // Plus from psychic damage.
       DealDamage(Conflux, baron, 1, DamageType.Cold);
-      QuickHPCheck(0, -1);
+      QuickHPCheck(0, -1 - 0);
       DealDamage(Conflux, baron, 1, DamageType.Toxic);
-      QuickHPCheck(0, -2);
+      QuickHPCheck(0, -1 - 0);
       DealDamage(Conflux, baron, 1, DamageType.Toxic);
-      QuickHPCheck(0, -3);
-
-
-      DiscardAllCards(Conflux);
-      DrawCard(Conflux);
-      GoToStartOfTurn(Conflux);
-      AssertInHand(crystal);
-      AssertNumberOfCardsInHand(Conflux, 1);
-
-      DecisionSelectCards = new Card[] { null };
-
-      PlayCard(crystal);
-      GoToStartOfTurn(Conflux);
-      AssertNumberOfCardsInHand(Conflux, 1);
-      AssertInHand(crystal);
-
-
+      QuickHPCheck(0, -1 - 1);
     }
 
     [Test()]

@@ -132,14 +132,14 @@
     <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\InTheWeedsCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\KnifeFightCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\PlansAndPayoffCardController.cs" />
-    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellBlimpCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\BorrowedBlimpCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellBuggieCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellCopterCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellGliderCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\VehicleSharedCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\VehicularDefenseCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ZapLadCardController.cs" />
-    <Compile Include="Heroes\ShellShockCardControllers\VagabondCharacterCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\ShellShockCharacterCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigRapidRebootCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigAutoAssaultCardController.cs" />
     <Compile Include="Heroes\T210CardControllers\LimitedOngoingCards\ConfigFlashFlareCardController.cs" />

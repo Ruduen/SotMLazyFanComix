@@ -6,9 +6,9 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace LazyFanComix.ShellShock
 {
-  public class ShellBlimpCardController : VehicleSharedCardController
+  public class RefurbishedBlimpCardController : VehicleSharedCardController
   {
-    public ShellBlimpCardController(Card card, TurnTakerController turnTakerController)
+    public RefurbishedBlimpCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
       this.AddAsPowerContributor();
@@ -18,7 +18,7 @@ namespace LazyFanComix.ShellShock
     {
       if (cardController.HeroTurnTakerController != null && cardController.Card.IsHeroCharacterCard && cardController.Card.Owner.IsPlayer && !cardController.Card.Owner.IsIncapacitatedOrOutOfGame && !cardController.Card.IsFlipped)
       {
-        Power power = new Power(cardController.HeroTurnTakerController, cardController, "Draw 1 card. This hero regains 2 HP.", () => Response(cardController), 0, null, this.GetCardSource());
+        Power power = new Power(cardController.HeroTurnTakerController, cardController, "Draw 1 card. This hero regains 1 HP.", () => Response(cardController), 0, null, this.GetCardSource());
         return new Power[]
         {
           power
@@ -34,7 +34,7 @@ namespace LazyFanComix.ShellShock
       HeroTurnTakerController httc;
       int[] powerNums = new int[]
       {
-        this.GetPowerNumeral(0, 2)
+        this.GetPowerNumeral(0, 1)
       };
 
       if (characterCard?.TurnTaker?.IsPlayer == true)
@@ -51,7 +51,7 @@ namespace LazyFanComix.ShellShock
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
 
-      coroutine = this.GameController.GainHP(characterCard.Card, 2, cardSource: this.GetCardSource());
+      coroutine = this.GameController.GainHP(characterCard.Card, powerNums[0], cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
     }

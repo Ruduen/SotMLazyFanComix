@@ -1,5 +1,5 @@
 ﻿{
-  "name": "ShellShock",
+  "name": "Shell-Shock",
   "kind": "Hero",
   "expansionIdentifier": "LazyFanComix",
   "initialCardIdentifiers": [
@@ -9,17 +9,17 @@
     {
       "identifier": "ShellShockCharacter",
       "count": 1,
-      "title": "Shell-Shock (Under Playtesting)",
+      "title": "Shell-Shock",
       "body": "Sudden Strike",
       "backgroundColor": "99DD99",
       "foilBackgroundColor": "99DD99",
       "character": true,
       "powers": [
-        "{ShellShock} deals 1 target 2 melee damage."
+        "{ShellShock} deals 1 target 2 lightning damage."
       ],
       "icons": [
         "HasPower",
-        "DealDamageMelee"
+        "DealDamageLightning"
       ],
       "hitpoints": 22,
       "nemesisIdentifiers": [
@@ -27,13 +27,13 @@
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One player may draw a card.",
-        "Until the start of your next turn, increase all damage dealt by 1."
+        "One hero may use a power.",
+        "One player may draw a card."
       ],
       "flippedIcons": [
         "PlayCardNow",
-        "DrawCardNow",
-        "IncreaseDamageDealt"
+        "UsePowerNow",
+        "DrawCardNow"
       ],
       "openingLines": {
         "default": "Shhh..."
@@ -52,11 +52,11 @@
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Shell-Shock",
+          "text": "It's a good way to {br}keep an eye on things, as long as {br}][you don't misjudge the jump."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "ZapLad",
@@ -71,11 +71,11 @@
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Zap-Lad",
+          "text": "Eh, sure, I've kinda outgrown it, {br}but I'm still passingly fond of the name."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Zap-Lad, ???"
     },
     {
       "identifier": "ShellCopter",
@@ -87,16 +87,16 @@
         "When this card enters play, destroy any of your other Vehicle cards in play.",
         "At the start of your turn, this card deals itself 3 lightning damage.",
         "Each Hero gains the following power:",
-        "[b]Power:[/b] {Shell-Copter} deals up to 3 targets 2 projectile damage."
+        "[b]Power:[/b] {ShellCopter} deals up to 2 targets 2 projectile damage each."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Shell-Shock",
+          "text": "How many guns {br}did you install on that thing?"
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "CanvasTheScene",
@@ -105,17 +105,17 @@
       "keywords": [ "one-shot" ],
       "body": [
         "Discard the top card of each deck.",
-        "If {ZapLad} is in play, put the top card of up to 2 trash piles on top of their deck.",
-        "If {ZapLad} is not in play, search your deck and trash for {Zap-Lad}, put it into play, and shuffle your trash into your deck."
+        "If {ZapLad} is in play, move the top card of a trash pile to the top of its deck.",
+        "If {ZapLad} is not in play, search your deck and trash for {ZapLad}, put it into play, and shuffle your trash into your deck."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Zap-Lad",
+          "text": "Yep, I'm here. {br}And yep, that's blood."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Zap-Lad, ???"
     },
     {
       "identifier": "VehicularDefense",
@@ -123,7 +123,7 @@
       "title": "Vehicular Defense",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "After a non-hero target deals one of your Vehicle targets damage each turn, Shell-Shock deals that non-Hero target 2 melee damage."
+        "After a non-hero target deals one of your Vehicle targets damage each turn, {ShellShock} deals that non-Hero target 2 melee damage."
       ],
       "powers": [
         "You may play a vehicle card."
@@ -131,11 +131,11 @@
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "They always expect me to {be}be the one driving."
+          "identifier": "Shell-Shock",
+          "text": "They always expect me {br}to be the one driving."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "ShellBuggie",
@@ -147,16 +147,16 @@
         "When this card enters play, destroy any of your other Vehicle cards in play.",
         "At the start of your turn, this card deals itself 3 lightning damage.",
         "Each Hero gains the following power:",
-        "[b]Power:[/b] You may destroy an environment card. {ShellBuggie} deals 1 targets 3 melee damage."
+        "[b]Power:[/b] {ShellBuggie} deals 1 targets 3 melee damage."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Zap-Lad",
+          "text": "I'm not sure where {br}the \"shell\" part comes into play. {br}I'll install a green cover later."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Zap-Lad, ???"
     },
     {
       "identifier": "PlansAndPayoff",
@@ -165,14 +165,14 @@
       "keywords": [ "ongoing", "limited" ],
       "body": [
         "After a vehicle target enters play, it deals 1 target 2 melee damage.",
-        "When this card is destroyed, you may destroy an Ongoing card and {ShellShock} deals 1 target 2 melee and 2 lightning damage."
+        "When this card is destroyed, you may destroy an Ongoing or Environment card and {ShellShock} deals 1 target 2 melee and 2 lightning damage."
       ],
       "powers": [ "Destroy this card." ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "Your speech was so long that my {br}reinforcements are here. Good job."
+          "identifier": "Shell-Shock",
+          "text": "Your speech was so long {br}my reinforcements are here. Good job."
         }
       ],
       "flavorReference": "ShellShock, ???"
@@ -186,13 +186,13 @@
         "After one of your Vehicle cards is destroyed, draw 2 cards and Shell Shock regains 1 HP."
       ],
       "powers": [
-        "One of your Vehicle cards deals 1 target 5 melee damage. Destroy that vehicle card."
+        "One of your Vehicle cards deals 1 target 2 melee damage and 3 fire damage. Destroy that vehicle card."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "Mud is still a softer landing pad {br}than some of the things I've seen.'"
+          "identifier": "Shell-Shock",
+          "text": "I try to crash things {br}where there's a safe landing spot. {br}Mud's one of the better options."
         }
       ],
       "flavorReference": "ShellShock, ???"
@@ -203,17 +203,17 @@
       "title": "Measured Assault",
       "keywords": [ "one-shot" ],
       "body": [
-        "Shell-Shock deals 1 targets 4 melee damage.",
-        "Shell-Shock deals up to 4 targets 1 lightning damage each."
+        "{ShellShock} deals 1 targets 4 melee damage.",
+        "{ShellShock} deals up to 4 targets 1 lightning damage each."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Shell-Shock",
+          "text": "I'd feel worse {br}if they weren't all trying to kill me."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "KnifeFight",
@@ -221,20 +221,20 @@
       "title": "Knife-Fight",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "Increase melee damage dealt by Shell-Shock by 1.",
-        "Reduce melee damage dealt to Shell-Shock by 1."
+        "Increase melee damage dealt by {ShellShock} by 1.",
+        "Reduce melee damage dealt to {ShellShock} by 1."
       ],
       "powers": [
-        "{ShellShock} deals up to 2 targets 2 melee damage."
+        "{ShellShock} deals up to 3 targets 1 melee damage."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Shell-Shock",
+          "text": "I'm still not sure if knives {br}fit your schtick, but I'll accept your challenge."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "InTheWeeds",
@@ -243,16 +243,16 @@
       "keywords": [ "ongoing", "limited" ],
       "body": [
         "When there is a device card in play, increase damage dealt by {ShellShock} by 1.",
-        "After the first time one of your targets deals damage each turn, {ShellShock} deals 1 target 1 lightning damage."
+        "After the first time one of your targets deals damage to a non-Hero target each turn, {ShellShock} deals that non-hero target 1 melee damage."
       ],
-      "icons": [ "I know how that hovercraft works. {br}There are some glaring weaknesses I can {br}take advantage of." ],
+      "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "What? A tazer {br}is useful in an ambush."
+          "identifier": "Shell-Shock",
+          "text": "I've studied most machines. {br}There are some glaring weaknesses I can {br}take advantage of."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "EyeFromAbove",
@@ -265,11 +265,11 @@
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Shell-Shock",
+          "text": "I'm ready for anything. {br}Even that giant rabbit attack."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "ShellGlider",
@@ -285,32 +285,32 @@
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
+          "identifier": "Shell-Shock",
           "text": "I don't know why he insisted {br}on a geared-up hang glider, but {br}it's come in handy some days."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
-      "identifier": "ShellBlimp",
+      "identifier": "RefurbishedBlimp",
       "count": 3,
-      "title": "Shell-Blimp",
+      "title": "\"Borrowed\" Blimp",
       "keywords": [ "device", "vehicle" ],
       "hitpoints": 9,
       "body": [
         "When this card enters play, destroy any of your other Vehicle cards in play.",
         "At the start of your turn, this card deals itself 3 lightning damage.",
         "Each Hero gains the following power:",
-        "[b]Power:[/b] Draw 1 card. This hero regains 2 HP."
+        "[b]Power:[/b] Draw 1 card. This hero regains 1 HP."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "..."
+          "identifier": "Shell-Shock",
+          "text": "Look, you can only crash {br}a blimp so many times before you start {br}looking for an alternate supply."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     },
     {
       "identifier": "LeftUnspoken",
@@ -318,17 +318,17 @@
       "title": "Left Unspoken",
       "keywords": [ "one-shot" ],
       "body": [
-        "Draw 1 card. Shell-Shock regains 4 HP.",
+        "Draw 1 card. {ShellShock} regains 4 HP.",
         "Another player draws 1 card. Their Hero regains 4 HP."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
         {
-          "identifier": "ShellShock",
-          "text": "Um... Yes. You, too."
+          "identifier": "Shell-Shock",
+          "text": "Um. Yes. You, too."
         }
       ],
-      "flavorReference": "ShellShock, ???"
+      "flavorReference": "Shell-Shock, ???"
     }
   ],
   "placeholderPromoCards": [

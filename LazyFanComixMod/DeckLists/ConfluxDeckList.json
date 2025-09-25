@@ -46,10 +46,9 @@
       "title": "Power Crystal",
       "keywords": [ "equipment", "limited" ],
       "body": [
-        "Increase damage dealt by {Conflux} to non-hero targets by 1 for each different type of damage {Conflux} has dealt this turn.",
-        "At the start of your turn, you may discard up to 2 cards. If 2 cards were not discarded this way, return this card to your hand."
+        "Increase damage dealt by {Conflux} to non-hero targets by 1 for every 2 different types of damage {Conflux} has dealt this turn.",
       ],
-      "icons": [ "IncreaseDamageDealt", "StartOfTurnAction", "Discard", "Manipulate" ],
+      "icons": [ "IncreaseDamageDealt" ],
       "flavorQuotes": [
         {
           "identifier": "Conflux",

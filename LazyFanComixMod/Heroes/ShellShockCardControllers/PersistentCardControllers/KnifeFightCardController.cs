@@ -23,8 +23,8 @@ namespace LazyFanComix.ShellShock
     {
       int[] powerNum = new int[]
       {
-        this.GetPowerNumeral(0, 2),
-        this.GetPowerNumeral(1, 2)
+        this.GetPowerNumeral(0, 3),
+        this.GetPowerNumeral(1, 1)
       };
       IEnumerator coroutine;
 

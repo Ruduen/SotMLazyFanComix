@@ -35,7 +35,8 @@ namespace LazyFanComix.ShellShock
     {
       int[] numerals = new int[]{
           this.GetPowerNumeral(0, 1),
-          this.GetPowerNumeral(1, 5)
+          this.GetPowerNumeral(1, 2),
+          this.GetPowerNumeral(2, 3)
         };
 
       List<Card> vehicle = new List<Card>();
@@ -48,7 +49,12 @@ namespace LazyFanComix.ShellShock
       if (vehicle.Count > 0)
       {
         DamageSource targetSource = new DamageSource(this.GameController, vehicle.FirstOrDefault());
-        coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, targetSource, numerals[1], DamageType.Melee, numerals[0], false, numerals[0], cardSource: this.GetCardSource());
+
+        coroutine = this.SelectTargetsAndDealMultipleInstancesOfDamage(new List<DealDamageAction>
+          {
+            new DealDamageAction(this.GetCardSource(),targetSource,null, numerals[1],DamageType.Melee),
+            new DealDamageAction(this.GetCardSource(),targetSource,null, numerals[2],DamageType.Fire),
+          }, null, null, numerals[0], numerals[0]);
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         coroutine = this.GameController.DestroyCard(this.DecisionMaker, vehicle.FirstOrDefault(), cardSource: this.GetCardSource());

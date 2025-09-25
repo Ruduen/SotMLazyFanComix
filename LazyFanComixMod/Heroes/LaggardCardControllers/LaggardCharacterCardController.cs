@@ -29,7 +29,7 @@ namespace LazyFanComix.Laggard
       ITrigger tempIncrease = this.AddToTemporaryTriggerList(this.AddIncreaseDamageTrigger((DealDamageAction dda) => dda.CardSource.CardController == this && this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("hindsight")).Any(), (DealDamageAction dda) => powerNumerals[2]));
 
       // Deal <a> target <b> damage.
-      IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[0], true, cardSource: this.GetCardSource());
+      IEnumerator coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, powerNumerals[0], true, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       this.RemoveTemporaryTrigger(tempIncrease);

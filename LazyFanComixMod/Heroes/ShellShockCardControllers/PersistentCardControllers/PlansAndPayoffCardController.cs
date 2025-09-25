@@ -23,7 +23,7 @@ namespace LazyFanComix.ShellShock
     {
       IEnumerator coroutine;
 
-      coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => this.IsOngoing(c), "ongoing"), 1, false, 0, cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => this.IsOngoing(c) || c.IsEnvironment, "ongoing or environment"), 1, false, 0, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       coroutine = this.SelectTargetsAndDealMultipleInstancesOfDamage(new List<DealDamageAction>

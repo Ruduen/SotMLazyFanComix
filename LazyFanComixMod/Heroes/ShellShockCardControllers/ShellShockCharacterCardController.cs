@@ -21,7 +21,7 @@ namespace LazyFanComix.ShellShock
                 this.GetPowerNumeral(1, 2)
             };
 
-      return this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Melee, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
+      return this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.Card), powerNumerals[1], DamageType.Lightning, powerNumerals[0], false, 0, cardSource: this.GetCardSource());
     }
 
     // TODO: Replace Incap with something more unique!

@@ -35,9 +35,6 @@ namespace LazyFanComix.ShellShock
         this.GetPowerNumeral(0, 3)
       };
 
-      coroutine = this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsEnvironment, "environment"), 1, false, 0, cardSource: this.GetCardSource());
-      if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
-
       coroutine = this.GameController.SelectTargetsAndDealDamage(this.DecisionMaker, new DamageSource(this.GameController, this.Card), powerNums[1], DamageType.Melee, powerNums[0], false, powerNums[1], cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

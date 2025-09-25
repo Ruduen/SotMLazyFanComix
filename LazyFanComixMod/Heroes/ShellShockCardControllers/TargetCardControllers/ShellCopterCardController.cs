@@ -17,7 +17,7 @@ namespace LazyFanComix.ShellShock
     {
       if (cardController.HeroTurnTakerController != null && cardController.Card.IsHeroCharacterCard && cardController.Card.Owner.IsPlayer && !cardController.Card.Owner.IsIncapacitatedOrOutOfGame && !cardController.Card.IsFlipped)
       {
-        Power power = new Power(cardController.HeroTurnTakerController, cardController, this.Card.Title + " deals up to 3 targets 2 projectile damage.", () => DamageResponse(cardController), 0, null, this.GetCardSource());
+        Power power = new Power(cardController.HeroTurnTakerController, cardController, this.Card.Title + " deals up to 2 targets 2 projectile damage.", () => DamageResponse(cardController), 0, null, this.GetCardSource());
         return new Power[]
         {
           power
@@ -31,7 +31,7 @@ namespace LazyFanComix.ShellShock
       IEnumerator coroutine;
       int[] powerNums = new int[]
       {
-        this.GetPowerNumeral(0, 3),
+        this.GetPowerNumeral(0, 2),
         this.GetPowerNumeral(0, 2)
       };
 

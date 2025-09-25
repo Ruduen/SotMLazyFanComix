@@ -1,6 +1,6 @@
 {"frames": {
 
-"InquirerIcon.png":
+"ConfluxIcon.png":
 {
 	"frame": {"x":0,"y":0,"w":128,"h":128},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"SpellforgeIcon.png":
+"InquirerIcon.png":
 {
 	"frame": {"x":131,"y":0,"w":128,"h":128},
 	"rotated": false,
@@ -16,9 +16,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"T210Icon.png":
+"ShellShockIcon.png":
 {
 	"frame": {"x":262,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"SpellforgeIcon.png":
+{
+	"frame": {"x":0,"y":131,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"T210Icon.png":
+{
+	"frame": {"x":131,"y":131,"w":128,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
@@ -31,6 +47,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:c0c51cfcda6e82591a99a4e4b0490822:20dec181514c251a567995c8d3247fc5:c680398f21d101d0a1ae6d7fc2a23608$"
+	"smartupdate": "$TexturePacker:SmartUpdate:383ed9780f20a55b71b8ab9b68c4cf27:5b594fd91c5f639c38429696002280a5:c680398f21d101d0a1ae6d7fc2a23608$"
 }
 }

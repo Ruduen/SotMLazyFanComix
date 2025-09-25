@@ -22,7 +22,7 @@ namespace LazyFanComix.ShellShock
       int powerNum = this.GetPowerNumeral(0, 2);
       Card zapLad = this.FindCard("ZapLad");
 
-      coroutine = this.GameController.DiscardTopCardsOfDecks(this.DecisionMaker, (Location l) => !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame, 1, cardSource: this.GetCardSource());
+      coroutine = this.GameController.DiscardTopCardsOfDecks(this.DecisionMaker, (Location l) => !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame, 1, showCards: (Card c) => true, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       if (zapLad?.IsInPlayAndHasGameText == true)

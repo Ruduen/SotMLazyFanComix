@@ -92,6 +92,28 @@ namespace LazyFanComixTest
     }
 
     [Test()]
+    public void TestInnatePowerBaseTribunal()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "Tempest", "Guise", "Legacy/AmericasGreatestLegacyCharacter", "TheCelestialTribunal"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      SelectFromBoxForNextDecision("LazyFanComix.LaggardCharacter", "LazyFanComix.Laggard");
+      QuickHPStorage(baron);
+      PlayCard("CalledToJudgement");
+      QuickHPCheck(-1);
+
+      UsePower(FindCardInPlay("LaggardCharacter"));
+      QuickHPCheck(-1);
+    }
+
+    [Test()]
     public void TestInnatePowerDelve()
     {
       IEnumerable<string> setupItems = new List<string>()
