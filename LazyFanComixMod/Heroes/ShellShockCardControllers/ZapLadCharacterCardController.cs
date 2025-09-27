@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using LazyFanComix.HeroPromos;
@@ -19,10 +20,13 @@ namespace LazyFanComix.ShellShock
     {
       IEnumerator coroutine;
       SelectCardsDecision scd;
+      ReduceDamageStatusEffect rdse;
+      List<GainHPAction> gha = new List<GainHPAction>();
       List<int> powerNumerals = new List<int>
             {
                 this.GetPowerNumeral(0, 1),
-                this.GetPowerNumeral(1, 5)
+                this.GetPowerNumeral(1, 2),
+                this.GetPowerNumeral(2, 1)
             };
       if (this.DecisionMaker.IsHero)
       {
@@ -30,10 +34,17 @@ namespace LazyFanComix.ShellShock
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
 
-      scd = new SelectCardsDecision(this.GameController, this.DecisionMaker, (Card c) => c.IsInPlayAndHasGameText && c.IsTarget && c.DoKeywordsContain("device"), SelectionType.GainHP, 1, false, 0, true, cardSource: this.GetCardSource());
-
-      coroutine = this.GameController.SelectCardsAndDoAction(scd, (SelectCardDecision d) => this.GameController.GainHPEx(d.SelectedCard, powerNumerals[1], allowExceedMaxHP: true, cardSource: this.GetCardSource()));
+      coroutine = this.GameController.SelectAndGainHP(this.DecisionMaker, powerNumerals[1], false, (Card c) => c.DoKeywordsContain("device"), 1, 0, storedResults: gha, cardSource: this.GetCardSource()); ;
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+      if(gha.Where((gha)=>gha.HpGainer != null).Any())
+      {
+        rdse = new ReduceDamageStatusEffect(powerNumerals[2]);
+        rdse.TargetCriteria.IsSpecificCard = gha.FirstOrDefault().HpGainer;
+        rdse.UntilStartOfNextTurn(this.TurnTaker);
+        coroutine = this.GameController.AddStatusEffect(rdse, true, cardSource: this.GetCardSource());
+        if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+      }
     }
 
     public override IEnumerator PerformEnteringGameResponse()

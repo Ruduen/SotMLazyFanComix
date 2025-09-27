@@ -49,7 +49,7 @@
         "Draw 3 cards.",
         "You may use a power now."
       ],
-      "icons": [ "" ],
+      "icons": [ "DrawCardNow", "UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -68,7 +68,7 @@
         "When one of your Vehicle targets would take lightning damage, prevent that damage and that Vehicle regains 1 HP instead.",
         "At the end of your turn, this card deals 1 target 1 lightning damage."
       ],
-      "icons": [ "" ],
+      "icons": [ "CancelledDamageGreen", "GainHP", "EndOfTurnAction", "DealDamageLightning" ],
       "flavorQuotes": [
         {
           "identifier": "Zap-Lad",
@@ -89,7 +89,7 @@
         "Each Hero gains the following power:",
         "[b]Power:[/b] {ShellCopter} deals up to 2 targets 2 projectile damage each."
       ],
-      "icons": [ "" ],
+      "icons": [ "Destroy", "DealDamageLightning", "HasPower", "DealDamageProjectile" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -108,7 +108,7 @@
         "If {ZapLad} is in play, move the top card of a trash pile to the top of its deck.",
         "If {ZapLad} is not in play, search your deck and trash for {ZapLad}, put it into play, and shuffle your trash into your deck."
       ],
-      "icons": [ "" ],
+      "icons": [ "Discard", "Search", "Manipulate" ],
       "flavorQuotes": [
         {
           "identifier": "Zap-Lad",
@@ -128,7 +128,7 @@
       "powers": [
         "You may play a vehicle card."
       ],
-      "icons": [ "" ],
+      "icons": [ "DealDamageMelee", "HasPower", "PlayCardNow" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -149,7 +149,7 @@
         "Each Hero gains the following power:",
         "[b]Power:[/b] {ShellBuggie} deals 1 targets 3 melee damage."
       ],
-      "icons": [ "" ],
+      "icons": [ "Destroy", "DealDamageLightning", "HasPower", "DealDamageMelee" ],
       "flavorQuotes": [
         {
           "identifier": "Zap-Lad",
@@ -168,7 +168,7 @@
         "When this card is destroyed, you may destroy an Ongoing or Environment card and {ShellShockCharacter} deals 1 target 2 melee and 2 lightning damage."
       ],
       "powers": [ "Destroy this card." ],
-      "icons": [ "" ],
+      "icons": [ "DealDamageMelee", "DealDamageLightning", "Destroy", "HasPower" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -188,7 +188,7 @@
       "powers": [
         "One of your Vehicle cards deals 1 target 2 melee damage and 3 fire damage. Destroy that vehicle card."
       ],
-      "icons": [ "" ],
+      "icons": [ "DrawCardNow", "GainHP", "HasPower", "DealDamage" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -206,7 +206,7 @@
         "{ShellShockCharacter} deals 1 targets 4 melee damage.",
         "{ShellShockCharacter} deals up to 4 targets 1 lightning damage each."
       ],
-      "icons": [ "" ],
+      "icons": [ "DealDamageMelee", "DealDamageLightning" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -227,7 +227,7 @@
       "powers": [
         "{ShellShockCharacter} deals up to 3 targets 1 melee damage."
       ],
-      "icons": [ "" ],
+      "icons": [ "IncreaseDamageDealtMelee", "ReduceDamageTakenMelee", "HasPower", "DealDamageMelee" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -245,7 +245,7 @@
         "When there is a device card in play, increase damage dealt by {ShellShockCharacter} by 1.",
         "After the first time one of your targets deals damage to a non-Hero target each turn, {ShellShockCharacter} deals that non-hero target 1 melee damage."
       ],
-      "icons": [ "" ],
+      "icons": [ "IncreaseDamageDealt", "DealDamageMelee" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -262,7 +262,7 @@
       "body": [
         "The first time a non-Hero target enters play each turn, you may use a power."
       ],
-      "icons": [ "" ],
+      "icons": [ "UsePowerNow" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -282,7 +282,7 @@
         "At the start of your turn, this card deals itself 3 lightning damage.",
         "Reduce damage dealt to {ShellShockCharacter} by 1."
       ],
-      "icons": [ "" ],
+      "icons": [ "Destroy", "DealDamageLightning", "HasPower", "ReduceDamageTaken" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -303,7 +303,7 @@
         "Each Hero gains the following power:",
         "[b]Power:[/b] Draw 1 card. This hero regains 1 HP."
       ],
-      "icons": [ "" ],
+      "icons": [ "DealDamageLightning", "HasPower", "DrawCardNow", "GainHP" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -321,7 +321,7 @@
         "Draw 1 card. {ShellShockCharacter} regains 4 HP.",
         "Another player draws 1 card. Their Hero regains 4 HP."
       ],
-      "icons": [ "" ],
+      "icons": [ "DrawCardNow", "GainHP" ],
       "flavorQuotes": [
         {
           "identifier": "Shell-Shock",
@@ -345,12 +345,8 @@
       "powers": [
         "Draw 1 card. You may select a device target. It regains 2 HP and reduce damage dealt to it by 1 until the end of your next turn."
       ],
-      "icons": [
-        "HasPower",
-        "DealDamageEnergy",
-        "ReduceDamageTaken"
-      ],
-      "hitpoints": 21,
+      "icons": [ "HasPower", "DrawCardNow", "GainHP", "ReduceDamageTaken" ],
+      "hitpoints": 22,
       "nemesisIdentifiers": [
         "ShellShock"
       ],
@@ -381,12 +377,7 @@
       "powers": [
         "Until the start of your next turn, at the end of each non-Hero turn, {ShellShockCharacter} deals each target in that turn's play area one melee damage."
       ],
-      "icons": [
-        "HasPower",
-        "DrawCardNow",
-        "Discard",
-        "DealDamageFire"
-      ],
+      "icons": [ "HasPower", "DealDamageMelee" ],
       "hitpoints": 26,
       "nemesisIdentifiers": [
         "ShellShock"

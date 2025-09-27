@@ -80,11 +80,19 @@ namespace LazyFanComixTest
       QuickHPStorage(mdp);
       QuickHandStorage(ShellShock);
       UsePower(ShellShock);
-      QuickHPCheck(5);
+      QuickHPCheck(2);
       QuickHandCheck(1);
+      DealDamage(mdp, mdp, 2, DamageType.Melee);
+      QuickHPCheck(-1);
       UsePower(ShellShock);
-      QuickHPCheck(5);
+      QuickHPCheck(2);
       QuickHandCheck(1);
+      DealDamage(mdp, mdp, 2, DamageType.Melee);
+      QuickHPCheck(0);
+      GoToStartOfTurn(ShellShock);
+      DealDamage(mdp, mdp, 2, DamageType.Melee);
+      QuickHPCheck(-2);
+
     }
 
 
