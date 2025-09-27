@@ -20,12 +20,13 @@ namespace LazyFanComix.ShellShock
       Location trash;
       List<SelectLocationDecision> sldResults = new List<SelectLocationDecision>();
       int powerNum = this.GetPowerNumeral(0, 2);
-      Card zapLad = this.FindCard("ZapLad");
+      Card zapLad;
+      bool zapLadInPlay = FindCardsWhere(new LinqCardCriteria((Card c) => c.Title == "Zap-Lad" && c.IsInPlayAndHasGameText)).Count() > 0;
 
       coroutine = this.GameController.DiscardTopCardsOfDecks(this.DecisionMaker, (Location l) => !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame, 1, showCards: (Card c) => true, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      if (zapLad?.IsInPlayAndHasGameText == true)
+      if (zapLadInPlay)
       {
         coroutine = this.GameController.SelectATrash(this.DecisionMaker, SelectionType.MoveCard, (Location l) => l.HasCards, sldResults, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -38,8 +39,9 @@ namespace LazyFanComix.ShellShock
 
       }
 
-      if (!zapLad.IsInPlayAndHasGameText)
+      if (!zapLadInPlay)
       {
+        zapLad = this.FindCard("ZapLad");
         if (zapLad?.Location == this.TurnTaker.Deck || zapLad?.Location == this.TurnTaker.Trash)
         {
           coroutine = this.GameController.PlayCard(this.DecisionMaker, zapLad, true, cardSource: this.GetCardSource());

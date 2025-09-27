@@ -27,7 +27,6 @@ namespace LazyFanComix.T210
     public override IEnumerator Play()
     {
       IEnumerator coroutine;
-      int destroyedCount;
       List<DestroyCardAction> dcaResults = new List<DestroyCardAction>();
 
       coroutine = this.GameController.DestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("loadout") && c.Owner == this.TurnTaker && c != this.Card, "other loadout"), storedResults: dcaResults, cardSource: this.GetCardSource());

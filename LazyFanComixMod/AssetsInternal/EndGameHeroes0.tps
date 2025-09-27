@@ -189,6 +189,9 @@
             <key type="filename">Originals/EndGameHeroes/T210ChibiCharacterFlipped.png</key>
             <key type="filename">Originals/EndGameHeroes/T210TeamCharacter.png</key>
             <key type="filename">Originals/EndGameHeroes/T210TeamCharacterFlipped.png</key>
+            <key type="filename">Originals/EndGameHeroes/TheOrcaCharacterFlipped.png</key>
+            <key type="filename">Originals/EndGameHeroes/ZapLadCharacter.png</key>
+            <key type="filename">Originals/EndGameHeroes/ZapLadCharacterFlipped.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

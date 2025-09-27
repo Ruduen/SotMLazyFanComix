@@ -2,7 +2,7 @@
 
 "BreachMageCharacter.png":
 {
-	"frame": {"x":1448,"y":259,"w":180,"h":256},
+	"frame": {"x":181,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -66,7 +66,7 @@
 },
 "ExpatrietteLiterallyAGunCharacter.png":
 {
-	"frame": {"x":1631,"y":259,"w":180,"h":256},
+	"frame": {"x":364,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -74,7 +74,7 @@
 },
 "GreyhatCharacter.png":
 {
-	"frame": {"x":1814,"y":259,"w":180,"h":256},
+	"frame": {"x":547,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -82,7 +82,7 @@
 },
 "InquirerCharacter.png":
 {
-	"frame": {"x":0,"y":518,"w":180,"h":256},
+	"frame": {"x":730,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -122,7 +122,7 @@
 },
 "OrbitCharacter.png":
 {
-	"frame": {"x":183,"y":518,"w":180,"h":256},
+	"frame": {"x":913,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"ShellShockCharacterClipped.png":
+"ShellShockCharacterFlipped.png":
 {
 	"frame": {"x":362,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -146,7 +146,7 @@
 },
 "SoulbinderCharacter.png":
 {
-	"frame": {"x":366,"y":518,"w":180,"h":256},
+	"frame": {"x":1096,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -154,7 +154,7 @@
 },
 "SpellforgeCharacter.png":
 {
-	"frame": {"x":549,"y":518,"w":180,"h":256},
+	"frame": {"x":1279,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -208,9 +208,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"TheOrcaCharacter.png":
+{
+	"frame": {"x":1448,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"TheOrcaCharacterFlipped.png":
+{
+	"frame": {"x":1629,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "TrailblazerCharacter.png":
 {
-	"frame": {"x":732,"y":518,"w":180,"h":256},
+	"frame": {"x":1462,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
@@ -218,11 +234,27 @@
 },
 "VagabondCharacter.png":
 {
-	"frame": {"x":915,"y":518,"w":180,"h":256},
+	"frame": {"x":1645,"y":518,"w":180,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":256},
 	"sourceSize": {"w":180,"h":256}
+},
+"ZapLadCharacter.png":
+{
+	"frame": {"x":1810,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"ZapLadCharacterFlipped.png":
+{
+	"frame": {"x":0,"y":518,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -231,6 +263,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:2ef6f48d465bdbba1b25e12f14924d48:6026d2a7e284138bedd6f5572d821705:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:57c152242fb0a01614e58c19e98fa6d0:e728b6c5cdb120b36c694deb9e49d91c:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

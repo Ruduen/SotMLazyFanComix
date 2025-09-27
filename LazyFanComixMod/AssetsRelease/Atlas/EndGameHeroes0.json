@@ -127,6 +127,30 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
+},
+"TheOrcaCharacterFlipped.png":
+{
+	"frame": {"x":403,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"ZapLadCharacter.png":
+{
+	"frame": {"x":806,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"ZapLadCharacterFlipped.png":
+{
+	"frame": {"x":1209,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -135,6 +159,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:6530056ef08fccd07ae69002b0614a68:4bf712db208d18d77c80e91aa2e4f308:e92652cff04ed6c8e37f7bc0458ec814$"
+	"smartupdate": "$TexturePacker:SmartUpdate:8f22d01b043db7a39b7dcbf3c957fa14:6e3b11b3ce6354189841ee2b43cbc8de:e92652cff04ed6c8e37f7bc0458ec814$"
 }
 }

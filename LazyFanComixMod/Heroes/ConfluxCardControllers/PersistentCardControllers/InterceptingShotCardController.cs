@@ -25,14 +25,23 @@ namespace LazyFanComix.Conflux
     {
       IEnumerator coroutine;
 
-      coroutine = this.CancelAction(action);
+      YesNoDecision d = new YesNoDecision(this.GameController, this.DecisionMaker, SelectionType.PreventDamage, cardSource: this.GetCardSource());
+
+      coroutine = this.GameController.MakeDecisionAction(d);
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      if (!action.IsPretend)
+      if (DidPlayerAnswerYes(d))
       {
-        coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, cardSource: this.GetCardSource());
+        coroutine = this.CancelAction(action);
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+
+        if (!action.IsPretend)
+        {
+          coroutine = this.GameController.DestroyCard(this.HeroTurnTakerController, this.Card, cardSource: this.GetCardSource());
+          if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+        }
       }
+
 
     }
 

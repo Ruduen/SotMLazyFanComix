@@ -41,7 +41,6 @@ namespace LazyFanComix.Conflux
     public override IEnumerator UsePower(int index = 0)
     {
       IEnumerator coroutine;
-      DamageType dt;
       List<SelectCardDecision> scdResults;
 
       List<Card> selected = new List<Card>();

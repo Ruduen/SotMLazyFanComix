@@ -132,6 +132,8 @@
     <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\InTheWeedsCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\KnifeFightCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\PersistentCardControllers\PlansAndPayoffCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\TheOrcaCharacterCardController.cs" />
+    <Compile Include="Heroes\ShellShockCardControllers\ZapLadCharacterCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\BorrowedBlimpCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellBuggieCardController.cs" />
     <Compile Include="Heroes\ShellShockCardControllers\TargetCardControllers\ShellCopterCardController.cs" />

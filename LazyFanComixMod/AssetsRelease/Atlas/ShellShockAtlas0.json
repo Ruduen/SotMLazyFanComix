@@ -120,6 +120,22 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"TheOrcaCharacter.png":
+{
+	"frame": {"x":621,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"TheOrcaCharacterFlipped.png":
+{
+	"frame": {"x":802,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "VehicularDefense.png":
 {
 	"frame": {"x":1554,"y":201,"w":256,"h":198},
@@ -135,6 +151,22 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"ZapLadCharacter.png":
+{
+	"frame": {"x":983,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"ZapLadCharacterFlipped.png":
+{
+	"frame": {"x":1164,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -143,6 +175,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:042339bce9a186950658ea6da377d773:249558977ec2649b8099363e89ed09a8:0a3907cb59f7946bef5f6a6163447722$"
+	"smartupdate": "$TexturePacker:SmartUpdate:b9f74181ce17548a88b911b52589e4cf:25534e2b0e5103e633c2271dd8db32ea:0a3907cb59f7946bef5f6a6163447722$"
 }
 }

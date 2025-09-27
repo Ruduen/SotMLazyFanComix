@@ -15,13 +15,13 @@
       "foilBackgroundColor": "99DD99",
       "character": true,
       "powers": [
-        "{ShellShock} deals 1 target 2 lightning damage."
+        "{ShellShockCharacter} deals 1 target 2 lightning damage."
       ],
       "icons": [
         "HasPower",
         "DealDamageLightning"
       ],
-      "hitpoints": 22,
+      "hitpoints": 24,
       "nemesisIdentifiers": [
         "ShellShock"
       ],
@@ -36,7 +36,7 @@
         "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Shhh..."
+        "default": "Let's see if this is enough to get me out of my shell."
       },
       "complexity": 2
     },
@@ -123,7 +123,7 @@
       "title": "Vehicular Defense",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "After a non-hero target deals one of your Vehicle targets damage each turn, {ShellShock} deals that non-Hero target 2 melee damage."
+        "After a non-hero target deals one of your Vehicle targets damage each turn, {ShellShockCharacter} deals that non-Hero target 2 melee damage."
       ],
       "powers": [
         "You may play a vehicle card."
@@ -165,7 +165,7 @@
       "keywords": [ "ongoing", "limited" ],
       "body": [
         "After a vehicle target enters play, it deals 1 target 2 melee damage.",
-        "When this card is destroyed, you may destroy an Ongoing or Environment card and {ShellShock} deals 1 target 2 melee and 2 lightning damage."
+        "When this card is destroyed, you may destroy an Ongoing or Environment card and {ShellShockCharacter} deals 1 target 2 melee and 2 lightning damage."
       ],
       "powers": [ "Destroy this card." ],
       "icons": [ "" ],
@@ -203,8 +203,8 @@
       "title": "Measured Assault",
       "keywords": [ "one-shot" ],
       "body": [
-        "{ShellShock} deals 1 targets 4 melee damage.",
-        "{ShellShock} deals up to 4 targets 1 lightning damage each."
+        "{ShellShockCharacter} deals 1 targets 4 melee damage.",
+        "{ShellShockCharacter} deals up to 4 targets 1 lightning damage each."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
@@ -221,11 +221,11 @@
       "title": "Knife-Fight",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "Increase melee damage dealt by {ShellShock} by 1.",
-        "Reduce melee damage dealt to {ShellShock} by 1."
+        "Increase melee damage dealt by {ShellShockCharacter} by 1.",
+        "Reduce melee damage dealt to {ShellShockCharacter} by 1."
       ],
       "powers": [
-        "{ShellShock} deals up to 3 targets 1 melee damage."
+        "{ShellShockCharacter} deals up to 3 targets 1 melee damage."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
@@ -242,8 +242,8 @@
       "title": "In the Weeds",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "When there is a device card in play, increase damage dealt by {ShellShock} by 1.",
-        "After the first time one of your targets deals damage to a non-Hero target each turn, {ShellShock} deals that non-hero target 1 melee damage."
+        "When there is a device card in play, increase damage dealt by {ShellShockCharacter} by 1.",
+        "After the first time one of your targets deals damage to a non-Hero target each turn, {ShellShockCharacter} deals that non-hero target 1 melee damage."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
@@ -258,7 +258,7 @@
       "identifier": "EyeFromAbove",
       "count": 2,
       "title": "Eye from Above",
-      "keywords": [ "ongoing", "limited" ],
+      "keywords": [ "ongoing" ],
       "body": [
         "The first time a non-Hero target enters play each turn, you may use a power."
       ],
@@ -280,7 +280,7 @@
       "body": [
         "When this card enters play, destroy any of your other Vehicle cards in play.",
         "At the start of your turn, this card deals itself 3 lightning damage.",
-        "Reduce damage dealt to {ShellShock} by 1."
+        "Reduce damage dealt to {ShellShockCharacter} by 1."
       ],
       "icons": [ "" ],
       "flavorQuotes": [
@@ -318,7 +318,7 @@
       "title": "Left Unspoken",
       "keywords": [ "one-shot" ],
       "body": [
-        "Draw 1 card. {ShellShock} regains 4 HP.",
+        "Draw 1 card. {ShellShockCharacter} regains 4 HP.",
         "Another player draws 1 card. Their Hero regains 4 HP."
       ],
       "icons": [ "" ],
@@ -331,18 +331,19 @@
       "flavorReference": "Shell-Shock, ???"
     }
   ],
-  "placeholderPromoCards": [
+  "promoCards": [
     {
       "identifier": "ShellShockCharacter",
-      "promoIdentifier": "ShellShockTeamCharacter",
+      "promoIdentifier": "ZapLadCharacter",
       "count": 1,
-      "title": "Team ShellShock",
-      "body": "Element Sense",
-      "backgroundColor": "AADDAA",
-      "foilBackgroundColor": "AADDAA",
+      "title": "Zap-Lad",
+      "body": "Expert Mechanic",
+      "backgroundColor": "DDDDAA",
+      "foilBackgroundColor": "DDDDAA",
       "character": true,
+      "setup": [ "Remove each other copy of {ZapLad} in your deck from the game." ],
       "powers": [
-        "{ShellShock} deals 1 target 1 energy damage. Select up to 1 target for each type of damage {ShellShock} has dealt this turn. Until the start of your next turn, reduce damage dealt to those targets by 1."
+        "Draw 1 card. You may select a device target. It regains 2 HP and reduce damage dealt to it by 1 until the end of your next turn."
       ],
       "icons": [
         "HasPower",
@@ -355,29 +356,30 @@
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "Select a Hero.  Until the start of your turn reduce damage dealt to that Hero by 1.",
-        "Select a damage type. Until the start of your next turn, change all damage dealt to that type."
+        "One hero may use a power.",
+        "One player may draw a card."
       ],
       "flippedIcons": [
         "PlayCardNow",
-        "ReduceDamageTaken"
+        "UsePowerNow",
+        "DrawCardNow"
       ],
       "openingLines": {
-        "default": "Everything around us stands against you!"
+        "default": "Everything's still here and ready - even I can handle you!"
       },
-      "complexity": 1
+      "complexity": 2
     },
     {
       "identifier": "ShellShockCharacter",
-      "promoIdentifier": "ShellShockChibiCharacter",
+      "promoIdentifier": "TheOrcaCharacter",
       "count": 1,
-      "title": "Chibi ShellShock",
-      "body": "Bigger Boom!",
-      "backgroundColor": "AABBAA",
-      "foilBackgroundColor": "AABBAA",
+      "title": "The Orca",
+      "body": "Second Watch",
+      "backgroundColor": "AAAAAA",
+      "foilBackgroundColor": "AAAAAA",
       "character": true,
       "powers": [
-        "Draw 1 card. Discard up to 1 card for each different type of damage {ShellShock} has dealt this turn. {ShellShock} deals up to 2 targets X fire damage, where X = the number of cards discarded this way."
+        "Until the start of your next turn, at the end of each non-Hero turn, {ShellShockCharacter} deals each target in that turn's play area one melee damage."
       ],
       "icons": [
         "HasPower",
@@ -385,24 +387,24 @@
         "Discard",
         "DealDamageFire"
       ],
-      "hitpoints": 23,
+      "hitpoints": 26,
       "nemesisIdentifiers": [
         "ShellShock"
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "Destroy an ongoing card.",
-        "One environment target deals each non-environment target 2 fire damage and themselves 10 fire damage."
+        "One hero may use a power.",
+        "One player may draw a card."
       ],
       "flippedIcons": [
         "PlayCardNow",
-        "DestroyOngoing",
-        "DealDamageFire"
+        "UsePowerNow",
+        "DrawCardNow"
       ],
       "openingLines": {
-        "default": "I bet I have more of a blast than you!"
+        "default": "Guess someone has to pick up the slack while Shelly's busy."
       },
-      "complexity": 1
+      "complexity": 2
     }
   ]
 }

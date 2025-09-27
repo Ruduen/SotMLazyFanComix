@@ -36,7 +36,7 @@ namespace LazyFanComixTest
       Assert.IsInstanceOf(typeof(HeroTurnTakerController), ShellShock);
       Assert.IsInstanceOf(typeof(ShellShockCharacterCardController), ShellShock.CharacterCardController);
 
-      Assert.AreEqual(22, ShellShock.CharacterCard.HitPoints);
+      Assert.AreEqual(24, ShellShock.CharacterCard.HitPoints);
       AssertNumberOfCardsInDeck(ShellShock, 36);
       AssertNumberOfCardsInHand(ShellShock, 4);
     }
@@ -58,6 +58,65 @@ namespace LazyFanComixTest
       QuickHPStorage(mdp);
       UsePower(ShellShock);
       QuickHPCheck(-2);
+    }
+    [Test()]
+    public void TestInnateZap()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.ShellShock/LazyFanComix.ZapLadCharacter", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      AssertOutOfGame(FindCard((Card c)=>c.Identifier == "ZapLad"));
+
+      Card mdp = GetCardInPlay("MobileDefensePlatform");
+      DecisionSelectTarget = mdp;
+
+      DealDamage(mdp, mdp, 6, DamageType.Melee);
+
+      QuickHPStorage(mdp);
+      QuickHandStorage(ShellShock);
+      UsePower(ShellShock);
+      QuickHPCheck(5);
+      QuickHandCheck(1);
+      UsePower(ShellShock);
+      QuickHPCheck(5);
+      QuickHandCheck(1);
+    }
+
+
+    [Test()]
+    public void TestInnateOrca()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.ShellShock/LazyFanComix.TheOrcaCharacter", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+      Card pileup = PlayCard("TrafficPileup");
+
+      QuickHPStorage(pileup, baron.CharacterCard);
+      GoToStartOfTurn(ShellShock);
+      UsePower(ShellShock);
+      QuickHPCheck(0, 0);
+
+
+      GoToStartOfTurn(baron);
+      QuickHPCheck(-1, 0);
+
+      UsePower(ShellShock);
+      GoToStartOfTurn(ShellShock);
+      QuickHPCheck(0, -1 - 1);
+
+      GoToStartOfTurn(ShellShock);
+      QuickHPCheck(0, 0);
     }
     #endregion Innate Powers
 
@@ -114,6 +173,35 @@ namespace LazyFanComixTest
       AssertNumberOfCardsInTrash(ShellShock, 1 + 1);
       AssertNumberOfCardsInTrash(legacy, 1);
       AssertNumberOfCardsInTrash(env, 1);
+    }
+
+    [Test()]
+    public void TestOneShotCanvasZapCharacter()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade",  "LazyFanComix.ShellShock/LazyFanComix.ZapLadCharacter", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      Card canvas = PlayCard("CanvasTheScene");
+
+      ShuffleTrashIntoDeck(baron);
+      ShuffleTrashIntoDeck(ShellShock);
+      ShuffleTrashIntoDeck(legacy);
+      ShuffleTrashIntoDeck(env);
+
+      Card top1 = PutOnDeck("MobileDefensePlatform");
+      PlayCard(canvas);
+      AssertOnTopOfDeck(top1);
+      AssertNumberOfCardsInTrash(baron, 1 - 1);
+      AssertNumberOfCardsInTrash(ShellShock, 1 + 1);
+      AssertNumberOfCardsInTrash(legacy, 1);
+      AssertNumberOfCardsInTrash(env, 1);
+
+      AssertOutOfGame(FindCard((Card c) => c.Identifier == "ZapLad"));
     }
 
     [Test()]

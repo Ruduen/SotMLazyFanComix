@@ -624,10 +624,15 @@ namespace LazyFanComixTest
         PlayCard("InterceptingShot", 1)
       };
 
-
+      DecisionYesNo = false;
       QuickHPStorage(Conflux, baron);
       DealDamage(baron, Conflux, 2, DamageType.Cold);
-      QuickHPCheck(0, -2);
+      QuickHPCheck(-2, -0);
+      AssertIsInPlay(interceptions);
+
+      DecisionYesNo = true;
+      DealDamage(baron, Conflux, 2, DamageType.Cold);
+      QuickHPCheck(-0, -2);
       AssertInTrash(interceptions[0]);
       AssertIsInPlay(interceptions[1]);
       GoToStartOfTurn(Conflux);
