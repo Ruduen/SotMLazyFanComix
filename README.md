@@ -4,8 +4,15 @@ This is Ruduen's implementation of various Sentinels of the Multiverse items.
 This was originally branched from the Handlabra Sample Project, but primarily contains new creations and implementations. If you want to make new items, that will be a better starting point - this is meant to be a reference for anybody who wishes to use this work as a basis for further derivation, or would like to help address any issues once this is posted.
 
 The mod currently includes: 
- - 7 Heroes (6 Completely Custom, 1 Aeon's End Inspired)
- - 1-2 Variants for each Official Hero
+- 10 Completely Custom Heroes
+- 1 Aeon's End Inspired Hero
+- 1 Hero made for a community challenge
+- 1+ Variants for most Official Heroes
+- 1+ Variants for a handful of Mod Heroes
+- 1 Variant for an Official Villain
+- 1 Completely Custom Team Villain (Since Why Not?)
+- 1 Completely Custom Environment
+- Other things that don't fit well into a tidy list
 
 These changes are now testable! For the most up-to-date version of this, refer to the steam workshop at https://steamcommunity.com/sharedfiles/filedetails/?id=2436856735 . The releases are only kept for historical purposes, and will not be kept up to date at this time. 
 
