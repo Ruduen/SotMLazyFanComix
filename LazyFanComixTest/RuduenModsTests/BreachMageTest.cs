@@ -48,7 +48,7 @@ namespace LazyFanComixTest
 
       StartGame();
 
-      Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
+      Card[] breaches = this.GameController.FindCardsWhere((Card c) => this.GameController.DoesCardContainKeyword(c, "breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
       int[] initFocus = new int[] { 0, 1, 2, 3 };
 
       Assert.IsTrue(breaches.Count() == 4);
@@ -69,7 +69,7 @@ namespace LazyFanComixTest
 
       StartGame();
 
-      Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
+      Card[] breaches = this.GameController.FindCardsWhere((Card c) => this.GameController.DoesCardContainKeyword(c, "breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToArray();
       int[] initFocus = new int[] { 0, 1, 2, 3 };
       DiscardAllCards(BreachMage);
 
@@ -258,7 +258,7 @@ namespace LazyFanComixTest
 
       // Special: 3 breaches.
 
-      List<Card> breaches = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToList();
+      List<Card> breaches = this.GameController.FindCardsWhere((Card c) => this.GameController.DoesCardContainKeyword(c, "breach") && c.Owner == BreachMage.HeroTurnTaker && c.IsInPlay).ToList();
 
       Assert.IsTrue(breaches.Count() == 3);
 

@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"ShellShockCharacterFlipped.png":
+"ShellShockCharacterBack.png":
 {
 	"frame": {"x":362,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -216,7 +216,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheOrcaCharacterFlipped.png":
+"TheOrcaCharacterBack.png":
 {
 	"frame": {"x":1629,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -248,7 +248,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"ZapLadCharacterFlipped.png":
+"ZapLadCharacterBack.png":
 {
 	"frame": {"x":0,"y":518,"w":178,"h":256},
 	"rotated": false,
@@ -263,6 +263,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:57c152242fb0a01614e58c19e98fa6d0:e728b6c5cdb120b36c694deb9e49d91c:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:569273fe24c8a5a58c79752d54e18edd:e728b6c5cdb120b36c694deb9e49d91c:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

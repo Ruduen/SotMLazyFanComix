@@ -89,7 +89,7 @@ namespace LazyFanComixTest
       QuickHandCheck(1);
       DealDamage(mdp, mdp, 2, DamageType.Melee);
       QuickHPCheck(0);
-      GoToStartOfTurn(ShellShock);
+      GoToEndOfTurn(ShellShock);
       DealDamage(mdp, mdp, 2, DamageType.Melee);
       QuickHPCheck(-2);
 
@@ -127,6 +127,100 @@ namespace LazyFanComixTest
       QuickHPCheck(0, 0);
     }
     #endregion Innate Powers
+
+    #region Incaps
+    [Test()]
+    public void TestIncapBase()
+    {
+
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.ShellShock", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      DestroyCard(ShellShock);
+      DecisionSelectCardToPlay = PutInHand("InspiringPresence");
+      UseIncapacitatedAbility(ShellShock, 0);
+      AssertIsInPlay(DecisionSelectCardToPlay);
+
+      QuickHPStorage(baron);
+      UseIncapacitatedAbility(ShellShock, 1);
+      QuickHPCheck(-1);
+
+      PutOnDeck(legacy, DecisionSelectCardToPlay);
+      UseIncapacitatedAbility(ShellShock, 2);
+      AssertInTrash(DecisionSelectCardToPlay);
+    }
+    [Test()]
+    public void TestIncapZap()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.ShellShock/LazyFanComix.ZapLadCharacter", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      Card mdp = GetCardInPlay("MobileDefensePlatform");
+
+      DestroyCard(ShellShock);
+      DecisionSelectCardToPlay = PutInHand("InspiringPresence");
+      UseIncapacitatedAbility(ShellShock, 0);
+      AssertIsInPlay(DecisionSelectCardToPlay);
+
+      Card ring = MoveCard(legacy, "TheLegacyRing", legacy.HeroTurnTaker.Trash);
+      UseIncapacitatedAbility(ShellShock, 1);
+      AssertInHand(ring);
+
+      DecisionSelectTarget = mdp;
+      QuickHPStorage(mdp);
+      UseIncapacitatedAbility(ShellShock, 2);
+      QuickHPCheck(-5);
+
+      DestroyCard(mdp);
+      UseIncapacitatedAbility(ShellShock, 2);
+
+
+
+    }
+
+
+    [Test()]
+    public void TestIncapOrca()
+    {
+      IEnumerable<string> setupItems = new List<string>()
+            {
+                "BaronBlade", "LazyFanComix.ShellShock/LazyFanComix.TheOrcaCharacter", "Legacy", "Megalopolis"
+            };
+      SetupGameController(setupItems);
+
+      StartGame();
+
+      DestroyNonCharacterVillainCards();
+
+      DestroyCard(ShellShock);
+
+      UseIncapacitatedAbility(ShellShock, 0);
+      AssertNumberOfUsablePowers(legacy, 0);
+
+      QuickHandStorage(legacy);
+      UseIncapacitatedAbility(ShellShock, 1);
+      QuickHandCheck(1);
+
+      UseIncapacitatedAbility(ShellShock, 2);
+      AssertIsTarget(ShellShock.CharacterCard);
+
+      GoToStartOfTurn(ShellShock);
+      AssertNotTarget(ShellShock.CharacterCard);
+
+    }
+    #endregion Incaps
 
     #region One Shots
 

@@ -24,7 +24,7 @@ namespace LazyFanComix.BreachMage
 
       // You may destroy a charge
       coroutine = this.GameController.SelectAndDestroyCards(this.HeroTurnTakerController,
-          new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && c.DoKeywordsContain("charge"), "charge", true, false, null, null, false),
+          new LinqCardCriteria((Card c) => c.IsInPlay && c.Owner == this.HeroTurnTaker && this.GameController.DoesCardContainKeyword(c, "charge"), "charge", true, false, null, null, false),
           1, false, 0, null, storedResultsAction, null, false, null, false, null, this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 

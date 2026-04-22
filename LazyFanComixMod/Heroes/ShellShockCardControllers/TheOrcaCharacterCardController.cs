@@ -6,7 +6,7 @@ using LazyFanComix.HeroPromos;
 
 namespace LazyFanComix.ShellShock
 {
-  public class TheOrcaCharacterCardController : PromoDefaultCharacterCardController
+  public class TheOrcaCharacterCardController : HeroCharacterCardController
   {
     public TheOrcaCharacterCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
@@ -33,6 +33,36 @@ namespace LazyFanComix.ShellShock
     public IEnumerator DamageResponse(PhaseChangeAction p, StatusEffect e)
     {
       return this.GameController.DealDamage(this.DecisionMaker, this.CharacterCard, (Card c) => c.Location.IsPlayAreaOf(p.ToPhase.TurnTaker), 1, DamageType.Melee, cardSource: this.GetCardSource());
+    }
+
+    public override IEnumerator UseIncapacitatedAbility(int index)
+    {
+      IEnumerator coroutine;
+      switch (index)
+      {
+        case 0:
+          {
+            coroutine = this.GameController.SelectHeroToUsePower(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+        case 1:
+          {
+            coroutine = this.GameController.SelectHeroToDrawCard(this.HeroTurnTakerController, cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+        case 2:
+          {
+            MakeTargetStatusEffect mtse = new MakeTargetStatusEffect(0, true);
+            mtse.CardsToMakeTargets.IsSpecificCard = base.Card;
+            mtse.UntilStartOfNextTurn(this.TurnTaker);
+            coroutine = this.AddStatusEffect(mtse, true);
+            if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
+            break;
+          }
+      }
+      yield break;
     }
   }
 }

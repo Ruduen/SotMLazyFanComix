@@ -21,9 +21,9 @@ namespace LazyFanComix.ShellShock
     {
       IEnumerator coroutine;
 
-      if(this.FindCardsWhere(new LinqCardCriteria((Card c) => c.DoKeywordsContain("vehicle") && c.Owner == this.TurnTaker && c.IsInPlayAndHasGameText, "vehicle")).Count() > 1)
+      if(this.FindCardsWhere(new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "vehicle") && c.Owner == this.TurnTaker && c.IsInPlayAndHasGameText, "vehicle")).Count() > 1)
       {
-        coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && c.DoKeywordsContain("vehicle") && c != this.Card, "vehicle"), cardSource: this.GetCardSource());
+        coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && this.GameController.DoesCardContainKeyword(c, "vehicle") && c != this.Card, "vehicle"), cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
     }

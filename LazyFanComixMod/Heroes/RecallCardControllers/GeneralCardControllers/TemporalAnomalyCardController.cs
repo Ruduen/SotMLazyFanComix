@@ -18,7 +18,7 @@ namespace LazyFanComix.Recall
       coroutine = this.GameController.GainHP(this.CharacterCard, 2, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      coroutine = this.SearchForCards(this.HeroTurnTakerController, true, true, 1, 1, new LinqCardCriteria((Card c) => c.DoKeywordsContain("paradox"), "paradox"), true, false, false, shuffleAfterwards: true);
+      coroutine = this.SearchForCards(this.HeroTurnTakerController, true, true, 1, 1, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "paradox"), "paradox"), true, false, false, shuffleAfterwards: true);
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       coroutine = this.GameController.SelectTargetsAndDealDamage(this.HeroTurnTakerController, new DamageSource(this.GameController, this.CharacterCard), 1, DamageType.Energy, 1, false, 1, cardSource: this.GetCardSource());

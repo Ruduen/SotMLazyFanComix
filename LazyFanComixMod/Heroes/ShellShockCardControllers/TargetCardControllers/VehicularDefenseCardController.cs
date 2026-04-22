@@ -24,7 +24,7 @@ namespace LazyFanComix.ShellShock
 
     public override IEnumerator UsePower(int index = 0)
     {
-      return this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => c.DoKeywordsContain("vehicle"), "vehicle"), cardSource: this.GetCardSource());
+      return this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "vehicle"), "vehicle"), cardSource: this.GetCardSource());
     }
   }
 }

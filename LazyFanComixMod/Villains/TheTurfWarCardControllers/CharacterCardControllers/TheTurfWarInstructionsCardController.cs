@@ -72,7 +72,7 @@ namespace LazyFanComix.TheTurfWar
               {
                 if (this.GameController.HasGameStarted && !(g is GameOverAction) && !(g is MessageAction) && !(g is IncrementAchievementAction))
                 {
-                  return this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead")).Count() == 0;
+                  return this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead")).Count() == 0;
                 }
                 return false;
               },
@@ -83,12 +83,12 @@ namespace LazyFanComix.TheTurfWar
       {
         // On front: Start of Turn, win if only one villain figurehead remains.
         this.AddSideTrigger(
-            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => WinGamePartial(p), new TriggerType[] { TriggerType.GameOver, TriggerType.Hidden }, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead")).Count() == 1)
+            this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => WinGamePartial(p), new TriggerType[] { TriggerType.GameOver, TriggerType.Hidden }, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead")).Count() == 1)
         );
 
         // On front: End of Turn, flip if there are any villain figurehead cards with at least 4 cards under it.
         this.AddSideTrigger(
-            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => this.GameController.FlipCard(this, cardSource: this.GetCardSource()), TriggerType.FlipCard, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead") && c.UnderLocation.Cards.Count() >= 4).Count() > 0)
+            this.AddEndOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction p) => this.GameController.FlipCard(this, cardSource: this.GetCardSource()), TriggerType.FlipCard, (PhaseChangeAction p) => this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead") && c.UnderLocation.Cards.Count() >= 4).Count() > 0)
         );
 
         // On front: When environment cards are destroyed, put it under the appropriate figurehead.
@@ -115,7 +115,7 @@ namespace LazyFanComix.TheTurfWar
     {
       IEnumerator coroutine;
 
-      Card c = this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead")).FirstOrDefault();
+      Card c = this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead")).FirstOrDefault();
 
       coroutine = this.GameController.SendMessageAction("The war is over, but " + c.Title + " will now be watching over " + this.GameController.FindEnvironmentTurnTakerController().Name + "...", Priority.Critical, this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
@@ -140,7 +140,7 @@ namespace LazyFanComix.TheTurfWar
       IEnumerator coroutine;
 
       // Look over all figureheads for the one with the most shared keywords. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
-      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
+      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead"));
 
       Dictionary<Card, int> matches = new Dictionary<Card, int>();
       int maxMatches = -1;
@@ -174,7 +174,7 @@ namespace LazyFanComix.TheTurfWar
       List<Card> underDestroyed = new List<Card>();
 
       // Look over all figureheads for the ones with the most cards. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
-      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
+      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead"));
 
       Dictionary<Card, int> cardCounts = new Dictionary<Card, int>();
       int cardCountMax = -1;
@@ -208,10 +208,10 @@ namespace LazyFanComix.TheTurfWar
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         // Damaging aspects.
-        coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => c != figurehead && c.DoKeywordsContain("figurehead"), 2, DamageType.Toxic, cardSource: this.GetCardSource());
+        coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => c != figurehead && this.GameController.DoesCardContainKeyword(c, "figurehead"), 2, DamageType.Toxic, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-        coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => !c.DoKeywordsContain("figurehead") && !c.DoKeywordsContain(figurehead.GetKeywords()), 2, DamageType.Toxic, cardSource: this.GetCardSource());
+        coroutine = this.GameController.DealDamage(this.DecisionMaker, figurehead, (Card c) => !this.GameController.DoesCardContainKeyword(c, "figurehead") && !c.DoKeywordsContain(figurehead.GetKeywords()), 2, DamageType.Toxic, cardSource: this.GetCardSource());
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
         // Discover a shared keyword.

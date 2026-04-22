@@ -26,7 +26,7 @@ namespace LazyFanComix.Vagabond
 
     protected override IEnumerator OnPlayIfSolo()
     {
-      return this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => !c.DoKeywordsContain("solo")), cardSource: this.GetCardSource());
+      return this.GameController.SelectAndPlayCardsFromHand(this.DecisionMaker, 1, false, 0, new LinqCardCriteria((Card c) => !this.GameController.DoesCardContainKeyword(c, "solo")), cardSource: this.GetCardSource());
     }
 
     protected override IEnumerator OnPlayIfNotSolo()

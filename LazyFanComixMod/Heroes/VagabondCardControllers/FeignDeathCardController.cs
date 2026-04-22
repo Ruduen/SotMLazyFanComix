@@ -55,7 +55,7 @@ namespace LazyFanComix.Vagabond
       IEnumerator coroutine;
 
       // Search Deck and play card, and shuffle.
-      coroutine = this.GameController.SelectCardFromLocationAndMoveIt(this.DecisionMaker, this.TurnTaker.Deck, new LinqCardCriteria((Card c) => c.DoKeywordsContain("solo"), "solo"), new MoveCardDestination[] { new MoveCardDestination(this.TurnTaker.PlayArea) }, false, true, true, cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectCardFromLocationAndMoveIt(this.DecisionMaker, this.TurnTaker.Deck, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "solo"), "solo"), new MoveCardDestination[] { new MoveCardDestination(this.TurnTaker.PlayArea) }, false, true, true, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       // Remove this from the game.

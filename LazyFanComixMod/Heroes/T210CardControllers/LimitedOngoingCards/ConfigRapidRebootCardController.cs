@@ -26,8 +26,8 @@ namespace LazyFanComix.T210
       list.Add(new Function(this.HeroTurnTakerController, this.CharacterCard.Title + "Gains 1 HP", SelectionType.GainHP,
           () => this.GameController.GainHP(this.CharacterCard, 1, cardSource: this.GetCardSource()), null, this.TurnTaker.Name + " cannot move any loadout cards to their hand, so they must regain HP."));
       list.Add(new Function(this.HeroTurnTakerController, "Move 1 Loadout Card from your Trash to your Hand", SelectionType.MoveCard,
-          () => this.GameController.SelectCardsFromLocationAndMoveThem(this.HeroTurnTakerController, this.HeroTurnTaker.Trash, 1, 1, new LinqCardCriteria((Card c) => c.DoKeywordsContain("loadout"), "loadout"), new List<MoveCardDestination> { new MoveCardDestination(this.HeroTurnTaker.Hand) }, cardSource: this.GetCardSource()),
-          this.TurnTakerController != null && this.TurnTaker.Trash.Cards.Where((Card c) => c.DoKeywordsContain("loadout")).Any(),
+          () => this.GameController.SelectCardsFromLocationAndMoveThem(this.HeroTurnTakerController, this.HeroTurnTaker.Trash, 1, 1, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "loadout"), "loadout"), new List<MoveCardDestination> { new MoveCardDestination(this.HeroTurnTaker.Hand) }, cardSource: this.GetCardSource()),
+          this.TurnTakerController != null && this.TurnTaker.Trash.Cards.Where((Card c) => this.GameController.DoesCardContainKeyword(c, "loadout")).Any(),
           this.TurnTaker.Name + " cannot regain HP, so they must move a Loadout card from their trash to their hand."));
       sfd = new SelectFunctionDecision(this.GameController, this.HeroTurnTakerController, list, false, null, this.TurnTaker.Name + " cannot regain HP or move any loadout cards from their trash to their hand, so" + this.Card.Title + " has no effect.", null, this.GetCardSource());
 

@@ -24,7 +24,7 @@ namespace LazyFanComix.Cassie
 
     private IEnumerator SetupRiverbank()
     {
-      IEnumerable<Card> riverCards = this.GameController.FindCardsWhere((Card c) => c.DoKeywordsContain("river") && c.Owner == this.TurnTaker && c.Location == this.TurnTaker.OffToTheSide);
+      IEnumerable<Card> riverCards = this.GameController.FindCardsWhere((Card c) => this.GameController.DoesCardContainKeyword(c, "river") && c.Owner == this.TurnTaker && c.Location == this.TurnTaker.OffToTheSide);
       if (riverCards.Any())
       {
         IEnumerator coroutine;

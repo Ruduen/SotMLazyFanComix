@@ -71,7 +71,7 @@ namespace LazyFanComix.ShellShock
     {
       List<SelectCardDecision> storedDecision = new List<SelectCardDecision>();
       IEnumerator coroutine = this.GameController.SelectCardAndStoreResults(this.HeroTurnTakerController, SelectionType.CardToDealDamage,
-          new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && c.IsTarget && c.IsInPlayAndHasGameText && c.DoKeywordsContain("vehicle")),
+          new LinqCardCriteria((Card c) => c.Owner == this.TurnTaker && c.IsTarget && c.IsInPlayAndHasGameText && this.GameController.DoesCardContainKeyword(c, "vehicle")),
           storedDecision, false, false,
           new DealDamageAction(this.GetCardSource(), null, null, damageAmount, damageType)
       );

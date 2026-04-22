@@ -217,11 +217,11 @@
                 <false/>
             </struct>
             <key type="filename">Originals/ShellShock/ShellShockCharacter.png</key>
-            <key type="filename">Originals/ShellShock/ShellShockCharacterFlipped.png</key>
+            <key type="filename">Originals/ShellShock/ShellShockCharacterBack.png</key>
             <key type="filename">Originals/ShellShock/TheOrcaCharacter.png</key>
-            <key type="filename">Originals/ShellShock/TheOrcaCharacterFlipped.png</key>
+            <key type="filename">Originals/ShellShock/TheOrcaCharacterBack.png</key>
             <key type="filename">Originals/ShellShock/ZapLadCharacter.png</key>
-            <key type="filename">Originals/ShellShock/ZapLadCharacterFlipped.png</key>
+            <key type="filename">Originals/ShellShock/ZapLadCharacterBack.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

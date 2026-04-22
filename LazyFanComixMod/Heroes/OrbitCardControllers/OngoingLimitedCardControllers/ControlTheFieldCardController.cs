@@ -17,7 +17,7 @@ namespace LazyFanComix.Orbit
       this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker,
           (PhaseChangeAction pca) => this.GameController.SelectAndDestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsCover, "cover"), 2, false, 2, cardSource: this.GetCardSource()),
           TriggerType.DestroyCard);
-      this.AddReduceDamageTrigger((DealDamageAction dda) => dda.Target == this.CharacterCard, (DealDamageAction dda) => this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("cover")).Count());
+      this.AddReduceDamageTrigger((DealDamageAction dda) => dda.Target == this.CharacterCard, (DealDamageAction dda) => this.GameController.FindCardsWhere((Card c) => c.IsInPlay && this.GameController.DoesCardContainKeyword(c, "cover")).Count());
     }
 
     public override IEnumerator UsePower(int index = 0)
@@ -26,7 +26,7 @@ namespace LazyFanComix.Orbit
       int powerNumeral = this.GetPowerNumeral(0, 2);
 
       // Search the deck for 2 cover and play them.
-      coroutine = this.SearchForCards(this.DecisionMaker, true, false, powerNumeral, powerNumeral, new LinqCardCriteria((Card c) => c.DoKeywordsContain("cover")), true, false, false, shuffleAfterwards: true);
+      coroutine = this.SearchForCards(this.DecisionMaker, true, false, powerNumeral, powerNumeral, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "cover")), true, false, false, shuffleAfterwards: true);
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       coroutine = this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource());

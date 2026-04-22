@@ -217,7 +217,7 @@
             <key type="filename">Originals/SetupGame/ConfluxTeamCharacter.png</key>
             <key type="filename">Originals/SetupGame/ConfluxTeamCharacterBack.png</key>
             <key type="filename">Originals/SetupGame/ShellShockCharacter.png</key>
-            <key type="filename">Originals/SetupGame/ShellShockCharacterFlipped.png</key>
+            <key type="filename">Originals/SetupGame/ShellShockCharacterBack.png</key>
             <key type="filename">Originals/SetupGame/T210Character.png</key>
             <key type="filename">Originals/SetupGame/T210CharacterBack.png</key>
             <key type="filename">Originals/SetupGame/T210ChibiCharacter.png</key>
@@ -225,9 +225,9 @@
             <key type="filename">Originals/SetupGame/T210TeamCharacter.png</key>
             <key type="filename">Originals/SetupGame/T210TeamCharacterBack.png</key>
             <key type="filename">Originals/SetupGame/TheOrcaCharacter.png</key>
-            <key type="filename">Originals/SetupGame/TheOrcaCharacterFlipped.png</key>
+            <key type="filename">Originals/SetupGame/TheOrcaCharacterBack.png</key>
             <key type="filename">Originals/SetupGame/ZapLadCharacter.png</key>
-            <key type="filename">Originals/SetupGame/ZapLadCharacterFlipped.png</key>
+            <key type="filename">Originals/SetupGame/ZapLadCharacterBack.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

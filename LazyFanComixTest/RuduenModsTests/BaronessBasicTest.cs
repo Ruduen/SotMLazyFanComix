@@ -79,11 +79,11 @@ namespace LazyFanComixTest
       PutOnDeck("WingedTerror"); // Pick one that doesn't selfdestruct
 
       GoToStartOfTurn(Baroness);
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 1);
+      AssertNumberOfCardsInPlay((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), 1);
 
       GoToStartOfTurn(Baroness);
 
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 1);
+      AssertNumberOfCardsInPlay((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), 1);
       AssertFlipped(Baroness);
     }
 
@@ -98,7 +98,7 @@ namespace LazyFanComixTest
       PutInTrash(Baroness, FindCardsWhere((Card c) => c.Location == Baroness.TurnTaker.Deck));
 
       GoToStartOfTurn(Baroness);
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 0);
+      AssertNumberOfCardsInPlay((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), 0);
       AssertFlipped(Baroness);
     }
 
@@ -144,21 +144,21 @@ namespace LazyFanComixTest
 
       PutOnDeck("WingedTerror"); // Pick one that doesn't selfdestruct
       GoToStartOfTurn(Baroness);
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 1);
+      AssertNumberOfCardsInPlay((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), 1);
       AssertNotFlipped(Baroness);
 
       PutOnDeck("VampiricStrength");
       GoToStartOfTurn(Baroness);
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 2);
+      AssertNumberOfCardsInPlay((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), 2);
       AssertNotFlipped(Baroness);
 
       PutOnDeck("ArcaneVeins");
       GoToStartOfTurn(Baroness);
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 3);
+      AssertNumberOfCardsInPlay((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), 3);
       AssertNotFlipped(Baroness);
 
       GoToStartOfTurn(Baroness);
-      AssertNumberOfCardsInPlay((Card c) => c.DoKeywordsContain("scheme"), 3);
+      AssertNumberOfCardsInPlay((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), 3);
       AssertFlipped(Baroness);
 
       DestroyNonCharacterVillainCards();

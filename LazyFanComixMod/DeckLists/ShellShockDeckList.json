@@ -27,8 +27,8 @@
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "One target deals itself 1 lightning damage.",
+        "Discard the top card of every deck."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -183,7 +183,7 @@
       "title": "Emergency Landing",
       "keywords": [ "ongoing", "limited" ],
       "body": [
-        "After one of your Vehicle cards is destroyed, draw 2 cards and Shell Shock regains 1 HP."
+        "After one of your Vehicle cards is destroyed, draw 2 cards and {ShellShockCharacter} regains 1 HP."
       ],
       "powers": [
         "One of your Vehicle cards deals 1 target 2 melee damage and 3 fire damage. Destroy that vehicle card."
@@ -352,8 +352,8 @@
       ],
       "incapacitatedAbilities": [
         "One player may play a card.",
-        "One hero may use a power.",
-        "One player may draw a card."
+        "Move 1 Equipment card from 1 player's trash to that player's hand.",
+        "A device target deals any target 5 lightning damage."
       ],
       "flippedIcons": [
         "PlayCardNow",
@@ -383,9 +383,9 @@
         "ShellShock"
       ],
       "incapacitatedAbilities": [
-        "One player may play a card.",
         "One hero may use a power.",
-        "One player may draw a card."
+        "One hero may draw a card.",
+        "Until the start of your next turn, this card is a 0 HP indestructible target."
       ],
       "flippedIcons": [
         "PlayCardNow",

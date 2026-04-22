@@ -32,7 +32,7 @@ namespace LazyFanComix.BreachMage
     {
       IEnumerator coroutine;
 
-      Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && c.DoKeywordsContain("breach")).ToArray();
+      Card[] breaches = this.GameController.FindCardsWhere((Card c) => c.Owner == this.TurnTaker && this.GameController.DoesCardContainKeyword(c, "breach")).ToArray();
 
       for (int i = 0; i < BreachInitialFocus.Count() && i < breaches.Count(); i++)
       {

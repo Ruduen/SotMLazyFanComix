@@ -47,7 +47,7 @@ namespace LazyFanComix.Soulbinder
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       // You may play a ritual or soulsplinter.
-      coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("sacrifice"), "sacrifice"), cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 1, false, 0, cardCriteria: new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "sacrifice"), "sacrifice"), cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
     }
 

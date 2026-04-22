@@ -29,7 +29,7 @@ namespace LazyFanComix.Spellforge
       string spacedSuffixTitle = "";
 
       // Discard prefix.
-      coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("prefix"), "prefix"), cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "prefix"), "prefix"), cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)
@@ -47,7 +47,7 @@ namespace LazyFanComix.Spellforge
 
       // Discard suffix.
       storedResults.Clear();
-      coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => c.DoKeywordsContain("suffix"), "suffix"), cardSource: this.GetCardSource());
+      coroutine = this.GameController.SelectAndDiscardCards(this.HeroTurnTakerController, 1, false, 0, storedResults, false, cardCriteria: new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "suffix"), "suffix"), cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       if (storedResults.Count > 0 && storedResults.FirstOrDefault().IsSuccessful)

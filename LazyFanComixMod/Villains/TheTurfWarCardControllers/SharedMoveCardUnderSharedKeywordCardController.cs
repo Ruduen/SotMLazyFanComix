@@ -27,7 +27,7 @@ namespace LazyFanComix.TheTurfWar
       }
       else
       {
-        IEnumerable<Card> validCharacters = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("figurehead") && c.DoKeywordsContain(this.Card.GetKeywords()));
+        IEnumerable<Card> validCharacters = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && this.GameController.DoesCardContainKeyword(c, "figurehead") && c.DoKeywordsContain(this.Card.GetKeywords()));
         if (validCharacters.Count() > 0)
         {
           SelectCardDecision scd = new SelectCardDecision(this.GameController, this.DecisionMaker, SelectionType.MoveCardToUnderCard, validCharacters, cardSource: this.GetCardSource());

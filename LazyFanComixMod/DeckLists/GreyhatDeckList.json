@@ -49,7 +49,9 @@
       ],
       "icons": [ "DamageLightning", "PlayCardNow" ],
       "flavorQuotes": [
-      ]
+        "And... I'm in."
+      ],
+      "flavorReference": "Greyhat, Uplink Established"
     },
     {
       "identifier": "DigitalUplink",
@@ -61,7 +63,7 @@
         "When this card enters play, that Hero may draw 1 card. Then, if this is the first card played this turn, you may play 1 card."
       ],
       "icons": [ "DrawCardNow", "PlayCardNow" ],
-      "flavorQuotes": [],
+      "flavorQuotes": [ "Welcome to the network. {br}Profanity filters are on by default." ],
       "flavorReference": "Greyhat, Uplink Established"
     },
     {
@@ -76,7 +78,7 @@
         "[b]Power:[/b] This hero deals 1 Target 3 Fire Damage."
       ],
       "icons": [ "DamageFire", "PlayCardNow", "HasPower" ],
-      "flavorQuotes": [],
+      "flavorQuotes": ["I know that's not what they do. {br} Look, it overheats and sets people on fire, okay?"],
       "flavorReference": "Greyhat, Uplink Established"
     },
     {
@@ -171,7 +173,7 @@
         "If this is the first card played this turn, you may draw 2 cards."
       ],
       "icons": [ "DealDamageEnergy" ],
-      "flavorQuotes": [],
+      "flavorQuotes": [ "Throw enough people at the problem.{br} That usually works." ],
       "flavorReference": "Greyhat, Uplink Established"
     },
     {
@@ -225,7 +227,7 @@
         "You may play a number of Link cards equal to the number of Link cards returned to your hand this way."
       ],
       "icons": [ "Search", "Manipulate", "PlayCardNow" ],
-      "flavorQuotes": [],
+      "flavorQuotes": [ "Look, there's a reason tech support{br} asks every single time." ],
       "flavorReference": "Greyhat, Uplink Established"
     },
     {

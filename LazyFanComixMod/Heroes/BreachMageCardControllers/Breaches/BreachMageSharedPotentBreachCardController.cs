@@ -25,7 +25,7 @@ namespace LazyFanComix.BreachMage
     public override IEnumerator UniquePower()
     {
       // Play up to 3 spells.
-      return this.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 3, false, new int?(0), new LinqCardCriteria((Card c) => c.DoKeywordsContain("spell")));
+      return this.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, 3, false, new int?(0), new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "spell")));
     }
   }
 }

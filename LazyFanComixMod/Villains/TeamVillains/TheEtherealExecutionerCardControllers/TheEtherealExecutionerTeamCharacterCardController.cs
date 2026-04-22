@@ -51,7 +51,7 @@ namespace LazyFanComix.TheEtherealExecutionerTeam
 
     public int CountObservationCards()
     {
-      return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("observation") && c.Owner == this.TurnTaker, true).Count();
+      return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && this.GameController.DoesCardContainKeyword(c, "observation") && c.Owner == this.TurnTaker, true).Count();
     }
 
     private IEnumerator GetCardOrReviveResponse(PhaseChangeAction pca)

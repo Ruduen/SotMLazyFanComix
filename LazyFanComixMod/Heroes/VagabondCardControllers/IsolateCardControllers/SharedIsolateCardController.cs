@@ -20,7 +20,7 @@ namespace LazyFanComix.Vagabond
     {
       this.AddUniqueTriggers();
       this.AddTrigger<MakeDecisionsAction>((MakeDecisionsAction md) => md.CardSource != null && md.CardSource.Card.Owner.IsHero, new Func<MakeDecisionsAction, IEnumerator>(this.RemoveDecisionsFromMakeDecisionsResponse), TriggerType.RemoveDecision, TriggerTiming.Before, ActionDescription.Unspecified, false, true, null, false, null, null, false, false);
-      this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardCriteria: new LinqCardCriteria((Card c) => !c.DoKeywordsContain("solo"), "non-solo"), cardSource: this.GetCardSource()), TriggerType.PlayCard);
+      this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.SelectAndPlayCardFromHand(this.DecisionMaker, true, cardCriteria: new LinqCardCriteria((Card c) => !this.GameController.DoesCardContainKeyword(c, "solo"), "non-solo"), cardSource: this.GetCardSource()), TriggerType.PlayCard);
       this.AddStartOfTurnTrigger((TurnTaker tt) => tt == this.TurnTaker, (PhaseChangeAction pca) => this.GameController.DestroyCard(this.DecisionMaker, this.Card, cardSource: this.GetCardSource()), TriggerType.DestroySelf);
     }
 

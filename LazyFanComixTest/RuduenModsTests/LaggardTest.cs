@@ -124,7 +124,7 @@ namespace LazyFanComixTest
 
       StartGame();
 
-      PutInTrash(FindCardsWhere((Card c) => c.Owner == Laggard.TurnTaker && c.DoKeywordsContain("hindsight")).ToArray());
+      PutInTrash(FindCardsWhere((Card c) => c.Owner == Laggard.TurnTaker && this.GameController.DoesCardContainKeyword(c, "hindsight")).ToArray());
 
       Card hindsight = PutOnDeck("RecursiveAmbush");
 
@@ -178,7 +178,7 @@ namespace LazyFanComixTest
       QuickHPCheck(-2);
 
       MoveAllCards(Laggard, Laggard.TurnTaker.Deck, Laggard.TurnTaker.Trash);
-      PutOnDeck(Laggard, FindCardsWhere((Card c) => !c.DoKeywordsContain("hindsight") && c.Location == Laggard.TurnTaker.Trash));
+      PutOnDeck(Laggard, FindCardsWhere((Card c) => !this.GameController.DoesCardContainKeyword(c, "hindsight") && c.Location == Laggard.TurnTaker.Trash));
       Card played = PutOnDeck("RecursiveAmbush");
       DecisionSelectCard = null;
 
@@ -369,8 +369,8 @@ namespace LazyFanComixTest
       StartGame();
       DestroyNonCharacterVillainCards();
 
-      Card[] hindsights = FindCardsWhere((Card c) => c.DoKeywordsContain("hindsight")).ToArray();
-      Card[] nonSights = FindCardsWhere((Card c) => !c.DoKeywordsContain("hindsight") && c.Owner == Laggard.TurnTaker).ToArray();
+      Card[] hindsights = FindCardsWhere((Card c) => this.GameController.DoesCardContainKeyword(c, "hindsight")).ToArray();
+      Card[] nonSights = FindCardsWhere((Card c) => !this.GameController.DoesCardContainKeyword(c, "hindsight") && c.Owner == Laggard.TurnTaker).ToArray();
       DiscardAllCards(Laggard);
       PutInHand(hindsights);
       QuickHPStorage(baron);

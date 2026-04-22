@@ -29,7 +29,7 @@ namespace LazyFanComix.T210
       IEnumerator coroutine;
       List<DestroyCardAction> dcaResults = new List<DestroyCardAction>();
 
-      coroutine = this.GameController.DestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("loadout") && c.Owner == this.TurnTaker && c != this.Card, "other loadout"), storedResults: dcaResults, cardSource: this.GetCardSource());
+      coroutine = this.GameController.DestroyCards(this.HeroTurnTakerController, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && this.GameController.DoesCardContainKeyword(c, "loadout") && c.Owner == this.TurnTaker && c != this.Card, "other loadout"), storedResults: dcaResults, cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); }
       else { this.GameController.ExhaustCoroutine(coroutine); }
 

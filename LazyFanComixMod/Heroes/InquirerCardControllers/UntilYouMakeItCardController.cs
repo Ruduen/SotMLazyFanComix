@@ -17,7 +17,7 @@ namespace LazyFanComix.Inquirer
       IEnumerator coroutine;
 
       // Search for Persona.
-      coroutine = this.SearchForCards(this.HeroTurnTakerController, true, true, 1, 1, new LinqCardCriteria((Card c) => c.DoKeywordsContain("persona"), () => "persona"), true, false, false);
+      coroutine = this.SearchForCards(this.HeroTurnTakerController, true, true, 1, 1, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "persona"), () => "persona"), true, false, false);
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
       // Draw card.

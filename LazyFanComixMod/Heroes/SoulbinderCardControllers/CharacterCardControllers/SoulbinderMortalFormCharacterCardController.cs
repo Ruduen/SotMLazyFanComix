@@ -27,7 +27,7 @@ namespace LazyFanComix.Soulbinder
       coroutine = this.DrawCards(this.HeroTurnTakerController, powerNumerals[0]);
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
-      IEnumerable<Card> ritualTokenCards = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0);
+      IEnumerable<Card> ritualTokenCards = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && this.GameController.DoesCardContainKeyword(c, "ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0);
       if (ritualTokenCards.Any())
       {
         coroutine = this.GameController.SelectCardAndDoAction(

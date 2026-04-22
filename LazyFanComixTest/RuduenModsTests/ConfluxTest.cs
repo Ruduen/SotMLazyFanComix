@@ -751,8 +751,8 @@ namespace LazyFanComixTest
       UsePower(bunker, 1);
 
       // Two in play, Conflux bounces one in hand due to limited rule.
-      Assert.AreEqual(FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("limited")).Count(), 2);
-      Assert.AreEqual(FindCardsWhere((Card c) => c.Location == Conflux.HeroTurnTaker.Hand && c.DoKeywordsContain("limited")).Count(), 1);
+      Assert.AreEqual(FindCardsWhere((Card c) => c.IsInPlay && this.GameController.DoesCardContainKeyword(c, "limited")).Count(), 2);
+      Assert.AreEqual(FindCardsWhere((Card c) => c.Location == Conflux.HeroTurnTaker.Hand && this.GameController.DoesCardContainKeyword(c, "limited")).Count(), 1);
     }
 
 

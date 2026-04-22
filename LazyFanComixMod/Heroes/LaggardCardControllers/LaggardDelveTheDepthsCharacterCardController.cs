@@ -14,7 +14,7 @@ namespace LazyFanComix.Laggard
     public LaggardDelveTheDepthsCharacterCardController(Card card, TurnTakerController turnTakerController)
         : base(card, turnTakerController)
     {
-      this.SpecialStringMaker.ShowNumberOfCardsAtLocation(base.TurnTaker.Deck, new LinqCardCriteria((Card c) => c.DoKeywordsContain("hindsight"), "hindsight"));
+      this.SpecialStringMaker.ShowNumberOfCardsAtLocation(base.TurnTaker.Deck, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "hindsight"), "hindsight"));
     }
 
     public override IEnumerator UsePower(int index = 0)

@@ -13,8 +13,8 @@ namespace LazyFanComix.Laggard
 
     public override void AddTriggers()
     {
-      this.AddIncreaseDamageTrigger((DealDamageAction dda) => !dda.Target.IsHero && dda.Target.NextToLocation.Cards.Any((Card c) => c.DoKeywordsContain("hindsight")), 1);
-      this.AddReduceDamageTrigger((DealDamageAction dda) => dda.Target.IsHero && dda.Target.NextToLocation.Cards.Any((Card c) => c.DoKeywordsContain("hindsight")), (DealDamageAction dda) => 1);
+      this.AddIncreaseDamageTrigger((DealDamageAction dda) => !dda.Target.IsHero && dda.Target.NextToLocation.Cards.Any((Card c) => this.GameController.DoesCardContainKeyword(c, "hindsight")), 1);
+      this.AddReduceDamageTrigger((DealDamageAction dda) => dda.Target.IsHero && dda.Target.NextToLocation.Cards.Any((Card c) => this.GameController.DoesCardContainKeyword(c, "hindsight")), (DealDamageAction dda) => 1);
     }
 
     public override IEnumerator UsePower(int index = 0)
@@ -23,7 +23,7 @@ namespace LazyFanComix.Laggard
         {
           this.GetPowerNumeral(0, 1),
         };
-      IEnumerator coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, powerNumerals[0], false, 0, new LinqCardCriteria((Card c) => c.DoKeywordsContain("hindsight"), "hindsight"), cardSource: this.GetCardSource());
+      IEnumerator coroutine = this.GameController.SelectAndPlayCardsFromHand(this.HeroTurnTakerController, powerNumerals[0], false, 0, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "hindsight"), "hindsight"), cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
     }
   }

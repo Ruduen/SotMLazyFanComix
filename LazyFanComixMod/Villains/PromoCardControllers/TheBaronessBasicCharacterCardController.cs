@@ -54,9 +54,9 @@ namespace LazyFanComix.TheBaroness
       IEnumerator coroutine;
       List<Card> played = new List<Card>();
 
-      if (this.GameController.FindCardsWhere(new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("scheme"))).Count() <= revealMax)
+      if (this.GameController.FindCardsWhere(new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && this.GameController.DoesCardContainKeyword(c, "scheme"))).Count() <= revealMax)
       {
-        coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, false, true, false, new LinqCardCriteria((Card c) => c.DoKeywordsContain("scheme"), "scheme"), 1, storedPlayResults: played);
+        coroutine = this.RevealCards_MoveMatching_ReturnNonMatchingCards(this.TurnTakerController, this.TurnTaker.Deck, false, true, false, new LinqCardCriteria((Card c) => this.GameController.DoesCardContainKeyword(c, "scheme"), "scheme"), 1, storedPlayResults: played);
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
 
@@ -79,7 +79,7 @@ namespace LazyFanComix.TheBaroness
 
     private int GetSchemeCount()
     {
-      return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("scheme")).Count();
+      return this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && this.GameController.DoesCardContainKeyword(c, "scheme")).Count();
     }
 
     private IEnumerator EoTFlipResponse()

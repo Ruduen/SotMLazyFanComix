@@ -35,11 +35,11 @@ namespace LazyFanComix.Soulbinder
       }
 
       // Remove a token from a ritual.
-      IEnumerable<Card> ritualTokenCards = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0);
+      IEnumerable<Card> ritualTokenCards = this.GameController.FindCardsWhere((Card c) => c.IsInPlay && this.GameController.DoesCardContainKeyword(c, "ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0);
       if (ritualTokenCards.Any())
       {
         // Each valid ritual loses a token. This needs to be done to handle scenarios where things are destroyed or played mid-way!
-        SelectCardsDecision scdRituals = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0, SelectionType.RemoveTokens, null, false, null, true, true, false, () => NumRitualsToRemoveToken(actedRituals), null, null, null, this.GetCardSource());
+        SelectCardsDecision scdRituals = new SelectCardsDecision(this.GameController, this.HeroTurnTakerController, (Card c) => c.IsInPlayAndNotUnderCard && this.GameController.DoesCardContainKeyword(c, "ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0, SelectionType.RemoveTokens, null, false, null, true, true, false, () => NumRitualsToRemoveToken(actedRituals), null, null, null, this.GetCardSource());
         coroutine = this.GameController.SelectCardsAndDoAction(scdRituals, (SelectCardDecision scd) => this.RemoveTokenEachResponse(scd, actedRituals, 1), null, null, this.GetCardSource(), null, false, null);
         if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
       }
@@ -64,7 +64,7 @@ namespace LazyFanComix.Soulbinder
     {
       if (!this.TurnTaker.IsIncapacitatedOrOutOfGame)
       {
-        int num = this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndNotUnderCard && c.DoKeywordsContain("ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0).Except(actedTargets).Count();
+        int num = this.GameController.FindCardsWhere((Card c) => c.IsInPlayAndNotUnderCard && this.GameController.DoesCardContainKeyword(c, "ritual") && c.FindTokenPool("RitualTokenPool") != null && c.FindTokenPool("RitualTokenPool").CurrentValue > 0).Except(actedTargets).Count();
         return actedTargets.Count() + num;
       }
       return 0;

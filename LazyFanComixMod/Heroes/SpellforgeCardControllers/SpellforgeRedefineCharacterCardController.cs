@@ -40,11 +40,11 @@ namespace LazyFanComix.Spellforge
             this.AddToTemporaryTriggerList(wcc.AddModifierTrigger(this, null));
             this.AddToTemporaryTriggerList(wcc.AddDesignatePlayTrigger(this));
             modifierCardControllers.Add(wcc);
-            if (c.DoKeywordsContain("prefix"))
+            if (this.GameController.DoesCardContainKeyword(c, "prefix"))
             {
               spacedPrefixTitle = c.Definition.AlternateTitle + " ";
             }
-            else if (c.DoKeywordsContain("suffix"))
+            else if (this.GameController.DoesCardContainKeyword(c, "suffix"))
             {
               spacedSuffixTitle = " " + c.Definition.AlternateTitle;
             }

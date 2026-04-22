@@ -23,7 +23,7 @@ namespace LazyFanComix.TheTurfWar
     {
       IEnumerator coroutine;
       // Look over all figureheads for the ones with the most cards. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
-      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
+      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead"));
 
       Dictionary<Card, int> cardCounts = new Dictionary<Card, int>();
       int cardCountMax = -1;
@@ -57,7 +57,7 @@ namespace LazyFanComix.TheTurfWar
     {
       IEnumerator coroutine;
       // Look over all figureheads for the ones with the most cards. There doesn't appear to be a valid method of using TargetInfo for this, so this is done manually.
-      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && c.DoKeywordsContain("figurehead"));
+      IEnumerable<Card> figureheads = this.FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsVillain && this.GameController.DoesCardContainKeyword(c, "figurehead"));
 
       Dictionary<Card, int> cardCounts = new Dictionary<Card, int>();
       int cardCountMax = -1;
