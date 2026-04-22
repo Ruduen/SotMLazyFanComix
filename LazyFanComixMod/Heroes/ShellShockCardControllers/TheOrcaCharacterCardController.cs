@@ -23,6 +23,7 @@ namespace LazyFanComix.ShellShock
         }, this.Card);
       opcse.TurnPhaseCriteria.Phase = Phase.End;
       opcse.TurnTakerCriteria.IsHero = false;
+      // TODO: Add Tribunal case, since turn taker probably fails during that! 
       opcse.UntilStartOfNextTurn(this.TurnTaker);
       opcse.CanEffectStack = true;
 

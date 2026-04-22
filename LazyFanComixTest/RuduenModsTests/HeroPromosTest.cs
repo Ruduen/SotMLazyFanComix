@@ -1030,6 +1030,22 @@ namespace LazyFanComixTest
     }
 
     [Test()]
+    public void TestLifelineOngoingWorks()
+    {
+      SetupGameController("BaronBlade", "Lifeline/LazyFanComix.LifelineEnergyTapCharacter", "Legacy", "Tachyon", "Megalopolis");
+      Assert.IsTrue(lifeline.CharacterCard.IsPromoCard);
+
+      StartGame();
+      DestroyNonCharacterVillainCards();
+      QuickHPStorage(baron);
+
+      PlayCard("LivingForceField");
+
+      PlayCard("UnnaturalUpheaval");
+      QuickHPCheck(-3);
+    }
+
+    [Test()]
     public void TestLuminaryNoDevice()
     {
       SetupGameController("BaronBlade", "Luminary/LazyFanComix.LuminaryReprogramCharacter", "Megalopolis");

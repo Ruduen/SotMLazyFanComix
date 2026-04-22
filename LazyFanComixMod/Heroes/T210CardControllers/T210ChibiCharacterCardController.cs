@@ -62,7 +62,7 @@ namespace LazyFanComix.T210
 
       // Deal <a> target <b> damage.
       IEnumerator coroutine;
-
+      // TODO: Tribunal case! Don't draw card if appropriate! 
       coroutine = this.GameController.DrawCards(this.HeroTurnTakerController, powerNumerals[0], cardSource: this.GetCardSource());
       if (this.UseUnityCoroutines) { yield return this.GameController.StartCoroutine(coroutine); } else { this.GameController.ExhaustCoroutine(coroutine); }
 
